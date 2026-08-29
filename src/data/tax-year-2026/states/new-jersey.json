@@ -1,0 +1,181 @@
+{
+  "slug": "new-jersey",
+  "name": "New Jersey",
+  "abbr": "NJ",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 1.4
+      },
+      {
+        "from": 20000.0,
+        "rate": 1.75
+      },
+      {
+        "from": 35000.0,
+        "rate": 3.5
+      },
+      {
+        "from": 40000.0,
+        "rate": 5.525
+      },
+      {
+        "from": 75000.0,
+        "rate": 6.37
+      },
+      {
+        "from": 500000.0,
+        "rate": 8.97
+      },
+      {
+        "from": 1000000.0,
+        "rate": 10.75
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 1.4
+      },
+      {
+        "from": 20000.0,
+        "rate": 1.75
+      },
+      {
+        "from": 50000.0,
+        "rate": 2.45
+      },
+      {
+        "from": 70000.0,
+        "rate": 3.5
+      },
+      {
+        "from": 80000.0,
+        "rate": 5.525
+      },
+      {
+        "from": 150000.0,
+        "rate": 6.37
+      },
+      {
+        "from": 500000.0,
+        "rate": 8.97
+      },
+      {
+        "from": 1000000.0,
+        "rate": 10.75
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 1.4
+      },
+      {
+        "from": 20000.0,
+        "rate": 1.75
+      },
+      {
+        "from": 35000.0,
+        "rate": 3.5
+      },
+      {
+        "from": 40000.0,
+        "rate": 5.525
+      },
+      {
+        "from": 75000.0,
+        "rate": 6.37
+      },
+      {
+        "from": 500000.0,
+        "rate": 8.97
+      },
+      {
+        "from": 1000000.0,
+        "rate": 10.75
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 1.4
+      },
+      {
+        "from": 20000.0,
+        "rate": 1.75
+      },
+      {
+        "from": 50000.0,
+        "rate": 2.45
+      },
+      {
+        "from": 70000.0,
+        "rate": 3.5
+      },
+      {
+        "from": 80000.0,
+        "rate": 5.525
+      },
+      {
+        "from": 150000.0,
+        "rate": 6.37
+      },
+      {
+        "from": 500000.0,
+        "rate": 8.97
+      },
+      {
+        "from": 1000000.0,
+        "rate": 10.75
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "Latest change took effect 2020-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "main/single.yaml",
+      "marriedJointly": "main/joint.yaml",
+      "marriedSeparately": "main/separate.yaml",
+      "headOfHousehold": "main/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2020-01-01"
+    ],
+    "sources": [
+      {
+        "title": "2022 New Jersey Revised Statutes - Title 54A - New Jersey Gross Income Tax Act Section 54A:2-1 - Imposition of tax",
+        "url": "https://law.justia.com/codes/new-jersey/2022/title-54a/section-54a-2-1/"
+      },
+      {
+        "title": "New Jersey 2022 Individual Income Tax Form 1040ME, Tax Table for individuals earning less than $100k",
+        "url": "https://www.state.nj.us/treasury/taxation/pdf/current/1040i.pdf#page=54"
+      },
+      {
+        "title": "New Jersey 2022 Individual Income Tax Form 1040ME, Tax Table for individuals earning more than or equal to $100k",
+        "url": "https://www.state.nj.us/treasury/taxation/pdf/current/1040i.pdf#page=63"
+      },
+      {
+        "title": "2024 NJ-1040 Instructions (line 26)",
+        "url": "https://www.state.nj.us/treasury/taxation/pdf/current/1040i.pdf#page=65"
+      },
+      {
+        "title": "2025 NJ-1040 Instructions - Tax Rate Schedules",
+        "url": "https://www.nj.gov/treasury/taxation/pdf/current/1040i.pdf#page=65"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

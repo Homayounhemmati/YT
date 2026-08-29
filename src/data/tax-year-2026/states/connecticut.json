@@ -1,0 +1,178 @@
+{
+  "slug": "connecticut",
+  "name": "Connecticut",
+  "abbr": "CT",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 10000.0,
+        "rate": 4.5
+      },
+      {
+        "from": 50000.0,
+        "rate": 5.5
+      },
+      {
+        "from": 100000.0,
+        "rate": 6.0
+      },
+      {
+        "from": 200000.0,
+        "rate": 6.5
+      },
+      {
+        "from": 250000.0,
+        "rate": 6.9
+      },
+      {
+        "from": 500000.0,
+        "rate": 6.99
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 20000.0,
+        "rate": 4.5
+      },
+      {
+        "from": 100000.0,
+        "rate": 5.5
+      },
+      {
+        "from": 200000.0,
+        "rate": 6.0
+      },
+      {
+        "from": 400000.0,
+        "rate": 6.5
+      },
+      {
+        "from": 500000.0,
+        "rate": 6.9
+      },
+      {
+        "from": 1000000.0,
+        "rate": 6.99
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 10000.0,
+        "rate": 4.5
+      },
+      {
+        "from": 50000.0,
+        "rate": 5.5
+      },
+      {
+        "from": 100000.0,
+        "rate": 6.0
+      },
+      {
+        "from": 200000.0,
+        "rate": 6.5
+      },
+      {
+        "from": 250000.0,
+        "rate": 6.9
+      },
+      {
+        "from": 500000.0,
+        "rate": 6.99
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 16000.0,
+        "rate": 4.5
+      },
+      {
+        "from": 80000.0,
+        "rate": 5.5
+      },
+      {
+        "from": 160000.0,
+        "rate": 6.0
+      },
+      {
+        "from": 320000.0,
+        "rate": 6.5
+      },
+      {
+        "from": 400000.0,
+        "rate": 6.9
+      },
+      {
+        "from": 800000.0,
+        "rate": 6.99
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "Latest change took effect 2024-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml",
+      "headOfHousehold": "rates/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2015-01-01",
+      "2024-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Connecticut General Statutes, Chapter 229, Sec. 12-700, (9), (A)",
+        "url": "https://www.cga.ct.gov/current/pub/chap_229.htm#sec_12-700"
+      },
+      {
+        "title": "2025 Form CT-1040 Connecticut Resident Income Tax Return Instructions",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2025/income/2025-ct-1040-instructions_1225.pdf#page=20"
+      },
+      {
+        "title": "2024 Form CT-1040 Connecticut Resident Income Tax Return Instructions",
+        "url": "https://portal.ct.gov/-/media/drs/forms/2024/income/2024-ct-1040-instructions_1224.pdf#page=20"
+      },
+      {
+        "title": "2023 Form CT-1040 Connecticut Resident Income Tax Return Instructions",
+        "url": "https://portal.ct.gov/-/media/DRS/Forms/2023/Income/2023-CT-1040-Instructions_1223.pdf#page=20"
+      },
+      {
+        "title": "2022 Form CT-1040 Connecticut Resident Income Tax Return Instructions",
+        "url": "https://portal.ct.gov/-/media/DRS/Forms/2022/Income/2022-CT-1040-Instructions_1222.pdf#page=20"
+      },
+      {
+        "title": "Connecticut General Statutes, Chapter 229, Sec. 12-700, (10)(A)(i)",
+        "url": "https://www.cga.ct.gov/2024/sup/chap_229.htm"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

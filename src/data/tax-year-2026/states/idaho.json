@@ -1,0 +1,122 @@
+{
+  "slug": "idaho",
+  "name": "Idaho",
+  "abbr": "ID",
+  "taxYear": 2026,
+  "structure": "flat",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 4811.0,
+        "rate": 5.3
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 9622.0,
+        "rate": 5.3
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 4811.0,
+        "rate": 5.3
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 9622.0,
+        "rate": 5.3
+      }
+    ]
+  },
+  "flatRate": 5.3,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "Flat rate applied above an exempt amount; income below `zeroBracketUpTo` is not taxed.",
+    "These figures are inflation-indexed but the latest published values take effect 2025-01-01, so they are 2025 figures, not 2026. The state had not released uprated brackets when this was extracted. Do not label them as 2026 on the site until confirmed."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "main/single.yaml",
+      "marriedJointly": "main/joint.yaml",
+      "marriedSeparately": "main/separate.yaml",
+      "headOfHousehold": "main/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01",
+      "2023-01-01",
+      "2025-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Idaho State Tax Comission - Individual Income Tax Rate Schedule",
+        "url": "https://tax.idaho.gov/taxes/income-tax/individual-income/individual-income-tax-rate-schedule/"
+      },
+      {
+        "title": "IDAHO STATUTES || Section 35.01.01.075 - TAX ON INDIVIDUALS, ESTATES, AND TRUSTS",
+        "url": "https://casetext.com/regulation/idaho-administrative-code/title-idapa-35-tax-commission-state/rule-350101-income-tax-administrative-rules/section-350101075-tax-on-individuals-estates-and-trusts"
+      },
+      {
+        "title": "IDAHO STATUTES, TITLE 63, CHAPTER 30, SECTION 63-3024 (2)(a)",
+        "url": "https://legislature.idaho.gov/statutesrules/idstat/title63/t63ch30/sect63-3024/"
+      },
+      {
+        "title": "HOUSE BILL NO. 521 63-3024 (2)",
+        "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2024/legislation/H0521.pdf#page=2"
+      },
+      {
+        "title": "Idaho Individual Income Tax Instructions Packet 2024",
+        "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_10-23-2024.pdf#page=2"
+      },
+      {
+        "title": "Idaho Individual Income Tax Instructions Packet 2025",
+        "url": "https://tax.idaho.gov/wp-content/uploads/forms/EIN00046/EIN00046_09-29-2025.pdf#page=4"
+      },
+      {
+        "title": "House Bill 40 (2025)",
+        "url": "https://legislature.idaho.gov/sessioninfo/2025/legislation/H0040/"
+      },
+      {
+        "title": "House Bill 40 (2025) Bill Text",
+        "url": "https://legislature.idaho.gov/wp-content/uploads/sessioninfo/2025/legislation/H0040.pdf#page=6"
+      },
+      {
+        "title": "LEGISLATIVE SESSIONS || 2022 EXTRAORDINARY LEGISLATIVE SESSION || 2022 EXTRAORDINARY SESSION LEGISLATIONHOUSE BILL 1",
+        "url": "https://legislature.idaho.gov/sessioninfo/2022spcl/legislation/H0001/"
+      },
+      {
+        "title": "IDAHO STATUTES, TITLE 63, CHAPTER 30, SECTION 63-3024(2)(b)",
+        "url": "https://legislature.idaho.gov/statutesrules/idstat/title63/t63ch30/sect63-3024/#:~:text=(b)%20For%20taxpayers%20filing%20a,five%20thousand%20dollars%20(%245%2C000)"
+      }
+    ],
+    "inflationIndexed": true
+  },
+  "verification": "pending",
+  "zeroBracketUpTo": {
+    "single": 4811.0,
+    "marriedJointly": 9622.0,
+    "marriedSeparately": 4811.0,
+    "headOfHousehold": 9622.0
+  },
+  "staleForTargetYear": true
+}

@@ -1,0 +1,103 @@
+{
+  "slug": "iowa",
+  "name": "Iowa",
+  "abbr": "IA",
+  "taxYear": 2026,
+  "structure": "flat",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 3.8
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 3.8
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 3.8
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 3.8
+      }
+    ]
+  },
+  "flatRate": 3.8,
+  "standardDeduction": {
+    "single": 2210,
+    "marriedJointly": 5450,
+    "marriedSeparately": 2210,
+    "headOfHousehold": 5450
+  },
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "Latest change took effect 2025-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/by_filing_status/other.yaml",
+      "marriedJointly": "rates/by_filing_status/joint.yaml",
+      "marriedSeparately": "rates/by_filing_status/other.yaml",
+      "headOfHousehold": "rates/by_filing_status/other.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2023-01-01",
+      "2025-01-01"
+    ],
+    "sources": [
+      {
+        "title": "IA Code § 422.5A - Tax rates (2024) (1)(b)",
+        "url": "https://law.justia.com/codes/iowa/title-x/chapter-422/section-422-5a/"
+      },
+      {
+        "title": "IDR Announces 2023 Interest Rates, Deductions, Income Tax Brackets",
+        "url": "https://revenue.iowa.gov/taxes/tax-guidance/individual-income-tax/2023-changes-iowa-individual-income-tax"
+      },
+      {
+        "title": "2023 IA 1041 Instructions",
+        "url": "https://revenue.iowa.gov/sites/default/files/2023-11/IA1041Inst%2863002%29.pdf#page=4"
+      },
+      {
+        "title": "IDR Announces 2024 Interest Rates, Deductions, Income Tax Brackets",
+        "url": "https://revenue.iowa.gov/press-release/2023-10-25/idr-announces-2024-individual-income-tax-brackets-and-interest-rates"
+      },
+      {
+        "title": "2024 IA Tax Calculation Worksheet",
+        "url": "https://revenue.iowa.gov/media/4093/download?inline"
+      },
+      {
+        "title": "IDR Announces 2025 Individual Income Tax Brackets and Interest Rates",
+        "url": "https://revenue.iowa.gov/press-release/2024-10-16/idr-announces-2025-individual-income-tax-brackets-and-interest-rates"
+      },
+      {
+        "title": "2025 IA 1040 Expanded Instructions, Line 5 Iowa Tax",
+        "url": "https://revenue.iowa.gov/taxes/tax-guidance/individual-income-tax/1040-expanded-instructions/iowa-tax"
+      },
+      {
+        "title": "2024 IA Tax Calculation Worksheet",
+        "url": "https://revenue.iowa.gov/media/4093/download?inline#page=2"
+      },
+      {
+        "title": "2021 IA1040 Income Tax Return instructions",
+        "url": "https://revenue.iowa.gov/sites/default/files/2023-01/2021%20Expanded%20Instructions_010323.pdf#page=46"
+      },
+      {
+        "title": "2022 IA1040 Income Tax Return instructions",
+        "url": "https://revenue.iowa.gov/sites/default/files/2023-03/2022%20Expanded%20Instructions_022023.pdf#page=46"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

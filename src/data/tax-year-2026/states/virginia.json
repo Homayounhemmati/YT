@@ -1,0 +1,130 @@
+{
+  "slug": "virginia",
+  "name": "Virginia",
+  "abbr": "VA",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 3000.0,
+        "rate": 3.0
+      },
+      {
+        "from": 5000.0,
+        "rate": 5.0
+      },
+      {
+        "from": 17000.0,
+        "rate": 5.75
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 3000.0,
+        "rate": 3.0
+      },
+      {
+        "from": 5000.0,
+        "rate": 5.0
+      },
+      {
+        "from": 17000.0,
+        "rate": 5.75
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 3000.0,
+        "rate": 3.0
+      },
+      {
+        "from": 5000.0,
+        "rate": 5.0
+      },
+      {
+        "from": 17000.0,
+        "rate": 5.75
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 3000.0,
+        "rate": 3.0
+      },
+      {
+        "from": 5000.0,
+        "rate": 5.0
+      },
+      {
+        "from": 17000.0,
+        "rate": 5.75
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "This state applies one bracket table to every filing status.",
+    "Latest change took effect 2021-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates.yaml",
+      "marriedJointly": "rates.yaml",
+      "marriedSeparately": "rates.yaml",
+      "headOfHousehold": "rates.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Code of Virginia § 58.1-320.",
+        "url": "https://law.lis.virginia.gov/vacodefull/title58.1/chapter3/article2/"
+      },
+      {
+        "title": "Virginia 2025 Form 760 Resident Individual Income Tax Instructions",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2025-760-instructions.pdf#page=41"
+      },
+      {
+        "title": "Virginia 2024 Form 760 Resident Individual Income Tax Instructions",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2024-760-instructions.pdf#page=41"
+      },
+      {
+        "title": "Virginia 2023 Form 760 Resident Individual Income Tax Instructions",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2023-760-instructions.pdf#page=41"
+      },
+      {
+        "title": "Virginia 2022 Form 760 Resident Individual Income Tax Booklet",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2022-760-instructions.pdf#page=41"
+      },
+      {
+        "title": "Virginia 2021 Form 760 Resident Individual Income Tax Booklet",
+        "url": "https://www.tax.virginia.gov/sites/default/files/vatax-pdf/2021-760-instructions.pdf#page=41"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

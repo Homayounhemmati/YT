@@ -1,0 +1,525 @@
+{
+  "taxYear": 2026,
+  "generatedAt": "2026-08-29T16:05:23Z",
+  "generatedBy": "scripts/extract_tax_data.py",
+  "upstream": {
+    "package": "policyengine-us",
+    "version": "1.821.4",
+    "url": "https://pypi.org/project/policyengine-us/"
+  },
+  "sourceClass": "secondary",
+  "verificationPolicy": "Every value is 'pending' until checked against the primary source listed in its provenance.sources. See docs/data-verification.md.",
+  "jurisdictionCount": 51,
+  "summary": [
+    {
+      "slug": "alaska",
+      "abbr": "AK",
+      "structure": "none",
+      "flatRate": null,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "alabama",
+      "abbr": "AL",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 3,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "arkansas",
+      "abbr": "AR",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 5,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "arizona",
+      "abbr": "AZ",
+      "structure": "flat",
+      "flatRate": 2.5,
+      "bracketCount": 2,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "california",
+      "abbr": "CA",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 9,
+      "hasStandardDeduction": true,
+      "stale": true,
+      "verification": "pending"
+    },
+    {
+      "slug": "colorado",
+      "abbr": "CO",
+      "structure": "flat",
+      "flatRate": 4.4,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "connecticut",
+      "abbr": "CT",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 7,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "washington-dc",
+      "abbr": "DC",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 7,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "delaware",
+      "abbr": "DE",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 7,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "florida",
+      "abbr": "FL",
+      "structure": "none",
+      "flatRate": null,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "georgia",
+      "abbr": "GA",
+      "structure": "flat",
+      "flatRate": 4.99,
+      "bracketCount": 0,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "hawaii",
+      "abbr": "HI",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 12,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "iowa",
+      "abbr": "IA",
+      "structure": "flat",
+      "flatRate": 3.8,
+      "bracketCount": 1,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "idaho",
+      "abbr": "ID",
+      "structure": "flat",
+      "flatRate": 5.3,
+      "bracketCount": 2,
+      "hasStandardDeduction": false,
+      "stale": true,
+      "verification": "pending"
+    },
+    {
+      "slug": "illinois",
+      "abbr": "IL",
+      "structure": "flat",
+      "flatRate": 4.95,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "indiana",
+      "abbr": "IN",
+      "structure": "flat",
+      "flatRate": 2.95,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "kansas",
+      "abbr": "KS",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "kentucky",
+      "abbr": "KY",
+      "structure": "flat",
+      "flatRate": 3.5,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "louisiana",
+      "abbr": "LA",
+      "structure": "flat",
+      "flatRate": 3.0,
+      "bracketCount": 0,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "massachusetts",
+      "abbr": "MA",
+      "structure": "flat",
+      "flatRate": 5.0,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "maryland",
+      "abbr": "MD",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 10,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "maine",
+      "abbr": "ME",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 3,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "michigan",
+      "abbr": "MI",
+      "structure": "flat",
+      "flatRate": 4.25,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "minnesota",
+      "abbr": "MN",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 4,
+      "hasStandardDeduction": false,
+      "stale": true,
+      "verification": "pending"
+    },
+    {
+      "slug": "missouri",
+      "abbr": "MO",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 8,
+      "hasStandardDeduction": false,
+      "stale": true,
+      "verification": "pending"
+    },
+    {
+      "slug": "mississippi",
+      "abbr": "MS",
+      "structure": "flat",
+      "flatRate": 4.0,
+      "bracketCount": 2,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "montana",
+      "abbr": "MT",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 2,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "north-carolina",
+      "abbr": "NC",
+      "structure": "flat",
+      "flatRate": 3.99,
+      "bracketCount": 0,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "north-dakota",
+      "abbr": "ND",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 3,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "nebraska",
+      "abbr": "NE",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 4,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "new-hampshire",
+      "abbr": "NH",
+      "structure": "none",
+      "flatRate": null,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "new-jersey",
+      "abbr": "NJ",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 7,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "new-mexico",
+      "abbr": "NM",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 6,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "nevada",
+      "abbr": "NV",
+      "structure": "none",
+      "flatRate": null,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "new-york",
+      "abbr": "NY",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 9,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "ohio",
+      "abbr": "OH",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 2,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "oklahoma",
+      "abbr": "OK",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 4,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "oregon",
+      "abbr": "OR",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 4,
+      "hasStandardDeduction": true,
+      "stale": true,
+      "verification": "pending"
+    },
+    {
+      "slug": "pennsylvania",
+      "abbr": "PA",
+      "structure": "flat",
+      "flatRate": 3.07,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "rhode-island",
+      "abbr": "RI",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 3,
+      "hasStandardDeduction": true,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "south-carolina",
+      "abbr": "SC",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 2,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "south-dakota",
+      "abbr": "SD",
+      "structure": "none",
+      "flatRate": null,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "tennessee",
+      "abbr": "TN",
+      "structure": "none",
+      "flatRate": null,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "texas",
+      "abbr": "TX",
+      "structure": "none",
+      "flatRate": null,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "utah",
+      "abbr": "UT",
+      "structure": "flat",
+      "flatRate": 4.45,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "virginia",
+      "abbr": "VA",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 4,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "vermont",
+      "abbr": "VT",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 4,
+      "hasStandardDeduction": false,
+      "stale": true,
+      "verification": "pending"
+    },
+    {
+      "slug": "washington",
+      "abbr": "WA",
+      "structure": "none",
+      "flatRate": null,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "wisconsin",
+      "abbr": "WI",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 4,
+      "hasStandardDeduction": false,
+      "stale": true,
+      "verification": "pending"
+    },
+    {
+      "slug": "west-virginia",
+      "abbr": "WV",
+      "structure": "progressive",
+      "flatRate": null,
+      "bracketCount": 5,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    },
+    {
+      "slug": "wyoming",
+      "abbr": "WY",
+      "structure": "none",
+      "flatRate": null,
+      "bracketCount": 0,
+      "hasStandardDeduction": false,
+      "stale": false,
+      "verification": "pending"
+    }
+  ]
+}

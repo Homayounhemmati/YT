@@ -1,0 +1,139 @@
+{
+  "slug": "rhode-island",
+  "name": "Rhode Island",
+  "abbr": "RI",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 3.75
+      },
+      {
+        "from": 82050.0,
+        "rate": 4.75
+      },
+      {
+        "from": 186450.0,
+        "rate": 5.99
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 3.75
+      },
+      {
+        "from": 82050.0,
+        "rate": 4.75
+      },
+      {
+        "from": 186450.0,
+        "rate": 5.99
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 3.75
+      },
+      {
+        "from": 82050.0,
+        "rate": 4.75
+      },
+      {
+        "from": 186450.0,
+        "rate": 5.99
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 3.75
+      },
+      {
+        "from": 82050.0,
+        "rate": 4.75
+      },
+      {
+        "from": 186450.0,
+        "rate": 5.99
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {
+    "single": 11200,
+    "marriedJointly": 22400,
+    "marriedSeparately": 11200,
+    "headOfHousehold": 16800
+  },
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "This state applies one bracket table to every filing status."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rate.yaml",
+      "marriedJointly": "rate.yaml",
+      "marriedSeparately": "rate.yaml",
+      "headOfHousehold": "rate.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01",
+      "2026-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Rhode Island Division of Taxation Advisory ADV 2025-22",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-11/ADV_2025_22_Inflation_Adjustments.pdf#page=2"
+      },
+      {
+        "title": "Rhode Island Tax Rate Schedule - 2025",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf#page=13"
+      },
+      {
+        "title": "Rhode Island Tax Rate Schedule - 2024",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2024-12/2024%20Tax%20Rate%20and%20Worksheets.pdf#page=1"
+      },
+      {
+        "title": "Rhode Island Tax Rate Schedule - 2023",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2023-11/2023%20Tax%20Rate%20and%20Worksheets_d.pdf#page=1"
+      },
+      {
+        "title": "Rhode Island Tax Rate Schedule - 2022",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2022-10/2022%20RI%20Tax%20Tables_Complete.pdf#page=1"
+      },
+      {
+        "title": "Rhode Island Tax Rate Schedule - 2021",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2022-01/2021-ri-tax-tables_web.pdf#page=1"
+      },
+      {
+        "title": "Rhode Island Income Tax Law - Section 44-30-2.6. - Rhode Island taxable income (c)(2)(A)",
+        "url": "https://law.justia.com/codes/rhode-island/2022/title-44/chapter-44-30/part-i/section-44-30-2-6/"
+      },
+      {
+        "title": "Rhode Island RI-1040 Instructions 2025",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-12/2025%201040R%20Instructions%20122025.pdf#page=4"
+      },
+      {
+        "title": "Rhode Island Division of Taxation, ADV 2025-22 - Inflation-adjusted amounts set for Tax Year 2026",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2025-11/ADV_2025_22_Inflation_Adjustments.pdf#page=1"
+      },
+      {
+        "title": "Rhode Island Department of Revenue, Division of Taxation, Inflation-adjusted amounts set for tax year 2023.",
+        "url": "https://tax.ri.gov/sites/g/files/xkgbur541/files/2022-12/ADV_2022_40_Inflation_Adjustments.pdf#page=1"
+      },
+      {
+        "title": "Rhode Island tax rate schedule and worksheets 2021",
+        "url": "https://tax.ri.gov/media/18021/download?language=en#page=1"
+      }
+    ],
+    "inflationIndexed": true
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

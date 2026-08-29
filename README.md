@@ -22,4 +22,11 @@
 
 **اعتبارسنجی کیورد انجام شد** — نتایج و طرح صفحات در [`docs/keyword-research.md`](docs/keyword-research.md).
 
-گام بعدی: بخش ۱۳ سند — استخراج ۱۳ قلم داده‌ی مالیاتی از منابع اولیه (IRS و دپارتمان درآمد ۸ ایالت).
+**داده‌ی مالیاتی هر ۵۱ حوزه استخراج شد** — `src/data/tax-year-2026/`، صفر خطای ساختاری.
+
+گام بعدی: راستی‌آزمایی ردیف‌های [`docs/data-verification.md`](docs/data-verification.md) با منبع اولیه، و وارد کردن دستی تاریخ‌های سررسید فصلی و قواعد safe harbor.
+
+```bash
+python3 scripts/extract_tax_data.py --year 2026    # بازتولید دیتاست
+python3 scripts/validate_tax_data.py --year 2026   # اعتبارسنجی ساختاری
+```

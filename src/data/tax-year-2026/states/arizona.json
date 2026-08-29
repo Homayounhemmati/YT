@@ -1,0 +1,116 @@
+{
+  "slug": "arizona",
+  "name": "Arizona",
+  "abbr": "AZ",
+  "taxYear": 2026,
+  "structure": "flat",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 2.5
+      },
+      {
+        "from": 28653.0,
+        "rate": 2.5
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 2.5
+      },
+      {
+        "from": 57305.0,
+        "rate": 2.5
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 2.5
+      },
+      {
+        "from": 28653.0,
+        "rate": 2.5
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 2.5
+      },
+      {
+        "from": 57305.0,
+        "rate": 2.5
+      }
+    ]
+  },
+  "flatRate": 2.5,
+  "standardDeduction": {
+    "single": 15750,
+    "marriedJointly": 31500,
+    "marriedSeparately": 15750,
+    "headOfHousehold": 23625
+  },
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "Latest change took effect 2023-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "main/single.yaml",
+      "marriedJointly": "main/joint.yaml",
+      "marriedSeparately": "main/separate.yaml",
+      "headOfHousehold": "main/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2019-01-01",
+      "2022-01-01",
+      "2023-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Arizona State Legislature Title 43 - Taxation of Income, Chapter 10, Article 5, 43-1011",
+        "url": "https://www.azleg.gov/viewdocument/?docName=https://www.azleg.gov/ars/43/01011.htm"
+      },
+      {
+        "title": "2025 Arizona Form 140 Resident Personal Income Tax Instructions",
+        "url": "https://azdor.gov/sites/default/files/document/FORMS_INDIVIDUAL_2025_140i.pdf#page=21"
+      },
+      {
+        "title": "2024 Arizona Form 140A - Arizona Resident Personal Income Tax Booklet",
+        "url": "https://azdor.gov/forms/individual/form-140a-arizona-resident-personal-income-tax-booklet"
+      },
+      {
+        "title": "2022 Arizona Form 140 Resident Personal Income Tax Booklet",
+        "url": "https://azdor.gov/sites/default/files/2023-03/FORMS_INDIVIDUAL_2022_140BOOKLET.pdf"
+      },
+      {
+        "title": "2021 Arizona Form 140 Resident Personal Income Tax Booklet",
+        "url": "https://azdor.gov/sites/default/files/2023-03/FORMS_INDIVIDUAL_2021_140BOOKLET.pdf"
+      },
+      {
+        "title": "ARIZONA STATE SENATE, Fifty-Fifth Legislature, First Regular Session, Paragraph 1,Purpose",
+        "url": "https://www.azleg.gov/legtext/55leg/1R/summary/S.1828APPROP.DOCX.htm"
+      },
+      {
+        "title": "2024 Arizona Form 140A - Arizona Resident Personal Income Tax Booklet",
+        "url": "https://azdor.gov/forms/individual/"
+      },
+      {
+        "title": "2022 Arizona Form 140 Resident Personal Income Tax Booklet",
+        "url": "https://azdor.gov/forms/individual/form-140-arizona-resident-personal-income-tax-booklet"
+      },
+      {
+        "title": "2021 Arizona Form 140 Resident Personal Income Tax Booklet",
+        "url": "https://azdor.gov/sites/default/files/2023-03/FORMS_INDIVIDUAL_2021_140BOOKLET.pdf#page=43"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

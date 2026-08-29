@@ -1,0 +1,23 @@
+{
+  "slug": "washington",
+  "name": "Washington",
+  "abbr": "WA",
+  "taxYear": 2026,
+  "structure": "none",
+  "brackets": {},
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "No broad-based individual income tax on earned income. Federal income tax and self-employment tax still apply in full.",
+    "Washington levies a tax on certain long-term capital gains; it does not apply to ordinary self-employment income."
+  ],
+  "provenance": {
+    "extractedFrom": "classification",
+    "resolvedPaths": {},
+    "sources": []
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

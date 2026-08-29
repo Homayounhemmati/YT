@@ -1,0 +1,49 @@
+{
+  "slug": "pennsylvania",
+  "name": "Pennsylvania",
+  "abbr": "PA",
+  "taxYear": 2026,
+  "structure": "flat",
+  "brackets": {},
+  "flatRate": 3.07,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": "Most Pennsylvania municipalities levy a local earned income tax. Philadelphia additionally imposes BIRT and the Net Profits Tax, which apply directly to freelancers. Not included here.",
+  "notes": [
+    "Latest change took effect 2021-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "flat": "rate.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Tax Reform Code of 1971, Article III, Section 302",
+        "url": "https://www.legis.state.pa.us/WU01/LI/LI/US/PDF/1971/0/0002..PDF#page=118"
+      },
+      {
+        "title": "The General Assembly of Pennsylvania House Bill No. 200, Section 302 (3), page 50, line 27",
+        "url": "https://www.legis.state.pa.us/CFDOCS/Legis/PN/Public/btCheck.cfm?txtType=PDF&sessYr=2003&sessInd=0&billBody=H&billTyp=B&billNbr=0200&pn=3160#page=50"
+      },
+      {
+        "title": "PA Form PA-40 Instructions, page 1",
+        "url": "https://www.revenue.pa.gov/FormsandPublications/FormsforIndividuals/PIT/Documents/2021/2021_pa-40in.pdf#page=1"
+      },
+      {
+        "title": "2024 Pennsylvania Personal Income Tax Return Instructions (PA-40 IN)",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2024/2024_pa-40in.pdf#page=1"
+      },
+      {
+        "title": "2025 Pennsylvania Personal Income Tax Return Instructions (PA-40 IN)",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf#page=1"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

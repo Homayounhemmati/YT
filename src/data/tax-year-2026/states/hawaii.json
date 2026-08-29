@@ -1,0 +1,291 @@
+{
+  "slug": "hawaii",
+  "name": "Hawaii",
+  "abbr": "HI",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 1.4
+      },
+      {
+        "from": 9600.0,
+        "rate": 3.2
+      },
+      {
+        "from": 14400.0,
+        "rate": 5.5
+      },
+      {
+        "from": 19200.0,
+        "rate": 6.4
+      },
+      {
+        "from": 24000.0,
+        "rate": 6.8
+      },
+      {
+        "from": 36000.0,
+        "rate": 7.2
+      },
+      {
+        "from": 48000.0,
+        "rate": 7.6
+      },
+      {
+        "from": 125000.0,
+        "rate": 7.9
+      },
+      {
+        "from": 175000.0,
+        "rate": 8.25
+      },
+      {
+        "from": 225000.0,
+        "rate": 9.0
+      },
+      {
+        "from": 275000.0,
+        "rate": 10.0
+      },
+      {
+        "from": 325000.0,
+        "rate": 11.0
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 1.4
+      },
+      {
+        "from": 19200.0,
+        "rate": 3.2
+      },
+      {
+        "from": 28800.0,
+        "rate": 5.5
+      },
+      {
+        "from": 38400.0,
+        "rate": 6.4
+      },
+      {
+        "from": 48000.0,
+        "rate": 6.8
+      },
+      {
+        "from": 72000.0,
+        "rate": 7.2
+      },
+      {
+        "from": 96000.0,
+        "rate": 7.6
+      },
+      {
+        "from": 250000.0,
+        "rate": 7.9
+      },
+      {
+        "from": 350000.0,
+        "rate": 8.25
+      },
+      {
+        "from": 450000.0,
+        "rate": 9.0
+      },
+      {
+        "from": 550000.0,
+        "rate": 10.0
+      },
+      {
+        "from": 650000.0,
+        "rate": 11.0
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 1.4
+      },
+      {
+        "from": 9600.0,
+        "rate": 3.2
+      },
+      {
+        "from": 14400.0,
+        "rate": 5.5
+      },
+      {
+        "from": 19200.0,
+        "rate": 6.4
+      },
+      {
+        "from": 24000.0,
+        "rate": 6.8
+      },
+      {
+        "from": 36000.0,
+        "rate": 7.2
+      },
+      {
+        "from": 48000.0,
+        "rate": 7.6
+      },
+      {
+        "from": 125000.0,
+        "rate": 7.9
+      },
+      {
+        "from": 175000.0,
+        "rate": 8.25
+      },
+      {
+        "from": 225000.0,
+        "rate": 9.0
+      },
+      {
+        "from": 275000.0,
+        "rate": 10.0
+      },
+      {
+        "from": 325000.0,
+        "rate": 11.0
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 1.4
+      },
+      {
+        "from": 14400.0,
+        "rate": 3.2
+      },
+      {
+        "from": 21600.0,
+        "rate": 5.5
+      },
+      {
+        "from": 28800.0,
+        "rate": 6.4
+      },
+      {
+        "from": 36000.0,
+        "rate": 6.8
+      },
+      {
+        "from": 54000.0,
+        "rate": 7.2
+      },
+      {
+        "from": 72000.0,
+        "rate": 7.6
+      },
+      {
+        "from": 187500.0,
+        "rate": 7.9
+      },
+      {
+        "from": 262500.0,
+        "rate": 8.25
+      },
+      {
+        "from": 337500.0,
+        "rate": 9.0
+      },
+      {
+        "from": 412500.0,
+        "rate": 10.0
+      },
+      {
+        "from": 487500.0,
+        "rate": 11.0
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {
+    "single": 8000,
+    "marriedJointly": 16000,
+    "marriedSeparately": 8000,
+    "headOfHousehold": 12000
+  },
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "Latest change took effect 2025-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml",
+      "headOfHousehold": "rates/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2018-01-01",
+      "2025-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Tax Rate Schedules For Taxable Years Beginning After December 31, 2017",
+        "url": "https://tax.hawaii.gov/forms/d_18table-on/d_18table-on_p13/"
+      },
+      {
+        "title": "Tax Bill H.B. 2404 H.D. 1, S.D.1, C.D.1 Section 235-51 (c)",
+        "url": "https://data.capitol.hawaii.gov/sessions/session2024/bills/HB2404_CD1_.HTM"
+      },
+      {
+        "title": "Hawaii Revised Statutes §235-51 (c)",
+        "url": "https://www.capitol.hawaii.gov/hrscurrent/Vol04_Ch0201-0257/HRS0235/HRS_0235-0051.htm"
+      },
+      {
+        "title": "2024 Hawaii Tax Form Instruction Booklet Tax Rate Schedules",
+        "url": "https://files.hawaii.gov/tax/forms/2024/n11ins.pdf#page=48"
+      },
+      {
+        "title": "2025 Hawaii Tax Rate Schedules for Taxable Years Beginning After December 31, 2024",
+        "url": "https://dev1-tax.hawaii.gov/forms/d_25table-on/d_25table-on_p13/"
+      },
+      {
+        "title": "2025 Hawaii N-11 Instructions Tax Rate Schedules",
+        "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf#page=48"
+      },
+      {
+        "title": "S.B. 3125 C.D. 1 (Act 24, SLH 2026) Section 2, amending HRS Section 235-51 (c) - restructured rate schedule with a 13% top bracket for taxable years beginning after December 31, 2026 (effective date in Section 9)",
+        "url": "https://data.capitol.hawaii.gov/sessions/session2026/bills/SB3125_CD1_.HTM"
+      },
+      {
+        "title": "S.B. 3125 measure status (Act 24, SLH 2026)",
+        "url": "https://www.capitol.hawaii.gov/session/measure_indiv.aspx?billtype=SB&billnumber=3125"
+      },
+      {
+        "title": "2022 Hawaii Tax Form Instruction Booklet line 23",
+        "url": "https://files.hawaii.gov/tax/forms/2022/n11ins.pdf#page=20"
+      },
+      {
+        "title": "2023 Hawaii Tax Form Instruction Booklet line 23",
+        "url": "https://files.hawaii.gov/tax/forms/2023/n11ins.pdf#page=20"
+      },
+      {
+        "title": "2024 Hawaii Tax Form Instruction Booklet line 23",
+        "url": "https://files.hawaii.gov/tax/forms/2024/n11ins.pdf#page=20"
+      },
+      {
+        "title": "2025 Hawaii Tax Form Instruction Booklet line 23",
+        "url": "https://files.hawaii.gov/tax/forms/current/n11ins.pdf#page=20"
+      },
+      {
+        "title": "Hawaii Revised Statutes §235-2.4 (a)(2)",
+        "url": "https://law.justia.com/codes/hawaii/title-14/chapter-235/section-235-2-4/"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

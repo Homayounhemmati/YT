@@ -1,0 +1,23 @@
+{
+  "slug": "new-hampshire",
+  "name": "New Hampshire",
+  "abbr": "NH",
+  "taxYear": 2026,
+  "structure": "none",
+  "brackets": {},
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "No broad-based individual income tax on earned income. Federal income tax and self-employment tax still apply in full.",
+    "New Hampshire's interest and dividends tax has been phased out; confirm the current status for the target tax year."
+  ],
+  "provenance": {
+    "extractedFrom": "classification",
+    "resolvedPaths": {},
+    "sources": []
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

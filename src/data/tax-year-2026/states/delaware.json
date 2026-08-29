@@ -1,0 +1,184 @@
+{
+  "slug": "delaware",
+  "name": "Delaware",
+  "abbr": "DE",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 2000.0,
+        "rate": 2.2
+      },
+      {
+        "from": 5000.0,
+        "rate": 3.9
+      },
+      {
+        "from": 10000.0,
+        "rate": 4.8
+      },
+      {
+        "from": 20000.0,
+        "rate": 5.2
+      },
+      {
+        "from": 25000.0,
+        "rate": 5.55
+      },
+      {
+        "from": 60000.0,
+        "rate": 6.6
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 2000.0,
+        "rate": 2.2
+      },
+      {
+        "from": 5000.0,
+        "rate": 3.9
+      },
+      {
+        "from": 10000.0,
+        "rate": 4.8
+      },
+      {
+        "from": 20000.0,
+        "rate": 5.2
+      },
+      {
+        "from": 25000.0,
+        "rate": 5.55
+      },
+      {
+        "from": 60000.0,
+        "rate": 6.6
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 2000.0,
+        "rate": 2.2
+      },
+      {
+        "from": 5000.0,
+        "rate": 3.9
+      },
+      {
+        "from": 10000.0,
+        "rate": 4.8
+      },
+      {
+        "from": 20000.0,
+        "rate": 5.2
+      },
+      {
+        "from": 25000.0,
+        "rate": 5.55
+      },
+      {
+        "from": 60000.0,
+        "rate": 6.6
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 2000.0,
+        "rate": 2.2
+      },
+      {
+        "from": 5000.0,
+        "rate": 3.9
+      },
+      {
+        "from": 10000.0,
+        "rate": 4.8
+      },
+      {
+        "from": 20000.0,
+        "rate": 5.2
+      },
+      {
+        "from": 25000.0,
+        "rate": 5.55
+      },
+      {
+        "from": 60000.0,
+        "rate": 6.6
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {
+    "single": 3250,
+    "marriedJointly": 6500,
+    "marriedSeparately": 3250,
+    "headOfHousehold": 3250
+  },
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "This state applies one bracket table to every filing status.",
+    "Latest change took effect 2014-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rate.yaml",
+      "marriedJointly": "rate.yaml",
+      "marriedSeparately": "rate.yaml",
+      "headOfHousehold": "rate.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "1996-01-01",
+      "2014-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Government of Delaware - Tax Rate Changes",
+        "url": "https://revenue.delaware.gov/software-developer/tax-rate-changes/"
+      },
+      {
+        "title": "The Delaware Code - Title 30, Chapter 11, Subch. 1, § 1102, a, 14",
+        "url": "https://delcode.delaware.gov/title30/c011/sc01/index.html"
+      },
+      {
+        "title": "Delaware individual income tax instructions for 2022",
+        "url": "https://revenuefiles.delaware.gov/2022/PIT-RES_TY22_2022-02_Instructions.pdf#page=7"
+      },
+      {
+        "title": "The Delaware Code - Title 30 - Chapter 11 - Subchapter II - § 1108",
+        "url": "https://delcode.delaware.gov/title30/c011/sc02/index.html#1108"
+      },
+      {
+        "title": "Delaware Individual Income Tax Return Line 19a",
+        "url": "https://revenuefiles.delaware.gov/2023/PIT-RES_TY23_2023-01_Instructions.pdf#page=8"
+      },
+      {
+        "title": "2025 Delaware Individual Income Tax Return Instructions",
+        "url": "https://revenuefiles.delaware.gov/2025/PITForms_Instructions/Instructions/PIT-RES_Instructions_2025-01.pdf#page=8"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

@@ -1,0 +1,138 @@
+{
+  "slug": "minnesota",
+  "name": "Minnesota",
+  "abbr": "MN",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 5.35
+      },
+      {
+        "from": 32570.0,
+        "rate": 6.8
+      },
+      {
+        "from": 106990.0,
+        "rate": 7.85
+      },
+      {
+        "from": 198630.0,
+        "rate": 9.85
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 5.35
+      },
+      {
+        "from": 47620.0,
+        "rate": 6.8
+      },
+      {
+        "from": 189180.0,
+        "rate": 7.85
+      },
+      {
+        "from": 330410.0,
+        "rate": 9.85
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 5.35
+      },
+      {
+        "from": 23810.0,
+        "rate": 6.8
+      },
+      {
+        "from": 94590.0,
+        "rate": 7.85
+      },
+      {
+        "from": 165205.0,
+        "rate": 9.85
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 5.35
+      },
+      {
+        "from": 40100.0,
+        "rate": 6.8
+      },
+      {
+        "from": 161130.0,
+        "rate": 7.85
+      },
+      {
+        "from": 264050.0,
+        "rate": 9.85
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "These figures are inflation-indexed but the latest published values take effect 2025-01-01, so they are 2025 figures, not 2026. The state had not released uprated brackets when this was extracted. Do not label them as 2026 on the site until confirmed."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml",
+      "headOfHousehold": "rates/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01",
+      "2025-01-01"
+    ],
+    "sources": [
+      {
+        "title": "2023 Minnesota Statutes, 290.06 RATES OF TAX; CREDITS. Subd. 2c.Schedules of rates for individuals, estates, and trusts.",
+        "url": "https://www.revisor.mn.gov/statutes/cite/290.06#stat.290.06.2c"
+      },
+      {
+        "title": "290.06 Subd. 2d.Inflation adjustment of brackets",
+        "url": "https://www.revisor.mn.gov/statutes/cite/290.06#stat.290.06.2d"
+      },
+      {
+        "title": "2021 Minnesota M1 form instructions, Tax Rate Schedules",
+        "url": "https://www.revenue.state.mn.us/sites/default/files/2023-12/m1_inst_21.pdf#page=35"
+      },
+      {
+        "title": "2022 Minnesota M1 form instructions, Tax Rate Schedules",
+        "url": "https://www.revenue.state.mn.us/sites/default/files/2024-02/m1_inst_22.pdf#page=35"
+      },
+      {
+        "title": "2023 Minnesota M1 form instructions, Tax Rate Schedules",
+        "url": "https://www.revenue.state.mn.us/sites/default/files/2024-12/m1-inst-23.pdf#page=32"
+      },
+      {
+        "title": "2024 Minnesota M1 form instructions, Tax Rate Schedules",
+        "url": "https://www.revenue.state.mn.us/sites/default/files/2024-12/m1-inst-24_0.pdf#page=32"
+      },
+      {
+        "title": "2025 Minnesota M1 form instructions, Tax Rate Schedules",
+        "url": "https://www.revenue.state.mn.us/sites/default/files/2025-11/m1-inst-25_0.pdf#page=32"
+      },
+      {
+        "title": "2023 Minnesota M1 form instructions, Tax Rate Schedules",
+        "url": "https://www.revenue.state.mn.us/sites/default/files/2024-02/m1-inst-23.pdf#page=32"
+      }
+    ],
+    "inflationIndexed": true
+  },
+  "verification": "pending",
+  "staleForTargetYear": true
+}

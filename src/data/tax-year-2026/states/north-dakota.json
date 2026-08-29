@@ -1,0 +1,117 @@
+{
+  "slug": "north-dakota",
+  "name": "North Dakota",
+  "abbr": "ND",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 49575.0,
+        "rate": 1.95
+      },
+      {
+        "from": 250400.0,
+        "rate": 2.5
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 82800.0,
+        "rate": 1.95
+      },
+      {
+        "from": 304850.0,
+        "rate": 2.5
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 41400.0,
+        "rate": 1.95
+      },
+      {
+        "from": 152425.0,
+        "rate": 2.5
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 66400.0,
+        "rate": 1.95
+      },
+      {
+        "from": 277600.0,
+        "rate": 2.5
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml",
+      "headOfHousehold": "rates/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01",
+      "2023-01-01",
+      "2026-01-01"
+    ],
+    "sources": [
+      {
+        "title": "2021 North Dakota income tax instructions",
+        "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2021-iit/individual-income-tax-booklet-2021.pdf#page=34"
+      },
+      {
+        "title": "2022 North Dakota income tax instructions",
+        "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2022-iit/2022-individual-income-tax-booklet.pdf#page=34"
+      },
+      {
+        "title": "2023 North Dakota income tax instructions",
+        "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2023-iit/2023-individual-income-tax-booklet.pdf#page=30"
+      },
+      {
+        "title": "2024 North Dakota income tax instructions",
+        "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2024-iit/2024-individual-income-tax-booklet.pdf#page=29"
+      },
+      {
+        "title": "2025 North Dakota income tax instructions",
+        "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/2025-individual-income-tax-booklet.pdf#page=29"
+      },
+      {
+        "title": "2026 North Dakota Form ND-1ES tax rate schedules",
+        "url": "https://www.tax.nd.gov/sites/www/files/documents/forms/individual/2025-iit/28709-form-nd-1es-2026.pdf#page=2"
+      },
+      {
+        "title": "North Dakota legal code 57-38-30.3.(1)(a)",
+        "url": "https://casetext.com/statute/north-dakota-century-code/title-57-taxation/chapter-57-38-income-tax/section-57-38-303-individual-estate-and-trust-income-tax"
+      }
+    ],
+    "inflationIndexed": true
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

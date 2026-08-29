@@ -1,0 +1,192 @@
+{
+  "slug": "washington-dc",
+  "name": "Washington, D.C.",
+  "abbr": "DC",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 4.0
+      },
+      {
+        "from": 10000.0,
+        "rate": 6.0
+      },
+      {
+        "from": 40000.0,
+        "rate": 6.5
+      },
+      {
+        "from": 60000.0,
+        "rate": 8.5
+      },
+      {
+        "from": 250000.0,
+        "rate": 9.25
+      },
+      {
+        "from": 500000.0,
+        "rate": 9.75
+      },
+      {
+        "from": 1000000.0,
+        "rate": 10.75
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 4.0
+      },
+      {
+        "from": 10000.0,
+        "rate": 6.0
+      },
+      {
+        "from": 40000.0,
+        "rate": 6.5
+      },
+      {
+        "from": 60000.0,
+        "rate": 8.5
+      },
+      {
+        "from": 250000.0,
+        "rate": 9.25
+      },
+      {
+        "from": 500000.0,
+        "rate": 9.75
+      },
+      {
+        "from": 1000000.0,
+        "rate": 10.75
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 4.0
+      },
+      {
+        "from": 10000.0,
+        "rate": 6.0
+      },
+      {
+        "from": 40000.0,
+        "rate": 6.5
+      },
+      {
+        "from": 60000.0,
+        "rate": 8.5
+      },
+      {
+        "from": 250000.0,
+        "rate": 9.25
+      },
+      {
+        "from": 500000.0,
+        "rate": 9.75
+      },
+      {
+        "from": 1000000.0,
+        "rate": 10.75
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 4.0
+      },
+      {
+        "from": 10000.0,
+        "rate": 6.0
+      },
+      {
+        "from": 40000.0,
+        "rate": 6.5
+      },
+      {
+        "from": 60000.0,
+        "rate": 8.5
+      },
+      {
+        "from": 250000.0,
+        "rate": 9.25
+      },
+      {
+        "from": 500000.0,
+        "rate": 9.75
+      },
+      {
+        "from": 1000000.0,
+        "rate": 10.75
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {
+    "single": 15000,
+    "marriedJointly": 30000,
+    "marriedSeparately": 15000,
+    "headOfHousehold": 22500
+  },
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "This state applies one bracket table to every filing status.",
+    "Latest change took effect 2022-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates.yaml",
+      "marriedJointly": "rates.yaml",
+      "marriedSeparately": "rates.yaml",
+      "headOfHousehold": "rates.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01",
+      "2022-01-01"
+    ],
+    "sources": [
+      {
+        "title": "2021 Form D-40 Booklet",
+        "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/52926_D-40_12.21.21_Final_Rev011122.pdf#page=19"
+      },
+      {
+        "title": "2022 Form D-40 Booklet",
+        "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2022_D-40_Booklet_Final_blk_01_23_23_Ordc.pdf#page=18"
+      },
+      {
+        "title": "2023 Form D-40 Booklet",
+        "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2023_D40_Book_Final_012324.pdf#page=17"
+      },
+      {
+        "title": "2024 DC Form D-40 Booklet, Tax Rate Schedule",
+        "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2024_D40_Booklet_011525.pdf#page=17"
+      },
+      {
+        "title": "2025 DC Form D-40 Booklet, Tax Rate Schedule",
+        "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Book_Final_wLinks_021226_v1.0.pdf#page=20"
+      },
+      {
+        "title": "DC Code § 47-1801.04(3A) - Basic standard deduction",
+        "url": "https://code.dccouncil.gov/us/dc/council/code/sections/47-1801.04"
+      },
+      {
+        "title": "DC Act 26-214 - Income and Franchise Tax Conformity",
+        "url": "https://code.dccouncil.gov/us/dc/council/acts/26-214"
+      },
+      {
+        "title": "2025 DC D-40 Booklet, Standard Deduction (p.13)",
+        "url": "https://otr.cfo.dc.gov/sites/default/files/dc/sites/otr/publication/attachments/2025_D40_Book_Final_wLinks_030526_v1.0.pdf#page=13"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

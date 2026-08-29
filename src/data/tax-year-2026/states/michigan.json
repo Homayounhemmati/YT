@@ -1,0 +1,51 @@
+{
+  "slug": "michigan",
+  "name": "Michigan",
+  "abbr": "MI",
+  "taxYear": 2026,
+  "structure": "flat",
+  "brackets": {},
+  "flatRate": 4.25,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": "Several Michigan cities, including Detroit, levy a local income tax. Not included in this calculation.",
+  "notes": [],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "flat": "rate.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2026-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Michigan INCOME TAX ACT OF 1967 Chapter 2, 206.51, Sec. 51, (1)",
+        "url": "http://www.legislature.mi.gov/documents/mcl/pdf/mcl-act-281-of-1967.pdf#page=60"
+      },
+      {
+        "title": "Michigan 2023 MI-1040 Individual Income Tax FORMS AND INSTRUCTIONS",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/2023/2023-IIT-Forms/BOOK_MI-1040.pdf#page=3"
+      },
+      {
+        "title": "Michigan 2024 Individual Income Tax Instructions",
+        "url": "https://www.michigan.gov/taxes/-/media/Project/Websites/taxes/Forms/IIT/TY2024/MI-1040-Instructions.pdf#page=3"
+      },
+      {
+        "title": "Michigan Income Tax Rate Change Overview",
+        "url": "https://www.michigan.gov/taxes/questions/tax-faqs/income-tax-rate-change/income-tax-rate-change-overview"
+      },
+      {
+        "title": "2025 Tax Year Income Tax Rate for Individuals and Fiduciaries",
+        "url": "https://www.michigan.gov/treasury/reference/taxpayer-notices/2025-tax-year-income-tax-rate-for-individuals-and-fiduciaries"
+      },
+      {
+        "title": "4.25% Income Tax Rate for Individuals and Fiduciaries in 2026 Tax Year",
+        "url": "https://www.michigan.gov/treasury/reference/taxpayer-notices/2026/04/15/425-income-tax-rate-for-individuals-and-fiduciaries-in-2026-tax-year"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

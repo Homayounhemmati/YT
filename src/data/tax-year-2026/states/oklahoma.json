@@ -1,0 +1,149 @@
+{
+  "slug": "oklahoma",
+  "name": "Oklahoma",
+  "abbr": "OK",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 3750.0,
+        "rate": 2.5
+      },
+      {
+        "from": 4900.0,
+        "rate": 3.5
+      },
+      {
+        "from": 7200.0,
+        "rate": 4.5
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 7500.0,
+        "rate": 2.5
+      },
+      {
+        "from": 9800.0,
+        "rate": 3.5
+      },
+      {
+        "from": 14400.0,
+        "rate": 4.5
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 3750.0,
+        "rate": 2.5
+      },
+      {
+        "from": 4900.0,
+        "rate": 3.5
+      },
+      {
+        "from": 7200.0,
+        "rate": 4.5
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 7500.0,
+        "rate": 2.5
+      },
+      {
+        "from": 9800.0,
+        "rate": 3.5
+      },
+      {
+        "from": 14400.0,
+        "rate": 4.5
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {
+    "single": 6350,
+    "marriedJointly": 12700,
+    "marriedSeparately": 6350,
+    "headOfHousehold": 9350
+  },
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml",
+      "headOfHousehold": "rates/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01",
+      "2026-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Oklahoma Statutes",
+        "url": "https://www.oscn.net/applications/oscn/DeliverDocument.asp?CiteID=92565"
+      },
+      {
+        "title": "2021 Form 511 instructions",
+        "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/past-year/2021/511-Pkt-2021.pdf"
+      },
+      {
+        "title": "2022 Form 511 instructions",
+        "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/past-year/2022/511-Pkt-2022.pdf"
+      },
+      {
+        "title": "2023 Form 511 instructions",
+        "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/past-year/2023/511-Pkt.pdf#page=38"
+      },
+      {
+        "title": "2024 Form 511 instructions",
+        "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/past-year/2024/511-Pkt.pdf#page=38"
+      },
+      {
+        "title": "2025 Form 511 instructions",
+        "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf#page=27"
+      },
+      {
+        "title": "Oklahoma House Bill 2764",
+        "url": "https://www.oklegislature.gov/cf_pdf/2025-26%20ENR/hB/HB2764%20ENR.PDF#page=11"
+      },
+      {
+        "title": "2023 Form 511 instructions",
+        "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/past-year/2023/511-Pkt.pdf#page=10"
+      },
+      {
+        "title": "2024 Form 511 instructions",
+        "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/past-year/2024/511-Pkt.pdf#page=10"
+      },
+      {
+        "title": "2025 Form 511 instructions",
+        "url": "https://oklahoma.gov/content/dam/ok/en/tax/documents/forms/individuals/current/511-Pkt.pdf#page=10"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

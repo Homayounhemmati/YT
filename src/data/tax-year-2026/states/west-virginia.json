@@ -1,0 +1,129 @@
+{
+  "slug": "west-virginia",
+  "name": "West Virginia",
+  "abbr": "WV",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 2.11
+      },
+      {
+        "from": 10000.0,
+        "rate": 2.81
+      },
+      {
+        "from": 25000.0,
+        "rate": 3.16
+      },
+      {
+        "from": 40000.0,
+        "rate": 4.22
+      },
+      {
+        "from": 60000.0,
+        "rate": 4.58
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 2.11
+      },
+      {
+        "from": 10000.0,
+        "rate": 2.81
+      },
+      {
+        "from": 25000.0,
+        "rate": 3.16
+      },
+      {
+        "from": 40000.0,
+        "rate": 4.22
+      },
+      {
+        "from": 60000.0,
+        "rate": 4.58
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 2.11
+      },
+      {
+        "from": 5000.0,
+        "rate": 2.81
+      },
+      {
+        "from": 12500.0,
+        "rate": 3.16
+      },
+      {
+        "from": 20000.0,
+        "rate": 4.22
+      },
+      {
+        "from": 30000.0,
+        "rate": 4.58
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2022-01-01",
+      "2026-01-01"
+    ],
+    "sources": [
+      {
+        "title": "West Virginia Senate Bill 392 (2026), §11-21-4j(a)",
+        "url": "https://www.wvlegislature.gov/Bill_Text_HTML/2026_SESSIONS/RS/bills/sb392%20sub1%20enr.pdf#page=6"
+      },
+      {
+        "title": "West Virginia Personal Income Tax Forms And Instructions 2025, Tax Rate Schedules",
+        "url": "https://tax.wv.gov/Documents/PIT/2025/it140.PersonalIncomeTaxFormsAndInstructions.2025.pdf#page=37"
+      },
+      {
+        "title": "West Virginia Personal Income Tax Forms And Instructions 2024, Tax Rate Schedules",
+        "url": "https://tax.wv.gov/Documents/PIT/2024/it140.PersonalIncomeTaxFormsAndInstructions.2024.pdf#page=37"
+      },
+      {
+        "title": "West Virginia Personal Income Tax Forms And Instructions 2023",
+        "url": "https://tax.wv.gov/Documents/PIT/2023/it140.PersonalIncomeTaxFormsAndInstructions.2023.pdf#page=37"
+      },
+      {
+        "title": "West Virginia Personal Income Tax Forms And Instructions 2022",
+        "url": "https://tax.wv.gov/Documents/PIT/2022/PersonalIncomeTaxFormsAndInstructions.2022.pdf#Page=36"
+      },
+      {
+        "title": "Code of West Virginia §11-21-4e",
+        "url": "https://code.wvlegislature.gov/11-21-4E/"
+      },
+      {
+        "title": "Code of West Virginia §11-21-4g",
+        "url": "https://code.wvlegislature.gov/11-21-4G/"
+      },
+      {
+        "title": "Code of West Virginia §11-21-4j",
+        "url": "https://code.wvlegislature.gov/11-21-4J/"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

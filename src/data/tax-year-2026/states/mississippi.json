@@ -1,0 +1,127 @@
+{
+  "slug": "mississippi",
+  "name": "Mississippi",
+  "abbr": "MS",
+  "taxYear": 2026,
+  "structure": "flat",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 10000.0,
+        "rate": 4.0
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 10000.0,
+        "rate": 4.0
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 10000.0,
+        "rate": 4.0
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 0.0
+      },
+      {
+        "from": 10000.0,
+        "rate": 4.0
+      }
+    ]
+  },
+  "flatRate": 4.0,
+  "standardDeduction": {
+    "single": 2300,
+    "marriedJointly": 4600,
+    "marriedSeparately": 2300,
+    "headOfHousehold": 3400
+  },
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "Flat rate applied above an exempt amount; income below `zeroBracketUpTo` is not taxed.",
+    "This state applies one bracket table to every filing status."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rate.yaml",
+      "marriedJointly": "rate.yaml",
+      "marriedSeparately": "rate.yaml",
+      "headOfHousehold": "rate.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2017-01-01",
+      "2018-01-01",
+      "2023-01-01",
+      "2026-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Miss. Code Ann. § 27-7-5",
+        "url": "https://law.justia.com/codes/mississippi/title-27/chapter-7/article-1/section-27-7-5/"
+      },
+      {
+        "title": "Mississippi Income Tax Instructions 2022",
+        "url": "https://www.dor.ms.gov/sites/default/files/Forms/Individual/80100221.pdf#page=20"
+      },
+      {
+        "title": "Mississippi Income Tax Instructions 2023",
+        "url": "https://www.dor.ms.gov/sites/default/files/Forms/Individual/80100231.pdf#page=3"
+      },
+      {
+        "title": "Mississippi Department of Revenue - Tax Rates, Exemptions, & Deductions",
+        "url": "https://www.dor.ms.gov/individual/tax-rates"
+      },
+      {
+        "title": "Mississippi Income Tax Instructions 2024",
+        "url": "https://www.dor.ms.gov/sites/default/files/Forms/Individual/80100241.pdf#page=3"
+      },
+      {
+        "title": "Mississippi Income Tax Instructions 2025",
+        "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf#page=3"
+      },
+      {
+        "title": "Mississippi State FORMS 80-105 AND 80-205",
+        "url": "https://www.dor.ms.gov/sites/default/files/Forms/Individual/80100221.pdf#page=5"
+      },
+      {
+        "title": "§ 27-7-17. Individual nonbusiness deductions. 3(i)(i - iv)",
+        "url": "https://advance.lexis.com/documentpage/?pdmfid=1000516&crid=7a1c7bb2-7110-478b-aa87-7a0f540809eb&config=00JABhZDIzMTViZS04NjcxLTQ1MDItOTllOS03MDg0ZTQxYzU4ZTQKAFBvZENhdGFsb2f8inKxYiqNVSihJeNKRlUp&pddocfullpath=%2Fshared%2Fdocument%2Fstatutes-legislation%2Furn%3AcontentItem%3A67NM-4K73-CGX8-048B-00008-00&pdcontentcomponentid=234190&pdteaserkey=sr0&pditab=allpods&ecomp=8s65kkk&earg=sr0&prid=e8257a64-6769-47fa-91b1-982d7b418151"
+      },
+      {
+        "title": "Mississippi Income Tax Instructions 2023 - FILING STATUS AND EXEMPTIONS",
+        "url": "https://www.dor.ms.gov/sites/default/files/Forms/Individual/80100231.pdf#page=6"
+      },
+      {
+        "title": "Mississippi Income Tax Instructions 2024",
+        "url": "https://www.dor.ms.gov/sites/default/files/Forms/Individual/80100241.pdf#page=5"
+      },
+      {
+        "title": "Mississippi Income Tax Instructions 2025",
+        "url": "https://www.dor.ms.gov/sites/default/files/tax-forms/individual/80100251%202.pdf#page=5"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "zeroBracketUpTo": 10000.0,
+  "staleForTargetYear": false
+}

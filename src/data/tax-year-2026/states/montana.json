@@ -1,0 +1,97 @@
+{
+  "slug": "montana",
+  "name": "Montana",
+  "abbr": "MT",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 4.7
+      },
+      {
+        "from": 47500.0,
+        "rate": 5.65
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 4.7
+      },
+      {
+        "from": 95000.0,
+        "rate": 5.65
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 4.7
+      },
+      {
+        "from": 47500.0,
+        "rate": 5.65
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 4.7
+      },
+      {
+        "from": 71250.0,
+        "rate": 5.65
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "main/single.yaml",
+      "marriedJointly": "main/joint.yaml",
+      "marriedSeparately": "main/separate.yaml",
+      "headOfHousehold": "main/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01",
+      "2024-01-01",
+      "2026-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Montana Code Annotated 2021 Title 15, Chapter 30, Part 21, 15-30-2103",
+        "url": "https://leg.mt.gov/bills/mca/title_0150/chapter_0300/part_0210/section_0030/0150-0300-0210-0030.html"
+      },
+      {
+        "title": "2022 Montana income tax form 2 Instructions",
+        "url": "https://mtrevenue.gov/wp-content/uploads/dlm_uploads/2022/12/Form-2-2022-Instructions.pdf#page=16"
+      },
+      {
+        "title": "2021 Montana income tax form 2 Instructions",
+        "url": "https://mtrevenue.gov/wp-content/uploads/mdocs/form%202%202021%20instructions.pdf#page=15"
+      },
+      {
+        "title": "2023 Montana income tax form 2 Instructions",
+        "url": "https://mtrevenue.gov/wp-content/uploads/dlm_uploads/2023/12/Form_2_2023_Instructions.pdf#page=18"
+      },
+      {
+        "title": "2024 Montana income tax tables",
+        "url": "https://mtrevenue.gov/wp-content/uploads/dlm_uploads/2024/12/2024-Tax-Tables.pdf"
+      },
+      {
+        "title": "2025 Montana Tax Tables and Deductions",
+        "url": "https://revenue.mt.gov/files/BIT/Montana-Tax-Tables-and-Deductions/2025-Tax-Rates-and-Deductions.pdf"
+      }
+    ],
+    "inflationIndexed": true
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

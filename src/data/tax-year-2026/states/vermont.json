@@ -1,0 +1,131 @@
+{
+  "slug": "vermont",
+  "name": "Vermont",
+  "abbr": "VT",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 3.35
+      },
+      {
+        "from": 49400.0,
+        "rate": 6.6
+      },
+      {
+        "from": 119700.0,
+        "rate": 7.6
+      },
+      {
+        "from": 249700.0,
+        "rate": 8.75
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 3.35
+      },
+      {
+        "from": 82500.0,
+        "rate": 6.6
+      },
+      {
+        "from": 199450.0,
+        "rate": 7.6
+      },
+      {
+        "from": 304000.0,
+        "rate": 8.75
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 3.35
+      },
+      {
+        "from": 41250.0,
+        "rate": 6.6
+      },
+      {
+        "from": 99725.0,
+        "rate": 7.6
+      },
+      {
+        "from": 152000.0,
+        "rate": 8.75
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 3.35
+      },
+      {
+        "from": 66200.0,
+        "rate": 6.6
+      },
+      {
+        "from": 171000.0,
+        "rate": 7.6
+      },
+      {
+        "from": 276850.0,
+        "rate": 8.75
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "These figures are inflation-indexed but the latest published values take effect 2025-01-01, so they are 2025 figures, not 2026. The state had not released uprated brackets when this was extracted. Do not label them as 2026 on the site until confirmed."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml",
+      "headOfHousehold": "rates/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01",
+      "2022-01-01",
+      "2025-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Vermont §5822. Tax on income of individuals, estates, and trusts",
+        "url": "https://legislature.vermont.gov/statutes/section/32/151/05822"
+      },
+      {
+        "title": "Vermont 2021 Income Tax Rate Schedules",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/RateSched-2021.pdf#page=1"
+      },
+      {
+        "title": "Vermont 2022 Income Tax Return Booklet Forms and Instructions",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/RateSched-2022.pdf#page=1"
+      },
+      {
+        "title": "Vermont 2023 Income Tax Return Booklet Forms and Instructions",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/RateSched-2023.pdf#page=1"
+      },
+      {
+        "title": "Vermont 2024 Income Tax Return Booklet Forms and Instructions",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/RateSched-2024.pdf#page=1"
+      },
+      {
+        "title": "Vermont 2025 Income Tax Rate Schedules",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/RateSched-2025.pdf#page=1"
+      }
+    ],
+    "inflationIndexed": true
+  },
+  "verification": "pending",
+  "staleForTargetYear": true
+}

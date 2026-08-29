@@ -1,0 +1,22 @@
+{
+  "slug": "wyoming",
+  "name": "Wyoming",
+  "abbr": "WY",
+  "taxYear": 2026,
+  "structure": "none",
+  "brackets": {},
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "No broad-based individual income tax on earned income. Federal income tax and self-employment tax still apply in full."
+  ],
+  "provenance": {
+    "extractedFrom": "classification",
+    "resolvedPaths": {},
+    "sources": []
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

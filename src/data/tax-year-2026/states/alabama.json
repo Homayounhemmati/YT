@@ -1,0 +1,101 @@
+{
+  "slug": "alabama",
+  "name": "Alabama",
+  "abbr": "AL",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 500.0,
+        "rate": 4.0
+      },
+      {
+        "from": 3000.0,
+        "rate": 5.0
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 1000.0,
+        "rate": 4.0
+      },
+      {
+        "from": 6000.0,
+        "rate": 5.0
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 500.0,
+        "rate": 4.0
+      },
+      {
+        "from": 3000.0,
+        "rate": 5.0
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 500.0,
+        "rate": 4.0
+      },
+      {
+        "from": 3000.0,
+        "rate": 5.0
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": "Some Alabama municipalities levy an occupational tax. Not included.",
+  "notes": [
+    "Latest change took effect 1983-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml",
+      "headOfHousehold": "rates/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "1983-01-01"
+    ],
+    "sources": [
+      {
+        "title": "The Code of Alabama 1975 Section 40-18-5",
+        "url": "https://law.justia.com/codes/alabama/title-40/chapter-18/article-1/section-40-18-5/"
+      },
+      {
+        "title": "2024 Alabama Income Tax Instructions",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2025/01/24f40bk.pdf#page=25"
+      },
+      {
+        "title": "2025 Alabama Income Tax Instructions",
+        "url": "https://www.revenue.alabama.gov/wp-content/uploads/2026/01/25f40bk.pdf#page=25"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

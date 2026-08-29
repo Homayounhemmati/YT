@@ -1,0 +1,242 @@
+{
+  "slug": "new-york",
+  "name": "New York",
+  "abbr": "NY",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 3.9
+      },
+      {
+        "from": 8500.0,
+        "rate": 4.4
+      },
+      {
+        "from": 11700.0,
+        "rate": 5.15
+      },
+      {
+        "from": 13900.0,
+        "rate": 5.4
+      },
+      {
+        "from": 80650.0,
+        "rate": 5.9
+      },
+      {
+        "from": 215400.0,
+        "rate": 6.85
+      },
+      {
+        "from": 1077550.0,
+        "rate": 9.65
+      },
+      {
+        "from": 5000000.0,
+        "rate": 10.3
+      },
+      {
+        "from": 25000000.0,
+        "rate": 10.9
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 3.9
+      },
+      {
+        "from": 17150.0,
+        "rate": 4.4
+      },
+      {
+        "from": 23600.0,
+        "rate": 5.15
+      },
+      {
+        "from": 27900.0,
+        "rate": 5.4
+      },
+      {
+        "from": 161550.0,
+        "rate": 5.9
+      },
+      {
+        "from": 323200.0,
+        "rate": 6.85
+      },
+      {
+        "from": 2155350.0,
+        "rate": 9.65
+      },
+      {
+        "from": 5000000.0,
+        "rate": 10.3
+      },
+      {
+        "from": 25000000.0,
+        "rate": 10.9
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 3.9
+      },
+      {
+        "from": 8500.0,
+        "rate": 4.4
+      },
+      {
+        "from": 11700.0,
+        "rate": 5.15
+      },
+      {
+        "from": 13900.0,
+        "rate": 5.4
+      },
+      {
+        "from": 80650.0,
+        "rate": 5.9
+      },
+      {
+        "from": 215400.0,
+        "rate": 6.85
+      },
+      {
+        "from": 1077550.0,
+        "rate": 9.65
+      },
+      {
+        "from": 5000000.0,
+        "rate": 10.3
+      },
+      {
+        "from": 25000000.0,
+        "rate": 10.9
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 3.9
+      },
+      {
+        "from": 12800.0,
+        "rate": 4.4
+      },
+      {
+        "from": 17650.0,
+        "rate": 5.15
+      },
+      {
+        "from": 20900.0,
+        "rate": 5.4
+      },
+      {
+        "from": 107650.0,
+        "rate": 5.9
+      },
+      {
+        "from": 269300.0,
+        "rate": 6.85
+      },
+      {
+        "from": 1616450.0,
+        "rate": 9.65
+      },
+      {
+        "from": 5000000.0,
+        "rate": 10.3
+      },
+      {
+        "from": 25000000.0,
+        "rate": 10.9
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {
+    "single": 8000,
+    "marriedJointly": 16050,
+    "marriedSeparately": 8000,
+    "headOfHousehold": 11200
+  },
+  "surtax": null,
+  "localTaxNote": "New York City and Yonkers levy resident income taxes on top of the state tax. Not included in this calculation.",
+  "notes": [],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "main/single.yaml",
+      "marriedJointly": "main/joint.yaml",
+      "marriedSeparately": "main/separate.yaml",
+      "headOfHousehold": "main/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01",
+      "2022-01-01",
+      "2026-01-01"
+    ],
+    "sources": [
+      {
+        "title": "2021 NY Form IT-201 Instructions",
+        "url": "https://www.tax.ny.gov/pdf/2021/inc/it201i_2021.pdf#page=51"
+      },
+      {
+        "title": "2022 NY Form IT-201 Instructions",
+        "url": "https://www.tax.ny.gov/pdf/2022/printable-pdfs/inc/it201i-2022.pdf#page=44"
+      },
+      {
+        "title": "2023 NY Form IT-201 Instructions",
+        "url": "https://www.tax.ny.gov/pdf/2023/printable-pdfs/inc/it201i-2023.pdf#page=45"
+      },
+      {
+        "title": "2024 NY Form IT-201 Instructions",
+        "url": "https://www.tax.ny.gov/pdf/2024/inc/it201i_2024.pdf#page=33"
+      },
+      {
+        "title": "2025 Form IT-201-I Instructions",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf#page=33"
+      },
+      {
+        "title": "Section 601 Imposition of tax (c)(1)(B), (IV) for 2021, (V) for 2022, and (VI) for 2023",
+        "url": "https://www.nysenate.gov/legislation/laws/TAX/601"
+      },
+      {
+        "title": "2022 NY Form IT-201 Instructions",
+        "url": "https://www.tax.ny.gov/pdf/2022/printable-pdfs/inc/it201i-2022.pdf#page=43"
+      },
+      {
+        "title": "2022 NY Form IT-201 Instructions",
+        "url": "https://www.tax.ny.gov/pdf/2022/printable-pdfs/inc/it201i-2022.pdf#page=45"
+      },
+      {
+        "title": "2023 NY Form IT-201 Instructions",
+        "url": "https://www.tax.ny.gov/pdf/2023/printable-pdfs/inc/it201i-2023.pdf#page=46"
+      },
+      {
+        "title": "2021 NY Form IT-201 Instructions Line 34",
+        "url": "https://www.tax.ny.gov/pdf/2021/inc/it201i_2021.pdf#page=19"
+      },
+      {
+        "title": "2023 NY Form IT-201 Instructions Line 34",
+        "url": "https://www.tax.ny.gov/pdf/2023/printable-pdfs/inc/it201i-2023.pdf#page=14"
+      },
+      {
+        "title": "2024 NY Form IT-201 Instructions Line 34",
+        "url": "https://www.tax.ny.gov/pdf/2024/inc/it201i_2024.pdf#page=11"
+      },
+      {
+        "title": "2025 Form IT-201-I Instructions",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf#page=11"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

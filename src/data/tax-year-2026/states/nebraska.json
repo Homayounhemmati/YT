@@ -1,0 +1,136 @@
+{
+  "slug": "nebraska",
+  "name": "Nebraska",
+  "abbr": "NE",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 2.46
+      },
+      {
+        "from": 4130.0,
+        "rate": 3.51
+      },
+      {
+        "from": 24760.0,
+        "rate": 4.55
+      },
+      {
+        "from": 39900.0,
+        "rate": 4.55
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 2.46
+      },
+      {
+        "from": 8250.0,
+        "rate": 3.51
+      },
+      {
+        "from": 49530.0,
+        "rate": 4.55
+      },
+      {
+        "from": 79800.0,
+        "rate": 4.55
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 2.46
+      },
+      {
+        "from": 4130.0,
+        "rate": 3.51
+      },
+      {
+        "from": 24760.0,
+        "rate": 4.55
+      },
+      {
+        "from": 39900.0,
+        "rate": 4.55
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 2.46
+      },
+      {
+        "from": 7700.0,
+        "rate": 3.51
+      },
+      {
+        "from": 39620.0,
+        "rate": 4.55
+      },
+      {
+        "from": 59160.0,
+        "rate": 4.55
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml",
+      "headOfHousehold": "rates/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01",
+      "2026-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Legislative Bill 754 (Bill Text)",
+        "url": "https://www.nebraskalegislature.gov/FloorDocs/108/PDF/Slip/LB754.pdf#page=3"
+      },
+      {
+        "title": "2021 NE income tax form and instruction booklet",
+        "url": "https://revenue.nebraska.gov/files/doc/tax-forms/2021/f_1040n_booklet.pdf"
+      },
+      {
+        "title": "2022 NE income tax form and instruction booklet",
+        "url": "https://revenue.nebraska.gov/files/doc/2022_Ne_Individual_Income_Tax_Booklet_8-307-2022_final_5.pdf"
+      },
+      {
+        "title": "2023 NE Individual Income Tax Booklet",
+        "url": "https://revenue.nebraska.gov/sites/revenue.nebraska.gov/files/doc/tax-forms/2023/incometax/f_1040n_booklet_2023_Final.pdf#page=9"
+      },
+      {
+        "title": "Nebraska Revised Statute | chapter 77 | §2715.03",
+        "url": "https://www.nebraskalegislature.gov/laws/statutes.php?statute=77-2715.03"
+      },
+      {
+        "title": "Nebraska Tax Rate Chronologies",
+        "url": "https://revenue.nebraska.gov/sites/default/files/doc/research/chronology/4-607table1_0.pdf"
+      },
+      {
+        "title": "2025 Nebraska Individual Income Tax Booklet, Tax Table",
+        "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_Individual_Income_Tax_Booklet.pdf#page=49"
+      },
+      {
+        "title": "2026 Nebraska Estimated Income Tax Rate Schedule (Form 1040N-ES)",
+        "url": "https://revenue.nebraska.gov/sites/default/files/doc/tax-forms/2025/f_1040N-ES.pdf#page=5"
+      }
+    ],
+    "inflationIndexed": true
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

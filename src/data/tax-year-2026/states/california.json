@@ -1,0 +1,263 @@
+{
+  "slug": "california",
+  "name": "California",
+  "abbr": "CA",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 1.0
+      },
+      {
+        "from": 11079.0,
+        "rate": 2.0
+      },
+      {
+        "from": 26264.0,
+        "rate": 4.0
+      },
+      {
+        "from": 41452.0,
+        "rate": 6.0
+      },
+      {
+        "from": 57542.0,
+        "rate": 8.0
+      },
+      {
+        "from": 72724.0,
+        "rate": 9.3
+      },
+      {
+        "from": 371479.0,
+        "rate": 10.3
+      },
+      {
+        "from": 445771.0,
+        "rate": 11.3
+      },
+      {
+        "from": 742953.0,
+        "rate": 12.3
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 1.0
+      },
+      {
+        "from": 22158.0,
+        "rate": 2.0
+      },
+      {
+        "from": 52528.0,
+        "rate": 4.0
+      },
+      {
+        "from": 82904.0,
+        "rate": 6.0
+      },
+      {
+        "from": 115084.0,
+        "rate": 8.0
+      },
+      {
+        "from": 145448.0,
+        "rate": 9.3
+      },
+      {
+        "from": 742958.0,
+        "rate": 10.3
+      },
+      {
+        "from": 891542.0,
+        "rate": 11.3
+      },
+      {
+        "from": 1485906.0,
+        "rate": 12.3
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 1.0
+      },
+      {
+        "from": 11079.0,
+        "rate": 2.0
+      },
+      {
+        "from": 26264.0,
+        "rate": 4.0
+      },
+      {
+        "from": 41452.0,
+        "rate": 6.0
+      },
+      {
+        "from": 57542.0,
+        "rate": 8.0
+      },
+      {
+        "from": 72724.0,
+        "rate": 9.3
+      },
+      {
+        "from": 371479.0,
+        "rate": 10.3
+      },
+      {
+        "from": 445771.0,
+        "rate": 11.3
+      },
+      {
+        "from": 742953.0,
+        "rate": 12.3
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 1.0
+      },
+      {
+        "from": 22173.0,
+        "rate": 2.0
+      },
+      {
+        "from": 52530.0,
+        "rate": 4.0
+      },
+      {
+        "from": 67716.0,
+        "rate": 6.0
+      },
+      {
+        "from": 83805.0,
+        "rate": 8.0
+      },
+      {
+        "from": 98990.0,
+        "rate": 9.3
+      },
+      {
+        "from": 505208.0,
+        "rate": 10.3
+      },
+      {
+        "from": 606251.0,
+        "rate": 11.3
+      },
+      {
+        "from": 1010417.0,
+        "rate": 12.3
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {
+    "single": 5706,
+    "marriedJointly": 11412,
+    "marriedSeparately": 5706,
+    "headOfHousehold": 11412
+  },
+  "surtax": [
+    {
+      "from": 1000000.0,
+      "rate": 1.0
+    }
+  ],
+  "localTaxNote": null,
+  "notes": [
+    "An additional surtax applies above a high income threshold; see the `surtax` field.",
+    "These figures are inflation-indexed but the latest published values take effect 2025-01-01, so they are 2025 figures, not 2026. The state had not released uprated brackets when this was extracted. Do not label them as 2026 on the site until confirmed."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "surtax": "mental_health_services.yaml",
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml",
+      "headOfHousehold": "rates/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2005-01-01",
+      "2021-01-01",
+      "2025-01-01"
+    ],
+    "sources": [
+      {
+        "title": "2021 Form 540 California Resident Income Tax Return",
+        "url": "https://www.ftb.ca.gov/forms/2021/2021-540.pdf"
+      },
+      {
+        "title": "2022 Form 540 California Resident Income Tax Return",
+        "url": "https://www.ftb.ca.gov/forms/2022/2022-540.pdf"
+      },
+      {
+        "title": "2025 Form 540 California Resident Income Tax Return",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540.pdf"
+      },
+      {
+        "title": "California Revenue and Taxation Code | Division 2 | Part 10 | Chapter 2 | §17043",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=17043."
+      },
+      {
+        "title": "California Income Tax Rate Schedules for 2021",
+        "url": "https://www.ftb.ca.gov/forms/2021/2021-540-tax-rate-schedules.pdf"
+      },
+      {
+        "title": "California Income Tax Rate Schedules for 2022",
+        "url": "https://www.ftb.ca.gov/forms/2022/2022-540-tax-rate-schedules.pdf"
+      },
+      {
+        "title": "California Income Tax Rate Schedules for 2023",
+        "url": "https://www.ftb.ca.gov/forms/2023/2023-540-tax-rate-schedules.pdf"
+      },
+      {
+        "title": "California Income Tax Rate Schedules for 2024",
+        "url": "https://www.ftb.ca.gov/forms/2024/2024-540-tax-rate-schedules.pdf"
+      },
+      {
+        "title": "California Income Tax Rate Schedules for 2025",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-tax-rate-schedules.pdf"
+      },
+      {
+        "title": "Cal. Rev. & Tax. Code § 17041",
+        "url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=17041.&lawCode=RTC"
+      },
+      {
+        "title": "2021 Form 540 California Resident Income Tax Return",
+        "url": "https://www.ftb.ca.gov/forms/2021/2021-540.pdf#page=2"
+      },
+      {
+        "title": "2022 Form 540 California Resident Income Tax Return",
+        "url": "https://www.ftb.ca.gov/forms/2022/2022-540.pdf#page=2"
+      },
+      {
+        "title": "2023 Form 540 California Resident Income Tax Return",
+        "url": "https://www.ftb.ca.gov/forms/2023/2023-540.pdf#page=2"
+      },
+      {
+        "title": "2024 Form 540 California Resident Income Tax Return",
+        "url": "https://www.ftb.ca.gov/forms/2024/2024-540.pdf#page=2"
+      },
+      {
+        "title": "2025 Form 540 California Resident Income Tax Return",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540.pdf#page=2"
+      },
+      {
+        "title": "Cal. Rev. & Tax. Code § 17073.5",
+        "url": "https://casetext.com/statute/california-codes/california-revenue-and-taxation-code/division-2-other-taxes/part-10-personal-income-tax/chapter-3-computation-of-taxable-income/article-1-definition-of-gross-income-adjusted-gross-income-taxable-income-etc/section-170735-standard-deduction?searchWithin=true&listingIndexId=california-codes.california-revenue-and-taxation-code.division-2-other-taxes.part-10-personal-income-tax"
+      }
+    ],
+    "inflationIndexed": true
+  },
+  "verification": "pending",
+  "staleForTargetYear": true
+}

@@ -1,0 +1,234 @@
+{
+  "slug": "maryland",
+  "name": "Maryland",
+  "abbr": "MD",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 1000.0,
+        "rate": 3.0
+      },
+      {
+        "from": 2000.0,
+        "rate": 4.0
+      },
+      {
+        "from": 3000.0,
+        "rate": 4.75
+      },
+      {
+        "from": 100000.0,
+        "rate": 5.0
+      },
+      {
+        "from": 125000.0,
+        "rate": 5.25
+      },
+      {
+        "from": 150000.0,
+        "rate": 5.5
+      },
+      {
+        "from": 250000.0,
+        "rate": 5.75
+      },
+      {
+        "from": 500000.0,
+        "rate": 6.25
+      },
+      {
+        "from": 1000000.0,
+        "rate": 6.5
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 1000.0,
+        "rate": 3.0
+      },
+      {
+        "from": 2000.0,
+        "rate": 4.0
+      },
+      {
+        "from": 3000.0,
+        "rate": 4.75
+      },
+      {
+        "from": 150000.0,
+        "rate": 5.0
+      },
+      {
+        "from": 175000.0,
+        "rate": 5.25
+      },
+      {
+        "from": 225000.0,
+        "rate": 5.5
+      },
+      {
+        "from": 300000.0,
+        "rate": 5.75
+      },
+      {
+        "from": 600000.0,
+        "rate": 6.25
+      },
+      {
+        "from": 1200000.0,
+        "rate": 6.5
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 1000.0,
+        "rate": 3.0
+      },
+      {
+        "from": 2000.0,
+        "rate": 4.0
+      },
+      {
+        "from": 3000.0,
+        "rate": 4.75
+      },
+      {
+        "from": 100000.0,
+        "rate": 5.0
+      },
+      {
+        "from": 125000.0,
+        "rate": 5.25
+      },
+      {
+        "from": 150000.0,
+        "rate": 5.5
+      },
+      {
+        "from": 250000.0,
+        "rate": 5.75
+      },
+      {
+        "from": 500000.0,
+        "rate": 6.25
+      },
+      {
+        "from": 1000000.0,
+        "rate": 6.5
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 2.0
+      },
+      {
+        "from": 1000.0,
+        "rate": 3.0
+      },
+      {
+        "from": 2000.0,
+        "rate": 4.0
+      },
+      {
+        "from": 3000.0,
+        "rate": 4.75
+      },
+      {
+        "from": 150000.0,
+        "rate": 5.0
+      },
+      {
+        "from": 175000.0,
+        "rate": 5.25
+      },
+      {
+        "from": 225000.0,
+        "rate": 5.5
+      },
+      {
+        "from": 300000.0,
+        "rate": 5.75
+      },
+      {
+        "from": 600000.0,
+        "rate": 6.25
+      },
+      {
+        "from": 1200000.0,
+        "rate": 6.5
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": "Every Maryland county and Baltimore City levies a local income tax on top of the state tax. Not included in this calculation.",
+  "notes": [
+    "Latest change took effect 2025-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml",
+      "headOfHousehold": "rates/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2013-01-01",
+      "2025-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Maryland 2025 Resident Tax Forms and Instructions - Tax Computation Worksheet Schedules",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf#page=22"
+      },
+      {
+        "title": "Maryland 2024 State & Local Tax Forms & Instructions - Maryland Tax Computation Worksheet Schedules",
+        "url": "https://www.marylandtaxes.gov/forms/24-forms/Resident-Booklet.pdf#page=22"
+      },
+      {
+        "title": "Maryland 2023 State & Local Tax Forms & Instructions",
+        "url": "https://www.marylandtaxes.gov/forms/23_forms/Resident-Booklet.pdf#page=20"
+      },
+      {
+        "title": "Tax Foundation State Individual Income Tax Rates and Brackets",
+        "url": "https://taxfoundation.org/publications/state-individual-income-tax-rates-and-brackets/#Structures"
+      },
+      {
+        "title": "MD Tax_Computation",
+        "url": "https://www.marylandtaxes.gov/forms/current_forms/Md_Tax_Computation.pdf"
+      },
+      {
+        "title": "Maryland 2021 State & Local Tax Forms & Instructions",
+        "url": "https://www.marylandtaxes.gov/forms/21_forms/Resident_Booklet.pdf"
+      },
+      {
+        "title": "§ 10-105 (a)(1). State income tax rates",
+        "url": "https://govt.westlaw.com/mdc/Document/N5C14CC91D9D311E2A5EFA1428CB399FF?viewType=FullText&originationContext=documenttoc&transitionType=CategoryPageItem&contextData=(sc.Default)"
+      },
+      {
+        "title": "Maryland House Bill 352 - Budget Reconciliation and Financing Act of 2025",
+        "url": "https://mgaleg.maryland.gov/2025RS/Chapters_noln/CH_604_hb0352e.pdf#page=161"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

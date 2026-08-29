@@ -1,0 +1,103 @@
+{
+  "slug": "ohio",
+  "name": "Ohio",
+  "abbr": "OH",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 1.2745
+      },
+      {
+        "from": 26050.0,
+        "rate": 2.75
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 1.2745
+      },
+      {
+        "from": 26050.0,
+        "rate": 2.75
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 1.2745
+      },
+      {
+        "from": 26050.0,
+        "rate": 2.75
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 1.2745
+      },
+      {
+        "from": 26050.0,
+        "rate": 2.75
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": "Many Ohio municipalities and school districts levy their own income tax. Not included in this calculation.",
+  "notes": [
+    "This state applies one bracket table to every filing status."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates.yaml",
+      "marriedJointly": "rates.yaml",
+      "marriedSeparately": "rates.yaml",
+      "headOfHousehold": "rates.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01",
+      "2023-01-01",
+      "2026-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Section 5747.02 | Tax rates.",
+        "url": "https://codes.ohio.gov/ohio-revised-code/section-5747.02"
+      },
+      {
+        "title": "Ohio Income Tax Form 2021 Instructions",
+        "url": "https://tax.ohio.gov/static/forms/ohio_individual/individual/2021/pit-it1040-booklet.pdf#page=31"
+      },
+      {
+        "title": "Ohio Income Tax Form 2022 Instructions",
+        "url": "https://dam.assets.ohio.gov/image/upload/tax.ohio.gov/forms/ohio_individual/individual/2022/it1040-sd100-instruction-booklet.pdf#page=31"
+      },
+      {
+        "title": "Ohio Income Tax Form 2023 Instructions",
+        "url": "https://dam.assets.ohio.gov/image/upload/tax.ohio.gov/forms/ohio_individual/individual/2023/it1040-sd100-instructionbooklet.pdf#page=46"
+      },
+      {
+        "title": "Ohio Income Tax Form 2024 Instructions",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1735920104/tax.ohio.gov/forms/ohio_individual/individual/2024/it1040-booklet.pdf#page=18"
+      },
+      {
+        "title": "Ohio Income Tax Form 2025 Instructions (Page 18)",
+        "url": "https://dam.assets.ohio.gov/image/upload/v1767095693/tax.ohio.gov/forms/ohio_individual/individual/2025/it1040-booklet.pdf#page=18"
+      },
+      {
+        "title": "House Bill 96",
+        "url": "https://search-prod.lis.state.oh.us/api/v2/general_assembly_136/legislation/hb96/07_EN/pdf/#page=2608"
+      }
+    ],
+    "inflationIndexed": true
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

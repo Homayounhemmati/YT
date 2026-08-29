@@ -1,0 +1,56 @@
+{
+  "slug": "louisiana",
+  "name": "Louisiana",
+  "abbr": "LA",
+  "taxYear": 2026,
+  "structure": "flat",
+  "brackets": {},
+  "flatRate": 3.0,
+  "standardDeduction": {
+    "single": 12835,
+    "marriedJointly": 25670,
+    "marriedSeparately": 12835,
+    "headOfHousehold": 25670
+  },
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "This state replaced its progressive schedule with a single flat rate; the older bracket table no longer applies.",
+    "Latest change took effect 2025-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "flatSwitch": "main/flat/applies.yaml",
+      "flat": "main/flat/rate.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2025-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Louisiana Revised Statutes, RS 47:32 - Tax on individuals",
+        "url": "https://www.legis.la.gov/legis/Law.aspx?d=101946"
+      },
+      {
+        "title": "2025 Louisiana Resident Income Tax Return Instructions, Line 11",
+        "url": "https://dam.ldr.la.gov/taxforms/IT540i%20WEB(2025)D11.pdf#page=3"
+      },
+      {
+        "title": "Louisiana Revised Statutes, RS 47:294 - Standard deduction",
+        "url": "https://www.legis.la.gov/legis/Law.aspx?d=101761"
+      },
+      {
+        "title": "Louisiana Register, February 20, 2026, Income Tax Withholding Tables notice",
+        "url": "https://bese.louisiana.gov/docs/default-source/rulemaking-docket/feb-louisiana-register.pdf#page=127"
+      },
+      {
+        "title": "Consumer Price Index News Release - 2025 M12 Results",
+        "url": "https://www.bls.gov/news.release/archives/cpi_01132026.htm"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

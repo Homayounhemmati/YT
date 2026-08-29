@@ -1,0 +1,166 @@
+{
+  "slug": "new-mexico",
+  "name": "New Mexico",
+  "abbr": "NM",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 1.5
+      },
+      {
+        "from": 5500.0,
+        "rate": 3.2
+      },
+      {
+        "from": 16500.0,
+        "rate": 4.3
+      },
+      {
+        "from": 33500.0,
+        "rate": 4.7
+      },
+      {
+        "from": 66500.0,
+        "rate": 4.9
+      },
+      {
+        "from": 210000.0,
+        "rate": 5.9
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 1.5
+      },
+      {
+        "from": 8000.0,
+        "rate": 3.2
+      },
+      {
+        "from": 25000.0,
+        "rate": 4.3
+      },
+      {
+        "from": 50000.0,
+        "rate": 4.7
+      },
+      {
+        "from": 100000.0,
+        "rate": 4.9
+      },
+      {
+        "from": 315000.0,
+        "rate": 5.9
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 1.5
+      },
+      {
+        "from": 4000.0,
+        "rate": 3.2
+      },
+      {
+        "from": 12500.0,
+        "rate": 4.3
+      },
+      {
+        "from": 25000.0,
+        "rate": 4.7
+      },
+      {
+        "from": 50000.0,
+        "rate": 4.9
+      },
+      {
+        "from": 157500.0,
+        "rate": 5.9
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 1.5
+      },
+      {
+        "from": 8000.0,
+        "rate": 3.2
+      },
+      {
+        "from": 25000.0,
+        "rate": 4.3
+      },
+      {
+        "from": 50000.0,
+        "rate": 4.7
+      },
+      {
+        "from": 100000.0,
+        "rate": 4.9
+      },
+      {
+        "from": 315000.0,
+        "rate": 5.9
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "Latest change took effect 2025-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "main/single.yaml",
+      "marriedJointly": "main/joint.yaml",
+      "marriedSeparately": "main/separate.yaml",
+      "headOfHousehold": "main/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2008-01-01",
+      "2025-01-01"
+    ],
+    "sources": [
+      {
+        "title": "NMSA 1978, Section 7-2-7 (Effective January 1, 2025)",
+        "url": "https://law.justia.com/codes/new-mexico/chapter-7/article-2/section-7-2-7-d-1/"
+      },
+      {
+        "title": "New Mexico Income Tax Act, 7-2-7, B",
+        "url": "https://klvg4oyd4j.execute-api.us-west-2.amazonaws.com/prod/PublicFiles/34821a9573ca43e7b06dfad20f5183fd/856ebf4b-3814-49dd-8631-ebe579d6a42b/Personal%20Income%20Tax.pdf#page=45"
+      },
+      {
+        "title": "2024 Personal Income Tax Form Packet",
+        "url": "https://klvg4oyd4j.execute-api.us-west-2.amazonaws.com/prod/PublicFiles/34821a9573ca43e7b06dfad20f5183fd/97f27f33-5e23-4a25-ad68-0980a22b802d/PITbook2024.pdf#page=123"
+      },
+      {
+        "title": "2025 Personal Income Tax Form Packet",
+        "url": "https://klvg4oyd4j.execute-api.us-west-2.amazonaws.com/prod/PublicFiles/34821a9573ca43e7b06dfad20f5183fd/0558a902-6362-47ca-8e3b-7cca3bc69b9d/2025%20PIT%20Packet_Final.pdf#page=122"
+      },
+      {
+        "title": "2023 Personal Income Tax Form Packet",
+        "url": "https://klvg4oyd4j.execute-api.us-west-2.amazonaws.com/prod/PublicFiles/34821a9573ca43e7b06dfad20f5183fd/90560f4e-0ef0-4e52-a003-878b84f858bb/PITbook2023.pdf#page=124"
+      },
+      {
+        "title": "2022 Personal Income Tax Form Packet",
+        "url": "https://klvg4oyd4j.execute-api.us-west-2.amazonaws.com/prod/PublicFiles/34821a9573ca43e7b06dfad20f5183fd/1afc56af-ea90-4d48-82e5-1f9aeb43255a/PITbook2022.pdf#page=109"
+      },
+      {
+        "title": "New Mexico Income Tax, Title 3, Chapter 3, Part 7, 3.3.7.9, A",
+        "url": "https://www.srca.nm.gov/parts/title03/03.003.0007.html"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

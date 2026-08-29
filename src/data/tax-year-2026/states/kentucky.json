@@ -1,0 +1,63 @@
+{
+  "slug": "kentucky",
+  "name": "Kentucky",
+  "abbr": "KY",
+  "taxYear": 2026,
+  "structure": "flat",
+  "brackets": {},
+  "flatRate": 3.5,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": "Many Kentucky counties and cities levy occupational license taxes on net profits. Not included in this calculation.",
+  "notes": [],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "flat": "rate.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2026-01-01"
+    ],
+    "sources": [
+      {
+        "title": "2021 Kentucky Individual Income Tax Return Residents Only - Form 740 - Line 12",
+        "url": "https://revenue.ky.gov/Forms/Form%20740-2021.pdf#page=1"
+      },
+      {
+        "title": "2023 Kentucky Department of Revenue",
+        "url": "https://revenue.ky.gov/News/Pages/DOR-Announces-Updates-to-Individual-Income-Tax-for-2023-Tax-Year.aspx"
+      },
+      {
+        "title": "2023 Kentucky Individual Income Tax Return Residents Only - Form 740",
+        "url": "https://revenue.ky.gov/Forms/Form%20740%205-9-23.pdf#page=1"
+      },
+      {
+        "title": "2023 Kentucky Estimated Tax Voucher Instructions",
+        "url": "https://revenue.ky.gov/Forms/740-ES%20Instructions%203-21-23.pdf"
+      },
+      {
+        "title": "2024 Kentucky Individual Income Tax Forms",
+        "url": "https://revenue.ky.gov/Forms/740%20instructions%20packet%20(2025).pdf#page=2"
+      },
+      {
+        "title": "House Bill 1",
+        "url": "https://apps.legislature.ky.gov/record/25rs/hb1.html"
+      },
+      {
+        "title": "House Bill 1 (Bill Text)",
+        "url": "https://apps.legislature.ky.gov/recorddocuments/bill/25RS/hb1/bill.pdf#page=3"
+      },
+      {
+        "title": "Kentucky Statutes 141.020",
+        "url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=54585"
+      },
+      {
+        "title": "2025 Kentucky Form 740 Instructions",
+        "url": "https://revenue.ky.gov/Forms/740%20Packet%20Instructions%20(2025).pdf#page=3"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

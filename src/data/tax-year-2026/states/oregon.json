@@ -1,0 +1,173 @@
+{
+  "slug": "oregon",
+  "name": "Oregon",
+  "abbr": "OR",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 4.75
+      },
+      {
+        "from": 4400.0,
+        "rate": 6.75
+      },
+      {
+        "from": 11100.0,
+        "rate": 8.75
+      },
+      {
+        "from": 125000.0,
+        "rate": 9.9
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 4.75
+      },
+      {
+        "from": 8800.0,
+        "rate": 6.75
+      },
+      {
+        "from": 22200.0,
+        "rate": 8.75
+      },
+      {
+        "from": 250000.0,
+        "rate": 9.9
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 4.75
+      },
+      {
+        "from": 4400.0,
+        "rate": 6.75
+      },
+      {
+        "from": 11100.0,
+        "rate": 8.75
+      },
+      {
+        "from": 125000.0,
+        "rate": 9.9
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 4.75
+      },
+      {
+        "from": 8800.0,
+        "rate": 6.75
+      },
+      {
+        "from": 22200.0,
+        "rate": 8.75
+      },
+      {
+        "from": 250000.0,
+        "rate": 9.9
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {
+    "single": 2835,
+    "marriedJointly": 5670,
+    "marriedSeparately": 2835,
+    "headOfHousehold": 4560
+  },
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "These figures are inflation-indexed but the latest published values take effect 2025-01-01, so they are 2025 figures, not 2026. The state had not released uprated brackets when this was extracted. Do not label them as 2026 on the site until confirmed."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml",
+      "headOfHousehold": "rates/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "1993-01-01",
+      "2017-01-01",
+      "2020-01-01",
+      "2025-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Chapter 316 - Personal Income Tax",
+        "url": "https://www.oregonlegislature.gov/bills_laws/ors/ors316.html"
+      },
+      {
+        "title": "2021 Oregon Income Tax Form OR-40 Instructions",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2021.pdf#page=27"
+      },
+      {
+        "title": "2020 Publication OR-17, Oregon Individual Income Tax Guide",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2020.pdf#page=138"
+      },
+      {
+        "title": "2022 Publication OR-40-NP, Oregon Income Tax Part-year Resident/Nonresident Forms and Instructions, 150-101-048-1",
+        "url": "https://www.oregon.gov/dor/programs/individuals/Documents/Part-year%20and%20nonresident,%20Form%20OR-40-P%20and%20OR-40-N%20filers.pdf.pdf"
+      },
+      {
+        "title": "2023 Oregon Income Tax Form OR-40 Instructions",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2023.pdf#page=24"
+      },
+      {
+        "title": "2023 Oregon Income Tax Rates and Brackets",
+        "url": "https://www.efile.com/oregon-tax-brackets-rates-and-forms/"
+      },
+      {
+        "title": "2024 Oregon Income Tax Form OR-40 Instructions",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-n_or-40-p-inst_101-048-1_2024.pdf#page=21"
+      },
+      {
+        "title": "2025 Oregon Income Tax Form OR-40 Instructions",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf#page=17"
+      },
+      {
+        "title": "2024 Oregon Income Tax Form OR-40 Instructions",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2024.pdf#page=28"
+      },
+      {
+        "title": "2021 Oregon Income Tax Form OR-40 Instructions",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2021.pdf#page=15"
+      },
+      {
+        "title": "2021 Publication OR-17, Oregon Individual Income Tax Guide",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/publication-or-17_101-431_2021.pdf#page=142"
+      },
+      {
+        "title": "2022 Oregon Income Tax Form OR-40 Instructions",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2022.pdf#page=15"
+      },
+      {
+        "title": "2023 Oregon Income Tax Form OR-40 Instructions",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2023.pdf#page=15"
+      },
+      {
+        "title": "2024 Oregon Income Tax Form OR-40 Instructions",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2024.pdf#page=15"
+      },
+      {
+        "title": "2025 Oregon Income Tax Form OR-40 Instructions",
+        "url": "https://www.oregon.gov/dor/forms/FormsPubs/form-or-40-inst_101-040-1_2025.pdf#page=16"
+      }
+    ],
+    "inflationIndexed": true
+  },
+  "verification": "pending",
+  "staleForTargetYear": true
+}

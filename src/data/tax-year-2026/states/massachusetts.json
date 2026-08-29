@@ -1,0 +1,70 @@
+{
+  "slug": "massachusetts",
+  "name": "Massachusetts",
+  "abbr": "MA",
+  "taxYear": 2026,
+  "structure": "flat",
+  "brackets": {},
+  "flatRate": 5.0,
+  "standardDeduction": {},
+  "surtax": [
+    {
+      "from": 0.0,
+      "rate": 0.0
+    },
+    {
+      "from": 1083150.0,
+      "rate": 4.0
+    }
+  ],
+  "localTaxNote": null,
+  "notes": [
+    "An additional surtax applies above a high income threshold; see the `surtax` field.",
+    "Latest change took effect 2025-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "flat": "rates/part_b.yaml",
+      "surtax": "rates/additional.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2020-01-01",
+      "2023-01-01",
+      "2025-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Section 4: Rates of tax for residents, non-residents and corporate trusts (b)",
+        "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIX/Chapter62/Section4"
+      },
+      {
+        "title": "State Individual Income Tax Rates and Brackets (Tax Foundation)",
+        "url": "https://taxfoundation.org/publications/state-individual-income-tax-rates-and-brackets/"
+      },
+      {
+        "title": "Form 1 2024 Massachusetts Resident Income Tax - 2024 Personal Income Tax Rates",
+        "url": "https://www.mass.gov/doc/2024-form-1-instructions/download#page=3"
+      },
+      {
+        "title": "Proposal for Constitutional Amendment H.86",
+        "url": "https://malegislature.gov/Bills/191/H86"
+      },
+      {
+        "title": "Form 1 2023 Massachusetts Resident Income Tax (4% Surtax on Taxable Income Over $1 Million)",
+        "url": "https://www.mass.gov/doc/2023-form-1-instructions/download#page=3"
+      },
+      {
+        "title": "Form 1 2025 Massachusetts Resident Income Tax - 4% Surtax",
+        "url": "https://www.mass.gov/doc/2025-form-1-instructions/download#page=3"
+      },
+      {
+        "title": "Chapter 62, Section 4 (d)",
+        "url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleIX/Chapter62/section4"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

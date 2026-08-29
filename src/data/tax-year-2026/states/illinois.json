@@ -1,0 +1,45 @@
+{
+  "slug": "illinois",
+  "name": "Illinois",
+  "abbr": "IL",
+  "taxYear": 2026,
+  "structure": "flat",
+  "brackets": {},
+  "flatRate": 4.95,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "Latest change took effect 2017-07-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "flat": "rate.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2017-07-01"
+    ],
+    "sources": [
+      {
+        "title": "Income Tax Rates",
+        "url": "https://www2.illinois.gov/rev/research/taxrates/Pages/income.aspx"
+      },
+      {
+        "title": "Illinois Income Tax Act, 35 ILCS 5/201 (b)",
+        "url": "https://www.ilga.gov/legislation/ilcs/ilcs5.asp?ActID=577&ChapterID=8"
+      },
+      {
+        "title": "Illinois Department of Revenue 2024 Form IL-1040 Instructions",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/2024/individual/il-1040-instr.pdf#page=1"
+      },
+      {
+        "title": "Illinois Department of Revenue 2025 Form IL-1040 Instructions",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf#page=1"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

@@ -1,0 +1,127 @@
+{
+  "slug": "wisconsin",
+  "name": "Wisconsin",
+  "abbr": "WI",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "single": [
+      {
+        "from": 0.0,
+        "rate": 3.5
+      },
+      {
+        "from": 14680.0,
+        "rate": 4.4
+      },
+      {
+        "from": 51130.0,
+        "rate": 5.3
+      },
+      {
+        "from": 323290.0,
+        "rate": 7.65
+      }
+    ],
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 3.5
+      },
+      {
+        "from": 19580.0,
+        "rate": 4.4
+      },
+      {
+        "from": 68170.0,
+        "rate": 5.3
+      },
+      {
+        "from": 431060.0,
+        "rate": 7.65
+      }
+    ],
+    "marriedSeparately": [
+      {
+        "from": 0.0,
+        "rate": 3.5
+      },
+      {
+        "from": 9790.0,
+        "rate": 4.4
+      },
+      {
+        "from": 34090.0,
+        "rate": 5.3
+      },
+      {
+        "from": 215530.0,
+        "rate": 7.65
+      }
+    ],
+    "headOfHousehold": [
+      {
+        "from": 0.0,
+        "rate": 3.5
+      },
+      {
+        "from": 14680.0,
+        "rate": 4.4
+      },
+      {
+        "from": 51130.0,
+        "rate": 5.3
+      },
+      {
+        "from": 323290.0,
+        "rate": 7.65
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "These figures are inflation-indexed but the latest published values take effect 2025-01-01, so they are 2025 figures, not 2026. The state had not released uprated brackets when this was extracted. Do not label them as 2026 on the site until confirmed."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "single": "rates/single.yaml",
+      "marriedJointly": "rates/joint.yaml",
+      "marriedSeparately": "rates/separate.yaml",
+      "headOfHousehold": "rates/head_of_household.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2021-01-01",
+      "2023-01-01",
+      "2025-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Wisconsin Tax Brackets, Rates, Forms, and Standard Deductions",
+        "url": "https://www.efile.com/wisconsin-tax-brackets-rates-and-forms/"
+      },
+      {
+        "title": "State of Wisconsin Department of Revenue",
+        "url": "https://www.revenue.wi.gov/Pages/FAQS/pcs-taxrates.aspx"
+      },
+      {
+        "title": "2023 I-010 Form 1 instructions",
+        "url": "https://www.revenue.wi.gov/TaxForms2023/2023-Form1-Inst.pdf#page=39"
+      },
+      {
+        "title": "2024 Form 1 instructions",
+        "url": "https://www.revenue.wi.gov/TaxForms2024/2024-Form1-inst.pdf#page=38"
+      },
+      {
+        "title": "2025 Form 1 instructions",
+        "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-inst.pdf#page=38"
+      }
+    ],
+    "inflationIndexed": true
+  },
+  "verification": "pending",
+  "staleForTargetYear": true
+}

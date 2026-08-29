@@ -1,0 +1,71 @@
+{
+  "slug": "utah",
+  "name": "Utah",
+  "abbr": "UT",
+  "taxYear": 2026,
+  "structure": "flat",
+  "brackets": {},
+  "flatRate": 4.45,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "flat": "rate.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2026-01-01"
+    ],
+    "sources": [
+      {
+        "title": "Utah Code 59-10-104 (2) (b)",
+        "url": "https://le.utah.gov/xcode/historical.html?date=1/1/2014&oc=/xcode/Title59/Chapter10/C59-10-S104_1800010118000101.html"
+      },
+      {
+        "title": "Utah Code 59-10-104 (2) (b)",
+        "url": "https://le.utah.gov/xcode/historical.html?date=5/8/2018&oc=/xcode/Title59/Chapter10/C59-10-S104_2018050820180508.html"
+      },
+      {
+        "title": "Utah Code 59-10-104 (2) (b)",
+        "url": "https://le.utah.gov/xcode/historical.html?date=8/17/2022&oc=/xcode/Title59/Chapter10/C59-10-S104_2022050420220504.html"
+      },
+      {
+        "title": "Utah Code 59-10-104 (2) (b)",
+        "url": "https://le.utah.gov/xcode/Title59/Chapter10/59-10-S104.html?v=C59-10-S104_2022050420220504"
+      },
+      {
+        "title": "Utah Code 59-10-104 (2) (b)",
+        "url": "https://le.utah.gov/xcode/Title59/Chapter10/59-10-S104.html?v=C59-10-S104_2024010120240501"
+      },
+      {
+        "title": "Utah Code 59-10-104 (2) (b)",
+        "url": "https://le.utah.gov/xcode/Title59/Chapter10/59-10-S104.html"
+      },
+      {
+        "title": "House Bill 106",
+        "url": "https://le.utah.gov/~2025/bills/static/HB0106.html"
+      },
+      {
+        "title": "House Bill 106 (Bill Text)",
+        "url": "https://le.utah.gov/Session/2025/bills/enrolled/HB0106.pdf#page=4"
+      },
+      {
+        "title": "2025 Utah TC-40 Instructions",
+        "url": "https://tax.utah.gov/forms/drafts/tc-40inst.pdf#page=10"
+      },
+      {
+        "title": "Utah SB60 (2026) - Income Tax Rate Amendments",
+        "url": "https://le.utah.gov/~2026/bills/static/SB0060.html"
+      },
+      {
+        "title": "Utah SB60 (2026) Enrolled Bill - Section 59-10-104",
+        "url": "https://le.utah.gov/Session/2026/bills/enrolled/SB0060.pdf#page=2"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}

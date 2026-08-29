@@ -1,0 +1,65 @@
+{
+  "slug": "kansas",
+  "name": "Kansas",
+  "abbr": "KS",
+  "taxYear": 2026,
+  "structure": "progressive",
+  "brackets": {
+    "marriedJointly": [
+      {
+        "from": 0.0,
+        "rate": 5.2
+      },
+      {
+        "from": 46001.0,
+        "rate": 5.58
+      }
+    ]
+  },
+  "flatRate": null,
+  "standardDeduction": {},
+  "surtax": null,
+  "localTaxNote": null,
+  "notes": [
+    "Latest change took effect 2024-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+  ],
+  "provenance": {
+    "extractedFrom": "policyengine-us",
+    "resolvedPaths": {
+      "marriedJointly": "rates/joint.yaml"
+    },
+    "valuesEffectiveFrom": [
+      "2018-01-01",
+      "2024-01-01"
+    ],
+    "sources": [
+      {
+        "title": "2022 Form K-40 instructions",
+        "url": "https://www.ksrevenue.gov/pdf/ip22.pdf"
+      },
+      {
+        "title": "2023 Form K-40 instructions",
+        "url": "https://www.ksrevenue.gov/pdf/ip23.pdf#page=32"
+      },
+      {
+        "title": "2024 Form K-40 instructions",
+        "url": "https://www.ksrevenue.gov/pdf/ip24.pdf#page=34"
+      },
+      {
+        "title": "2025 Form K-40 instructions",
+        "url": "https://www.ksrevenue.gov/pdf/ip25.pdf#page=34"
+      },
+      {
+        "title": "Kansas 2022 Statute Article 32 79-32,110_k",
+        "url": "http://www.kslegislature.org/li/b2023_24/statute/079_000_0000_chapter/079_032_0000_article/079_032_0110_section/079_032_0110_k/"
+      },
+      {
+        "title": "Kansas Notice 24-08 Changes to individual income tax",
+        "url": "https://www.ksrevenue.gov/taxnotices/notice24-08.pdf#page=2"
+      }
+    ],
+    "inflationIndexed": false
+  },
+  "verification": "pending",
+  "staleForTargetYear": false
+}
