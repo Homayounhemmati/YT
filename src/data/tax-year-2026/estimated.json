@@ -1,0 +1,87 @@
+{
+  "taxYear": 2026,
+  "installments": [
+    {
+      "period": "Q1",
+      "covers": "January 1 - March 31",
+      "statutoryDate": "2026-04-15",
+      "dueDate": "2026-04-15",
+      "dueDayOfWeek": "Wednesday",
+      "shifted": false,
+      "shiftReason": null,
+      "shareOfRequiredAnnualPayment": 25.0
+    },
+    {
+      "period": "Q2",
+      "covers": "April 1 - May 31",
+      "statutoryDate": "2026-06-15",
+      "dueDate": "2026-06-15",
+      "dueDayOfWeek": "Monday",
+      "shifted": false,
+      "shiftReason": null,
+      "shareOfRequiredAnnualPayment": 25.0
+    },
+    {
+      "period": "Q3",
+      "covers": "June 1 - August 31",
+      "statutoryDate": "2026-09-15",
+      "dueDate": "2026-09-15",
+      "dueDayOfWeek": "Tuesday",
+      "shifted": false,
+      "shiftReason": null,
+      "shareOfRequiredAnnualPayment": 25.0
+    },
+    {
+      "period": "Q4",
+      "covers": "September 1 - December 31",
+      "statutoryDate": "2027-01-15",
+      "dueDate": "2027-01-15",
+      "dueDayOfWeek": "Friday",
+      "shifted": false,
+      "shiftReason": null,
+      "shareOfRequiredAnnualPayment": 25.0
+    }
+  ],
+  "safeHarbor": {
+    "description": "No underpayment penalty if total withholding plus estimated payments meets the lesser of the two tests below.",
+    "currentYearPercent": 90.0,
+    "priorYearPercent": 100.0,
+    "priorYearPercentHighIncome": 110.0,
+    "highIncomeAgiThreshold": {
+      "single": 150000,
+      "marriedJointly": 150000,
+      "headOfHousehold": 150000,
+      "marriedSeparately": 75000
+    },
+    "thresholdInflationIndexed": false,
+    "minimumTaxDueForPenalty": 1000,
+    "notes": [
+      "The prior-year test requires that a return covering 12 months was filed for the prior year.",
+      "Withholding counts as paid evenly across the year regardless of when it was actually withheld, which is why increasing withholding late in the year can still cure an underpayment.",
+      "Farmers and fishermen follow a different schedule under section 6654(i)."
+    ]
+  },
+  "provenance": {
+    "derivedBy": "scripts/estimated_tax.py",
+    "method": "Dates computed from the statutory pattern in 26 U.S.C. 6654(c)(2) and the weekend/holiday rule in 26 U.S.C. 7503, not copied from a secondary source.",
+    "sources": [
+      {
+        "title": "26 U.S. Code 6654 - Failure by individual to pay estimated income tax",
+        "url": "https://www.law.cornell.edu/uscode/text/26/6654"
+      },
+      {
+        "title": "26 U.S. Code 7503 - Time for performance of acts where last day falls on Saturday, Sunday, or legal holiday",
+        "url": "https://www.law.cornell.edu/uscode/text/26/7503"
+      },
+      {
+        "title": "5 U.S. Code 6103 - Holidays",
+        "url": "https://www.law.cornell.edu/uscode/text/5/6103"
+      },
+      {
+        "title": "IRS Form 1040-ES (Estimated Tax for Individuals)",
+        "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf"
+      }
+    ]
+  },
+  "verification": "pending"
+}

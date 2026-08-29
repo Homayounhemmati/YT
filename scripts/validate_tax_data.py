@@ -134,6 +134,43 @@ def check_state(rep, d, year):
         rep.warn(w, "indexed figures predate tax year %d" % year)
 
 
+def check_estimated(rep, est, year):
+    w = "estimated"
+    if est.get("taxYear") != year:
+        rep.error(w, "taxYear is %s, expected %d" % (est.get("taxYear"), year))
+    rows = est.get("installments") or []
+    if len(rows) != 4:
+        rep.error(w, "expected 4 installments, found %d" % len(rows))
+    total = sum(r.get("shareOfRequiredAnnualPayment", 0) for r in rows)
+    if abs(total - 100.0) > 1e-9:
+        rep.error(w, "installment shares total %s%%, expected 100%%" % total)
+    prev = None
+    for r in rows:
+        due = r.get("dueDate")
+        if not due:
+            rep.error(w, "%s missing dueDate" % r.get("period"))
+            continue
+        d = datetime.datetime.strptime(due, "%Y-%m-%d").date()
+        if d.weekday() >= 5:
+            rep.error(w, "%s due date %s falls on a weekend" % (r["period"], due))
+        if prev and d <= prev:
+            rep.error(w, "%s due date %s not after previous" % (r["period"], due))
+        prev = d
+    sh = est.get("safeHarbor", {})
+    for f in ("currentYearPercent", "priorYearPercent", "priorYearPercentHighIncome"):
+        if not sh.get(f):
+            rep.error(w, "safe harbor missing %s" % f)
+    if sh.get("priorYearPercentHighIncome", 0) <= sh.get("priorYearPercent", 0):
+        rep.error(w, "high-income safe harbor must exceed the standard one")
+    thr = sh.get("highIncomeAgiThreshold", {})
+    if thr.get("marriedSeparately") != thr.get("single", 0) / 2:
+        rep.error(w, "MFS safe-harbor threshold should be half the single threshold")
+    if not est.get("provenance", {}).get("sources"):
+        rep.error(w, "no source links")
+    if est.get("verification") == "pending":
+        rep.warn(w, "values not yet checked against a primary source")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--year", type=int, default=2026)
@@ -150,6 +187,12 @@ def main():
         return 1
 
     check_federal(rep, json.loads((root / "federal.json").read_text()), args.year)
+
+    est_path = root / "estimated.json"
+    if est_path.exists():
+        check_estimated(rep, json.loads(est_path.read_text()), args.year)
+    else:
+        rep.error("estimated", "estimated.json missing — run scripts/estimated_tax.py")
 
     files = sorted((root / "states").glob("*.json"))
     if len(files) != 51:
