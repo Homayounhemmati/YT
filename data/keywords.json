@@ -1,0 +1,75 @@
+{
+  "$comment": "Single source of truth for every keyword measured in this project. Prose in docs/ must cite this file, never restate numbers. Regenerate the model with scripts/model_revenue.py after editing.",
+  "measuredAt": "2026-09-01",
+  "market": { "location": "United States", "language": "English" },
+  "source": {
+    "class": "search_index",
+    "confidence": 0.7,
+    "note": "Volume and CPC are estimates from a keyword index, not observed traffic. competition_level in the upstream data is Google Ads competition and says nothing about SEO difficulty; it is deliberately not carried over."
+  },
+  "funnelSteps": {
+    "place": "What does it cost to live there",
+    "compare": "How does it compare to where I am",
+    "income": "What would I need to earn",
+    "keep": "What would I actually keep",
+    "settle": "What it costs to actually move and settle"
+  },
+  "keywords": [
+    { "slug": "sales-tax-calculator",          "term": "sales tax calculator",          "volume": 110000, "cpc": 6.91, "step": "keep",    "entry": true,  "seasonal": false },
+    { "slug": "salary-to-hourly-calculator",   "term": "salary to hourly calculator",   "volume": 49500,  "cpc": 1.72, "step": "income",  "entry": true,  "seasonal": false },
+    { "slug": "hourly-to-salary",              "term": "hourly to salary calculator",   "volume": 49500,  "cpc": 0.88, "step": "income",  "entry": true,  "seasonal": false },
+    { "slug": "income-tax-calculator",         "term": "income tax calculator",         "volume": 90500,  "cpc": 2.13, "step": "keep",    "entry": true,  "seasonal": true  },
+    { "slug": "take-home-pay-calculator",      "term": "take home pay calculator",      "volume": 60500,  "cpc": 5.69, "step": "keep",    "entry": true,  "seasonal": false },
+    { "slug": "cost-of-living-calculator",     "term": "cost of living calculator",     "volume": 60500,  "cpc": 1.65, "step": "place",   "entry": true,  "seasonal": false },
+    { "slug": "cost-of-living-comparison",     "term": "cost of living comparison",     "volume": 49500,  "cpc": 0.97, "step": "compare", "entry": true,  "seasonal": false },
+    { "slug": "closing-cost-calculator",       "term": "closing cost calculator",       "volume": 40500,  "cpc": 6.18, "step": "settle",  "entry": true,  "seasonal": false },
+    { "slug": "house-payment-calculator",      "term": "house payment calculator",      "volume": 33100, "cpc": 2.29, "step": "settle",  "entry": true,  "seasonal": false },
+    { "slug": "paycheck-tax-calculator",       "term": "paycheck tax calculator",       "volume": 18100, "cpc": 4.48, "step": "keep",    "entry": true,  "seasonal": false },
+    { "slug": "tax-withholding-calculator",    "term": "tax withholding calculator",    "volume": 14800, "cpc": 5.78, "step": "keep",    "entry": true,  "seasonal": true  },
+    { "slug": "salary-comparison-by-city",     "term": "salary comparison by city",     "volume": 4400,  "cpc": 1.39, "step": "compare", "entry": true,  "seasonal": false },
+    { "slug": "salary-comparison",             "term": "salary comparison",             "volume": 3600,  "cpc": 11.23,"step": "compare", "entry": true,  "seasonal": false },
+    { "slug": "nyc-salary-calculator",         "term": "nyc salary calculator",         "volume": 9900,  "cpc": 3.43, "step": "income",  "entry": true,  "seasonal": false },
+    { "slug": "cost-of-living-comparison-calculator", "term": "cost of living comparison calculator", "volume": 3600, "cpc": 2.03, "step": "compare", "entry": true, "seasonal": false }
+  ],
+  "programmaticSets": [
+    {
+      "id": "us-metro-pages",
+      "template": "cost-of-living/{metro}",
+      "step": "place",
+      "$comment": "Per-page volumes observed: austin 3600, san francisco 2900, san antonio 1900, houston 1300+1900. Head metros run 1300-3600; the tail falls away fast.",
+      "observed": [
+        { "term": "cost of living in austin",        "volume": 3600, "cpc": 2.71 },
+        { "term": "cost of living in san francisco", "volume": 2900, "cpc": 0.89 },
+        { "term": "cost of living in san antonio",   "volume": 1900, "cpc": 8.85 },
+        { "term": "houston cost of living",          "volume": 1900, "cpc": 4.05 },
+        { "term": "cost of living in houston",       "volume": 1300, "cpc": 3.37 }
+      ],
+      "modelled": { "pages": 30, "medianVolume": 1500, "cpc": 2.50 }
+    },
+    {
+      "id": "us-state-tax-pages",
+      "template": "state-taxes/{state}",
+      "step": "keep",
+      "$comment": "Measured directly and found weak: california 210, texas 30. Kept because the dataset and engine already exist and they close the funnel, not because the volume justifies them.",
+      "observed": [
+        { "term": "self employment tax calculator california", "volume": 210, "cpc": 4.82 },
+        { "term": "self employment tax calculator texas",      "volume": 30,  "cpc": 10.08 }
+      ],
+      "modelled": { "pages": 51, "medianVolume": 40, "cpc": 3.00 }
+    }
+  ],
+  "excluded": [
+    { "term": "profit margin calculator", "volume": 110000, "cpc": 10.92, "reason": "out of context: does not answer the core sentence" },
+    { "term": "ebay fee calculator",      "volume": 40500,  "cpc": 12.23, "reason": "out of context" },
+    { "term": "compound interest calculator", "volume": 823000, "cpc": 1.74, "reason": "out of context" },
+    { "term": "inflation calculator",     "volume": 550000, "cpc": 2.97, "reason": "out of context" },
+    { "term": "investment calculator",    "volume": 450000, "cpc": 2.00, "reason": "out of context" },
+    { "term": "hours calculator",         "volume": 368000, "cpc": 4.58, "reason": "payroll tool, not a relocation question" },
+    { "term": "bmi calculator",           "volume": 2740000,"cpc": 0.58, "reason": "wrong vertical and low CPC" }
+  ],
+  "secondCluster": [
+    { "term": "self employment tax calculator", "volume": 9900,  "cpc": 5.01 },
+    { "term": "estimated tax calculator",       "volume": 27100, "cpc": 2.22, "seasonal": true },
+    { "term": "self-employment tax brackets",   "volume": 4400,  "cpc": 3.09 }
+  ]
+}
