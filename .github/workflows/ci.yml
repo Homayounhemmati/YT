@@ -24,6 +24,11 @@ jobs:
       - name: Validate tax dataset
         run: python3 scripts/validate_tax_data.py --year 2026
 
+      # Two pages competing for one query is invisible until it has already
+      # cost rankings. Catch it in the plan, not in Search Console.
+      - name: Cannibalisation and canonical audit
+        run: python3 scripts/audit_seo.py
+
       - name: Typecheck
         run: npm run typecheck
 

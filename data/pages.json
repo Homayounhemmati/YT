@@ -1,0 +1,179 @@
+{
+  "$comment": "Page-to-keyword map. Every page declares exactly one primary target. scripts/audit_seo.py enforces uniqueness and canonical correctness; the spec cites this file rather than restating it.",
+  "site": {
+    "origin": "https://example.com",
+    "trailingSlash": false,
+    "canonicalHost": "apex"
+  },
+  "pages": [
+    {
+      "path": "/",
+      "template": "Home",
+      "primary": null,
+      "note": "Brand and funnel entry. Deliberately targets no head keyword — competing with its own tools would be the worst cannibalisation of all.",
+      "canonical": "self"
+    },
+    {
+      "path": "/tools/cost-of-living-calculator",
+      "template": "ToolPage",
+      "primary": "cost of living calculator",
+      "secondary": [
+        "cost of living estimator"
+      ],
+      "output": "ماهانه: هزینه‌ی یک شهر برای خانوار کاربر",
+      "canonical": "self",
+      "stripsParams": true
+    },
+    {
+      "path": "/tools/cost-of-living-comparison",
+      "template": "ToolPage",
+      "primary": "cost of living comparison",
+      "secondary": [
+        "cost of living comparison calculator"
+      ],
+      "output": "دو مکان کنار هم: اختلاف هزینه + اختلاف مالیات + اختلاف واقعی",
+      "canonical": "self",
+      "stripsParams": true,
+      "paramNote": "?from=&to= فقط برای پرکردن اولیه. همیشه به نسخه‌ی بدون پارامتر canonical می‌شود."
+    },
+    {
+      "path": "/tools/job-offer-comparison",
+      "template": "ToolPage",
+      "primary": "job offer comparison",
+      "output": "دو پیشنهاد شغلی در دو شهر: کدام خالص بیشتری می‌دهد",
+      "canonical": "self",
+      "stripsParams": true
+    },
+    {
+      "path": "/tools/salary-converter",
+      "template": "ToolPage",
+      "primary": "salary comparison by city",
+      "output": "حقوق معادل در شهر مقصد برای حفظ همان سطح زندگی",
+      "canonical": "self",
+      "stripsParams": true
+    },
+    {
+      "path": "/tools/salary-to-hourly-calculator",
+      "template": "ToolPage",
+      "primary": "salary to hourly calculator",
+      "secondary": [
+        "hourly to salary calculator"
+      ],
+      "output": "تبدیل دوطرفه‌ی حقوق سالانه و نرخ ساعتی",
+      "canonical": "self",
+      "stripsParams": true,
+      "note": "دو کیورد، یک صفحه — چون یک ابزار دوطرفه است و تفکیکشان دو صفحه‌ی تقریباً یکسان می‌سازد."
+    },
+    {
+      "path": "/tools/income-tax-calculator",
+      "template": "ToolPage",
+      "primary": "income tax calculator",
+      "output": "**بدهی مالیاتی سالانه** + جدول براکت‌به‌براکت",
+      "canonical": "self",
+      "stripsParams": true
+    },
+    {
+      "path": "/tools/take-home-pay-calculator",
+      "template": "ToolPage",
+      "primary": "take home pay calculator",
+      "output": "**خالص سالانه و ماهانه** از حقوق ناخالص",
+      "canonical": "self",
+      "stripsParams": true
+    },
+    {
+      "path": "/tools/paycheck-tax-calculator",
+      "template": "ToolPage",
+      "primary": "paycheck tax calculator",
+      "output": "**خالص هر فیش حقوقی** به تفکیک دوره‌ی پرداخت (هفتگی/دوهفتگی/ماهانه)",
+      "canonical": "self",
+      "stripsParams": true
+    },
+    {
+      "path": "/tools/tax-withholding-calculator",
+      "template": "ToolPage",
+      "primary": "tax withholding calculator",
+      "output": "**چقدر باید در W-4 کسر شود** تا آخر سال بدهی/بازگشت صفر باشد",
+      "canonical": "self",
+      "stripsParams": true
+    },
+    {
+      "path": "/tools/sales-tax-calculator",
+      "template": "ToolPage",
+      "primary": "sales tax calculator",
+      "output": "مالیات فروش یک خرید در یک حوزه",
+      "canonical": "self",
+      "stripsParams": true
+    },
+    {
+      "path": "/tools/property-tax-calculator",
+      "template": "ToolPage",
+      "primary": "property tax calculator",
+      "output": "مالیات ملک سالانه بر اساس ارزش و حوزه",
+      "canonical": "self",
+      "stripsParams": true
+    },
+    {
+      "path": "/tools/closing-cost-calculator",
+      "template": "ToolPage",
+      "primary": "closing cost calculator",
+      "canonical": "self",
+      "stripsParams": true,
+      "output": "هزینه‌های یک‌باره‌ی بستن معامله‌ی خرید خانه"
+    },
+    {
+      "path": "/tools/house-payment-calculator",
+      "template": "ToolPage",
+      "primary": "house payment calculator",
+      "canonical": "self",
+      "stripsParams": true,
+      "output": "قسط ماهانه‌ی وام مسکن"
+    },
+    {
+      "path": "/cost-of-living",
+      "template": "DirectoryPage",
+      "primary": "cost of living by city",
+      "note": "دایرکتوری. عمداً کیورد ابزار را هدف نمی‌گیرد.",
+      "canonical": "self",
+      "output": "**فهرست پیمایشی** همه‌ی شهرها با شاخص — نقطه‌ی کشف، نه ماشین‌حساب"
+    },
+    {
+      "path": "/cost-of-living/{metro}",
+      "template": "PlacePage",
+      "primary": "cost of living in {metro}",
+      "canonical": "self",
+      "stripsParams": true,
+      "output": "پروفایل **یک شهر مشخص**: شاخص، اجاره، مالیات ایالتی‌اش"
+    },
+    {
+      "path": "/state-taxes",
+      "template": "DirectoryPage",
+      "primary": "state income tax rates by state",
+      "canonical": "self",
+      "output": "**جدول مقایسه‌ای نرخ‌های ۵۱ حوزه** در یک نگاه — نه ماشین‌حساب"
+    },
+    {
+      "path": "/state-taxes/{state}",
+      "template": "StateTaxPage",
+      "primary": "{state} income tax calculator",
+      "canonical": "self",
+      "stripsParams": true,
+      "output": "پروفایل مالیاتی **یک ایالت مشخص** + محاسبه با آن ایالت"
+    }
+  ],
+  "canonicalRules": [
+    "هر صفحه canonical مطلق و self دارد. هیچ صفحه‌ای به صفحه‌ی دیگری canonical نمی‌شود مگر صریحاً اینجا اعلام شده باشد.",
+    "همه‌ی پارامترهای کوئری از canonical حذف می‌شوند. پارامترها فقط وضعیت UI را حمل می‌کنند و هرگز محتوای متفاوتی نمی‌سازند.",
+    "بدون اسلش پایانی، در کل سایت. اسلش پایانی ۳۰۱ می‌شود به نسخه‌ی بدون اسلش.",
+    "فقط apex یا فقط www — یکی انتخاب و بقیه ۳۰۱. HTTP همیشه ۳۰۱ به HTTPS.",
+    "حروف کوچک در کل مسیر. مسیر با حرف بزرگ ۳۰۱ می‌شود.",
+    "صفحات گروه دایرکتوری canonical مستقل دارند، نه canonical به صفحه‌ی اول.",
+    "هیچ صفحه‌ای هم‌زمان canonical و noindex ندارد — سیگنال متناقض است."
+  ],
+  "differentiationRules": [
+    "**قاعده‌ی عمومی/موجودیتی — مهم‌ترین قاعده‌ی ضد-هم‌کانیبالی:** ابزار عمومی که انتخابگر مکان دارد، هرگز برای کوئری موجودیت‌دار بهینه نمی‌شود. `/tools/income-tax-calculator` هرگز «California» در title، H1، meta یا H2 ندارد؛ آن کوئری مال `/state-taxes/california` است. و برعکس: صفحه‌ی ایالتی هرگز برای کیورد عمومی بهینه نمی‌شود.",
+    "دایرکتوری در برابر ابزار: دایرکتوری **فهرست** است، ابزار **محاسبه**. دایرکتوری هرگز ماشین‌حساب کامل جاسازی نمی‌کند و ابزار هرگز فهرست کامل موجودیت‌ها را نمایش نمی‌دهد. اگر هر دو هر دو کار را بکنند، یکی باید حذف شود.",
+    "چهار ابزار خانواده‌ی حقوق (income tax · take-home · paycheck · withholding) خروجی اصلی متفاوت دارند و همان تفاوت باید در H1 و اولین جمله و عدد برجسته‌ی ResultCard دیده شود — نه فقط در URL.",
+    "هیچ صفحه‌ای برای کیوردی که در `data/keywords.json` نیست بهینه نمی‌شود. کیورد اندازه‌گیری‌نشده یعنی هدف اثبات‌نشده.",
+    "بازبینی ماهانه‌ی Search Console: اگر دو URL ما برای یک کوئری impression بگیرند، ظرف همان ماه یکی تغییر هدف می‌دهد یا canonical می‌شود. تأخیر در این کار، هر دو را پایین می‌کشد."
+  ]
+}
