@@ -161,6 +161,24 @@
       "step": "settle",
       "entry": true,
       "seasonal": true
+    },
+    {
+      "slug": "cost-of-living-by-city",
+      "term": "cost of living by city",
+      "volume": 880,
+      "cpc": 1.22,
+      "step": "place",
+      "entry": true,
+      "seasonal": false
+    },
+    {
+      "slug": "state-income-tax-rates",
+      "term": "state income tax rates by state",
+      "volume": 3600,
+      "cpc": 2.79,
+      "step": "keep",
+      "entry": true,
+      "seasonal": false
     }
   ],
   "programmaticSets": [
@@ -286,6 +304,15 @@
       "term": "self-employment tax brackets",
       "volume": 4400,
       "cpc": 3.09
+    }
+  ],
+  "rejected": [
+    {
+      "term": "job offer comparison calculator",
+      "volume": 30,
+      "cpc": 7.13,
+      "decision": "صفحه‌ی اختصاصی ساخته نمی‌شود",
+      "reason": "۳۰ جستجو در ماه. قاعده‌ی بخش ۱۸-۱: صفحه برای هدف اثبات‌نشده ساخته نمی‌شود. قابلیتش به‌عنوان یک حالت داخل ابزار مقایسه می‌ماند."
     }
   ]
 }

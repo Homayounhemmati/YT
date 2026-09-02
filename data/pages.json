@@ -34,15 +34,12 @@
       "output": "دو مکان کنار هم: اختلاف هزینه + اختلاف مالیات + اختلاف واقعی",
       "canonical": "self",
       "stripsParams": true,
-      "paramNote": "?from=&to= فقط برای پرکردن اولیه. همیشه به نسخه‌ی بدون پارامتر canonical می‌شود."
-    },
-    {
-      "path": "/tools/job-offer-comparison",
-      "template": "ToolPage",
-      "primary": "job offer comparison",
-      "output": "دو پیشنهاد شغلی در دو شهر: کدام خالص بیشتری می‌دهد",
-      "canonical": "self",
-      "stripsParams": true
+      "paramNote": "?from=&to= فقط برای پرکردن اولیه. همیشه به نسخه‌ی بدون پارامتر canonical می‌شود.",
+      "modes": [
+        "مقایسه‌ی دو مکان با درآمد یکسان",
+        "**مقایسه‌ی دو پیشنهاد شغلی** — درآمد متفاوت در دو مکان"
+      ],
+      "note": "حالت پیشنهاد شغلی اینجاست نه در صفحه‌ی جدا: «job offer comparison calculator» فقط ۳۰ جستجو در ماه دارد."
     },
     {
       "path": "/tools/salary-converter",
