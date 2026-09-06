@@ -3,19 +3,21 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 4.7
+> **Last revised:** 2026-09-06 · **Version:** 4.8
 >
-> **Version 4.7:** The whole document set moved to English. The site is English, the data is English, and now the spec is too — one language across the project, and reviewable by anyone. Details in 19-14.
+> **Version 4.8:** The crawl-render-index stage of SEO, enforced — click depth, orphans and funnel cul-de-sacs are now computed from a declared link graph. Plus the five sections that had not caught up with the version 4 identity change, and a deployment/launch/recovery section. Details in 20-15.
 >
-> **Version 4.6:** The language boundary became enforceable — every shipping file is English, gated by `check_language.py` in CI. Details in 19-13.
+> **Version 4.7:** The whole document set moved to English. The site is English, the data is English, and now the spec is too — one language across the project, and reviewable by anyone. Details in 20-14.
 >
-> **Version 4.5:** Title/meta/H1 formulas per template, internal anchor text, per-template JSON-LD, robots and OG image — all as data in `data/pages.json` and enforced in CI. Details in 19-12.
+> **Version 4.6:** The language boundary became enforceable — every shipping file is English, gated by `check_language.py` in CI. Details in 20-13.
 >
-> **Version 4.2:** Tool depth (tax inside comparison · household size · social contributions) · two new tools · and six SEO gaps, the largest of which was external link building. Details in 19-9.
+> **Version 4.5:** Title/meta/H1 formulas per template, internal anchor text, per-template JSON-LD, robots and OG image — all as data in `data/pages.json` and enforced in CI. Details in 20-12.
 >
-> **Version 4.1:** Numbers moved from prose to reproducible computation (`data/keywords.json` + `scripts/model_revenue.py`); the programmatic architecture gained an entity model, a generation gate, a uniqueness budget and a link graph; section 6 was rewritten around the funnel. Details in 19-8.
+> **Version 4.2:** Tool depth (tax inside comparison · household size · social contributions) · two new tools · and six SEO gaps, the largest of which was external link building. Details in 20-9.
 >
-> **Version 4:** The core identity changed to "the real cost of living in a place — and what you actually keep". The tools are a funnel, not a list; session depth entered the revenue model; the context boundary became explicit and five tools outside it were removed. Details in section 19-7.
+> **Version 4.1:** Numbers moved from prose to reproducible computation (`data/keywords.json` + `scripts/model_revenue.py`); the programmatic architecture gained an entity model, a generation gate, a uniqueness budget and a link graph; section 6 was rewritten around the funnel. Details in 20-8.
+>
+> **Version 4:** The core identity changed to "the real cost of living in a place — and what you actually keep". The tools are a funnel, not a list; session depth entered the revenue model; the context boundary became explicit and five tools outside it were removed. Details in section 20-7.
 >
 > **What version 3 added:** Section 4 was reconciled with the engine that was actually built; the tool page template, calculator UX, design tokens, URL rules and the ad placement map were added; plus four strategic sections that were missing entirely: competitive position, measurement, the annual runbook, and risks.
 
@@ -37,13 +39,14 @@
 | 10 | AdSense + ad placement map | |
 | 11 | Timeline and decision gates | |
 | 12 | Definition of done | |
-| 13 | Tax data — status and verification | ✅ extracted · ⬜ verified |
+| 13 | Data status and verification | Tax ✅ extracted · ⬜ verified · Cost of living ⬜ not acquired |
 | 14 | Competitive position | |
 | 15 | Measurement and instrumentation | |
 | 16 | Annual update runbook | |
 | 17 | Risks | |
 | 18 | Process for adding a new tool | |
-| 19 | Changelog | |
+| 19 | Deployment, launch and recovery | |
+| 20 | Changelog | |
 
 ### Related documents
 
@@ -269,7 +272,7 @@ Every stage answers the core sentence. The order runs from "what does it cost" t
 
 ### 2-4. Cost of living — data and page shapes (now the core, not stage 2.5)
 
-> This cluster went from "rejected" to **the core of the project**. Its path is recorded in sections 19-5 and 19-7.
+> This cluster went from "rejected" to **the core of the project**. Its path is recorded in sections 20-5 and 20-7.
 
 **I underestimated this cluster three times, and all three were my error:** first I rejected it without measuring; then I measured the wrong keyword (3,600, a long tail); then only the head term (60,500) without the cluster. The real cluster figure is **158,000 searches a month**.
 
@@ -371,6 +374,13 @@ src/
     index.ts                   ✅ orchestrator, the only public entry point
     load.ts                    ✅ JSON loading, kept separate so the engine stays pure
     __tests__/engine.test.ts   ✅ 59 tests
+
+  lib/cost-of-living/          ⬜ the second engine (section 4-9)
+    indices.ts                    category scaling from official index ratios
+    household.ts                  HUD FMR + BLS household size, no invented multipliers
+    compare.ts                    two places, including the tax difference (4-9-5)
+    load.ts  __tests__/
+  data/cost-of-living-2026/    ⬜ blocked on BEA/HUD access (section 13-6)
 
   app/                         ⬜
     layout.tsx  page.tsx
@@ -1666,33 +1676,52 @@ The main difference from the previous document: **the validation phase genuinely
 
 | Month | Work | Output |
 |---|---|---|
-| **September (week 1)** | ✅ Keyword validation (done) · extract 13 tax data items from primary sources · register the domain · set up GSC | Tax data in JSON |
-| **September** | Tax engine + golden tests · 7 trust pages | A tested engine |
-| **October** | 5 layer-1 tools · the first 3 guides · 8 state pages | **Gate 1** |
-| **November** | 3 W-2 cluster tools · the remaining 6 guides · apply to AdSense | AdSense approved |
-| **December** | 🎯 **Everything must be published and indexed** · link push · season preparation | **Gate 2** |
-| **January–April** | Tax season: peak traffic · live optimisation from GSC · no large new pages | **Gate 3** (end of April) |
-| **May onward** | Per gate 3: expand the states or deepen the W-2 cluster | |
+| **1** | ✅ Keyword validation · ✅ tax engine · ✅ datasets and auditors · register the domain · GSC before anything ships · Next.js skeleton · 7 trust pages | An indexable shell |
+| **1–2** | **Acquire and verify the cost-of-living dataset** (BEA RPP · HUD FMR · BLS CPI) — the blocking dependency for everything downstream | A verified place dataset |
+| **2** | **Stage 1 — place:** cost-of-living calculator · `/cost-of-living` directory · **5 sample metros** | **Gate 1** |
+| **3** | **Stages 2–3 — comparison and income:** comparison tool · salary converter · salary↔hourly · apply to AdSense | AdSense approved |
+| **4** | **Stage 4 — what you keep:** the six tax tools (engine already built) · `/state-taxes` · 8 state pages · first 3 guides | **Gate 2** |
+| **5** | Per gate 1: expand metros 5 → 30 · remaining guides · link building begins in earnest | 30 place pages |
+| **6+** | **Stage 5 — settling:** house payment · closing cost · expand states per gate 2 | Full phase 1 |
+| **Tax season (Jan–Apr)** | Live optimisation from GSC · no large new pages · the stage 4 pages take their seasonal peak | **Gate 3** |
 
-**A note on order:** if time capacity runs short, cut from the end — state pages first, then guides. **The 5 layer-1 tools and the 7 trust pages are never cut**; without them there is neither AdSense approval nor traffic.
+**The order changed in version 4 and this table had not caught up.** It used to
+schedule the freelancer tax tools first, which contradicts rule 1 of section
+2-3: no tool ships before the tools of the stage above it. A take-home page
+without a cost-of-living page is just one more calculator — it has no funnel to
+sit in, and the funnel is worth +105% revenue (section 1-4).
+
+The tax engine being finished does not change the order. It changes the *cost*
+of stage 4, not its position.
+
+**The one hard dependency:** stage 1 cannot start until the cost-of-living
+dataset exists. That is currently the project's critical path and the only item
+here that is genuinely blocked (section 13-6).
+
+**A note on order:** if time capacity runs short, cut from the end — stage 5 first, then the extra state pages, then guides. **Stage 1, stage 4 and the 7 trust pages are never cut**: stage 1 is the funnel entrance, stage 4 is the moat and the revenue, and without the trust pages there is no AdSense approval at all.
 
 ### 11-1. Decision gates — numeric criteria, not feelings
 
-**Gate 1 (end of October) — "are we being indexed at all?"**
-Three to four weeks after publishing the 8 sample pages:
-- ✅ **Continue:** at least 6 of the 8 are indexed and taking impressions
-- ⚠️ **Pause and fix:** indexed but zero impressions → the problem is keyword selection, not technical. Review the keywords before building the next 43 pages
+**Gate 1 — "are we being indexed at all?"**
+Three to four weeks after the 5 sample metro pages ship (section 6-10-7):
+- ✅ **Continue:** at least 4 of the 5 are indexed and taking impressions → expand to 30 metros
+- ⚠️ **Pause and fix:** indexed but zero impressions → the problem is keyword selection, not technical. Review before building the next 25
 - ❌ **Stop and reconsider:** not indexed → a technical or content-quality problem. **Do not scale under any circumstances.** Scaling an indexation problem multiplies it
 
-**Gate 2 (end of December) — "are we ready for the season?"**
-- ✅ All layer 1 and 1.5 pages indexed, AdSense approved, monthly organic traffic above 1,000 visits and rising
-- ⚠️ Under 500 → stop and focus solely on distribution and links until January, not more pages. Entering the season with unindexed pages is pointless
-- Check: are the state pages cannibalising each other? Is there a keyword sitting at position 11–20 that a small push would move to page one?
+Read this per sitemap, not site-wide (section 6-8-6): "90% of tools indexed,
+20% of place pages" means the `PlacePage` template is at fault, not the site.
 
-**Gate 3 (end of April 2027, after tax season) — "is phase 2 justified?"**
-- ✅ **Go to phase 2:** season peak above $300/month and an out-of-season base above $100 → expand
-- ⚠️ **Go deeper, not wider:** $30–100 → deepen the same tax niche. Adding a second niche on a weak base weakens both
+**Gate 2 — "is the funnel actually working?"**
+- ✅ Stage 1 to 4 pages indexed, AdSense approved, monthly organic traffic above 1,000 and rising
+- ⚠️ Under 500 → stop building and focus solely on distribution and links (section 9-5). More pages do not fix a distribution problem
+- **The funnel check, which is unique to this gate:** pages per session above **1.5** and rising toward 2.2. This is the assumption the entire revenue model rests on (section 1-4), and gate 2 is the first point at which it can be measured rather than assumed. If it is stuck at 1.1, the internal links are not doing their job and no amount of traffic compensates
+- Check: are any two pages cannibalising? Is a keyword sitting at position 11–20 that a small push would move to page one?
+
+**Gate 3 (end of April, after tax season) — "is phase 2 justified?"**
+- ✅ **Go to phase 2:** season peak above $300/month and an out-of-season base above $100 → expand metros to 100+, evaluate country-level
+- ⚠️ **Go deeper, not wider:** $30–100 → deepen the existing cluster. Adding a second niche on a weak base weakens both
 - ❌ **Fundamental review:** under $30 → the core assumption was wrong. Analyse where before investing further
+- Also evaluate here, and not before: migrating to a premium ad network (section 10-5)
 
 ### 11-2. Time capacity — honestly
 
@@ -1768,11 +1797,16 @@ Tool pages are the core of the business and carry extra conditions:
 
 ---
 
-## 13. Tax data — status and verification
+## 13. Data status and verification
 
-**No tax figure is written in this document.** The numbers live only in `src/data/tax-year-{year}/`, alongside their source and date.
+**No figure is written in this document.** The numbers live only in
+`src/data/`, alongside their source and date.
 
-### 13-1. Current status (2026-08-29)
+Sections 13-1 to 13-5 cover the tax dataset, which exists and is unverified.
+Section 13-6 covers the cost-of-living dataset, which does not exist yet and is
+the project's critical path.
+
+### 13-1. Tax data — current status (2026-08-29)
 
 | Item | Status |
 |---|---|
@@ -1823,6 +1857,44 @@ These are the things a naive extraction would have got wrong:
 
 ---
 
+### 13-6. The cost-of-living dataset — not yet acquired, and on the critical path
+
+Everything above concerns tax. The project has a second dataset, and it does not
+exist yet.
+
+| Item | Status |
+|---|---|
+| BEA Regional Price Parities (state + metro) | ⬜ Not acquired |
+| HUD Fair Market Rent (county, by bedroom count) | ⬜ Not acquired |
+| BLS regional CPI | ⬜ Not acquired |
+| Eurostat comparative price levels | ⬜ Next phase (section 2-4-2) |
+| `scripts/extract_cost_of_living.py` | ⬜ Not written |
+| Cost-of-living equivalent of `validate_tax_data.py` | ⬜ Not written (required by section 5-5) |
+
+**Why it is blocked here and not in reality:** `.gov` domains are unreachable
+from this development sandbox — the same limitation that made the tax data
+secondary rather than primary (13-3). All three US sources publish free,
+machine-readable, licence-clean data. This is an environment constraint, not a
+project one, and it is the first thing to resolve outside the sandbox.
+
+**Why it matters more than the tax verification backlog:** the tax dataset
+exists and is merely unverified. This one does not exist at all, and stage 1 of
+the roadmap cannot start without it (section 11). It is the project's critical
+path, and risk 11 in section 17 is about it.
+
+**The rules it must satisfy on arrival** are already written and are not
+negotiable on the grounds of convenience:
+
+- No derived value stored (5-3, rule 1)
+- One written definition per column (5-3, rule 2)
+- **A category with no official index is dropped, not filled with a substitute
+  number** (5-3 rule 3, 4-9-1) — this is the rule that the original dataset's
+  fabricated insurance column broke
+- Indices carry their vintage year, and it is displayed (16-2-1)
+- `lastVerified` under 18 months, since BEA publishes annually (5-5)
+
+---
+
 ## 14. Competitive position
 
 The SERP analysis (research document, section 3) revealed something that determines the content strategy.
@@ -1852,6 +1924,44 @@ For `self employment tax calculator`, six of the top ten positions are **white-l
 
 For this niche that sentence is usually one of: **it has real state tax** · **it shows exactly where your money went** · **it tells you your next payment date** · **it says what it does not know**.
 
+### 14-4. The place cluster — the SERP that has not been analysed
+
+Sections 14-1 to 14-3 analyse the SERP for `self employment tax calculator`.
+That was the core keyword when they were written. **It no longer is.** Stage 1
+is the place cluster, and its SERP has never had the same treatment.
+
+What is actually known, and no more than this:
+
+| Fact | Source |
+|---|---|
+| `costbycity.com` ranks position 10 for `cost of living by city`, on BEA RPP — our exact concept and data source | Live check, section 2-2-4 |
+| `realtakehomepay.com` compares job offers by take-home pay across 50 states | Live check, section 2-2-4 |
+| `cost of living calculator` is 60,500/month at $1.65; `cost of living comparison` is 49,500 at $0.97 | `data/keywords.json` |
+
+**What is not known**, and must be before stage 1 ships:
+
+- Who holds the top ten for `cost of living calculator` and `cost of living
+  comparison`. NerdWallet and Bankrate almost certainly appear, but "almost
+  certainly" is the kind of claim this document has been wrong with three times
+  on this exact cluster (section 20-5)
+- Whether an AI Overview fires on those keywords, which sets the traffic model's
+  penalty for the largest part of the funnel
+- What the top-ranking city pages actually contain, which determines whether the
+  uniqueness budget in 6-10-4 is sufficient or generous
+
+**This is gate zero for stage 1** (section 18-1 applies the same rule to every
+new tool): the SERP is checked before the pages are built, not after. It is
+listed here as an open item rather than filled with a plausible-looking table,
+because a fabricated competitive analysis is worse than an absent one — it gets
+believed.
+
+**The one structural read that does hold:** both known competitors are small
+sites, and both rank. That is the same signal as `sdocpa.com` and `taxstra.com`
+in the tax SERP, and it is the strongest evidence the project has that a niche
+site can win here. It also means we are not first, and our claim is the
+intersection rather than either half.
+
+
 ---
 
 ## 15. Measurement and instrumentation
@@ -1877,6 +1987,9 @@ A calculator without instrumentation is a black box — you cannot tell where th
 | `calc_advanced_opened` | Are the advanced fields worth it, or just clutter? |
 | `result_shared` | Does the share button genuinely open a traffic route? |
 | `state_changed` | Which states are actually selected? **A direct input to the decision to build the ninth state page** |
+| `place_changed` (metro) | Which metros are actually selected — including ones we have no page for. **The gate in 6-10-3 asks whether a metro deserves a page; this answers it with our own users rather than an external volume estimate** |
+| `comparison_run` (mode) | Is the job-offer mode used enough to justify the extra inputs (section 6-1)? |
+| `funnel_step` (from → to) | Which link in the funnel actually gets clicked, and which one breaks the chain |
 | `warning_shown` (type) | Which limitation hits real users most? That sets the fix priority |
 
 **Rule:** no personal data and no financial value is ever recorded — only the field name and the event. Calculations stay client-side and we say so in `/privacy`; in a finance niche that is itself an advantage.
@@ -1889,7 +2002,9 @@ Every month, just these numbers:
 2. **Pages with high impressions and low CTR** — a title/description problem, not a content problem
 3. **Pages with high entries and low `calc_interact`** — the calculator is not being found, or it intimidates
 4. **RPM by page** — which cluster actually pays
-5. **Is there a keyword that refutes a section 6 assumption?**
+5. **Pages per session, and which funnel link produced it** — from `funnel_step`. This is the number the revenue model is most sensitive to (section 1-4), so it is reviewed monthly rather than at gates only
+6. **Top `place_changed` metros with no page yet** — the cheapest page decisions available, because the demand is already measured on our own site
+7. **Is there a keyword that refutes a section 6 assumption?**
 
 ---
 
@@ -1956,6 +2071,9 @@ Stated honestly, each with a specific mitigation. A risk that is not written dow
 | 8 | **Seasonality does not deliver the monthly target** | High | Stages 1.5 and 3 (section 2-3), which bring seasonless keywords |
 | 9 | **The annual update is forgotten** | High | Section 16 + breaking the build after 400 days |
 | 10 | **Project scope drifts toward "life"** | High | Section 2-2: maths and health are explicitly out of scope |
+| 11 | **The cost-of-living dataset cannot be acquired or is unusable** | **Fatal — it is the critical path** | It is stage 1 and everything downstream depends on it (section 11). BEA, HUD and BLS all publish free, machine-readable, licence-clean data, so the risk is effort and shape, not availability. Mitigation: build it against 5 metros first and only then commit to 30. If it genuinely fails, the fallback is a tax-first site — which section 1-4 shows caps around $250/month, so this risk is the difference between the target and half of it |
+| 12 | **BEA or HUD changes its methodology or release cadence** | Medium | Section 16-2-1 already expects a publication lag. The indices are stored with their vintage year and displayed with it, so a methodology change is visible rather than silent |
+| 13 | **A competitor with authority copies the tax-plus-cost intersection** | Medium | `costbycity.com` and `realtakehomepay.com` each hold one half already (section 2-2-4). The defence is not secrecy — it is being first to depth and earning the links (section 9-5) while the intersection is still empty |
 
 ### 17-1. Early warning signs
 
@@ -1988,6 +2106,7 @@ The catalogue has 36 tools and 12 are in phase 1 — meaning **24 iterations** o
 ### 18-3. Logic
 
 - [ ] If it is tax-related: it uses `src/lib/tax/` and **writes no new tax logic** (rule 3-4-1)
+- [ ] If it is place-related: it uses `src/lib/cost-of-living/` and **invents no dollar amount for any place** (rule 4-9-1)
 - [ ] If it needs data: it has a primary source, in JSON with `sources` and `lastVerified`
 - [ ] If it is simple arithmetic: in `src/lib/calc/{name}.ts`, a pure function
 - [ ] It has tests — even simple arithmetic. `margin = (price − cost) / price` can be written wrong too
@@ -1998,6 +2117,8 @@ The catalogue has 36 tools and 12 are in phase 1 — meaning **24 iterations** o
 - [ ] The template in section 8-8 · the defaults in section 8-9 · **never an empty form**
 - [ ] The content brief in section 7-2-1 (600–900 words)
 - [ ] Links to at least 3 internal pages · and is linked from at least 2
+- [ ] **It is added to `data/pages.json` with its funnel stage and its links**, and `audit_seo.py` passes — otherwise it is an orphan on the day it ships (section 9-6-1)
+- [ ] It links to at least one page outside its own funnel stage
 - [ ] The events in section 15-2 are recorded
 - [ ] It appears in `sitemap.ts` (automatically, from the registry)
 
@@ -2018,7 +2139,133 @@ The catalogue has 36 tools and 12 are in phase 1 — meaning **24 iterations** o
 
 ---
 
-## 19. Changelog
+## 19. Deployment, launch and recovery
+
+Written after an audit found this had zero coverage: the document specified what
+to build and how it should rank, and nothing about putting it on the internet.
+Most of what follows has a direct SEO consequence, which is why it is here
+rather than in a README.
+
+### 19-1. Hosting
+
+**Cloudflare Pages**, with Vercel as the fallback. Both serve a static export
+free; the reasons for the default:
+
+| | Why it matters here |
+|---|---|
+| A real 404 status from `404.html` | Section 9-6-5 depends on it, and getting it wrong is silent |
+| Custom response headers via `_headers` | HSTS and cache-control without a server |
+| Unmetered bandwidth | Tax season is a 3–5× traffic spike (section 4) on a free tier |
+| Global edge by default | LCP against the 2.0 s budget (section 12) from the first deploy |
+
+**Whichever is chosen is verified, not assumed.** The 404-status behaviour in
+particular differs between hosts and between their own configurations.
+
+### 19-2. Pre-launch verification — run against the live domain
+
+Every one of these has been an SEO incident on somebody's site. They are cheap
+to check once and expensive to discover from a traffic graph.
+
+```bash
+curl -sI https://DOMAIN/nonexistent-page   | head -1   # must be 404, not 200
+curl -sI https://DOMAIN/                   | head -1   # must be 200
+curl -sI http://DOMAIN/                    | head -1   # must be 301 to https
+curl -sI https://DOMAIN/tools/             | head -1   # must be 301 to no-slash
+curl -sI https://DOMAIN/TOOLS              | head -1   # must be 301 to lowercase
+curl -s  https://DOMAIN/robots.txt                     # must not disallow content
+curl -s  https://DOMAIN/sitemap.xml        | head -20  # must list the child sitemaps
+curl -s  https://DOMAIN/state-taxes/california | grep -c "California"   # content in HTML
+```
+
+| Check | Failure mode if skipped |
+|---|---|
+| 404 returns 404 | Soft 404s across the whole directory; Google stops trusting it |
+| One host only (apex **or** www) | The entire site indexed twice, authority split |
+| HTTP → HTTPS 301 | A redirect hop on every cold visit, measurable in LCP |
+| Trailing slash canonicalised | Every URL indexable in two forms |
+| `robots.txt` does not block content | The single most common catastrophic launch bug |
+| Content present in `curl` output | The SPA failure mode section 3-2 exists to prevent |
+| **Staging is not indexable** | See below — this one is the worst |
+
+> ⚠️ **The staging trap.** A preview deployment on a public URL, with content
+> identical to production, is a duplicate of the entire site. Cloudflare and
+> Vercel both create preview URLs by default. **Preview deployments must be
+> password-protected**, not merely `noindex` — `noindex` on a preview still lets
+> it be crawled and linked, and it is one misconfiguration away from being
+> indexed instead of production.
+
+### 19-3. Headers
+
+```
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Cache-Control: public, max-age=0, must-revalidate      # HTML
+Cache-Control: public, max-age=31536000, immutable     # hashed assets
+```
+
+HTML must not be cached hard: an annual data update (section 16) that sits
+behind a month-long cache is a page showing last year's tax brackets under this
+year's heading — the exact failure section 13-4 exists to prevent.
+
+### 19-4. Launch sequence
+
+Order matters, and two of these cannot be done late.
+
+1. **Search Console verified before the first content page is public.** Position
+   and impression history cannot be backfilled; every day without it is data
+   permanently lost (section 15-1).
+2. Trust pages live (section 6-3) — before content, because AdSense review looks
+   for them and because a site of calculators with no About page is a YMYL red flag.
+3. Stage 1 pages ship, and the pre-launch checks in 19-2 run against the live domain.
+4. Sitemaps submitted, one per template, so gate 1 can be read per template.
+5. **Wait three to four weeks.** Gate 1 is a measurement, and there is nothing to
+   measure before Google has had time to crawl. Building the next 25 metros during
+   this window is exactly what section 6-10-7 forbids.
+6. AdSense application only after 30–40 complete pages exist (section 10-1).
+7. Batch publication thereafter: **at most 10 pages a week**, per section 6-10-7.
+
+### 19-5. Monitoring
+
+At this size, monitoring is four things, not a platform:
+
+| Signal | Why | Cadence |
+|---|---|---|
+| Uptime and status code on the home page and one place page | A site returning 5xx during a crawl gets pages dropped from the index, and recovery is slow | Continuous, any free checker |
+| GSC **Page indexing** report | The first place a template-wide failure appears | Weekly to gate 2, then monthly |
+| GSC **Crawl stats** | Our only crawl telemetry — static hosting gives no logs (section 9-6-2) | Monthly |
+| Core Web Vitals field data | The budget in section 12 is a lab number; this is the real one | Monthly |
+
+### 19-6. Recovery
+
+**A bad deploy.** Both hosts keep previous deployments and can roll back to one
+in about a minute. That is the response — diagnose afterwards, not first. A
+static site has no partial-failure state: the previous build is known good.
+
+**Wrong data shipped.** Roll back the deployment, then fix the dataset, then
+re-run `validate_tax_data.py --strict` before redeploying. Do not hot-fix a
+number in a JSON file on a branch that has not passed the validator; that is how
+a second wrong number ships behind the first.
+
+**Accidental deindexation** (a `robots.txt` or `noindex` mistake): fix, redeploy,
+then request validation in Search Console rather than waiting. Recovery is
+typically days to weeks, and the cost is real — which is why 19-2 checks
+`robots.txt` on every launch and after any host configuration change.
+
+**AdSense suspension.** Ads stop; the site does not. Do not react by changing
+ad density or placement (section 10-4) before reading the stated reason —
+guessing at a policy violation usually adds a second one. The traffic and the
+rankings are unaffected, which is the argument for never letting ad revenue
+drive a structural decision.
+
+**What has no recovery path**, and therefore gets the care up front: a changed
+URL after indexation (section 6-7), a lost Search Console history, and a
+dishonest `lastmod` (section 9-6-4) — Google's distrust of that field is
+site-wide and not quickly undone.
+
+---
+
+## 20. Changelog
 
 | # | Fault in the previous document | Correction |
 |---|---|---|
@@ -2038,7 +2285,7 @@ The catalogue has 36 tools and 12 are in phase 1 — meaning **24 iterations** o
 | 14 | No testing requirement for the tax logic | Section 4-7, non-negotiable |
 | 15 | Guessed household multipliers `{single:1, couple:1.6}` | Four real filing statuses with a documented mathematical effect |
 
-### 19-1. Round two — after keyword validation (2026-08-29)
+### 20-1. Round two — after keyword validation (2026-08-29)
 
 These were faults in **my own rewrite**, revealed only by real data:
 
@@ -2053,7 +2300,7 @@ These were faults in **my own rewrite**, revealed only by real data:
 | 22 | AI Overviews were absent from the document | Made an explicit design target | taxstra.com is cited above TaxAct |
 | 23 | "$500 from the tax niche" | The self-employment niche caps at ~$250 | The traffic model, research document section 6 |
 
-### 19-2. Round three — version 3.0
+### 20-2. Round three — version 3.0
 
 After the engine was built, the document's own gaps became visible:
 
@@ -2072,7 +2319,7 @@ After the engine was built, the document's own gaps became visible:
 | 34 | No risk was written down | Section 17, with early warning signs |
 | 35 | The directory structure did not match reality | Section 3-3 with ✅/⬜ markers |
 
-### 19-3. Round four — version 3.1
+### 20-3. Round four — version 3.1
 
 One correct piece of pushback, which exposed a hidden assumption.
 
@@ -2086,7 +2333,7 @@ One correct piece of pushback, which exposed a hidden assumption.
 | 41 | Layer A added to phase 1, **in parallel rather than after** | 4 tools, 38 pages instead of 34 |
 | 42 | The head cluster went from 1.2 to 3.6 million | The share needed for $500 fell from 1.2% to **0.8%** |
 
-### 19-4. Round five — version 3.2
+### 20-4. Round five — version 3.2
 
 | # | Item | Outcome |
 |---|---|---|
@@ -2095,7 +2342,7 @@ One correct piece of pushback, which exposed a hidden assumption.
 | 45 | The phase 1 inventory had never been counted | Section 6-0: **39 pages, 12 tools** |
 | 46 | `hours calculator` is the catalogue's highest market value and was not on the map | Category A, high priority |
 
-### 19-5. Round six — version 3.3
+### 20-5. Round six — version 3.3
 
 | # | Item | Outcome |
 |---|---|---|
@@ -2107,7 +2354,7 @@ One correct piece of pushback, which exposed a hidden assumption.
 
 **The methodological lesson of this round:** when rejecting a cluster, measure the head keyword **and** the cluster around it. Three consecutive underestimates, each from measuring a narrower slice of reality than existed.
 
-### 19-6. Round seven — version 3.4
+### 20-6. Round seven — version 3.4
 
 A document audit found five gaps, the most important of which the previous round had created itself.
 
@@ -2115,14 +2362,14 @@ A document audit found five gaps, the most important of which the previous round
 |---|---|---|
 | 52 | **Cost of living had zero mentions in 6 sections** — the document disagreed with itself | Engine (4-9) · data schema (5-5) · pages (6-8-1) · brief (7-2-3) · budget (12) · runbook (16-2-1) |
 | 53 | **Cookie consent** had zero mentions — and Europe made it mandatory | Section 10-6 |
-| 54 | No process for adding a tool existed, with 24 iterations ahead | Section 19 |
+| 54 | No process for adding a tool existed, with 24 iterations ahead | Section 18 |
 | 55 | The performance budget had no numbers | Section 12: 90KB of JS, 350KB total, with explicit prohibitions |
 | 56 | The content brief covered only state pages — three quarters of the site had none | 7-2-1 tools · 7-2-2 guides · 7-2-3 city |
 | 57 | No tone guide, with 35,000 machine-drafted words ahead | Section 7-6, including disclosure of machine assistance |
 
 **The important design decision in 4-9-1:** for cost of living, **no dollar amount is invented for any city.** The official sources publish indices rather than dollar baskets; so the dollars come from the user's own numbers and we only apply the official ratio. This removes the original dataset's "fabricated insurance column" problem at the root.
 
-### 19-7. Round eight — version 4.0 · the identity change
+### 20-7. Round eight — version 4.0 · the identity change
 
 The user asked, with a screenshot of five tools: "these are very related and sit in one context, what do you think?" — and they had seen it correctly.
 
@@ -2147,7 +2394,7 @@ The user asked, with a screenshot of five tools: "these are very related and sit
 
 **The lesson of this session:** eight rounds of course correction, and almost every one was triggered by the user's pushback rather than my analysis. The pattern that worked: **measure every claim before deciding** — I rejected this one cluster three times without adequate measurement and was wrong all three times.
 
-### 19-8. Round nine — version 4.1 · precision and structure
+### 20-8. Round nine — version 4.1 · precision and structure
 
 The goal of this round: numbers from guesswork to computation, and the programmatic structure from description to specification.
 
@@ -2164,7 +2411,7 @@ The goal of this round: numbers from guesswork to computation, and the programma
 
 **This round's quantitative finding:** the sensitivity analysis showed **session depth is the single largest lever** — from 1.1 to 2.2 means **+105% revenue with no extra visit**. And it is the only variable entirely under our control; it depends on neither Google nor competitors. That promotes the funnel architecture from a UX preference to the most important product decision.
 
-### 19-9. Round ten — version 4.2 · tool depth and SEO
+### 20-9. Round ten — version 4.2 · tool depth and SEO
 
 An SEO audit exposed a serious inconsistency, and the user's screenshot exposed two unbacked promises.
 
@@ -2186,7 +2433,7 @@ An SEO audit exposed a serious inconsistency, and the user's screenshot exposed 
 
 **The guiding principle of this round:** for this project, **tool depth is itself the SEO strategy.** Competitors rank on domain authority, not quality; we have no authority and will not gain it quickly. The only route is a tool that earns links and gets cited in AI Overviews — and that tool has to be deeply better, not slightly better.
 
-### 19-10. Round eleven — version 4.3 · the cannibalisation auditor
+### 20-10. Round eleven — version 4.3 · the cannibalisation auditor
 
 Cannibalisation moved from advice to an **automated CI check**: `data/pages.json` (the page-to-keyword map) + `scripts/audit_seo.py`.
 
@@ -2201,7 +2448,7 @@ The first run found **9 errors**. The two important ones shared a pattern:
 
 **Status then: 18 pages · 0 errors · 3 warnings** — three unmeasured keywords that had to be measured before building.
 
-### 19-11. Round twelve — version 4.4 · warnings to zero
+### 20-11. Round twelve — version 4.4 · warnings to zero
 
 The auditor's three warnings were three unmeasured keywords. All three were measured:
 
@@ -2224,7 +2471,7 @@ I had previously written "nobody offers these together" without looking at the S
 
 **Status: 17 pages · 0 errors · 0 warnings.**
 
-### 19-12. Round thirteen — version 4.5 · on-page SEO
+### 20-12. Round thirteen — version 4.5 · on-page SEO
 
 The audit showed that section 9 had everything about **which** page targets **which** keyword and nothing about what that page **looks like** in search results:
 
@@ -2246,7 +2493,7 @@ And it made one real constraint visible: with `San Francisco-Oakland-Berkeley, C
 
 **Status: 17 pages · 10 checks · 0 errors · 0 warnings.**
 
-### 19-13. Round fourteen — version 4.6 · the language boundary
+### 20-13. Round fourteen — version 4.6 · the language boundary
 
 The site was English and the spec Persian; until then that was only a remembered convention, and it had already broken once: the `output` field was an internal Persian description, and wiring it into the meta formula the round before would have produced 15 pages with Persian metas.
 
@@ -2256,7 +2503,7 @@ The site was English and the spec Persian; until then that was only a remembered
 
 **Status: 66 shipping files · 0 Persian strings · 17 pages · 10 checks · 0 errors.**
 
-### 19-14. Round fifteen — version 4.7 · one language across the project
+### 20-14. Round fifteen — version 4.7 · one language across the project
 
 The previous round drew a line between an English site and a Persian document. This round removed the line instead of policing it: the whole documentation set was translated to English.
 
@@ -2276,6 +2523,60 @@ The previous round drew a line between an English site and a Persian document. T
 Persian numerals were converted to Western ones throughout, so figures in the document now match the figures in the datasets and script output they refer to.
 
 **Status: the whole project in one language · 17 pages · 10 checks · 0 errors · 0 warnings · 59 tests green.**
+
+### 20-15. Round sixteen — version 4.8 · crawl architecture and the stale sections
+
+Three separate audits drove this round, each measuring rather than asserting.
+
+**1. Thirteen technical SEO topics had zero mentions.** Everything in sections
+9-1 to 9-5 concerns what happens after a page is indexed; the crawl-render-index
+stage before it was missing entirely. Section 9-6 covers it, and the two
+computable parts became checks rather than prose. The auditor went from 10 to
+**14 checks**: link resolution, click depth, orphans, the body-link ceiling, and
+funnel cul-de-sacs.
+
+That found two defects reading had not:
+
+| Defect | Consequence |
+|---|---|
+| **`/tools` did not exist** although section 6-0 counted it | Four tools unreachable from home; `sales-tax-calculator` — 110,000/month at $6.91, the site's highest market value — a complete orphan |
+| **The four salary-family tools linked only to each other** | A closed loop on our highest-CPC pages: search visitors leave after one page, against a model that assumes 2.2 |
+
+**2. Five sections had not caught up with the version 4 identity change.** The
+worst was section 11: its timeline still scheduled the freelancer tax tools
+first, which directly contradicts rule 1 of section 2-3. Rewritten around the
+funnel stages, with the cost-of-living dataset named as the critical path.
+
+| Section | Was | Now |
+|---|---|---|
+| 3-3 | The tree had no cost-of-living engine, though 4-9 specifies one | Added, marked blocked |
+| 11 | A tax-first schedule and October/December gates | Funnel-ordered, with a pages-per-session check at gate 2 |
+| 13 | "Tax data" only — the second dataset unmentioned | Retitled; 13-6 gives the cost-of-living dataset its own status |
+| 14 | Only the tax SERP analysed | 14-4 states what is known about the place SERP and, explicitly, what is not |
+| 15 | No place events | `place_changed`, `comparison_run`, `funnel_step` — the last measures the assumption the revenue model rests on |
+| 17 | No risk for the blocking dependency | Risks 11–13, the first of which is fatal and on the critical path |
+| 18 | Assumed every new tool is a tax tool | Covers the place engine, and requires the new page to enter `pages.json` and pass the audit |
+
+**3. Deployment, launch and recovery had zero coverage** — the document said
+what to build and how it should rank, and nothing about putting it online.
+Section 19 covers hosting, a pre-launch verification script, headers, the launch
+order, monitoring and recovery. Most of it is SEO: a 404 returning 200, a second
+indexable host, a `robots.txt` mistake, and an indexable staging deployment are
+all silent and all expensive.
+
+Two points of precision worth keeping:
+
+- **9-6-3 refuses a common myth.** Accordion-hidden content is indexed and fully
+  weighted under mobile-first indexing; the dangerous variant is content fetched
+  on click, which is a different failure and already covered by 3-2.
+- **9-6-2 says crawl budget does not apply to us**, at ~110 static pages, so that
+  nobody later spends a week on log-file analysis for a site whose entire crawl
+  problem is "is it linked to".
+- **14-4 leaves the place SERP table empty on purpose.** A fabricated competitive
+  analysis is worse than an absent one, because it gets believed — and this
+  document has been wrong about this exact cluster three times.
+
+**Status: 18 pages · 14 checks · 0 errors · 0 warnings · 59 tests green.**
 
 ---
 

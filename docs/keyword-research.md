@@ -343,7 +343,7 @@ This project's scarce resource is **verified tax data and YMYL content**. But th
 | 8 | Cost of living deferred — this time with measurement | 3,600/month, section 6-5 |
 | 9 | The "simple maths, high CPC" cluster is added | 2.4 million/month with no data dependency, section 6-5 |
 
-> **Decisions 1, 5, 8 and 9 were later overturned**, and the corrections are recorded in this document above and in specification section 19. Decision 8 in particular was wrong three times over: the cluster is 158,000/month, not 3,600, and it became the core of the project. The table is kept as written because the record of a wrong decision is more useful than a quietly corrected one.
+> **Decisions 1, 5, 8 and 9 were later overturned**, and the corrections are recorded in this document above and in specification section 20. Decision 8 in particular was wrong three times over: the cluster is 158,000/month, not 3,600, and it became the core of the project. The table is kept as written because the record of a wrong decision is more useful than a quietly corrected one.
 
 ---
 
