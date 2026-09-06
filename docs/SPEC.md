@@ -64,7 +64,8 @@
 |---|---|
 | [`keyword-research.md`](keyword-research.md) | Demand validation; the basis for sections 6 and 14 |
 | [`data-verification.md`](data-verification.md) | Verification checklist; the basis for section 13 |
-| [`onpage-spec.md`](onpage-spec.md) | **Generated** — the resolved on-page values for all 51 state pages (9-3-9) |
+| [`onpage-spec.md`](onpage-spec.md) | **Generated** — the resolved on-page values for all 74 buildable pages (9-3-9) |
+| [`base44-questions.md`](base44-questions.md) | The platform questions that settle requirements R1–R9 (3-1, 3-5) |
 | `archive/` | The three original specs — **not authoritative** |
 
 ---
@@ -515,6 +516,23 @@ source here.
 
 **This costs a day. Discovering it after 81 pages are published costs the
 project's first year.**
+
+#### Asking rather than testing
+
+The protocol above is the stronger evidence and should be run regardless. But the
+same questions can be put to the platform directly, and
+[`base44-questions.md`](base44-questions.md) is that list — sixteen questions in
+three tiers, each phrased so that a vague answer is visibly a non-answer.
+
+Two things about how it is written are deliberate:
+
+- **Every tier-1 question asks for a `curl` output**, not a yes or no. "Do you
+  support SEO" has one possible answer and no information in it. "What does
+  `curl -A facebookexternalhit` return for this URL" has exactly one true answer.
+- **It asks for a live URL of an existing app with many data-generated pages.**
+  That single item answers six of the questions at once, from evidence rather than
+  from a support agent's understanding — and it is faster for them to send than to
+  compose sixteen replies.
 
 ### 3-6. Repository structure
 
