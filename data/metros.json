@@ -1,0 +1,58 @@
+{
+  "$comment": "Metros that pass the generation gate in spec section 6-10-3: head-keyword volume measured at >= 500/month. A modelled median is not a measurement, so a metro is absent from this file until its own volume has been observed. Indices and rent stay null until the BEA and HUD datasets exist (13-6).",
+  "gate": {
+    "minMonthlyVolume": 500,
+    "source": "data/keywords.json programmaticSets"
+  },
+  "caveat": "Three of the four measured metros are in Texas. That reflects which keywords were measured, not that Texas metros are uniquely valuable. Section 6-10-7 calls for 5 sample metros; a fifth outside Texas should be measured before the sample set is considered geographically representative.",
+  "metros": [
+    {
+      "name": "Austin, TX",
+      "displayName": "Austin",
+      "stateSlug": "texas",
+      "stateName": "Texas",
+      "volume": 3600,
+      "cpc": 2.71,
+      "slug": "austin-tx",
+      "indices": null,
+      "referenceRent": null,
+      "dataStatus": "pending-bea-hud"
+    },
+    {
+      "name": "San Francisco, CA",
+      "displayName": "San Francisco",
+      "stateSlug": "california",
+      "stateName": "California",
+      "volume": 2900,
+      "cpc": 0.89,
+      "slug": "san-francisco-ca",
+      "indices": null,
+      "referenceRent": null,
+      "dataStatus": "pending-bea-hud"
+    },
+    {
+      "name": "San Antonio, TX",
+      "displayName": "San Antonio",
+      "stateSlug": "texas",
+      "stateName": "Texas",
+      "volume": 1900,
+      "cpc": 8.85,
+      "slug": "san-antonio-tx",
+      "indices": null,
+      "referenceRent": null,
+      "dataStatus": "pending-bea-hud"
+    },
+    {
+      "name": "Houston, TX",
+      "displayName": "Houston",
+      "stateSlug": "texas",
+      "stateName": "Texas",
+      "volume": 1900,
+      "cpc": 4.05,
+      "slug": "houston-tx",
+      "indices": null,
+      "referenceRent": null,
+      "dataStatus": "pending-bea-hud"
+    }
+  ]
+}

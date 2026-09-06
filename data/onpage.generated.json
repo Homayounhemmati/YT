@@ -3,8 +3,7 @@
   "generatedFrom": "data/pages.json + src/data/tax-year-2026/states/",
   "origin": "https://example.com",
   "pending": [
-    "PlacePage entries require the cost-of-living dataset (section 13-6)",
-    "PENDING_ENGINE answers require a tax-engine run per state"
+    "PlacePage index and rent answers require the BEA/HUD dataset (13-6)"
   ],
   "pages": [
     {
@@ -1608,6 +1607,426 @@
       "staleForTargetYear": false
     },
     {
+      "path": "/cost-of-living/austin-tx",
+      "template": "PlacePage",
+      "entity": "austin-tx",
+      "title": "Cost of Living in Austin (2026)",
+      "titleChars": 31,
+      "h1": "Cost of Living in Austin",
+      "metaDescription": "What a month costs in Austin, from official BEA and HUD data — rent, goods, services, and what you keep after Texas tax.",
+      "metaChars": 120,
+      "canonical": "https://example.com/cost-of-living/austin-tx",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living",
+        "Austin"
+      ],
+      "h2Outline": [
+        "What it costs to live in Austin",
+        "What the indices mean",
+        "Texas income tax on your salary",
+        "Who Austin suits",
+        "How we calculate this",
+        "Frequently asked questions"
+      ],
+      "faq": [
+        {
+          "question": "How expensive is Austin?",
+          "answer": "PENDING_DATA: needs BEA/HUD figures for Austin, TX (13-6)."
+        },
+        {
+          "question": "What is a typical rent in Austin?",
+          "answer": "PENDING_DATA: needs BEA/HUD figures for Austin, TX (13-6)."
+        },
+        {
+          "question": "What salary do you need to live in Austin?",
+          "answer": "PENDING_DATA: needs BEA/HUD figures for Austin, TX (13-6)."
+        },
+        {
+          "question": "Does Texas tax affect what you keep in Austin?",
+          "answer": "Yes. On a $95,000 self-employment profit, a Texas resident keeps about $74,160 — an effective 21.9%. That figure applies anywhere in Texas, so it is the same in Austin as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+        },
+        {
+          "question": "Where does this data come from?",
+          "answer": "BEA Regional Price Parities and HUD Fair Market Rent for 2026, both official and free to cite."
+        }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living",
+              "item": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Austin"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Place",
+          "name": "Austin, TX",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "TX",
+            "addressCountry": "US"
+          }
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/state-taxes/texas",
+          "anchor": "Texas income tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "cost of living in Austin"
+        }
+      ],
+      "dataVerification": "pending-bea-hud",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/cost-of-living/san-francisco-ca",
+      "template": "PlacePage",
+      "entity": "san-francisco-ca",
+      "title": "Cost of Living in San Francisco (2026)",
+      "titleChars": 38,
+      "h1": "Cost of Living in San Francisco",
+      "metaDescription": "What a month costs in San Francisco, from official BEA and HUD data — rent, goods, services, and what you keep after California tax.",
+      "metaChars": 132,
+      "canonical": "https://example.com/cost-of-living/san-francisco-ca",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living",
+        "San Francisco"
+      ],
+      "h2Outline": [
+        "What it costs to live in San Francisco",
+        "What the indices mean",
+        "California income tax on your salary",
+        "Who San Francisco suits",
+        "How we calculate this",
+        "Frequently asked questions"
+      ],
+      "faq": [
+        {
+          "question": "How expensive is San Francisco?",
+          "answer": "PENDING_DATA: needs BEA/HUD figures for San Francisco, CA (13-6)."
+        },
+        {
+          "question": "What is a typical rent in San Francisco?",
+          "answer": "PENDING_DATA: needs BEA/HUD figures for San Francisco, CA (13-6)."
+        },
+        {
+          "question": "What salary do you need to live in San Francisco?",
+          "answer": "PENDING_DATA: needs BEA/HUD figures for San Francisco, CA (13-6)."
+        },
+        {
+          "question": "Does California tax affect what you keep in San Francisco?",
+          "answer": "Yes. On a $95,000 self-employment profit, a California resident keeps about $70,041 — an effective 26.3%. That figure applies anywhere in California, so it is the same in San Francisco as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+        },
+        {
+          "question": "Where does this data come from?",
+          "answer": "BEA Regional Price Parities and HUD Fair Market Rent for 2026, both official and free to cite."
+        }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living",
+              "item": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "San Francisco"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Place",
+          "name": "San Francisco, CA",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+          }
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/state-taxes/california",
+          "anchor": "California income tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "cost of living in San Francisco"
+        }
+      ],
+      "dataVerification": "pending-bea-hud",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/cost-of-living/san-antonio-tx",
+      "template": "PlacePage",
+      "entity": "san-antonio-tx",
+      "title": "Cost of Living in San Antonio (2026)",
+      "titleChars": 36,
+      "h1": "Cost of Living in San Antonio",
+      "metaDescription": "What a month costs in San Antonio, from official BEA and HUD data — rent, goods, services, and what you keep after Texas tax.",
+      "metaChars": 125,
+      "canonical": "https://example.com/cost-of-living/san-antonio-tx",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living",
+        "San Antonio"
+      ],
+      "h2Outline": [
+        "What it costs to live in San Antonio",
+        "What the indices mean",
+        "Texas income tax on your salary",
+        "Who San Antonio suits",
+        "How we calculate this",
+        "Frequently asked questions"
+      ],
+      "faq": [
+        {
+          "question": "How expensive is San Antonio?",
+          "answer": "PENDING_DATA: needs BEA/HUD figures for San Antonio, TX (13-6)."
+        },
+        {
+          "question": "What is a typical rent in San Antonio?",
+          "answer": "PENDING_DATA: needs BEA/HUD figures for San Antonio, TX (13-6)."
+        },
+        {
+          "question": "What salary do you need to live in San Antonio?",
+          "answer": "PENDING_DATA: needs BEA/HUD figures for San Antonio, TX (13-6)."
+        },
+        {
+          "question": "Does Texas tax affect what you keep in San Antonio?",
+          "answer": "Yes. On a $95,000 self-employment profit, a Texas resident keeps about $74,160 — an effective 21.9%. That figure applies anywhere in Texas, so it is the same in San Antonio as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+        },
+        {
+          "question": "Where does this data come from?",
+          "answer": "BEA Regional Price Parities and HUD Fair Market Rent for 2026, both official and free to cite."
+        }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living",
+              "item": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "San Antonio"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Place",
+          "name": "San Antonio, TX",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "TX",
+            "addressCountry": "US"
+          }
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/state-taxes/texas",
+          "anchor": "Texas income tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "cost of living in San Antonio"
+        }
+      ],
+      "dataVerification": "pending-bea-hud",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/cost-of-living/houston-tx",
+      "template": "PlacePage",
+      "entity": "houston-tx",
+      "title": "Cost of Living in Houston (2026)",
+      "titleChars": 32,
+      "h1": "Cost of Living in Houston",
+      "metaDescription": "What a month costs in Houston, from official BEA and HUD data — rent, goods, services, and what you keep after Texas tax.",
+      "metaChars": 121,
+      "canonical": "https://example.com/cost-of-living/houston-tx",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living",
+        "Houston"
+      ],
+      "h2Outline": [
+        "What it costs to live in Houston",
+        "What the indices mean",
+        "Texas income tax on your salary",
+        "Who Houston suits",
+        "How we calculate this",
+        "Frequently asked questions"
+      ],
+      "faq": [
+        {
+          "question": "How expensive is Houston?",
+          "answer": "PENDING_DATA: needs BEA/HUD figures for Houston, TX (13-6)."
+        },
+        {
+          "question": "What is a typical rent in Houston?",
+          "answer": "PENDING_DATA: needs BEA/HUD figures for Houston, TX (13-6)."
+        },
+        {
+          "question": "What salary do you need to live in Houston?",
+          "answer": "PENDING_DATA: needs BEA/HUD figures for Houston, TX (13-6)."
+        },
+        {
+          "question": "Does Texas tax affect what you keep in Houston?",
+          "answer": "Yes. On a $95,000 self-employment profit, a Texas resident keeps about $74,160 — an effective 21.9%. That figure applies anywhere in Texas, so it is the same in Houston as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+        },
+        {
+          "question": "Where does this data come from?",
+          "answer": "BEA Regional Price Parities and HUD Fair Market Rent for 2026, both official and free to cite."
+        }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living",
+              "item": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Houston"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Place",
+          "name": "Houston, TX",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "TX",
+            "addressCountry": "US"
+          }
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/state-taxes/texas",
+          "anchor": "Texas income tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "cost of living in Houston"
+        }
+      ],
+      "dataVerification": "pending-bea-hud",
+      "staleForTargetYear": false
+    },
+    {
       "path": "/state-taxes/alabama",
       "template": "StateTaxPage",
       "entity": "alabama",
@@ -1648,7 +2067,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Alabama?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Alabama and state the net after federal and state tax."
+          "answer": "About $69,785 of a $95,000 self-employment profit, an effective 26.5%. Of that, $4,374 is Alabama state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -1737,7 +2156,7 @@
               "name": "How much of a $95,000 salary do you keep in Alabama?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Alabama and state the net after federal and state tax."
+                "text": "About $69,785 of a $95,000 self-employment profit, an effective 26.5%. Of that, $4,374 is Alabama state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -1805,7 +2224,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Alaska?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Alaska and state the federal-only net."
+          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Alaska state layer to add."
         }
       ],
       "jsonLd": [
@@ -1894,7 +2313,7 @@
               "name": "How much of a $95,000 salary do you keep in Alaska?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Alaska and state the federal-only net."
+                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Alaska state layer to add."
               }
             }
           ]
@@ -1962,7 +2381,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Arizona?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Arizona and state the net after federal and state tax."
+          "answer": "About $72,346 of a $95,000 self-employment profit, an effective 23.8%. Of that, $1,813 is Arizona state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -2051,7 +2470,7 @@
               "name": "How much of a $95,000 salary do you keep in Arizona?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Arizona and state the net after federal and state tax."
+                "text": "About $72,346 of a $95,000 self-employment profit, an effective 23.8%. Of that, $1,813 is Arizona state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -2119,7 +2538,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Arkansas?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Arkansas and state the net after federal and state tax."
+          "answer": "About $71,260 of a $95,000 self-employment profit, an effective 25.0%. Of that, $2,899 is Arkansas state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -2208,7 +2627,7 @@
               "name": "How much of a $95,000 salary do you keep in Arkansas?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Arkansas and state the net after federal and state tax."
+                "text": "About $71,260 of a $95,000 self-employment profit, an effective 25.0%. Of that, $2,899 is Arkansas state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -2276,7 +2695,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in California?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in California and state the net after federal and state tax."
+          "answer": "About $70,041 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,119 is California state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -2365,7 +2784,7 @@
               "name": "How much of a $95,000 salary do you keep in California?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in California and state the net after federal and state tax."
+                "text": "About $70,041 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,119 is California state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -2433,7 +2852,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Colorado?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Colorado and state the net after federal and state tax."
+          "answer": "About $70,275 of a $95,000 self-employment profit, an effective 26.0%. Of that, $3,885 is Colorado state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -2522,7 +2941,7 @@
               "name": "How much of a $95,000 salary do you keep in Colorado?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Colorado and state the net after federal and state tax."
+                "text": "About $70,275 of a $95,000 self-employment profit, an effective 26.0%. Of that, $3,885 is Colorado state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -2590,7 +3009,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Connecticut?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Connecticut and state the net after federal and state tax."
+          "answer": "About $70,054 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,106 is Connecticut state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -2679,7 +3098,7 @@
               "name": "How much of a $95,000 salary do you keep in Connecticut?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Connecticut and state the net after federal and state tax."
+                "text": "About $70,054 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,106 is Connecticut state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -2747,7 +3166,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Delaware?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Delaware and state the net after federal and state tax."
+          "answer": "About $69,564 of a $95,000 self-employment profit, an effective 26.8%. Of that, $4,596 is Delaware state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -2836,7 +3255,7 @@
               "name": "How much of a $95,000 salary do you keep in Delaware?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Delaware and state the net after federal and state tax."
+                "text": "About $69,564 of a $95,000 self-employment profit, an effective 26.8%. Of that, $4,596 is Delaware state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -2904,7 +3323,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Florida?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Florida and state the federal-only net."
+          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Florida state layer to add."
         }
       ],
       "jsonLd": [
@@ -2993,7 +3412,7 @@
               "name": "How much of a $95,000 salary do you keep in Florida?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Florida and state the federal-only net."
+                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Florida state layer to add."
               }
             }
           ]
@@ -3061,7 +3480,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Georgia?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Georgia and state the net after federal and state tax."
+          "answer": "About $70,503 of a $95,000 self-employment profit, an effective 25.8%. Of that, $3,657 is Georgia state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -3150,7 +3569,7 @@
               "name": "How much of a $95,000 salary do you keep in Georgia?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Georgia and state the net after federal and state tax."
+                "text": "About $70,503 of a $95,000 self-employment profit, an effective 25.8%. Of that, $3,657 is Georgia state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -3218,7 +3637,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Hawaii?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Hawaii and state the net after federal and state tax."
+          "answer": "About $69,167 of a $95,000 self-employment profit, an effective 27.2%. Of that, $4,993 is Hawaii state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -3307,7 +3726,7 @@
               "name": "How much of a $95,000 salary do you keep in Hawaii?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Hawaii and state the net after federal and state tax."
+                "text": "About $69,167 of a $95,000 self-employment profit, an effective 27.2%. Of that, $4,993 is Hawaii state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -3375,7 +3794,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Idaho?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Idaho and state the net after federal and state tax."
+          "answer": "About $69,735 of a $95,000 self-employment profit, an effective 26.6%. Of that, $4,424 is Idaho state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -3464,7 +3883,7 @@
               "name": "How much of a $95,000 salary do you keep in Idaho?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Idaho and state the net after federal and state tax."
+                "text": "About $69,735 of a $95,000 self-employment profit, an effective 26.6%. Of that, $4,424 is Idaho state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -3532,7 +3951,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Illinois?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Illinois and state the net after federal and state tax."
+          "answer": "About $69,789 of a $95,000 self-employment profit, an effective 26.5%. Of that, $4,370 is Illinois state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -3621,7 +4040,7 @@
               "name": "How much of a $95,000 salary do you keep in Illinois?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Illinois and state the net after federal and state tax."
+                "text": "About $69,789 of a $95,000 self-employment profit, an effective 26.5%. Of that, $4,370 is Illinois state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -3689,7 +4108,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Indiana?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Indiana and state the net after federal and state tax."
+          "answer": "About $71,555 of a $95,000 self-employment profit, an effective 24.7%. Of that, $2,605 is Indiana state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -3778,7 +4197,7 @@
               "name": "How much of a $95,000 salary do you keep in Indiana?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Indiana and state the net after federal and state tax."
+                "text": "About $71,555 of a $95,000 self-employment profit, an effective 24.7%. Of that, $2,605 is Indiana state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -3846,7 +4265,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Iowa?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Iowa and state the net after federal and state tax."
+          "answer": "About $70,889 of a $95,000 self-employment profit, an effective 25.4%. Of that, $3,271 is Iowa state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -3935,7 +4354,7 @@
               "name": "How much of a $95,000 salary do you keep in Iowa?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Iowa and state the net after federal and state tax."
+                "text": "About $70,889 of a $95,000 self-employment profit, an effective 25.4%. Of that, $3,271 is Iowa state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -4003,7 +4422,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Kansas?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Kansas and state the net after federal and state tax."
+          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9%. Of that, $0 is Kansas state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -4092,7 +4511,7 @@
               "name": "How much of a $95,000 salary do you keep in Kansas?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Kansas and state the net after federal and state tax."
+                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9%. Of that, $0 is Kansas state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -4160,7 +4579,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Kentucky?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Kentucky and state the net after federal and state tax."
+          "answer": "About $71,070 of a $95,000 self-employment profit, an effective 25.2%. Of that, $3,090 is Kentucky state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -4249,7 +4668,7 @@
               "name": "How much of a $95,000 salary do you keep in Kentucky?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Kentucky and state the net after federal and state tax."
+                "text": "About $71,070 of a $95,000 self-employment profit, an effective 25.2%. Of that, $3,090 is Kentucky state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -4317,7 +4736,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Louisiana?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Louisiana and state the net after federal and state tax."
+          "answer": "About $71,896 of a $95,000 self-employment profit, an effective 24.3%. Of that, $2,264 is Louisiana state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -4406,7 +4825,7 @@
               "name": "How much of a $95,000 salary do you keep in Louisiana?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Louisiana and state the net after federal and state tax."
+                "text": "About $71,896 of a $95,000 self-employment profit, an effective 24.3%. Of that, $2,264 is Louisiana state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -4474,7 +4893,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Maine?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Maine and state the net after federal and state tax."
+          "answer": "About $69,439 of a $95,000 self-employment profit, an effective 26.9%. Of that, $4,720 is Maine state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -4563,7 +4982,7 @@
               "name": "How much of a $95,000 salary do you keep in Maine?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Maine and state the net after federal and state tax."
+                "text": "About $69,439 of a $95,000 self-employment profit, an effective 26.9%. Of that, $4,720 is Maine state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -4631,7 +5050,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Maryland?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Maryland and state the net after federal and state tax."
+          "answer": "About $70,019 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,141 is Maryland state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -4720,7 +5139,7 @@
               "name": "How much of a $95,000 salary do you keep in Maryland?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Maryland and state the net after federal and state tax."
+                "text": "About $70,019 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,141 is Maryland state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -4788,7 +5207,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Massachusetts?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Massachusetts and state the net after federal and state tax."
+          "answer": "About $69,745 of a $95,000 self-employment profit, an effective 26.6%. Of that, $4,414 is Massachusetts state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -4877,7 +5296,7 @@
               "name": "How much of a $95,000 salary do you keep in Massachusetts?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Massachusetts and state the net after federal and state tax."
+                "text": "About $69,745 of a $95,000 self-employment profit, an effective 26.6%. Of that, $4,414 is Massachusetts state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -4945,7 +5364,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Michigan?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Michigan and state the net after federal and state tax."
+          "answer": "About $70,408 of a $95,000 self-employment profit, an effective 25.9%. Of that, $3,752 is Michigan state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -5034,7 +5453,7 @@
               "name": "How much of a $95,000 salary do you keep in Michigan?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Michigan and state the net after federal and state tax."
+                "text": "About $70,408 of a $95,000 self-employment profit, an effective 25.9%. Of that, $3,752 is Michigan state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -5102,7 +5521,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Minnesota?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Minnesota and state the net after federal and state tax."
+          "answer": "About $68,628 of a $95,000 self-employment profit, an effective 27.8%. Of that, $5,531 is Minnesota state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -5191,7 +5610,7 @@
               "name": "How much of a $95,000 salary do you keep in Minnesota?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Minnesota and state the net after federal and state tax."
+                "text": "About $68,628 of a $95,000 self-employment profit, an effective 27.8%. Of that, $5,531 is Minnesota state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -5259,7 +5678,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Mississippi?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Mississippi and state the net after federal and state tax."
+          "answer": "About $71,120 of a $95,000 self-employment profit, an effective 25.1%. Of that, $3,040 is Mississippi state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -5348,7 +5767,7 @@
               "name": "How much of a $95,000 salary do you keep in Mississippi?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Mississippi and state the net after federal and state tax."
+                "text": "About $71,120 of a $95,000 self-employment profit, an effective 25.1%. Of that, $3,040 is Mississippi state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -5416,7 +5835,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Missouri?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Missouri and state the net after federal and state tax."
+          "answer": "About $70,186 of a $95,000 self-employment profit, an effective 26.1%. Of that, $3,974 is Missouri state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -5505,7 +5924,7 @@
               "name": "How much of a $95,000 salary do you keep in Missouri?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Missouri and state the net after federal and state tax."
+                "text": "About $70,186 of a $95,000 self-employment profit, an effective 26.1%. Of that, $3,974 is Missouri state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -5573,7 +5992,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Montana?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Montana and state the net after federal and state tax."
+          "answer": "About $69,623 of a $95,000 self-employment profit, an effective 26.7%. Of that, $4,537 is Montana state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -5662,7 +6081,7 @@
               "name": "How much of a $95,000 salary do you keep in Montana?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Montana and state the net after federal and state tax."
+                "text": "About $69,623 of a $95,000 self-employment profit, an effective 26.7%. Of that, $4,537 is Montana state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -5730,7 +6149,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Nebraska?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Nebraska and state the net after federal and state tax."
+          "answer": "About $70,444 of a $95,000 self-employment profit, an effective 25.8%. Of that, $3,716 is Nebraska state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -5819,7 +6238,7 @@
               "name": "How much of a $95,000 salary do you keep in Nebraska?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Nebraska and state the net after federal and state tax."
+                "text": "About $70,444 of a $95,000 self-employment profit, an effective 25.8%. Of that, $3,716 is Nebraska state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -5887,7 +6306,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Nevada?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Nevada and state the federal-only net."
+          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Nevada state layer to add."
         }
       ],
       "jsonLd": [
@@ -5976,7 +6395,7 @@
               "name": "How much of a $95,000 salary do you keep in Nevada?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Nevada and state the federal-only net."
+                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Nevada state layer to add."
               }
             }
           ]
@@ -6044,7 +6463,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in New Hampshire?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in New Hampshire and state the federal-only net."
+          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no New Hampshire state layer to add."
         }
       ],
       "jsonLd": [
@@ -6133,7 +6552,7 @@
               "name": "How much of a $95,000 salary do you keep in New Hampshire?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in New Hampshire and state the federal-only net."
+                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no New Hampshire state layer to add."
               }
             }
           ]
@@ -6201,7 +6620,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in New Jersey?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in New Jersey and state the net after federal and state tax."
+          "answer": "About $70,662 of a $95,000 self-employment profit, an effective 25.6%. Of that, $3,498 is New Jersey state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -6290,7 +6709,7 @@
               "name": "How much of a $95,000 salary do you keep in New Jersey?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in New Jersey and state the net after federal and state tax."
+                "text": "About $70,662 of a $95,000 self-employment profit, an effective 25.6%. Of that, $3,498 is New Jersey state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -6358,7 +6777,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in New Mexico?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in New Mexico and state the net after federal and state tax."
+          "answer": "About $70,376 of a $95,000 self-employment profit, an effective 25.9%. Of that, $3,784 is New Mexico state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -6447,7 +6866,7 @@
               "name": "How much of a $95,000 salary do you keep in New Mexico?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in New Mexico and state the net after federal and state tax."
+                "text": "About $70,376 of a $95,000 self-employment profit, an effective 25.9%. Of that, $3,784 is New Mexico state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -6515,7 +6934,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in New York?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in New York and state the net after federal and state tax."
+          "answer": "About $69,989 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,171 is New York state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -6604,7 +7023,7 @@
               "name": "How much of a $95,000 salary do you keep in New York?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in New York and state the net after federal and state tax."
+                "text": "About $69,989 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,171 is New York state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -6672,7 +7091,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in North Carolina?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in North Carolina and state the net after federal and state tax."
+          "answer": "About $71,146 of a $95,000 self-employment profit, an effective 25.1%. Of that, $3,014 is North Carolina state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -6761,7 +7180,7 @@
               "name": "How much of a $95,000 salary do you keep in North Carolina?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in North Carolina and state the net after federal and state tax."
+                "text": "About $71,146 of a $95,000 self-employment profit, an effective 25.1%. Of that, $3,014 is North Carolina state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -6829,7 +7248,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in North Dakota?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in North Dakota and state the net after federal and state tax."
+          "answer": "About $73,405 of a $95,000 self-employment profit, an effective 22.7%. Of that, $755 is North Dakota state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -6918,7 +7337,7 @@
               "name": "How much of a $95,000 salary do you keep in North Dakota?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in North Dakota and state the net after federal and state tax."
+                "text": "About $73,405 of a $95,000 self-employment profit, an effective 22.7%. Of that, $755 is North Dakota state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -6986,7 +7405,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Ohio?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Ohio and state the net after federal and state tax."
+          "answer": "About $72,116 of a $95,000 self-employment profit, an effective 24.1%. Of that, $2,044 is Ohio state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -7075,7 +7494,7 @@
               "name": "How much of a $95,000 salary do you keep in Ohio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Ohio and state the net after federal and state tax."
+                "text": "About $72,116 of a $95,000 self-employment profit, an effective 24.1%. Of that, $2,044 is Ohio state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -7143,7 +7562,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Oklahoma?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Oklahoma and state the net after federal and state tax."
+          "answer": "About $70,687 of a $95,000 self-employment profit, an effective 25.6%. Of that, $3,472 is Oklahoma state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -7232,7 +7651,7 @@
               "name": "How much of a $95,000 salary do you keep in Oklahoma?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Oklahoma and state the net after federal and state tax."
+                "text": "About $70,687 of a $95,000 self-employment profit, an effective 25.6%. Of that, $3,472 is Oklahoma state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -7300,7 +7719,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Oregon?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Oregon and state the net after federal and state tax."
+          "answer": "About $66,993 of a $95,000 self-employment profit, an effective 29.5%. Of that, $7,167 is Oregon state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -7389,7 +7808,7 @@
               "name": "How much of a $95,000 salary do you keep in Oregon?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Oregon and state the net after federal and state tax."
+                "text": "About $66,993 of a $95,000 self-employment profit, an effective 29.5%. Of that, $7,167 is Oregon state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -7457,7 +7876,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Pennsylvania?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Pennsylvania and state the net after federal and state tax."
+          "answer": "About $71,449 of a $95,000 self-employment profit, an effective 24.8%. Of that, $2,710 is Pennsylvania state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -7546,7 +7965,7 @@
               "name": "How much of a $95,000 salary do you keep in Pennsylvania?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Pennsylvania and state the net after federal and state tax."
+                "text": "About $71,449 of a $95,000 self-employment profit, an effective 24.8%. Of that, $2,710 is Pennsylvania state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -7614,7 +8033,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Rhode Island?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Rhode Island and state the net after federal and state tax."
+          "answer": "About $71,269 of a $95,000 self-employment profit, an effective 25.0%. Of that, $2,891 is Rhode Island state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -7703,7 +8122,7 @@
               "name": "How much of a $95,000 salary do you keep in Rhode Island?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Rhode Island and state the net after federal and state tax."
+                "text": "About $71,269 of a $95,000 self-employment profit, an effective 25.0%. Of that, $2,891 is Rhode Island state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -7771,7 +8190,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in South Carolina?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in South Carolina and state the net after federal and state tax."
+          "answer": "About $70,526 of a $95,000 self-employment profit, an effective 25.8%. Of that, $3,634 is South Carolina state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -7860,7 +8279,7 @@
               "name": "How much of a $95,000 salary do you keep in South Carolina?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in South Carolina and state the net after federal and state tax."
+                "text": "About $70,526 of a $95,000 self-employment profit, an effective 25.8%. Of that, $3,634 is South Carolina state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -7928,7 +8347,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in South Dakota?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in South Dakota and state the federal-only net."
+          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no South Dakota state layer to add."
         }
       ],
       "jsonLd": [
@@ -8017,7 +8436,7 @@
               "name": "How much of a $95,000 salary do you keep in South Dakota?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in South Dakota and state the federal-only net."
+                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no South Dakota state layer to add."
               }
             }
           ]
@@ -8085,7 +8504,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Tennessee?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Tennessee and state the federal-only net."
+          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Tennessee state layer to add."
         }
       ],
       "jsonLd": [
@@ -8174,7 +8593,7 @@
               "name": "How much of a $95,000 salary do you keep in Tennessee?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Tennessee and state the federal-only net."
+                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Tennessee state layer to add."
               }
             }
           ]
@@ -8242,7 +8661,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Texas?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Texas and state the federal-only net."
+          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Texas state layer to add."
         }
       ],
       "jsonLd": [
@@ -8331,7 +8750,7 @@
               "name": "How much of a $95,000 salary do you keep in Texas?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Texas and state the federal-only net."
+                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Texas state layer to add."
               }
             }
           ]
@@ -8399,7 +8818,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Utah?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Utah and state the net after federal and state tax."
+          "answer": "About $70,231 of a $95,000 self-employment profit, an effective 26.1%. Of that, $3,929 is Utah state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -8488,7 +8907,7 @@
               "name": "How much of a $95,000 salary do you keep in Utah?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Utah and state the net after federal and state tax."
+                "text": "About $70,231 of a $95,000 self-employment profit, an effective 26.1%. Of that, $3,929 is Utah state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -8556,7 +8975,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Vermont?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Vermont and state the net after federal and state tax."
+          "answer": "About $69,938 of a $95,000 self-employment profit, an effective 26.4%. Of that, $4,222 is Vermont state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -8645,7 +9064,7 @@
               "name": "How much of a $95,000 salary do you keep in Vermont?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Vermont and state the net after federal and state tax."
+                "text": "About $69,938 of a $95,000 self-employment profit, an effective 26.4%. Of that, $4,222 is Vermont state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -8713,7 +9132,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Virginia?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Virginia and state the net after federal and state tax."
+          "answer": "About $69,341 of a $95,000 self-employment profit, an effective 27.0%. Of that, $4,819 is Virginia state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -8802,7 +9221,7 @@
               "name": "How much of a $95,000 salary do you keep in Virginia?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Virginia and state the net after federal and state tax."
+                "text": "About $69,341 of a $95,000 self-employment profit, an effective 27.0%. Of that, $4,819 is Virginia state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -8870,7 +9289,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Washington, D.C.?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Washington, D.C. and state the net after federal and state tax."
+          "answer": "About $69,530 of a $95,000 self-employment profit, an effective 26.8%. Of that, $4,630 is Washington, D.C. state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -8959,7 +9378,7 @@
               "name": "How much of a $95,000 salary do you keep in Washington, D.C.?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Washington, D.C. and state the net after federal and state tax."
+                "text": "About $69,530 of a $95,000 self-employment profit, an effective 26.8%. Of that, $4,630 is Washington, D.C. state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -9027,7 +9446,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Washington?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Washington and state the federal-only net."
+          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Washington state layer to add."
         }
       ],
       "jsonLd": [
@@ -9116,7 +9535,7 @@
               "name": "How much of a $95,000 salary do you keep in Washington?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Washington and state the federal-only net."
+                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Washington state layer to add."
               }
             }
           ]
@@ -9184,7 +9603,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in West Virginia?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in West Virginia and state the net after federal and state tax."
+          "answer": "About $70,914 of a $95,000 self-employment profit, an effective 25.4%. Of that, $3,246 is West Virginia state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -9273,7 +9692,7 @@
               "name": "How much of a $95,000 salary do you keep in West Virginia?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in West Virginia and state the net after federal and state tax."
+                "text": "About $70,914 of a $95,000 self-employment profit, an effective 25.4%. Of that, $3,246 is West Virginia state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -9341,7 +9760,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Wisconsin?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Wisconsin and state the net after federal and state tax."
+          "answer": "About $70,073 of a $95,000 self-employment profit, an effective 26.2%. Of that, $4,087 is Wisconsin state tax — the rest is federal income tax and the 15.3% self-employment tax."
         }
       ],
       "jsonLd": [
@@ -9430,7 +9849,7 @@
               "name": "How much of a $95,000 salary do you keep in Wisconsin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Wisconsin and state the net after federal and state tax."
+                "text": "About $70,073 of a $95,000 self-employment profit, an effective 26.2%. Of that, $4,087 is Wisconsin state tax — the rest is federal income tax and the 15.3% self-employment tax."
               }
             }
           ]
@@ -9498,7 +9917,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Wyoming?",
-          "answer": "PENDING_ENGINE: run the tax engine for $95,000 single in Wyoming and state the federal-only net."
+          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Wyoming state layer to add."
         }
       ],
       "jsonLd": [
@@ -9587,7 +10006,7 @@
               "name": "How much of a $95,000 salary do you keep in Wyoming?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_ENGINE: run the tax engine for $95,000 single in Wyoming and state the federal-only net."
+                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Wyoming state layer to add."
               }
             }
           ]

@@ -33,6 +33,10 @@ jobs:
       # becomes a Persian meta description on a live page.
       # 51 hand-typed titles is 51 chances to drift from the formula. The values
       # are generated, and the generator re-validates them against the same limits.
+      # The FAQ take-home figures are computed by the engine, never estimated.
+      - name: Compute take-home figures
+        run: npx tsx scripts/compute_takehome.ts
+
       - name: Generate and validate per-entity on-page values
         run: python3 scripts/generate_onpage.py
 

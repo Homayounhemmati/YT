@@ -62,16 +62,30 @@ def local_answer(st):
             "so the figure above is the whole state-level picture.")
 
 
+TAKEHOME = {}
+_th = ROOT / "data/takehome-95k.json"
+if _th.exists():
+    TAKEHOME = json.loads(_th.read_text())["states"]
+
+
 def takehome_answer(st):
-    """Deliberately not a computed figure. The engine can produce one; the
-    cost-of-living dataset it needs for the comparison does not exist yet, and a
-    number stated here without the engine behind it is exactly what section 5-3
-    forbids."""
+    """Computed by the engine, not estimated. scripts/compute_takehome.ts produces
+    data/takehome-95k.json; if it has not been run, the placeholder stays visible
+    rather than a plausible number being written (rule 5-3)."""
+    row = TAKEHOME.get(st["slug"])
+    if not row:
+        return (f"PENDING_ENGINE: run scripts/compute_takehome.ts to resolve "
+                f"{st['name']}.")
+    keep = f"${row['takeHome']:,.0f}"
+    rate = f"{row['effectiveRate']:.1f}%"
     if st["structure"] == "none":
-        return ("PENDING_ENGINE: run the tax engine for $95,000 single in "
-                f"{st['name']} and state the federal-only net.")
-    return ("PENDING_ENGINE: run the tax engine for $95,000 single in "
-            f"{st['name']} and state the net after federal and state tax.")
+        return (f"About {keep} of a $95,000 self-employment profit, an effective "
+                f"{rate} once federal income tax and the 15.3% self-employment tax "
+                f"are taken. There is no {st['name']} state layer to add.")
+    state_cost = f"${row['stateTax']:,.0f}"
+    return (f"About {keep} of a $95,000 self-employment profit, an effective "
+            f"{rate}. Of that, {state_cost} is {st['name']} state tax — the rest is "
+            "federal income tax and the 15.3% self-employment tax.")
 
 
 def build_state(st, pages_doc, page_spec, tpl, origin, site_name, data_year):
@@ -153,6 +167,71 @@ def build_state(st, pages_doc, page_spec, tpl, origin, site_name, data_year):
             for e in page_spec.get("links", [])],
         "dataVerification": st.get("verification", "unknown"),
         "staleForTargetYear": st.get("staleForTargetYear", False),
+    }
+
+
+def build_metro(m, pages_doc, page_spec, tpl, origin, site_name, data_year, ld,
+                takehome):
+    """Everything a place page needs except the numbers BEA and HUD will supply.
+    Generated now so the shape is reviewable and the gap is explicit, rather than
+    the whole page waiting on a dataset (section 13-6)."""
+    display, state = m["displayName"], m["stateName"]
+
+    def sub(text):
+        return (text.replace("{Metro}", display).replace("{State}", state)
+                    .replace("{year}", str(data_year)))
+
+    path = f"/cost-of-living/{m['slug']}"
+    canonical = origin + path
+    title = sub(tpl["title"])
+    h1 = sub(tpl["h1"])
+    meta = sub(pages_doc["onPage"]["metaFormulas"]["PlacePage"])
+    crumbs = [sub(c) for c in tpl["breadcrumb"]]
+    outline = [sub(h) for h in tpl["h2Outline"]]
+
+    th = takehome.get(m["stateSlug"], {})
+    faq = []
+    for q, a in pages_doc["onPage"]["faqFormulas"]["PlacePage"]:
+        answer = sub(a)
+        if "{INDEX_SENTENCE}" in answer or "{RENT_SENTENCE}" in answer \
+                or "{SALARY_SENTENCE}" in answer:
+            answer = f"PENDING_DATA: needs BEA/HUD figures for {m['name']} (13-6)."
+        elif "{TAX_SENTENCE}" in answer:
+            answer = (
+                f"Yes. On a $95,000 self-employment profit, a {state} resident keeps "
+                f"about ${th.get('takeHome', 0):,.0f} — an effective "
+                f"{th.get('effectiveRate', 0):.1f}%. That figure applies anywhere in "
+                f"{state}, so it is the same in {display} as in the rest of the state, "
+                "and it is the half of the comparison most cost-of-living tools omit."
+            ) if th else f"PENDING_ENGINE: {state}"
+        elif "{DATA_YEAR}" in answer:
+            answer = answer.replace("{DATA_YEAR}", str(data_year))
+        faq.append({"question": sub(q), "answer": answer})
+
+    breadcrumb_items = [
+        {"@type": "ListItem", "position": i + 1, "name": c,
+         **({"item": origin + ("" if i == 0 else "/cost-of-living")}
+            if i < len(crumbs) - 1 else {})}
+        for i, c in enumerate(crumbs)]
+    bc = json.loads(json.dumps(ld["BreadcrumbList"]))
+    bc["itemListElement"] = breadcrumb_items
+    place = json.loads(json.dumps(ld["Place"]))
+    place["name"] = m["name"]
+    place["address"]["addressRegion"] = m["name"].rsplit(", ", 1)[-1]
+
+    return {
+        "path": path, "template": "PlacePage", "entity": m["slug"],
+        "title": title, "titleChars": len(title), "h1": h1,
+        "metaDescription": meta, "metaChars": len(meta), "canonical": canonical,
+        "breadcrumb": crumbs, "h2Outline": outline, "faq": faq,
+        "jsonLd": [bc, place],
+        "internalLinks": [
+            {"to": e["to"].replace("{state}", m["stateSlug"])
+                          .replace("{metro}", m["slug"]),
+             "anchor": e["anchor"].replace("{state}", state)
+                                  .replace("{metro}", display)}
+            for e in page_spec.get("links", [])],
+        "dataVerification": m["dataStatus"], "staleForTargetYear": False,
     }
 
 
@@ -245,6 +324,20 @@ def main():
         entries.append(build_static(page, pages_doc, templates[page["template"]],
                                     origin, site_name, data_year, ld))
 
+    metros_file = ROOT / "data/metros.json"
+    if metros_file.exists():
+        metros = json.loads(metros_file.read_text())["metros"]
+        place_tpl = templates["PlacePage"]
+        place_spec = next(p for p in pages_doc["pages"]
+                          if p["path"] == "/cost-of-living/{metro}")
+        th = {}
+        thf = ROOT / "data/takehome-95k.json"
+        if thf.exists():
+            th = json.loads(thf.read_text())["states"]
+        for m in metros:
+            entries.append(build_metro(m, pages_doc, place_spec, place_tpl, origin,
+                                       site_name, data_year, ld, th))
+
     for st in states:
         e = build_state(st, pages_doc, page_spec, tpl, origin, site_name, data_year)
         if e["titleChars"] > limits["titleMaxChars"]:
@@ -275,8 +368,7 @@ def main():
                     "(rule 3-7-6).",
         "generatedFrom": "data/pages.json + src/data/tax-year-2026/states/",
         "origin": origin,
-        "pending": ["PlacePage entries require the cost-of-living dataset (section 13-6)",
-                    "PENDING_ENGINE answers require a tax-engine run per state"],
+        "pending": ["PlacePage index and rent answers require the BEA/HUD dataset (13-6)"],
         "pages": entries,
     }
     (ROOT / "data/onpage.generated.json").write_text(

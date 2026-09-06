@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 5.6
+> **Last revised:** 2026-09-06 · **Version:** 5.7
+>
+> **Version 5.7:** All 51 take-home FAQ answers computed by the engine rather than left pending, and the four metros that pass the measurement gate generated. 78 of 78 buildable pages resolved. Details in 20-24.
 >
 > **Version 5.6:** The 43% body-uniqueness requirement was tested on four written state pages before committing to 61,000 words — 46% worst case, including two structurally similar states. Details in 20-23.
 >
@@ -1817,11 +1819,27 @@ discovered missing during the build:
 | Tool pages | 12 | ✅ | ✅ | Complete |
 | Directories | 2 | ✅ | ✅ | Complete |
 | Trust pages | 7 | ✅ | ✅ | Complete |
-| State pages | 51 | ✅ | ✅ | Complete except the `PENDING_ENGINE` FAQ answer |
-| Metro pages | ~30 | ✅ template | ⬜ | **Blocked on the dataset (13-6)** |
-| Guides | 9 | ⬜ planned | ⬜ | **Blocked on keyword measurement** |
+| State pages | 51 | ✅ | ✅ | **Complete** — the take-home FAQ is now computed, not pending |
+| Metro pages | **4** | ✅ | ✅ except 3 FAQ answers | Everything but the BEA/HUD numbers (13-6) |
+| Guides | 9 | ⬜ planned | ⬜ | Blocked on keyword measurement |
 
-**74 of 74 buildable pages have complete, generated on-page values.** The two
+**78 of 78 buildable pages have generated on-page values.**
+
+##### Why four metro pages and not thirty
+
+Section 6-10-3's gate requires a **measured** head-keyword volume of ≥500/month.
+Four metros have one: Austin 3,600 · San Francisco 2,900 · San Antonio 1,900 ·
+Houston 1,900. The other 26 in the revenue model are a *modelled* median of 1,500,
+and a modelled median is not a measurement.
+
+`data/metros.json` therefore contains four rows, not thirty. That is the gate
+working, not a shortfall — and section 6-10-7's sample stage calls for five pages,
+so the set is nearly the right size already.
+
+**One caveat is recorded in the file itself:** three of the four are Texas metros.
+That reflects which keywords happened to be measured, not that Texas metros are
+uniquely valuable, and a fifth outside Texas should be measured before the sample
+is treated as geographically representative. The two
 outstanding groups are blocked on inputs rather than on specification: metro pages
 need BEA and HUD data, guides need their head terms measured. Both have templates,
 rules and collision checks already in place, so each becomes generatable the day
@@ -3558,6 +3576,52 @@ are added**, which is the property worth having.
 
 **Status: 25 mapped pages · 20 checks · 74 generated · 4 bodies written at 46%+ ·
 6 CI validators · 0 errors · 59 tests green.**
+
+### 20-24. Round twenty-five — version 5.7 · every page the data allows
+
+"Complete every part of the document, every page." Measuring what was actually
+missing separated two very different kinds of gap: work not done, and work waiting
+on an input.
+
+**Fifty-one placeholders were work not done.** Every state page's take-home FAQ
+read `PENDING_ENGINE`. The reasoning for that had been sound — writing a plausible
+number is what rule 5-3 forbids — but it quietly ignored that **the engine exists
+and is tested to the cent**. The honest fix was to run it.
+
+`scripts/compute_takehome.ts` computes a $95,000 single-filer scenario in all 51
+jurisdictions. Oregon keeps $66,993 at an effective 29.5%, $7,167 of it state tax;
+Texas keeps $74,160 at 21.9% with no state layer. Fifty-one answers, each carrying
+its own arithmetic, none estimated.
+
+**The $7,167 spread is the linkable asset section 9-5-2 specifies** — "net pay on
+$95,000 in all 51 jurisdictions". Section 4-9-5 quoted that figure before anything
+had produced it. The number was right and is now sourced, which is a better state
+for it to be in.
+
+**Metro pages were the other kind of gap, and the gate answered it.** Section
+6-10-3 requires a *measured* head-keyword volume of ≥500/month. Four metros have
+one — Austin 3,600, San Francisco 2,900, San Antonio 1,900, Houston 1,900. The
+other 26 in the revenue model are a modelled median of 1,500, and **a modelled
+median is not a measurement**.
+
+So `data/metros.json` has four rows rather than thirty, and all four are generated
+with title, meta, H1, breadcrumb, outline, JSON-LD, internal links and the tax FAQ
+answer already computed. Only the three index and rent answers wait on BEA and
+HUD. That is the gate working rather than a shortfall — and 6-10-7's sample stage
+wants five pages, so the set is nearly the right size already.
+
+**A caveat is recorded in the data file itself:** three of the four are Texas
+metros, which reflects which keywords happened to be measured rather than any
+property of Texas. A fifth outside Texas should be measured before the sample is
+treated as geographically representative.
+
+**Where completeness now stands: 78 of 78 buildable pages have generated on-page
+values.** What is left is genuinely blocked on inputs — BEA/HUD figures for three
+metro FAQ answers, and keyword measurement before any of the nine guides may be
+promoted out of `plannedPages`.
+
+**Status: 78 generated pages · 20 checks · 7 CI validators · 4 bodies at 46%+ ·
+0 errors · 59 tests green.**
 
 ---
 
