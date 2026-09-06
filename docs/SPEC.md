@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 5.2
+> **Last revised:** 2026-09-06 · **Version:** 5.3
+>
+> **Version 5.3:** Trust pages added (they were missing entirely), all 74 buildable pages now have generated on-page values, and a completion status per page group in 9-3-10. Details in 20-20.
 >
 > **Version 5.2:** On-page completed for a platform build — concrete JSON-LD, FAQ formulas, entity-to-field mapping, and a generator that resolves all 51 state pages. Details in 20-19.
 >
@@ -1678,6 +1680,49 @@ cost-of-living comparison, and that dataset does not exist yet (13-6). **Writing
 plausible number now is precisely what rule 5-3 forbids**, and the placeholder is
 visible in the generated file so it cannot ship unnoticed.
 
+### 9-3-10. Completion status — what is specified and what is not
+
+The honest answer to "is on-page finished", by page group, so that nothing is
+discovered missing during the build:
+
+| Group | Pages | Mapped | Values resolved | Status |
+|---|---|---|---|---|
+| Home + tool index | 2 | ✅ | ✅ | Complete |
+| Tool pages | 12 | ✅ | ✅ | Complete |
+| Directories | 2 | ✅ | ✅ | Complete |
+| Trust pages | 7 | ✅ | ✅ | Complete |
+| State pages | 51 | ✅ | ✅ | Complete except the `PENDING_ENGINE` FAQ answer |
+| Metro pages | ~30 | ✅ template | ⬜ | **Blocked on the dataset (13-6)** |
+| Guides | 9 | ⬜ planned | ⬜ | **Blocked on keyword measurement** |
+
+**74 of 74 buildable pages have complete, generated on-page values.** The two
+outstanding groups are blocked on inputs rather than on specification: metro pages
+need BEA and HUD data, guides need their head terms measured. Both have templates,
+rules and collision checks already in place, so each becomes generatable the day
+its input arrives rather than needing new specification work.
+
+The trust pages were missing entirely until this round, which mattered more than
+their count suggests: section 6-3 builds them **before** content, and section 10-1
+makes them a precondition for AdSense approval. They are now in the map, in the
+footer link graph, and generated.
+
+#### Two more defects the generator surfaced
+
+**"How Sales Tax Calculator is calculated"** — the tool-page outline used the
+tool's *name* where it needed the *subject*, producing a clumsy heading on all
+twelve tool pages. Every tool now declares a `subject`, and the heading reads "How
+sales tax is calculated". Small, and it would have shipped twelve times.
+
+**A seven-character `<title>`** on the trust pages: `Privacy`. Long enough to be
+valid, too short to be a useful SERP line, and it reads as an unfinished page. The
+trust template now carries the site name — the one place a brand suffix is right,
+because the page has no keyword competing for the room — and the audit gained a
+title *minimum* alongside its maximum.
+
+Both are the same lesson as the no-tax-state headings: **the formula looked
+correct and the output was wrong.** That is the argument for generating and
+reading the result rather than trusting the template.
+
 ### 9-4. Distribution — a section the previous document lacked
 
 The previous document had one line about attracting traffic. For a new domain, **links and brand signals are the bottleneck, not page count.** At least 30% of project time has to go here:
@@ -1750,8 +1795,9 @@ python3 scripts/audit_seo.py
 | 17 | Every template has an H2 outline: no H2 repeats the H1, entity templates name their entity, FAQ heading and FAQPage schema are coupled both ways (9-3-6) |
 | 18 | Every link edge carries anchor text: destination's head term, never the source's own, never generic, never duplicated on a page (9-3-7) |
 | 19 | Meta formulas fit at **both** extremes — the longest entity name must not truncate, the shortest must not fall under the minimum (9-3-9) |
+| 20 | Titles clear a minimum length as well as a maximum, and a template may declare per-page outlines instead of one shared outline (9-3-10) |
 
-**Current run: 18 pages · 0 errors · 0 warnings** — across all nineteen checks, plus 51 generated state pages validated by `scripts/generate_onpage.py`. All three original warnings were resolved by actual measurement: two keywords were confirmed and recorded (`cost of living by city` 880 · `state income tax rates by state` 3,600) and the third was rejected and its page deleted (`job offer comparison calculator` 30).
+**Current run: 25 pages · 0 errors · 0 warnings** — across all twenty checks, plus **74 pages** with fully generated on-page values validated by `scripts/generate_onpage.py`. All three original warnings were resolved by actual measurement: two keywords were confirmed and recorded (`cost of living by city` 880 · `state income tax rates by state` 3,600) and the third was rejected and its page deleted (`job offer comparison calculator` 30).
 
 ##### The most important rule — generic versus entity
 
@@ -3199,6 +3245,53 @@ placeholder is visible in the generated file so it cannot ship unnoticed.
 
 **Status: 18 mapped pages · 19 checks · 51 generated state pages · 0 errors ·
 0 warnings · 59 tests green.**
+
+### 20-20. Round twenty-one — version 5.3 · the gaps a page count exposed
+
+The question was whether on-page is finished. Counting rather than asserting gave
+the answer: **no**, in three specific places.
+
+| Group | Was | Now |
+|---|---|---|
+| **Trust pages** | Absent from `data/pages.json` entirely | 7 pages mapped, footer-linked, generated |
+| **16 non-entity pages** | Formulas but no resolved values — hand-typed into a dashboard | Generated |
+| **Guides** | Planned only | Template, rules and structured data added; still blocked on measurement |
+
+The trust pages mattered more than seven suggests: section 6-3 builds them
+**before** content and section 10-1 makes them a precondition for AdSense
+approval. They had a paragraph in section 6-3 and nothing anywhere else — no
+title, no meta, no breadcrumb, and no inbound link. A `globalFooter` was added to
+the crawl graph, which is what keeps policy pages out of orphan status without
+putting them in the main navigation.
+
+**The generator now resolves 74 pages**, not 51, and two more defects surfaced the
+moment they were rendered:
+
+- **"How Sales Tax Calculator is calculated."** The tool outline used the tool's
+  name where it needed the subject. Twelve pages, each with a clumsy heading in the
+  position most likely to be quoted by an AI Overview (6-6). Tools now declare a
+  `subject`.
+- **A seven-character `<title>`** — `Privacy`. Valid, useless as a SERP line, and
+  reads as an unfinished page. The trust template carries the site name now, and
+  the audit gained a title minimum to sit beside its maximum (check 20).
+
+Both are the same lesson as the no-tax-state headings one round earlier: **the
+formula looked correct and the output was wrong.** Templates are not reviewable;
+their output is. Three rounds running, the defect was invisible in the formula and
+obvious in the generated page.
+
+One structural addition: a template may now declare `h2OutlinePerPage`. An About
+page and a Privacy page share no structure, and forcing one outline across both
+produces headings that are wrong on at least one — the identical failure to
+"Texas tax brackets" on a state with no income tax.
+
+**What remains is blocked on inputs, not on specification.** Metro pages need the
+BEA and HUD dataset; guides need their head terms measured. Both already have
+templates, rules and collision checks, so each becomes generatable the day its
+input arrives.
+
+**Status: 25 mapped pages · 20 checks · 74 generated pages · 0 errors · 0 warnings
+· 59 tests green.**
 
 ---
 

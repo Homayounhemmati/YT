@@ -8,6 +8,1606 @@
   ],
   "pages": [
     {
+      "path": "/",
+      "template": "Home",
+      "entity": null,
+      "title": "Cost of Living and Take-Home Pay Calculators",
+      "titleChars": 44,
+      "h1": "What a place really costs — and what you keep",
+      "metaDescription": "Compare cost of living and real take-home pay across US metros and all 50 states. Official BEA, HUD and IRS data. Free, no sign-up.",
+      "metaChars": 131,
+      "canonical": "https://example.com",
+      "breadcrumb": [],
+      "h2Outline": [
+        "What a place costs",
+        "What you keep",
+        "Start here"
+      ],
+      "faq": [],
+      "jsonLd": [],
+      "internalLinks": [
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/take-home-pay-calculator",
+          "anchor": "take home pay calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/state-taxes",
+          "anchor": "state income tax rates"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools",
+      "template": "DirectoryPage",
+      "entity": null,
+      "title": "{Primary} (2026)",
+      "titleChars": 16,
+      "h1": "{Primary}",
+      "metaDescription": "Every calculator on the site in one place: cost of living, salary, income tax, take-home pay, sales tax, property and home costs.",
+      "metaChars": 129,
+      "canonical": "https://example.com/tools",
+      "breadcrumb": [
+        "Home",
+        "{Primary}"
+      ],
+      "h2Outline": [
+        "The full list",
+        "How to read these numbers",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "{Primary}"
+            }
+          ]
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/salary-comparison-by-city",
+          "anchor": "salary comparison by city"
+        },
+        {
+          "to": "/tools/salary-to-hourly-calculator",
+          "anchor": "salary to hourly calculator"
+        },
+        {
+          "to": "/tools/income-tax-calculator",
+          "anchor": "income tax calculator"
+        },
+        {
+          "to": "/tools/take-home-pay-calculator",
+          "anchor": "take home pay calculator"
+        },
+        {
+          "to": "/tools/paycheck-tax-calculator",
+          "anchor": "paycheck tax calculator"
+        },
+        {
+          "to": "/tools/tax-withholding-calculator",
+          "anchor": "tax withholding calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/property-tax-calculator",
+          "anchor": "property tax calculator"
+        },
+        {
+          "to": "/tools/closing-cost-calculator",
+          "anchor": "closing cost calculator"
+        },
+        {
+          "to": "/tools/house-payment-calculator",
+          "anchor": "house payment calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/state-taxes",
+          "anchor": "state income tax rates"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools/cost-of-living-calculator",
+      "template": "ToolPage",
+      "entity": null,
+      "title": "Cost of Living Calculator (2026)",
+      "titleChars": 32,
+      "h1": "Cost of Living Calculator",
+      "metaDescription": "Work out what a month actually costs in any US metro for your household size, using official BEA and HUD data. Free, no sign-up.",
+      "metaChars": 128,
+      "canonical": "https://example.com/tools/cost-of-living-calculator",
+      "breadcrumb": [
+        "Home",
+        "Calculators",
+        "Cost of Living Calculator"
+      ],
+      "h2Outline": [
+        "How cost of living is calculated",
+        "What this does not include",
+        "Who needs this",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Calculators",
+              "item": "https://example.com/tools/cost-of-living-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Cost of Living Calculator"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Cost of Living Calculator (2026)",
+          "url": "https://example.com/tools/cost-of-living-calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "publisher": {
+            "@type": "Organization",
+            "name": "LifeCalc Pro",
+            "url": "https://example.com"
+          },
+          "dateModified": "2026"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools/cost-of-living-comparison",
+      "template": "ToolPage",
+      "entity": null,
+      "title": "Cost of Living Comparison (2026)",
+      "titleChars": 32,
+      "h1": "Cost of Living Comparison",
+      "metaDescription": "Compare two US metros side by side: the cost difference, the state tax difference, and what a move really leaves you. Free, no sign-up.",
+      "metaChars": 135,
+      "canonical": "https://example.com/tools/cost-of-living-comparison",
+      "breadcrumb": [
+        "Home",
+        "Calculators",
+        "Cost of Living Comparison"
+      ],
+      "h2Outline": [
+        "How a cost of living comparison is calculated",
+        "What this does not include",
+        "Who needs this",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Calculators",
+              "item": "https://example.com/tools/cost-of-living-comparison"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Cost of Living Comparison"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Cost of Living Comparison (2026)",
+          "url": "https://example.com/tools/cost-of-living-comparison",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "publisher": {
+            "@type": "Organization",
+            "name": "LifeCalc Pro",
+            "url": "https://example.com"
+          },
+          "dateModified": "2026"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/salary-comparison-by-city",
+          "anchor": "salary comparison by city"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools/salary-comparison-by-city",
+      "template": "ToolPage",
+      "entity": null,
+      "title": "Salary Comparison by City (2026)",
+      "titleChars": 32,
+      "h1": "Salary Comparison by City",
+      "metaDescription": "Find the salary you would need in another city to keep the same standard of living — cost of living and state tax both included.",
+      "metaChars": 128,
+      "canonical": "https://example.com/tools/salary-comparison-by-city",
+      "breadcrumb": [
+        "Home",
+        "Calculators",
+        "Salary Comparison by City"
+      ],
+      "h2Outline": [
+        "How an equivalent salary is calculated",
+        "What this does not include",
+        "Who needs this",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Calculators",
+              "item": "https://example.com/tools/salary-comparison-by-city"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Salary Comparison by City"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Salary Comparison by City (2026)",
+          "url": "https://example.com/tools/salary-comparison-by-city",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "publisher": {
+            "@type": "Organization",
+            "name": "LifeCalc Pro",
+            "url": "https://example.com"
+          },
+          "dateModified": "2026"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/take-home-pay-calculator",
+          "anchor": "take home pay calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/salary-to-hourly-calculator",
+          "anchor": "salary to hourly calculator"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools/salary-to-hourly-calculator",
+      "template": "ToolPage",
+      "entity": null,
+      "title": "Salary to Hourly Calculator (2026)",
+      "titleChars": 34,
+      "h1": "Salary to Hourly Calculator",
+      "metaDescription": "Convert an annual salary to an hourly rate, or an hourly rate to a salary, for any schedule. Shows the working. Free, no sign-up.",
+      "metaChars": 129,
+      "canonical": "https://example.com/tools/salary-to-hourly-calculator",
+      "breadcrumb": [
+        "Home",
+        "Calculators",
+        "Salary to Hourly Calculator"
+      ],
+      "h2Outline": [
+        "How an hourly rate from a salary is calculated",
+        "What this does not include",
+        "Who needs this",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Calculators",
+              "item": "https://example.com/tools/salary-to-hourly-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Salary to Hourly Calculator"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Salary to Hourly Calculator (2026)",
+          "url": "https://example.com/tools/salary-to-hourly-calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "publisher": {
+            "@type": "Organization",
+            "name": "LifeCalc Pro",
+            "url": "https://example.com"
+          },
+          "dateModified": "2026"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/take-home-pay-calculator",
+          "anchor": "take home pay calculator"
+        },
+        {
+          "to": "/tools/salary-comparison-by-city",
+          "anchor": "salary comparison by city"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools/income-tax-calculator",
+      "template": "ToolPage",
+      "entity": null,
+      "title": "Income Tax Calculator (2026)",
+      "titleChars": 28,
+      "h1": "Income Tax Calculator",
+      "metaDescription": "Estimate your federal and state income tax for the year, with the full bracket-by-bracket breakdown. Free, no sign-up.",
+      "metaChars": 118,
+      "canonical": "https://example.com/tools/income-tax-calculator",
+      "breadcrumb": [
+        "Home",
+        "Calculators",
+        "Income Tax Calculator"
+      ],
+      "h2Outline": [
+        "How income tax is calculated",
+        "What this does not include",
+        "Who needs this",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Calculators",
+              "item": "https://example.com/tools/income-tax-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Income Tax Calculator"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Income Tax Calculator (2026)",
+          "url": "https://example.com/tools/income-tax-calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "publisher": {
+            "@type": "Organization",
+            "name": "LifeCalc Pro",
+            "url": "https://example.com"
+          },
+          "dateModified": "2026"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/state-taxes",
+          "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/take-home-pay-calculator",
+          "anchor": "take home pay calculator"
+        },
+        {
+          "to": "/tools/tax-withholding-calculator",
+          "anchor": "tax withholding calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools/take-home-pay-calculator",
+      "template": "ToolPage",
+      "entity": null,
+      "title": "Take Home Pay Calculator (2026)",
+      "titleChars": 31,
+      "h1": "Take Home Pay Calculator",
+      "metaDescription": "See what is left of a gross salary after federal, state, Social Security and Medicare — yearly and monthly. Free, no sign-up.",
+      "metaChars": 125,
+      "canonical": "https://example.com/tools/take-home-pay-calculator",
+      "breadcrumb": [
+        "Home",
+        "Calculators",
+        "Take Home Pay Calculator"
+      ],
+      "h2Outline": [
+        "How take-home pay is calculated",
+        "What this does not include",
+        "Who needs this",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Calculators",
+              "item": "https://example.com/tools/take-home-pay-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Take Home Pay Calculator"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Take Home Pay Calculator (2026)",
+          "url": "https://example.com/tools/take-home-pay-calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "publisher": {
+            "@type": "Organization",
+            "name": "LifeCalc Pro",
+            "url": "https://example.com"
+          },
+          "dateModified": "2026"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/paycheck-tax-calculator",
+          "anchor": "paycheck tax calculator"
+        },
+        {
+          "to": "/tools/income-tax-calculator",
+          "anchor": "income tax calculator"
+        },
+        {
+          "to": "/state-taxes",
+          "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/salary-comparison-by-city",
+          "anchor": "salary comparison by city"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools/paycheck-tax-calculator",
+      "template": "ToolPage",
+      "entity": null,
+      "title": "Paycheck Tax Calculator (2026)",
+      "titleChars": 30,
+      "h1": "Paycheck Tax Calculator",
+      "metaDescription": "See what lands in your account each payday — weekly, biweekly, semi-monthly or monthly — after every tax and withholding.",
+      "metaChars": 121,
+      "canonical": "https://example.com/tools/paycheck-tax-calculator",
+      "breadcrumb": [
+        "Home",
+        "Calculators",
+        "Paycheck Tax Calculator"
+      ],
+      "h2Outline": [
+        "How a paycheck is calculated",
+        "What this does not include",
+        "Who needs this",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Calculators",
+              "item": "https://example.com/tools/paycheck-tax-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Paycheck Tax Calculator"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Paycheck Tax Calculator (2026)",
+          "url": "https://example.com/tools/paycheck-tax-calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "publisher": {
+            "@type": "Organization",
+            "name": "LifeCalc Pro",
+            "url": "https://example.com"
+          },
+          "dateModified": "2026"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/take-home-pay-calculator",
+          "anchor": "take home pay calculator"
+        },
+        {
+          "to": "/tools/tax-withholding-calculator",
+          "anchor": "tax withholding calculator"
+        },
+        {
+          "to": "/tools/salary-to-hourly-calculator",
+          "anchor": "salary to hourly calculator"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools/tax-withholding-calculator",
+      "template": "ToolPage",
+      "entity": null,
+      "title": "Tax Withholding Calculator (2026)",
+      "titleChars": 33,
+      "h1": "Tax Withholding Calculator",
+      "metaDescription": "Work out what to put on your W-4 so you neither owe nor overpay at filing time. Shows the shortfall or the refund either way.",
+      "metaChars": 125,
+      "canonical": "https://example.com/tools/tax-withholding-calculator",
+      "breadcrumb": [
+        "Home",
+        "Calculators",
+        "Tax Withholding Calculator"
+      ],
+      "h2Outline": [
+        "How withholding is calculated",
+        "What this does not include",
+        "Who needs this",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Calculators",
+              "item": "https://example.com/tools/tax-withholding-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Tax Withholding Calculator"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Tax Withholding Calculator (2026)",
+          "url": "https://example.com/tools/tax-withholding-calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "publisher": {
+            "@type": "Organization",
+            "name": "LifeCalc Pro",
+            "url": "https://example.com"
+          },
+          "dateModified": "2026"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/paycheck-tax-calculator",
+          "anchor": "paycheck tax calculator"
+        },
+        {
+          "to": "/tools/income-tax-calculator",
+          "anchor": "income tax calculator"
+        },
+        {
+          "to": "/tools/salary-comparison-by-city",
+          "anchor": "salary comparison by city"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools/sales-tax-calculator",
+      "template": "ToolPage",
+      "entity": null,
+      "title": "Sales Tax Calculator (2026)",
+      "titleChars": 27,
+      "h1": "Sales Tax Calculator",
+      "metaDescription": "Add sales tax to any purchase for any US state, county or city — with the state, local and combined rate each shown separately.",
+      "metaChars": 127,
+      "canonical": "https://example.com/tools/sales-tax-calculator",
+      "breadcrumb": [
+        "Home",
+        "Calculators",
+        "Sales Tax Calculator"
+      ],
+      "h2Outline": [
+        "How sales tax is calculated",
+        "What this does not include",
+        "Who needs this",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Calculators",
+              "item": "https://example.com/tools/sales-tax-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Sales Tax Calculator"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Sales Tax Calculator (2026)",
+          "url": "https://example.com/tools/sales-tax-calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "publisher": {
+            "@type": "Organization",
+            "name": "LifeCalc Pro",
+            "url": "https://example.com"
+          },
+          "dateModified": "2026"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/state-taxes",
+          "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools/property-tax-calculator",
+      "template": "ToolPage",
+      "entity": null,
+      "title": "Property Tax Calculator (2026)",
+      "titleChars": 30,
+      "h1": "Property Tax Calculator",
+      "metaDescription": "Estimate annual property tax from a home's assessed value and its local rate, plus the effective rate on the purchase price.",
+      "metaChars": 124,
+      "canonical": "https://example.com/tools/property-tax-calculator",
+      "breadcrumb": [
+        "Home",
+        "Calculators",
+        "Property Tax Calculator"
+      ],
+      "h2Outline": [
+        "How property tax is calculated",
+        "What this does not include",
+        "Who needs this",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Calculators",
+              "item": "https://example.com/tools/property-tax-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Property Tax Calculator"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Property Tax Calculator (2026)",
+          "url": "https://example.com/tools/property-tax-calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "publisher": {
+            "@type": "Organization",
+            "name": "LifeCalc Pro",
+            "url": "https://example.com"
+          },
+          "dateModified": "2026"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/house-payment-calculator",
+          "anchor": "house payment calculator"
+        },
+        {
+          "to": "/state-taxes",
+          "anchor": "state income tax rates"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools/closing-cost-calculator",
+      "template": "ToolPage",
+      "entity": null,
+      "title": "Closing Cost Calculator (2026)",
+      "titleChars": 30,
+      "h1": "Closing Cost Calculator",
+      "metaDescription": "Add up the one-off costs of closing on a home — lender fees, title, escrow, taxes — so the cash needed at signing is no surprise.",
+      "metaChars": 129,
+      "canonical": "https://example.com/tools/closing-cost-calculator",
+      "breadcrumb": [
+        "Home",
+        "Calculators",
+        "Closing Cost Calculator"
+      ],
+      "h2Outline": [
+        "How closing costs is calculated",
+        "What this does not include",
+        "Who needs this",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Calculators",
+              "item": "https://example.com/tools/closing-cost-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Closing Cost Calculator"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "Closing Cost Calculator (2026)",
+          "url": "https://example.com/tools/closing-cost-calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "publisher": {
+            "@type": "Organization",
+            "name": "LifeCalc Pro",
+            "url": "https://example.com"
+          },
+          "dateModified": "2026"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/house-payment-calculator",
+          "anchor": "house payment calculator"
+        },
+        {
+          "to": "/cost-of-living/{metro}",
+          "anchor": "cost of living in {metro}"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/tools/house-payment-calculator",
+      "template": "ToolPage",
+      "entity": null,
+      "title": "House Payment Calculator (2026)",
+      "titleChars": 31,
+      "h1": "House Payment Calculator",
+      "metaDescription": "Work out the full monthly cost of a home loan: principal, interest, taxes, insurance and PMI, not just the loan payment itself.",
+      "metaChars": 127,
+      "canonical": "https://example.com/tools/house-payment-calculator",
+      "breadcrumb": [
+        "Home",
+        "Calculators",
+        "House Payment Calculator"
+      ],
+      "h2Outline": [
+        "How a house payment is calculated",
+        "What this does not include",
+        "Who needs this",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Calculators",
+              "item": "https://example.com/tools/house-payment-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "House Payment Calculator"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "House Payment Calculator (2026)",
+          "url": "https://example.com/tools/house-payment-calculator",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "isAccessibleForFree": true,
+          "publisher": {
+            "@type": "Organization",
+            "name": "LifeCalc Pro",
+            "url": "https://example.com"
+          },
+          "dateModified": "2026"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/closing-cost-calculator",
+          "anchor": "closing cost calculator"
+        },
+        {
+          "to": "/tools/property-tax-calculator",
+          "anchor": "property tax calculator"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/cost-of-living",
+      "template": "DirectoryPage",
+      "entity": null,
+      "title": "Cost of Living by City (2026)",
+      "titleChars": 29,
+      "h1": "Cost of Living by City",
+      "metaDescription": "Browse the cost of living index for every US metro area, ranked and searchable, built from official BEA regional price data.",
+      "metaChars": 124,
+      "canonical": "https://example.com/cost-of-living",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living by City"
+      ],
+      "h2Outline": [
+        "The full list",
+        "How to read these numbers",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living by City"
+            }
+          ]
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/cost-of-living/{metro}",
+          "anchor": "cost of living in {metro}"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/state-taxes",
+      "template": "DirectoryPage",
+      "entity": null,
+      "title": "State Income Tax Rates by State (2026)",
+      "titleChars": 38,
+      "h1": "State Income Tax Rates by State",
+      "metaDescription": "Compare income tax across all 50 states and DC in one table — brackets, flat rates, and the nine states that levy none at all.",
+      "metaChars": 126,
+      "canonical": "https://example.com/state-taxes",
+      "breadcrumb": [
+        "Home",
+        "State Income Tax Rates by State"
+      ],
+      "h2Outline": [
+        "The full list",
+        "How to read these numbers",
+        "Frequently asked questions"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "State Income Tax Rates by State"
+            }
+          ]
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/state-taxes/{state}",
+          "anchor": "{state} income tax calculator"
+        },
+        {
+          "to": "/tools/income-tax-calculator",
+          "anchor": "income tax calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/about",
+      "template": "TrustPage",
+      "entity": null,
+      "title": "About — LifeCalc Pro",
+      "titleChars": 20,
+      "h1": "About",
+      "metaDescription": "Who builds LifeCalc, why every number comes from a primary government source, and how to reach a real person about any of them.",
+      "metaChars": 127,
+      "canonical": "https://example.com/about",
+      "breadcrumb": [
+        "Home",
+        "About"
+      ],
+      "h2Outline": [
+        "Who writes this",
+        "Why the numbers come from primary sources",
+        "How this site makes money",
+        "Contact"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "About"
+            }
+          ]
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/methodology",
+      "template": "TrustPage",
+      "entity": null,
+      "title": "Methodology — LifeCalc Pro",
+      "titleChars": 26,
+      "h1": "Methodology",
+      "metaDescription": "Exactly how every figure is calculated: the tax engine, the BEA and HUD indices, and what each one deliberately does not model.",
+      "metaChars": 127,
+      "canonical": "https://example.com/methodology",
+      "breadcrumb": [
+        "Home",
+        "Methodology"
+      ],
+      "h2Outline": [
+        "The tax engine",
+        "The cost-of-living indices",
+        "What we deliberately do not model",
+        "How often this updates"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Methodology"
+            }
+          ]
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/sources",
+      "template": "TrustPage",
+      "entity": null,
+      "title": "Sources — LifeCalc Pro",
+      "titleChars": 22,
+      "h1": "Sources",
+      "metaDescription": "Every primary source behind the numbers on this site — IRS, BEA, HUD and each state — with a direct link and the date it was retrieved.",
+      "metaChars": 135,
+      "canonical": "https://example.com/sources",
+      "breadcrumb": [
+        "Home",
+        "Sources"
+      ],
+      "h2Outline": [
+        "Federal tax sources",
+        "State tax sources",
+        "Cost-of-living sources",
+        "How to report an error"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Sources"
+            }
+          ]
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/editorial-policy",
+      "template": "TrustPage",
+      "entity": null,
+      "title": "Editorial Policy — LifeCalc Pro",
+      "titleChars": 31,
+      "h1": "Editorial Policy",
+      "metaDescription": "How content is written, reviewed and updated here, including where machine assistance is used and where a human checks it.",
+      "metaChars": 122,
+      "canonical": "https://example.com/editorial-policy",
+      "breadcrumb": [
+        "Home",
+        "Editorial Policy"
+      ],
+      "h2Outline": [
+        "How content is written",
+        "How it is reviewed",
+        "Use of machine assistance",
+        "Corrections policy"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Editorial Policy"
+            }
+          ]
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/privacy",
+      "template": "TrustPage",
+      "entity": null,
+      "title": "Privacy — LifeCalc Pro",
+      "titleChars": 22,
+      "h1": "Privacy",
+      "metaDescription": "What this site stores and what it does not. Calculations stay in your browser — no salary figure is ever sent to a server.",
+      "metaChars": 122,
+      "canonical": "https://example.com/privacy",
+      "breadcrumb": [
+        "Home",
+        "Privacy"
+      ],
+      "h2Outline": [
+        "What stays in your browser",
+        "What we measure",
+        "Advertising and cookies",
+        "Your choices"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Privacy"
+            }
+          ]
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/terms",
+      "template": "TrustPage",
+      "entity": null,
+      "title": "Terms — LifeCalc Pro",
+      "titleChars": 20,
+      "h1": "Terms",
+      "metaDescription": "The terms for using these calculators, and the plain statement that they are estimates rather than professional tax advice.",
+      "metaChars": 123,
+      "canonical": "https://example.com/terms",
+      "breadcrumb": [
+        "Home",
+        "Terms"
+      ],
+      "h2Outline": [
+        "Use of the calculators",
+        "These are estimates, not advice",
+        "Limitation of liability"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Terms"
+            }
+          ]
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
+      "path": "/contact",
+      "template": "TrustPage",
+      "entity": null,
+      "title": "Contact — LifeCalc Pro",
+      "titleChars": 22,
+      "h1": "Contact",
+      "metaDescription": "How to reach us about an incorrect number, a missing state, or anything else on the site. Corrections are welcome.",
+      "metaChars": 114,
+      "canonical": "https://example.com/contact",
+      "breadcrumb": [
+        "Home",
+        "Contact"
+      ],
+      "h2Outline": [
+        "How to reach us",
+        "Reporting an incorrect number",
+        "Response times"
+      ],
+      "faq": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Contact"
+            }
+          ]
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "dataVerification": "n/a",
+      "staleForTargetYear": false
+    },
+    {
       "path": "/state-taxes/alabama",
       "template": "StateTaxPage",
       "entity": "alabama",

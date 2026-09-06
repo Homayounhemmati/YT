@@ -133,7 +133,8 @@
           "monthly cost of living calculator",
           "how much do i need to live in"
         ]
-      }
+      },
+      "subject": "cost of living"
     },
     {
       "path": "/tools/cost-of-living-comparison",
@@ -174,7 +175,8 @@
           "city vs city cost of living",
           "moving cost of living comparison"
         ]
-      }
+      },
+      "subject": "a cost of living comparison"
     },
     {
       "path": "/tools/salary-comparison-by-city",
@@ -210,7 +212,8 @@
           "salary adjustment calculator by location"
         ]
       },
-      "note": "Renamed from /tools/salary-converter. That slug was a brand name, which rule 1 of section 6-7 forbids: the slug is the target keyword. Free to change because nothing is published — after indexation it would cost a permanent redirect."
+      "note": "Renamed from /tools/salary-converter. That slug was a brand name, which rule 1 of section 6-7 forbids: the slug is the target keyword. Free to change because nothing is published — after indexation it would cost a permanent redirect.",
+      "subject": "an equivalent salary"
     },
     {
       "path": "/tools/salary-to-hourly-calculator",
@@ -242,7 +245,8 @@
           "convert hourly wage to salary",
           "salary to hourly wage converter"
         ]
-      }
+      },
+      "subject": "an hourly rate from a salary"
     },
     {
       "path": "/tools/income-tax-calculator",
@@ -281,7 +285,8 @@
           "income tax estimator",
           "tax liability calculator"
         ]
-      }
+      },
+      "subject": "income tax"
     },
     {
       "path": "/tools/take-home-pay-calculator",
@@ -320,7 +325,8 @@
           "take home salary calculator",
           "net salary calculator"
         ]
-      }
+      },
+      "subject": "take-home pay"
     },
     {
       "path": "/tools/paycheck-tax-calculator",
@@ -355,7 +361,8 @@
           "weekly paycheck calculator",
           "semi monthly paycheck calculator"
         ]
-      }
+      },
+      "subject": "a paycheck"
     },
     {
       "path": "/tools/tax-withholding-calculator",
@@ -390,7 +397,8 @@
           "how much should i withhold",
           "w-4 allowances calculator"
         ]
-      }
+      },
+      "subject": "withholding"
     },
     {
       "path": "/tools/sales-tax-calculator",
@@ -421,7 +429,8 @@
           "sales tax rate calculator",
           "add sales tax to price"
         ]
-      }
+      },
+      "subject": "sales tax"
     },
     {
       "path": "/tools/property-tax-calculator",
@@ -452,7 +461,8 @@
           "millage rate calculator",
           "annual property tax estimate"
         ]
-      }
+      },
+      "subject": "property tax"
     },
     {
       "path": "/tools/closing-cost-calculator",
@@ -483,7 +493,8 @@
           "cash to close calculator",
           "estimated closing costs"
         ]
-      }
+      },
+      "subject": "closing costs"
     },
     {
       "path": "/tools/house-payment-calculator",
@@ -514,7 +525,8 @@
           "piti calculator",
           "monthly house payment estimate"
         ]
-      }
+      },
+      "subject": "a house payment"
     },
     {
       "path": "/cost-of-living",
@@ -664,6 +676,158 @@
           "{state} paycheck calculator"
         ]
       }
+    },
+    {
+      "path": "/about",
+      "template": "TrustPage",
+      "primary": null,
+      "note": "Trust page. Targets no keyword by design (7-4, 10-1).",
+      "canonical": "self",
+      "metaHook": "Who builds LifeCalc, why every number comes from a primary government source, and how to reach a real person about any of them.",
+      "displayName": "About",
+      "cluster": null,
+      "links": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "h2Outline": [
+        "Who writes this",
+        "Why the numbers come from primary sources",
+        "How this site makes money",
+        "Contact"
+      ]
+    },
+    {
+      "path": "/methodology",
+      "template": "TrustPage",
+      "primary": null,
+      "note": "Trust page. Targets no keyword by design (7-4, 10-1).",
+      "canonical": "self",
+      "metaHook": "Exactly how every figure is calculated: the tax engine, the BEA and HUD indices, and what each one deliberately does not model.",
+      "displayName": "Methodology",
+      "cluster": null,
+      "links": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "h2Outline": [
+        "The tax engine",
+        "The cost-of-living indices",
+        "What we deliberately do not model",
+        "How often this updates"
+      ]
+    },
+    {
+      "path": "/sources",
+      "template": "TrustPage",
+      "primary": null,
+      "note": "Trust page. Targets no keyword by design (7-4, 10-1).",
+      "canonical": "self",
+      "metaHook": "Every primary source behind the numbers on this site — IRS, BEA, HUD and each state — with a direct link and the date it was retrieved.",
+      "displayName": "Sources",
+      "cluster": null,
+      "links": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "h2Outline": [
+        "Federal tax sources",
+        "State tax sources",
+        "Cost-of-living sources",
+        "How to report an error"
+      ]
+    },
+    {
+      "path": "/editorial-policy",
+      "template": "TrustPage",
+      "primary": null,
+      "note": "Trust page. Targets no keyword by design (7-4, 10-1).",
+      "canonical": "self",
+      "metaHook": "How content is written, reviewed and updated here, including where machine assistance is used and where a human checks it.",
+      "displayName": "Editorial Policy",
+      "cluster": null,
+      "links": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "h2Outline": [
+        "How content is written",
+        "How it is reviewed",
+        "Use of machine assistance",
+        "Corrections policy"
+      ]
+    },
+    {
+      "path": "/privacy",
+      "template": "TrustPage",
+      "primary": null,
+      "note": "Trust page. Targets no keyword by design (7-4, 10-1).",
+      "canonical": "self",
+      "metaHook": "What this site stores and what it does not. Calculations stay in your browser — no salary figure is ever sent to a server.",
+      "displayName": "Privacy",
+      "cluster": null,
+      "links": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "h2Outline": [
+        "What stays in your browser",
+        "What we measure",
+        "Advertising and cookies",
+        "Your choices"
+      ]
+    },
+    {
+      "path": "/terms",
+      "template": "TrustPage",
+      "primary": null,
+      "note": "Trust page. Targets no keyword by design (7-4, 10-1).",
+      "canonical": "self",
+      "metaHook": "The terms for using these calculators, and the plain statement that they are estimates rather than professional tax advice.",
+      "displayName": "Terms",
+      "cluster": null,
+      "links": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "h2Outline": [
+        "Use of the calculators",
+        "These are estimates, not advice",
+        "Limitation of liability"
+      ]
+    },
+    {
+      "path": "/contact",
+      "template": "TrustPage",
+      "primary": null,
+      "note": "Trust page. Targets no keyword by design (7-4, 10-1).",
+      "canonical": "self",
+      "metaHook": "How to reach us about an incorrect number, a missing state, or anything else on the site. Corrections are welcome.",
+      "displayName": "Contact",
+      "cluster": null,
+      "links": [
+        {
+          "to": "/",
+          "anchor": "LifeCalc"
+        }
+      ],
+      "h2Outline": [
+        "How to reach us",
+        "Reporting an incorrect number",
+        "Response times"
+      ]
     }
   ],
   "canonicalRules": [
@@ -688,7 +852,8 @@
       "titleMaxChars": 60,
       "metaMinChars": 110,
       "metaMaxChars": 155,
-      "h1MaxChars": 70
+      "h1MaxChars": 70,
+      "titleMinChars": 15
     },
     "longestSubstitutions": {
       "{Primary}": "Cost of Living Comparison Calculator",
@@ -706,10 +871,11 @@
           "The year appears in the title but **never in the URL** (section 6-7).",
           "The meta must state the differentiating output, not a generic description — this is what separates the four salary-family tools from each other.",
           "No generic tool carries an entity name in its title (the generic/entity rule).",
-          "The meta comes from each page's `metaHook` — English, 110-155 characters, naming the differentiating output."
+          "The meta comes from each page's `metaHook` — English, 110-155 characters, naming the differentiating output.",
+          "The 'how it is calculated' H2 names the **subject**, not the tool: 'How sales tax is calculated', never 'How Sales Tax Calculator is calculated'. Every tool page therefore declares a `subject` field."
         ],
         "h2Outline": [
-          "How {Primary} is calculated",
+          "How {Subject} is calculated",
           "What this does not include",
           "Who needs this",
           "Frequently asked questions"
@@ -795,6 +961,47 @@
           "Start here"
         ],
         "breadcrumb": []
+      },
+      "TrustPage": {
+        "title": "{Primary} — {SiteName}",
+        "h1": "{Primary}",
+        "meta": "{Hook}",
+        "h2Outline": null,
+        "breadcrumb": [
+          "Home",
+          "{Primary}"
+        ],
+        "rules": [
+          "Trust pages target no search keyword and are not optimised for one. They exist for AdSense review (10-1), for E-E-A-T (7-4), and for people — and a trust page chasing a keyword reads as exactly the thing it is meant to disprove.",
+          "They are **indexed**, never noindex: an About page Google cannot see does not support authority.",
+          "They carry **no ads** (rule 10-4-6).",
+          "The title is the page's own name — 'Methodology', not 'Methodology | Free Tax Calculator 2026'.",
+          "Outlines are per page, not per template: an About page and a Privacy page share no structure, and forcing one outline on both produces headings that are wrong on at least one of them — the same defect found on the no-tax state pages (9-3-9).",
+          "The title carries the site name because the page name alone is too short to be a useful SERP line — 'Privacy' is 7 characters. This is the one place a brand suffix is right: the page has no keyword to lose room for."
+        ],
+        "h2OutlinePerPage": true
+      },
+      "GuidePage": {
+        "title": "{Primary} ({year})",
+        "h1": "{Primary}",
+        "meta": "{Hook}",
+        "h2Outline": [
+          "{Primary} explained",
+          "A worked example",
+          "Common mistakes",
+          "Frequently asked questions"
+        ],
+        "breadcrumb": [
+          "Home",
+          "Guides",
+          "{Primary}"
+        ],
+        "rules": [
+          "A guide is 1,500-2,500 words with at least one worked example computed by our own engine, never a hypothetical number (7-2-2).",
+          "It links to at least two of our tools in the body, where the reader needs them.",
+          "It never embeds a full calculator — that is the directory-versus-tool rule applied to guides (differentiationRules[1]).",
+          "Its head term must be measured into data/keywords.json before it is written (plannedPages.promotionRule)."
+        ]
       }
     },
     "anchorText": [
@@ -839,6 +1046,16 @@
         "ItemList — the table rows, each with its position and link",
         "BreadcrumbList",
         "No FAQPage — a directory lists, it does not answer questions"
+      ],
+      "TrustPage": [
+        "BreadcrumbList",
+        "Organization + Person on /about — this is where the author identity actually lives (7-4)",
+        "No FAQPage — a policy page is not a Q&A"
+      ],
+      "GuidePage": [
+        "Article (headline, author Person, datePublished, dateModified)",
+        "FAQPage",
+        "BreadcrumbList"
       ]
     },
     "headingRules": [
@@ -1054,7 +1271,26 @@
       "No two links on one page share anchor text.",
       "An entity link carries the entity name, so the same template produces a different anchor on every generated page — 'Cost of Living in Austin', not 'this city'.",
       "Navigation anchors are fixed site-wide and are exempt from the per-page uniqueness rule, since they appear on every page by design."
-    ]
+    ],
+    "globalFooter": [
+      "/about",
+      "/methodology",
+      "/sources",
+      "/editorial-policy",
+      "/privacy",
+      "/terms",
+      "/contact"
+    ],
+    "globalFooterNote": "Present in the footer of every page. This is what keeps the trust pages out of orphan status without putting policy links in the main navigation, and it is why they are exempt from the per-page anchor-uniqueness rule.",
+    "footerAnchors": {
+      "/about": "About",
+      "/methodology": "Methodology",
+      "/sources": "Sources",
+      "/editorial-policy": "Editorial Policy",
+      "/privacy": "Privacy",
+      "/terms": "Terms",
+      "/contact": "Contact"
+    }
   },
   "clusterModel": {
     "$comment": "A page targets an intent cluster, represented by a head term — not a single keyword string. `primary` is the head; `cluster.variants` are the phrasings the same page is expected to rank for; `cluster.intent` is what they all mean. Intent is the real anti-cannibalisation axis: two pages may be lexically distant and still compete, or lexically close and not.",

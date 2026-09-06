@@ -156,6 +156,74 @@ def build_state(st, pages_doc, page_spec, tpl, origin, site_name, data_year):
     }
 
 
+def build_static(page, pages_doc, tpl, origin, site_name, data_year, ld):
+    """Resolve a page that has no entity behind it — tools, directories, trust pages.
+    Sixteen of these were left to be typed by hand into a dashboard, which is
+    sixteen chances to drift from the formula for no reason."""
+    name = title_case(page["primary"]) if page.get("primary") else None
+    year = str(data_year)
+
+    def sub(text):
+        if text is None:
+            return None
+        out = (text.replace("{year}", year)
+                   .replace("{Hook}", page.get("metaHook") or "")
+                   .replace("{Subject}", page.get("subject") or "")
+                   .replace("{SiteName}", site_name))
+        if name:
+            out = out.replace("{Primary}", name)
+        elif page.get("displayName"):
+            out = out.replace("{Primary}", page["displayName"])
+        return out
+
+    path = page["path"]
+    canonical = origin + ("" if path == "/" else path)
+    title = sub(tpl.get("title")) or page.get("displayName") or site_name
+    h1 = sub(tpl.get("h1")) or page.get("displayName") or ""
+    meta = sub(tpl.get("meta")) or ""
+    crumbs = [sub(c) for c in (tpl.get("breadcrumb") or [])]
+    outline = page.get("h2Outline") or [sub(h) for h in (tpl.get("h2Outline") or [])]
+
+    breadcrumb_items = [
+        {"@type": "ListItem", "position": i + 1, "name": c,
+         **({"item": origin if i == 0 else canonical} if i < len(crumbs) - 1 else {})}
+        for i, c in enumerate(crumbs)]
+
+    blocks = []
+    if crumbs:
+        b = json.loads(json.dumps(ld["BreadcrumbList"]))
+        b["itemListElement"] = breadcrumb_items
+        blocks.append(b)
+    if page["template"] in ("ToolPage",):
+        w = json.loads(json.dumps(ld["WebApplication"]))
+        for k, v in w.items():
+            if isinstance(v, str):
+                w[k] = (v.replace("{TITLE}", title).replace("{CANONICAL}", canonical)
+                         .replace("{ORIGIN}", origin).replace("{SITE_NAME}", site_name)
+                         .replace("{DATE_MODIFIED}", year))
+        w["publisher"] = {"@type": "Organization", "name": site_name, "url": origin}
+        blocks.append(w)
+
+    return {
+        "path": path,
+        "template": page["template"],
+        "entity": None,
+        "title": title,
+        "titleChars": len(title),
+        "h1": h1,
+        "metaDescription": meta,
+        "metaChars": len(meta),
+        "canonical": canonical,
+        "breadcrumb": crumbs,
+        "h2Outline": outline,
+        "faq": [],
+        "jsonLd": blocks,
+        "internalLinks": page.get("links", []),
+        "dataVerification": "n/a",
+        "staleForTargetYear": False,
+    }
+
+
 def main():
     pages_doc = json.loads((ROOT / "data/pages.json").read_text())
     origin = pages_doc["site"]["origin"].rstrip("/")
@@ -169,6 +237,14 @@ def main():
     data_year = "2026"
 
     entries, errors = [], []
+    ld = pages_doc["onPage"]["jsonLd"]
+    templates = pages_doc["onPage"]["templates"]
+    for page in pages_doc["pages"]:
+        if "{" in page["path"]:
+            continue  # entity template, resolved per row below
+        entries.append(build_static(page, pages_doc, templates[page["template"]],
+                                    origin, site_name, data_year, ld))
+
     for st in states:
         e = build_state(st, pages_doc, page_spec, tpl, origin, site_name, data_year)
         if e["titleChars"] > limits["titleMaxChars"]:
@@ -179,6 +255,13 @@ def main():
         if len(e["faq"]) < 3:
             errors.append(f"{e['path']}: only {len(e['faq'])} FAQ entries")
         entries.append(e)
+
+    for e in entries:
+        if e["titleChars"] > limits["titleMaxChars"]:
+            errors.append(f"{e['path']}: title {e['titleChars']} chars")
+        if e["metaChars"] and not (
+                limits["metaMinChars"] <= e["metaChars"] <= limits["metaMaxChars"]):
+            errors.append(f"{e['path']}: meta {e['metaChars']} chars")
 
     titles = {}
     for e in entries:
@@ -205,7 +288,9 @@ def main():
           "> These are the values imported into the platform's SEO fields, not typed "
           "(rule 3-7-6). Re-run after any dataset change.",
           "",
-          f"**{len(entries)} state pages** · titles {min(e['titleChars'] for e in entries)}"
+          f"**{len(entries)} pages** "
+          f"({sum(1 for e in entries if e['entity'])} generated from entities, "
+          f"{sum(1 for e in entries if not e['entity'])} static) · titles {min(e['titleChars'] for e in entries)}"
           f"–{max(e['titleChars'] for e in entries)} chars · metas "
           f"{min(e['metaChars'] for e in entries)}–{max(e['metaChars'] for e in entries)} chars",
           "",

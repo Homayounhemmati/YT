@@ -213,6 +213,8 @@ def main():
             sub["{Primary}"] = title_case(prim)
         sub["{Output}"] = page.get("output") or ""
         sub["{Hook}"] = page.get("metaHook") or ""
+        sub["{Subject}"] = page.get("subject") or ""
+        sub["{SiteName}"] = pages_doc.get("site", {}).get("name", "")
         for k, v in sub.items():
             out = out.replace(k, v)
         return out
@@ -240,6 +242,10 @@ def main():
             errors.append(
                 f"{page['path']}: with the shortest entity the meta is "
                 f"{len(meta_short)} chars, under {lim['metaMinChars']}: {meta_short!r}")
+        if lim.get("titleMinChars") and 0 < len(title) < lim["titleMinChars"]:
+            errors.append(
+                f"{page['path']}: title is only {len(title)} chars — too short to be a "
+                f"useful SERP line: {title!r}")
         if len(title) > lim.get("titleMaxChars", 60):
             errors.append(
                 f"{page['path']}: title is {len(title)} chars, over "
@@ -279,6 +285,8 @@ def main():
     # 11-14. crawl architecture: the link graph, click depth, orphans, ceilings
     crawl = pages_doc.get("crawl", {})
     nav = crawl.get("globalNav", [])
+    footer = crawl.get("globalFooter", [])
+    everywhere = set(nav) | set(footer)
     max_depth = crawl.get("maxClickDepth", 3)
     ceiling = crawl.get("bodyLinkCeiling", 25)
     by_path = {p["path"]: p for p in pages}
@@ -294,9 +302,9 @@ def main():
         if len(body) > ceiling:
             errors.append(
                 f"{page['path']}: {len(body)} body links, over the ceiling of {ceiling}")
-    for dest in nav:
+    for dest in everywhere:
         if dest not in by_path:
-            errors.append(f"globalNav links to {dest}, which is not a page")
+            errors.append(f"global nav/footer links to {dest}, which is not a page")
 
     # breadth-first from the home page, with the header nav available everywhere
     depth = {"/": 0}
@@ -304,7 +312,7 @@ def main():
     while frontier:
         nxt = []
         for path in frontier:
-            outbound = set(dests(by_path[path])) | set(nav)
+            outbound = set(dests(by_path[path])) | everywhere
             for dest in outbound:
                 if dest in by_path and dest not in depth:
                     depth[dest] = depth[path] + 1
@@ -326,7 +334,7 @@ def main():
             if dest in inbound and dest != page["path"]:
                 inbound[dest] += 1
     for path, count in inbound.items():
-        if path == "/" or path in nav:
+        if path == "/" or path in everywhere:
             continue
         if count == 0:
             errors.append(f"{path}: orphan — no other page links to it")
@@ -415,7 +423,14 @@ def main():
     used_templates = {p["template"] for p in pages}
     for name in sorted(used_templates):
         spec = tpl_on.get(name, {})
-        outline = spec.get("h2Outline", [])
+        outline = spec.get("h2Outline") or []
+        if spec.get("h2OutlinePerPage"):
+            for pg in (p for p in pages if p["template"] == name):
+                if len(pg.get("h2Outline") or []) < 2:
+                    errors.append(
+                        f"{pg['path']}: template {name} declares per-page outlines, "
+                        "but this page has none")
+            continue
         if not outline:
             errors.append(f"template {name}: no H2 outline")
             continue
