@@ -29,6 +29,11 @@ jobs:
       - name: Cannibalisation and canonical audit
         run: python3 scripts/audit_seo.py
 
+      # The site is English; the spec is Persian. A Persian string in data/
+      # becomes a Persian meta description on a live page.
+      - name: Shipping files are English
+        run: python3 scripts/check_language.py
+
       - name: Typecheck
         run: npm run typecheck
 
