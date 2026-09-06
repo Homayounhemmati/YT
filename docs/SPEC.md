@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 4.8
+> **Last revised:** 2026-09-06 · **Version:** 4.9
+>
+> **Version 4.9:** The keyword model made explicit and enforced — a page targets an intent cluster represented by a head term, not a single string. Plus the nine guides, previously invisible to every check. Details in 20-16.
 >
 > **Version 4.8:** The crawl-render-index stage of SEO, enforced — click depth, orphans and funnel cul-de-sacs are now computed from a declared link graph. Plus the five sections that had not caught up with the version 4 identity change, and a deployment/launch/recovery section. Details in 20-15.
 >
@@ -1200,6 +1202,101 @@ The previous document said phase 2 would be data-driven, "not guesswork" — whi
 - [ ] For each keyword, actually look at the top 10 results: if they are all high-DR domains and major tax brands, that keyword is not reachable in year one — go long-tail
 - [ ] The output of this step is a prioritised list that sets the writing order for the 51 states (California and Texas before Wyoming)
 
+### 9-2-1. One page targets an intent cluster, not one keyword
+
+This is the model, and it had been assumed rather than written down:
+
+> **A page targets a group of phrasings that mean the same thing, represented by
+> a head term.** The head is what goes in the title and H1; the group is what the
+> page is expected to rank for.
+
+Google matches by intent, not by string. One page routinely ranks for hundreds
+of phrasings of one question, and writing a separate page per phrasing is the
+fastest way to build a doorway farm. So the unit of planning is the cluster.
+
+**The document had been carrying the wrong model in its data.** Before this was
+written down, `data/pages.json` held one `primary` per page and a total of
+**three** secondary keywords across eighteen pages — ten pages had none at all.
+That is "one page = one string", and it has three costs: the long tail is
+unplanned, the content brief cannot know which phrasings to cover naturally, and
+the cannibalisation check can only compare head terms.
+
+Each page now declares:
+
+```jsonc
+"cluster": {
+  "intent":  "From a gross salary, what is my annual and monthly net",
+  "variants": ["net pay calculator", "after tax income calculator", …],
+  "variantsMeasured": false
+}
+```
+
+#### The rules, enforced by `scripts/audit_seo.py`
+
+| Rule | Why |
+|---|---|
+| Every page with a head term declares a cluster, with **≥3 variants** | A head with no expansion means the long tail is unmapped |
+| Every cluster states its **intent** in a sentence | Intent is the real axis; the string is a proxy |
+| **No two pages state the same intent** | Same intent means one page, whatever the keywords say |
+| A term appears in exactly **one** cluster, site-wide | The plain definition of cannibalisation |
+| A variant is never another page's **head term** | The worst version of the same thing |
+| An entity-qualified variant belongs to the **entity page** | The generic/entity rule (9-4-1): `{state} paycheck calculator` is the state page's, not the paycheck tool's |
+| Head in the title and H1; **variants in H2s, FAQ and body only** | A title stuffed with variants ranks for none of them |
+
+#### Intent is a better axis than lexical similarity
+
+The existing check compares head terms by token overlap (≥30% must declare
+distinct outputs). That catches `income tax calculator` versus `paycheck tax
+calculator`, but it is a proxy and it fails in both directions:
+
+- **Lexically distant, same intent.** "what will my paycheck be" and "take home
+  pay calculator" share almost no tokens and are the same question.
+- **Lexically close, different intent.** "gross pay vs net pay" and "net pay
+  calculator" overlap heavily; one wants a definition, the other a number.
+
+The stated `intent` field is what separates these, and the identical-intent check
+is the one that would catch the first case. Lexical similarity is kept as a cheap
+first pass, not as the answer.
+
+#### Variants carry no volume, deliberately
+
+**The variants are linguistic expansions of the head term. They are not
+measured, and they carry no numbers.** `scripts/model_revenue.py` continues to
+compute from measured head terms only.
+
+This is the conservative choice and it is deliberate. The real addressable volume
+of a page is its whole cluster, which is larger — often materially — than its
+head. Writing an estimated multiplier into the model would raise every projection
+in section 1-4 without a single new measurement behind it. This document has
+been wrong three times by asserting keyword numbers it had not checked (section
+20-5), so the audit **fails the build if any page claims its variants are
+measured** while no variant volume exists in `data/keywords.json`.
+
+The practical reading: **the revenue model in 1-4 is a floor, not a forecast.**
+
+### 9-2-2. Pages that do not exist yet are planned, not unplanned
+
+The nine guides in section 6-2 are the main external-link asset (9-5-2) and were
+invisible to every check, because they were prose in this document and nothing
+else. They are now declared in `data/pages.json → plannedPages` with a proposed
+head and a stated intent, exempt from the measured-target rule until promoted,
+but **not** exempt from collision checks.
+
+That check found a real collision immediately: the planned guide "states with no
+income tax" was **the same query the `/state-taxes` directory already owns**. A
+list query, answered by a page that is a list. The guide was retargeted to the
+question the directory cannot answer — *do* no-income-tax states cost less, once
+sales, property and local tax are counted — which is both non-duplicative and a
+better guide, and is one our two engines can answer with computed numbers.
+
+A second overlap was legitimate: `gross pay vs net pay` shares tokens with `net
+pay calculator` without sharing intent. For that case a planned page may declare
+`overlapsAcknowledged` — but the audit requires a **substantive written reason**
+and fails on a one-word one. An overlap can be argued; it cannot be waved away.
+
+**Promotion rule:** a planned page becomes a real page only after its head term
+is measured into `data/keywords.json` and its cluster passes every check.
+
 ### 9-3. Internal linking
 
 Four layers:
@@ -1337,7 +1434,7 @@ python3 scripts/audit_seo.py
 |---|---|
 | 1 | Every page has exactly **one** primary target keyword |
 | 2 | No keyword is claimed twice |
-| 3 | One page's primary keyword is not another page's secondary |
+| 3 | Intent clusters: every page declares one with ≥3 variants and a stated intent · no term in two clusters · no variant is another page's head · no two pages share an intent · entity-qualified variants belong to the entity page · variants are not claimed as measured |
 | 4 | Pairs with ≥30% lexical similarity must declare **different primary outputs** |
 | 5 | Every target is measured in `data/keywords.json` |
 | 6 | Canonical is self on every page and tools strip parameters |
@@ -1349,8 +1446,9 @@ python3 scripts/audit_seo.py
 | 12 | Every page is within 3 clicks of the home page |
 | 13 | No page is an orphan — every page has at least one inbound link |
 | 14 | No page's links stay entirely inside its own funnel stage |
+| 15 | Planned pages (section 9-2-2) declare a head and an intent, do not collide with an existing page, and argue any overlap in writing |
 
-**Current run: 18 pages · 0 errors · 0 warnings** — across all fourteen checks. All three original warnings were resolved by actual measurement: two keywords were confirmed and recorded (`cost of living by city` 880 · `state income tax rates by state` 3,600) and the third was rejected and its page deleted (`job offer comparison calculator` 30).
+**Current run: 18 pages · 0 errors · 0 warnings** — across all fifteen checks. All three original warnings were resolved by actual measurement: two keywords were confirmed and recorded (`cost of living by city` 880 · `state income tax rates by state` 3,600) and the third was rejected and its page deleted (`job offer comparison calculator` 30).
 
 ##### The most important rule — generic versus entity
 
@@ -2577,6 +2675,53 @@ Two points of precision worth keeping:
   document has been wrong about this exact cluster three times.
 
 **Status: 18 pages · 14 checks · 0 errors · 0 warnings · 59 tests green.**
+
+### 20-16. Round seventeen — version 4.9 · the keyword model itself
+
+The user asked whether the model is "one page per keyword group, where a head
+term represents the group". It is — and the document had been carrying that
+model in prose while carrying a different one in its data.
+
+**What the data actually said:** one `primary` per page and **three** secondary
+keywords across eighteen pages. Ten pages had none. That is one page per keyword
+*string*, and it costs three things: the long tail goes unplanned, the content
+brief cannot know which phrasings to cover, and the cannibalisation check can
+only ever compare head terms.
+
+Section 9-2-1 writes the model down and `data/pages.json` now carries it: an
+`intent` sentence and ≥3 variants per page, with six rules enforced in CI
+(checks 3 and 15, taking the auditor to **15 checks**).
+
+**The addition that matters most is `intent`.** Lexical similarity was the only
+axis before, and it fails in both directions: "what will my paycheck be" and
+"take home pay calculator" share almost no tokens and are one question, while
+"gross pay vs net pay" and "net pay calculator" overlap heavily and are two.
+Two pages may now not state the same intent, whatever their keywords look like.
+
+**The nine guides were invisible to every check** — prose in section 6-2 and
+nothing else — despite being the main external-link asset. They are now in
+`plannedPages`, and the collision check found one immediately: the planned guide
+`states with no income tax` was **the same query `/state-taxes` already owns**.
+A list query, aimed at a page that is a list. Retargeted to what the directory
+cannot answer — whether no-income-tax states actually cost less once sales,
+property and local tax are counted. Non-duplicative, a better guide, and one our
+own two engines can answer with computed numbers.
+
+A second overlap was legitimate rather than wrong, so the check grew an escape
+hatch that cannot be abused: a planned page may declare `overlapsAcknowledged`,
+and the audit **fails on a reason shorter than 40 characters**. An overlap can be
+argued in writing; it cannot be waved away.
+
+**One thing deliberately not done.** The variants carry no volumes. The true
+addressable volume of a page is its whole cluster, which is materially larger
+than its head, and adding an estimated multiplier would raise every projection in
+section 1-4 without one new measurement behind it. The audit fails the build if
+any page claims measured variants while no variant volume exists in
+`data/keywords.json`. The revenue model stays a floor, not a forecast — this
+document has been wrong three times by asserting keyword numbers it had not
+checked (section 20-5), and the fix for that is not a fourth estimate.
+
+**Status: 18 pages · 15 checks · 0 errors · 0 warnings · 59 tests green.**
 
 ---
 

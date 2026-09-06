@@ -73,13 +73,70 @@ def main():
             errors.append(f"primary '{prim}' claimed by both {seen[key]} and {p['path']}")
         seen[key] = p["path"]
 
-    # 3. a primary must not appear as another page's secondary
+    # 3. intent clusters: a page targets a group of phrasings, not one string.
+    # Every term belongs to exactly one page, and no variant is another page's head.
+    claimed = {}
     for p in pages:
-        for sec in p.get("secondary", []):
-            owner = seen.get(sec.lower())
+        cluster = p.get("cluster")
+        if p.get("primary") and not cluster:
+            errors.append(
+                f"{p['path']}: has a primary keyword but declares no cluster — "
+                "a page targets an intent group, not one string")
+            continue
+        if not cluster:
+            continue
+        if not cluster.get("intent"):
+            errors.append(f"{p['path']}: cluster has no stated intent")
+        variants = cluster.get("variants", [])
+        if len(variants) < 3:
+            errors.append(
+                f"{p['path']}: only {len(variants)} cluster variants — a head term "
+                "with no expansion means the long tail is unmapped")
+        for term in variants:
+            key = term.lower()
+            if key == (p.get("primary") or "").lower():
+                errors.append(f"{p['path']}: '{term}' is both its head and its own variant")
+            owner = seen.get(key)
             if owner and owner != p["path"]:
                 errors.append(
-                    f"{p['path']} lists '{sec}' as secondary but it is the primary of {owner}")
+                    f"{p['path']}: variant '{term}' is the head term of {owner}")
+            if key in claimed and claimed[key] != p["path"]:
+                errors.append(
+                    f"variant '{term}' is claimed by both {claimed[key]} and {p['path']}")
+            claimed[key] = p["path"]
+
+    # An entity-qualified variant belongs to the entity page, never the generic tool
+    # (the generic/entity rule, section 9-4-1).
+    for p in pages:
+        cluster = p.get("cluster") or {}
+        if "{" in p["path"]:
+            continue  # this IS the entity page
+        for term in cluster.get("variants", []):
+            if "{" in term:
+                errors.append(
+                    f"{p['path']}: variant '{term}' is entity-qualified but this is a "
+                    "generic page — that query belongs to the entity page (9-4-1)")
+
+    # Two pages must not state the same intent, however different their wording
+    intents = {}
+    for p in pages:
+        cluster = p.get("cluster") or {}
+        intent = (cluster.get("intent") or "").strip().lower()
+        if not intent:
+            continue
+        if intent in intents:
+            errors.append(
+                f"{p['path']} and {intents[intent]} state an identical intent — "
+                "same intent means one page, whatever the keywords say")
+        intents[intent] = p["path"]
+
+    # Variants carry no volume, and must not leak into the revenue model
+    for p in pages:
+        cluster = p.get("cluster") or {}
+        if cluster.get("variantsMeasured"):
+            errors.append(
+                f"{p['path']}: cluster claims measured variants, but no variant volume "
+                "exists in data/keywords.json — measure them before asserting it")
 
     # 4. lexical proximity -> must be differentiated by output
     for a, b in combinations([p for p in pages if p.get("primary")], 2):
@@ -256,6 +313,49 @@ def main():
         worst = max(depth.values())
         notes.append(f"crawl depth: every page within {worst} clicks of home "
                      f"(limit {max_depth}) · no orphans")
+
+    # 15. planned pages must not collide with pages that already exist.
+    # A guide duplicating a tool's intent is cannibalisation that ships, and guides
+    # are the main external-link asset (section 9-5-2).
+    planned = pages_doc.get("plannedPages", {}).get("pages", [])
+    owned = dict(claimed)
+    for p in pages:
+        if p.get("primary"):
+            owned[p["primary"].lower()] = p["path"]
+    for pl in planned:
+        head = (pl.get("proposedHead") or "").lower()
+        if not head:
+            errors.append(f"{pl['path']}: planned page with no proposed head term")
+            continue
+        if head in owned:
+            errors.append(
+                f"{pl['path']}: proposed head '{pl['proposedHead']}' is already "
+                f"claimed by {owned[head]}")
+        for p in pages:
+            cl = p.get("cluster") or {}
+            sim = jaccard(tokens(head), tokens(p.get("primary") or ""))
+            if sim >= 0.5:
+                warnings.append(
+                    f"{pl['path']}: proposed head is {sim:.0%} similar to "
+                    f"{p['path']} ('{p.get('primary')}') — check the SERP before writing")
+            ack = {a.get("page"): a.get("why")
+                   for a in pl.get("overlapsAcknowledged", [])}
+            for v in cl.get("variants", []):
+                if jaccard(tokens(head), tokens(v)) < 0.6:
+                    continue
+                # An overlap may be legitimate — a definition and a calculator share
+                # tokens without sharing intent. It just has to be argued in writing.
+                if p["path"] in ack:
+                    if len(ack[p["path"]] or "") < 40:
+                        errors.append(
+                            f"{pl['path']}: acknowledges overlapping {p['path']} but "
+                            "gives no substantive reason")
+                    continue
+                warnings.append(
+                    f"{pl['path']}: proposed head overlaps {p['path']}'s variant "
+                    f"'{v}' — decide which page owns that query before writing")
+        if not pl.get("intent"):
+            errors.append(f"{pl['path']}: planned page with no stated intent")
 
     for e in errors:
         print(f"ERROR  {e}")

@@ -19,7 +19,8 @@
         "/tools/take-home-pay-calculator",
         "/cost-of-living",
         "/state-taxes"
-      ]
+      ],
+      "cluster": null
     },
     {
       "path": "/tools",
@@ -43,15 +44,13 @@
         "/tools/house-payment-calculator",
         "/cost-of-living",
         "/state-taxes"
-      ]
+      ],
+      "cluster": null
     },
     {
       "path": "/tools/cost-of-living-calculator",
       "template": "ToolPage",
       "primary": "cost of living calculator",
-      "secondary": [
-        "cost of living estimator"
-      ],
       "output": "Monthly: what one city costs for the user's household",
       "canonical": "self",
       "stripsParams": true,
@@ -60,15 +59,23 @@
       "links": [
         "/tools/cost-of-living-comparison",
         "/cost-of-living"
-      ]
+      ],
+      "cluster": {
+        "intent": "What does it cost to live in one specific place, for a household like mine",
+        "variantsMeasured": false,
+        "variants": [
+          "cost of living estimator",
+          "cost of living calculator by city",
+          "living expenses calculator",
+          "monthly cost of living calculator",
+          "how much do i need to live in"
+        ]
+      }
     },
     {
       "path": "/tools/cost-of-living-comparison",
       "template": "ToolPage",
       "primary": "cost of living comparison",
-      "secondary": [
-        "cost of living comparison calculator"
-      ],
       "output": "Two places side by side: cost gap + tax gap + the real gap",
       "canonical": "self",
       "stripsParams": true,
@@ -84,7 +91,18 @@
         "/tools/salary-converter",
         "/tools/cost-of-living-calculator",
         "/cost-of-living"
-      ]
+      ],
+      "cluster": {
+        "intent": "How do two places compare, and what would moving change",
+        "variantsMeasured": false,
+        "variants": [
+          "cost of living comparison calculator",
+          "compare cost of living between cities",
+          "cost of living difference between two cities",
+          "city vs city cost of living",
+          "moving cost of living comparison"
+        ]
+      }
     },
     {
       "path": "/tools/salary-converter",
@@ -99,15 +117,23 @@
         "/tools/take-home-pay-calculator",
         "/tools/cost-of-living-comparison",
         "/tools/salary-to-hourly-calculator"
-      ]
+      ],
+      "cluster": {
+        "intent": "What salary do I need in city B to live as I do in city A",
+        "variantsMeasured": false,
+        "variants": [
+          "salary equivalent in another city",
+          "comparable salary calculator",
+          "what salary do i need in",
+          "relocation salary calculator",
+          "salary adjustment calculator by location"
+        ]
+      }
     },
     {
       "path": "/tools/salary-to-hourly-calculator",
       "template": "ToolPage",
       "primary": "salary to hourly calculator",
-      "secondary": [
-        "hourly to salary calculator"
-      ],
       "output": "Two-way conversion between annual salary and hourly rate",
       "canonical": "self",
       "stripsParams": true,
@@ -117,7 +143,18 @@
       "links": [
         "/tools/take-home-pay-calculator",
         "/tools/salary-converter"
-      ]
+      ],
+      "cluster": {
+        "intent": "Convert between an annual salary and an hourly rate, in either direction",
+        "variantsMeasured": false,
+        "variants": [
+          "hourly to salary calculator",
+          "annual salary to hourly",
+          "hourly rate to annual salary",
+          "convert hourly wage to salary",
+          "salary to hourly wage converter"
+        ]
+      }
     },
     {
       "path": "/tools/income-tax-calculator",
@@ -133,7 +170,18 @@
         "/tools/take-home-pay-calculator",
         "/tools/tax-withholding-calculator",
         "/cost-of-living"
-      ]
+      ],
+      "cluster": {
+        "intent": "What is my total income tax liability for the year, and how is it bracketed",
+        "variantsMeasured": false,
+        "variants": [
+          "federal income tax calculator",
+          "tax bracket calculator",
+          "how much tax will i pay",
+          "income tax estimator",
+          "tax liability calculator"
+        ]
+      }
     },
     {
       "path": "/tools/take-home-pay-calculator",
@@ -149,7 +197,18 @@
         "/tools/income-tax-calculator",
         "/state-taxes",
         "/tools/salary-converter"
-      ]
+      ],
+      "cluster": {
+        "intent": "From a gross salary, what is my annual and monthly net",
+        "variantsMeasured": false,
+        "variants": [
+          "net pay calculator",
+          "after tax income calculator",
+          "salary after tax calculator",
+          "take home salary calculator",
+          "net salary calculator"
+        ]
+      }
     },
     {
       "path": "/tools/paycheck-tax-calculator",
@@ -164,7 +223,18 @@
         "/tools/take-home-pay-calculator",
         "/tools/tax-withholding-calculator",
         "/tools/salary-to-hourly-calculator"
-      ]
+      ],
+      "cluster": {
+        "intent": "What lands in my account on each individual payday",
+        "variantsMeasured": false,
+        "variants": [
+          "paycheck calculator",
+          "biweekly paycheck calculator",
+          "payroll tax calculator",
+          "weekly paycheck calculator",
+          "semi monthly paycheck calculator"
+        ]
+      }
     },
     {
       "path": "/tools/tax-withholding-calculator",
@@ -179,7 +249,18 @@
         "/tools/paycheck-tax-calculator",
         "/tools/income-tax-calculator",
         "/tools/salary-converter"
-      ]
+      ],
+      "cluster": {
+        "intent": "What should I put on my W-4 so the year ends at zero owed or refunded",
+        "variantsMeasured": false,
+        "variants": [
+          "w4 calculator",
+          "withholding estimator",
+          "federal withholding calculator",
+          "how much should i withhold",
+          "w-4 allowances calculator"
+        ]
+      }
     },
     {
       "path": "/tools/sales-tax-calculator",
@@ -193,7 +274,18 @@
       "links": [
         "/state-taxes",
         "/tools/cost-of-living-calculator"
-      ]
+      ],
+      "cluster": {
+        "intent": "How much sales tax on this purchase in this jurisdiction",
+        "variantsMeasured": false,
+        "variants": [
+          "sales tax by zip code",
+          "reverse sales tax calculator",
+          "how much is sales tax",
+          "sales tax rate calculator",
+          "add sales tax to price"
+        ]
+      }
     },
     {
       "path": "/tools/property-tax-calculator",
@@ -207,7 +299,18 @@
       "links": [
         "/tools/house-payment-calculator",
         "/state-taxes"
-      ]
+      ],
+      "cluster": {
+        "intent": "Annual property tax on a home of this value in this jurisdiction",
+        "variantsMeasured": false,
+        "variants": [
+          "property tax estimator",
+          "real estate tax calculator",
+          "how much are property taxes",
+          "millage rate calculator",
+          "annual property tax estimate"
+        ]
+      }
     },
     {
       "path": "/tools/closing-cost-calculator",
@@ -221,7 +324,18 @@
       "links": [
         "/tools/house-payment-calculator",
         "/cost-of-living/{metro}"
-      ]
+      ],
+      "cluster": {
+        "intent": "How much cash do I need at closing as the buyer",
+        "variantsMeasured": false,
+        "variants": [
+          "closing costs estimator",
+          "how much are closing costs",
+          "buyer closing cost calculator",
+          "cash to close calculator",
+          "estimated closing costs"
+        ]
+      }
     },
     {
       "path": "/tools/house-payment-calculator",
@@ -235,7 +349,18 @@
       "links": [
         "/tools/closing-cost-calculator",
         "/tools/property-tax-calculator"
-      ]
+      ],
+      "cluster": {
+        "intent": "What is the full monthly cost of this mortgage, not just principal and interest",
+        "variantsMeasured": false,
+        "variants": [
+          "mortgage payment calculator",
+          "monthly mortgage calculator",
+          "home loan payment calculator",
+          "piti calculator",
+          "monthly house payment estimate"
+        ]
+      }
     },
     {
       "path": "/cost-of-living",
@@ -250,7 +375,18 @@
         "/cost-of-living/{metro}",
         "/tools/cost-of-living-calculator",
         "/tools/cost-of-living-comparison"
-      ]
+      ],
+      "cluster": {
+        "intent": "Browse and rank places — discovery, not calculation",
+        "variantsMeasured": false,
+        "variants": [
+          "cost of living index by city",
+          "cost of living rankings",
+          "most expensive cities to live",
+          "cheapest cities to live",
+          "cost of living by metro area"
+        ]
+      }
     },
     {
       "path": "/cost-of-living/{metro}",
@@ -266,7 +402,18 @@
         "/tools/cost-of-living-calculator",
         "/cost-of-living",
         "/cost-of-living/{metro}"
-      ]
+      ],
+      "cluster": {
+        "intent": "One specific place's cost profile, including what its state takes",
+        "variantsMeasured": false,
+        "variants": [
+          "{metro} cost of living",
+          "cost to live in {metro}",
+          "is {metro} expensive",
+          "average rent in {metro}",
+          "{metro} living expenses"
+        ]
+      }
     },
     {
       "path": "/state-taxes",
@@ -280,7 +427,18 @@
         "/state-taxes/{state}",
         "/tools/income-tax-calculator",
         "/cost-of-living"
-      ]
+      ],
+      "cluster": {
+        "intent": "Compare every state's rate at a glance — a table, not a calculator",
+        "variantsMeasured": false,
+        "variants": [
+          "state income tax rates",
+          "states with no income tax",
+          "state tax rates comparison",
+          "income tax by state",
+          "state tax brackets by state"
+        ]
+      }
     },
     {
       "path": "/state-taxes/{state}",
@@ -295,7 +453,18 @@
         "/tools/income-tax-calculator",
         "/tools/take-home-pay-calculator",
         "/state-taxes"
-      ]
+      ],
+      "cluster": {
+        "intent": "One specific state's tax profile, and a calculation using it",
+        "variantsMeasured": false,
+        "variants": [
+          "{state} income tax rate",
+          "{state} state tax calculator",
+          "{state} tax brackets",
+          "how much is {state} income tax",
+          "{state} paycheck calculator"
+        ]
+      }
     }
   ],
   "canonicalRules": [
@@ -433,5 +602,89 @@
     "globalNavNote": "Present in the header of every page. Exempt from the 25-body-link ceiling, but it is what guarantees no page sits deeper than the directory that lists it.",
     "maxClickDepth": 3,
     "bodyLinkCeiling": 25
+  },
+  "clusterModel": {
+    "$comment": "A page targets an intent cluster, represented by a head term — not a single keyword string. `primary` is the head; `cluster.variants` are the phrasings the same page is expected to rank for; `cluster.intent` is what they all mean. Intent is the real anti-cannibalisation axis: two pages may be lexically distant and still compete, or lexically close and not.",
+    "variantsAreUnmeasured": "Variant volumes are NOT measured. They are linguistic expansions of the head term, and they deliberately carry no numbers. Nothing here feeds scripts/model_revenue.py, which continues to compute from measured heads only, so the revenue model stays conservative rather than being inflated by estimates nobody checked. Measure them against real data before using any of them to justify a decision.",
+    "rules": [
+      "The head term is `primary` and appears verbatim in the title and H1 (9-3-2).",
+      "Variants belong in H2s, the FAQ and body copy — never stuffed, and never in the title.",
+      "A term appears in exactly one page's cluster, site-wide.",
+      "A variant is never another page's head term.",
+      "Entity-qualified variants belong to the entity page, never to the generic tool (the generic/entity rule, 9-4-1). `{state} paycheck calculator` is in the state page's cluster, not the paycheck tool's."
+    ]
+  },
+  "plannedPages": {
+    "$comment": "The 9 guides from spec section 6-2, declared before they are written. Their head terms are NOT yet measured, so they are exempt from the measured-target rule until promoted into `pages` — but they are NOT exempt from collision checks. A guide that duplicates a tool page's intent is cannibalisation that ships, and guides are the main external-link asset (9-5-2), so it would be the expensive kind.",
+    "promotionRule": "A planned page becomes a real page only after its head term is measured and added to data/keywords.json, and its cluster passes every check in scripts/audit_seo.py.",
+    "pages": [
+      {
+        "path": "/guides/salary-needed-to-live-in-city",
+        "template": "GuidePage",
+        "proposedHead": "how much salary do you need to live in a city",
+        "intent": "Given one place, what absolute income clears its cost of living"
+      },
+      {
+        "path": "/guides/do-no-income-tax-states-cost-less",
+        "template": "GuidePage",
+        "proposedHead": "do states with no income tax cost less",
+        "intent": "Whether living in a no-income-tax state actually leaves you better off once sales, property and local taxes are counted — the trade-off, not the list",
+        "note": "Originally headed 'states with no income tax', which is the list query that /state-taxes already owns as a directory. Retargeted rather than left to compete: the guide's real value is the comparison, and it is also the only one of the nine that our own two engines can answer with computed numbers.",
+        "overlapsAcknowledged": [
+          {
+            "page": "/state-taxes",
+            "why": "The head is a lexical superset of the directory's 'states with no income tax', but the intents split cleanly: the directory answers 'which ones' with a table, this guide answers 'and is that actually cheaper' with a computed comparison across sales, property and local tax. The directory keeps the list query and links here; this guide never renders the list."
+          }
+        ]
+      },
+      {
+        "path": "/guides/sales-tax-and-cost-of-living",
+        "template": "GuidePage",
+        "proposedHead": "how sales tax affects cost of living",
+        "intent": "How consumption tax changes what a place actually costs"
+      },
+      {
+        "path": "/guides/what-cost-of-living-calculators-miss",
+        "template": "GuidePage",
+        "proposedHead": "what cost of living calculators leave out",
+        "intent": "The limitations of every cost-of-living index, ours included"
+      },
+      {
+        "path": "/guides/understanding-bea-price-parities",
+        "template": "GuidePage",
+        "proposedHead": "what are regional price parities",
+        "intent": "How to read a BEA index number and what it does and does not mean"
+      },
+      {
+        "path": "/guides/cost-of-moving-between-states",
+        "template": "GuidePage",
+        "proposedHead": "cost of moving to another state",
+        "intent": "The one-off and recurring costs of relocating across a state line"
+      },
+      {
+        "path": "/guides/gross-vs-net-pay",
+        "template": "GuidePage",
+        "proposedHead": "gross pay vs net pay",
+        "intent": "What the difference between the two figures consists of, conceptually",
+        "overlapsAcknowledged": [
+          {
+            "page": "/tools/take-home-pay-calculator",
+            "why": "Shares the tokens 'net pay' but not the intent: this guide defines what the difference consists of, the tool computes it for a specific salary. The guide links to the tool as its worked example and never embeds a calculator (the directory-versus-tool rule, differentiationRules[1])."
+          }
+        ]
+      },
+      {
+        "path": "/guides/comparing-job-offers-between-cities",
+        "template": "GuidePage",
+        "proposedHead": "how to compare job offers in different cities",
+        "intent": "The method for weighing two offers in two places, step by step"
+      },
+      {
+        "path": "/guides/local-income-tax",
+        "template": "GuidePage",
+        "proposedHead": "cities with local income tax",
+        "intent": "Which municipalities levy their own income tax, the layer most calculators ignore"
+      }
+    ]
   }
 }
