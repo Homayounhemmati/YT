@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 5.1
+> **Last revised:** 2026-09-06 · **Version:** 5.2
+>
+> **Version 5.2:** On-page completed for a platform build — concrete JSON-LD, FAQ formulas, entity-to-field mapping, and a generator that resolves all 51 state pages. Details in 20-19.
 >
 > **Version 5.1:** Platform is Base44. Section 3 rewritten as nine numbered SEO requirements rather than a framework, with a runnable verification protocol (3-5) and written fallbacks (3-3). Details in 20-18.
 >
@@ -60,6 +62,7 @@
 |---|---|
 | [`keyword-research.md`](keyword-research.md) | Demand validation; the basis for sections 6 and 14 |
 | [`data-verification.md`](data-verification.md) | Verification checklist; the basis for section 13 |
+| [`onpage-spec.md`](onpage-spec.md) | **Generated** — the resolved on-page values for all 51 state pages (9-3-9) |
 | `archive/` | The three original specs — **not authoritative** |
 
 ---
@@ -1615,6 +1618,66 @@ The rule as enforced:
   `/state-taxes` is a section root and a URL-hierarchy segment, not a keyword — but
   it may never contain a token the head term lacks. Short is fine; different is not.
 
+### 9-3-9. From formula to page — the generated specification
+
+The formulas describe what every page must contain. Somebody still has to put
+those values on 81 pages, and on a platform the input is a dashboard field.
+**Fifty-one hand-typed titles is fifty-one chances to drift from the formula**,
+and drift is invisible until a rankings report shows it.
+
+So the values are produced, not typed:
+
+```bash
+python3 scripts/generate_onpage.py
+```
+
+| Output | Purpose |
+|---|---|
+| `data/onpage.generated.json` | Machine-readable, imported into the platform's entity fields (mapping in `data/pages.json → platform`) |
+| [`docs/onpage-spec.md`](onpage-spec.md) | Human-readable, for review before import |
+
+For each of the 51 states it resolves: title · H1 · meta description · canonical ·
+breadcrumb · H2 outline · five FAQ entries carrying that state's own numbers ·
+three JSON-LD blocks with concrete values · internal links with anchor text ·
+and the dataset's verification state, so an unverified or 2025-figure state is
+visible at import time rather than after publication.
+
+It runs in CI and re-validates every generated value against the same limits the
+auditor enforces, so a formula change that breaks one state breaks the build.
+
+#### What generating it found
+
+Three defects that reading the formulas had not surfaced:
+
+1. **Forty-eight of the fifty-one metas were too short.** The auditor renders each
+   formula with the *longest* substitution to catch truncation — and never with the
+   shortest. With real state names, metas came out at 97–109 characters against a
+   110 minimum, while the audit reported clean. **The audit now checks both
+   extremes**, and the state and place metas were rewritten to fit at each end.
+
+2. **No single place formula can fit the window.** `San Francisco-Oakland-Berkeley,
+   CA` is 34 characters against `Akron`'s 5 — a 37-character swing inside a
+   45-character meta budget. This is why formulas use the metro's **display name**,
+   capped at 20 characters and required on every metro row, while the full MSA name
+   appears once in the body where precision helps and layout does not care.
+
+3. **"Texas tax brackets" was a heading on a state with no income tax.** One
+   outline applied to every state produces headings that are wrong on the page —
+   thin content of the exact kind section 7-1 forbids, generated at scale. Outlines
+   now vary by the dataset's `structure` field: progressive, flat and no-tax states
+   get different H2s and different FAQs.
+
+The third is the one worth remembering: **a formula that ignores its entity's
+shape scales a mistake as efficiently as it scales a page.**
+
+#### Deliberately left unresolved
+
+Every state's fifth FAQ answer is `PENDING_ENGINE` rather than a number. The tax
+engine can compute it, but the take-home figure belongs in the same run as the
+cost-of-living comparison, and that dataset does not exist yet (13-6). **Writing a
+plausible number now is precisely what rule 5-3 forbids**, and the placeholder is
+visible in the generated file so it cannot ship unnoticed.
+
 ### 9-4. Distribution — a section the previous document lacked
 
 The previous document had one line about attracting traffic. For a new domain, **links and brand signals are the bottleneck, not page count.** At least 30% of project time has to go here:
@@ -1686,8 +1749,9 @@ python3 scripts/audit_seo.py
 | 16 | Every slug matches its head term — exactly for tools, as a subset for section roots (9-3-8) |
 | 17 | Every template has an H2 outline: no H2 repeats the H1, entity templates name their entity, FAQ heading and FAQPage schema are coupled both ways (9-3-6) |
 | 18 | Every link edge carries anchor text: destination's head term, never the source's own, never generic, never duplicated on a page (9-3-7) |
+| 19 | Meta formulas fit at **both** extremes — the longest entity name must not truncate, the shortest must not fall under the minimum (9-3-9) |
 
-**Current run: 18 pages · 0 errors · 0 warnings** — across all eighteen checks. All three original warnings were resolved by actual measurement: two keywords were confirmed and recorded (`cost of living by city` 880 · `state income tax rates by state` 3,600) and the third was rejected and its page deleted (`job offer comparison calculator` 30).
+**Current run: 18 pages · 0 errors · 0 warnings** — across all nineteen checks, plus 51 generated state pages validated by `scripts/generate_onpage.py`. All three original warnings were resolved by actual measurement: two keywords were confirmed and recorded (`cost of living by city` 880 · `state income tax rates by state` 3,600) and the third was rejected and its page deleted (`job offer comparison calculator` 30).
 
 ##### The most important rule — generic versus entity
 
@@ -3079,6 +3143,62 @@ copy of the site; and the `curl` item in the definition of done is now marked as
 what it has become — the single most important check in that list.
 
 **Status: 18 pages · 18 checks · 0 errors · 0 warnings · 59 tests green.**
+
+### 20-19. Round twenty — version 5.2 · the generated on-page specification
+
+Completing on-page SEO for a platform build means answering a question a
+framework build never asks: **who types these values, and onto what?** On Base44
+the answer is a dashboard field per page, and fifty-one hand-typed titles is
+fifty-one chances to drift from the formula.
+
+Four things were missing and are now present:
+
+| Gap | Now |
+|---|---|
+| **Zero concrete JSON-LD** — only type names | Full payloads per template in `data/pages.json → onPage.jsonLd`, resolved per entity |
+| **No FAQ formulas**, though 7-2 requires five per page with that entity's numbers | Question and answer templates per template *and per tax structure* |
+| **No entity → platform field mapping** | `data/pages.json → platform`, with the rule that the specification wins over the dashboard (3-7-6) |
+| **Nothing produced the actual values** | `scripts/generate_onpage.py` → `data/onpage.generated.json` + `docs/onpage-spec.md`, in CI |
+
+All 51 states now resolve completely: title, H1, meta, canonical, breadcrumb, H2
+outline, five FAQ entries with their own numbers, three JSON-LD blocks, internal
+links with anchor text, and the dataset's verification state — so an unverified or
+2025-figure state is visible at import rather than after publication.
+
+**Generating them found three defects that reading the formulas had not.**
+
+**1. Forty-eight of fifty-one metas were too short.** The auditor renders each
+formula with the *longest* substitution to catch truncation, and never with the
+shortest. Real state names produced 97–109 characters against a 110 minimum while
+the audit reported clean. The audit now checks **both** extremes — check 19 — and
+the affected formulas were rewritten to fit at each end.
+
+**2. No single place formula can fit the window.**
+`San Francisco-Oakland-Berkeley, CA` is 34 characters against `Akron`'s 5: a
+37-character swing inside a 45-character meta budget. Hence the rule that formulas
+use a **display name capped at 20 characters**, required on every metro row, with
+the full MSA name appearing once in the body where precision helps and layout does
+not care.
+
+**3. "Texas tax brackets" was a heading on a state with no income tax.** One
+outline applied to fifty-one states produces headings that are wrong on the page.
+That is thin content of exactly the kind section 7-1 forbids, generated at scale
+and looking tidy while being wrong. Outlines and FAQs now vary by the dataset's
+`structure` field.
+
+The third is the one to remember: **a formula that ignores its entity's shape
+scales a mistake as efficiently as it scales a page.** It is also the argument for
+generating rather than templating blindly — the defect was invisible in the
+formula and obvious in the output.
+
+**One thing deliberately left unresolved.** Every state's fifth FAQ answer is
+`PENDING_ENGINE`, not a number. The engine can compute it, but that figure belongs
+in the same run as the cost-of-living comparison and that dataset does not exist
+(13-6). Writing a plausible number now is what rule 5-3 forbids, and the
+placeholder is visible in the generated file so it cannot ship unnoticed.
+
+**Status: 18 mapped pages · 19 checks · 51 generated state pages · 0 errors ·
+0 warnings · 59 tests green.**
 
 ---
 

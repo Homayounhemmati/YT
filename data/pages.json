@@ -692,7 +692,7 @@
     },
     "longestSubstitutions": {
       "{Primary}": "Cost of Living Comparison Calculator",
-      "{Metro}": "San Francisco-Oakland-Berkeley, CA",
+      "{Metro}": "Minneapolis-St. Paul",
       "{State}": "District of Columbia",
       "{year}": "2026"
     },
@@ -723,11 +723,12 @@
       "PlacePage": {
         "title": "Cost of Living in {Metro} ({year})",
         "h1": "Cost of Living in {Metro}",
-        "meta": "What a month costs in {Metro}, from official BEA and HUD data — plus what you keep after {State} tax.",
+        "meta": "What a month costs in {Metro}, from official BEA and HUD data — rent, goods, services, and what you keep after {State} tax.",
         "rules": [
-          "The place name appears in the title, the H1, and the first 100 characters of the meta.",
+          "The place name appears in the title, the H1, and the first 40 characters of the meta.",
           "The meta references **state tax** — the differentiator competitors lack.",
-          "Where the official MSA name is long, the title uses the colloquial name and the body carries the full one."
+          "**Formulas use the metro's display name, never its full MSA name.** `San Francisco-Oakland-Berkeley, CA` is 34 characters against `Akron`'s 5, and no single formula fits a 45-character meta window across that range. The full MSA name appears once in the body, where it is a precision signal rather than a layout problem.",
+          "**displayName is capped at 20 characters** and is a required field on every metro row. It is the value the audit sizes formulas against."
         ],
         "h2Outline": [
           "What it costs to live in {Metro}",
@@ -746,7 +747,7 @@
       "StateTaxPage": {
         "title": "{State} Income Tax Calculator ({year})",
         "h1": "{State} Income Tax Calculator",
-        "meta": "Estimate {State} state and federal income tax on your salary, with the bracket-by-bracket breakdown.",
+        "meta": "Estimate {State} state and federal income tax on your salary, with a bracket-by-bracket breakdown of exactly where each dollar goes.",
         "rules": [
           "The state name comes first — the user's query is 'california income tax', not 'income tax california'.",
           "The nine no-tax states get a different meta: '{State} has no state income tax — here is what you still owe federally'."
@@ -852,7 +853,183 @@
       "The breadcrumb matches the URL hierarchy and the BreadcrumbList JSON-LD exactly — a mismatch between the two is a structured-data error Google reports.",
       "The final crumb is the current page and is not a link.",
       "'Calculators' is the label for /tools; the crumb label need not equal the slug."
-    ]
+    ],
+    "jsonLd": {
+      "$comment": "Concrete payloads, not type names. {PLACEHOLDERS} are resolved per entity by scripts/generate_onpage.py. Only emit a block whose visible counterpart is on the page (9-3-3).",
+      "BreadcrumbList": {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": "{BREADCRUMB_ITEMS}"
+      },
+      "WebApplication": {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "{TITLE}",
+        "url": "{CANONICAL}",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "isAccessibleForFree": true,
+        "publisher": {
+          "@type": "Organization",
+          "name": "{SITE_NAME}",
+          "url": "{ORIGIN}"
+        },
+        "dateModified": "{DATE_MODIFIED}"
+      },
+      "FAQPage": {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": "{FAQ_ITEMS}"
+      },
+      "Place": {
+        "@context": "https://schema.org",
+        "@type": "Place",
+        "name": "{ENTITY_NAME}",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "{STATE_ABBR}",
+          "addressCountry": "US"
+        }
+      },
+      "Dataset": {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "Cost of living indices for {ENTITY_NAME}",
+        "description": "Regional price parities and fair market rents for {ENTITY_NAME}, {DATA_YEAR}.",
+        "license": "https://www.usa.gov/government-works",
+        "isBasedOn": "{SOURCE_URLS}",
+        "dateModified": "{DATE_MODIFIED}"
+      },
+      "ItemList": {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "{TITLE}",
+        "numberOfItems": "{ITEM_COUNT}",
+        "itemListElement": "{LIST_ITEMS}"
+      },
+      "Organization": {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "{SITE_NAME}",
+        "url": "{ORIGIN}",
+        "logo": "{ORIGIN}/logo.png",
+        "founder": {
+          "@type": "Person",
+          "name": "{AUTHOR_NAME}",
+          "url": "{ORIGIN}/about"
+        }
+      }
+    },
+    "faqFormulas": {
+      "$comment": "Section 7-2 requires 5 FAQ questions per entity page carrying that entity's computed numbers. These are the question templates; the generator resolves them from the dataset so no two pages share an answer.",
+      "StateTaxPage.taxed": [
+        [
+          "How much is {State} income tax?",
+          "{RATE_SENTENCE}"
+        ],
+        [
+          "What is the top {State} income tax rate?",
+          "The highest {State} rate is {TOP_RATE}%, which applies above {TOP_THRESHOLD}."
+        ],
+        [
+          "Does {State} tax self-employment income?",
+          "Yes. {State} taxes net self-employment profit as ordinary income, on top of the 15.3% federal self-employment tax."
+        ],
+        [
+          "Are there local income taxes in {State}?",
+          "{LOCAL_ANSWER}"
+        ],
+        [
+          "How much of a $95,000 salary do you keep in {State}?",
+          "{TAKEHOME_ANSWER}"
+        ]
+      ],
+      "StateTaxPage.none": [
+        [
+          "Does {State} have a state income tax?",
+          "No. {State} levies no broad-based individual income tax on earned income."
+        ],
+        [
+          "What tax do you still pay in {State}?",
+          "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+        ],
+        [
+          "Is {State} actually cheaper overall?",
+          "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+        ],
+        [
+          "Are there local income taxes in {State}?",
+          "{LOCAL_ANSWER}"
+        ],
+        [
+          "How much of a $95,000 salary do you keep in {State}?",
+          "{TAKEHOME_ANSWER}"
+        ]
+      ],
+      "PlacePage": [
+        [
+          "How expensive is {Metro}?",
+          "{INDEX_SENTENCE}"
+        ],
+        [
+          "What is a typical rent in {Metro}?",
+          "{RENT_SENTENCE}"
+        ],
+        [
+          "What salary do you need to live in {Metro}?",
+          "{SALARY_SENTENCE}"
+        ],
+        [
+          "Does {State} tax affect what you keep in {Metro}?",
+          "{TAX_SENTENCE}"
+        ],
+        [
+          "Where does this data come from?",
+          "BEA Regional Price Parities and HUD Fair Market Rent for {DATA_YEAR}, both official and free to cite."
+        ]
+      ]
+    },
+    "metaFormulas": {
+      "StateTaxPage.taxed": "Estimate {State} state and federal income tax on your salary, with a bracket-by-bracket breakdown of exactly where each dollar goes.",
+      "StateTaxPage.none": "{State} has no state income tax — see what you still owe federally, and what actually lands in your account each month.",
+      "PlacePage": "What a month costs in {Metro}, from official BEA and HUD data — rent, goods, services, and what you keep after {State} tax."
+    },
+    "shortestSubstitutions": {
+      "{Primary}": "Income Tax Calculator",
+      "{Metro}": "Akron, OH",
+      "{State}": "Iowa",
+      "{year}": "2026"
+    },
+    "h2Variants": {
+      "$comment": "An outline formula that ignores its entity's shape produces headings that are wrong on the page — 'Texas tax brackets' on a state that has none. The generator picks the variant from the dataset's `structure` field.",
+      "StateTaxPage.taxed": [
+        "How {State} income tax works",
+        "{State} tax brackets",
+        "Local tax in {State}",
+        "Filing and deadlines in {State}",
+        "Frequently asked questions"
+      ],
+      "StateTaxPage.none": [
+        "Why {State} has no income tax",
+        "What you still owe in {State}",
+        "Local tax in {State}",
+        "Is {State} actually cheaper?",
+        "Frequently asked questions"
+      ],
+      "StateTaxPage.flat": [
+        "How {State} income tax works",
+        "The {State} flat rate",
+        "Local tax in {State}",
+        "Filing and deadlines in {State}",
+        "Frequently asked questions"
+      ]
+    }
   },
   "crawl": {
     "$comment": "The internal link graph from section 6-10-5, declared so that click depth and orphan pages are computed rather than assumed. A page reachable only from a paginated directory is a page Google crawls late and values low.",
@@ -961,6 +1138,30 @@
         "proposedHead": "cities with local income tax",
         "intent": "Which municipalities levy their own income tax, the layer most calculators ignore"
       }
+    ]
+  },
+  "platform": {
+    "$comment": "How the specification in this file reaches the pages, on Base44. The specification is authoritative; the dashboard is a rendering target (rule 3-7-6).",
+    "name": "Base44",
+    "entityFieldMapping": {
+      "$comment": "Each generated page is one row of a Base44 entity. These fields are populated from data/onpage.generated.json, never typed by hand — 51 hand-entered titles is 51 chances to drift from the formula.",
+      "slug": "the URL segment, from the dataset (rule 6-7-5)",
+      "seo_title": "onPage.templates.<Template>.title, resolved",
+      "seo_description": "onPage.metaFormulas.<key>, resolved",
+      "seo_canonical": "site.origin + path",
+      "seo_og_image_url": "per-entity OG image (R8)",
+      "h1": "onPage.templates.<Template>.h1, resolved",
+      "h2_outline": "onPage.templates.<Template>.h2Outline, resolved",
+      "breadcrumb": "onPage.templates.<Template>.breadcrumb, resolved",
+      "json_ld": "onPage.jsonLd blocks for that template, resolved",
+      "faq": "onPage.faqFormulas.<key>, resolved",
+      "internal_links": "pages[].links, with anchor text (9-3-7)"
+    },
+    "rules": [
+      "Nothing in the SEO panel is typed by hand for a generated page. It is imported from data/onpage.generated.json, which scripts/generate_onpage.py produces and scripts/audit_seo.py validates.",
+      "A value that disagrees with the generated file is drift, and the generated file wins (rule 3-7-6).",
+      "Re-run the generator after any dataset change, then re-import. The annual tax update (section 16) changes 51 titles' year and every bracket sentence.",
+      "Requirements R1-R9 (3-1) are verified against the live app by the protocol in 3-5 before this mapping is trusted."
     ]
   }
 }

@@ -31,6 +31,11 @@ jobs:
 
       # The whole project is one language. A stray Persian string in data/
       # becomes a Persian meta description on a live page.
+      # 51 hand-typed titles is 51 chances to drift from the formula. The values
+      # are generated, and the generator re-validates them against the same limits.
+      - name: Generate and validate per-entity on-page values
+        run: python3 scripts/generate_onpage.py
+
       - name: Everything is English
         run: python3 scripts/check_language.py
 

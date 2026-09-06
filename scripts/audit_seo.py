@@ -198,12 +198,17 @@ def main():
     tpl = on.get("templates", {})
     lim = on.get("limits", {})
     longest = on.get("longestSubstitutions", {})
+    shortest = on.get("shortestSubstitutions", {})
 
-    def render(pattern, page):
+    def render(pattern, page, extreme="longest"):
+        """A formula can fail at either end: too long and Google truncates it, too
+        short and a meta description falls under the useful minimum. Checking only
+        the longest substitution catches one of those, which is how 48 real state
+        metas came out under 110 characters while this check reported clean."""
         out = pattern
         prim = page.get("primary")
         # title case the measured keyword the way it is written on the page
-        sub = dict(longest)
+        sub = dict(longest if extreme == "longest" else (shortest or longest))
         if prim:
             sub["{Primary}"] = title_case(prim)
         sub["{Output}"] = page.get("output") or ""
@@ -229,7 +234,12 @@ def main():
         title = render(spec.get("title", ""), page)
         h1 = render(spec.get("h1", ""), page)
         meta = render(spec.get("meta", ""), page)
+        meta_short = render(spec.get("meta", ""), page, "shortest")
 
+        if len(meta_short) and len(meta_short) < lim.get("metaMinChars", 110):
+            errors.append(
+                f"{page['path']}: with the shortest entity the meta is "
+                f"{len(meta_short)} chars, under {lim['metaMinChars']}: {meta_short!r}")
         if len(title) > lim.get("titleMaxChars", 60):
             errors.append(
                 f"{page['path']}: title is {len(title)} chars, over "
