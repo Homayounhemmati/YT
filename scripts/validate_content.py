@@ -99,6 +99,11 @@ def analyse(group_name, entries, thresholds, body_lookup=None):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--bodies", help="directory of {slug}.md body copy, once written")
+    ap.add_argument("--pilot", action="store_true",
+                    help="compare only the pages that have body copy, against each "
+                         "other. Measuring a few written pages against many unwritten "
+                         "ones scores them falsely high, because their body words are "
+                         "trivially absent from pages that have no body")
     ap.add_argument("--strict", action="store_true",
                     help="also fail on unresolved PENDING_ placeholders")
     args = ap.parse_args()
@@ -120,7 +125,12 @@ def main():
 
     groups = collections.defaultdict(list)
     for e in gen["pages"]:
+        if args.pilot and e["path"] not in body_lookup:
+            continue
         groups[e["template"]].append(e)
+    if args.pilot:
+        print(f"PILOT: comparing only the {sum(len(v) for v in groups.values())} "
+              "pages that have body copy, against each other.\n")
 
     all_errors, all_warnings, pending_total = [], [], 0
     print(f"{'template':<16}{'pages':>7}{'median unique':>15}{'worst':>9}"

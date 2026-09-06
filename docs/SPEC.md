@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 5.5
+> **Last revised:** 2026-09-06 · **Version:** 5.6
+>
+> **Version 5.6:** The 43% body-uniqueness requirement was tested on four written state pages before committing to 61,000 words — 46% worst case, including two structurally similar states. Details in 20-23.
 >
 > **Version 5.5:** Thin content measured for the first time — the 51 state pages are ~80% identical furniture on scaffolding alone, and the body-copy requirement is now a number. Details in 20-22.
 >
@@ -1117,6 +1119,57 @@ its own filing deadlines and authority, pulled from its own revenue department.
 warns rather than fails; once `--bodies` points at real copy, the same threshold
 breaks the build.
 
+#### 6-10-4-1. The pilot — the requirement was tested before 61,000 words were written
+
+Writing 51 bodies and then discovering the approach cannot clear 43% would be the
+most expensive possible way to learn it. Four were written first and measured.
+
+**Experiment design matters more than the result here.** Measuring a few written
+pages against many unwritten ones scores them falsely high — their body words are
+trivially absent from pages that have no body. The script therefore has a
+`--pilot` mode that compares only pages that have copy, against each other.
+
+| Set | Median unique | Worst |
+|---|---|---|
+| 3 states, maximally different structures (progressive · flat · none) | 45% | 45% |
+| **4 states, adding one structurally similar to an existing one** | **47%** | **46%** |
+
+The second row is the real test. New York and Maryland are both progressive, both
+with a local income tax layer, both without a meaningful state standard deduction
+— the pair most likely to collapse into paraphrase. **Uniqueness rose rather than
+fell**, which says the differentiation is coming from substance rather than from
+the accident of picking dissimilar states.
+
+##### What made them different — the transferable pattern
+
+Every one of the four leads with **the structural fact that characterises that
+state**, not a generic opening:
+
+| State | The fact the page is built around |
+|---|---|
+| New York | Nine brackets, but the first four are exhausted in a fortnight; the real question is the city line |
+| Pennsylvania | A flat 3.07% that conceals two things — no standard deduction at all, and a local earned income tax nearly everywhere |
+| Texas | The absence is structural; the interesting question is what replaces it and for whom that is a good trade |
+| Maryland | Ten brackets that behave like one, because 4.75% runs unbroken to $100,000 — and **every** county levies on top |
+
+And each carries **a section that could not exist on another state's page**: the
+city line for New York, Philadelphia's Net Profits Tax for Pennsylvania, the
+property-versus-income trade for Texas, the word "every" for Maryland.
+
+**That is the rule this pilot produces:** a state page must contain at least one
+section that would be factually wrong or meaningless if the state name were
+swapped. A page that survives a find-and-replace is the doorway page section 7-1
+forbids, whatever its uniqueness score says.
+
+##### The honest limitation
+
+The four bodies run about 550 words each; section 7-2 specifies 900–1,400. The
+pilot proves the ratio is achievable, not that it survives being stretched. Length
+added without state-specific substance dilutes uniqueness rather than adding to
+it, so the remaining words must come from the same source as the first 550 — that
+state's own brackets, its own local rules, its own deadlines and authority — and
+the CI check is what will say whether they did.
+
 
 
 #### 6-10-5. The internal link graph
@@ -1181,6 +1234,11 @@ There is one way through: **every page must contain something true only of that 
 | 7. "Which freelancer this makes sense for" | 200–300 | Real analysis, not filler |
 | 8. FAQ (5 questions) | 200–300 | With computed numbers for that state |
 | 9. Disclaimer box | — | With an automatic date from `meta.json` |
+
+**The find-and-replace test**, from the pilot in 6-10-4-1: at least one section of
+every state page must be **factually wrong or meaningless if the state name were
+swapped**. A page that survives a find-and-replace is a doorway page whatever its
+uniqueness score says, and the score is a floor rather than the standard.
 
 ### 7-2-1. Tool page brief (600–900 words)
 
@@ -3455,6 +3513,51 @@ is not to change the domain; it is that 6-10-4 matters more here, not less.
 
 **Status: 25 mapped pages · 20 checks · 74 generated pages · 5 CI validators ·
 0 errors · 59 tests green.**
+
+### 20-23. Round twenty-four — version 5.6 · the pilot
+
+The previous round produced a number: a state page's body must be about 43% words
+that appear on no other state page. Writing 51 bodies and *then* finding out the
+approach cannot reach it would be the most expensive possible way to learn it.
+
+Four were written first and measured. New York, Pennsylvania, Texas, Maryland.
+
+**The experiment design mattered more than the result.** Measuring a few written
+pages against many unwritten ones scores them falsely high — their body words are
+trivially absent from pages that have no body at all. The script gained a
+`--pilot` mode that compares only pages with copy, against each other.
+
+| Set | Median unique | Worst |
+|---|---|---|
+| 3 states, maximally different (progressive · flat · none) | 45% | 45% |
+| **4 states, adding one structurally similar to an existing one** | **47%** | **46%** |
+
+The second row is the test that counts. New York and Maryland are both
+progressive, both with a local income tax layer, both without a meaningful state
+standard deduction — the pair most likely to collapse into paraphrase. Uniqueness
+**rose**, which says the differentiation comes from substance rather than from
+having picked dissimilar states for the first attempt.
+
+**The pattern that produced it** is now a rule in 7-2, and it is stricter than the
+number: every state page must contain at least one section that would be
+**factually wrong or meaningless if the state name were swapped**. The city line
+for New York. Philadelphia's Net Profits Tax for Pennsylvania. The
+property-versus-income trade for Texas. The word "every" for Maryland — every
+county levies, without exception, which is a different situation from a state
+where a local levy is a caveat.
+
+A page that survives a find-and-replace is a doorway page whatever its uniqueness
+score says. The score is a floor, not the standard.
+
+**Stated limitation:** the four bodies run about 550 words against the 900–1,400
+that section 7-2 specifies. The pilot proves the ratio is achievable, not that it
+survives being stretched — and length added without state-specific substance
+dilutes uniqueness rather than adding to it. The CI check now runs against
+`content/bodies` in pilot mode, so **the test gets harder automatically as bodies
+are added**, which is the property worth having.
+
+**Status: 25 mapped pages · 20 checks · 74 generated · 4 bodies written at 46%+ ·
+6 CI validators · 0 errors · 59 tests green.**
 
 ---
 

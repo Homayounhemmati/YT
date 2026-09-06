@@ -39,7 +39,11 @@ jobs:
       # Thin content is the failure mode that sinks programmatic sites, and it is
       # invisible until traffic never arrives. Measure it, do not assume it.
       - name: Content uniqueness budget
-        run: python3 scripts/validate_content.py
+        run: |
+          python3 scripts/validate_content.py
+          # Written pages are held to the threshold against each other. As more
+          # bodies are added the test gets harder on its own, which is the point.
+          python3 scripts/validate_content.py --bodies content/bodies --pilot
 
       - name: Everything is English
         run: python3 scripts/check_language.py
