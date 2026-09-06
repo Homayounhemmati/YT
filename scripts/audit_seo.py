@@ -188,6 +188,75 @@ def main():
         if name not in sd and name != "Home":
             errors.append(f"structuredData: no JSON-LD declared for {name}")
 
+    # 11-14. crawl architecture: the link graph, click depth, orphans, ceilings
+    crawl = pages_doc.get("crawl", {})
+    nav = crawl.get("globalNav", [])
+    max_depth = crawl.get("maxClickDepth", 3)
+    ceiling = crawl.get("bodyLinkCeiling", 25)
+    by_path = {p["path"]: p for p in pages}
+
+    for page in pages:
+        for dest in page.get("links", []):
+            if dest not in by_path:
+                errors.append(f"{page['path']}: links to {dest}, which is not a page")
+        body = [d for d in page.get("links", []) if d != page["path"]]
+        if len(body) > ceiling:
+            errors.append(
+                f"{page['path']}: {len(body)} body links, over the ceiling of {ceiling}")
+    for dest in nav:
+        if dest not in by_path:
+            errors.append(f"globalNav links to {dest}, which is not a page")
+
+    # breadth-first from the home page, with the header nav available everywhere
+    depth = {"/": 0}
+    frontier = ["/"]
+    while frontier:
+        nxt = []
+        for path in frontier:
+            outbound = set(by_path[path].get("links", [])) | set(nav)
+            for dest in outbound:
+                if dest in by_path and dest not in depth:
+                    depth[dest] = depth[path] + 1
+                    nxt.append(dest)
+        frontier = nxt
+
+    for page in pages:
+        path = page["path"]
+        if path not in depth:
+            errors.append(
+                f"{path}: unreachable from the home page — no crawl path exists to it")
+        elif depth[path] > max_depth:
+            errors.append(
+                f"{path}: {depth[path]} clicks from home, over the limit of {max_depth}")
+
+    inbound = {p["path"]: 0 for p in pages}
+    for page in pages:
+        for dest in set(page.get("links", [])):
+            if dest in inbound and dest != page["path"]:
+                inbound[dest] += 1
+    for path, count in inbound.items():
+        if path == "/" or path in nav:
+            continue
+        if count == 0:
+            errors.append(f"{path}: orphan — no other page links to it")
+
+    # No page is a cul-de-sac inside its own funnel stage. The funnel is not strictly
+    # linear — a tax tool need not lead to a mortgage tool — but a page whose only
+    # links stay inside its own stage ends the session there, and session depth is the
+    # largest revenue lever we control (section 1-4).
+    for page in (p for p in pages if p.get("stage")):
+        others = {by_path[d].get("stage") for d in page.get("links", [])
+                  if d in by_path and by_path[d].get("stage")}
+        if not (others - {page["stage"]}):
+            errors.append(
+                f"{page['path']}: every link stays inside funnel stage {page['stage']} "
+                "— a cul-de-sac ends the session (section 1-4)")
+
+    if depth:
+        worst = max(depth.values())
+        notes.append(f"crawl depth: every page within {worst} clicks of home "
+                     f"(limit {max_depth}) · no orphans")
+
     for e in errors:
         print(f"ERROR  {e}")
     for w in warnings:

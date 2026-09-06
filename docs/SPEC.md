@@ -673,7 +673,7 @@ A script that runs in CI and breaks the build if:
 
 > **Revised 2026-08-29 against real data.** The full list, with each keyword's search volume and the reasoning behind each decision, is in **[`docs/keyword-research.md`](keyword-research.md)**. That document is the basis for this section; where they conflict, it wins, because it has the data.
 
-Phase 1 total: **39 pages** (not the 75 initially estimated). Exact count in section 6-0.
+Phase 1 total: **39 pages** (not the 75 initially estimated). Exact count in section 6-0. The keyword-targeted subset of those is mapped in `data/pages.json` — 18 pages, audited in CI.
 
 > 📊 **The full data-driven tool catalogue: [`tool-catalogue.md`](tool-catalogue.md)** — 36 tools measured, 3.7 million monthly searches, ranked by "market value = volume × CPC" alongside build cost. That document decides **which tool comes next**; this section only covers phase 1.
 
@@ -1335,8 +1335,12 @@ python3 scripts/audit_seo.py
 | 8 | Title ≤60, H1 ≤70 and meta between 110 and 155 characters — rendered with the **longest possible substitution**, not an optimistic sample |
 | 9 | The primary keyword is present in the rendered title and H1; and every programmatic template's pattern carries an entity placeholder so pages cannot share a title |
 | 10 | Anchor-text, OG and robots rules are declared, and every template has defined JSON-LD |
+| 11 | Every declared internal link resolves to a real page, and no page exceeds the 25-body-link ceiling |
+| 12 | Every page is within 3 clicks of the home page |
+| 13 | No page is an orphan — every page has at least one inbound link |
+| 14 | No page's links stay entirely inside its own funnel stage |
 
-**Current run: 17 pages · 0 errors · 0 warnings** — across all ten checks. All three original warnings were resolved by actual measurement: two keywords were confirmed and recorded (`cost of living by city` 880 · `state income tax rates by state` 3,600) and the third was rejected and its page deleted (`job offer comparison calculator` 30).
+**Current run: 18 pages · 0 errors · 0 warnings** — across all fourteen checks. All three original warnings were resolved by actual measurement: two keywords were confirmed and recorded (`cost of living by city` 880 · `state income tax rates by state` 3,600) and the third was rejected and its page deleted (`job offer comparison calculator` 30).
 
 ##### The most important rule — generic versus entity
 
@@ -1429,6 +1433,150 @@ Calculators do not attract links. **Data attracts links.** Three assets built fr
 #### 9-5-5. Share of time
 
 **At least 30% of project time from month 3 onward.** If all the time goes into building pages, we build pages nobody sees — exactly the trap section 14 describes.
+
+---
+
+### 9-6. Crawl, render, index — the three steps before ranking
+
+A page ranks only after Google has crawled it, rendered it, and indexed it.
+Sections 9-1 to 9-5 are about what happens after that. An audit found thirteen
+topics in this earlier stage with zero mentions in this document, and the ones
+that genuinely bite a 110-page programmatic site are below. Where a topic does
+not apply to us, that is said rather than padded.
+
+#### 9-6-1. Click depth and orphan pages — enforced
+
+A page reachable only from page four of a paginated directory is crawled late
+and valued low, and on a programmatic site that is how generated pages quietly
+die. So the link graph in section 6-10-5 is declared as data in
+`data/pages.json → crawl` and `pages` `links`, and the auditor computes rather
+than assumes:
+
+| Rule | Limit |
+|---|---|
+| Click depth from the home page | **≤ 3** |
+| Pages with zero inbound links | **0** |
+| Body links per page | ≤ 25 (navigation exempt) |
+| Every declared link resolves to a real page | required |
+| No page's links stay entirely inside its own funnel stage | required |
+
+Writing this check found two real defects the prose had hidden:
+
+1. **Four tools were unreachable from the home page.** Section 6-0 counted a
+   "tool index" page, but the page map never had one, so `sales-tax`,
+   `property-tax`, `closing-cost` and `house-payment` had no crawl path at all,
+   and `sales-tax-calculator` — 110,000 searches a month at $6.91, the highest
+   market value on the site — was a complete orphan. `/tools` now exists.
+2. **The four salary-family tax tools were a closed loop.** They linked only to
+   each other, so a visitor arriving from search on the highest-CPC pages we
+   have would leave after one page. Each now leads back out of stage 4.
+
+Neither was visible by reading. Both are the kind of thing that costs months
+before anyone notices, which is why this is a check and not a paragraph.
+
+**`/tools` deliberately targets no keyword**, exactly like the home page: every
+tool keyword already belongs to a tool page, and a hub competing with its own
+children is the worst cannibalisation available. It exists for crawling and for
+people.
+
+#### 9-6-2. Crawl budget — does not apply, and here is why
+
+Crawl budget becomes a real constraint somewhere in the tens of thousands of
+URLs, or where a server is slow enough that Googlebot throttles itself. We have
+~110 static HTML files on a CDN. **Neither condition is near.**
+
+This is written down so that nobody later spends a week on log-file analysis and
+crawl-rate tuning for a site where the entire problem is "are we linked to".
+The gate in 9-6-1 is the crawl work that matters at our size.
+
+What replaces log-file analysis: **Search Console's Crawl Stats report**. Static
+hosting on a free tier gives no server logs, so that report is the only crawl
+telemetry we will have — and at 110 pages it is enough.
+
+#### 9-6-3. Mobile-first indexing — and one myth not to repeat
+
+Google indexes the **mobile** rendering. Anything absent from the mobile HTML
+effectively does not exist. A static export produces one HTML file served to
+both, so we satisfy this by construction — but two rules follow:
+
+- **The `ContentAccordion` on mobile (sections 8-4 and 8-8) must be CSS-collapsed
+  with its full content present in the HTML.** Content behind an accordion is
+  indexed and fully weighted; content *fetched on click* is not reliably indexed
+  at all. The difference is not the accordion, it is whether the text is in the
+  first byte — which is already the hard rule in section 3-2.
+- **No mobile-only truncation.** "Read more" that ships half the article to
+  mobile ships half the article to the index.
+
+> The myth worth not repeating: "hidden content is downranked." It was true
+> before mobile-first indexing and has been false since. Collapsing long content
+> on a small screen is good UX and costs nothing in ranking. Only the fetch-on-click
+> variant is dangerous.
+
+#### 9-6-4. `lastmod` — accurate or absent, never automatic
+
+Google uses `<lastmod>` in a sitemap only while it stays consistently honest. A
+build that stamps every URL with the current timestamp — the default behaviour
+of almost every static generator — teaches Google to ignore the field entirely,
+across the whole site.
+
+**Rule:** `lastmod` comes from the same source as `dateModified` (section 9-4-1):
+a genuine content or data change, never the build time. A page whose content did
+not change keeps its previous `lastmod` across deploys. If that cannot be
+guaranteed, the field is **omitted** — an absent `lastmod` costs nothing, a
+dishonest one costs the signal site-wide.
+
+The annual data update (section 16) is a genuine change and legitimately moves
+both fields on every affected page at once.
+
+#### 9-6-5. Redirects and 404s
+
+- **Never a redirect chain.** A slug change adds a 301 to the *current* final
+  destination; when a second change happens, the first redirect is repointed, not
+  stacked. `docs/redirects.md` records both hops so the repointing is possible.
+- **The 404 page must return HTTP 404**, not 200 with an apology on it. Static
+  hosts differ here and it is silent when wrong: a 200 on a missing URL becomes a
+  soft 404, and enough of them make Google distrust the whole directory. This is
+  verified once at deploy (section 20-2) and after any host change.
+- **A removed entity 410s or 301s, and never 200s onto an empty template.** The
+  generation gate in section 6-10-3 means a page only exists if its entity has
+  data; if data is later withdrawn, the page goes with it.
+- **Our soft-404 risk is not missing pages, it is thin ones.** A place page whose
+  dataset row is sparse would render a valid-looking shell. The uniqueness budget
+  in 6-10-4 is what prevents that, and it breaks the build rather than shipping it.
+
+#### 9-6-6. Images and alt text
+
+**The site is close to imageless by design** — section 12 forbids charting
+libraries, so `TaxBreakdownWaterfall` is CSS and inline SVG rather than a
+rendered image. That removes most image SEO surface. What remains:
+
+- Inline SVG that conveys information carries `role="img"` and a `<title>`
+  element — it is not reached by `alt`, which is the mistake this replaces.
+- The author photo on `/about` carries real `alt`; it is an E-E-A-T signal
+  (section 7-4), not decoration.
+- Dynamic OG images (section 9-3-4) are never in-page content and need no `alt`.
+- Any decorative image gets `alt=""`, not a keyword.
+
+#### 9-6-7. Submission and transport
+
+- **IndexNow** is worth wiring up on a static site because it costs one file and
+  one ping — but be precise about what it buys: **Bing and Yandex support it,
+  Google does not.** It is a small Bing win, not a Google indexation lever, and
+  it must not be presented in a status report as one.
+- Google discovery is the sitemaps in section 6-8-6 plus internal links, and at
+  our size that is sufficient.
+- **HSTS** is set so the browser never makes the http→https hop. HTTPS itself is
+  a very light ranking signal; the real reason is that a redirect hop on every
+  cold visit is a measurable LCP cost against the 2.0 s budget.
+
+#### 9-6-8. SERP features we can actually win
+
+| Feature | Our route | Realistic? |
+|---|---|---|
+| AI Overview citation | Step-by-step formula with concrete numbers (sections 6-6, 8-8) | **Yes** — `taxstra.com` proves a small site can |
+| People Also Ask | The FAQ blocks, written from the actual PAA questions for that keyword (section 7-2-1) | Yes, and it is cheap |
+| Featured snippet | A direct definition or a table in the first screen of the answer section | Sometimes; not designed for specifically |
+| Sitelinks | Earned, not requested — follows from a clean, shallow architecture (9-6-1) | Later, if the brand query exists |
 
 ---
 

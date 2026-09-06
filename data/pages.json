@@ -12,7 +12,38 @@
       "primary": null,
       "note": "Brand and funnel entry. Deliberately targets no head keyword — competing with its own tools would be the worst cannibalisation of all.",
       "canonical": "self",
-      "metaHook": "Compare cost of living and real take-home pay across US metros and all 50 states. Official BEA, HUD and IRS data. Free, no sign-up."
+      "metaHook": "Compare cost of living and real take-home pay across US metros and all 50 states. Official BEA, HUD and IRS data. Free, no sign-up.",
+      "links": [
+        "/tools/cost-of-living-calculator",
+        "/tools/cost-of-living-comparison",
+        "/tools/take-home-pay-calculator",
+        "/cost-of-living",
+        "/state-taxes"
+      ]
+    },
+    {
+      "path": "/tools",
+      "template": "DirectoryPage",
+      "primary": null,
+      "note": "The tool index. Like the home page it deliberately targets no keyword — every tool keyword already belongs to a tool page, and a hub competing with its own children is the worst kind of cannibalisation. It exists for crawling and for people, which is why the audit exempts it from the measured-target rule but not from the crawl-depth rule.",
+      "canonical": "self",
+      "metaHook": "Every calculator on the site in one place: cost of living, salary, income tax, take-home pay, sales tax, property and home costs.",
+      "links": [
+        "/tools/cost-of-living-calculator",
+        "/tools/cost-of-living-comparison",
+        "/tools/salary-converter",
+        "/tools/salary-to-hourly-calculator",
+        "/tools/income-tax-calculator",
+        "/tools/take-home-pay-calculator",
+        "/tools/paycheck-tax-calculator",
+        "/tools/tax-withholding-calculator",
+        "/tools/sales-tax-calculator",
+        "/tools/property-tax-calculator",
+        "/tools/closing-cost-calculator",
+        "/tools/house-payment-calculator",
+        "/cost-of-living",
+        "/state-taxes"
+      ]
     },
     {
       "path": "/tools/cost-of-living-calculator",
@@ -24,7 +55,12 @@
       "output": "Monthly: what one city costs for the user's household",
       "canonical": "self",
       "stripsParams": true,
-      "metaHook": "Work out what a month actually costs in any US metro for your household size, using official BEA and HUD data. Free, no sign-up."
+      "metaHook": "Work out what a month actually costs in any US metro for your household size, using official BEA and HUD data. Free, no sign-up.",
+      "stage": 1,
+      "links": [
+        "/tools/cost-of-living-comparison",
+        "/cost-of-living"
+      ]
     },
     {
       "path": "/tools/cost-of-living-comparison",
@@ -42,7 +78,13 @@
         "**Compare two job offers** — different income in each of two places"
       ],
       "note": "The job-offer mode lives here, not on a separate page: 'job offer comparison calculator' gets only 30 searches a month.",
-      "metaHook": "Compare two US metros side by side: the cost difference, the state tax difference, and what a move really leaves you. Free, no sign-up."
+      "metaHook": "Compare two US metros side by side: the cost difference, the state tax difference, and what a move really leaves you. Free, no sign-up.",
+      "stage": 2,
+      "links": [
+        "/tools/salary-converter",
+        "/tools/cost-of-living-calculator",
+        "/cost-of-living"
+      ]
     },
     {
       "path": "/tools/salary-converter",
@@ -51,7 +93,13 @@
       "output": "Equivalent salary in the destination city to hold the same standard of living",
       "canonical": "self",
       "stripsParams": true,
-      "metaHook": "Find the salary you would need in another city to keep the same standard of living — cost of living and state tax both included."
+      "metaHook": "Find the salary you would need in another city to keep the same standard of living — cost of living and state tax both included.",
+      "stage": 3,
+      "links": [
+        "/tools/take-home-pay-calculator",
+        "/tools/cost-of-living-comparison",
+        "/tools/salary-to-hourly-calculator"
+      ]
     },
     {
       "path": "/tools/salary-to-hourly-calculator",
@@ -64,7 +112,12 @@
       "canonical": "self",
       "stripsParams": true,
       "note": "Two keywords, one page — it is a single two-way tool, and splitting it would produce two near-identical pages.",
-      "metaHook": "Convert an annual salary to an hourly rate, or an hourly rate to a salary, for any schedule. Shows the working. Free, no sign-up."
+      "metaHook": "Convert an annual salary to an hourly rate, or an hourly rate to a salary, for any schedule. Shows the working. Free, no sign-up.",
+      "stage": 3,
+      "links": [
+        "/tools/take-home-pay-calculator",
+        "/tools/salary-converter"
+      ]
     },
     {
       "path": "/tools/income-tax-calculator",
@@ -73,7 +126,14 @@
       "output": "**Annual tax liability** + bracket-by-bracket table",
       "canonical": "self",
       "stripsParams": true,
-      "metaHook": "Estimate your federal and state income tax for the year, with the full bracket-by-bracket breakdown. Free, no sign-up."
+      "metaHook": "Estimate your federal and state income tax for the year, with the full bracket-by-bracket breakdown. Free, no sign-up.",
+      "stage": 4,
+      "links": [
+        "/state-taxes",
+        "/tools/take-home-pay-calculator",
+        "/tools/tax-withholding-calculator",
+        "/cost-of-living"
+      ]
     },
     {
       "path": "/tools/take-home-pay-calculator",
@@ -82,7 +142,14 @@
       "output": "**Annual and monthly net** from gross salary",
       "canonical": "self",
       "stripsParams": true,
-      "metaHook": "See what is left of a gross salary after federal, state, Social Security and Medicare — yearly and monthly. Free, no sign-up."
+      "metaHook": "See what is left of a gross salary after federal, state, Social Security and Medicare — yearly and monthly. Free, no sign-up.",
+      "stage": 4,
+      "links": [
+        "/tools/paycheck-tax-calculator",
+        "/tools/income-tax-calculator",
+        "/state-taxes",
+        "/tools/salary-converter"
+      ]
     },
     {
       "path": "/tools/paycheck-tax-calculator",
@@ -91,7 +158,13 @@
       "output": "**Net per paycheck**, broken out by pay period (weekly/biweekly/monthly)",
       "canonical": "self",
       "stripsParams": true,
-      "metaHook": "See what lands in your account each payday — weekly, biweekly, semi-monthly or monthly — after every tax and withholding."
+      "metaHook": "See what lands in your account each payday — weekly, biweekly, semi-monthly or monthly — after every tax and withholding.",
+      "stage": 4,
+      "links": [
+        "/tools/take-home-pay-calculator",
+        "/tools/tax-withholding-calculator",
+        "/tools/salary-to-hourly-calculator"
+      ]
     },
     {
       "path": "/tools/tax-withholding-calculator",
@@ -100,7 +173,13 @@
       "output": "**What to withhold on the W-4** so the year ends at zero owed or refunded",
       "canonical": "self",
       "stripsParams": true,
-      "metaHook": "Work out what to put on your W-4 so you neither owe nor overpay at filing time. Shows the shortfall or the refund either way."
+      "metaHook": "Work out what to put on your W-4 so you neither owe nor overpay at filing time. Shows the shortfall or the refund either way.",
+      "stage": 4,
+      "links": [
+        "/tools/paycheck-tax-calculator",
+        "/tools/income-tax-calculator",
+        "/tools/salary-converter"
+      ]
     },
     {
       "path": "/tools/sales-tax-calculator",
@@ -109,7 +188,12 @@
       "output": "Sales tax on one purchase in one jurisdiction",
       "canonical": "self",
       "stripsParams": true,
-      "metaHook": "Add sales tax to any purchase for any US state, county or city — with the state, local and combined rate each shown separately."
+      "metaHook": "Add sales tax to any purchase for any US state, county or city — with the state, local and combined rate each shown separately.",
+      "stage": 4,
+      "links": [
+        "/state-taxes",
+        "/tools/cost-of-living-calculator"
+      ]
     },
     {
       "path": "/tools/property-tax-calculator",
@@ -118,7 +202,12 @@
       "output": "Annual property tax from assessed value and jurisdiction",
       "canonical": "self",
       "stripsParams": true,
-      "metaHook": "Estimate annual property tax from a home's assessed value and its local rate, plus the effective rate on the purchase price."
+      "metaHook": "Estimate annual property tax from a home's assessed value and its local rate, plus the effective rate on the purchase price.",
+      "stage": 4,
+      "links": [
+        "/tools/house-payment-calculator",
+        "/state-taxes"
+      ]
     },
     {
       "path": "/tools/closing-cost-calculator",
@@ -127,7 +216,12 @@
       "canonical": "self",
       "stripsParams": true,
       "output": "The one-off costs of closing a home purchase",
-      "metaHook": "Add up the one-off costs of closing on a home — lender fees, title, escrow, taxes — so the cash needed at signing is no surprise."
+      "metaHook": "Add up the one-off costs of closing on a home — lender fees, title, escrow, taxes — so the cash needed at signing is no surprise.",
+      "stage": 5,
+      "links": [
+        "/tools/house-payment-calculator",
+        "/cost-of-living/{metro}"
+      ]
     },
     {
       "path": "/tools/house-payment-calculator",
@@ -136,7 +230,12 @@
       "canonical": "self",
       "stripsParams": true,
       "output": "Monthly mortgage payment",
-      "metaHook": "Work out the full monthly cost of a home loan: principal, interest, taxes, insurance and PMI, not just the loan payment itself."
+      "metaHook": "Work out the full monthly cost of a home loan: principal, interest, taxes, insurance and PMI, not just the loan payment itself.",
+      "stage": 5,
+      "links": [
+        "/tools/closing-cost-calculator",
+        "/tools/property-tax-calculator"
+      ]
     },
     {
       "path": "/cost-of-living",
@@ -145,7 +244,13 @@
       "note": "Directory. Deliberately does not target the tool keyword.",
       "canonical": "self",
       "output": "**Browsable list** of every city with its index — a discovery point, not a calculator",
-      "metaHook": "Browse the cost of living index for every US metro area, ranked and searchable, built from official BEA regional price data."
+      "metaHook": "Browse the cost of living index for every US metro area, ranked and searchable, built from official BEA regional price data.",
+      "stage": 1,
+      "links": [
+        "/cost-of-living/{metro}",
+        "/tools/cost-of-living-calculator",
+        "/tools/cost-of-living-comparison"
+      ]
     },
     {
       "path": "/cost-of-living/{metro}",
@@ -153,7 +258,15 @@
       "primary": "cost of living in {metro}",
       "canonical": "self",
       "stripsParams": true,
-      "output": "Profile of **one specific city**: index, rent, its state tax"
+      "output": "Profile of **one specific city**: index, rent, its state tax",
+      "stage": 1,
+      "links": [
+        "/state-taxes/{state}",
+        "/tools/cost-of-living-comparison",
+        "/tools/cost-of-living-calculator",
+        "/cost-of-living",
+        "/cost-of-living/{metro}"
+      ]
     },
     {
       "path": "/state-taxes",
@@ -161,7 +274,13 @@
       "primary": "state income tax rates by state",
       "canonical": "self",
       "output": "**Comparison table of all 51 jurisdictions' rates** at a glance — not a calculator",
-      "metaHook": "Compare income tax across all 50 states and DC in one table — brackets, flat rates, and the nine states that levy none at all."
+      "metaHook": "Compare income tax across all 50 states and DC in one table — brackets, flat rates, and the nine states that levy none at all.",
+      "stage": 4,
+      "links": [
+        "/state-taxes/{state}",
+        "/tools/income-tax-calculator",
+        "/cost-of-living"
+      ]
     },
     {
       "path": "/state-taxes/{state}",
@@ -169,7 +288,14 @@
       "primary": "{state} income tax calculator",
       "canonical": "self",
       "stripsParams": true,
-      "output": "Tax profile of **one specific state** + calculation using that state"
+      "output": "Tax profile of **one specific state** + calculation using that state",
+      "stage": 4,
+      "links": [
+        "/cost-of-living/{metro}",
+        "/tools/income-tax-calculator",
+        "/tools/take-home-pay-calculator",
+        "/state-taxes"
+      ]
     }
   ],
   "canonicalRules": [
@@ -295,5 +421,17 @@
         "No FAQPage — a directory lists, it does not answer questions"
       ]
     }
+  },
+  "crawl": {
+    "$comment": "The internal link graph from section 6-10-5, declared so that click depth and orphan pages are computed rather than assumed. A page reachable only from a paginated directory is a page Google crawls late and values low.",
+    "globalNav": [
+      "/",
+      "/tools",
+      "/cost-of-living",
+      "/state-taxes"
+    ],
+    "globalNavNote": "Present in the header of every page. Exempt from the 25-body-link ceiling, but it is what guarantees no page sits deeper than the directory that lists it.",
+    "maxClickDepth": 3,
+    "bodyLinkCeiling": 25
   }
 }
