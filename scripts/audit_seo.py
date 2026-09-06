@@ -36,6 +36,18 @@ def jaccard(a, b):
     return len(a & b) / len(a | b)
 
 
+# Title case as it ships: small words stay lowercase unless they lead.
+SMALL = {"a", "an", "and", "as", "at", "by", "for", "in", "of", "on", "or",
+         "the", "to", "vs", "with"}
+
+
+def title_case(phrase):
+    words = phrase.split()
+    return " ".join(
+        w.capitalize() if i == 0 or w.lower() not in SMALL else w.lower()
+        for i, w in enumerate(words))
+
+
 def main():
     pages_doc = json.loads(pathlib.Path("data/pages.json").read_text())
     kw_doc = json.loads(pathlib.Path("data/keywords.json").read_text())
@@ -102,6 +114,79 @@ def main():
             errors.append(f"{p['path']}: tool pages carry UI state in params and must strip them from canonical")
     if len(pages_doc.get("canonicalRules", [])) < 5:
         errors.append("canonicalRules is thin: host, scheme, trailing slash, case and params must all be covered")
+
+    # 7-10. on-page formulas: coverage, length, keyword presence, uniqueness
+    on = pages_doc.get("onPage", {})
+    tpl = on.get("templates", {})
+    lim = on.get("limits", {})
+    longest = on.get("longestSubstitutions", {})
+
+    def render(pattern, page):
+        out = pattern
+        prim = page.get("primary")
+        # title case the measured keyword the way it is written on the page
+        sub = dict(longest)
+        if prim:
+            sub["{Primary}"] = title_case(prim)
+        sub["{Output}"] = page.get("output") or ""
+        sub["{Hook}"] = page.get("metaHook") or ""
+        for k, v in sub.items():
+            out = out.replace(k, v)
+        return out
+
+    for name in sorted({p["template"] for p in pages}):
+        spec = tpl.get(name)
+        if not spec:
+            errors.append(f"template {name} is used by a page but has no onPage formula")
+            continue
+        for field in ("title", "h1", "meta"):
+            if not spec.get(field):
+                errors.append(f"template {name}: no {field} formula")
+
+    rendered_titles = {}
+    for page in pages:
+        spec = tpl.get(page["template"])
+        if not spec:
+            continue
+        title = render(spec.get("title", ""), page)
+        h1 = render(spec.get("h1", ""), page)
+        meta = render(spec.get("meta", ""), page)
+
+        if len(title) > lim.get("titleMaxChars", 60):
+            errors.append(
+                f"{page['path']}: title is {len(title)} chars, over "
+                f"{lim['titleMaxChars']} — Google truncates it: {title!r}")
+        if len(h1) > lim.get("h1MaxChars", 70):
+            errors.append(f"{page['path']}: h1 is {len(h1)} chars: {h1!r}")
+        if meta and not (lim.get("metaMinChars", 110) <= len(meta) <= lim.get("metaMaxChars", 155)):
+            errors.append(
+                f"{page['path']}: meta is {len(meta)} chars, outside "
+                f"{lim['metaMinChars']}-{lim['metaMaxChars']}: {meta!r}")
+
+        prim = page.get("primary")
+        if prim and page["template"] in ("ToolPage", "DirectoryPage"):
+            if prim.lower() not in title.lower():
+                errors.append(f"{page['path']}: primary '{prim}' is not in the rendered title {title!r}")
+            if prim.lower() not in h1.lower():
+                errors.append(f"{page['path']}: primary '{prim}' is not in the rendered H1 {h1!r}")
+
+        # uniqueness: a fixed title may appear once; a templated one must vary by entity
+        if "{" not in spec.get("title", ""):
+            if title in rendered_titles:
+                errors.append(f"{page['path']}: title duplicates {rendered_titles[title]}: {title!r}")
+            rendered_titles[title] = page["path"]
+        elif not any(t in spec["title"] for t in ("{Metro}", "{State}", "{Primary}")):
+            errors.append(
+                f"template {page['template']}: title has no entity placeholder — "
+                "every generated page would share one title")
+
+    for section in ("anchorText", "openGraph", "robots"):
+        if len(on.get(section, [])) < 3:
+            errors.append(f"onPage.{section} is thin — fewer than 3 stated rules")
+    sd = on.get("structuredData", {})
+    for name in sorted({p["template"] for p in pages}):
+        if name not in sd and name != "Home":
+            errors.append(f"structuredData: no JSON-LD declared for {name}")
 
     for e in errors:
         print(f"ERROR  {e}")

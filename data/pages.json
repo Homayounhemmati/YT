@@ -11,7 +11,8 @@
       "template": "Home",
       "primary": null,
       "note": "Brand and funnel entry. Deliberately targets no head keyword — competing with its own tools would be the worst cannibalisation of all.",
-      "canonical": "self"
+      "canonical": "self",
+      "metaHook": "Compare cost of living and real take-home pay across US metros and all 50 states. Official BEA, HUD and IRS data. Free, no sign-up."
     },
     {
       "path": "/tools/cost-of-living-calculator",
@@ -22,7 +23,8 @@
       ],
       "output": "ماهانه: هزینه‌ی یک شهر برای خانوار کاربر",
       "canonical": "self",
-      "stripsParams": true
+      "stripsParams": true,
+      "metaHook": "Work out what a month actually costs in any US metro for your household size, using official BEA and HUD data. Free, no sign-up."
     },
     {
       "path": "/tools/cost-of-living-comparison",
@@ -39,7 +41,8 @@
         "مقایسه‌ی دو مکان با درآمد یکسان",
         "**مقایسه‌ی دو پیشنهاد شغلی** — درآمد متفاوت در دو مکان"
       ],
-      "note": "حالت پیشنهاد شغلی اینجاست نه در صفحه‌ی جدا: «job offer comparison calculator» فقط ۳۰ جستجو در ماه دارد."
+      "note": "حالت پیشنهاد شغلی اینجاست نه در صفحه‌ی جدا: «job offer comparison calculator» فقط ۳۰ جستجو در ماه دارد.",
+      "metaHook": "Compare two US metros side by side: the cost difference, the state tax difference, and what a move really leaves you. Free, no sign-up."
     },
     {
       "path": "/tools/salary-converter",
@@ -47,7 +50,8 @@
       "primary": "salary comparison by city",
       "output": "حقوق معادل در شهر مقصد برای حفظ همان سطح زندگی",
       "canonical": "self",
-      "stripsParams": true
+      "stripsParams": true,
+      "metaHook": "Find the salary you would need in another city to keep the same standard of living — cost of living and state tax both included."
     },
     {
       "path": "/tools/salary-to-hourly-calculator",
@@ -59,7 +63,8 @@
       "output": "تبدیل دوطرفه‌ی حقوق سالانه و نرخ ساعتی",
       "canonical": "self",
       "stripsParams": true,
-      "note": "دو کیورد، یک صفحه — چون یک ابزار دوطرفه است و تفکیکشان دو صفحه‌ی تقریباً یکسان می‌سازد."
+      "note": "دو کیورد، یک صفحه — چون یک ابزار دوطرفه است و تفکیکشان دو صفحه‌ی تقریباً یکسان می‌سازد.",
+      "metaHook": "Convert an annual salary to an hourly rate, or an hourly rate to a salary, for any schedule. Shows the working. Free, no sign-up."
     },
     {
       "path": "/tools/income-tax-calculator",
@@ -67,7 +72,8 @@
       "primary": "income tax calculator",
       "output": "**بدهی مالیاتی سالانه** + جدول براکت‌به‌براکت",
       "canonical": "self",
-      "stripsParams": true
+      "stripsParams": true,
+      "metaHook": "Estimate your federal and state income tax for the year, with the full bracket-by-bracket breakdown. Free, no sign-up."
     },
     {
       "path": "/tools/take-home-pay-calculator",
@@ -75,7 +81,8 @@
       "primary": "take home pay calculator",
       "output": "**خالص سالانه و ماهانه** از حقوق ناخالص",
       "canonical": "self",
-      "stripsParams": true
+      "stripsParams": true,
+      "metaHook": "See what is left of a gross salary after federal, state, Social Security and Medicare — yearly and monthly. Free, no sign-up."
     },
     {
       "path": "/tools/paycheck-tax-calculator",
@@ -83,7 +90,8 @@
       "primary": "paycheck tax calculator",
       "output": "**خالص هر فیش حقوقی** به تفکیک دوره‌ی پرداخت (هفتگی/دوهفتگی/ماهانه)",
       "canonical": "self",
-      "stripsParams": true
+      "stripsParams": true,
+      "metaHook": "See what lands in your account each payday — weekly, biweekly, semi-monthly or monthly — after every tax and withholding."
     },
     {
       "path": "/tools/tax-withholding-calculator",
@@ -91,7 +99,8 @@
       "primary": "tax withholding calculator",
       "output": "**چقدر باید در W-4 کسر شود** تا آخر سال بدهی/بازگشت صفر باشد",
       "canonical": "self",
-      "stripsParams": true
+      "stripsParams": true,
+      "metaHook": "Work out what to put on your W-4 so you neither owe nor overpay at filing time. Shows the shortfall or the refund either way."
     },
     {
       "path": "/tools/sales-tax-calculator",
@@ -99,7 +108,8 @@
       "primary": "sales tax calculator",
       "output": "مالیات فروش یک خرید در یک حوزه",
       "canonical": "self",
-      "stripsParams": true
+      "stripsParams": true,
+      "metaHook": "Add sales tax to any purchase for any US state, county or city — with the state, local and combined rate each shown separately."
     },
     {
       "path": "/tools/property-tax-calculator",
@@ -107,7 +117,8 @@
       "primary": "property tax calculator",
       "output": "مالیات ملک سالانه بر اساس ارزش و حوزه",
       "canonical": "self",
-      "stripsParams": true
+      "stripsParams": true,
+      "metaHook": "Estimate annual property tax from a home's assessed value and its local rate, plus the effective rate on the purchase price."
     },
     {
       "path": "/tools/closing-cost-calculator",
@@ -115,7 +126,8 @@
       "primary": "closing cost calculator",
       "canonical": "self",
       "stripsParams": true,
-      "output": "هزینه‌های یک‌باره‌ی بستن معامله‌ی خرید خانه"
+      "output": "هزینه‌های یک‌باره‌ی بستن معامله‌ی خرید خانه",
+      "metaHook": "Add up the one-off costs of closing on a home — lender fees, title, escrow, taxes — so the cash needed at signing is no surprise."
     },
     {
       "path": "/tools/house-payment-calculator",
@@ -123,7 +135,8 @@
       "primary": "house payment calculator",
       "canonical": "self",
       "stripsParams": true,
-      "output": "قسط ماهانه‌ی وام مسکن"
+      "output": "قسط ماهانه‌ی وام مسکن",
+      "metaHook": "Work out the full monthly cost of a home loan: principal, interest, taxes, insurance and PMI, not just the loan payment itself."
     },
     {
       "path": "/cost-of-living",
@@ -131,7 +144,8 @@
       "primary": "cost of living by city",
       "note": "دایرکتوری. عمداً کیورد ابزار را هدف نمی‌گیرد.",
       "canonical": "self",
-      "output": "**فهرست پیمایشی** همه‌ی شهرها با شاخص — نقطه‌ی کشف، نه ماشین‌حساب"
+      "output": "**فهرست پیمایشی** همه‌ی شهرها با شاخص — نقطه‌ی کشف، نه ماشین‌حساب",
+      "metaHook": "Browse the cost of living index for every US metro area, ranked and searchable, built from official BEA regional price data."
     },
     {
       "path": "/cost-of-living/{metro}",
@@ -146,7 +160,8 @@
       "template": "DirectoryPage",
       "primary": "state income tax rates by state",
       "canonical": "self",
-      "output": "**جدول مقایسه‌ای نرخ‌های ۵۱ حوزه** در یک نگاه — نه ماشین‌حساب"
+      "output": "**جدول مقایسه‌ای نرخ‌های ۵۱ حوزه** در یک نگاه — نه ماشین‌حساب",
+      "metaHook": "Compare income tax across all 50 states and DC in one table — brackets, flat rates, and the nine states that levy none at all."
     },
     {
       "path": "/state-taxes/{state}",
@@ -172,5 +187,113 @@
     "چهار ابزار خانواده‌ی حقوق (income tax · take-home · paycheck · withholding) خروجی اصلی متفاوت دارند و همان تفاوت باید در H1 و اولین جمله و عدد برجسته‌ی ResultCard دیده شود — نه فقط در URL.",
     "هیچ صفحه‌ای برای کیوردی که در `data/keywords.json` نیست بهینه نمی‌شود. کیورد اندازه‌گیری‌نشده یعنی هدف اثبات‌نشده.",
     "بازبینی ماهانه‌ی Search Console: اگر دو URL ما برای یک کوئری impression بگیرند، ظرف همان ماه یکی تغییر هدف می‌دهد یا canonical می‌شود. تأخیر در این کار، هر دو را پایین می‌کشد."
-  ]
+  ],
+  "onPage": {
+    "$comment": "Title/meta/H1 patterns per template, enforced by scripts/audit_seo.py. For 104 programmatic pages these formulas control SERP click-through directly; written once here rather than improvised per page.",
+    "limits": {
+      "titleMaxChars": 60,
+      "metaMinChars": 110,
+      "metaMaxChars": 155,
+      "h1MaxChars": 70
+    },
+    "longestSubstitutions": {
+      "{Primary}": "Cost of Living Comparison Calculator",
+      "{Metro}": "San Francisco-Oakland-Berkeley, CA",
+      "{State}": "District of Columbia",
+      "{year}": "2026"
+    },
+    "templates": {
+      "ToolPage": {
+        "title": "{Primary} ({year})",
+        "h1": "{Primary}",
+        "meta": "{Hook}",
+        "rules": [
+          "کیورد اصلی **دقیقاً** در title و H1 — نه تنوع نزدیک",
+          "سال در title می‌آید ولی **هرگز در URL** (بخش ۶-۷)",
+          "meta باید خروجی متمایزکننده را بگوید، نه توصیف عمومی — این همان چیزی است که چهار ابزار خانواده‌ی حقوق را از هم جدا می‌کند",
+          "هیچ ابزار عمومی نام موجودیت در title ندارد (قاعده‌ی عمومی/موجودیتی)",
+          "meta از `metaHook` هر صفحه می‌آید — انگلیسی، ۱۱۰ تا ۱۵۵ کاراکتر، و خروجی متمایزکننده را نام می‌برد"
+        ]
+      },
+      "PlacePage": {
+        "title": "Cost of Living in {Metro} ({year})",
+        "h1": "Cost of Living in {Metro}",
+        "meta": "What a month costs in {Metro}, from official BEA and HUD data — plus what you keep after {State} tax.",
+        "rules": [
+          "نام مکان در title، H1 و اولین ۱۰۰ کاراکتر meta",
+          "meta به **مالیات ایالتی** اشاره می‌کند — همان تمایزی که رقبا ندارند",
+          "اگر نام رسمی MSA بلند است، در title نام محاوره‌ای می‌آید و نام کامل در بدنه"
+        ]
+      },
+      "StateTaxPage": {
+        "title": "{State} Income Tax Calculator ({year})",
+        "h1": "{State} Income Tax Calculator",
+        "meta": "Estimate {State} state and federal income tax on your salary, with the bracket-by-bracket breakdown.",
+        "rules": [
+          "نام ایالت اول می‌آید — کوئری کاربر «california income tax» است نه «income tax california»",
+          "برای ۹ ایالت بدون مالیات، meta متفاوت است: «{State} has no state income tax — here is what you still owe federally»"
+        ]
+      },
+      "DirectoryPage": {
+        "title": "{Primary} ({year})",
+        "h1": "{Primary}",
+        "meta": "{Hook}",
+        "rules": [
+          "دایرکتوری هرگز کیورد ابزار را در title تکرار نمی‌کند"
+        ]
+      },
+      "Home": {
+        "title": "Cost of Living and Take-Home Pay Calculators",
+        "h1": "What a place really costs — and what you keep",
+        "meta": "{Hook}",
+        "rules": [
+          "خانه هیچ کیورد سری را هدف نمی‌گیرد — با ابزارهای خودش رقابت نمی‌کند"
+        ]
+      }
+    },
+    "anchorText": [
+      "لینک به صفحه‌ی موجودیت با **نام موجودیت**: «Cost of Living in Austin» — نه «اینجا کلیک کنید» و نه «بیشتر بخوانید»",
+      "لینک به ابزار با **کیورد اصلی همان ابزار**، ولی هرگز بیش از یک‌بار در یک صفحه با متن یکسان",
+      "متن لینک هرگز کیورد صفحه‌ی **خودش** نیست — لینک خروجی با کیورد صفحه‌ی مقصد نوشته می‌شود",
+      "لینک‌های ناوبری و فوتر از سقف ۲۵ لینک بدنه مستثنا هستند ولی باید ثابت بمانند"
+    ],
+    "openGraph": [
+      "OG image پویا به‌ازای هر موجودیت (`opengraph-image.tsx`) — با نام مکان و عدد شاخصش روی تصویر",
+      "تصویر ثابت برای ابزارها با نام ابزار",
+      "`og:title` می‌تواند از `<title>` متفاوت باشد — در شبکه‌های اجتماعی سال حذف می‌شود",
+      "بدون OG image، لینک در Reddit و انجمن‌ها بی‌جان دیده می‌شود — و بخش ۹-۵ همان‌جا لینک می‌گیرد"
+    ],
+    "robots": [
+      "`/api/` و مسیرهای داخلی: Disallow",
+      "هیچ صفحه‌ی محتوایی Disallow نمی‌شود — اگر صفحه‌ای ارزش ایندکس ندارد، اصلاً ساخته نمی‌شود",
+      "`Sitemap:` به `sitemap.xml` اشاره می‌کند که خودش چهار sitemap فرزند دارد (بخش ۶-۸-۶)",
+      "بدون `crawl-delay` — گوگل نادیده می‌گیرد و فقط خزنده‌های دیگر را کند می‌کند"
+    ],
+    "structuredData": {
+      "ToolPage": [
+        "WebApplication (applicationCategory: FinanceApplication, offers: free)",
+        "FAQPage — فقط اگر FAQ روی صفحه دیده شود",
+        "BreadcrumbList"
+      ],
+      "PlacePage": [
+        "Place + BreadcrumbList",
+        "FAQPage",
+        "Dataset — به منبع BEA/HUD اشاره می‌کند"
+      ],
+      "StateTaxPage": [
+        "WebApplication",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
+      "global": [
+        "Organization + Person (نویسنده) در layout",
+        "`dateModified` فقط با تغییر واقعی محتوا (بخش ۹-۴-۱)"
+      ],
+      "DirectoryPage": [
+        "ItemList — سطرهای جدول، با موقعیت و لینک هر موجودیت",
+        "BreadcrumbList",
+        "بدون FAQPage — دایرکتوری سؤال پاسخ نمی‌دهد، فهرست می‌دهد"
+      ]
+    }
+  }
 }
