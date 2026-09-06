@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 5.0
+> **Last revised:** 2026-09-06 · **Version:** 5.1
+>
+> **Version 5.1:** Platform is Base44. Section 3 rewritten as nine numbered SEO requirements rather than a framework, with a runnable verification protocol (3-5) and written fallbacks (3-3). Details in 20-18.
 >
 > **Version 5.0:** On-page SEO closed — heading outlines, breadcrumbs, slug-to-head-term consistency and per-edge anchor text, all enforced. 18 checks. Building can start. Details in 20-17.
 >
@@ -180,7 +182,7 @@ These are decided. Changing one means rewriting the document, not patching a lin
 | **Freelancer tools** | **Second cluster, not the core** | Their engine is built, but they do not answer the core sentence |
 | **margin · ebay fee · budget · compound interest · investment** | **Removed** | Good volume and CPC, but outside the context — they dilute topical authority |
 | **International tax** | Deferred to **phase 3** | High legal risk, not precisely computable, and less SEO value than deepening the US |
-| **Stack** | **Next.js with a fully static export** | 160 SPA pages on a new domain risk not being indexed |
+| **Platform** | **Base44**, subject to the verification in 3-5 | Chosen by the project owner. The SEO requirements it must satisfy are stated as R1–R9 in 3-1, and are non-negotiable whatever the platform |
 | **Data sources** | **Primary public sources only** (IRS, each state's revenue department, BLS, HUD) | Legally sound, differentiating, and the foundation of the Methodology page |
 | **Numbeo** | **Not used** | Its terms of service forbid redistribution; and copying a competitor's data carries zero SEO advantage |
 | **Comparison pages** | Deferred to phase 2 | State-level search volume is so low that state-vs-state comparison is unjustifiable (section 6-7) |
@@ -335,28 +337,181 @@ The data problem previously marked "unsolved" is in fact solvable with free gove
 
 ## 3. Architecture and technical stack
 
-### 3-1. The stack
+### 3-1. Requirements first, platform second
 
-| Layer | Choice | Note |
+The earlier version of this section named a framework. That was a mistake of
+altitude: the framework was never the decision, it was one way of satisfying the
+decision. **The platform is Base44.** What follows separates what must be true
+from what happens to satisfy it, so that a platform change is a change of one
+section rather than a rewrite.
+
+#### The non-negotiable requirements
+
+Every one of these is a ranking or indexation requirement, not a preference:
+
+| # | Requirement | Why it cannot be traded away |
 |---|---|---|
-| Framework | **Next.js (App Router)** with `output: "export"` | A complete static HTML file for every page |
-| Route generation | `generateStaticParams` | The 51 state pages are built at build time |
-| Metadata | `generateMetadata` (server side) | title/description/canonical/OG inside the initial HTML, not after hydration |
-| Styling | Tailwind CSS | |
-| Components | shadcn/ui + lucide-react (the only icon set) | |
-| Calculation | Pure TypeScript, client side | No backend, no API calls |
-| Hosting | Cloudflare Pages or Vercel | Both serve a static export for free |
-| Testing | Vitest for the tax engine | Section 4-7 is mandatory |
+| R1 | **Indexable content is present in the HTML the server returns**, before any JavaScript runs | The single most consequential SEO property of the whole build. See 3-2 |
+| R2 | **Per-page `title`, `meta description` and `canonical` in that same initial HTML** | Formulas in 9-3-2 are worthless if they render after hydration |
+| R3 | **Per-entity values for all of the above across ~81 generated pages** | 30 metros and 51 states, each unique. A per-page manual panel does not scale to this |
+| R4 | **JSON-LD per template**, in the initial HTML (9-3-3) | Structured data that renders late is structured data Google may never read |
+| R5 | **Clean path URLs**, no hash routing, no trailing slash, lowercase (6-7) | Hash fragments are not separate URLs to a crawler |
+| R6 | **Controllable `sitemap.xml` and `robots.txt`**, with the segmentation in 6-8-6 | Gate 1 is read per template; one flat sitemap makes it unreadable |
+| R7 | **A real HTTP 404** on unknown paths (9-6-5) | Soft 404s at scale poison a whole directory |
+| R8 | **Per-entity Open Graph images and tags in the initial response** (9-3-4) | Social crawlers do not execute JavaScript at all |
+| R9 | **Custom domain**, not a platform subdomain (10-1) | AdSense approval and authority both depend on it |
 
-### 3-2. Why this change was critical
+#### What Base44 provides, per its own documentation
 
-The earlier spec said "Static-First" and "React + react-router-dom" at the same time. Those two do not go together: react-router builds a client-side SPA whose initial HTML is effectively empty, with all content constructed after JS runs. Google does render JavaScript, but rendering happens in a separate queue, and for a new domain with no authority and dozens of pages that means slow or partial indexation.
+Base44 states that it manages `sitemap.xml`, `robots.txt` and `llms.txt`, sets
+canonical tags automatically, provides a dashboard panel for per-page titles and
+meta descriptions, supports custom domains, and serves crawlers a rendered
+version of each page that refreshes when the app's data changes.
 
-With `output: "export"` every page is a real HTML file carrying all its content, metadata and JSON-LD from the first byte. The calculator becomes interactive after hydration, but **the content never depends on JS**.
+If all of that holds as described, R1, R2, R5, R6 and R9 are satisfied by the
+platform.
 
-**Hard rule:** no indexable text may be produced only after JS runs. If `curl` on a page does not show the content, that page has a bug.
+#### What is genuinely uncertain, and why this section does not pretend otherwise
 
-### 3-3. Directory structure
+**Two sources contradict each other on the decisive point.** The vendor
+documentation says crawlers receive fully rendered content including meta tags
+and structured data. The platform's own public feedback board carries
+long-standing, heavily-upvoted requests stating the opposite — that meta tags are
+applied client-side via `useEffect`, and that social crawlers therefore see only
+generic app-level tags.
+
+Both can be true at different times: a prerendering layer added after those
+requests were filed would explain it. **But this document does not get to guess**,
+and the disagreement lands exactly on R1, R3, R4 and R8 — the requirements that
+decide whether 81 programmatic pages rank or sit invisible.
+
+This is the same situation as section 13-3, where two web sources gave
+contradictory federal tax brackets. The response there was to stop reading and
+start deriving. The response here is section 3-5: **test it, before building on
+it.**
+
+### 3-2. Why R1 is the requirement everything else rests on
+
+A client-rendered page returns an effectively empty HTML shell and constructs its
+content after JavaScript executes. Google does render JavaScript — but rendering
+happens in a **second, separate queue**, after crawling, and it is deferred and
+budgeted. For an established domain this costs days. For a new domain with no
+authority and ~110 pages, it is the difference between being indexed in weeks and
+being indexed partially, slowly, or not at all.
+
+This is not a theoretical concern for this project specifically:
+
+- **Gate 1 (section 11-1) measures indexation of 5 sample pages after 3–4 weeks.**
+  If rendering is deferred, that gate reads as failure and the roadmap stalls on a
+  platform artifact rather than a content problem.
+- **Section 14 concluded that domain authority is our binding constraint.** A
+  rendering penalty compounds precisely where we are weakest.
+- **Social crawlers never execute JavaScript at all.** Section 9-5 earns links on
+  Reddit and forums, and 9-3-4 makes OG images a deliberate part of that. If R8
+  fails, the link-building strategy loses its surface.
+
+**The hard rule stands regardless of platform:** if `curl` on a URL does not
+return the content, that page has a bug. The rule has not changed since the
+first version of this document. Only the thing being tested has.
+
+### 3-3. If a requirement cannot be met — the fallbacks, in order
+
+This is written now, while it is cheap, rather than during a crisis:
+
+1. **Configure it.** Most of R2, R5, R6 and R9 are dashboard or settings work.
+2. **Prerender in front.** A prerendering proxy — Prerender.io and equivalents —
+   sits ahead of the app and serves crawlers rendered HTML. It addresses R1, R2,
+   R4 and R8 without leaving the platform. It costs money and adds a dependency,
+   and it must be verified per crawler, not assumed.
+3. **Split the surface.** The 81 programmatic pages and the trust pages are
+   **content**; the calculators are an **application**. Content can be served as
+   static HTML from a CDN on the same domain, with the calculators embedded from
+   Base44. This keeps the platform for what it is good at and removes the
+   requirement it struggles with.
+4. **Reduce the programmatic surface.** If per-entity metadata cannot be
+   generated, 81 near-identical pages become a liability rather than an asset —
+   they are the doorway pattern section 7-1 forbids. In that case build the tools
+   and drop the entity pages, and accept the revenue consequence: the model in
+   1-4 loses most of its long tail.
+
+**Option 4 is a real outcome, not a threat.** It is why 3-5 runs before the build
+and not after.
+
+### 3-4. What is platform-independent, and therefore already done
+
+Worth stating plainly, because it is most of the work:
+
+`data/pages.json` · `data/keywords.json` · the keyword clusters · the title, meta
+and H1 formulas · the H2 outlines · breadcrumbs · anchor text · the link graph ·
+the canonical rules · the JSON-LD shapes · `scripts/audit_seo.py` (18 checks) ·
+`src/lib/tax/` (59 tests) · the tax dataset for 51 jurisdictions.
+
+**None of it assumes a framework.** It is a specification of what each page must
+contain, which is as valid against Base44 as against anything else. The platform
+question is only ever *how* these values reach the HTML.
+
+### 3-5. The verification protocol — run this before building
+
+The contradiction in 3-1 is settled empirically, not by reading more marketing
+copy. Build **one** throwaway Base44 app with two entity-driven pages and run
+these. Every one maps to a numbered requirement.
+
+```bash
+APP=https://your-test-app.example
+
+# R1 — is the content in the HTML, or does it need JS?
+curl -s "$APP/place/austin" | grep -c "Austin"          # must be > 0
+curl -s "$APP/place/austin" | wc -c                      # a shell is ~1-3 KB
+
+# R2/R3 — per-entity metadata in the initial response, DIFFERENT per entity
+curl -s "$APP/place/austin"  | grep -o "<title>[^<]*</title>"
+curl -s "$APP/place/dallas"  | grep -o "<title>[^<]*</title>"   # must differ
+curl -s "$APP/place/austin"  | grep -o 'name="description" content="[^"]*"'
+curl -s "$APP/place/austin"  | grep -o 'rel="canonical" href="[^"]*"'
+
+# R4 — structured data present before hydration
+curl -s "$APP/place/austin" | grep -c 'application/ld+json'
+
+# R8 — the social crawler case, which is the one most likely to fail
+curl -s -A "facebookexternalhit/1.1" "$APP/place/austin" | grep -o 'property="og:title"[^>]*'
+curl -s -A "Twitterbot/1.0"          "$APP/place/austin" | grep -o 'property="og:image"[^>]*'
+
+# R1 again, as Googlebot specifically — prerendering is often user-agent gated
+curl -s -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" \
+     "$APP/place/austin" | grep -c "Austin"
+
+# R5 — URL shape
+curl -sI "$APP/place/austin/" | head -1     # trailing slash must 301
+curl -sI "$APP/PLACE/Austin"  | head -1     # uppercase must 301
+
+# R6 — sitemap and robots, and whether segmentation is possible
+curl -s "$APP/robots.txt"
+curl -s "$APP/sitemap.xml" | head -20
+
+# R7 — the silent one
+curl -sI "$APP/definitely-not-a-page" | head -1    # must be 404, not 200
+```
+
+Then, and this is the check that catches user-agent-gated prerendering serving
+stale content: **change an entity's data, republish, and re-run the R2 check.**
+The title must change. If prerendered HTML lags behind the data, 81 pages will
+disagree with their own content.
+
+Finally, confirm in Search Console with **URL Inspection → View Crawled Page** on
+one live entity page. That is Google's own answer, and it outranks every other
+source here.
+
+| Result | Decision |
+|---|---|
+| All pass | Build on Base44 as-is. Requirements met |
+| R8 fails only | Build; add a prerender layer for social crawlers, or accept weaker link previews |
+| R1, R3 or R4 fails | Fallback 2 or 3 from section 3-3 **before** building 81 pages |
+| R3 fails and cannot be fixed | Fallback 4. Reduce scope and revise the revenue model honestly |
+
+**This costs a day. Discovering it after 81 pages are published costs the
+project's first year.**
+
+### 3-6. Repository structure
 
 `✅` = exists · `⬜` = not yet
 
@@ -386,26 +541,30 @@ src/
     load.ts  __tests__/
   data/cost-of-living-2026/    ⬜ blocked on BEA/HUD access (section 13-6)
 
-  app/                         ⬜
-    layout.tsx  page.tsx
-    tools/{tool-slug}/page.tsx
-    cost-of-living/page.tsx
-    cost-of-living/[place]/page.tsx
-    state-taxes/page.tsx
-    state-taxes/[state]/page.tsx
-    guides/[slug]/page.tsx
-    about|methodology|sources|privacy|terms|contact|editorial-policy/
-    sitemap.ts  robots.ts
-  components/                  ⬜
 ```
 
-### 3-4. Fixed technical rules
+**The application itself lives in Base44, not here.** This repository is the
+source of truth for the two things a platform cannot own:
 
-1. **Single source of truth:** no tax calculation is written outside `src/lib/tax/`. Components only take inputs and render outputs.
+| Here | Why it stays here |
+|---|---|
+| **The engines** (`src/lib/`) | Tested to the cent against statute. Rule 3-7-1 says tax logic lives in one place, and that place is version-controlled and covered by 59 tests |
+| **The datasets** (`src/data/`) | Every number carries a primary source and a verification state (section 5) |
+| **The page specification** (`data/pages.json`) | Keywords, clusters, formulas, link graph, anchor text — 18 CI checks |
+| **The auditors** (`scripts/`) | They fail the build. A dashboard cannot |
+
+The page routes described in section 6-7 are built on the platform. **Their
+required contents are specified here**, and that separation is deliberate: it is
+what makes section 3-3's fallbacks possible without rewriting the project.
+
+### 3-7. Fixed technical rules
+
+1. **Single source of truth:** no tax calculation is written outside `src/lib/tax/`. The UI only takes inputs and renders outputs — and this rule binds harder on a platform that invites logic into the page, because a calculation reimplemented in a component is one nothing tests.
 2. **Data separate from logic:** rates and thresholds live in JSON, not in code. Changing tax year must not require changing logic.
 3. **Tax year is a parameter:** every function takes `taxYear`. No year is ever hardcoded.
 4. **Everything in integer cents:** internal calculation runs on integer cents so floating-point error cannot accumulate; conversion to dollars happens only at the display layer.
-5. **No runtime network dependency:** no fetch in the browser.
+5. **No runtime network dependency for a calculation:** a result must never wait on a network round-trip. It is instant, it works offline, and no financial figure the user types leaves the browser — which section 10-6 makes a privacy claim on the `/privacy` page.
+6. **The specification in `data/pages.json` is authoritative over anything typed into a platform dashboard.** If a page's title in the dashboard disagrees with the formula here, the formula is right and the dashboard is drift. This is the rule that keeps 18 CI checks meaningful once the pages live somewhere the auditor cannot see.
 
 ---
 
@@ -1194,7 +1353,7 @@ Section 8-4 covered the state page layout, but the tool pages — which is where
 - Google Search Console from **day one**, before any content ships
 - An independent, absolute `canonical` on every page
 - JSON-LD: `FAQPage` + `BreadcrumbList` + `WebApplication` (for tool pages) + `Organization` + `Person` (author)
-- A dynamic OG image per state (`opengraph-image.tsx` in Next.js) — for sharing on Reddit and social networks
+- A dynamic OG image per state, in the initial HTML response (requirement R8) — for sharing on Reddit and social networks
 
 ### 9-2. Keyword validation **before** writing
 
@@ -1356,7 +1515,7 @@ The rules the audit enforces:
 - **No content page is ever disallowed.** If a page is not worth indexing, it is not generated at all — the gates in section 6-8 do that job.
 - `Sitemap:` points at `sitemap.xml`, which itself has four child sitemaps (section 6-8-6).
 - No `crawl-delay` — Google ignores it and it only slows other crawlers.
-- **A dynamic OG image** per entity (`opengraph-image.tsx`): the place name and its index number on the image. This is not decoration; section 9-5 earns links on Reddit and forums, and a link without an image is effectively invisible there.
+- **A dynamic OG image** per entity (requirement R8): the place name and its index number on the image. This is not decoration; section 9-5 earns links on Reddit and forums, and a link without an image is effectively invisible there.
 - `og:title` may differ from `<title>` — the year is dropped on social networks.
 
 ### 9-3-5. The language rule — the whole project is English
@@ -1684,8 +1843,9 @@ telemetry we will have — and at 110 pages it is enough.
 #### 9-6-3. Mobile-first indexing — and one myth not to repeat
 
 Google indexes the **mobile** rendering. Anything absent from the mobile HTML
-effectively does not exist. A static export produces one HTML file served to
-both, so we satisfy this by construction — but two rules follow:
+effectively does not exist. Serving one HTML document to both satisfies this by
+construction; a platform that varies its output by device does not, and that is
+worth confirming during the 3-5 protocol. Two rules follow either way:
 
 - **The `ContentAccordion` on mobile (sections 8-4 and 8-8) must be CSS-collapsed
   with its full content present in the HTML.** Content behind an accordion is
@@ -1854,7 +2014,7 @@ The main difference from the previous document: **the validation phase genuinely
 
 | Month | Work | Output |
 |---|---|---|
-| **1** | ✅ Keyword validation · ✅ tax engine · ✅ datasets and auditors · register the domain · GSC before anything ships · Next.js skeleton · 7 trust pages | An indexable shell |
+| **1** | ✅ Keyword validation · ✅ tax engine · ✅ datasets and auditors · register the domain · GSC before anything ships · **run the 3-5 verification protocol** · app skeleton · 7 trust pages | An indexable shell |
 | **1–2** | **Acquire and verify the cost-of-living dataset** (BEA RPP · HUD FMR · BLS CPI) — the blocking dependency for everything downstream | A verified place dataset |
 | **2** | **Stage 1 — place:** cost-of-living calculator · `/cost-of-living` directory · **5 sample metros** | **Gate 1** |
 | **3** | **Stages 2–3 — comparison and income:** comparison tool · salary converter · salary↔hourly · apply to AdSense | AdSense approved |
@@ -1930,7 +2090,8 @@ No page ships unless all of the following hold:
 **Explicitly forbidden in phase 1:** a charting library (the waterfall is built with CSS/SVG) · a date library (`Intl` suffices) · lodash · any heavy animation. With 36 tools queued, Lighthouse drifts down quietly without a numeric ceiling and nobody notices until it is too late.
 
 **Technical**
-- [ ] `curl` on the URL returns the complete content in the HTML (not an empty SPA shell)
+- [ ] **`curl` on the URL returns the complete content in the HTML** (not an empty shell). On a client-rendered platform this is requirement R1 and the single most important check in this list — it is verified per template at least once, and re-verified after any platform change
+- [ ] `curl` as Googlebot and as `facebookexternalhit` returns the same content and the correct per-entity metadata (R3, R8) — prerendering is frequently user-agent gated, so testing as a browser proves nothing
 - [ ] The performance budget above is met
 - [ ] `title`, `description`, `canonical` and JSON-LD are present in the initial HTML
 - [ ] Lighthouse: Performance ≥ 90, Accessibility ≥ 95, CLS < 0.1
@@ -2239,7 +2400,7 @@ Stated honestly, each with a specific mitigation. A risk that is not written dow
 
 | # | Risk | Impact | Mitigation |
 |---|---|---|---|
-| 1 | **A new domain does not get indexed** | Fatal | Gate 1 with a numeric criterion. No scaling before proof. Static Next.js instead of an SPA |
+| 1 | **A new domain does not get indexed** | Fatal | Gate 1 with a numeric criterion. No scaling before proof. **Requirement R1 verified empirically before building (3-5)**, not assumed from platform documentation |
 | 2 | **AI Overviews swallow the organic click** | High, and getting worse | Sections 6-8 and 8-8: a step-by-step structure to earn the citation. Diversify toward tool keywords where the user must interact, not merely read a short answer |
 | 3 | **Competitors have far higher domain authority** | High | Section 14. Quality + long-tail + active distribution. Accepting that head keywords do not come in year one |
 | 4 | **One wrong number makes 51 pages wrong** | Fatal to credibility | Golden tests · a CI validator · the verify-before-publish rule |
@@ -2326,18 +2487,22 @@ rather than in a README.
 
 ### 19-1. Hosting
 
-**Cloudflare Pages**, with Vercel as the fallback. Both serve a static export
-free; the reasons for the default:
+**Base44 hosts the application**, on a custom domain (requirement R9). That
+removes most of the choices this section used to make and replaces them with
+verifications, because a hosted platform decides these for you and does not always
+tell you what it decided.
 
-| | Why it matters here |
+| What must be true | How it is confirmed |
 |---|---|
-| A real 404 status from `404.html` | Section 9-6-5 depends on it, and getting it wrong is silent |
-| Custom response headers via `_headers` | HSTS and cache-control without a server |
-| Unmetered bandwidth | Tax season is a 3–5× traffic spike (section 4) on a free tier |
-| Global edge by default | LCP against the 2.0 s budget (section 12) from the first deploy |
+| A real HTTP 404 on unknown paths | `curl -I` in 19-2. Silent when wrong, and poisons a directory (9-6-5) |
+| HSTS and sane cache headers on HTML | Inspect response headers. If they cannot be set, HTML must at least not be cached hard — an annual data update behind a month-long cache is last year's brackets under this year's heading |
+| One host only, apex **or** www | Both resolving means the site is indexed twice and its authority split |
+| A custom domain, not `*.base44.app` | AdSense (10-1) and authority both require it |
+| Preview or draft URLs are not public | See the staging warning below — on a hosted platform you often do not choose whether these exist |
 
-**Whichever is chosen is verified, not assumed.** The 404-status behaviour in
-particular differs between hosts and between their own configurations.
+**Where the platform cannot satisfy one of these, section 3-3's fallbacks apply**
+— most likely fallback 3, putting a CDN in front for the content surface. Decide
+that from the 3-5 results, before launch, not after.
 
 ### 19-2. Pre-launch verification — run against the live domain
 
@@ -2366,11 +2531,16 @@ curl -s  https://DOMAIN/state-taxes/california | grep -c "California"   # conten
 | **Staging is not indexable** | See below — this one is the worst |
 
 > ⚠️ **The staging trap.** A preview deployment on a public URL, with content
-> identical to production, is a duplicate of the entire site. Cloudflare and
-> Vercel both create preview URLs by default. **Preview deployments must be
-> password-protected**, not merely `noindex` — `noindex` on a preview still lets
-> it be crawled and linked, and it is one misconfiguration away from being
-> indexed instead of production.
+> identical to production, is a duplicate of the entire site. Most hosted
+> platforms create preview or draft URLs by default, and Base44 apps are reachable
+> at a platform subdomain as well as the custom domain. **Both cases must be
+> resolved before launch**: the preview password-protected, and the platform
+> subdomain either disabled or 301-redirected to the custom domain. `noindex`
+> alone is not enough — it still permits crawling and linking, and it is one
+> misconfiguration away from being indexed instead of production.
+>
+> Check it directly: `curl -sI https://YOUR-APP.base44.app` should redirect to the
+> custom domain, not serve a copy of the site.
 
 ### 19-3. Headers
 
@@ -2447,7 +2617,7 @@ site-wide and not quickly undone.
 
 | # | Fault in the previous document | Correction |
 |---|---|---|
-| 1 | "static-first" but a React SPA was specified | Next.js with a real static export |
+| 1 | "static-first" but a React SPA was specified | Resolved as requirements R1–R9 (section 3-1) rather than a framework name, so the platform can change without the specification changing |
 | 2 | `FEDERAL_INCOME_RATE = 14` — an invented flat rate | A complete progressive bracket engine |
 | 3 | `stateRate` as a guessed "effective rate" | A real bracket table per state from a primary source |
 | 4 | Comparison pages from cartesian combination (12,720 pages) | At most 15 manual, validated pages |
@@ -2851,6 +3021,62 @@ H2 outline, breadcrumbs, slug, canonical, intent clusters, structured data per
 template, robots, OG images, anchor text, click depth, orphans, and funnel
 cul-de-sacs. The next work is building, and internal linking now has a complete
 graph with anchor text to build from rather than a paragraph of advice.
+
+**Status: 18 pages · 18 checks · 0 errors · 0 warnings · 59 tests green.**
+
+### 20-18. Round nineteen — version 5.1 · the platform decision
+
+The project owner chose **Base44** as the build platform. This document had a
+framework named in three places and its reasoning built around one, so the
+correction is structural rather than a find-and-replace.
+
+**Section 3 now separates requirements from implementation.** Naming a framework
+was a mistake of altitude: the framework was never the decision, it was one way
+of satisfying it. The decision is nine numbered requirements — R1 to R9 — each of
+which is a ranking or indexation constraint rather than a preference. A platform
+change is now a change to one section instead of a rewrite.
+
+**On the decisive question, this document does not guess.** Base44's own
+documentation says crawlers receive fully rendered content including meta tags
+and structured data. Its public feedback board carries long-standing,
+heavily-upvoted requests stating the opposite — that meta tags are applied
+client-side and social crawlers see only generic app-level tags. Both can be true
+at different times, and the disagreement lands precisely on R1, R3, R4 and R8:
+the requirements that decide whether 81 programmatic pages rank or sit invisible.
+
+This is section 13-3 again, where two web sources gave contradictory federal tax
+brackets. The response then was to stop reading and start deriving. The response
+now is **section 3-5: a runnable verification protocol**, one throwaway app and
+about a day, testing each requirement as Googlebot and as a social crawler
+specifically — because prerendering is frequently user-agent gated, and testing
+as a browser proves nothing. It ends at Search Console's URL Inspection, which is
+Google's own answer and outranks every other source.
+
+Section 3-3 writes the fallbacks down now, while they are cheap: configure it ·
+put a prerender layer in front · split the surface so content is static HTML and
+the calculators are embedded · or reduce the programmatic surface and revise the
+revenue model honestly. **The last is a real outcome, not a threat** — 81
+near-identical pages without per-entity metadata are the doorway pattern section
+7-1 forbids, and that is why the protocol runs before the build rather than after.
+
+**Section 3-4 states what does not change, which is most of the work.**
+`data/pages.json`, the clusters, every formula, the H2 outlines, breadcrumbs,
+anchor text, the link graph, the canonical rules, the JSON-LD shapes, the 18 CI
+checks, both engines, and the 51-jurisdiction dataset assume no framework. They
+specify what each page must contain. The platform question is only ever how those
+values reach the HTML.
+
+One rule was added to 3-7 for exactly this move: **the specification in
+`data/pages.json` is authoritative over anything typed into a platform
+dashboard.** Where a dashboard title disagrees with the formula, the formula is
+right and the dashboard is drift. Without that rule, 18 CI checks quietly stop
+meaning anything once the pages live somewhere the auditor cannot see.
+
+Also updated: hosting (19-1) is now the platform's, so the section became
+verifications rather than choices; the staging warning now covers the platform
+subdomain, which must redirect to the custom domain rather than serve a second
+copy of the site; and the `curl` item in the definition of done is now marked as
+what it has become — the single most important check in that list.
 
 **Status: 18 pages · 18 checks · 0 errors · 0 warnings · 59 tests green.**
 
