@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 5.3
+> **Last revised:** 2026-09-06 · **Version:** 5.4
+>
+> **Version 5.4:** Platform requirements answered against a live Base44 app — R1, R3, R4, R5 verified; R2 and R8 recorded as inferred; R7 open. The 81-page plan stands. Details in 20-21.
 >
 > **Version 5.3:** Trust pages added (they were missing entirely), all 74 buildable pages now have generated on-page values, and a completion status per page group in 9-3-10. Details in 20-20.
 >
@@ -367,34 +369,58 @@ Every one of these is a ranking or indexation requirement, not a preference:
 | R8 | **Per-entity Open Graph images and tags in the initial response** (9-3-4) | Social crawlers do not execute JavaScript at all |
 | R9 | **Custom domain**, not a platform subdomain (10-1) | AdSense approval and authority both depend on it |
 
-#### What Base44 provides, per its own documentation
+#### Requirement status — answered 2026-09-06
 
-Base44 states that it manages `sitemap.xml`, `robots.txt` and `llms.txt`, sets
-canonical tags automatically, provides a dashboard panel for per-page titles and
-meta descriptions, supports custom domains, and serves crawlers a rendered
-version of each page that refreshes when the app's data changes.
+The contradiction in the public sources was settled against a **live Base44 app**,
+not against documentation. The distinction between what was observed and what was
+reasoned is kept, because it decides what still needs testing.
 
-If all of that holds as described, R1, R2, R5, R6 and R9 are satisfied by the
-platform.
+| # | Requirement | Status | Evidence |
+|---|---|---|---|
+| R1 | Content in the server's HTML | ✅ **Verified** | The live source of a country page was fetched: H1, body copy, stat cards and city cards all present in the HTML. Not an empty shell |
+| R2 | Per-entity meta in that HTML | ⚠️ **Inferred** | Reasoned from R1 — "the metadata goes the same way". The `<title>` tag itself was not observed in raw HTML. See below |
+| R3 | Values from row data, at scale | ✅ **Verified** | Titles are built from the row (`Cost of living in ${country.name}`). No dashboard entry, no bulk import, no 80 hand-typed pages |
+| R4 | Custom JSON-LD per entity | ✅ **Verified** | The `Seo` component takes a `jsonLd` prop and injects a `<script type="application/ld+json">`. Any schema, values per row. An FAQ block already ships on one template |
+| R5 | Clean path URLs | ✅ **Verified** | Path routes, no hash |
+| R6 | Sitemap and robots | ✅ Per platform | Managed by the platform; segmentation (6-8-6) still to confirm |
+| R7 | Real HTTP 404 | ❌ **Unknown** | A 404 page renders visually, but the HTTP **status code** could not be confirmed from inside the app. This is the soft-404 risk in 9-6-5 |
+| R8 | Social crawlers get per-entity OG | ⚠️ **Inferred** | Reasoned from the `Seo` component setting `og:*`. Not tested against a social user-agent. See below |
+| R9 | Custom domain | ✅ Supported | But whether `*.base44.app` stays publicly indexable afterwards is **unknown** |
 
-#### What is genuinely uncertain, and why this section does not pretend otherwise
+**The architecture is sound.** R3 in particular is the answer this project needed:
+metadata is derived from the same row as the content, so the annual tax update
+(section 16) changes 51 titles by editing one dataset rather than 51 dashboard
+fields. That is the programmatic architecture this document specifies, working as
+specified.
 
-**Two sources contradict each other on the decisive point.** The vendor
-documentation says crawlers receive fully rendered content including meta tags
-and structured data. The platform's own public feedback board carries
-long-standing, heavily-upvoted requests stating the opposite — that meta tags are
-applied client-side via `useEffect`, and that social crawlers therefore see only
-generic app-level tags.
+#### Why R2 and R8 are marked inferred rather than verified
 
-Both can be true at different times: a prerendering layer added after those
-requests were filed would explain it. **But this document does not get to guess**,
-and the disagreement lands exactly on R1, R3, R4 and R8 — the requirements that
-decide whether 81 programmatic pages rank or sit invisible.
+Both answers reason from the same premise: the `Seo` component sets the tags, and
+Base44 pre-renders. R1 confirms pre-rendering delivers **body content**. It does
+not, by itself, confirm it delivers **`<head>` tags** — those are set in a
+`useEffect`, which is a different execution point from the component's render
+output, and a pre-renderer can capture one without the other.
 
-This is the same situation as section 13-3, where two web sources gave
-contradictory federal tax brackets. The response there was to stop reading and
-start deriving. The response here is section 3-5: **test it, before building on
-it.**
+For R8 the gap is wider. Social crawlers **never execute JavaScript at all**, so
+whether they see per-entity `og:` tags depends entirely on whether the
+pre-rendering layer covers their user-agents. That was not tested, and it is
+precisely the failure the platform's public feedback board reports.
+
+Neither is a reason to doubt the answer. Both are a reason to spend two minutes
+confirming it, because the cost of being wrong is 81 pages sharing one title.
+
+#### The conditional that matters most
+
+The answers carried a caveat worth promoting to a build rule:
+
+> Correct metadata depends on **every** programmatic page calling the `Seo`
+> component **with values from its own row**. A page that omits it, or calls it
+> with constants, ships duplicate or empty metadata.
+
+**This is not a platform guarantee — it is a per-page obligation**, and it is
+exactly the kind of thing that holds on the two pages someone checked and fails
+silently on the thirtieth. It is now rule 3-7-7, and section 3-5's protocol exists
+to catch it.
 
 ### 3-2. Why R1 is the requirement everything else rests on
 
@@ -420,28 +446,21 @@ This is not a theoretical concern for this project specifically:
 return the content, that page has a bug. The rule has not changed since the
 first version of this document. Only the thing being tested has.
 
-### 3-3. If a requirement cannot be met — the fallbacks, in order
+### 3-3. What is left open, and the fallback for each
 
-This is written now, while it is cheap, rather than during a crisis:
+After the 2026-09-06 answers, most of this section's original options are moot.
+The platform meets the architectural requirements. What remains:
 
-1. **Configure it.** Most of R2, R5, R6 and R9 are dashboard or settings work.
-2. **Prerender in front.** A prerendering proxy — Prerender.io and equivalents —
-   sits ahead of the app and serves crawlers rendered HTML. It addresses R1, R2,
-   R4 and R8 without leaving the platform. It costs money and adds a dependency,
-   and it must be verified per crawler, not assumed.
-3. **Split the surface.** The 81 programmatic pages and the trust pages are
-   **content**; the calculators are an **application**. Content can be served as
-   static HTML from a CDN on the same domain, with the calculators embedded from
-   Base44. This keeps the platform for what it is good at and removes the
-   requirement it struggles with.
-4. **Reduce the programmatic surface.** If per-entity metadata cannot be
-   generated, 81 near-identical pages become a liability rather than an asset —
-   they are the doorway pattern section 7-1 forbids. In that case build the tools
-   and drop the entity pages, and accept the revenue consequence: the model in
-   1-4 loses most of its long tail.
+| Open item | If it fails | Cost |
+|---|---|---|
+| **R7 — 404 returns 200** | Soft 404s across the directory. Mitigate by never linking to a non-existent entity (the generation gate in 6-10-3 already guarantees this) and by returning a `noindex` on the not-found view if the status cannot be fixed | Low, if caught |
+| **R9 — `*.base44.app` stays indexable** | The whole site indexed twice, authority split. Mitigate with the absolute self-canonical every page already carries (canonicalRules[0]), which points at the custom domain from both hosts | **Largely already handled** — this is what an absolute canonical is for |
+| **R2/R8 unconfirmed** | If `<head>` tags are not pre-rendered, add a pre-render layer for crawler user-agents. The page content is already fine, so this is a narrow fix rather than a re-platform | Medium |
+| **Sitemap segmentation (6-8-6)** | One flat sitemap makes gate 1 unreadable per template. Mitigate by reading Search Console's per-directory coverage instead | Low |
 
-**Option 4 is a real outcome, not a threat.** It is why 3-5 runs before the build
-and not after.
+**The "split the surface" and "reduce the programmatic surface" fallbacks are
+withdrawn.** They existed because R1 and R3 were unknown; both are now verified,
+and the 81-page plan stands.
 
 ### 3-4. What is platform-independent, and therefore already done
 
@@ -456,83 +475,40 @@ the canonical rules · the JSON-LD shapes · `scripts/audit_seo.py` (18 checks) 
 contain, which is as valid against Base44 as against anything else. The platform
 question is only ever *how* these values reach the HTML.
 
-### 3-5. The verification protocol — run this before building
+### 3-5. The three checks still worth running
 
-The contradiction in 3-1 is settled empirically, not by reading more marketing
-copy. Build **one** throwaway Base44 app with two entity-driven pages and run
-these. Every one maps to a numbered requirement.
+Most of the protocol this section used to hold has been answered (3-1). Three
+things remain, and together they take about two minutes against any live page.
 
 ```bash
-APP=https://your-test-app.example
+URL=https://your-app/cost-of-living/germany
+OTHER=https://your-app/cost-of-living/japan
 
-# R1 — is the content in the HTML, or does it need JS?
-curl -s "$APP/place/austin" | grep -c "Austin"          # must be > 0
-curl -s "$APP/place/austin" | wc -c                      # a shell is ~1-3 KB
+# R2 — is the <title> in the raw HTML, and does it differ per row?
+curl -s "$URL"   | grep -o "<title>[^<]*</title>"
+curl -s "$OTHER" | grep -o "<title>[^<]*</title>"
 
-# R2/R3 — per-entity metadata in the initial response, DIFFERENT per entity
-curl -s "$APP/place/austin"  | grep -o "<title>[^<]*</title>"
-curl -s "$APP/place/dallas"  | grep -o "<title>[^<]*</title>"   # must differ
-curl -s "$APP/place/austin"  | grep -o 'name="description" content="[^"]*"'
-curl -s "$APP/place/austin"  | grep -o 'rel="canonical" href="[^"]*"'
+# R8 — does a social crawler get the per-entity tags? It never runs JavaScript,
+# so this is a different question from R2, not the same one.
+curl -s -A "facebookexternalhit/1.1" "$URL" | grep -o 'property="og:title"[^>]*'
 
-# R4 — structured data present before hydration
-curl -s "$APP/place/austin" | grep -c 'application/ld+json'
-
-# R8 — the social crawler case, which is the one most likely to fail
-curl -s -A "facebookexternalhit/1.1" "$APP/place/austin" | grep -o 'property="og:title"[^>]*'
-curl -s -A "Twitterbot/1.0"          "$APP/place/austin" | grep -o 'property="og:image"[^>]*'
-
-# R1 again, as Googlebot specifically — prerendering is often user-agent gated
-curl -s -A "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" \
-     "$APP/place/austin" | grep -c "Austin"
-
-# R5 — URL shape
-curl -sI "$APP/place/austin/" | head -1     # trailing slash must 301
-curl -sI "$APP/PLACE/Austin"  | head -1     # uppercase must 301
-
-# R6 — sitemap and robots, and whether segmentation is possible
-curl -s "$APP/robots.txt"
-curl -s "$APP/sitemap.xml" | head -20
-
-# R7 — the silent one
-curl -sI "$APP/definitely-not-a-page" | head -1    # must be 404, not 200
+# R7 — the status code, not the visible page
+curl -sI https://your-app/definitely-not-a-real-page | head -1
 ```
 
-Then, and this is the check that catches user-agent-gated prerendering serving
-stale content: **change an entity's data, republish, and re-run the R2 check.**
-The title must change. If prerendered HTML lags behind the data, 81 pages will
-disagree with their own content.
-
-Finally, confirm in Search Console with **URL Inspection → View Crawled Page** on
-one live entity page. That is Google's own answer, and it outranks every other
-source here.
-
-| Result | Decision |
+| Result | Meaning |
 |---|---|
-| All pass | Build on Base44 as-is. Requirements met |
-| R8 fails only | Build; add a prerender layer for social crawlers, or accept weaker link previews |
-| R1, R3 or R4 fails | Fallback 2 or 3 from section 3-3 **before** building 81 pages |
-| R3 fails and cannot be fixed | Fallback 4. Reduce scope and revise the revenue model honestly |
+| Two different `<title>` values | R2 confirmed. The 81-page plan is fully unblocked |
+| Same or empty `<title>` | The `useEffect` is not pre-rendered — a crawler pre-render layer is needed for `<head>` only |
+| `og:title` shows the entity name | R8 confirmed |
+| `og:title` generic or absent | Social previews are app-level. Section 9-5's link building loses its preview surface; fix with the same pre-render layer |
+| `HTTP/2 404` | R7 confirmed |
+| `HTTP/2 200` | Soft 404. Apply the 3-3 mitigation |
 
-**This costs a day. Discovering it after 81 pages are published costs the
-project's first year.**
-
-#### Asking rather than testing
-
-The protocol above is the stronger evidence and should be run regardless. But the
-same questions can be put to the platform directly, and
-[`base44-questions.md`](base44-questions.md) is that list — sixteen questions in
-three tiers, each phrased so that a vague answer is visibly a non-answer.
-
-Two things about how it is written are deliberate:
-
-- **Every tier-1 question asks for a `curl` output**, not a yes or no. "Do you
-  support SEO" has one possible answer and no information in it. "What does
-  `curl -A facebookexternalhit` return for this URL" has exactly one true answer.
-- **It asks for a live URL of an existing app with many data-generated pages.**
-  That single item answers six of the questions at once, from evidence rather than
-  from a support agent's understanding — and it is faster for them to send than to
-  compose sixteen replies.
+**Then, whatever the result, verify the per-page obligation** from rule 3-7-6:
+after building the programmatic pages, check the rendered `<title>` on **three
+different rows**, not one. The caveat in 3-1 fails silently on the page nobody
+checked, and a single sample cannot detect it.
 
 ### 3-6. Repository structure
 
@@ -587,7 +563,8 @@ what makes section 3-3's fallbacks possible without rewriting the project.
 3. **Tax year is a parameter:** every function takes `taxYear`. No year is ever hardcoded.
 4. **Everything in integer cents:** internal calculation runs on integer cents so floating-point error cannot accumulate; conversion to dollars happens only at the display layer.
 5. **No runtime network dependency for a calculation:** a result must never wait on a network round-trip. It is instant, it works offline, and no financial figure the user types leaves the browser — which section 10-6 makes a privacy claim on the `/privacy` page.
-6. **The specification in `data/pages.json` is authoritative over anything typed into a platform dashboard.** If a page's title in the dashboard disagrees with the formula here, the formula is right and the dashboard is drift. This is the rule that keeps 18 CI checks meaningful once the pages live somewhere the auditor cannot see.
+6. **Every programmatic page calls the SEO component with values from its own row.** Never omitted, never called with constants. Metadata correctness is a per-page obligation on this platform, not a platform guarantee (3-1), and a page that forgets it looks fine and ships a duplicate title.
+7. **The specification in `data/pages.json` is authoritative over anything typed into a platform dashboard.** If a page's title in the dashboard disagrees with the formula here, the formula is right and the dashboard is drift. This is the rule that keeps 18 CI checks meaningful once the pages live somewhere the auditor cannot see.
 
 ---
 
@@ -2528,7 +2505,7 @@ Stated honestly, each with a specific mitigation. A risk that is not written dow
 
 | # | Risk | Impact | Mitigation |
 |---|---|---|---|
-| 1 | **A new domain does not get indexed** | Fatal | Gate 1 with a numeric criterion. No scaling before proof. **Requirement R1 verified empirically before building (3-5)**, not assumed from platform documentation |
+| 1 | **A new domain does not get indexed** | Fatal | Gate 1 with a numeric criterion. No scaling before proof. **R1 verified against a live app on 2026-09-06** (3-1): content is in the server's HTML, so the rendering-queue penalty does not apply |
 | 2 | **AI Overviews swallow the organic click** | High, and getting worse | Sections 6-8 and 8-8: a step-by-step structure to earn the citation. Diversify toward tool keywords where the user must interact, not merely read a short answer |
 | 3 | **Competitors have far higher domain authority** | High | Section 14. Quality + long-tail + active distribution. Accepting that head keywords do not come in year one |
 | 4 | **One wrong number makes 51 pages wrong** | Fatal to credibility | Golden tests · a CI validator · the verify-before-publish rule |
@@ -2540,6 +2517,7 @@ Stated honestly, each with a specific mitigation. A risk that is not written dow
 | 10 | **Project scope drifts toward "life"** | High | Section 2-2: maths and health are explicitly out of scope |
 | 11 | **The cost-of-living dataset cannot be acquired or is unusable** | **Fatal — it is the critical path** | It is stage 1 and everything downstream depends on it (section 11). BEA, HUD and BLS all publish free, machine-readable, licence-clean data, so the risk is effort and shape, not availability. Mitigation: build it against 5 metros first and only then commit to 30. If it genuinely fails, the fallback is a tax-first site — which section 1-4 shows caps around $250/month, so this risk is the difference between the target and half of it |
 | 12 | **BEA or HUD changes its methodology or release cadence** | Medium | Section 16-2-1 already expects a publication lag. The indices are stored with their vintage year and displayed with it, so a methodology change is visible rather than silent |
+| 14 | **A programmatic page ships without its SEO component**, or with constant values | Medium, and silent | Rule 3-7-6. It fails on the page nobody checked, so 3-5 samples three rows rather than one |
 | 13 | **A competitor with authority copies the tax-plus-cost intersection** | Medium | `costbycity.com` and `realtakehomepay.com` each hold one half already (section 2-2-4). The defence is not secrecy — it is being first to depth and earning the links (section 9-5) while the intersection is still empty |
 
 ### 17-1. Early warning signs
@@ -3310,6 +3288,46 @@ input arrives.
 
 **Status: 25 mapped pages · 20 checks · 74 generated pages · 0 errors · 0 warnings
 · 59 tests green.**
+
+### 20-21. Round twenty-two — version 5.4 · the platform questions answered
+
+The requirement questions from 3-1 were put to a live Base44 project and answered
+on 2026-09-06. **The architecture is sound and the 81-page plan stands.**
+
+| Verified | Inferred | Unknown |
+|---|---|---|
+| R1 content in HTML · R3 metadata from row data · R4 custom JSON-LD · R5 clean URLs · real `<a href>` links | R2 per-entity `<title>` · R8 social crawler tags | R7 404 status code · whether `*.base44.app` stays indexable |
+
+**R3 is the answer that mattered most.** Titles are built from the row
+(`Cost of living in ${country.name}`), not typed into a panel. That means the
+annual tax update changes 51 titles by editing one dataset — the programmatic
+architecture this document specifies, working as specified. The "reduce the
+programmatic surface" fallback is withdrawn.
+
+**Two answers are recorded as inferred rather than verified, deliberately.** Both
+reason from the same premise: the SEO component sets the tags and the platform
+pre-renders. R1 confirms pre-rendering delivers **body content**. It does not by
+itself confirm it delivers **`<head>` tags**, which are set in a `useEffect` — a
+different execution point, and a pre-renderer can capture one without the other.
+For R8 the gap is wider: social crawlers never execute JavaScript at all, so the
+question is entirely whether pre-rendering covers their user-agents. That was not
+tested, and it is exactly the failure the platform's public feedback board reports.
+
+This is not doubt about the answer. It is the same rule applied to the platform
+that section 5-1 applies to every tax figure: **an inference is recorded as an
+inference.** Section 3-5 is now three commands and about two minutes, rather than
+the full protocol it held before.
+
+**The most actionable thing in the answers was a caveat, not an answer.** Correct
+metadata depends on every programmatic page calling the SEO component *with its
+own row's values*. A page that omits it, or passes constants, ships a duplicate
+title and looks completely fine. That is a **per-page obligation, not a platform
+guarantee** — promoted to rule 3-7-6, added as risk 14, and the reason 3-5 now
+says to sample **three** rows rather than one. It is the classic failure that holds
+on the two pages someone checked and breaks on the thirtieth.
+
+**Status: 25 mapped pages · 20 checks · 74 generated pages · 0 errors · 59 tests
+green.**
 
 ---
 
