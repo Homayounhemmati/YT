@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 4.9
+> **Last revised:** 2026-09-06 · **Version:** 5.0
+>
+> **Version 5.0:** On-page SEO closed — heading outlines, breadcrumbs, slug-to-head-term consistency and per-edge anchor text, all enforced. 18 checks. Building can start. Details in 20-17.
 >
 > **Version 4.9:** The keyword model made explicit and enforced — a page targets an intent cluster represented by a head term, not a single string. Plus the nine guides, previously invisible to every check. Details in 20-16.
 >
@@ -694,7 +696,7 @@ Phase 1 total: **39 pages** (not the 75 initially estimated). Exact count in sec
 | Stage | Pages | Count |
 |---|---|---|
 | 1 — Place | cost-of-living-calculator · cost-of-living-comparison · city pages | 2 + (5 → 30) |
-| 2 — Income | salary-converter · salary-to-hourly · take-home-pay-calculator | 3 |
+| 2 — Income | salary-comparison-by-city · salary-to-hourly · take-home-pay-calculator | 3 |
 | 3 — Tax by place | state pages + directory · sales-tax · paycheck-tax · tax-withholding | 3 + (8 → 51) |
 | 4 — International | income-tax-calculator · European country pages | 1 + later |
 | 5 — Settling | house-payment · closing-cost | 2 |
@@ -729,7 +731,7 @@ Every page belongs to one of the five funnel stages. A page belonging to no stag
 | Path | Target keyword | Volume |
 |---|---|---|
 | `/tools/salary-to-hourly-calculator` | salary ↔ hourly | 99,000 |
-| `/tools/salary-converter` | salary comparison by city | ~8,000 |
+| `/tools/salary-comparison-by-city` | salary comparison by city | ~8,000 |
 
 #### Stage 4 — What you keep *(the moat)*
 
@@ -1379,6 +1381,81 @@ Any non-English character in those paths breaks the build. The archive is the si
 
 One detail worth keeping: the checker's own character-class regex is written as escape sequences rather than literals, so the detector does not contain what it detects. Written the obvious way, it flags itself.
 
+### 9-3-6. Heading structure and breadcrumbs
+
+The title and H1 formulas (9-3-2) covered the top of the page and nothing below
+it. For 104 generated pages the H2 outline is what makes a page rank for its
+whole cluster rather than only its head term, because **the variants live in the
+H2s, the FAQ and the body — never in the title**.
+
+Declared per template in `data/pages.json → onPage.templates.h2Outline`:
+
+| Template | Outline |
+|---|---|
+| ToolPage | How {Primary} is calculated · What this does not include · Who needs this · FAQ |
+| PlacePage | What it costs to live in {Metro} · What the indices mean · **{State} income tax on your salary** · Who {Metro} suits · How we calculate this · FAQ |
+| StateTaxPage | How {State} income tax works · {State} tax brackets · Local tax in {State} · Filing and deadlines · FAQ |
+| DirectoryPage | The full list · How to read these numbers · FAQ |
+
+Enforced:
+
+- **One H1, and it is the head term.** No H2 repeats it — a heading that restates
+  the title adds nothing and reads as stuffing.
+- **Headings never skip a level**, H1 → H2 → H3.
+- **An entity template must name its entity in at least one H2**, or all 30 place
+  pages ship an identical outline — which is the doorway pattern in a different
+  costume.
+- **FAQ heading and FAQPage schema are coupled in both directions.** A template
+  declaring the schema without a visible FAQ violates Google's guidelines; a
+  visible FAQ with no schema wastes the People Also Ask surface. The audit fails
+  on either.
+
+Breadcrumbs are declared per template and must match the URL hierarchy and the
+`BreadcrumbList` JSON-LD exactly — a mismatch between the two is a structured-data
+error Google reports. The final crumb is the current page and is not a link.
+
+### 9-3-7. Anchor text, enforced per link
+
+Section 9-3-1 stated four anchor rules and nothing checked them. The link graph
+now carries anchor text on **every edge**, and the audit enforces:
+
+| Rule | Failure it prevents |
+|---|---|
+| Written with the **destination's** head term | A link that shares nothing with its target passes no signal |
+| **Never contains the source page's own head term** | An outbound link repeating your own target keyword hands the signal to the wrong page |
+| No generic anchors — `click here`, `read more`, `learn more`, `here` | The most common wasted internal link on the internet |
+| No two links on one page share anchor text | Two identical anchors pointing at different pages is a contradictory signal |
+| Entity links carry the entity name | "Cost of Living in Austin", not "this city" — so one template yields a different anchor on every generated page |
+
+Navigation anchors are fixed site-wide and exempt from per-page uniqueness, since
+they appear on every page by design.
+
+> **A tooling note worth recording.** The first version of this check reused the
+> cannibalisation tokenizer, which deliberately drops `calculator` and `estimator`
+> so two tool keywords compare on their meaningful part. With those words dropped,
+> `cost of living calculator` reduces to `{cost, living}` and is a subset of nearly
+> every cost-of-living phrase — so the check flagged four correct anchors. The
+> anchor and slug rules now use their own tokenizer that keeps content words. **A
+> check that fires on correct data is worse than no check**, because the fix people
+> reach for is to change the data.
+
+### 9-3-8. The slug matches the head term — now enforced
+
+Rule 1 of section 6-7 has always said the slug is the target keyword, not a brand
+name. Nothing checked it, and it was already broken:
+
+**`/tools/salary-converter` had the head term `salary comparison by city`.** A
+brand-shaped slug, which is the exact case the rule names. Renamed to
+`/tools/salary-comparison-by-city` — free to do because nothing is published; after
+indexation it costs a permanent redirect and some of the page's authority.
+
+The rule as enforced:
+
+- **ToolPage:** slug tokens equal head-term tokens exactly.
+- **Directory and entity pages:** the slug may be *shorter* than the head term —
+  `/state-taxes` is a section root and a URL-hierarchy segment, not a keyword — but
+  it may never contain a token the head term lacks. Short is fine; different is not.
+
 ### 9-4. Distribution — a section the previous document lacked
 
 The previous document had one line about attracting traffic. For a new domain, **links and brand signals are the bottleneck, not page count.** At least 30% of project time has to go here:
@@ -1447,8 +1524,11 @@ python3 scripts/audit_seo.py
 | 13 | No page is an orphan — every page has at least one inbound link |
 | 14 | No page's links stay entirely inside its own funnel stage |
 | 15 | Planned pages (section 9-2-2) declare a head and an intent, do not collide with an existing page, and argue any overlap in writing |
+| 16 | Every slug matches its head term — exactly for tools, as a subset for section roots (9-3-8) |
+| 17 | Every template has an H2 outline: no H2 repeats the H1, entity templates name their entity, FAQ heading and FAQPage schema are coupled both ways (9-3-6) |
+| 18 | Every link edge carries anchor text: destination's head term, never the source's own, never generic, never duplicated on a page (9-3-7) |
 
-**Current run: 18 pages · 0 errors · 0 warnings** — across all fifteen checks. All three original warnings were resolved by actual measurement: two keywords were confirmed and recorded (`cost of living by city` 880 · `state income tax rates by state` 3,600) and the third was rejected and its page deleted (`job offer comparison calculator` 30).
+**Current run: 18 pages · 0 errors · 0 warnings** — across all eighteen checks. All three original warnings were resolved by actual measurement: two keywords were confirmed and recorded (`cost of living by city` 880 · `state income tax rates by state` 3,600) and the third was rejected and its page deleted (`job offer comparison calculator` 30).
 
 ##### The most important rule — generic versus entity
 
@@ -2722,6 +2802,57 @@ document has been wrong three times by asserting keyword numbers it had not
 checked (section 20-5), and the fix for that is not a fourth estimate.
 
 **Status: 18 pages · 15 checks · 0 errors · 0 warnings · 59 tests green.**
+
+### 20-17. Round eighteen — version 5.0 · on-page SEO closed
+
+The goal of this round was to finish on-page SEO so that building can start and
+internal linking has a complete specification to build against. The auditor went
+from 15 checks to **18**, and closing it surfaced two defects in the data and one
+in the tooling.
+
+**The slug rule had never been checked, and was already broken.**
+`/tools/salary-converter` carried the head term `salary comparison by city` — a
+brand-shaped slug, which is the exact case rule 6-7-1 names and forbids. Renamed
+to `/tools/salary-comparison-by-city`. Free now; after indexation it costs a
+permanent redirect and part of the page's authority. The rule as enforced
+distinguishes tools (slug equals the head term) from section roots like
+`/state-taxes` (the slug may be shorter than the head, never different).
+
+**Heading structure did not exist below the H1.** Sections 9-3-2 covered the top
+of the page and nothing under it, which matters because the cluster variants from
+9-2-1 live in the H2s, the FAQ and the body — never in the title. Each template
+now declares an H2 outline, and the audit enforces that no H2 repeats the H1,
+that entity templates name their entity (or 30 place pages ship one identical
+outline), and that **FAQ heading and FAQPage schema are coupled in both
+directions** — schema without a visible FAQ violates the guidelines, a visible
+FAQ without schema wastes the People Also Ask surface.
+
+**Anchor text was four written rules that nothing checked.** Every one of the 66
+link edges now carries anchor text, enforced: written with the destination's head
+term, never containing the source page's own head term, never generic, never
+duplicated within a page.
+
+**The tooling defect is the one worth remembering.** The first version of the
+anchor check reused the cannibalisation tokenizer, which deliberately drops
+`calculator` and `estimator` so two tool keywords compare on their meaningful
+part. With those dropped, `cost of living calculator` reduces to `{cost, living}`
+and is a subset of nearly every cost-of-living phrase — so the check flagged four
+perfectly correct anchors. A check that fires on correct data is worse than no
+check, because the fix people reach for is to change the data. The anchor and slug
+rules now use their own tokenizer that keeps content words.
+
+Both new rule sets were verified by planting violations — a generic anchor, a
+self-referencing anchor, a duplicate anchor, an anchor unrelated to its
+destination, a brand-shaped slug, and an H2 repeating its H1 — and confirming
+each failed.
+
+**On-page SEO is now closed.** What is specified and enforced: title, meta, H1,
+H2 outline, breadcrumbs, slug, canonical, intent clusters, structured data per
+template, robots, OG images, anchor text, click depth, orphans, and funnel
+cul-de-sacs. The next work is building, and internal linking now has a complete
+graph with anchor text to build from rather than a paragraph of advice.
+
+**Status: 18 pages · 18 checks · 0 errors · 0 warnings · 59 tests green.**
 
 ---
 

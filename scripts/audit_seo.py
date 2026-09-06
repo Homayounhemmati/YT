@@ -41,6 +41,27 @@ SMALL = {"a", "an", "and", "as", "at", "by", "for", "in", "of", "on", "or",
          "the", "to", "vs", "with"}
 
 
+# The cannibalisation tokenizer deliberately drops "calculator" and "estimator" so
+# that two tool keywords compare on their meaningful part. Anchor and slug checks
+# must NOT use it: with those words dropped, "cost of living calculator" reduces to
+# {cost, living} and is a subset of nearly every cost-of-living phrase.
+FUNCTION_WORDS = {"a", "an", "and", "by", "for", "in", "of", "on", "the", "to",
+                  "my", "your", "is", "are", "vs", "with"}
+
+
+def words(term):
+    out = set()
+    for t in re.findall(r"[a-z0-9{}]+", term.lower()):
+        if t in FUNCTION_WORDS:
+            continue
+        if len(t) > 3 and t.endswith("es"):
+            t = t[:-2]
+        elif len(t) > 3 and t.endswith("s"):
+            t = t[:-1]
+        out.add(t)
+    return out
+
+
 def title_case(phrase):
     words = phrase.split()
     return " ".join(
@@ -252,11 +273,14 @@ def main():
     ceiling = crawl.get("bodyLinkCeiling", 25)
     by_path = {p["path"]: p for p in pages}
 
+    def dests(page):
+        return [e["to"] for e in page.get("links", [])]
+
     for page in pages:
-        for dest in page.get("links", []):
+        for dest in dests(page):
             if dest not in by_path:
                 errors.append(f"{page['path']}: links to {dest}, which is not a page")
-        body = [d for d in page.get("links", []) if d != page["path"]]
+        body = [d for d in dests(page) if d != page["path"]]
         if len(body) > ceiling:
             errors.append(
                 f"{page['path']}: {len(body)} body links, over the ceiling of {ceiling}")
@@ -270,7 +294,7 @@ def main():
     while frontier:
         nxt = []
         for path in frontier:
-            outbound = set(by_path[path].get("links", [])) | set(nav)
+            outbound = set(dests(by_path[path])) | set(nav)
             for dest in outbound:
                 if dest in by_path and dest not in depth:
                     depth[dest] = depth[path] + 1
@@ -288,7 +312,7 @@ def main():
 
     inbound = {p["path"]: 0 for p in pages}
     for page in pages:
-        for dest in set(page.get("links", [])):
+        for dest in set(dests(page)):
             if dest in inbound and dest != page["path"]:
                 inbound[dest] += 1
     for path, count in inbound.items():
@@ -302,7 +326,7 @@ def main():
     # links stay inside its own stage ends the session there, and session depth is the
     # largest revenue lever we control (section 1-4).
     for page in (p for p in pages if p.get("stage")):
-        others = {by_path[d].get("stage") for d in page.get("links", [])
+        others = {by_path[d].get("stage") for d in dests(page)
                   if d in by_path and by_path[d].get("stage")}
         if not (others - {page["stage"]}):
             errors.append(
@@ -356,6 +380,88 @@ def main():
                     f"'{v}' — decide which page owns that query before writing")
         if not pl.get("intent"):
             errors.append(f"{pl['path']}: planned page with no stated intent")
+
+    # 16-18. on-page structure: slug, headings, breadcrumbs, anchor text
+    GENERIC = {"click here", "here", "read more", "learn more", "this page",
+               "more", "link", "this", "see more", "find out more"}
+
+    for page in pages:
+        head = page.get("primary")
+        if not head:
+            continue
+        slug = page["path"].rsplit("/", 1)[-1].replace("-", " ")
+        st, ht = words(slug), words(head)
+        extra = st - ht
+        if page["template"] == "ToolPage" and st != ht:
+            errors.append(
+                f"{page['path']}: slug {sorted(st)} does not match its head term "
+                f"{sorted(ht)} — rule 6-7-1, the slug is the target keyword")
+        elif extra:
+            errors.append(
+                f"{page['path']}: slug carries {sorted(extra)}, absent from its head "
+                "term — a slug may be shorter than the head, never different from it")
+
+    tpl_on = pages_doc.get("onPage", {}).get("templates", {})
+    used_templates = {p["template"] for p in pages}
+    for name in sorted(used_templates):
+        spec = tpl_on.get(name, {})
+        outline = spec.get("h2Outline", [])
+        if not outline:
+            errors.append(f"template {name}: no H2 outline")
+            continue
+        h1 = spec.get("h1", "")
+        for h2 in outline:
+            if h2.strip().lower() == h1.strip().lower():
+                errors.append(f"template {name}: H2 '{h2}' repeats the H1")
+        declares_faq = any(
+            "faqpage" in item.lower()
+            for item in pages_doc.get("onPage", {}).get("structuredData", {}).get(name, []))
+        has_faq_h2 = any("faq" in h.lower() or "question" in h.lower() for h in outline)
+        if declares_faq and not has_faq_h2:
+            errors.append(
+                f"template {name}: declares FAQPage schema but has no FAQ heading — "
+                "structured data needs a visible counterpart (9-3-3)")
+        if has_faq_h2 and not declares_faq:
+            errors.append(
+                f"template {name}: has an FAQ heading but declares no FAQPage schema")
+        if name in ("PlacePage", "StateTaxPage") and not any(
+                "{" in h for h in outline):
+            errors.append(
+                f"template {name}: no H2 names the entity — every generated page would "
+                "share an identical outline")
+        if "breadcrumb" not in spec:
+            errors.append(f"template {name}: no breadcrumb declared")
+
+    for page in pages:
+        head_words = words(page.get("primary") or "")
+        seen_anchor = {}
+        for edge in page.get("links", []):
+            anchor, dest = edge.get("anchor", ""), edge["to"]
+            if not anchor:
+                errors.append(f"{page['path']} -> {dest}: no anchor text")
+                continue
+            if anchor.strip().lower() in GENERIC:
+                errors.append(f"{page['path']} -> {dest}: generic anchor '{anchor}'")
+            key = anchor.strip().lower()
+            if key in seen_anchor:
+                errors.append(
+                    f"{page['path']}: anchor '{anchor}' used for both "
+                    f"{seen_anchor[key]} and {dest}")
+            seen_anchor[key] = dest
+            at = words(anchor)
+            # A template self-link means "other entities of this template",
+            # so the anchor legitimately reuses the template's own phrasing.
+            if dest != page["path"] and head_words and head_words <= at:
+                errors.append(
+                    f"{page['path']} -> {dest}: anchor '{anchor}' contains this page's "
+                    "own head term — that signals the wrong page (9-3-1)")
+            dest_head = by_path[dest].get("primary") if dest in by_path else None
+            if dest_head:
+                dt = words(dest_head)
+                if not (at & dt):
+                    errors.append(
+                        f"{page['path']} -> {dest}: anchor '{anchor}' shares nothing with "
+                        f"the destination's head term '{dest_head}'")
 
     for e in errors:
         print(f"ERROR  {e}")
