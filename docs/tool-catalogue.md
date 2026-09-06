@@ -1,73 +1,79 @@
-# کاتالوگ ابزارها — رتبه‌بندی‌شده با داده
+# Tool catalogue — ranked against data
 
-> تولیدشده از اندازه‌گیری‌های همین جلسه. `scripts/` تولیدش نمی‌کند — دستی به‌روز می‌شود وقتی اندازه‌گیری جدیدی انجام شد.
+> Produced from measurements taken in this project. No script generates it — it
+> is updated by hand whenever a new measurement is made.
 
-> **آخرین به‌روزرسانی:** ۲۰۲۶-۰۸-۳۱
+> **Last updated:** 2026-08-31
 
 
-## چطور رتبه‌بندی شده
+## How the ranking works
 
 ```
-ارزش بازار = حجم ماهانه × CPC
+market value = monthly volume × CPC
 ```
 
-این **درآمد ما نیست** — تخمینی از ارزشی است که بازار تبلیغات برای آن کوئری قائل است. برای اولویت‌بندی *قبل از* در نظر گرفتن هزینه‌ی ساخت است. ستون «وابستگی داده» هزینه را نشان می‌دهد؛ تصمیم نهایی از ترکیب این دو می‌آید، نه فقط رتبه.
+This is **not our revenue** — it estimates what the advertising market pays for
+that query. It is for prioritising *before* build cost is considered. The "data
+dependency" column carries the cost; the final decision comes from combining the
+two, not from the rank alone.
 
 
-⚠️ **CPC بالا به‌معنای رتبه‌گرفتن آسان نیست.** ستون رقابت اینجا نیست چون رقابت تبلیغاتی با سختی سئو فرق دارد؛ سختی واقعی فقط با بررسی SERP هر کیورد معلوم می‌شود.
+⚠️ **A high CPC does not mean an easy ranking.** There is no competition column
+here, because advertising competition differs from SEO difficulty; real
+difficulty is known only by inspecting each keyword's SERP.
 
 
-## جدول
+## The table
 
-| # | ابزار | حجم/ماه | CPC | ارزش بازار | وابستگی داده | دسته |
+| # | Tool | Volume/mo | CPC | Market value | Data dependency | Category |
 |---|---|---|---|---|---|---|
-| 1 | **Hours / timesheet** — ابزار حقوق و دستمزد، نه «زمان» | 368,000 | $4.58 | **1,685,440** | none | دسته A |
-| 2 | **Inflation** | 550,000 | $2.97 | **1,633,500** | BLS CPI (رایگان) | دسته B |
-| 3 | **Compound interest** | 823,000 | $1.74 | **1,432,020** | none | دسته B |
-| 4 | **Profit margin** — سقف پیشنهاد $29.10 | 110,000 | $10.92 | **1,201,200** | none | دسته A |
-| 5 | **Investment** | 450,000 | $2.00 | **900,000** | none | دسته B |
-| 6 | **Amortization** | 246,000 | $3.29 | **809,340** | none | وام و ملک |
-| 7 | **Sales tax** | 110,000 | $6.91 | **760,100** | نرخ ایالتی/محلی | مالیات |
-| 8 | **Interest** | 165,000 | $3.49 | **575,850** | none | دسته B |
-| 9 | **eBay fee** | 40,500 | $12.23 | **495,315** | جدول کارمزد | دسته A |
-| 10 | **Fuel cost** | 40,500 | $8.93 | **361,665** | none | دسته B |
-| 11 | **Take-home pay** | 60,500 | $5.69 | **344,245** | موتور مالیات | W-2 |
-| 12 | **HELOC payment** — رقابت تبلیغاتی HIGH | 27,100 | $9.92 | **268,832** | none | وام و ملک |
-| 13 | **Tax return** | 40,500 | $6.38 | **258,390** | موتور مالیات | مالیات |
-| 14 | **Closing cost** | 40,500 | $6.18 | **250,290** | none | وام و ملک |
-| 15 | **Bonus tax** | 22,200 | $9.61 | **213,342** | موتور مالیات | مالیات |
-| 16 | **Income tax** | 90,500 | $2.13 | **192,765** | موتور مالیات | مالیات |
-| 17 | **Savings** | 60,500 | $3.16 | **191,180** | none | دسته B |
-| 18 | **APR** | 33,100 | $5.44 | **180,064** | none | دسته B |
-| 19 | **Options profit** — مخاطب دورتر | 33,100 | $5.20 | **172,120** | none | دسته B |
-| 20 | **Salary ↔ hourly** | 99,000 | $1.30 | **128,700** | none | دسته A |
-| 21 | **Lottery tax** | 22,200 | $5.77 | **128,093** | موتور مالیات | مالیات |
-| 22 | **Discount** | 40,500 | $3.06 | **123,930** | none | دسته A |
-| 23 | **Budget** | 22,200 | $5.29 | **117,438** | none | دسته A |
-| 24 | **Cost of living** — خوشه‌ی کامل ۱۵۸٬۰۰۰ (ابزار ۶۰٬۵۰۰ + مقایسه ۴۹٬۵۰۰ + ~۳۰ شهر ۴۵٬۰۰۰) | 158,000 | $1.65 | **~300,000** | BEA · HUD · BLS · Eurostat (رسمی، رایگان) | هزینه زندگی |
-| 25 | **Tax withholding** | 14,800 | $5.78 | **85,544** | موتور مالیات | W-2 |
-| 26 | **Monthly payment** | 27,100 | $3.13 | **84,823** | none | وام و ملک |
-| 27 | **Paycheck tax** | 18,100 | $4.48 | **81,088** | موتور مالیات | W-2 |
-| 28 | **House payment** | 33,100 | $2.29 | **75,799** | none | وام و ملک |
-| 29 | **Future value** | 40,500 | $1.72 | **69,660** | none | دسته B |
-| 30 | **Estimated tax** — اوج ژانویه ۱۱۰٬۰۰۰ | 27,100 | $2.22 | **60,162** | موتور + تقویم | مالیات |
-| 31 | **Capital gains tax** | 14,800 | $3.96 | **58,608** | موتور مالیات | مالیات |
-| 32 | **Wage** | 18,100 | $2.89 | **52,309** | none | دسته A |
-| 33 | **Self-employment tax** — لنگرگاه نیش | 9,900 | $5.01 | **49,599** | موتور مالیات | مالیات |
-| 34 | **Effective tax rate** | 6,600 | $2.87 | **18,942** | موتور مالیات | مالیات |
-| 35 | **1099 tax** | 1,500 | $5.81 | **8,715** | موتور مالیات | مالیات |
-| 36 | **SE tax deductions** — سقف $15.20 | 390 | $6.13 | **2,390** | موتور مالیات | مالیات |
+| 1 | **Hours / timesheet** — a payroll tool, not a “time” tool | 368,000 | $4.58 | **1,685,440** | none | Category A |
+| 2 | **Inflation** | 550,000 | $2.97 | **1,633,500** | BLS CPI (free) | Category B |
+| 3 | **Compound interest** | 823,000 | $1.74 | **1,432,020** | none | Category B |
+| 4 | **Profit margin** — top bid $29.10 | 110,000 | $10.92 | **1,201,200** | none | Category A |
+| 5 | **Investment** | 450,000 | $2.00 | **900,000** | none | Category B |
+| 6 | **Amortization** | 246,000 | $3.29 | **809,340** | none | Mortgage & property |
+| 7 | **Sales tax** | 110,000 | $6.91 | **760,100** | state/local rates | Tax |
+| 8 | **Interest** | 165,000 | $3.49 | **575,850** | none | Category B |
+| 9 | **eBay fee** | 40,500 | $12.23 | **495,315** | fee schedule | Category A |
+| 10 | **Fuel cost** | 40,500 | $8.93 | **361,665** | none | Category B |
+| 11 | **Take-home pay** | 60,500 | $5.69 | **344,245** | tax engine | W-2 |
+| 12 | **HELOC payment** — HIGH ad competition | 27,100 | $9.92 | **268,832** | none | Mortgage & property |
+| 13 | **Tax return** | 40,500 | $6.38 | **258,390** | tax engine | Tax |
+| 14 | **Closing cost** | 40,500 | $6.18 | **250,290** | none | Mortgage & property |
+| 15 | **Bonus tax** | 22,200 | $9.61 | **213,342** | tax engine | Tax |
+| 16 | **Income tax** | 90,500 | $2.13 | **192,765** | tax engine | Tax |
+| 17 | **Savings** | 60,500 | $3.16 | **191,180** | none | Category B |
+| 18 | **APR** | 33,100 | $5.44 | **180,064** | none | Category B |
+| 19 | **Options profit** — a more distant audience | 33,100 | $5.20 | **172,120** | none | Category B |
+| 20 | **Salary ↔ hourly** | 99,000 | $1.30 | **128,700** | none | Category A |
+| 21 | **Lottery tax** | 22,200 | $5.77 | **128,093** | tax engine | Tax |
+| 22 | **Discount** | 40,500 | $3.06 | **123,930** | none | Category A |
+| 23 | **Budget** | 22,200 | $5.29 | **117,438** | none | Category A |
+| 24 | **Cost of living** — full cluster 158,000 (tool 60,500 + comparison 49,500 + ~30 cities 45,000) | 158,000 | $1.65 | **~300,000** | BEA · HUD · BLS · Eurostat (official, free) | Cost of living |
+| 25 | **Tax withholding** | 14,800 | $5.78 | **85,544** | tax engine | W-2 |
+| 26 | **Monthly payment** | 27,100 | $3.13 | **84,823** | none | Mortgage & property |
+| 27 | **Paycheck tax** | 18,100 | $4.48 | **81,088** | tax engine | W-2 |
+| 28 | **House payment** | 33,100 | $2.29 | **75,799** | none | Mortgage & property |
+| 29 | **Future value** | 40,500 | $1.72 | **69,660** | none | Category B |
+| 30 | **Estimated tax** — January peak 110,000 | 27,100 | $2.22 | **60,162** | engine + calendar | Tax |
+| 31 | **Capital gains tax** | 14,800 | $3.96 | **58,608** | tax engine | Tax |
+| 32 | **Wage** | 18,100 | $2.89 | **52,309** | none | Category A |
+| 33 | **Self-employment tax** — the niche anchor | 9,900 | $5.01 | **49,599** | tax engine | Tax |
+| 34 | **Effective tax rate** | 6,600 | $2.87 | **18,942** | tax engine | Tax |
+| 35 | **1099 tax** | 1,500 | $5.81 | **8,715** | tax engine | Tax |
+| 36 | **SE tax deductions** — top bid $15.20 | 390 | $6.13 | **2,390** | tax engine | Tax |
 
-**جمع: 3,767,390 جستجوی ماهانه · ارزش بازار 13,171,284**
+**Total: 3,767,390 monthly searches · market value 13,171,284**
 
 
-## جمع‌بندی به تفکیک دسته
+## Summary by category
 
-| دسته | ابزار | حجم/ماه | ارزش بازار | وابستگی داده |
+| Category | Tools | Volume/mo | Market value | Data dependency |
 |---|---|---|---|---|
-| مالیات — همان موتور | 11 | 345,690 | 1,751,107 | موتور مالیات ✅ ساخته شد |
-| W-2 — همان موتور | 3 | 93,400 | 510,877 | موتور مالیات ✅ ساخته شد |
-| دسته A — همان مخاطب، بدون داده | 7 | 698,300 | 3,804,332 | تقریباً هیچ |
-| دسته B — مالی عمومی | 9 | 2,195,700 | 5,516,059 | تقریباً هیچ |
-| وام و ملک | 5 | 373,800 | 1,489,084 | تقریباً هیچ |
-| هزینه زندگی | ۲ ابزار + ~۳۰ صفحه | 158,000 | ~300,000 | منابع دولتی رایگان ✅ |
+| Tax — the same engine | 11 | 345,690 | 1,751,107 | tax engine ✅ built |
+| W-2 — the same engine | 3 | 93,400 | 510,877 | tax engine ✅ built |
+| Category A — same audience, no data | 7 | 698,300 | 3,804,332 | almost none |
+| Category B — general finance | 9 | 2,195,700 | 5,516,059 | almost none |
+| Mortgage & property | 5 | 373,800 | 1,489,084 | almost none |
+| Cost of living | 2 tools + ~30 pages | 158,000 | ~300,000 | free government sources ✅ |

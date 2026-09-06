@@ -1,374 +1,376 @@
-# LifeCalc Pro — سند مرجع واحد
+# LifeCalc Pro — Single Reference Specification
 
-> **وضعیت:** این سند جایگزین هر سه سند قبلی است. آن‌ها در `docs/archive/` صرفاً برای تاریخچه نگه داشته شده‌اند و **مرجع نیستند**.
-> در سه نقطه با هم تناقض داشتند (static-first در برابر SPA، چک‌لیست ضد-doorway در برابر تولید کارتزین صفحات مقایسه، و تایم‌لاین ۶ ماهه در برابر مرحله‌ی «صبر و اعتبارسنجی»). این نسخه هر سه را حل کرده است.
+> **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
+> They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **آخرین بازنگری:** ۲۰۲۶-۰۹-۰۶ · **نسخه:** ۴.۶
+> **Last revised:** 2026-09-06 · **Version:** 4.7
 >
-> **نسخه ۴.۶:** مرز زبان اجرایی شد — همه‌ی فایل‌های منتشرشدنی انگلیسی، با گیت `check_language.py` در CI. جزئیات در ۱۹-۱۳.
+> **Version 4.7:** The whole document set moved to English. The site is English, the data is English, and now the spec is too — one language across the project, and reviewable by anyone. Details in 19-14.
 >
-> **نسخه ۴.۵:** فرمول title/meta/H1 به تفکیک قالب، متن لینک داخلی، JSON-LD هر قالب، robots و OG image — همه به‌صورت داده در `data/pages.json` و اجراشده در CI. جزئیات در ۱۹-۱۲.
+> **Version 4.6:** The language boundary became enforceable — every shipping file is English, gated by `check_language.py` in CI. Details in 19-13.
 >
-> **نسخه ۴.۲:** عمق ابزارها (مالیات در مقایسه · اندازه‌ی خانوار · مشارکت‌های اجتماعی) · دو ابزار جدید · و شش شکاف سئو که بزرگ‌ترینشان لینک‌سازی خارجی بود. جزئیات در ۱۹-۹.
+> **Version 4.5:** Title/meta/H1 formulas per template, internal anchor text, per-template JSON-LD, robots and OG image — all as data in `data/pages.json` and enforced in CI. Details in 19-12.
 >
-> **نسخه ۴.۱:** اعداد از نثر به محاسبه‌ی بازتولیدپذیر منتقل شدند (`data/keywords.json` + `scripts/model_revenue.py`)؛ معماری programmatic با مدل موجودیت، دروازه‌ی تولید، بودجه‌ی یکتایی و گراف لینک اضافه شد؛ بخش ۶ حول قیف بازنویسی شد. جزئیات در ۱۹-۸.
+> **Version 4.2:** Tool depth (tax inside comparison · household size · social contributions) · two new tools · and six SEO gaps, the largest of which was external link building. Details in 19-9.
 >
-> **نسخه ۴:** هویت هسته به «هزینه‌ی واقعی زندگی در یک مکان — و آنچه برایت می‌ماند» تغییر کرد. ابزارها یک قیف‌اند نه یک فهرست؛ عمق نشست وارد مدل درآمدی شد؛ مرز context صریح شد و پنج ابزار خارج از آن حذف شدند. جزئیات در بخش ۱۹-۷.
+> **Version 4.1:** Numbers moved from prose to reproducible computation (`data/keywords.json` + `scripts/model_revenue.py`); the programmatic architecture gained an entity model, a generation gate, a uniqueness budget and a link graph; section 6 was rewritten around the funnel. Details in 19-8.
 >
-> **نسخه ۳ چه چیزی اضافه کرد:** بخش ۴ با موتوری که واقعاً ساخته شد آشتی داده شد؛ قالب صفحه‌ی ابزار، UX ماشین‌حساب، توکن‌های طراحی، قواعد URL و نقشه‌ی جایگاه تبلیغات اضافه شدند؛ و چهار بخش راهبردی که غایب بودند: جایگاه رقابتی، اندازه‌گیری، رانبوک سالانه، و ریسک‌ها.
+> **Version 4:** The core identity changed to "the real cost of living in a place — and what you actually keep". The tools are a funnel, not a list; session depth entered the revenue model; the context boundary became explicit and five tools outside it were removed. Details in section 19-7.
+>
+> **What version 3 added:** Section 4 was reconciled with the engine that was actually built; the tool page template, calculator UX, design tokens, URL rules and the ad placement map were added; plus four strategic sections that were missing entirely: competitive position, measurement, the annual runbook, and risks.
 
 ---
 
-## فهرست
+## Contents
 
-| # | بخش | وضعیت |
+| # | Section | Status |
 |---|---|---|
-| ۱ | هدف و مدل درآمدی واقع‌بینانه | |
-| ۲ | تصمیم‌های قفل‌شده | |
-| ۳ | معماری و استک فنی | |
-| ۴ | موتور مالیات — قلب پروژه | ✅ ساخته شد |
-| ۵ | لایه‌ی داده و قواعد اعتبار داده | |
-| ۶ | فهرست صفحات فاز ۱ + قواعد URL | |
-| ۷ | الزامات محتوا و E-E-A-T | |
-| ۸ | UI/UX + توکن‌ها + قالب ابزار + UX ماشین‌حساب | |
-| ۹ | سئو و ایندکسیشن | |
-| ۱۰ | AdSense + نقشه‌ی جایگاه تبلیغات | |
-| ۱۱ | تایم‌لاین و دروازه‌های تصمیم | |
-| ۱۲ | تعریف «انجام‌شده» | |
-| ۱۳ | داده‌ی مالیاتی — وضعیت و راستی‌آزمایی | ✅ استخراج شد · ⬜ تأیید |
-| ۱۴ | جایگاه رقابتی | |
-| ۱۵ | اندازه‌گیری و ابزاردقیق | |
-| ۱۶ | رانبوک به‌روزرسانی سالانه | |
-| ۱۷ | ریسک‌ها | |
-| ۱۸ | فرایند افزودن ابزار جدید | |
-| ۱۹ | خلاصه‌ی تغییرات | |
+| 1 | Goal and a realistic revenue model | |
+| 2 | Locked decisions | |
+| 3 | Architecture and technical stack | |
+| 4 | The tax engine — the heart of the project | ✅ built |
+| 5 | The data layer and data-validity rules | |
+| 6 | Phase 1 page inventory + URL rules | |
+| 7 | Content requirements and E-E-A-T | |
+| 8 | UI/UX + tokens + tool template + calculator UX | |
+| 9 | SEO and indexation | |
+| 10 | AdSense + ad placement map | |
+| 11 | Timeline and decision gates | |
+| 12 | Definition of done | |
+| 13 | Tax data — status and verification | ✅ extracted · ⬜ verified |
+| 14 | Competitive position | |
+| 15 | Measurement and instrumentation | |
+| 16 | Annual update runbook | |
+| 17 | Risks | |
+| 18 | Process for adding a new tool | |
+| 19 | Changelog | |
 
-### اسناد مرتبط
+### Related documents
 
-| سند | نقش |
+| Document | Role |
 |---|---|
-| [`keyword-research.md`](keyword-research.md) | اعتبارسنجی تقاضا؛ مبنای بخش ۶ و ۱۴ |
-| [`data-verification.md`](data-verification.md) | چک‌لیست راستی‌آزمایی؛ مبنای بخش ۱۳ |
-| `archive/` | سه سند اولیه — **مرجع نیستند** |
+| [`keyword-research.md`](keyword-research.md) | Demand validation; the basis for sections 6 and 14 |
+| [`data-verification.md`](data-verification.md) | Verification checklist; the basis for section 13 |
+| `archive/` | The three original specs — **not authoritative** |
 
 ---
 
-## ۱. هدف و مدل درآمدی واقع‌بینانه
+## 1. Goal and a realistic revenue model
 
-**هدف:** ۵۰۰ دلار در ماه از AdSense.
+**Goal:** $500 a month from AdSense.
 
-### ۱-۱. حساب معکوس
+### 1-1. Working backwards
 
 ```
-بازدید صفحه‌ی لازم در ماه = ۵۰۰ ÷ RPM × ۱۰۰۰
+monthly pageviews needed = 500 ÷ RPM × 1000
 ```
 
-| RPM صفحه (تخمینی) | بازدید ماهانه‌ی لازم | بازدید روزانه |
+| Page RPM (estimated) | Monthly pageviews needed | Daily pageviews |
 |---|---|---|
-| ۸ دلار (cost-of-living، ترافیک کنجکاوی، بین‌المللی) | ۶۲٬۵۰۰ | ~۲٬۱۰۰ |
-| ۱۵ دلار | ۳۳٬۰۰۰ | ~۱٬۱۰۰ |
-| ۲۵ دلار (مالیات، ترافیک آمریکا، قصد تجاری) | ۲۰٬۰۰۰ | ~۶۷۰ |
-| ۳۵ دلار (فصل مالیاتی، کیورد پرارزش) | ~۱۴٬۳۰۰ | ~۴۸۰ |
+| $8 (cost-of-living, curiosity traffic, international) | 62,500 | ~2,100 |
+| $15 | 33,000 | ~1,100 |
+| $25 (tax, US traffic, commercial intent) | 20,000 | ~670 |
+| $35 (tax season, high-value keywords) | ~14,300 | ~480 |
 
-**نتیجه‌ی راهبردی:** رسیدن به ۲۰ هزار بازدید هدفمند بسیار محتمل‌تر از ۶۲ هزار بازدید عمومی است. بنابراین **اهرم اصلی ما RPM است، نه حجم ترافیک.** کل سند حول همین یک جمله چیده شده.
+**The strategic conclusion:** reaching 20,000 targeted visits is far more plausible than reaching 62,000 general ones. So **our primary lever is RPM, not traffic volume.** The entire document is arranged around that one sentence.
 
-> ⚠️ ارقام RPM تخمینی‌اند و باید از ماه سوم با داده‌ی واقعی داشبورد AdSense جایگزین شوند. هیچ تصمیمی بعد از ماه ۳ نباید روی این جدول بنا شود.
+> ⚠️ The RPM figures are estimates and must be replaced with real AdSense dashboard data from month three onward. No decision after month 3 should rest on this table.
 
-> 📊 **به‌روزرسانی پس از اعتبارسنجی کیورد (۲۰۲۶-۰۸-۲۹):** خوشه‌ی مالیات خوداشتغالی به‌تنهایی سقفی حدود **۱۵۰ تا ۲۵۰ دلار در ماه** دارد. مدل کامل در [`docs/keyword-research.md`](keyword-research.md) بخش ۶.
+> 📊 **Update after keyword validation (2026-08-29):** the self-employment tax cluster alone has a ceiling of roughly **$150–250 a month**. The full model is in [`docs/keyword-research.md`](keyword-research.md), section 6.
 
-### ۱-۲. سناریوهای واقع‌بینانه
+### 1-2. Realistic scenarios
 
-| سناریو | ماه ۳ | ماه ۶ | ماه ۱۲ | ماه ۱۸ |
+| Scenario | Month 3 | Month 6 | Month 12 | Month 18 |
 |---|---|---|---|---|
-| بدبینانه | ۰ (هنوز تأیید نشده) | ۱۰-۳۰ دلار | ۸۰-۱۵۰ دلار | ۲۰۰-۳۰۰ دلار |
-| **پایه (انتظار معقول)** | ۰-۱۰ دلار | **۵۰-۱۵۰ دلار** | ۲۵۰-۴۰۰ دلار | **~۵۰۰ دلار** |
-| خوش‌بینانه | ۲۰-۴۰ دلار | ۲۰۰-۳۰۰ دلار | ۵۰۰-۸۰۰ دلار | ۱٬۰۰۰+ دلار |
+| Pessimistic | $0 (not yet approved) | $10–30 | $80–150 | $200–300 |
+| **Base (a reasonable expectation)** | $0–10 | **$50–150** | $250–400 | **~$500** |
+| Optimistic | $20–40 | $200–300 | $500–800 | $1,000+ |
 
-**صریح بگویم:** ۵۰۰ دلار در ماه ۶ روی یک دامنه‌ی نو، در انگلیسی، در نیش مالی، نتیجه‌ی صدک بالای ۹۵٪ است — نه سناریوی پایه. هدف واقعی این سند «۵۰۰ دلار در ماه ۱۲ تا ۱۸، با ماه ۶ به‌عنوان نقطه‌ی اثبات مفهوم در حدود ۱۰۰ دلار» است. اگر ماه ۶ به ۱۰۰ دلار برسیم، مسیر ۵۰۰ دلار تقریباً تضمین‌شده است چون رشد سئو مرکب است.
+**Said plainly:** $500 by month 6 on a new domain, in English, in the finance niche, is a 95th-percentile outcome — not the base case. This document's real target is "$500 at month 12–18, with month 6 as the proof-of-concept point at around $100." If we reach $100 by month 6, the path to $500 is close to assured, because SEO growth compounds.
 
-### ۱-۳. نکات جریان نقدی
+### 1-3. Cash flow notes
 
-- حداقل آستانه‌ی پرداخت AdSense **۱۰۰ دلار** است؛ مانده‌ی کمتر به ماه بعد منتقل می‌شود.
-- پرداخت حدود روز ۲۱ ماه بعد انجام می‌شود.
-- یعنی **اولین واریز واقعی احتمالاً ماه ۸ تا ۱۰ است**، نه اولین ماهی که درآمد ثبت می‌شود. این را در انتظارات لحاظ کن.
-- حساب و آدرس پرداخت باید از ابتدا همان شرکت خارج از ایران باشد. تغییر آدرس/ذی‌نفع بعد از تأیید حساب، ریسک بازبینی و تعلیق دارد — یک‌بار درست تنظیم کن.
+- The AdSense payment threshold is **$100**; a balance below it rolls over to the next month.
+- Payment lands around the 21st of the following month.
+- Which means **the first real deposit is likely month 8–10**, not the first month that records revenue. Set expectations accordingly.
+- The payment account and address must be the offshore company from day one. Changing the address or beneficiary after account approval risks review and suspension — configure it correctly once.
 
 ---
 
-### ۱-۴. مدل درآمدی
+### 1-4. The revenue model
 
-> 📊 **اعداد این بخش محاسبه می‌شوند، نوشته نمی‌شوند.**
-> منبع: [`data/keywords.json`](../data/keywords.json) → `scripts/model_revenue.py` → [`revenue-model.md`](revenue-model.md)
-> هیچ عددی اینجا دستی به‌روز نمی‌شود؛ اسکریپت را اجرا کنید.
+> 📊 **The numbers in this section are computed, not written.**
+> Source: [`data/keywords.json`](../data/keywords.json) → `scripts/model_revenue.py` → [`revenue-model.md`](revenue-model.md)
+> No number here is updated by hand; run the script.
 
 ```bash
-python3 scripts/model_revenue.py                      # مدل پایه
-python3 scripts/model_revenue.py --rpm-multiplier 5   # تحلیل حساسیت
+python3 scripts/model_revenue.py                      # base model
+python3 scripts/model_revenue.py --rpm-multiplier 5   # sensitivity analysis
 ```
 
-#### خوشه
+#### The cluster
 
-| معیار | مقدار |
+| Metric | Value |
 |---|---|
-| حجم ماهانه‌ی خوشه | **۶۴۵٬۰۴۰** |
-| CPC میانگین وزنی | **$۳.۵۲** |
-| ابزارها | ۱۵ |
-| صفحات programmatic | ۸۱ (۳۰ مترو + ۵۱ ایالت) |
+| Monthly cluster volume | **671,720** |
+| Weighted average CPC | **$3.51** |
+| Tools | 18 |
+| Programmatic pages | 81 (30 metros + 51 states) |
 
-#### نتیجه‌ی مدل
+#### Model output
 
-| سناریو | جایگاه (سخت/متوسط/آسان) | بازدید/ماه | سهم | درآمد/ماه |
+| Scenario | Position (hard/medium/easy) | Visits/month | Share | Revenue/month |
 |---|---|---|---|---|
-| سال ۱ — دامنه‌ی جوان | ۲۵ / ۱۸ / ۱۲ | ۹٬۱۹۰ | ۰.۶٪ | $۱۲۵ |
-| سال ۲ — اقتدار اولیه | ۱۴ / ۱۰ / ۶ | ۲۴٬۰۰۷ | ۱.۷٪ | $۳۳۱ |
-| **سال ۳ — تثبیت‌شده** | ۸ / ۶ / ۴ | ۴۴٬۴۱۸ | ۳.۱٪ | **$۶۱۱** ✅ |
+| Year 1 — young domain | 25 / 18 / 12 | 9,691 | 0.7% | $132 |
+| Year 2 — early authority | 14 / 10 / 6 | 25,207 | 1.7% | $346 |
+| **Year 3 — established** | 8 / 6 / 4 | 46,679 | 3.2% | **$640** ✅ |
 
-#### ⚠️ تصحیح یک برآورد خوش‌بینانه
+#### ⚠️ Correcting an optimistic estimate
 
-نسخه‌های قبلی سند «ماه ۱۸ تا ۲۴» نوشته بودند. آن یک تخمین نثری بود. **مدل محاسبه‌شده می‌گوید سال سوم** — یعنی ماه ۲۴ تا ۳۶ با فرض‌های پایه.
+Earlier versions of this document said "month 18–24". That was a prose estimate. **The computed model says year three** — months 24–36 under the base assumptions.
 
-تفاوت از جایی می‌آید که نثر، سهم ۳٪ را فرض می‌گرفت بدون اینکه بپرسد آن سهم **کِی** محقق می‌شود. مدل با توزیع واقعی جایگاه‌ها و جریمه‌ی AI Overview حساب می‌کند و جواب می‌دهد: سال سوم.
+The gap comes from prose assuming a 3% share without asking **when** that share arrives. The model computes with a real position distribution and an AI Overview penalty, and answers: year three.
 
-#### دو اهرمی که این تاریخ را جلو می‌آورند
+#### The two levers that pull that date forward
 
-**۱. عمق نشست — بزرگ‌ترین اهرم منفرد**
+**1. Session depth — the single largest lever**
 
-| صفحه‌به‌نشست | درآمد سال ۲ | تفاوت |
+| Pages per session | Year 2 revenue | Difference |
 |---|---|---|
-| ۱.۱ (بدون قیف) | $۱۶۲ | — |
-| ۱.۵ | $۲۲۳ | +۳۸٪ |
-| **۲.۲ (فرض پایه)** | **$۳۳۱** | **+۱۰۵٪** |
-| ۳.۰ | $۴۵۴ | +۱۸۱٪ |
+| 1.1 (no funnel) | $169 | — |
+| 1.5 | $233 | +38% |
+| **2.2 (base assumption)** | **$346** | **+105%** |
+| 3.0 | $475 | +181% |
 
-**قیف بخش ۲-۲-۲ درآمد را دو برابر می‌کند، بدون یک بازدید اضافه.** این تنها متغیری است که کاملاً در کنترل ماست — نه به گوگل بستگی دارد نه به رقبا. به همین دلیل معماری قیف، مهم‌ترین تصمیم محصول است نه یک ترجیح UX.
+**The funnel in section 2-2-2 doubles revenue without a single extra visit.** It is the only variable entirely within our control — it depends on neither Google nor competitors. That is why the funnel architecture is the most important product decision, not a UX preference.
 
-**۲. ضریب RPM — نامطمئن‌ترین عدد**
+**2. The RPM multiplier — the least certain number**
 
-| ضریب | سال ۲ | سال ۳ |
+| Multiplier | Year 2 | Year 3 |
 |---|---|---|
-| ×۲ | $۱۶۵ | $۳۰۵ |
-| ×۴ (پایه) | $۳۳۱ | $۶۱۱ |
-| ×۶ | $۴۹۶ | $۹۱۶ |
+| ×2 | $173 | $320 |
+| ×4 (base) | $346 | $640 |
+| ×6 | $519 | $959 |
 
-مهاجرت به شبکه‌ی پریمیوم (بخش ۱۰-۵) دقیقاً همین ضریب را بالا می‌برد. **تفاوت ×۴ و ×۶ در سال ۳، تفاوت $۶۱۱ و $۹۱۶ است** — با همان ترافیک.
+Migrating to a premium ad network (section 10-5) raises exactly this multiplier. **At year 3, the difference between ×4 and ×6 is the difference between $640 and $959** — on identical traffic.
 
-#### آنچه عمداً رها شد
+#### What was deliberately left out
 
-۷ کیورد با جمع **۵٬۰۸۱٬۵۰۰** جستجوی ماهانه (margin · ebay fee · compound interest · inflation · investment · hours · bmi) عمداً بیرون گذاشته شدند تا context واحد بماند. فهرست کامل با دلیل در `revenue-model.md`.
+Seven keywords totalling **5,081,500** monthly searches (margin · ebay fee · compound interest · inflation · investment · hours · bmi) were deliberately excluded to keep the context single. The full list with reasons is in `revenue-model.md`.
 
-این رقم عمداً بزرگ نوشته شده: **قید «یک context واحد» ارزان نیست.** ولی سند این را بر درآمد کوتاه‌مدت مقدم می‌داند، چون رقیق‌شدن اقتدار موضوعی روی یک دامنه‌ی جوان، هم هسته را می‌کشد هم حاشیه را.
+That figure is written large on purpose: **the "single context" constraint is not free.** But this document puts it ahead of short-term revenue, because diluting topical authority on a young domain kills the core and the periphery alike.
 
 ---
 
-## ۲. تصمیم‌های قفل‌شده
+## 2. Locked decisions
 
-این‌ها تصمیم گرفته شده‌اند. تغییرشان یعنی بازنویسی سند، نه یک اصلاح جزئی.
+These are decided. Changing one means rewriting the document, not patching a line.
 
-| موضوع | تصمیم | چرا |
+| Topic | Decision | Why |
 |---|---|---|
-| **هویت هسته** | **«هزینه‌ی واقعی زندگی در یک مکان — و آنچه برایت می‌ماند»** | یک context واحد. خوشه ۶۴۰ هزار/ماه، سهم لازم ~۳٪. بخش ۲-۲ |
-| **Cost of Living** | **هسته‌ی پروژه** | ورودی قیف. داده از منابع رسمی رایگان (BEA · HUD · Eurostat) |
-| **ابزارهای فریلنسری** | **خوشه‌ی دوم، نه هسته** | موتورشان ساخته شده ولی به جمله‌ی هسته جواب نمی‌دهند |
-| **margin · ebay fee · budget · compound interest · investment** | **حذف شدند** | حجم و CPC خوب داشتند ولی خارج از context — رقیق‌کننده‌ی topical authority |
-| **مالیات بین‌المللی** | به **فاز ۳** موکول شد | ریسک حقوقی بالا، غیرقابل‌محاسبه‌ی دقیق، ارزش سئویی کمتر از عمق‌بخشی به آمریکا |
-| **استک** | **Next.js با خروجی کاملاً استاتیک** | ۱۶۰ صفحه‌ی SPA روی دامنه‌ی نو ریسک ایندکس‌نشدن دارد |
-| **منبع داده** | فقط **منابع اولیه‌ی عمومی** (IRS، دپارتمان درآمد هر ایالت، BLS، HUD) | هم حقوقی، هم متمایزکننده، هم پایه‌ی صفحه‌ی Methodology |
-| **Numbeo** | **استفاده نمی‌شود** | شرایط استفاده‌اش اجازه‌ی بازتوزیع نمی‌دهد؛ ضمناً کپی داده‌ی رقیب مزیت سئویی صفر دارد |
-| **صفحات مقایسه** | به فاز ۲ موکول شد | حجم جستجوی سطح ایالت آن‌قدر کم است که مقایسه‌ی ایالتی توجیه ندارد (بخش ۶-۷) |
-| **مدل درآمد** | فقط AdSense در فاز ۱ | افیلییت مالیاتی (نرم‌افزار حسابداری) در فاز ۲ ارزیابی می‌شود |
-| **مقصد نهایی** | **هاب ماشین‌حساب مالی**، نه هاب عمومی «زندگی» | بخش ۲-۲ |
-| **دامنه** | یک سایت واحد | — |
+| **Core identity** | **"The real cost of living in a place — and what you actually keep"** | One single context. A 672k/month cluster, needing a ~3% share. Section 2-2 |
+| **Cost of living** | **The core of the project** | The entrance to the funnel. Data from free official sources (BEA · HUD · Eurostat) |
+| **Freelancer tools** | **Second cluster, not the core** | Their engine is built, but they do not answer the core sentence |
+| **margin · ebay fee · budget · compound interest · investment** | **Removed** | Good volume and CPC, but outside the context — they dilute topical authority |
+| **International tax** | Deferred to **phase 3** | High legal risk, not precisely computable, and less SEO value than deepening the US |
+| **Stack** | **Next.js with a fully static export** | 160 SPA pages on a new domain risk not being indexed |
+| **Data sources** | **Primary public sources only** (IRS, each state's revenue department, BLS, HUD) | Legally sound, differentiating, and the foundation of the Methodology page |
+| **Numbeo** | **Not used** | Its terms of service forbid redistribution; and copying a competitor's data carries zero SEO advantage |
+| **Comparison pages** | Deferred to phase 2 | State-level search volume is so low that state-vs-state comparison is unjustifiable (section 6-7) |
+| **Revenue model** | AdSense only in phase 1 | Tax affiliate offers (accounting software) get evaluated in phase 2 |
+| **Final destination** | **A financial calculator hub**, not a general "life" hub | Section 2-2 |
+| **Domain** | A single site | — |
 
-### ۲-۱. آنچه صریحاً از سند قبلی حذف شد
+### 2-1. What was explicitly removed from the previous spec
 
-- ۸۵ شهر و ۲۵ کشور cost-of-living به‌عنوان **هسته‌ی فاز ۱** — خودِ ابزار در کاتالوگ می‌ماند ولی در انتهای اولویت
-- Country Tax Guide بین‌المللی
-- تولید خودکار صفحات مقایسه از ترکیب‌های دوتایی
-- `FEDERAL_INCOME_RATE = 14` (نرخ ثابت اختراعی — دلیل کامل در بخش ۴)
-- فیلد `stateRate` به‌عنوان «نرخ مؤثر» حدسی
-- Currency selector و API نرخ ارز (بدون محتوای بین‌المللی موضوعیت ندارد)
-- **۴۳ صفحه از ۵۱ صفحه‌ی ایالتی** — پس از اعتبارسنجی کیورد، بخش ۶-۱
+- 85 cities and 25 countries of cost-of-living as the **phase 1 core** — the tool itself stays in the catalogue but at the bottom of the priority list
+- The international Country Tax Guide
+- Automatic generation of comparison pages from pairwise combinations
+- `FEDERAL_INCOME_RATE = 14` (an invented flat rate — full reasoning in section 4)
+- The `stateRate` field as a guessed "effective rate"
+- The currency selector and exchange-rate API (meaningless without international content)
+- **43 of the 51 state pages** — after keyword validation, section 6-1
 
-### ۲-۲. هویت هسته — یک جمله که مرز context را تعیین می‌کند
+### 2-2. The core identity — one sentence that draws the context boundary
 
-> **«هزینه‌ی واقعی زندگی و کار در یک مکان — و آنچه واقعاً برایت می‌ماند.»**
+> **"The real cost of living and working in a place — and what actually stays with you."**
 
-هر ابزاری که به این جمله جواب می‌دهد داخل است. هر ابزاری که ندهد بیرون، **هرچقدر هم حجم یا CPC داشته باشد**.
+Any tool that answers this sentence is in. Any tool that does not is out, **however much volume or CPC it carries**.
 
-#### ۲-۲-۱. چرا این جمله، و نه فقط «هزینه‌ی زندگی»
+#### 2-2-1. Why this sentence, and not just "cost of living"
 
-نیمه‌ی دوم جمله («آنچه برایت می‌ماند») چیزی است که خوشه را از یک نیش کم‌ارزش به یک کسب‌وکار تبدیل می‌کند. `cost of living calculator` به‌تنهایی CPC ‏$۱.۶۵ دارد. ولی همان کاربر که می‌پرسد «آنجا چقدر خرج دارد» بلافاصله می‌پرسد «و از حقوقم چقدر می‌ماند» — و آن سؤال `take home pay` ($۵.۶۹) و `sales tax` ($۶.۹۱) و مالیات ایالتی است.
+The second half of the sentence ("what stays with you") is what turns the cluster from a low-value niche into a business. `cost of living calculator` alone carries a CPC of $1.65. But the same user asking "what does it cost there" immediately asks "and how much of my salary is left" — and that question is `take home pay` ($5.69) and `sales tax` ($6.91) and state income tax.
 
-**نتیجه: میانگین وزنی CPC خوشه از $۱.۶۵ به $۳.۴۷ می‌رسد، فقط با درست‌کشیدن مرز.**
+**Result: the cluster's weighted average CPC rises from $1.65 to $3.47, purely by drawing the boundary correctly.**
 
-#### ۲-۲-۲. ابزارها یک قیف‌اند، نه یک فهرست
+#### 2-2-2. The tools are a funnel, not a list
 
 ```
-«هزینه‌ی زندگی در آستین چقدره؟»
-   ↓ نسبت به جایی که هستم چطوره؟
-«مقایسه‌ی دو شهر»
-   ↓ پس چقدر حقوق لازم دارم؟
-«تبدیل حقوق»
-   ↓ و چقدرش برایم می‌ماند؟
-«حقوق خالص + مالیات ایالتی»
+"What does it cost to live in Austin?"
+   ↓ how does that compare to where I am?
+"Compare two cities"
+   ↓ so what salary do I need?
+"Salary conversion"
+   ↓ and how much of it do I keep?
+"Take-home pay + state tax"
 ```
 
-بدترین ویژگی اقتصادی سایت‌های ماشین‌حساب، **صفحه‌به‌نشست ≈ ۱.۱** است: کاربر عددش را می‌گیرد و می‌رود. این قیف آن را به **۲.۲ تا ۳** می‌برد — یعنی حدود دو برابر درآمد با همان ترافیک و همان RPM.
+The worst economic property of calculator sites is **pages per session ≈ 1.1**: the user takes their number and leaves. This funnel takes it to **2.2–3** — roughly double the revenue on identical traffic and identical RPM.
 
-این اهرم از تقریباً هر تصمیم کیوردی دیگری بزرگ‌تر است، و نسخه‌های قبلی مدل درآمدی اصلاً نمی‌دیدندش چون هر بازدید را مستقل فرض می‌کردند.
+That lever is larger than almost any other keyword decision, and earlier versions of the revenue model could not see it at all, because they treated every visit as independent.
 
-#### ۲-۲-۳. مرز — صریح
+#### 2-2-3. The boundary — stated explicitly
 
-**داخل:** هزینه‌ی زندگی (شهر و کشور) · مقایسه · تبدیل حقوق · حقوق خالص · مالیات ایالتی · مالیات فروش · مالیات بر درآمد کشوری · صفحات شهری · هزینه‌ی خرید خانه در یک شهر
+**In:** cost of living (city and country) · comparison · salary conversion · take-home pay · state income tax · sales tax · country income tax · city pages · the cost of buying a home in a city
 
-**بیرون — حذف شدند:** `profit-margin` · `ebay-fee` · `budget` · compound interest · investment · options profit · inflation · amortization عمومی
+**Out — removed:** `profit-margin` · `ebay-fee` · `budget` · compound interest · investment · options profit · inflation · generic amortization
 
-این‌ها حجم و CPC خوبی داشتند، ولی به جمله‌ی هسته جواب نمی‌دهند. **دقیقاً همان چیزی‌اند که topical authority را رقیق می‌کنند** — و قید صریح این پروژه، نداشتن آن مشکل است.
+These had good volume and CPC, but they do not answer the core sentence. **They are precisely what dilutes topical authority** — and this project's explicit constraint is not to have that problem.
 
-**خوشه‌ی دوم (نه هسته):** ابزارهای فریلنسری — `quarterly-tax` · `1099-deductions` · `self-employment-deductions`. موتورشان ساخته شده و حذفشان اتلاف است، ولی از هسته خارج‌اند و **تا تثبیت اقتدار هسته منتشر نمی‌شوند**.
+**Second cluster (not the core):** the freelancer tools — `quarterly-tax` · `1099-deductions` · `self-employment-deductions`. Their engine is built and discarding them would be waste, but they sit outside the core and **are not published until the core's authority is established**.
 
-#### ۲-۲-۴. خندق: چرا موتور مالیات هدر نرفت
+#### 2-2-4. The moat: why the tax engine was not wasted
 
-| | Numbeo | Bankrate · NerdWallet · Forbes | **costbycity.com** | **realtakehomepay.com** | **ما** |
+| | Numbeo | Bankrate · NerdWallet · Forbes | **costbycity.com** | **realtakehomepay.com** | **Us** |
 |---|---|---|---|---|---|
-| هزینه‌ی زندگی | ✅ | ✅ | ✅ (BEA RPP) | ❌ | ✅ |
-| مقایسه‌ی دو مکان | ✅ | ✅ | ✅ | ✅ | ✅ |
-| مالیات واقعی هر حوزه | ❌ | ❌ | ❌ | ✅ (۵۰ ایالت) | ✅ |
-| **هر دو در یک نشست** | ❌ | ❌ | ❌ | ❌ | **✅** |
+| Cost of living | ✅ | ✅ | ✅ (BEA RPP) | ❌ | ✅ |
+| Two-place comparison | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Real tax per jurisdiction | ❌ | ❌ | ❌ | ✅ (50 states) | ✅ |
+| **Both in one session** | ❌ | ❌ | ❌ | ❌ | **✅** |
 
-> ⚠️ **تصحیح یک ادعای من.** قبلاً نوشته بودم «هیچ‌کس این‌ها را با هم نمی‌دهد» بدون اینکه SERP را برای این کیوردها ببینم. بررسی نشان داد دو رقیب مستقیم وجود دارند که قبلاً نمی‌شناختم:
+> ⚠️ **Correcting a claim of mine.** I previously wrote "nobody offers these together" without having looked at the SERP for these keywords. Checking showed two direct competitors I did not know about:
 >
-> - **`costbycity.com`** — «Cost of Living Across 387 US Metros. BEA Regional Price Parities and ACS household data». **دقیقاً همان مفهوم و همان منبع داده‌ای که ما انتخاب کردیم.** جایگاه ۱۰ برای `cost of living by city`.
-> - **`realtakehomepay.com`** — «Compare Job Offers by Take-Home Pay (All 50 States)». زاویه‌ی مالیات + مقایسه را دارد.
+> - **`costbycity.com`** — "Cost of Living Across 387 US Metros. BEA Regional Price Parities and ACS household data". **Exactly the same concept and exactly the same data source we chose.** Position 10 for `cost of living by city`.
+> - **`realtakehomepay.com`** — "Compare Job Offers by Take-Home Pay (All 50 States)". It has the tax + comparison angle.
 >
-> **این خبر بد نیست، ولی ادعا را باریک‌تر می‌کند:** انتخاب داده‌ی ما مستقلاً توسط یک سایت دیگر تأیید شده (نشانه‌ی خوبی است)، و اینکه هر دو سایت کوچک‌اند و رتبه می‌گیرند یعنی این فضا برای سایت نیش قابل‌نفوذ است. ولی «اولین کسی که این کار را می‌کند» نیستیم — تمایز ما **تقاطع** هر دو است، نه هیچ‌کدام به‌تنهایی. و آن تقاطع را هنوز هیچ‌کدامشان پر نکرده‌اند.
+> **This is not bad news, but it narrows the claim:** our data choice was independently validated by another site (a good sign), and the fact that both are small sites that rank means this space is penetrable for a niche site. But we are not "the first to do this" — our differentiation is the **intersection** of the two, not either one alone. And neither of them has filled that intersection yet.
 
-### ۲-۳. نقشه‌راه
+### 2-3. Roadmap
 
-هر مرحله به جمله‌ی هسته جواب می‌دهد. ترتیب از «چقدر خرج دارد» به «چقدر می‌ماند» می‌رود، چون قیف طبیعی کاربر همین است.
+Every stage answers the core sentence. The order runs from "what does it cost" to "what do I keep", because that is the user's natural funnel.
 
-| مرحله | محتوا | نقش در قیف |
+| Stage | Content | Role in the funnel |
 |---|---|---|
-| **۱ — مکان** | cost-of-living calculator · comparison · ۵ شهر نمونه → ۲۵-۳۰ | ورودی قیف، بیشترین حجم |
-| **۲ — درآمد** | salary converter · salary↔hourly · take-home pay | «چقدر لازم دارم / چقدر می‌ماند» |
-| **۳ — مالیات مکان** | مالیات ایالتی (۵۱ حوزه، موتور آماده) · sales tax · paycheck · withholding | **خندق** — بالاترین CPC خوشه |
-| **۴ — بین‌المللی** | income tax کشوری · هزینه‌ی زندگی سطح کشور اروپا | گسترش همان قیف |
-| **۵ — سکونت** | house payment · closing cost در یک شهر | انتهای قیف |
-| **خوشه‌ی دوم** | ابزارهای فریلنسری | فقط بعد از تثبیت هسته |
+| **1 — Place** | cost-of-living calculator · comparison · 5 sample cities → 25–30 | Funnel entrance, highest volume |
+| **2 — Income** | salary converter · salary↔hourly · take-home pay | "What do I need / what do I keep" |
+| **3 — Tax by place** | state income tax (51 jurisdictions, engine ready) · sales tax · paycheck · withholding | **The moat** — the cluster's highest CPC |
+| **4 — International** | country income tax · country-level European cost of living | An extension of the same funnel |
+| **5 — Settling** | house payment · closing cost in a city | The end of the funnel |
+| **Second cluster** | Freelancer tools | Only after the core is established |
 
-**دو قاعده‌ی ترتیب:**
+**Two ordering rules:**
 
-1. **هیچ ابزاری قبل از ابزارهای مرحله‌ی قبلش منتشر نمی‌شود.** قیف بدون حلقه‌های ابتدایی‌اش کار نمی‌کند؛ صفحه‌ی take-home بدون صفحه‌ی هزینه‌ی زندگی، فقط یک ماشین‌حساب دیگر است.
-2. **صفحات شهری با دروازه گسترش می‌یابند** — ۵ نمونه، بعد ۲۵-۳۰. هرگز همه با هم.
+1. **No tool ships before the tools of the stage above it.** The funnel does not work without its early links; a take-home page without a cost-of-living page is just one more calculator.
+2. **City pages expand through a gate** — 5 samples, then 25–30. Never all at once.
 
-> **مهلت دسامبر برداشته شد.** آن مهلت از فصلی‌بودن مالیات می‌آمد (تا ۴۶×). خوشه‌ی مکان تقریباً بدون فصل است، پس پروژه دیگر «تا دسامبر یا هیچ» نیست. فصل مالیاتی همچنان یک جهش می‌دهد، ولی شکست پروژه به آن گره نخورده است.
+> **The December deadline was removed.** That deadline came from tax seasonality (up to 46×). The place cluster is close to seasonless, so the project is no longer "December or nothing". Tax season still gives a spike, but the project's failure is no longer tied to it.
 
 ---
 
-### ۲-۴. Cost of Living — داده و شکل صفحات (اکنون هسته، نه مرحله ۲.۵)
+### 2-4. Cost of living — data and page shapes (now the core, not stage 2.5)
 
-> این خوشه از «رد‌شده» به **هسته‌ی پروژه** رسید. مسیرش در بخش ۱۹-۵ و ۱۹-۷ ثبت است.
+> This cluster went from "rejected" to **the core of the project**. Its path is recorded in sections 19-5 and 19-7.
 
-**سه بار این خوشه را کم‌برآورد کردم و هر سه بار اشتباه از من بود:** اول بدون اندازه‌گیری ردش کردم؛ بعد کیورد اشتباه را سنجیدم (۳٬۶۰۰، یک دم‌بلند)؛ بعد فقط کیورد سر را (۶۰٬۵۰۰) بدون خوشه. عدد واقعی خوشه **۱۵۸٬۰۰۰ جستجو در ماه** است.
+**I underestimated this cluster three times, and all three were my error:** first I rejected it without measuring; then I measured the wrong keyword (3,600, a long tail); then only the head term (60,500) without the cluster. The real cluster figure is **158,000 searches a month**.
 
-| کیورد | حجم | CPC |
+| Keyword | Volume | CPC |
 |---|---|---|
-| cost of living calculator | ۶۰٬۵۰۰ | $۱.۶۵ |
-| **cost of living comparison** | **۴۹٬۵۰۰** | $۰.۹۷ |
-| ~۳۰ شهر بزرگ آمریکا | ~۴۵٬۰۰۰ | $۰.۸۹-۸.۸۵ |
+| cost of living calculator | 60,500 | $1.65 |
+| **cost of living comparison** | **49,500** | $0.97 |
+| ~30 major US cities | ~45,000 | $0.89–8.85 |
 
-#### ۲-۴-۱. یافته‌ی ساختاری: تقاضا در ابزار است، نه در صفحه‌ی جفت
+#### 2-4-1. A structural finding: the demand is in the tool, not in the pair page
 
-| | حجم |
+| | Volume |
 |---|---|
-| `cost of living comparison` (خودِ ابزار) | **۴۹٬۵۰۰** |
-| `cost of living in austin vs dallas` | ۲۶۰ |
-| `cost of living in san antonio vs dallas` | ۴۰ |
+| `cost of living comparison` (the tool itself) | **49,500** |
+| `cost of living in austin vs dallas` | 260 |
+| `cost of living in san antonio vs dallas` | 40 |
 
-۴۹٬۵۰۰ نفر ابزاری می‌خواهند که خودشان دو مکان را انتخاب کنند؛ فقط ۲۶۰ نفر دنبال یک جفت مشخص‌اند. این هم قاعده‌ی ضد-کارتزین (بخش ۶-۷) را تأیید می‌کند و هم می‌گوید چه چیزی به‌جایش ساخته شود.
+49,500 people want a tool where they pick the two places themselves; only 260 are after one specific pair. This confirms the anti-cartesian rule (section 6-7) and also says what to build instead.
 
-#### ۲-۴-۲. شکل درست
+#### 2-4-2. The right shape
 
-| مسیر | هدف | تعداد |
+| Path | Target | Count |
 |---|---|---|
-| `/tools/cost-of-living-calculator` | ۶۰٬۵۰۰ | ۱ |
-| `/tools/cost-of-living-comparison` | **۴۹٬۵۰۰** | ۱ |
-| `/cost-of-living/{us-city}` | ۱٬۳۰۰-۳٬۶۰۰ هر کدام | **۲۵-۳۰** |
-| `/cost-of-living/{eu-country}` | سطح کشور برای اروپا | فاز بعد |
-| صفحه‌ی جفت‌شهر | — | **صفر** |
+| `/tools/cost-of-living-calculator` | 60,500 | 1 |
+| `/tools/cost-of-living-comparison` | **49,500** | 1 |
+| `/cost-of-living/{us-city}` | 1,300–3,600 each | **25–30** |
+| `/cost-of-living/{eu-country}` | Country level for Europe | Next phase |
+| City-pair pages | — | **Zero** |
 
-**چرا شهر برای آمریکا و کشور برای اروپا:** چون داده‌ی رسمی موجود دقیقاً به همین شکل منتشر می‌شود — BEA در سطح متروپولیتن آمریکا، Eurostat در سطح کشور اروپایی.
+**Why cities for the US and countries for Europe:** because the official data is published at exactly those levels — BEA at the US metropolitan level, Eurostat at the European country level.
 
-#### ۲-۴-۳. داده — منابع رسمی رایگان، بهتر از Numbeo
+#### 2-4-3. Data — free official sources, better than Numbeo
 
-| لایه | منبع |
+| Layer | Source |
 |---|---|
-| شاخص قیمت منطقه‌ای آمریکا | **BEA Regional Price Parities** (ایالت و متروپولیتن) |
-| اجاره | **HUD Fair Market Rent** (سطح شهرستان) |
-| اقلام مصرفی | **BLS CPI منطقه‌ای** |
-| اروپا | **Eurostat comparative price levels** |
+| US regional price index | **BEA Regional Price Parities** (state and metro) |
+| Rent | **HUD Fair Market Rent** (county level) |
+| Consumer items | **BLS regional CPI** |
+| Europe | **Eurostat comparative price levels** |
 
-مسئله‌ی داده‌ای که قبلاً «حل‌نشده» علامت خورده بود، در واقع با منابع دولتی رایگان حل‌شدنی است. بسته‌های `eurostat`، `censusdata` و `cpi` روی PyPI موجودند؛ دامنه‌های `.gov` فقط در این سندباکس مسدودند، که محدودیت **محیط** است نه پروژه.
+The data problem previously marked "unsolved" is in fact solvable with free government sources. The `eurostat`, `censusdata` and `cpi` packages exist on PyPI; `.gov` domains are blocked only inside this sandbox, which is an **environment** limitation, not a project one.
 
-> **این از Numbeo بهتر است، نه بدتر.** داده‌ی دولتی رسمی که لینکش را می‌دهیم، همان داستان E-E-A-T است که برای مالیات ساختیم — و دقیقاً چیزی که Numbeo نمی‌تواند بدهد. صفحه‌ی `/methodology` اینجا هم مزیت رقابتی می‌شود.
+> **This is better than Numbeo, not worse.** Official government data that we link to is the same E-E-A-T story we built for tax — and precisely what Numbeo cannot offer. The `/methodology` page becomes a competitive advantage here too.
 
-#### ۲-۴-۴. چرا این صفحات بهتر از صفحات ایالتی مالیات‌اند
+#### 2-4-4. Why these pages beat the state tax pages
 
-| | مالیات ایالتی | هزینه‌ی زندگی شهری |
+| | State tax | City cost of living |
 |---|---|---|
-| بهترین صفحه | کالیفرنیا ۲۱۰ | آستین ۳٬۶۰۰ |
-| صفحه‌ی متوسط | ~۴۰ | ~۱٬۵۰۰ |
-| نسبت | — | **۱۰ تا ۱۷ برابر بهتر** |
+| Best page | California 210 | Austin 3,600 |
+| Median page | ~40 | ~1,500 |
+| Ratio | — | **10 to 17 times better** |
 
-**قاعده‌ی سخت:** همان انضباط دروازه‌ای. اول **۵ شهر نمونه**؛ اگر ایندکس شدند و impression گرفتند، به ۲۵-۳۰ گسترش بده. هرگز همه با هم.
+**Hard rule:** the same gate discipline. First **5 sample cities**; if they get indexed and take impressions, expand to 25–30. Never all at once.
 
 ---
 
-## ۳. معماری و استک فنی
+## 3. Architecture and technical stack
 
-### ۳-۱. استک
+### 3-1. The stack
 
-| لایه | انتخاب | نکته |
+| Layer | Choice | Note |
 |---|---|---|
-| فریم‌ورک | **Next.js (App Router)** با `output: "export"` | خروجی HTML استاتیک کامل برای هر صفحه |
-| تولید مسیرها | `generateStaticParams` | ۵۱ صفحه‌ی ایالت در زمان build ساخته می‌شوند |
-| متادیتا | `generateMetadata` (سمت سرور) | title/description/canonical/OG داخل HTML اولیه، نه بعد از هیدریشن |
-| استایل | Tailwind CSS | |
-| کامپوننت | shadcn/ui + lucide-react (تنها ست آیکون) | |
-| محاسبات | TypeScript خالص، کلاینت‌ساید | بدون بک‌اند، بدون API call |
-| میزبانی | Cloudflare Pages یا Vercel | هر دو خروجی استاتیک را رایگان سرو می‌کنند |
-| تست | Vitest برای موتور مالیات | بخش ۴-۷ الزامی است |
+| Framework | **Next.js (App Router)** with `output: "export"` | A complete static HTML file for every page |
+| Route generation | `generateStaticParams` | The 51 state pages are built at build time |
+| Metadata | `generateMetadata` (server side) | title/description/canonical/OG inside the initial HTML, not after hydration |
+| Styling | Tailwind CSS | |
+| Components | shadcn/ui + lucide-react (the only icon set) | |
+| Calculation | Pure TypeScript, client side | No backend, no API calls |
+| Hosting | Cloudflare Pages or Vercel | Both serve a static export for free |
+| Testing | Vitest for the tax engine | Section 4-7 is mandatory |
 
-### ۳-۲. چرا این تغییر حیاتی بود
+### 3-2. Why this change was critical
 
-سند قبلی هم‌زمان می‌گفت «Static-First» و «React + react-router-dom». این دو با هم نمی‌خوانند: react-router یک SPA کلاینت‌ساید می‌سازد که HTML اولیه‌اش عملاً خالی است و همه‌ی محتوا بعد از اجرای JS ساخته می‌شود. گوگل جاوااسکریپت را رندر می‌کند، ولی رندرینگ در صف جداگانه‌ای انجام می‌شود و برای یک دامنه‌ی جدید و بی‌اعتبار با ده‌ها صفحه، این یعنی ایندکس‌شدن کند یا ناقص.
+The earlier spec said "Static-First" and "React + react-router-dom" at the same time. Those two do not go together: react-router builds a client-side SPA whose initial HTML is effectively empty, with all content constructed after JS runs. Google does render JavaScript, but rendering happens in a separate queue, and for a new domain with no authority and dozens of pages that means slow or partial indexation.
 
-با `output: "export"` هر صفحه یک فایل HTML واقعی است که کل محتوا، متادیتا و JSON-LD را از همان بایت اول دارد. ماشین‌حساب بعد از هیدریشن تعاملی می‌شود، ولی **محتوا هرگز به JS وابسته نیست**.
+With `output: "export"` every page is a real HTML file carrying all its content, metadata and JSON-LD from the first byte. The calculator becomes interactive after hydration, but **the content never depends on JS**.
 
-**قانون سخت:** هیچ متن قابل‌ایندکسی نباید فقط بعد از اجرای JS تولید شود. اگر `curl` روی صفحه محتوا را نشان نداد، آن صفحه باگ دارد.
+**Hard rule:** no indexable text may be produced only after JS runs. If `curl` on a page does not show the content, that page has a bug.
 
-### ۳-۳. ساختار پوشه
+### 3-3. Directory structure
 
-`✅` = وجود دارد · `⬜` = هنوز نه
+`✅` = exists · `⬜` = not yet
 
 ```
-scripts/                       ✅ ابزار داده (پایتون، خارج از باندل)
-  extract_tax_data.py          ✅ بازتولید دیتاست از بسته‌ی مبدأ
-  estimated_tax.py             ✅ اشتقاق برنامه‌ی فصلی از متن قانون
-  validate_tax_data.py         ✅ اعتبارسنجی ساختاری برای CI
+scripts/                       ✅ data tooling (Python, outside the bundle)
+  extract_tax_data.py          ✅ rebuild the dataset from the source package
+  estimated_tax.py             ✅ derive the quarterly schedule from statute
+  validate_tax_data.py         ✅ structural validation for CI
 
 src/
   data/tax-year-2026/          ✅
     federal.json               ✅  meta.json  ✅  estimated.json ✅
-    states/{slug}.json         ✅ ۵۱ فایل
+    states/{slug}.json         ✅ 51 files
 
-  lib/tax/                     ✅ موتور — تنها جای منطق مالیاتی
+  lib/tax/                     ✅ the engine — the only home of tax logic
     money.ts brackets.ts       ✅
     selfEmployment.ts qbi.ts   ✅
     state.ts estimated.ts      ✅
-    index.ts                   ✅ ارکستریتور، تنها نقطه‌ی ورود عمومی
-    load.ts                    ✅ بارگذاری JSON، جدا تا موتور خالص بماند
-    __tests__/engine.test.ts   ✅ ۵۹ تست
+    index.ts                   ✅ orchestrator, the only public entry point
+    load.ts                    ✅ JSON loading, kept separate so the engine stays pure
+    __tests__/engine.test.ts   ✅ 59 tests
 
   app/                         ⬜
     layout.tsx  page.tsx
@@ -383,219 +385,219 @@ src/
   components/                  ⬜
 ```
 
-### ۳-۴. قواعد فنی ثابت
+### 3-4. Fixed technical rules
 
-1. **منبع واحد حقیقت:** هیچ محاسبه‌ی مالیاتی خارج از `src/lib/tax/` نوشته نمی‌شود. کامپوننت‌ها فقط ورودی می‌گیرند و خروجی نمایش می‌دهند.
-2. **داده جدا از منطق:** نرخ‌ها و آستانه‌ها در JSON، نه در کد. تغییر سال مالیاتی نباید نیاز به تغییر منطق داشته باشد.
-3. **سال مالیاتی پارامتریک:** همه‌ی توابع `taxYear` می‌گیرند. هیچ عدد سال hardcode نمی‌شود.
-4. **همه‌چیز به سنت (integer):** محاسبات داخلی روی عدد صحیح سنت انجام شود تا خطای ممیز شناور انباشته نشود؛ فقط در لایه‌ی نمایش به دلار تبدیل شود.
-5. **بدون وابستگی به شبکه در زمان اجرا:** هیچ fetch در مرورگر.
+1. **Single source of truth:** no tax calculation is written outside `src/lib/tax/`. Components only take inputs and render outputs.
+2. **Data separate from logic:** rates and thresholds live in JSON, not in code. Changing tax year must not require changing logic.
+3. **Tax year is a parameter:** every function takes `taxYear`. No year is ever hardcoded.
+4. **Everything in integer cents:** internal calculation runs on integer cents so floating-point error cannot accumulate; conversion to dollars happens only at the display layer.
+5. **No runtime network dependency:** no fetch in the browser.
 
 ---
 
-## ۴. موتور مالیات — قلب پروژه
+## 4. The tax engine — the heart of the project
 
-> **وضعیت: ساخته شد.** `src/lib/tax/` · ۵۹ تست سبز · تایپ‌چک تمیز.
-> این بخش دیگر طراحی نیست، توصیف چیزی است که وجود دارد. اگر کد و این بخش اختلاف داشتند، **کد مرجع است** و این بخش باید اصلاح شود.
+> **Status: built.** `src/lib/tax/` · 59 tests green · typecheck clean.
+> This section is no longer design; it describes what exists. If the code and this section disagree, **the code is authoritative** and this section must be corrected.
 
-تمایز ما از صدها ماشین‌حساب بی‌کیفیت دیگر فقط و فقط اینجاست.
+What separates us from hundreds of low-quality calculators is here and only here.
 
-### ۴-۱. چرا `FEDERAL_INCOME_RATE = 14` حذف شد
+### 4-1. Why `FEDERAL_INCOME_RATE = 14` was removed
 
-سند اول مالیات فدرال را با یک نرخ ثابت اختراعی ۱۴٪ حساب می‌کرد. سه مشکل: از پایه غلط بود (مالیات فدرال پلکانی است)، در نیش YMYL کشنده بود (کاربر ما واقعاً باید این پول را کنار بگذارد)، و دقیقاً همان چیزی بود که رقبا اشتباه می‌کنند. پیاده‌سازی درست یک روز کار بود و داده‌اش رایگان — ارزان‌ترین مزیت رقابتی موجود.
+The first spec computed federal tax with an invented flat 14% rate. Three problems: it was wrong at the foundation (federal tax is progressive), it was lethal in a YMYL niche (our user genuinely has to set this money aside), and it was exactly the mistake competitors make. Implementing it properly was one day's work and the data is free — the cheapest competitive advantage available.
 
-### ۴-۲. ماژول‌ها
+### 4-2. Modules
 
-| فایل | مسئولیت |
+| File | Responsibility |
 |---|---|
-| `money.ts` | حساب روی **سنت صحیح**. درصدها در این موتور شش بار روی هم سوار می‌شوند؛ ممیز شناور باعث می‌شود جدول براکت‌به‌براکت با جمعی که قرار است توضیح بدهد نخواند |
-| `brackets.ts` | اعمال جدول پلکانی + تولید جزئیات هر پله + نرخ نهایی |
-| `selfEmployment.ts` | SE tax طبق ۲۶ U.S.C. ۱۴۰۱ و ۱۴۰۲ |
-| `qbi.ts` | کسر ۱۹۹A با phase-in |
-| `state.ts` | موتور ایالتی + سرتکس |
-| `estimated.ts` | پرداخت فصلی و safe harbor طبق ۶۶۵۴ |
-| `index.ts` | ارکستریتور — **تنها نقطه‌ی ورود عمومی** |
-| `load.ts` | بارگذاری JSON. عمداً جداست تا موتور خالص بماند و بدون فایل‌سیستم در مرورگر و در تست اجرا شود |
+| `money.ts` | Arithmetic on **integer cents**. Percentages stack six deep in this engine; floating point makes the bracket-by-bracket table disagree with the total it is meant to explain |
+| `brackets.ts` | Apply the bracket table + produce per-bracket detail + the marginal rate |
+| `selfEmployment.ts` | SE tax per 26 U.S.C. 1401 and 1402 |
+| `qbi.ts` | The 199A deduction with phase-in |
+| `state.ts` | State engine + surtax |
+| `estimated.ts` | Quarterly payments and safe harbor per 6654 |
+| `index.ts` | Orchestrator — **the only public entry point** |
+| `load.ts` | JSON loading. Deliberately separate so the engine stays pure and runs without a filesystem in the browser and in tests |
 
-### ۴-۳. ترتیب محاسبه
+### 4-3. Order of calculation
 
-ترتیب مهم‌ترین چیز است و همان چیزی است که اکثر ماشین‌حساب‌ها اشتباه می‌کنند:
+The order matters more than anything else, and it is what most calculators get wrong:
 
 ```
-۱.  netProfit        = businessIncome − businessExpenses
-۲.  nese             = netProfit × 0.9235            // ۱۴۰۲(a)(12)
-۳.  اگر nese < ۴۰۰   → هیچ SE tax                     // ۱۴۰۲(b)(2)
-۴.  socialSecurity   = min(nese, wageBase − w2SsWages) × 12.4%
-۵.  medicare         = nese × 2.9%                    // بدون سقف
-۶.  addlMedicare     = max(0, w2Wages + nese − threshold) × 0.9%
-۷.  seTaxDeduction   = (socialSecurity + medicare) × 50%   // ۱۶۴(f) — بدون addlMedicare
-۸.  agi              = netProfit + w2Wages + otherIncome − seTaxDeduction
+1.  netProfit        = businessIncome − businessExpenses
+2.  nese             = netProfit × 0.9235            // 1402(a)(12)
+3.  if nese < 400    → no SE tax at all               // 1402(b)(2)
+4.  socialSecurity   = min(nese, wageBase − w2SsWages) × 12.4%
+5.  medicare         = nese × 2.9%                    // no cap
+6.  addlMedicare     = max(0, w2Wages + nese − threshold) × 0.9%
+7.  seTaxDeduction   = (socialSecurity + medicare) × 50%   // 164(f) — excludes addlMedicare
+8.  agi              = netProfit + w2Wages + otherIncome − seTaxDeduction
                        − retirement − seHealthInsurance − hsa
-۹.  taxableBeforeQbi = max(0, agi − max(standardDeduction, itemized))
-۱۰. qbiDeduction     = طبق ۴-۵
-۱۱. taxableIncome    = max(0, taxableBeforeQbi − qbiDeduction)
-۱۲. federalTax       = اعمال براکت‌ها
-۱۳. stateTax         = موتور ایالتی + سرتکس
-۱۴. totalTax         = seTax + addlMedicare + federalTax + stateTax
+9.  taxableBeforeQbi = max(0, agi − max(standardDeduction, itemized))
+10. qbiDeduction     = per 4-5
+11. taxableIncome    = max(0, taxableBeforeQbi − qbiDeduction)
+12. federalTax       = apply brackets
+13. stateTax         = state engine + surtax
+14. totalTax         = seTax + addlMedicare + federalTax + stateTax
 ```
 
-### ۴-۴. سه جزئیاتی که عمداً درست پیاده شد
+### 4-4. Three details implemented deliberately correctly
 
-هر کدام تستی دارد که اگر برگردند قرمز می‌شود:
+Each has a test that goes red if it regresses:
 
-| # | جزئیات | چرا مهم است |
+| # | Detail | Why it matters |
 |---|---|---|
-| ۱ | **سقف Social Security با دستمزد W-2 مشترک است** | کارمندی که فریلنس جانبی دارد نباید دوبار روی یک سقف مالیات بدهد. نادیده‌گرفتنش دقیقاً بخش بزرگی از مخاطب را بیش‌برآورد می‌کند |
-| ۲ | **Additional Medicare از نیمه‌ی کسرشدنی خارج است** | ماده‌ی ۱۶۴(f) فقط ۱۴۰۱(a) و (b) را پوشش می‌دهد، نه ۱۴۰۱(b)(2) |
-| ۳ | **ضریب ۰.۹۲۳۵ و کف ۴۰۰ دلار** | SE tax روی کل سود نیست، و زیر کف اصلاً وجود ندارد |
+| 1 | **The Social Security cap is shared with W-2 wages** | An employee with freelance work on the side must not pay twice against one cap. Ignoring this overestimates exactly a large slice of our audience |
+| 2 | **Additional Medicare is excluded from the deductible half** | Section 164(f) covers only 1401(a) and (b), not 1401(b)(2) |
+| 3 | **The 0.9235 factor and the $400 floor** | SE tax is not on total profit, and below the floor it does not exist at all |
 
-### ۴-۵. کسر QBI — جایی که عدد قطعی نمی‌دهیم
+### 4-5. The QBI deduction — where we do not give a definite number
 
-- **زیر آستانه:** `min(20% × qbi, 20% × taxableBeforeQbi)` — عدد قطعی
-- **در بازه‌ی phase-in:** محدودیت دستمزد W-2 تدریجی وارد می‌شود
-- **بالای بازه:** SSTB صفر می‌شود؛ غیر-SSTB به ۵۰٪ دستمزد W-2 پرداختی محدود است — که برای فریلنسر تک‌نفره صفر است
+- **Below the threshold:** `min(20% × qbi, 20% × taxableBeforeQbi)` — a definite number
+- **Inside the phase-in range:** the W-2 wage limitation enters gradually
+- **Above the range:** an SSTB goes to zero; a non-SSTB is limited to 50% of W-2 wages paid — which is zero for a solo freelancer
 
-بالای آستانه موتور **بازه** برمی‌گرداند و `deduction` را روی انتهای محافظه‌کارانه می‌گذارد، به‌علاوه‌ی یک warning. یعنی مالیات را بیش‌برآورد می‌کنیم — جهت امن برای کسی که می‌خواهد بداند چقدر کنار بگذارد.
+Above the threshold the engine returns a **range** and sets `deduction` to the conservative end, plus a warning. That overestimates tax — the safe direction for someone trying to learn how much to set aside.
 
-بازه‌ی phase-in (۵۰ هزار مجرد / ۱۰۰ هزار مشترک) ثابت قانونی است و برخلاف خود آستانه تورمی نیست.
+The phase-in range ($50k single / $100k joint) is a statutory constant and, unlike the threshold itself, is not inflation-indexed.
 
-### ۴-۶. موتور ایالتی
+### 4-6. The state engine
 
-از **AGI فدرال** شروع می‌کند، کسر استاندارد ایالتی را کم می‌کند، جدول یا نرخ تخت را اعمال می‌کند، و سرتکس را اضافه می‌کند.
+It starts from **federal AGI**, subtracts the state standard deduction, applies the bracket table or flat rate, and adds any surtax.
 
-عمداً ساده است. ایالت‌ها در نقطه‌ی شروع اختلاف دارند — بعضی از درآمد مشمول فدرال شروع می‌کنند، بعضی کسر SE tax را نمی‌پذیرند، اکثرشان QBI را نمی‌پذیرند — و دیتاست فعلی این قواعد انطباق را ندارد. **به‌جای مدل‌کردن نیمه‌کاره و بی‌صدا غلط بودن، موتور در `notes` صریحاً می‌گوید.**
+It is deliberately simple. States differ at the starting point — some start from federal taxable income, some disallow the SE tax deduction, most disallow QBI — and the current dataset does not carry those conformity rules. **Rather than modelling them halfway and being quietly wrong, the engine says so explicitly in `notes`.**
 
-### ۴-۷. تست — انجام شد
+### 4-7. Testing — done
 
-۵۹ تست. سناریوی اصلی دستی از روی قانون محاسبه و تا سنت assert شده (۸۰ هزار سود، مجرد، بدون مالیات ایالتی ← ۱۶٬۶۴۷.۴۶ دلار)، با محاسبه‌ی گام‌به‌گام در کامنت تست تا انسان بتواند بازبینی کند.
+59 tests. The main scenario is hand-computed from statute and asserted to the cent ($80k profit, single, no state tax → $16,647.46), with the step-by-step working in a test comment so a human can review it.
 
-پوشش: صفر درآمد · زیان · کف ۴۰۰ دلار · سقف wage base · آستانه‌ی Additional Medicare · هر چهار وضعیت · ایالت تخت و پلکانی و بدون مالیات · سرتکس کالیفرنیا · phase-in و SSTB · انتخاب safe harbor و قاعده‌ی ۱۱۰٪ · تقسیم اقساط · **و هر ۵۱ حوزه بارگذاری و محاسبه می‌شود**.
+Coverage: zero income · a loss · the $400 floor · the wage base cap · the Additional Medicare threshold · all four filing statuses · flat, progressive and no-tax states · the California surtax · phase-in and SSTB · safe harbor selection and the 110% rule · instalment splitting · **and every one of the 51 jurisdictions loads and computes**.
 
-ناوردایی‌ها: جمع جدول براکت = مالیات فدرال · جمع اجزا = کل · درآمد − مالیات = take-home · یکنواختی صعودی · مالیات هرگز بیشتر از درآمد.
+Invariants: the bracket table sums to the federal tax · the components sum to the total · income − tax = take-home · monotonically increasing · tax never exceeds income.
 
-### ۴-۸. آنچه موتور **نمی‌سازد** — و صریح می‌گوید
+### 4-8. What the engine does **not** model — stated explicitly
 
-صداقت درباره‌ی مرز دقت، خودش سیگنال E-E-A-T است. ماشین‌حسابی که می‌گوید «اینجا را نمی‌دانم» قابل‌اعتمادتر از ماشین‌حسابی است که همیشه عدد قاطع می‌دهد.
+Being honest about the edge of accuracy is itself an E-E-A-T signal. A calculator that says "I do not know this part" is more trustworthy than one that always produces a confident number.
 
-| محدودیت | وضعیت | برنامه |
+| Limitation | Status | Plan |
 |---|---|---|
-| FICA کارمندی روی دستمزد W-2 کسر نمی‌شود | ⚠️ warning | **پیش‌نیاز مرحله ۱.۵** — بدون آن take-home pay calculator ساخته نمی‌شود |
-| قواعد انطباق ایالتی | ⚠️ note | نیازمند ۷ فیلد جدید در دیتاست ایالتی |
-| مالیات محلی (NYC، فیلادلفیا، اوهایو…) | ⚠️ note در ۹ ایالت | محاسبه نمی‌شود، فقط هشدار — فرصت محتوایی که رقبا ندارند |
-| AMT | مدل نشده | برای مخاطب هدف نادر است |
-| عایدی سرمایه | مدل نشده | ورودی ندارد؛ سقف QBI را هم تحت تأثیر می‌گذارد |
-| قواعد محدودیت زیان | مدل نشده | warning داده می‌شود |
-| کشاورز و ماهیگیر (۶۶۵۴(i)) | مدل نشده | برنامه‌ی فصلی متفاوتی دارند |
-| اعتبارات مالیاتی (CTC، EITC…) | مدل نشده | خارج از دامنه‌ی ابزار فریلنسری |
+| Employee FICA is not withheld on W-2 wages | ⚠️ warning | **A prerequisite for stage 1.5** — the take-home pay calculator is not built without it |
+| State conformity rules | ⚠️ note | Requires 7 new fields in the state dataset |
+| Local tax (NYC, Philadelphia, Ohio…) | ⚠️ note in 9 states | Not computed, only warned — a content opportunity competitors lack |
+| AMT | Not modelled | Rare for the target audience |
+| Capital gains | Not modelled | No input for it; it also affects the QBI cap |
+| Loss limitation rules | Not modelled | A warning is emitted |
+| Farmers and fishermen (6654(i)) | Not modelled | They have a different quarterly schedule |
+| Tax credits (CTC, EITC…) | Not modelled | Outside the scope of a freelancer tool |
 
-**قاعده:** هر محدودیت جدید یا در `warnings` می‌آید یا در `state.notes`. هیچ‌وقت بی‌صدا.
+**Rule:** every new limitation appears either in `warnings` or in `state.notes`. Never silently.
 
-### ۴-۹. موتور هزینه‌ی زندگی — مرحله ۲.۵
+### 4-9. The cost-of-living engine — stage 2.5
 
-موتور دومی است، جدا از موتور مالیات. اشتراکی ندارند جز `money.ts`.
+It is a second engine, separate from the tax engine. They share nothing but `money.ts`.
 
-#### ۴-۹-۱. تصمیم بنیادی: شاخص منتشر می‌کنیم، نه دلار اختراعی
+#### 4-9-1. The foundational decision: we publish indices, not invented dollars
 
-دیتاست سند اولیه برای هر شهر مبلغ دلاری هر دسته را ذخیره می‌کرد — و همان‌جا بود که ستون بیمه با اعداد غیرواقعی ساخته شد (بخش ۵-۳).
+The original spec's dataset stored a dollar amount per category per city — and that is exactly where the insurance column got filled with unreal numbers (section 5-3).
 
-منابع رسمی ما **شاخص** منتشر می‌کنند نه سبد دلاری: BEA Regional Price Parities یک عدد نسبت به میانگین ملی می‌دهد. پس مدل درست این است:
-
-```
-ورودی: هزینه‌های واقعی خودِ کاربر در مبدأ
-خروجی: همان هزینه‌ها در مقصد، مقیاس‌شده با نسبت شاخص رسمی
-```
-
-**هیچ مبلغ دلاری برای هیچ شهری اختراع نمی‌کنیم.** دلارها از عدد خود کاربر می‌آیند؛ ما فقط نسبت رسمی را اعمال می‌کنیم. این هم مسئله‌ی «ستون جعلی» را از ریشه حذف می‌کند، هم قابل استناد است، هم دقیق‌تر — چون سبد خرج هر کاربر با کاربر دیگر فرق دارد.
-
-برای کاربری که عدد خودش را ندارد، یک پیش‌فرض از HUD FMR (اجاره) و BLS CPI (بقیه) نمایش داده می‌شود، **با برچسب صریح «تخمین منطقه‌ای، نه هزینه‌ی شما»**.
-
-#### ۴-۹-۲. محاسبات
+Our official sources publish **indices**, not dollar baskets: BEA Regional Price Parities give a number relative to the national average. So the correct model is:
 
 ```
-مقیاس‌گذاری دسته‌ای:
+input:  the user's own actual costs at the origin
+output: those same costs at the destination, scaled by the official index ratio
+```
+
+**We invent no dollar amount for any city.** The dollars come from the user's own numbers; we only apply the official ratio. This removes the "fabricated column" problem at the root, is citable, and is more accurate — because every user's spending basket differs.
+
+For a user who does not have their own numbers, a default is shown from HUD FMR (rent) and BLS CPI (the rest), **explicitly labelled "a regional estimate, not your cost"**.
+
+#### 4-9-2. Calculations
+
+```
+category scaling:
   targetCost[c] = sourceCost[c] × (targetIndex[c] / sourceIndex[c])
 
-معادل حقوق:
+salary equivalence:
   equivalentSalary = currentSalary × (targetAllItems / sourceAllItems)
 
-اختلاف:
+difference:
   difference = targetTotal − sourceTotal
   percentDiff = (targetTotal / sourceTotal − 1) × 100
 ```
 
-`c` فقط دسته‌هایی است که منبع رسمی برایشان شاخص جدا می‌دهد — BEA اجاره و کالا و خدمات را جدا می‌کند. **دسته‌ای که شاخص رسمی ندارد ساخته نمی‌شود.**
+`c` covers only the categories for which an official source publishes a separate index — BEA separates rent, goods and services. **A category with no official index is not created.**
 
-#### ۴-۹-۳. آنچه این موتور نمی‌سازد
+#### 4-9-3. What this engine does not model
 
-| محدودیت | چرا |
+| Limitation | Why |
 |---|---|
-| ~~مالیات در مقایسه لحاظ نمی‌شود~~ | **اصلاح شد.** لینک متقابل کافی نیست: مقایسه‌ای که مالیات را نبیند، همان چیزی است که رقبا می‌دهند. بخش ۴-۹-۵ |
-| بیمه‌ی درمانی | شاخص رسمی قابل‌اتکا در سطح متروپولیتن ندارد. **ستون ساخته نمی‌شود** (قاعده‌ی ۵-۳) |
-| مقایسه‌ی آمریکا با اروپا | BEA و Eurostat مبناهای متفاوتی دارند؛ ترکیبشان بی‌معنی است. مقایسه فقط **درون هر منطقه** |
-| نرخ ارز | مقایسه‌ی بین‌کشوری اروپا در یورو می‌ماند |
+| ~~Tax is not included in the comparison~~ | **Corrected.** A cross-link is not enough: a comparison that ignores tax is exactly what competitors give. Section 4-9-5 |
+| Health insurance | No reliable official index at metro level. **The column is not created** (rule 5-3) |
+| Comparing the US with Europe | BEA and Eurostat use different bases; combining them is meaningless. Comparison stays **within a region** |
+| Currency conversion | Cross-country European comparison stays in euros |
 
-مثل موتور مالیات، هر محدودیت در `warnings` می‌آید، نه بی‌صدا.
+As with the tax engine, every limitation appears in `warnings`, never silently.
 
-#### ۴-۹-۵. مقایسه **باید** مالیات را شامل شود — این خودِ خندق است
+#### 4-9-5. The comparison **must** include tax — this is the moat itself
 
-نسخه‌ی اول این موتور مالیات را از مقایسه بیرون گذاشته بود و به «لینک متقابل» بسنده می‌کرد. **آن اشتباه بود.** مقایسه‌ای که فقط هزینه را می‌بیند، همان چیزی است که Numbeo می‌دهد؛ کاربر باید خودش دو عدد را از دو سایت جمع کند.
+The first version of this engine left tax out of the comparison and settled for a "cross-link". **That was wrong.** A comparison that sees only cost is what Numbeo gives; the user has to add two numbers from two sites themselves.
 
 ```
-خروجی مقایسه‌ی کامل:
-  اختلاف هزینه       = هزینه‌ی مقصد − هزینه‌ی مبدأ      (شاخص BEA)
-  اختلاف مالیات      = خالص مبدأ − خالص مقصد           (موتور مالیات)
+full comparison output:
+  cost difference     = destination cost − origin cost        (BEA index)
+  tax difference      = origin net − destination net          (tax engine)
   ─────────────────────────────────────────────
-  اختلاف واقعی سالانه = اختلاف مالیات − اختلاف هزینه
+  real annual difference = tax difference − cost difference
 ```
 
-**مثال محاسبه‌شده با موتور موجود** ($۹۵٬۰۰۰، مجرد، ۲۰۲۶): سیاتل و پورتلند هزینه‌ی زندگی مشابهی دارند، ولی خالص سالانه‌شان **$۷٬۱۶۷** فرق دارد — ۷.۵٪ درآمد ناخالص، فقط از مالیات ایالتی. هیچ ابزار هزینه‌ی زندگی این را نشان نمی‌دهد.
+**Computed with the existing engine** ($95,000, single, 2026): Seattle and Portland have similar cost of living, but their annual net differs by **$7,167** — 7.5% of gross income, from state tax alone. No cost-of-living tool shows this.
 
-این تنها خروجی سایت است که در یک جمله قابل‌نقل است و لینک می‌گیرد (بخش ۹-۵-۲).
+It is the only output on the site that is quotable in one sentence and attracts links (section 9-5-2).
 
-#### ۴-۹-۶. اندازه‌ی خانوار
+#### 4-9-6. Household size
 
-ماشین‌حساب باید برای مجرد، زوج و خانواده تنظیم‌پذیر باشد.
+The calculator must be adjustable for a single person, a couple and a family.
 
-**قاعده‌ی سخت:** ضریب اختراعی ممنوع. نسخه‌ی اول سند `{single:1, couple:1.6, family:2.2}` داشت که هیچ منبعی نداشت. به‌جایش:
+**Hard rule:** invented multipliers are forbidden. The first version of the spec had `{single:1, couple:1.6, family:2.2}` with no source behind it. Instead:
 
-- **اجاره** از HUD FMR به تفکیک تعداد اتاق‌خواب می‌آید — داده‌ی واقعی، نه ضریب
-- **غذا و کالا** از جدول‌های اندازه‌ی خانوار BLS Consumer Expenditure
-- **دسته‌ای که داده‌ی خانوار ندارد، ضریب نمی‌خورد** و در UI با برچسب «مستقل از اندازه‌ی خانوار» نمایش داده می‌شود
+- **Rent** comes from HUD FMR by bedroom count — real data, not a multiplier
+- **Food and goods** from the BLS Consumer Expenditure household-size tables
+- **A category with no household data gets no multiplier** and is labelled "independent of household size" in the UI
 
-#### ۴-۹-۷. مشارکت‌های اجتماعی — الزام بخش بین‌المللی
+#### 4-9-7. Social contributions — a requirement of the international section
 
-برای کشورهای اروپایی، کسر حقوق فقط مالیات بر درآمد نیست: بیمه‌ی اجتماعی، درمان و بازنشستگی اجباری در بعضی کشورها **از خود مالیات بر درآمد بیشتر است**. ماشین‌حسابی که فقط مالیات را نشان بدهد، عدد را به‌شدت کم برآورد می‌کند.
+For European countries, payroll deductions are not only income tax: social insurance, health and mandatory pension are **larger than income tax itself** in some countries. A calculator showing only tax understates the number badly.
 
 ```
-Country (فیلدهای جدید)
+Country (new fields)
   socialContributions: [ { name, rate, base, cap, employeeShare } ]
   effectiveDeductionRange: [min, max]
 ```
 
-**قاعده:** مثل مالیات بین‌المللی، اینجا هم **بازه** می‌دهیم نه عدد قطعی، چون به وضعیت اقامت و نوع قرارداد بستگی دارد — و warning صریح.
+**Rule:** as with international tax, we give a **range** here rather than a definite figure, because it depends on residency status and contract type — with an explicit warning.
 
-#### ۴-۹-۴. تست
+#### 4-9-4. Testing
 
-همان انضباط بخش ۴-۷: سناریوی golden با محاسبه‌ی دستی · تقارن (`A→B` و `B→A` باید معکوس هم باشند) · هویت (`A→A` باید تغییری ندهد) · هر شهر دیتاست بارگذاری و محاسبه شود.
+The same discipline as section 4-7: a golden scenario with hand calculation · symmetry (`A→B` and `B→A` must be inverses) · identity (`A→A` must change nothing) · every city in the dataset loads and computes.
 
 ---
 
-## ۵. لایه‌ی داده و قواعد اعتبار داده
+## 5. The data layer and data-validity rules
 
-### ۵-۱. قانون منبع
+### 5-1. The source rule
 
-**هر عدد در این سایت باید یک منبع اولیه‌ی قابل‌لینک داشته باشد.** بدون استثنا.
+**Every number on this site must have a linkable primary source.** Without exception.
 
-| نوع داده | منبع مجاز | منبع غیرمجاز |
+| Data type | Allowed source | Disallowed source |
 |---|---|---|
-| براکت‌ها و آستانه‌های فدرال | Revenue Procedure سالانه‌ی IRS، فرم‌ها و دستورالعمل‌های رسمی | وبلاگ‌ها، خلاصه‌های ثانویه |
-| نرخ SE tax و سقف Social Security | IRS Schedule SE + اعلامیه‌ی سالانه‌ی SSA | — |
-| تاریخ‌های پرداخت فصلی | فرم ۱۰۴۰-ES و تقویم IRS | — |
-| مالیات ایالتی | دپارتمان درآمد همان ایالت | Tax Foundation به‌عنوان **راستی‌آزمایی متقاطع**، نه منبع اصلی |
-| اجاره (فاز ۲) | HUD Fair Market Rent، داده‌ی عمومی Zillow | Numbeo |
-| هزینه‌ی غذا/کالا (فاز ۲) | BLS Consumer Expenditure Survey و CPI | Numbeo |
+| Federal brackets and thresholds | The annual IRS Revenue Procedure, official forms and instructions | Blogs, secondary summaries |
+| SE tax rates and the Social Security cap | IRS Schedule SE + the annual SSA announcement | — |
+| Quarterly payment dates | Form 1040-ES and the IRS calendar | — |
+| State tax | That state's revenue department | Tax Foundation as a **cross-check**, not as the primary source |
+| Rent (phase 2) | HUD Fair Market Rent, public Zillow data | Numbeo |
+| Food/goods cost (phase 2) | BLS Consumer Expenditure Survey and CPI | Numbeo |
 
-### ۵-۲. فایل متادیتای داده
+### 5-2. The data metadata file
 
 `src/data/tax-year-2026/meta.json`:
 
@@ -605,43 +607,43 @@ Country (فیلدهای جدید)
   "lastUpdated": "2026-09-01",
   "nextReviewDue": "2027-01-15",
   "federalSources": [ { "label": "...", "url": "...", "retrieved": "..." } ],
-  "changelog": [ { "date": "2026-09-01", "change": "نسخه‌ی اولیه" } ]
+  "changelog": [ { "date": "2026-09-01", "change": "initial version" } ]
 }
 ```
 
-این متادیتا مستقیماً در سه جا نمایش داده می‌شود: باکس دیسکلیمر هر صفحه، صفحه‌ی `/sources`، و `dateModified` در JSON-LD. هیچ تاریخی به‌صورت دستی در متن نوشته نمی‌شود.
+This metadata is displayed directly in three places: the disclaimer box on every page, the `/sources` page, and `dateModified` in the JSON-LD. No date is ever written by hand in the copy.
 
-### ۵-۳. قواعد سازگاری داده (درس‌گرفته از خطاهای دیتاست قبلی)
+### 5-3. Data consistency rules (learned from the previous dataset's errors)
 
-دیتاست شهرهای سند قبلی سه اشکال ساختاری داشت که نباید تکرار شوند:
+The previous spec's city dataset had three structural faults that must not recur:
 
-1. **هیچ مقدار مشتق‌شده‌ای ذخیره نمی‌شود.** در دیتاست قبلی `index` و مجموع ستون‌ها هر دو ذخیره شده بودند و با هم نمی‌خواندند — Dallas و Nashville هر دو `index = 105` داشتند ولی مجموعشان ۲٬۸۷۰ و ۳٬۱۳۰ بود (۹٪ اختلاف). هر مقداری که از بقیه قابل‌محاسبه است، **باید در زمان اجرا محاسبه شود، نه ذخیره**.
-2. **هر ستون یک تعریف مکتوب و یکسان دارد.** در دیتاست قبلی ستون حمل‌ونقل برای نیویورک ۱۳۲ (بلیت ماهانه‌ی مترو) و برای لس‌آنجلس ۲۵۰ (ظاهراً هزینه‌ی خودرو) بود — دو متدولوژی متفاوت در یک ستون. هر فیلد در `/methodology` یک تعریف دقیق دارد و همه‌ی ردیف‌ها از آن پیروی می‌کنند.
-3. **مقادیر مشکوکاً یکنواخت پرچم قرمزند.** ستون بیمه در هر ۲۴ شهر بین ۱۹۵ تا ۲۱۵ دلار بود. مخاطب ما فریلنسر آمریکایی است که بیمه‌ی درمانی‌اش را خودش می‌خرد و هزینه‌ی واقعی‌اش را دقیقاً می‌داند — عدد غیرواقعی در همان ستون، اعتبار کل جدول را از بین می‌برد. **اگر داده‌ی واقعی نداریم، ستون را حذف می‌کنیم؛ عدد جایگزین اختراع نمی‌کنیم.**
+1. **No derived value is ever stored.** In the old dataset both `index` and the column totals were stored, and they disagreed — Dallas and Nashville both had `index = 105` but their totals were 2,870 and 3,130 (a 9% gap). Any value computable from the others **must be computed at runtime, not stored**.
+2. **Every column has one written, consistent definition.** In the old dataset the transport column was 132 for New York (a monthly transit pass) and 250 for Los Angeles (apparently car costs) — two different methodologies in one column. Every field has a precise definition in `/methodology` and every row follows it.
+3. **Suspiciously uniform values are a red flag.** The insurance column was between $195 and $215 across all 24 cities. Our audience is US freelancers who buy their own health insurance and know its real cost exactly — an unreal number in that column destroys the credibility of the whole table. **If we do not have real data, we drop the column; we do not invent a substitute number.**
 
-### ۵-۴. اسکریپت اعتبارسنجی داده
+### 5-4. The data validation script
 
-یک اسکریپت که در CI اجرا می‌شود و build را می‌شکند اگر:
-- ایالتی `sources` خالی داشته باشد
-- `lastVerified` قدیمی‌تر از ۱۲ ماه باشد
-- براکت‌ها مرتب‌نشده یا دارای همپوشانی باشند
-- ایالتی با `structure: "progressive"` کمتر از دو براکت داشته باشد
-- مجموع کنترلی سناریوهای golden تغییر کرده باشد
+A script that runs in CI and breaks the build if:
+- a state has an empty `sources`
+- `lastVerified` is older than 12 months
+- brackets are unsorted or overlap
+- a state with `structure: "progressive"` has fewer than two brackets
+- the golden-scenario checksums have changed
 
-### ۵-۵. دیتاست هزینه‌ی زندگی
+### 5-5. The cost-of-living dataset
 
-#### منابع مجاز
+#### Allowed sources
 
-| لایه | منبع اولیه | سطح |
+| Layer | Primary source | Level |
 |---|---|---|
-| شاخص قیمت کلی | **BEA Regional Price Parities** | ایالت و متروپولیتن آمریکا |
-| اجاره | **HUD Fair Market Rent** | شهرستان آمریکا |
-| کالا و خدمات | **BLS CPI منطقه‌ای** | منطقه‌ی آمریکا |
-| اروپا | **Eurostat comparative price levels** | کشور |
+| Overall price index | **BEA Regional Price Parities** | US state and metro |
+| Rent | **HUD Fair Market Rent** | US county |
+| Goods and services | **BLS regional CPI** | US region |
+| Europe | **Eurostat comparative price levels** | Country |
 
-**Numbeo همچنان غیرمجاز** — نه فقط به‌خاطر شرایط استفاده، بلکه چون داده‌ی غیرقابل‌استناد، کل داستان E-E-A-T را که برای مالیات ساختیم خنثی می‌کند.
+**Numbeo remains disallowed** — not only because of its terms, but because non-citable data neutralises the entire E-E-A-T story we built for tax.
 
-#### مدل داده
+#### Data model
 
 ```jsonc
 // src/data/cost-of-living-{year}/us/{metro-slug}.json
@@ -649,246 +651,246 @@ Country (فیلدهای جدید)
   "slug": "austin-tx", "name": "Austin, TX",
   "type": "metro",           // "metro" | "state" | "country"
   "indices": {
-    "allItems": 0.0,         // ۱۰۰ = میانگین ملی
+    "allItems": 0.0,         // 100 = national average
     "rent": 0.0,
     "goods": 0.0,
     "otherServices": 0.0
   },
   "referenceRent": { "bedrooms1": 0, "bedrooms2": 0 },  // HUD FMR
-  "stateSlug": "texas",      // برای لینک متقابل به ماشین‌حساب مالیات
+  "stateSlug": "texas",      // for the cross-link to the tax calculator
   "sources": [ { "label": "...", "url": "...", "retrieved": "..." } ],
   "lastVerified": "", "verification": "pending"
 }
 ```
 
-**قواعد بخش ۵-۳ بدون استثنا اعمال می‌شوند:** هیچ مقدار مشتق‌شده‌ای ذخیره نمی‌شود · هر فیلد یک تعریف مکتوب دارد · **دسته‌ای که شاخص رسمی ندارد حذف می‌شود، عدد جایگزین اختراع نمی‌شود**.
+**The rules in section 5-3 apply without exception:** no derived value is stored · every field has a written definition · **a category with no official index is dropped, not filled with a substitute number**.
 
-`scripts/validate_tax_data.py` معادل هزینه‌ی زندگی هم لازم دارد: شاخص‌ها مثبت، منابع خالی نباشند، `lastVerified` کمتر از ۱۸ ماه (BEA سالانه منتشر می‌کند).
+`scripts/validate_tax_data.py` needs a cost-of-living equivalent: indices positive, sources non-empty, `lastVerified` under 18 months (BEA publishes annually).
 
 ---
 
-## ۶. صفحات و معماری Programmatic
+## 6. Pages and programmatic architecture
 
-> **بازنگری‌شده در ۲۰۲۶-۰۸-۲۹ بر اساس داده‌ی واقعی.** فهرست کامل با حجم جستجوی هر کیورد و استدلال پشت هر تصمیم در **[`docs/keyword-research.md`](keyword-research.md)** است. آن سند مبنای این بخش است؛ در صورت تعارض، آن مقدم است چون داده دارد.
+> **Revised 2026-08-29 against real data.** The full list, with each keyword's search volume and the reasoning behind each decision, is in **[`docs/keyword-research.md`](keyword-research.md)**. That document is the basis for this section; where they conflict, it wins, because it has the data.
 
-مجموع فاز ۱: **۳۹ صفحه** (نه ۷۵ صفحه‌ی برآورد اولیه). شمارش دقیق در بخش ۶-۰.
+Phase 1 total: **39 pages** (not the 75 initially estimated). Exact count in section 6-0.
 
-> 📊 **کاتالوگ کامل ابزارها با رتبه‌بندی داده‌محور: [`tool-catalogue.md`](tool-catalogue.md)** — ۳۶ ابزار سنجیده‌شده، ۳.۷ میلیون جستجوی ماهانه، مرتب‌شده بر «ارزش بازار = حجم × CPC» و در کنارش هزینه‌ی ساخت. آن سند تعیین می‌کند **ابزار بعدی کدام است**؛ این بخش فقط فاز ۱ را می‌گوید.
+> 📊 **The full data-driven tool catalogue: [`tool-catalogue.md`](tool-catalogue.md)** — 36 tools measured, 3.7 million monthly searches, ranked by "market value = volume × CPC" alongside build cost. That document decides **which tool comes next**; this section only covers phase 1.
 
-### ۶-۰. موجودی هسته
+### 6-0. Core inventory
 
-| مرحله | صفحات | تعداد |
+| Stage | Pages | Count |
 |---|---|---|
-| ۱ — مکان | cost-of-living-calculator · cost-of-living-comparison · صفحات شهری | ۲ + (۵ → ۳۰) |
-| ۲ — درآمد | salary-converter · salary-to-hourly · take-home-pay-calculator | ۳ |
-| ۳ — مالیات مکان | صفحات ایالتی + دایرکتوری · sales-tax · paycheck-tax · tax-withholding | ۳ + (۸ → ۵۱) |
-| ۴ — بین‌المللی | income-tax-calculator · صفحات کشوری اروپا | ۱ + بعداً |
-| ۵ — سکونت | house-payment · closing-cost | ۲ |
-| راهنماها | حول همان قیف، نه مالیات فریلنسری | ۹ |
-| صفحات اعتماد | About · Methodology · Sources · Editorial · Privacy · Terms · Contact | ۷ |
-| خانه + فهرست ابزارها | | ۲ |
-| **جمع نسخه‌ی اول** | | **~۴۲** |
-| در دروازه‌ها | صفحات شهری ۵→۳۰ · ایالتی ۸→۵۱ | تا ~۱۱۰ |
+| 1 — Place | cost-of-living-calculator · cost-of-living-comparison · city pages | 2 + (5 → 30) |
+| 2 — Income | salary-converter · salary-to-hourly · take-home-pay-calculator | 3 |
+| 3 — Tax by place | state pages + directory · sales-tax · paycheck-tax · tax-withholding | 3 + (8 → 51) |
+| 4 — International | income-tax-calculator · European country pages | 1 + later |
+| 5 — Settling | house-payment · closing-cost | 2 |
+| Guides | Around the funnel, not freelancer tax | 9 |
+| Trust pages | About · Methodology · Sources · Editorial · Privacy · Terms · Contact | 7 |
+| Home + tool index | | 2 |
+| **First-release total** | | **~42** |
+| Behind gates | City pages 5→30 · state pages 8→51 | up to ~110 |
 
-**راهنماها هم عوض شدند.** قبلاً حول مالیات فریلنسری بودند (کسورات، دفتر کار خانگی، S-Corp). حالا حول قیف: «چقدر حقوق برای زندگی در X لازم است» · «کدام ایالت‌ها مالیات بر درآمد ندارند» · «مالیات فروش چطور هزینه‌ی زندگی را عوض می‌کند» · «چه چیزهایی در محاسبه‌ی هزینه‌ی زندگی جا می‌ماند».
+**The guides changed too.** They used to be about freelancer tax (deductions, home office, S-Corp). Now they follow the funnel: "what salary do you need to live in X" · "which states have no income tax" · "how sales tax changes the cost of living" · "what gets left out of a cost-of-living calculation".
 
-### ۶-۱. صفحات به‌تفکیک مرحله‌ی قیف
+### 6-1. Pages by funnel stage
 
-هر صفحه به یکی از پنج مرحله‌ی قیف تعلق دارد. صفحه‌ای که به هیچ مرحله‌ای تعلق نداشته باشد، **ساخته نمی‌شود** — این ساده‌ترین آزمون مرز context.
+Every page belongs to one of the five funnel stages. A page belonging to no stage **is not built** — that is the simplest test of the context boundary.
 
-#### مرحله ۱ — مکان
+#### Stage 1 — Place
 
-| مسیر | کیورد هدف | حجم |
+| Path | Target keyword | Volume |
 |---|---|---|
-| `/tools/cost-of-living-calculator` | cost of living calculator | ۶۰٬۵۰۰ |
-| `/cost-of-living/{metro}` | «هزینه‌ی زندگی در X» | ۱٬۳۰۰-۳٬۶۰۰ هرکدام |
-| `/cost-of-living` | دایرکتوری | — |
+| `/tools/cost-of-living-calculator` | cost of living calculator | 60,500 |
+| `/cost-of-living/{metro}` | "cost of living in X" | 1,300–3,600 each |
+| `/cost-of-living` | Directory | — |
 
-#### مرحله ۲ — مقایسه
+#### Stage 2 — Comparison
 
-| مسیر | کیورد هدف | حجم |
+| Path | Target keyword | Volume |
 |---|---|---|
-| `/tools/cost-of-living-comparison` | cost of living comparison | ۴۹٬۵۰۰ |
+| `/tools/cost-of-living-comparison` | cost of living comparison | 49,500 |
 
-#### مرحله ۳ — درآمد
+#### Stage 3 — Income
 
-| مسیر | کیورد هدف | حجم |
+| Path | Target keyword | Volume |
 |---|---|---|
-| `/tools/salary-to-hourly-calculator` | salary ↔ hourly | ۹۹٬۰۰۰ |
-| `/tools/salary-converter` | salary comparison by city | ~۸٬۰۰۰ |
+| `/tools/salary-to-hourly-calculator` | salary ↔ hourly | 99,000 |
+| `/tools/salary-converter` | salary comparison by city | ~8,000 |
 
-#### مرحله ۴ — چقدر می‌ماند *(خندق)*
+#### Stage 4 — What you keep *(the moat)*
 
-| مسیر | کیورد هدف | حجم | CPC |
+| Path | Target keyword | Volume | CPC |
 |---|---|---|---|
-| `/tools/sales-tax-calculator` | sales tax calculator | ۱۱۰٬۰۰۰ | **$۶.۹۱** |
-| `/tools/property-tax-calculator` | property tax calculator | ۲۲٬۲۰۰ | $۳.۳۷ |
-| `/tools/income-tax-calculator` | income tax calculator | ۹۰٬۵۰۰ | $۲.۱۳ |
-| `/tools/take-home-pay-calculator` | take home pay calculator | ۶۰٬۵۰۰ | **$۵.۶۹** |
-| `/tools/paycheck-tax-calculator` | paycheck tax calculator | ۱۸٬۱۰۰ | $۴.۴۸ |
-| `/tools/tax-withholding-calculator` | tax withholding calculator | ۱۴٬۸۰۰ | **$۵.۷۸** |
-| `/state-taxes/{state}` · `/state-taxes` | مالیات ایالتی | کم، ولی قیف را می‌بندد | |
+| `/tools/sales-tax-calculator` | sales tax calculator | 110,000 | **$6.91** |
+| `/tools/property-tax-calculator` | property tax calculator | 22,200 | $3.37 |
+| `/tools/income-tax-calculator` | income tax calculator | 90,500 | $2.13 |
+| `/tools/take-home-pay-calculator` | take home pay calculator | 60,500 | **$5.69** |
+| `/tools/paycheck-tax-calculator` | paycheck tax calculator | 18,100 | $4.48 |
+| `/tools/tax-withholding-calculator` | tax withholding calculator | 14,800 | **$5.78** |
+| `/state-taxes/{state}` · `/state-taxes` | State tax | Low, but it closes the funnel | |
 
-**این مرحله بالاترین CPC خوشه را دارد و موتور مالیاتش ساخته شده.** دلیل اینکه کل بازنگری هویت، موتور را هدر نداد.
+**This stage carries the cluster's highest CPC and its tax engine is already built.** That is why the whole identity revision did not waste the engine.
 
-#### مقایسه‌ی پیشنهاد شغلی — یک **حالت**، نه یک صفحه
+#### Job offer comparison — a **mode**, not a page
 
-«$۱۲۰٬۰۰۰ در سانفرانسیسکو یا $۹۵٬۰۰۰ در آستین؟» سؤال ارزشمندی است و کل قیف را در یک جواب جمع می‌کند.
+"$120,000 in San Francisco or $95,000 in Austin?" is a valuable question, and it collapses the entire funnel into one answer.
 
-**ولی `job offer comparison calculator` فقط ۳۰ جستجو در ماه دارد.** طبق قاعده‌ی بخش ۱۸-۱، صفحه برای هدف اثبات‌نشده ساخته نمی‌شود — حتی وقتی ایده جذاب است. پس این یک **حالت دوم داخل ابزار مقایسه** می‌شود (که ۴۹٬۵۰۰ جستجو دارد):
+**But `job offer comparison calculator` gets only 30 searches a month.** Under the rule in section 18-1, no page is built for an unproven target — even when the idea is appealing. So it becomes a **second mode inside the comparison tool** (which has 49,500 searches):
 
-| حالت | ورودی |
+| Mode | Input |
 |---|---|
-| مقایسه‌ی مکان | یک درآمد، دو مکان |
-| **مقایسه‌ی پیشنهاد** | دو درآمد، دو مکان |
+| Place comparison | One income, two places |
+| **Offer comparison** | Two incomes, two places |
 
-قابلیت حفظ می‌شود، صفحه‌ی بی‌ترافیک ساخته نمی‌شود. این دقیقاً همان انضباطی است که بازرس `audit_seo.py` اعمال می‌کند.
+The capability is kept, the trafficless page is not built. This is exactly the discipline the `audit_seo.py` auditor enforces.
 
-#### مرحله ۵ — سکونت
+#### Stage 5 — Settling
 
-| مسیر | کیورد هدف | حجم | CPC |
+| Path | Target keyword | Volume | CPC |
 |---|---|---|---|
-| `/tools/closing-cost-calculator` | closing cost calculator | ۴۰٬۵۰۰ | **$۶.۱۸** |
-| `/tools/house-payment-calculator` | house payment calculator | ۳۳٬۱۰۰ | $۲.۲۹ |
+| `/tools/closing-cost-calculator` | closing cost calculator | 40,500 | **$6.18** |
+| `/tools/house-payment-calculator` | house payment calculator | 33,100 | $2.29 |
 
-### ۶-۲. راهنماها (۹ صفحه)
+### 6-2. Guides (9 pages)
 
-حول قیف، نه حول مالیات فریلنسری. هر راهنما به یک حلقه‌ی قیف عمق می‌دهد و به ابزار همان حلقه لینک می‌دهد:
+Around the funnel, not around freelancer tax. Each guide deepens one link of the funnel and links to that link's tool:
 
-چه حقوقی برای زندگی در {شهر} لازم است · کدام ایالت‌ها مالیات بر درآمد ندارند (و چه چیزی جایش را می‌گیرد) · مالیات فروش چطور هزینه‌ی واقعی زندگی را عوض می‌کند · چه چیزهایی در محاسبه‌ی هزینه‌ی زندگی جا می‌ماند · شاخص‌های BEA یعنی چه · هزینه‌ی واقعی نقل مکان بین ایالت‌ها · حقوق خالص در برابر ناخالص · مقایسه‌ی پیشنهاد شغلی بین دو شهر · مالیات محلی؛ چیزی که اکثر ماشین‌حساب‌ها نادیده می‌گیرند.
+What salary you need to live in {city} · which states have no income tax (and what replaces it) · how sales tax changes the real cost of living · what gets left out of a cost-of-living calculation · what the BEA indices mean · the real cost of moving between states · net versus gross pay · comparing a job offer between two cities · local tax, the thing most calculators ignore.
 
-### ۶-۳. صفحات اعتماد (۷ صفحه) — **قبل از محتوا ساخته می‌شوند**
+### 6-3. Trust pages (7 pages) — **built before the content**
 
-| صفحه | نکته‌ی حیاتی |
+| Page | The critical point |
 |---|---|
-| `/about` | معرفی **واقعی** با نام و پیشینه. About مبهم در نیش YMYL رایج‌ترین دلیل رد AdSense است |
-| `/methodology` | موتورها + منابع BEA و HUD و IRS به زبان کاربر |
-| `/sources` | فهرست کامل منابع اولیه با لینک و تاریخ دریافت |
-| `/editorial-policy` | فرایند بازبینی، به‌روزرسانی داده، و **افشای کمک ماشینی** |
-| `/privacy` | افشای کوکی AdSense · GDPR/CCPA · «محاسبات کلاینت‌ساید می‌مانند» |
+| `/about` | A **real** introduction with a name and background. A vague About page in a YMYL niche is the most common reason for AdSense rejection |
+| `/methodology` | The engines + BEA, HUD and IRS sources, in the user's language |
+| `/sources` | The complete list of primary sources with links and retrieval dates |
+| `/editorial-policy` | The review process, data updates, and **disclosure of machine assistance** |
+| `/privacy` | AdSense cookie disclosure · GDPR/CCPA · "calculations stay client-side" |
 | `/terms` | |
-| `/contact` | راه تماس واقعی و پاسخ‌گو |
+| `/contact` | A real, answered contact route |
 
-### ۶-۴. خوشه‌ی دوم — منتشر نمی‌شود تا تثبیت هسته
+### 6-4. The second cluster — not published until the core is established
 
-`self-employment-tax-calculator` · `estimated-tax-calculator` · `1099-tax-calculator` · راهنماهای مالیات فریلنسری.
+`self-employment-tax-calculator` · `estimated-tax-calculator` · `1099-tax-calculator` · freelancer tax guides.
 
-موتورشان ساخته و تست شده، ولی به جمله‌ی هسته جواب نمی‌دهند. **معیار انتشار:** بعد از اینکه هسته دروازه‌ی ۲ را رد کرد و صفحات مرحله ۴ رتبه گرفتند — یعنی وقتی اقتدار موضوعی «مکان و مالیاتش» تثبیت شده و افزودن یک خوشه‌ی مجاور رقیقش نمی‌کند.
+Their engine is built and tested, but they do not answer the core sentence. **Publication criterion:** after the core clears gate 2 and the stage 4 pages rank — that is, once topical authority for "a place and its tax" is established and adding an adjacent cluster will not dilute it.
 
-### ۶-۵. صفحات مقایسه‌ی جفت — صفر
+### 6-5. Pair comparison pages — zero
 
-`cost of living comparison` ۴۹٬۵۰۰ جستجو دارد؛ بهترین جفت‌شهر (`austin vs dallas`) ۲۶۰ و اکثر جفت‌ها زیر ۱۰۰. **تقاضا در ابزار است نه در صفحه‌ی جفت.** ۳۰ متروی ما ۴۳۵ جفت می‌سازد و ۱۰۰ متروی فاز بعد ۴٬۹۵۰ جفت — این دقیقاً همان تله‌ی کارتزینی است که نسخه‌ی اول سند در آن افتاده بود.
+`cost of living comparison` has 49,500 searches; the best city pair (`austin vs dallas`) has 260 and most pairs are under 100. **The demand is in the tool, not the pair page.** Our 30 metros produce 435 pairs, and the next phase's 100 metros produce 4,950 — exactly the cartesian trap the first version of this spec fell into.
 
-### ۶-۶. هدف: استنادشدن در AI Overview
+### 6-6. The goal: being cited in AI Overviews
 
-روی کیوردهای این خوشه AI Overview بالای نتایج ارگانیک است و نرخ کلیک را فشرده می‌کند — مدل درآمدی ۳۰٪ جریمه بابتش لحاظ می‌کند.
+For this cluster's keywords, the AI Overview sits above the organic results and compresses click-through — the revenue model applies a 30% penalty for it.
 
-ولی راه دیگری باز می‌کند: **استنادشدن در خودش.** روی کیورد مالیاتی که بررسی کردیم، AI Overview به `taxstra.com` استناد می‌کند — یک سایت نیش کوچک، بالاتر از TaxAct و QuickBooks. ساختاری که استناد می‌گیرد، تعریف گام‌به‌گام با اعداد مشخص است — دقیقاً خروجی موتورهای ما.
+But it opens another route: **being cited inside it.** On the tax keyword we checked, the AI Overview cites `taxstra.com` — a small niche site, above TaxAct and QuickBooks. The structure that earns a citation is a step-by-step definition with concrete numbers — exactly what our engines output.
 
-**پس در هر صفحه‌ی ابزار، بخش «چطور محاسبه می‌شود» یک هدف طراحی است، نه یک بخش تزئینی** (بخش ۸-۸).
+**So on every tool page, the "how it is calculated" section is a design goal, not decoration** (section 8-8).
 
-### ۶-۷. قواعد URL و اسلاگ
+### 6-7. URL and slug rules
 
-URL ها بعد از ایندکس‌شدن عوض نمی‌شوند. یک اشتباه اینجا یعنی ریدایرکت دائمی و از دست‌دادن اعتبار.
-
-```
-/tools/{tool-slug}                        ابزار مستقل
-/state-taxes                              دایرکتوری ایالت‌ها
-/state-taxes/{state-slug}                 صفحه‌ی ایالتی
-/guides/{guide-slug}                      راهنما
-/cost-of-living/{metro-slug}              صفحه‌ی شهری (مرحله ۲.۵)
-/about · /methodology · /sources · ...    صفحات اعتماد
-```
-
-**قواعد سخت:**
-
-1. **اسلاگ = کیورد هدف، نه اسم برند.** `/tools/estimated-tax-calculator`، نه `/tools/quarterly`. اسلاگ‌ها از فهرست کیورد اعتبارسنجی‌شده می‌آیند.
-2. **هرگز سال در URL.** `/tools/self-employment-tax-calculator` می‌ماند و محتوایش سالانه به‌روز می‌شود. `‎/2026/‎` در مسیر یعنی هر ژانویه اعتبار صفحه را از صفر شروع کنی.
-3. **بدون پسوند، بدون `index.html`، همیشه بدون اسلش پایانی**، یک شکل ثابت در کل سایت.
-4. **پارامترهای اشتراک‌گذاری نتیجه هرگز صفحه‌ی جدید نمی‌سازند** — `canonical` همیشه به نسخه‌ی بدون پارامتر اشاره می‌کند.
-5. **اسلاگ ایالت‌ها از دیتاست می‌آید**، نه دستی — `california`، `washington-dc`. منبع واحد حقیقت.
-6. **تغییر اسلاگ = ریدایرکت ۳۰۱ دائمی** که هرگز حذف نمی‌شود، به‌علاوه‌ی یک ردیف در `docs/redirects.md`.
-
-### ۶-۸. معماری Programmatic
-
-~۱۱۰ صفحه از **۵ قالب** تولید می‌شوند. تعریف programmatic درست همین است: قالب کم، موجودیت زیاد، و قواعد صریح برای اینکه کدام موجودیت صفحه می‌گیرد.
-
-#### ۶-۱۰-۱. مدل موجودیت
+URLs do not change after indexation. One mistake here means a permanent redirect and lost authority.
 
 ```
-Place (انتزاع مشترک — ورودی قیف)
-├── Metro   id: metro-{cbsa}   ← BEA RPP + HUD FMR       ~۳۰ صفحه
-└── Country id: country-{iso2} ← Eurostat CPL             فاز بعد
+/tools/{tool-slug}                        standalone tool
+/state-taxes                              state directory
+/state-taxes/{state-slug}                 state page
+/guides/{guide-slug}                      guide
+/cost-of-living/{metro-slug}              city page (stage 2.5)
+/about · /methodology · /sources · ...    trust pages
+```
 
-Jurisdiction (مرحله‌ی «چقدر می‌ماند»)
-└── State   id: state-{abbr}   ← دیتاست مالیاتی موجود     ۵۱ صفحه
+**Hard rules:**
 
-روابط:
-  Metro ──belongsTo──> State        (اجباری، پایه‌ی لینک متقابل)
-  Metro ──similarTo──> Metro[4]     (بر اساس فاصله‌ی شاخص، نه الفبا)
+1. **The slug is the target keyword, not a brand name.** `/tools/estimated-tax-calculator`, not `/tools/quarterly`. Slugs come from the validated keyword list.
+2. **Never a year in the URL.** `/tools/self-employment-tax-calculator` stays and its content updates annually. A `/2026/` in the path means restarting the page's authority from zero every January.
+3. **No extension, no `index.html`, always no trailing slash**, one consistent form site-wide.
+4. **Result-sharing parameters never create a new page** — `canonical` always points at the parameter-free version.
+5. **State slugs come from the dataset**, not by hand — `california`, `washington-dc`. Single source of truth.
+6. **A slug change means a permanent 301** that is never removed, plus a row in `docs/redirects.md`.
+
+### 6-8. Programmatic architecture
+
+~110 pages are generated from **5 templates**. That is the correct definition of programmatic: few templates, many entities, and explicit rules about which entity earns a page.
+
+#### 6-10-1. The entity model
+
+```
+Place (the shared abstraction — the funnel entrance)
+├── Metro   id: metro-{cbsa}   ← BEA RPP + HUD FMR       ~30 pages
+└── Country id: country-{iso2} ← Eurostat CPL             next phase
+
+Jurisdiction (the "what you keep" stage)
+└── State   id: state-{abbr}   ← the existing tax dataset  51 pages
+
+relations:
+  Metro ──belongsTo──> State        (mandatory, the basis of cross-linking)
+  Metro ──similarTo──> Metro[4]     (by index distance, not alphabetically)
   Country ──similarTo──> Country[4]
 ```
 
-**قاعده:** `Place` یک انتزاع واقعی در کد است، نه فقط در سند. `MetroPage` و `CountryPage` یک قالب مشترک دارند با آداپتور داده — وگرنه با اضافه‌شدن اروپا، دو درخت موازی می‌سازیم که از هم واگرا می‌شوند.
+**Rule:** `Place` is a real abstraction in the code, not only in the document. `MetroPage` and `CountryPage` share one template with a data adapter — otherwise adding Europe builds two parallel trees that diverge.
 
-#### ۶-۱۰-۲. فهرست قالب‌ها
+#### 6-10-2. Template inventory
 
-| قالب | مسیر | موجودیت | تعداد |
+| Template | Path | Entity | Count |
 |---|---|---|---|
-| `PlacePage` | `/cost-of-living/{slug}` | Metro · Country | ۳۰ → ۱۰۰+ |
-| `StateTaxPage` | `/state-taxes/{state}` | State | ۵۱ |
-| `ToolPage` | `/tools/{slug}` | — (دستی) | ~۱۲ |
-| `DirectoryPage` | `/cost-of-living` · `/state-taxes` | مجموعه | ۲ |
-| `GuidePage` | `/guides/{slug}` | — (دستی) | ۹ |
+| `PlacePage` | `/cost-of-living/{slug}` | Metro · Country | 30 → 100+ |
+| `StateTaxPage` | `/state-taxes/{state}` | State | 51 |
+| `ToolPage` | `/tools/{slug}` | — (manual) | ~12 |
+| `DirectoryPage` | `/cost-of-living` · `/state-taxes` | Collection | 2 |
+| `GuidePage` | `/guides/{slug}` | — (manual) | 9 |
 
-**۵ قالب، ~۱۱۰ صفحه.** اگر روزی قالب ششم لازم شد، اول بپرس چرا موجودیت جدید در `Place` جا نمی‌شود.
+**5 templates, ~110 pages.** If a sixth template is ever needed, first ask why the new entity does not fit inside `Place`.
 
-#### ۶-۱۰-۳. دروازه‌ی تولید — کدام موجودیت صفحه می‌گیرد
+#### 6-10-3. The generation gate — which entity earns a page
 
-این بخش همان چیزی است که از تکرار اشتباه ۱۲٬۷۲۰ صفحه‌ای جلوگیری می‌کند. **صفحه‌ی خودکار به‌ازای هر موجودیت تولید نمی‌شود؛ موجودیت باید واجد شرایط باشد.**
+This is what prevents repeating the 12,720-page mistake. **A page is not auto-generated per entity; the entity has to qualify.**
 
-| موجودیت | شرط ورود |
+| Entity | Entry condition |
 |---|---|
-| **Metro** | حجم جستجوی کیورد سرش **≥ ۵۰۰/ماه** (اندازه‌گیری‌شده، نه حدس) **و** BEA برایش RPP منتشر کرده **و** HUD اجاره‌اش را دارد |
-| **State** | هر ۵۱ حوزه — دیتاست کامل است و قیف را می‌بندد. تنها استثنای قاعده‌ی حجم، و دلیلش نقش ساختاری است نه ترافیک |
-| **Country** | تحت پوشش Eurostat **و** حجم **≥ ۳۰۰/ماه** |
-| **جفت مکان** | **هرگز.** تقاضا در ابزار است نه صفحه‌ی جفت (بخش ۲-۴-۱) |
+| **Metro** | Head keyword volume **≥ 500/month** (measured, not guessed) **and** BEA publishes an RPP for it **and** HUD has its rent |
+| **State** | All 51 jurisdictions — the dataset is complete and it closes the funnel. The only exception to the volume rule, justified by structural role rather than traffic |
+| **Country** | Covered by Eurostat **and** volume **≥ 300/month** |
+| **Place pair** | **Never.** The demand is in the tool, not the pair page (section 2-4-1) |
 
-موجودیتی که شرط را رد کند، **در دیتاست می‌ماند و در ماشین‌حساب کار می‌کند، ولی صفحه‌ی اختصاصی نمی‌گیرد.** این تفکیک — داده در برابر صفحه — همان درسی است که در بخش ۶-۵ برای ایالت‌ها گرفتیم.
+An entity that fails the condition **stays in the dataset and works in the calculator, but gets no dedicated page.** That separation — data versus page — is the lesson learned for states in section 6-5.
 
-#### ۶-۱۰-۴. بودجه‌ی یکتایی — الزام کمّی ضد-doorway
+#### 6-10-4. The uniqueness budget — a quantitative anti-doorway requirement
 
-بخش ۷-۱ می‌گوید هر صفحه باید یکتا باشد. اینجا عدد می‌گیرد:
+Section 7-1 says every page must be unique. Here it gets a number:
 
-| معیار | حداقل |
+| Metric | Minimum |
 |---|---|
-| متن یکتای مختص موجودیت | **≥ ۴۰٪ کلمات بدنه** |
-| واقعیت مختص موجودیت از منبع اولیه | **≥ ۳ مورد** |
-| سؤال FAQ با عدد محاسبه‌شده‌ی همان موجودیت | **≥ ۳ مورد** |
-| متن مشترک بین قالب (boilerplate) | **≤ ۳۵٪** |
+| Entity-specific unique text | **≥ 40% of body words** |
+| Entity-specific facts from a primary source | **≥ 3** |
+| FAQ questions with a computed number for that entity | **≥ 3** |
+| Boilerplate shared across the template | **≤ 35%** |
 
-> ⚠️ **خروجی ماشین‌حساب یکتا حساب می‌شود ولی کافی نیست.** عدد محاسبه‌شده تفاوت ایجاد می‌کند، ولی صفحه‌ای که فقط جدول و عدد است همان doorway page است. حداقل یک بخش نوشتاری مختص همان مکان لازم است.
+> ⚠️ **Calculator output counts as unique but is not sufficient.** A computed number does differentiate, but a page that is only a table and a number is a doorway page. At least one written section specific to that place is required.
 
-اسکریپت اعتبارسنجی محتوا این نسبت‌ها را قبل از build اندازه می‌گیرد و زیر آستانه، build را می‌شکند — همان الگوی `validate_tax_data.py`.
+The content validation script measures these ratios before the build and breaks the build below threshold — the same pattern as `validate_tax_data.py`.
 
-#### ۶-۱۰-۵. گراف لینک داخلی
+#### 6-10-5. The internal link graph
 
-لینک تصادفی «صفحات مرتبط» ارزش کمی دارد. گراف مسیر قیف را دنبال می‌کند:
+Random "related pages" links are worth little. The graph follows the funnel path:
 
-| از | به | چرا |
+| From | To | Why |
 |---|---|---|
-| `PlacePage` | `StateTaxPage` همان ایالت | حلقه‌ی قیف: مکان → چقدر می‌ماند |
-| `PlacePage` | ابزار مقایسه با همان مکان از پیش پرشده | حلقه‌ی قیف: مکان → مقایسه |
-| `PlacePage` | ۴ مکان با **نزدیک‌ترین شاخص** | مرتبط واقعی، نه الفبایی |
-| `StateTaxPage` | متروهای همان ایالت | برگشت قیف |
-| `ToolPage` | ابزار مرحله‌ی بعد و قبل | زنجیره‌ی قیف |
-| `DirectoryPage` | همه‌ی موجودیت‌های مجموعه | کشف و crawl |
+| `PlacePage` | `StateTaxPage` for its state | Funnel link: place → what you keep |
+| `PlacePage` | The comparison tool prefilled with that place | Funnel link: place → comparison |
+| `PlacePage` | 4 places with the **nearest index** | Genuinely related, not alphabetical |
+| `StateTaxPage` | The metros in that state | The funnel in reverse |
+| `ToolPage` | The next and previous stage's tool | The funnel chain |
+| `DirectoryPage` | Every entity in the collection | Discovery and crawl |
 
-**سقف: ۲۵ لینک داخلی در هر صفحه.** بیشتر از آن، هم ارزش هر لینک را رقیق می‌کند هم شبیه گرید لینک تولیدی می‌شود.
+**Ceiling: 25 internal links per page.** Beyond that, each link's value is diluted and the page starts to look like a generated link grid.
 
-**قاعده‌ی «۴ مکان با نزدیک‌ترین شاخص»** عمدی است: کاربری که آستین را می‌بیند، به شهرهایی با هزینه‌ی مشابه علاقه دارد، نه به شهری که حرف اولش یکی است. این هم UX بهتر است هم سیگنال ارتباط موضوعی واقعی.
+**The "4 places with the nearest index" rule** is deliberate: a user looking at Austin is interested in cities with a similar cost, not in a city that starts with the same letter. It is both better UX and a genuine topical relevance signal.
 
-#### ۶-۱۰-۶. تفکیک Sitemap — برای خواندن ایندکس به‌تفکیک قالب
+#### 6-10-6. Sitemap segmentation — to read indexation per template
 
 ```
 /sitemap.xml            (index)
@@ -898,1257 +900,1235 @@ Jurisdiction (مرحله‌ی «چقدر می‌ماند»)
 └── /sitemaps/guides.xml
 ```
 
-**چرا تفکیک:** اگر ۱۱۰ صفحه در یک sitemap باشند، Search Console فقط می‌گوید «۶۰٪ ایندکس شد» و نمی‌فهمی کدام قالب شکست خورده. با تفکیک، دروازه‌ی ۱ به یک عدد قابل‌عمل تبدیل می‌شود: «۹۰٪ ابزارها ایندکس شد، ۲۰٪ صفحات شهری» یعنی مشکل در قالب `PlacePage` است، نه در سایت.
+**Why segment:** if all 110 pages sit in one sitemap, Search Console only says "60% indexed" and you cannot tell which template failed. Segmented, gate 1 becomes an actionable number: "90% of tools indexed, 20% of city pages" means the problem is in the `PlacePage` template, not in the site.
 
-#### ۶-۱۰-۷. دروازه‌های مقیاس‌دهی
+#### 6-10-7. Scaling gates
 
-| مرحله | صفحات | شرط عبور به مرحله‌ی بعد |
+| Stage | Pages | Condition to advance |
 |---|---|---|
-| نمونه | ۵ متروی بزرگ | ≥ ۴ از ۵ ایندکس + impression بعد از ۳-۴ هفته |
-| گسترش ۱ | ۳۰ متروی برتر | میانه‌ی جایگاه بهتر از ۳۰ و روند صعودی |
-| گسترش ۲ | ۱۰۰+ متروی واجد شرایط | ترافیک ارگانیک مجموعه صعودی، بدون افت کل سایت |
+| Sample | 5 major metros | ≥ 4 of 5 indexed + impressions after 3–4 weeks |
+| Expansion 1 | Top 30 metros | Median position better than 30 and trending up |
+| Expansion 2 | 100+ qualifying metros | The collection's organic traffic rising, with no site-wide decline |
 
-**در هیچ مرحله‌ای همه با هم منتشر نمی‌شوند.** انتشار دسته‌ای حداکثر ۱۰ صفحه در هفته — هم سیگنال طبیعی‌تر است هم اگر مشکلی باشد قبل از ۱۰۰ صفحه معلوم می‌شود.
+**At no stage is everything published at once.** Batch publication is at most 10 pages a week — a more natural signal, and if something is wrong it surfaces before 100 pages exist.
 
 ---
 
-## ۷. الزامات محتوا و E-E-A-T
+## 7. Content requirements and E-E-A-T
 
-### ۷-۱. چرا این بخش از همه‌ی بخش‌های فنی مهم‌تر است
+### 7-1. Why this section matters more than every technical section
 
-سیاست spam گوگل از سال ۲۰۲۴ صریحاً «scaled content abuse» را هدف می‌گیرد: تولید انبوه صفحاتی که عمدتاً برای رتبه‌گرفتن ساخته شده‌اند و ارزش مستقلی ندارند. معیار **قصد و ارزش** است، نه اینکه انسان نوشته یا ماشین. ۵۱ صفحه که فقط اسم ایالت و یک عدد در آن‌ها فرق می‌کند، دقیقاً مصداق آن است.
+Google's spam policy has explicitly targeted "scaled content abuse" since 2024: mass-producing pages built mainly to rank, with no independent value. The criterion is **intent and value**, not whether a human or a machine wrote it. Fifty-one pages differing only in a state name and a number are exactly that.
 
-راه عبور یکی است: **هر صفحه باید چیزی داشته باشد که فقط برای همان ایالت صادق است.**
+There is one way through: **every page must contain something true only of that state.**
 
-### ۷-۲. ساختار هر صفحه‌ی ایالتی (۹۰۰ تا ۱٬۴۰۰ کلمه)
+### 7-2. The structure of a state page (900–1,400 words)
 
-| بخش | کلمه | یکتاسازی |
+| Section | Words | What makes it unique |
 |---|---|---|
-| ۱. مقدمه | ۱۰۰-۱۵۰ | وضعیت مالیاتی همان ایالت در یک جمله |
-| ۲. ماشین‌حساب | — | با ایالت از پیش انتخاب‌شده |
-| ۳. جدول براکت‌به‌براکت | — | **خروجی محاسبه‌شده، عملاً یکتا برای هر ایالت** |
-| ۴. «مالیات ایالتی در {state} چطور کار می‌کند» | ۲۵۰-۳۵۰ | ساختار براکت، کسر استاندارد، آیا کسر SE tax را می‌پذیرد |
-| ۵. «مالیات محلی» | ۱۰۰-۲۰۰ | فقط ایالت‌هایی که دارند — تمایز واقعی |
-| ۶. «ثبت و مهلت‌ها در {state}» | ۱۵۰-۲۵۰ | مرجع مالیاتی ایالت، پرداخت فصلی ایالتی، مهلت‌های خاص |
-| ۷. «برای چه فریلنسری منطقی است» | ۲۰۰-۳۰۰ | تحلیل واقعی، نه متن پرکننده |
-| ۸. FAQ (۵ سؤال) | ۲۰۰-۳۰۰ | با اعداد محاسبه‌شده‌ی همان ایالت |
-| ۹. باکس دیسکلیمر | — | با تاریخ خودکار از `meta.json` |
+| 1. Introduction | 100–150 | That state's tax situation in one sentence |
+| 2. Calculator | — | With the state preselected |
+| 3. Bracket-by-bracket table | — | **Computed output, effectively unique per state** |
+| 4. "How state tax works in {state}" | 250–350 | Bracket structure, standard deduction, whether it allows the SE tax deduction |
+| 5. "Local tax" | 100–200 | Only for states that have it — a genuine differentiator |
+| 6. "Filing and deadlines in {state}" | 150–250 | The state tax authority, state quarterly payments, specific deadlines |
+| 7. "Which freelancer this makes sense for" | 200–300 | Real analysis, not filler |
+| 8. FAQ (5 questions) | 200–300 | With computed numbers for that state |
+| 9. Disclaimer box | — | With an automatic date from `meta.json` |
 
-### ۷-۲-۱. بریف صفحه‌ی ابزار (۶۰۰ تا ۹۰۰ کلمه)
+### 7-2-1. Tool page brief (600–900 words)
 
-صفحات ابزار کوتاه‌تر از صفحات ایالتی‌اند — کاربر برای ماشین‌حساب آمده، نه مقاله. ولی «کوتاه» یعنی فشرده، نه نازک.
+Tool pages are shorter than state pages — the user came for a calculator, not an article. But "short" means dense, not thin.
 
-| بخش | کلمه | نکته |
+| Section | Words | Note |
 |---|---|---|
-| مقدمه | ۸۰-۱۲۰ | این ابزار به چه سؤالی جواب می‌دهد |
-| **«چطور محاسبه می‌شود»** | ۲۰۰-۳۰۰ | گام‌به‌گام با اعداد. **هدف استناد AI Overview** (بخش ۶-۸) |
-| «چه چیزی را لحاظ نمی‌کند» | ۱۰۰-۱۵۰ | از `warnings` موتور. صداقت = اعتماد |
-| «چه‌کسی به این نیاز دارد» | ۱۵۰-۲۰۰ | سناریوی واقعی، نه متن پرکننده |
-| FAQ (۴-۵ سؤال) | ۱۵۰-۲۵۰ | از People Also Ask همان کیورد |
+| Introduction | 80–120 | What question this tool answers |
+| **"How it is calculated"** | 200–300 | Step by step with numbers. **The AI Overview citation target** (section 6-8) |
+| "What it does not include" | 100–150 | From the engine's `warnings`. Honesty = trust |
+| "Who needs this" | 150–200 | A real scenario, not filler |
+| FAQ (4–5 questions) | 150–250 | From People Also Ask for that keyword |
 
-### ۷-۲-۲. بریف راهنما (۱٬۵۰۰ تا ۲٬۵۰۰ کلمه)
+### 7-2-2. Guide brief (1,500–2,500 words)
 
-راهنماها ستون فقرات اقتدار موضوعی و اصلی‌ترین گیرنده‌ی لینک خارجی‌اند. اینجا عمق مهم است.
+Guides are the backbone of topical authority and the main recipient of external links. Depth matters here.
 
-- **حداقل یک مثال عددی کامل** که از موتور خودمان محاسبه شده — نه عدد فرضی
-- **لینک به حداقل دو ابزار** خودمان در متن، جایی که کاربر واقعاً به آن نیاز دارد
-- **حداقل سه ارجاع به منبع اولیه** (IRS، قانون، دپارتمان درآمد)
-- یک جدول یا فهرست قابل‌اسکن — راهنمای دیوارِ متن خوانده نمی‌شود
-- «اشتباه رایج» یا «چه‌زمانی این قاعده اعمال نمی‌شود» — بخشی که رقبا نمی‌نویسند
+- **At least one complete worked example** computed by our own engine — not a hypothetical number
+- **Links to at least two of our tools** in the body, where the user actually needs them
+- **At least three primary-source references** (IRS, statute, a revenue department)
+- A table or scannable list — a wall-of-text guide does not get read
+- A "common mistake" or "when this rule does not apply" section — the part competitors do not write
 
-### ۷-۲-۳. بریف صفحه‌ی شهری هزینه‌ی زندگی (۷۰۰ تا ۱٬۰۰۰ کلمه)
+### 7-2-3. Cost-of-living city page brief (700–1,000 words)
 
-| بخش | نکته |
+| Section | Note |
 |---|---|
-| مقدمه | جایگاه شهر نسبت به میانگین ملی، با عدد |
-| ماشین‌حساب | با شهر از پیش انتخاب‌شده |
-| «شاخص‌ها یعنی چه» | تفسیر عدد BEA به زبان کاربر |
-| **«مالیات این ایالت»** | پاراگراف + لینک به ماشین‌حساب ایالتی. **مزیتی که هیچ رقیبی ندارد** |
-| «برای چه‌کسی مناسب است» | تحلیل واقعی |
-| متدولوژی و دیسکلیمر | با لینک BEA و HUD |
+| Introduction | The city's position relative to the national average, with the number |
+| Calculator | With the city preselected |
+| "What the indices mean" | Interpreting the BEA number in the user's language |
+| **"This state's tax"** | A paragraph + a link to the state calculator. **The advantage no competitor has** |
+| "Who this suits" | Real analysis |
+| Methodology and disclaimer | With BEA and HUD links |
 
-**قاعده:** «شاخص رسمی است» بهانه‌ی صفحه‌ی نازک نیست. اگر صفحه فقط جدول شاخص باشد، همان doorway page است که بخش ۷-۱ منعش می‌کند.
+**Rule:** "the index is official" is not an excuse for a thin page. If the page is only an index table, it is the doorway page section 7-1 forbids.
 
-### ۷-۳. تولید محتوا — واقع‌بینانه باش
+### 7-3. Content production — be realistic
 
-۵۱ صفحه × ~۱٬۲۰۰ کلمه ≈ **۶۱ هزار کلمه**، به‌علاوه ۱۰ راهنما × ~۲٬۰۰۰ ≈ ۲۰ هزار کلمه. مجموع حدود **۸۰ هزار کلمه‌ی دقیق در حوزه‌ی مالیات**.
+51 pages × ~1,200 words ≈ **61,000 words**, plus 10 guides × ~2,000 ≈ 20,000 words. Roughly **80,000 words of precise tax-domain writing**.
 
-- این با نوشتن دستی کامل، چند ماه تمام‌وقت است. با پیش‌نویس ماشینی + بازبینی و غنی‌سازی انسانی، شدنی است.
-- **قانون:** هیچ صفحه‌ای بدون بازبینی انسانی و بدون افزودن حداقل یک واقعیت مختص همان ایالت که از منبع اولیه استخراج شده، منتشر نمی‌شود.
-- بخش‌های ۴، ۵ و ۶ (ساختار مالیات، مالیات محلی، مهلت‌ها) باید از سایت دپارتمان درآمد همان ایالت بیرون کشیده شوند. همین کار، صفحه را از «قالب پرشده» به «مرجع» تبدیل می‌کند.
+- Written entirely by hand, that is several full-time months. With machine drafting + human review and enrichment, it is feasible.
+- **Rule:** no page ships without human review and without adding at least one state-specific fact pulled from a primary source.
+- Sections 4, 5 and 6 (tax structure, local tax, deadlines) must be pulled from that state's revenue department site. That work alone turns the page from "a filled-in template" into "a reference".
 
-### ۷-۴. سیگنال‌های E-E-A-T که در نیش مالی الزامی‌اند
+### 7-4. E-E-A-T signals that are mandatory in a finance niche
 
-- [ ] نویسنده‌ی نام‌دار با صفحه‌ی پروفایل و پیشینه‌ی مرتبط
-- [ ] تاریخ انتشار **و** تاریخ آخرین بازبینی روی هر صفحه
-- [ ] لینک خروجی به منابع اولیه (IRS و ایالت‌ها) — لینک‌دادن به مرجع، اعتبار می‌سازد، نمی‌بَرد
-- [ ] دیسکلیمر ثابت: «این ابزار جایگزین مشاوره‌ی مالیاتی حرفه‌ای نیست»
-- [ ] راه تماس واقعی
-- [ ] `Person` و `Organization` در JSON-LD
+- [ ] A named author with a profile page and relevant background
+- [ ] Publication date **and** last-reviewed date on every page
+- [ ] Outbound links to primary sources (IRS and the states) — linking to authority builds credibility, it does not leak it
+- [ ] A consistent disclaimer: "this tool is not a substitute for professional tax advice"
+- [ ] A real contact route
+- [ ] `Person` and `Organization` in the JSON-LD
 
-### ۷-۵. زمان‌بندی و به‌روزرسانی
+### 7-5. Scheduling and updates
 
-مالیات سالانه تغییر می‌کند. ۵۱ صفحه‌ی با داده‌ی منقضی، از نداشتن صفحه بدتر است.
+Tax changes annually. Fifty-one pages carrying expired data are worse than having no pages.
 
-- ژانویه‌ی هر سال: به‌روزرسانی همه‌ی براکت‌ها و آستانه‌ها
-- این کار در تایم‌لاین و در ظرفیت زمانی لحاظ شده باشد، نه اینکه غافلگیر شود
-- تا وقتی داده‌ی سال جدید تأیید نشده، صفحات صریحاً سال مالیاتی مرجع را اعلام کنند
-
----
-
-### ۷-۶. لحن و سبک
-
-~۳۵ هزار کلمه محتوا، احتمالاً با پیش‌نویس ماشینی. بدون راهنمای لحن، صفحات ناهمگون می‌شوند و ناهمگونی در نیش مالی شبیه بی‌دقتی به‌نظر می‌رسد.
-
-- **دوم‌شخص، فعال، حال ساده.** «you owe»، نه «one would be liable»
-- **عدد قبل از توضیح.** جواب اول، استدلال بعد
-- **بدون قید تشدیدی**: «very», «extremely», «incredibly» حذف
-- **بدون ادعای قطعیت که نداریم**: «this may», نه «this will» — در نیش YMYL این هم حقوقی است هم صادقانه
-- **اصطلاح مالیاتی در اولین کاربرد تعریف می‌شود**، بعد آزادانه استفاده می‌شود
-- سطح خوانایی هدف: حدود پایه‌ی نهم. مخاطب ما حسابدار نیست
-- **هیچ ادعای «ما بهترینیم».** عدد درست، خودش استدلال است
-- **افشای کمک ماشینی** در `/editorial-policy`: پیش‌نویس ماشینی، بازبینی و راستی‌آزمایی انسانی. پنهان‌کردنش ریسک اعتماد دارد؛ گفتنش ندارد
+- Every January: update all brackets and thresholds
+- This must be accounted for in the timeline and in time capacity, not come as a surprise
+- Until the new year's data is verified, pages must state the reference tax year explicitly
 
 ---
 
-## ۸. UI/UX
+### 7-6. Tone and style
 
-سند UI/UX قبلی بهترین بخش مجموعه بود و بیشترش عیناً حفظ می‌شود. تغییرات فقط جایی است که با دامنه‌ی جدید فاز ۱ نمی‌خواند.
+~35,000 words of content, likely machine-drafted. Without a tone guide the pages become inconsistent, and inconsistency in a finance niche reads as carelessness.
 
-### ۸-۱. قوانین طلایی (بدون تغییر)
+- **Second person, active voice, simple present.** "you owe", not "one would be liable"
+- **The number before the explanation.** Answer first, reasoning second
+- **No intensifiers**: "very", "extremely", "incredibly" are cut
+- **No certainty we do not have**: "this may", not "this will" — in a YMYL niche that is both legally sound and honest
+- **A tax term is defined at first use**, then used freely
+- Target readability: around ninth grade. Our audience is not an accountant
+- **No "we are the best" claims.** The correct number is the argument
+- **Disclosure of machine assistance** in `/editorial-policy`: machine drafting, human review and fact-checking. Hiding it is a trust risk; stating it is not
 
-1. ناوبری اصلی فقط **۲ سطح**. لایه‌ی ایالت هرگز در منو نیست — فقط جست‌وجو و دایرکتوری.
-2. **جست‌وجوی سراسری** به‌جای مگامنو. `GlobalSearch` در هدر همه‌ی صفحات، با fuzzy match (تایپ «califrnia» باید California را پیدا کند).
-3. **یک قالب واحد** برای هر ۵۱ صفحه‌ی programmatic.
-4. **ماشین‌حساب همیشه above the fold در موبایل.**
-5. جدول‌ها در موبایل به کارت تبدیل می‌شوند (`ResponsiveTable`)، هرگز اسکرول افقی.
-6. دایرکتوری همیشه گروه‌بندی‌شده.
-7. یک سیستم رنگ/تایپوگرافی/آیکون ثابت. سبز = صرفه‌جویی، قرمز/نارنجی = هزینه یا مالیات بالا، آبی = خنثی. **این معانی هرگز جابه‌جا نمی‌شوند.**
-8. هر `AdSlot` **min-height ثابت** دارد. هیچ Layout Shift مجاز نیست.
-9. Accessibility پایه از ابتدا: label واقعی روی هر input، آیکون در کنار رنگ (کوررنگی قرمز/سبز شایع است)، هدف لمسی حداقل ۴۴×۴۴ پیکسل.
-10. نتیجه هنگام تایپ در موبایل باید دیده شود — sticky یا debounce ۳۰۰-۵۰۰ میلی‌ثانیه.
+---
 
-### ۸-۲. تغییرات نسبت به سند UI/UX قبلی
+## 8. UI/UX
 
-| مورد | تغییر |
+The previous UI/UX document was the best of the set and most of it is kept verbatim. Changes appear only where it no longer fits the new phase 1 scope.
+
+### 8-1. Golden rules (unchanged)
+
+1. Main navigation is only **2 levels**. The state layer is never in the menu — only search and the directory.
+2. **Global search** instead of a megamenu. `GlobalSearch` in the header of every page, with fuzzy matching (typing "califrnia" must find California).
+3. **One single template** for all 51 programmatic pages.
+4. **The calculator is always above the fold on mobile.**
+5. Tables become cards on mobile (`ResponsiveTable`), never horizontal scroll.
+6. The directory is always grouped.
+7. One consistent colour/typography/icon system. Green = savings, red/orange = cost or high tax, blue = neutral. **These meanings never swap.**
+8. Every `AdSlot` has a **fixed min-height**. No layout shift is permitted.
+9. Basic accessibility from the start: a real label on every input, an icon alongside colour (red/green colour blindness is common), a touch target of at least 44×44 px.
+10. The result must stay visible while typing on mobile — sticky, or a 300–500 ms debounce.
+
+### 8-2. Changes from the previous UI/UX document
+
+| Item | Change |
 |---|---|
-| دسته‌بندی هدر | «Freelancer Tools / Cost of Living / Blog» ← تبدیل به «Calculators / Guides / About». Cost of Living تا فاز ۲ وجود ندارد |
-| `LocationAccordionGroup` | گروه‌بندی قاره/کشور دیگر موضوعیت ندارد. جایش: گروه‌بندی ۵۱ ایالت بر اساس **ساختار مالیاتی** (بدون مالیات / تخت / پلکانی) — که هم مفیدتر است هم خودش یک زاویه‌ی محتوایی است |
-| `CurrencySelector` | حذف شد (فاز ۱ فقط دلار) |
-| `CompareRowCard` | حفظ شد، برای ۱۵ صفحه‌ی مقایسه‌ی ایالتی |
-| `FamilySizeToggle` | تبدیل شد به `FilingStatusSelect` — چهار وضعیت واقعی تشکیل پرونده، که برخلاف ضرایب حدسی `{single:1, couple:1.6}` سند قبلی، اثر ریاضی واقعی و مستند روی نتیجه دارد |
+| Header categories | "Freelancer Tools / Cost of Living / Blog" → becomes "Calculators / Guides / About". Cost of Living does not exist until phase 2 |
+| `LocationAccordionGroup` | Continent/country grouping is no longer relevant. Instead: group the 51 states by **tax structure** (no tax / flat / progressive) — more useful, and itself a content angle |
+| `CurrencySelector` | Removed (phase 1 is USD only) |
+| `CompareRowCard` | Kept, for the 15 state comparison pages |
+| `FamilySizeToggle` | Became `FilingStatusSelect` — the four real filing statuses, which unlike the previous spec's guessed `{single:1, couple:1.6}` multipliers have a real, documented mathematical effect on the result |
 
-### ۸-۳. کامپوننت جدید و مهم: `TaxBreakdownWaterfall`
+### 8-3. A new and important component: `TaxBreakdownWaterfall`
 
-نمایش بصری اینکه هر دلار کجا رفت:
+A visual account of where every dollar went:
 
 ```
-درآمد ناخالص  ████████████████████████  $85,000
-هزینه‌ها       ███                       −$12,000
+gross income  ████████████████████████  $85,000
+expenses      ███                       −$12,000
 SE tax        ████                      −$10,313
-مالیات فدرال   ████                      −$8,940
-مالیات ایالتی  ██                        −$3,120
+federal tax   ████                      −$8,940
+state tax     ██                        −$3,120
 ─────────────────────────────────────────────
-باقی‌مانده     ███████████████           $50,627
+what is left  ███████████████           $50,627
 ```
 
-این تک‌کامپوننت چند کار هم‌زمان می‌کند: زمان ماندگاری را بالا می‌برد، محتوای بصری قابل‌اشتراک‌گذاری می‌سازد، و شفافیتی می‌دهد که رقبا ندارند.
+This single component does several things at once: it raises time on page, it creates shareable visual content, and it gives a transparency competitors lack.
 
-### ۸-۴. چیدمان عمودی صفحه‌ی ایالتی
+### 8-4. Vertical layout of a state page
 
 ```
-۱.  Breadcrumb (یک خط)                Home > Freelance Tax > California
-۲.  H1 + یک خط توضیح
-۳.  Calculator  ← بدون اسکرول در viewport موبایل
-۴.  ResultCard + TaxBreakdownWaterfall
-۵.  باکس دیسکلیمر + تاریخ داده
-۶.  AdSlot (بعد از نتیجه، هرگز قبلش)
-۷.  جدول براکت‌به‌براکت (ResponsiveTable)
-۸.  محتوای مقاله‌ای (ContentAccordion در موبایل)
-۹.  FAQ Accordion
-۱۰. ایالت‌های مشابه (carousel افقی در موبایل)
-۱۱. ابزارهای مرتبط
-۱۲. AdSlot سایدبار (فقط دسکتاپ، sticky)
+1.  Breadcrumb (one line)             Home > Freelance Tax > California
+2.  H1 + a one-line description
+3.  Calculator  ← no scrolling in the mobile viewport
+4.  ResultCard + TaxBreakdownWaterfall
+5.  Disclaimer box + data date
+6.  AdSlot (after the result, never before it)
+7.  Bracket-by-bracket table (ResponsiveTable)
+8.  Article content (ContentAccordion on mobile)
+9.  FAQ accordion
+10. Similar states (horizontal carousel on mobile)
+11. Related tools
+12. Sidebar AdSlot (desktop only, sticky)
 ```
 
-### ۸-۵. `StickyCalculatorCTA` و اشتراک نتیجه
+### 8-5. `StickyCalculatorCTA` and result sharing
 
-- دکمه‌ی شناور «Recalculate» در موبایل هنگام اسکرول به پایین
-- دکمه‌ی «کپی/اشتراک نتیجه» که ورودی‌ها را در query params می‌گذارد — هم ارزش UX واقعی دارد و هم مسیر ترافیک ارگانیک جدید باز می‌کند
-- توجه: query params نباید صفحات duplicate بسازند. `canonical` همیشه به نسخه‌ی بدون پارامتر اشاره کند.
+- A floating "Recalculate" button on mobile while scrolling down
+- A "copy/share result" button that puts the inputs into query params — real UX value, and it opens a new organic traffic route
+- Note: query params must not create duplicate pages. `canonical` always points at the parameter-free version.
 
-### ۸-۶. تست موبایل قبل از مقیاس‌دهی
+### 8-6. Mobile testing before scaling
 
-روی گوشی واقعی، نه فقط DevTools:
-- [ ] ماشین‌حساب در viewport اول جا می‌شود؟
-- [ ] `ResponsiveTable` درست به کارت تبدیل می‌شود؟
-- [ ] `AdSlot` باعث Layout Shift می‌شود؟ (CLS باید زیر ۰.۱ بماند)
-- [ ] با کیبورد باز، نتیجه هنوز دیده می‌شود؟
+On a real phone, not just DevTools:
+- [ ] Does the calculator fit in the first viewport?
+- [ ] Does `ResponsiveTable` convert to cards correctly?
+- [ ] Does `AdSlot` cause layout shift? (CLS must stay under 0.1)
+- [ ] With the keyboard open, is the result still visible?
 
 ---
 
-### ۸-۷. توکن‌های طراحی — مقادیر مشخص، نه توصیف
+### 8-7. Design tokens — concrete values, not descriptions
 
-سند قبلی می‌گفت «رنگ‌بندی ثابت» ولی عددی نمی‌داد، که یعنی هر کامپوننت رنگ خودش را اختراع می‌کند. مقادیر پایه:
+The previous document said "a consistent colour system" without giving numbers, which means every component invents its own colour. The base values:
 
 ```css
 :root {
-  /* معنایی — این معانی هرگز جابه‌جا نمی‌شوند */
-  --positive: #047857;   /* صرفه‌جویی، درآمد باقی‌مانده، «زیر آستانه» */
-  --negative: #b45309;   /* هزینه، مالیات، «بالای آستانه» */
-  --neutral:  #1d4ed8;   /* اطلاعاتی */
-  --warning:  #b91c1c;   /* دیسکلیمر، داده‌ی کهنه */
+  /* semantic — these meanings never swap */
+  --positive: #047857;   /* savings, income left, "below threshold" */
+  --negative: #b45309;   /* cost, tax, "above threshold" */
+  --neutral:  #1d4ed8;   /* informational */
+  --warning:  #b91c1c;   /* disclaimer, stale data */
 
-  /* سطوح */
+  /* surfaces */
   --bg: #ffffff;  --surface: #f8fafc;  --border: #e2e8f0;
   --text: #0f172a; --text-muted: #475569;
 
-  /* فاصله — مقیاس ۴ پیکسلی، بدون مقدار دلخواه */
+  /* spacing — a 4 px scale, no arbitrary values */
   --space-1: 4px; --space-2: 8px; --space-3: 12px;
   --space-4: 16px; --space-6: 24px; --space-8: 32px;
 
-  --radius: 8px;          /* یک شعاع برای همه‌ی کارت‌ها */
-  --radius-sm: 4px;       /* فقط ورودی‌ها و چیپ‌ها */
+  --radius: 8px;          /* one radius for every card */
+  --radius-sm: 4px;       /* inputs and chips only */
 
   --font: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --tabular: "Inter", ui-monospace, monospace;  /* فقط برای اعداد */
+  --tabular: "Inter", ui-monospace, monospace;  /* numbers only */
 }
 ```
 
-**قواعد:**
-- **همه‌ی اعداد پولی با `font-variant-numeric: tabular-nums`.** بدون آن، عدد در جدول هنگام تایپ می‌لرزد و حرفه‌ای به‌نظر نمی‌رسد.
-- حداکثر **سه وزن فونت** (۴۰۰ / ۶۰۰ / ۷۰۰).
-- هیچ مقدار فاصله‌ی خارج از مقیاس بالا.
-- کنار هر رنگ معنایی **آیکون** — کوررنگی قرمز/سبز شایع است (بخش ۱۰-۳ سند UI/UX قبلی).
-- حالت تاریک در فاز ۱ ساخته نمی‌شود. یک تم درست، بهتر از دو تم نصفه.
+**Rules:**
+- **Every money figure uses `font-variant-numeric: tabular-nums`.** Without it, numbers in a table jitter while typing and the page stops looking professional.
+- At most **three font weights** (400 / 600 / 700).
+- No spacing value outside the scale above.
+- An **icon** alongside every semantic colour — red/green colour blindness is common (section 10-3 of the previous UI/UX document).
+- Dark mode is not built in phase 1. One correct theme beats two half-finished ones.
 
-### ۸-۸. قالب صفحه‌ی ابزار (`ToolPage`) — هسته‌ی کسب‌وکار
+### 8-8. The tool page template (`ToolPage`) — the core of the business
 
-بخش ۸-۴ چیدمان صفحه‌ی ایالتی را داشت ولی صفحات ابزار — که حالا ۹۹٪ تقاضا آنجاست — قالبی نداشتند.
+Section 8-4 covered the state page layout, but the tool pages — which is where 99% of the demand now sits — had no template.
 
 ```
-۱.  Breadcrumb (یک خط)
-۲.  H1 = کیورد هدف، دقیقاً
-۳.  یک جمله: این ابزار چه می‌کند و برای چه کسی
-۴.  Calculator          ← بدون اسکرول در viewport موبایل
-۵.  ResultCard          ← بلافاصله زیر ورودی‌ها، با عدد اصلی برجسته
-۶.  TaxBreakdownWaterfall
-۷.  باکس دیسکلیمر + تاریخ داده + سال مالیاتی
-۸.  AdSlot (بعد از نتیجه، هرگز قبلش)
-۹.  «چطور محاسبه می‌شود» ← گام‌به‌گام با اعداد همین کاربر
-۱۰. جدول براکت‌به‌براکت (ResponsiveTable)
-۱۱. محتوای مقاله‌ای (ContentAccordion در موبایل)
-۱۲. FAQ Accordion
-۱۳. ابزارهای مرتبط (۳ عدد)
-۱۴. AdSlot سایدبار (فقط دسکتاپ، sticky)
+1.  Breadcrumb (one line)
+2.  H1 = the target keyword, exactly
+3.  One sentence: what this tool does and who for
+4.  Calculator          ← no scrolling in the mobile viewport
+5.  ResultCard          ← immediately under the inputs, headline number prominent
+6.  TaxBreakdownWaterfall
+7.  Disclaimer box + data date + tax year
+8.  AdSlot (after the result, never before it)
+9.  "How it is calculated" ← step by step, with this user's own numbers
+10. Bracket-by-bracket table (ResponsiveTable)
+11. Article content (ContentAccordion on mobile)
+12. FAQ accordion
+13. Related tools (3)
+14. Sidebar AdSlot (desktop only, sticky)
 ```
 
-**بخش ۹ اتفاقی نیست.** SERP نشان داد AI Overview این کیوردها به `taxstra.com` استناد می‌کند و چیزی که استناد می‌گیرد تعریف گام‌به‌گام فرمول با اعداد مشخص است. این بخش دقیقاً برای آن ساخته می‌شود — و اتفاقاً همان چیزی است که موتور ما به‌صورت `federalBrackets` تولید می‌کند.
+**Section 9 is not incidental.** The SERP showed that the AI Overview for these keywords cites `taxstra.com`, and what earns the citation is a step-by-step definition of the formula with concrete numbers. This section is built precisely for that — and happens to be exactly what our engine produces as `federalBrackets`.
 
-### ۸-۹. UX ماشین‌حساب — پیش‌فرض‌ها مهم‌ترین تصمیم محصول‌اند
+### 8-9. Calculator UX — the defaults are the most important product decision
 
-**یک ماشین‌حساب هرگز خالی باز نمی‌شود.** فرم خالی یعنی کاربر باید قبل از دیدن هر ارزشی کار کند؛ نرخ خروج بالا می‌رود و با آن رتبه. هر ابزار با پیش‌فرض واقع‌بینانه باز می‌شود و **نتیجه از همان لحظه‌ی اول دیده می‌شود**.
+**A calculator never opens empty.** An empty form means the user must work before seeing any value; exit rate rises and rankings follow. Every tool opens with realistic defaults and **the result is visible from the first moment**.
 
-| ابزار | پیش‌فرض‌ها |
+| Tool | Defaults |
 |---|---|
-| `self-employment-tax-calculator` | درآمد ۸۰٬۰۰۰ · هزینه ۱۰٬۰۰۰ · مجرد |
-| `estimated-tax-calculator` | همان + بدون مالیات سال قبل (تا مسیر safe harbor دیده شود) |
-| `1099-tax-calculator` | درآمد ۶۵٬۰۰۰ · هزینه ۸٬۰۰۰ |
-| `freelance-tax-calculator` | همه‌ی فیلدها، پیش‌فرض ۸۰٬۰۰۰ |
-| صفحه‌ی ایالتی | همان پیش‌فرض + ایالت از پیش انتخاب‌شده |
+| `self-employment-tax-calculator` | Income 80,000 · expenses 10,000 · single |
+| `estimated-tax-calculator` | The same + no prior-year tax (so the safe harbor path is visible) |
+| `1099-tax-calculator` | Income 65,000 · expenses 8,000 |
+| `freelance-tax-calculator` | All fields, default 80,000 |
+| State page | The same defaults + the state preselected |
 
-**قواعد ورودی:**
-- ورودی عددی با `inputmode="decimal"` — کیبورد عددی در موبایل
-- جداکننده‌ی هزارگان هنگام تایپ، بدون پریدن مکان‌نما
-- ورودی منفی رد نمی‌شود بلکه به صفر بسته می‌شود، با پیام
-- **debounce ۳۰۰ میلی‌ثانیه** روی محاسبه (بخش ۱۰-۴ سند UI/UX قبلی)
-- فیلدهای پیشرفته (بازنشستگی، بیمه، HSA، اقلام تفصیلی) پیش‌فرض **جمع‌شده**‌اند — فرم اولیه حداکثر ۴ فیلد
-- تغییر ایالت، ورودی‌های کاربر را **حفظ می‌کند**، ریست نمی‌کند
+**Input rules:**
+- Numeric inputs use `inputmode="decimal"` — the numeric keyboard on mobile
+- Thousands separators while typing, without the caret jumping
+- A negative input is not rejected but clamped to zero, with a message
+- **300 ms debounce** on calculation (section 10-4 of the previous UI/UX document)
+- Advanced fields (retirement, insurance, HSA, itemized deductions) are **collapsed** by default — the initial form has at most 4 fields
+- Changing the state **preserves** the user's inputs rather than resetting them
 
-**نمایش warning های موتور:** هر رشته در `warnings` و `state.notes` باید در UI دیده شود، نه دور ریخته شود. جای پیش‌فرضشان یک باکس زیر ResultCard است. این همان چیزی است که بخش ۴-۸ را از یک لیست محدودیت به یک سیگنال اعتماد تبدیل می‌کند.
+**Displaying the engine's warnings:** every string in `warnings` and `state.notes` must be visible in the UI, not discarded. Their default home is a box under the ResultCard. This is what turns section 4-8 from a list of limitations into a trust signal.
 
 ---
 
-## ۹. سئو و ایندکسیشن
+## 9. SEO and indexation
 
-### ۹-۱. پایه
+### 9-1. Foundations
 
-- `sitemap.ts` پویا — از همان دیتاست تولید می‌شود، هرگز دستی
+- A dynamic `sitemap.ts` — generated from the dataset, never by hand
 - `robots.ts`
-- Google Search Console از **روز اول**، قبل از انتشار محتوا
-- `canonical` مستقل و مطلق برای هر صفحه
-- JSON-LD: `FAQPage` + `BreadcrumbList` + `WebApplication` (برای صفحات ابزار) + `Organization` + `Person` (نویسنده)
-- OG image پویا برای هر ایالت (`opengraph-image.tsx` در Next.js) — برای اشتراک‌گذاری در Reddit و شبکه‌ها
+- Google Search Console from **day one**, before any content ships
+- An independent, absolute `canonical` on every page
+- JSON-LD: `FAQPage` + `BreadcrumbList` + `WebApplication` (for tool pages) + `Organization` + `Person` (author)
+- A dynamic OG image per state (`opengraph-image.tsx` in Next.js) — for sharing on Reddit and social networks
 
-### ۹-۲. اعتبارسنجی کیورد **قبل از** نوشتن
+### 9-2. Keyword validation **before** writing
 
-سند قبلی می‌گفت فاز ۲ بر اساس داده خواهد بود، «نه حدس» — که یعنی خودش می‌پذیرفت فاز ۱ کاملاً حدسی است. اصلاح:
+The previous document said phase 2 would be data-driven, "not guesswork" — which was an admission that phase 1 was entirely guesswork. The correction:
 
-- [ ] قبل از نوشتن حتی یک صفحه، **۳۰ کیورد اصلی** با داده‌ی واقعی حجم و سختی بررسی شوند
-- [ ] برای هر کیورد، ۱۰ نتیجه‌ی اول واقعاً نگاه شوند: اگر همه دامنه‌های DR بالا و برندهای مالیاتی بزرگ‌اند، آن کیورد در سال اول قابل‌دستیابی نیست — سراغ long-tail برو
-- [ ] خروجی این مرحله فهرست اولویت‌بندی‌شده‌ای است که ترتیب نوشتن ۵۱ ایالت را تعیین می‌کند (کالیفرنیا و تگزاس زودتر از وایومینگ)
+- [ ] Before writing a single page, check **30 primary keywords** against real volume and difficulty data
+- [ ] For each keyword, actually look at the top 10 results: if they are all high-DR domains and major tax brands, that keyword is not reachable in year one — go long-tail
+- [ ] The output of this step is a prioritised list that sets the writing order for the 51 states (California and Texas before Wyoming)
 
-### ۹-۳. لینک‌سازی داخلی
+### 9-3. Internal linking
 
-چهار لایه:
-1. دایرکتوری → صفحات ایالتی
-2. صفحات ایالتی ↔ ایالت‌های مشابه (بر اساس ساختار مالیاتی، نه الفبا)
-3. صفحات ایالتی ↔ راهنماها (هر ایالت به حداقل ۳ راهنمای مرتبط لینک بدهد)
-4. راهنماها ↔ ابزارها
+Four layers:
+1. Directory → state pages
+2. State pages ↔ similar states (by tax structure, not alphabetically)
+3. State pages ↔ guides (every state links to at least 3 related guides)
+4. Guides ↔ tools
 
-### ۹-۳-۱. متن لینک داخلی
+### 9-3-1. Internal anchor text
 
-لینک داخلی بدون قاعده‌ی متن، نصف ارزشش را هدر می‌دهد. چهار قاعده در
-`data/pages.json → onPage.anchorText` ثبت شده‌اند و خلاصه‌شان:
+An internal link without an anchor-text rule wastes half its value. Four rules are recorded in `data/pages.json → onPage.anchorText`, in summary:
 
-- لینک به صفحه‌ی موجودیت با **نام همان موجودیت** — «Cost of Living in Austin»،
-  نه «اینجا کلیک کنید».
-- لینک به ابزار با **کیورد اصلی همان ابزار**، حداکثر یک‌بار با متن یکسان در
-  هر صفحه.
-- متن لینک هرگز کیورد صفحه‌ی **خودش** نیست؛ با کیورد **مقصد** نوشته می‌شود.
-- ناوبری و فوتر از سقف ۲۵ لینک بدنه مستثنا هستند ولی باید در همه‌ی صفحات
-  ثابت بمانند.
+- Link to an entity page with **the entity's own name** — "Cost of Living in Austin", not "click here".
+- Link to a tool with **that tool's primary keyword**, at most once with identical text on any page.
+- Anchor text is never the linking page's **own** keyword; it is written with the **destination's** keyword.
+- Navigation and footer are exempt from the 25-body-link ceiling but must stay identical across pages.
 
-### ۹-۳-۲. فرمول title، meta و H1
+### 9-3-2. Title, meta and H1 formulas
 
-برای ۱۰۴ صفحه‌ی programmatic، این فرمول‌ها مستقیم‌ترین اهرم روی نرخ کلیک از
-نتایج جست‌وجو هستند و مهم‌تر از آن، تنها چیزی‌اند که مانع می‌شود ۸۷ صفحه‌ی
-تولیدشده عملاً یک عنوان مشترک داشته باشند. به همین دلیل نثر نیستند؛ در
-`data/pages.json → onPage.templates` داده‌اند و `scripts/audit_seo.py` در CI
-اجرایشان می‌کند.
+For 104 programmatic pages these formulas are the most direct lever on click-through from search results and, more importantly, the only thing preventing 87 generated pages from effectively sharing one title. That is why they are not prose; they live in `data/pages.json → onPage.templates` and `scripts/audit_seo.py` enforces them in CI.
 
-| قالب | title | H1 |
+| Template | title | H1 |
 |---|---|---|
 | ToolPage | `{Primary} ({year})` | `{Primary}` |
 | PlacePage | `Cost of Living in {Metro} ({year})` | `Cost of Living in {Metro}` |
 | StateTaxPage | `{State} Income Tax Calculator ({year})` | `{State} Income Tax Calculator` |
 | DirectoryPage | `{Primary} ({year})` | `{Primary}` |
-| Home | ثابت — هیچ کیورد سری را هدف نمی‌گیرد | «What a place really costs — and what you keep» |
+| Home | Fixed — targets no head keyword | "What a place really costs — and what you keep" |
 
-قواعدی که ممیزی اعمال می‌کند:
+The rules the audit enforces:
 
-- **سقف ۶۰ کاراکتر برای title.** با طولانی‌ترین جانشین ممکن سنجیده می‌شود، نه
-  با یک نمونه‌ی خوش‌بینانه: `San Francisco-Oakland-Berkeley, CA` عنوان را به
-  ۵۹ کاراکتر می‌رساند — یعنی این سقف واقعاً بسته است و افزودن هر کلمه به
-  الگوی PlacePage آن را می‌شکند.
-- **meta بین ۱۱۰ تا ۱۵۵ کاراکتر.** برای ابزارها و دایرکتوری‌ها از فیلد
-  `metaHook` هر صفحه می‌آید، نه از `output` — `output` توصیف داخلی است و کارش
-  تفکیک صفحات از هم است، نه متنی که در SERP دیده شود. این تفکیک را خودِ ممیزی
-  وقتی اضافه شد پیدا کرد (بخش ۹-۳-۵).
-- **کیورد اصلی باید در title و H1 رندرشده باشد**، برای ToolPage و
-  DirectoryPage اجباری.
-- **الگوی هر قالب برنامه‌ای باید جانشین موجودیت داشته باشد** (`{Metro}`،
-  `{State}` یا `{Primary}`)، وگرنه همه‌ی صفحات تولیدشده یک عنوان می‌گیرند.
-- **سال در title می‌آید، هرگز در URL** (بخش ۶-۷) — عنوان هر سال بازنویسی
-  می‌شود، آدرس هرگز.
-- **حروف بزرگ عنوان** به همان شکلی که منتشر می‌شود سنجیده می‌شود: حروف اضافه‌ی
-  کوتاه کوچک می‌مانند مگر اول جمله («Cost of Living»، نه «Cost Of Living»).
-- ۹ ایالت بدون مالیات meta جداگانه دارند: عنوان «ماشین‌حساب» با متنی که
-  می‌گوید مالیات ایالتی وجود ندارد ولی فدرال هست — وگرنه صفحه در نگاه اول
-  بی‌محتوا به نظر می‌رسد.
+- **A 60-character title ceiling.** Measured against the longest possible substitution, not an optimistic sample: `San Francisco-Oakland-Berkeley, CA` takes the title to 59 characters — meaning this ceiling is genuinely closed and adding any word to the PlacePage pattern breaks it.
+- **Meta between 110 and 155 characters.** For tools and directories it comes from each page's `metaHook` field, not from `output` — `output` is an internal description whose job is separating pages from each other, not text meant to be seen in a SERP. The audit itself surfaced that distinction the moment it was added (section 9-3-5).
+- **The primary keyword must appear in the rendered title and H1**, mandatory for ToolPage and DirectoryPage.
+- **Every programmatic template's pattern must carry an entity placeholder** (`{Metro}`, `{State}` or `{Primary}`), otherwise all generated pages share one title.
+- **The year goes in the title, never in the URL** (section 6-7) — the title is rewritten annually, the address never.
+- **Title casing** is measured exactly as it ships: short prepositions stay lowercase unless they lead ("Cost of Living", not "Cost Of Living").
+- The nine no-tax states get a separate meta: a "calculator" title with copy saying there is no state income tax but there is federal — otherwise the page looks empty at first glance.
 
-### ۹-۳-۳. داده‌ی ساختاریافته به تفکیک قالب
+### 9-3-3. Structured data by template
 
-| قالب | JSON-LD |
+| Template | JSON-LD |
 |---|---|
-| ToolPage | `WebApplication` (applicationCategory: FinanceApplication، offers رایگان) + `FAQPage` + `BreadcrumbList` |
-| PlacePage | `Place` + `Dataset` (به منبع BEA/HUD اشاره می‌کند) + `FAQPage` + `BreadcrumbList` |
+| ToolPage | `WebApplication` (applicationCategory: FinanceApplication, free offers) + `FAQPage` + `BreadcrumbList` |
+| PlacePage | `Place` + `Dataset` (pointing at the BEA/HUD source) + `FAQPage` + `BreadcrumbList` |
 | StateTaxPage | `WebApplication` + `FAQPage` + `BreadcrumbList` |
-| DirectoryPage | `ItemList` (با موقعیت و لینک هر سطر) + `BreadcrumbList` — بدون FAQPage |
-| سراسری | `Organization` + `Person` نویسنده در layout |
+| DirectoryPage | `ItemList` (position and link per row) + `BreadcrumbList` — no FAQPage |
+| Global | `Organization` + author `Person` in the layout |
 
-`FAQPage` فقط وقتی می‌آید که همان پرسش‌ها **روی صفحه دیده شوند**؛ داده‌ی
-ساختاریافته‌ی بی‌قرینه نقض دستورالعمل گوگل است. `dateModified` فقط با تغییر
-واقعی محتوا به‌روز می‌شود (بخش ۹-۴-۱).
+`FAQPage` appears only when those questions are **visible on the page**; structured data without a visible counterpart violates Google's guidelines. `dateModified` updates only on a genuine content change (section 9-4-1).
 
-### ۹-۳-۴. robots.txt و تصویر اشتراک‌گذاری
+### 9-3-4. robots.txt and the share image
 
-- `/api/` و مسیرهای داخلی Disallow.
-- **هیچ صفحه‌ی محتوایی Disallow نمی‌شود.** اگر صفحه‌ای ارزش ایندکس ندارد،
-  اصلاً تولید نمی‌شود — دروازه‌های بخش ۶-۸ همین کار را می‌کنند.
-- `Sitemap:` به `sitemap.xml` اشاره می‌کند که خودش چهار sitemap فرزند دارد
-  (بخش ۶-۸-۶).
-- بدون `crawl-delay` — گوگل نادیده می‌گیرد و فقط خزنده‌های دیگر را کند می‌کند.
-- **OG image پویا** به‌ازای هر موجودیت (`opengraph-image.tsx`): نام مکان و عدد
-  شاخصش روی تصویر. این تزئین نیست؛ بخش ۹-۵ لینک‌ها را در Reddit و انجمن‌ها
-  می‌سازد و لینک بدون تصویر آن‌جا عملاً دیده نمی‌شود.
-- `og:title` می‌تواند از `<title>` متفاوت باشد — در شبکه‌های اجتماعی سال حذف
-  می‌شود.
+- `/api/` and internal paths are disallowed.
+- **No content page is ever disallowed.** If a page is not worth indexing, it is not generated at all — the gates in section 6-8 do that job.
+- `Sitemap:` points at `sitemap.xml`, which itself has four child sitemaps (section 6-8-6).
+- No `crawl-delay` — Google ignores it and it only slows other crawlers.
+- **A dynamic OG image** per entity (`opengraph-image.tsx`): the place name and its index number on the image. This is not decoration; section 9-5 earns links on Reddit and forums, and a link without an image is effectively invisible there.
+- `og:title` may differ from `<title>` — the year is dropped on social networks.
 
-### ۹-۳-۵. مرز زبان — سایت انگلیسی است، سند فارسی
+### 9-3-5. The language rule — the whole project is English
 
-سایت **تماماً انگلیسی** است. هیچ رشته‌ی فارسی نباید به صفحه‌ای که منتشر
-می‌شود برسد. سند فارسی است چون خواننده‌اش فارسی‌زبان است، ولی سند هرگز
-منتشر نمی‌شود.
+The site, the data and the documentation are **all English**. This was not always true: the spec was originally written in Persian, and the boundary between "the Persian document" and "the English site" was only a convention.
 
-خطر دقیقاً روی مرز این دو است و یک‌بار هم رخ داد: فیلد `output` در
-`data/pages.json` توصیف داخلی فارسی بود و وقتی اولین‌بار آن را به فرمول meta
-وصل کردم، ۱۵ صفحه با meta description فارسی منتشر می‌شد. ممیزی جلویش را
-گرفت، ولی این نشان داد قرارداد ذهنی کافی نیست.
+That convention broke once. The `output` field in `data/pages.json` held an internal Persian description, and the first time it was wired into the meta formula, 15 pages would have shipped with Persian meta descriptions. The audit caught it, but that proved a remembered convention is not a boundary.
 
-پس مرز به‌جای قرارداد، یک بررسی شد:
+So the boundary became a check, and then the ambiguity was removed entirely by translating everything:
 
 ```bash
 python3 scripts/check_language.py
 ```
 
-| مسیر | زبان |
+| Path | Language |
 |---|---|
-| `data/` · `src/` · `app/` · `public/` · `components/` · `content/` | **فقط انگلیسی** — در CI اجباری |
-| `docs/` | فارسی مجاز — هرگز منتشر نمی‌شود |
+| `data/` · `src/` · `app/` · `public/` · `components/` · `content/` | **English only** — enforced in CI |
+| `docs/` · `scripts/` | **English only** — enforced in CI |
+| `docs/archive/` | Exempt — the three original documents, kept verbatim as a historical record |
 
-هر کاراکتر فارسی در مسیرهای گروه اول build را می‌شکند. کل محتوای
-`data/pages.json` و `data/keywords.json` به انگلیسی برگردانده شد: `output`،
-`note`، `paramNote`، `modes`، `canonicalRules`، `differentiationRules` و
-همه‌ی قواعد `onPage`.
+Any non-English character in those paths breaks the build. The archive is the single exception, because rewriting a historical record destroys it.
 
-### ۹-۴. توزیع — بخشی که سند قبلی نداشت
+One detail worth keeping: the checker's own character-class regex is written as escape sequences rather than literals, so the detector does not contain what it detects. Written the obvious way, it flags itself.
 
-سند قبلی برای جذب ترافیک یک سطر داشت. برای یک دامنه‌ی نو، **لینک و سیگنال برند گلوگاه است، نه تعداد صفحه.** حداقل ۳۰٪ زمان پروژه باید اینجا برود:
+### 9-4. Distribution — a section the previous document lacked
 
-| کانال | کار |
+The previous document had one line about attracting traffic. For a new domain, **links and brand signals are the bottleneck, not page count.** At least 30% of project time has to go here:
+
+| Channel | The work |
 |---|---|
-| Reddit | r/freelance، r/tax، r/smallbusiness، r/digitalnomad — **اول چند ماه پاسخ‌دادن واقعی، بعد لینک.** لینک‌انداختن زودهنگام یعنی بن شدن |
-| Indie Hackers / Hacker News | یک پست «چطور ساختمش» بعد از لانچ |
-| Product Hunt | یک لانچ برنامه‌ریزی‌شده، نه شتاب‌زده |
-| انجمن‌های حسابداری | ابزار رایگان برای حسابدارها ارزش واقعی دارد |
-| Quora / انجمن‌های تخصصی | پاسخ‌های واقعی با ارجاع طبیعی |
-| هماهنگی فصلی | ژانویه تا آوریل فصل اوج جستجوی مالیاتی است. محتوای پرارزش باید **دسامبر** آماده باشد، نه مارس |
+| Reddit | r/freelance, r/tax, r/smallbusiness, r/digitalnomad — **months of genuine answering first, links later.** Dropping links early means a ban |
+| Indie Hackers / Hacker News | One "how I built it" post after launch |
+| Product Hunt | One planned launch, not a rushed one |
+| Accounting forums | A free tool has real value for accountants |
+| Quora / specialist forums | Real answers with natural references |
+| Seasonal alignment | January to April is peak tax search season. High-value content must be ready in **December**, not March |
 
-**نکته‌ی زمان‌بندی مهم:** فصل مالیاتی آمریکا اوج ترافیک و اوج CPC است. اگر سایت تا دسامبر ۲۰۲۶ ایندکس‌شده و مستقر باشد، فصل ژانویه-آوریل ۲۰۲۷ می‌تواند به‌تنهایی جهش درآمدی بسازد. کل تایم‌لاین حول این پنجره چیده شده است.
+**An important timing note:** US tax season is peak traffic and peak CPC. If the site is indexed and settled by December 2026, the January–April 2027 season can produce a revenue jump on its own. The whole timeline is arranged around that window.
 
-### ۹-۴-۱. شکاف‌های فنی سئو که بازرسی پیدا کرد
+### 9-4-1. Technical SEO gaps the audit found
 
-#### اعتبارسنجی داده‌ی ساختاریافته
+#### Structured data validation
 
-schema نوشتن کافی نیست؛ schema **معتبر** لازم است. یک خطای نحوی در JSON-LD یعنی گوگل کل بلاک را نادیده می‌گیرد و متوجه نمی‌شوی.
+Writing schema is not enough; **valid** schema is required. One syntax error in the JSON-LD means Google ignores the whole block and you never find out.
 
-- تست خودکار در CI: هر قالب یک نمونه رندر می‌شود و JSON-LD اش با schema.org اعتبارسنجی می‌شود
-- انواع لازم: `WebApplication` (ابزارها) · `FAQPage` (هر صفحه با FAQ) · `BreadcrumbList` · `Organization` · `Person` (نویسنده) · `Dataset` (صفحه‌ی متدولوژی — به داده‌ی ساختاریافته لینک می‌دهد و شانس استناد را بالا می‌برد)
-- **`FAQPage` فقط وقتی که FAQ واقعاً روی صفحه دیده می‌شود.** schema برای محتوای پنهان، نقض دستورالعمل است
+- An automated CI test: each template renders a sample and its JSON-LD is validated against schema.org
+- Required types: `WebApplication` (tools) · `FAQPage` (any page with an FAQ) · `BreadcrumbList` · `Organization` · `Person` (author) · `Dataset` (the methodology page — links to structured data and raises citation odds)
+- **`FAQPage` only when the FAQ is genuinely visible on the page.** Schema for hidden content violates the guidelines
 
-#### hreflang و بازدیدکننده‌ی غیرآمریکایی
+#### hreflang and the non-US visitor
 
-با ورود صفحات کشوری اروپا، سایت دو مخاطب جغرافیایی دارد:
+Once European country pages arrive, the site has two geographic audiences:
 
-- صفحات آمریکا: `hreflang="en-US"` · صفحات کشوری: `hreflang="en"` عمومی
-- **صفحه‌ی مالیات ایالتی برای کاربر اروپایی بی‌معنی است.** به‌جای ریدایرکت (که هم UX بد است هم سیگنال گیج‌کننده)، یک نوار کوچک بالای صفحه: «به‌دنبال هزینه‌ی زندگی خارج از آمریکا هستید؟» با لینک
-- هیچ ریدایرکت خودکار بر اساس IP — گوگل‌بات را هم گمراه می‌کند
+- US pages: `hreflang="en-US"` · country pages: generic `hreflang="en"`
+- **A state tax page is meaningless to a European user.** Instead of a redirect (bad UX and a confusing signal), a small bar at the top of the page: "Looking for cost of living outside the US?" with a link
+- No automatic IP-based redirect — it misleads Googlebot too
 
-#### صفحه‌بندی دایرکتوری
+#### Directory pagination
 
-با ۱۰۰+ مترو، دایرکتوری نمی‌تواند یک صفحه بماند.
+With 100+ metros, the directory cannot stay one page.
 
-- گروه‌بندی بر اساس ایالت یا منطقه، **نه صفحه‌بندی عددی** — گروه‌بندی معنایی هم برای کاربر بهتر است هم صفحات قابل‌ایندکس‌تری می‌سازد
-- هر صفحه‌ی گروه محتوای یکتای خودش را دارد (بودجه‌ی بخش ۶-۸-۴ اینجا هم اعمال می‌شود)
-- اگر روزی صفحه‌بندی عددی لازم شد: `rel="next/prev"` دیگر سیگنال نیست؛ هر صفحه باید مستقلاً ارزش داشته باشد وگرنه `noindex`
+- Group by state or region, **not numeric pagination** — semantic grouping is better for the user and produces more indexable pages
+- Each group page carries its own unique content (the budget in section 6-8-4 applies here too)
+- If numeric pagination ever becomes necessary: `rel="next/prev"` is no longer a signal; each page must stand on its own value or be `noindex`
 
-#### هم‌کانیبالی و canonical — با بازرس خودکار
+#### Cannibalisation and canonical — with an automated auditor
 
-> **این بخش اجرا می‌شود، توصیه نیست.** نقشه در [`data/pages.json`](../data/pages.json) · بازرس `scripts/audit_seo.py` · در CI اجرا می‌شود و build را می‌شکند.
+> **This section is enforced, not advised.** The map is in [`data/pages.json`](../data/pages.json) · the auditor is `scripts/audit_seo.py` · it runs in CI and breaks the build.
 
 ```bash
 python3 scripts/audit_seo.py
 ```
 
-**چه چیزی چک می‌شود:**
+**What is checked:**
 
-| # | بررسی |
+| # | Check |
 |---|---|
-| ۱ | هر صفحه دقیقاً **یک** کیورد هدف اصلی دارد |
-| ۲ | هیچ کیوردی دوبار ادعا نشده |
-| ۳ | کیورد اصلی یک صفحه، کیورد فرعی صفحه‌ی دیگر نیست |
-| ۴ | جفت‌های با شباهت لغوی ≥۳۰٪ باید **خروجی اصلی متفاوت** اعلام‌شده داشته باشند |
-| ۵ | هر هدف در `data/keywords.json` اندازه‌گیری شده باشد |
-| ۶ | canonical روی همه‌ی صفحات self است و ابزارها پارامتر را حذف می‌کنند |
-| ۷ | هر قالبِ در حال استفاده فرمول title، H1 و meta دارد |
-| ۸ | title ≤۶۰، H1 ≤۷۰ و meta بین ۱۱۰ تا ۱۵۵ کاراکتر — با **طولانی‌ترین جانشین ممکن** رندر می‌شود، نه یک نمونه‌ی خوش‌بینانه |
-| ۹ | کیورد اصلی در title و H1 رندرشده هست؛ و الگوی هر قالب برنامه‌ای جانشین موجودیت دارد تا صفحات عنوان مشترک نگیرند |
-| ۱۰ | قواعد متن لینک، OG و robots اعلام شده‌اند و هر قالب JSON-LD تعریف‌شده دارد |
+| 1 | Every page has exactly **one** primary target keyword |
+| 2 | No keyword is claimed twice |
+| 3 | One page's primary keyword is not another page's secondary |
+| 4 | Pairs with ≥30% lexical similarity must declare **different primary outputs** |
+| 5 | Every target is measured in `data/keywords.json` |
+| 6 | Canonical is self on every page and tools strip parameters |
+| 7 | Every template in use has a title, H1 and meta formula |
+| 8 | Title ≤60, H1 ≤70 and meta between 110 and 155 characters — rendered with the **longest possible substitution**, not an optimistic sample |
+| 9 | The primary keyword is present in the rendered title and H1; and every programmatic template's pattern carries an entity placeholder so pages cannot share a title |
+| 10 | Anchor-text, OG and robots rules are declared, and every template has defined JSON-LD |
 
-**نتیجه‌ی اجرای فعلی: ۱۷ صفحه · ۰ خطا · ۰ هشدار** — با هر ده بررسی. هر سه هشدار با اندازه‌گیری واقعی رفع شدند — دو کیورد تأیید و ثبت شدند (`cost of living by city` ۸۸۰ · `state income tax rates by state` ۳٬۶۰۰) و سومی رد شد و صفحه‌اش حذف شد (`job offer comparison calculator` ۳۰).
+**Current run: 17 pages · 0 errors · 0 warnings** — across all ten checks. All three original warnings were resolved by actual measurement: two keywords were confirmed and recorded (`cost of living by city` 880 · `state income tax rates by state` 3,600) and the third was rejected and its page deleted (`job offer comparison calculator` 30).
 
-##### مهم‌ترین قاعده — عمومی در برابر موجودیتی
+##### The most important rule — generic versus entity
 
-بازرس دو جفت با شباهت **۶۷٪** پیدا کرد که ریسک واقعی‌اند:
+The auditor found two pairs at **67%** similarity that are genuine risks:
 
 | | |
 |---|---|
-| `/tools/income-tax-calculator` | در برابر `/state-taxes/{state}` |
-| `/tools/cost-of-living-calculator` | در برابر `/cost-of-living/{metro}` |
+| `/tools/income-tax-calculator` | versus `/state-taxes/{state}` |
+| `/tools/cost-of-living-calculator` | versus `/cost-of-living/{metro}` |
 
-هر دو یک الگو دارند: **ابزار عمومی با انتخابگر مکان، در برابر صفحه‌ی یک مکان مشخص.**
+Both share one pattern: **a generic tool with a location selector, versus the page for one specific place.**
 
-> **ابزار عمومی هرگز برای کوئری موجودیت‌دار بهینه نمی‌شود.** `/tools/income-tax-calculator` هرگز «California» در title، H1، meta یا H2 ندارد — آن کوئری مال `/state-taxes/california` است. و برعکس: صفحه‌ی ایالتی هرگز برای کیورد عمومی بهینه نمی‌شود.
+> **A generic tool is never optimised for an entity-qualified query.** `/tools/income-tax-calculator` never carries "California" in its title, H1, meta or H2 — that query belongs to `/state-taxes/california`. And the reverse: a state page is never optimised for the generic keyword.
 
-بدون این قاعده، ابزار عمومی که ۵۱ ایالت را پشتیبانی می‌کند، ناخواسته با هر ۵۱ صفحه‌ی ایالتی رقابت می‌کند — و چون ابزار قوی‌تر است، صفحات ایالتی هرگز رتبه نمی‌گیرند.
+Without this rule, the generic tool that supports all 51 states unintentionally competes with all 51 state pages — and because the tool is stronger, the state pages never rank.
 
-##### دایرکتوری در برابر ابزار
+##### Directory versus tool
 
-دایرکتوری **فهرست** است، ابزار **محاسبه**. دایرکتوری ماشین‌حساب کامل جاسازی نمی‌کند و ابزار فهرست کامل موجودیت‌ها را نمایش نمی‌دهد. اگر هر دو هر دو کار را بکنند، یکی باید حذف شود.
+A directory **lists**, a tool **calculates**. A directory does not embed a full calculator and a tool does not render the full entity list. If both do both, one has to go.
 
-##### خانواده‌ی چهارتایی حقوق
+##### The salary family of four
 
-`income tax` · `take-home pay` · `paycheck tax` · `tax withholding` — چهار کوئری با نیت نزدیک. تفکیکشان **باید در خروجی دیده شود**، نه فقط در URL:
+`income tax` · `take-home pay` · `paycheck tax` · `tax withholding` — four queries with adjacent intent. Their separation **must be visible in the output**, not only in the URL:
 
-| ابزار | عدد برجسته‌ی ResultCard |
+| Tool | The ResultCard's headline number |
 |---|---|
-| income tax | بدهی مالیاتی **سالانه** + جدول براکت |
-| take-home pay | خالص **سالانه و ماهانه** |
-| paycheck tax | خالص **هر فیش** به تفکیک دوره‌ی پرداخت |
-| tax withholding | **چقدر در W-4 کسر شود** تا آخر سال صفر شود |
+| income tax | **Annual** tax liability + the bracket table |
+| take-home pay | **Annual and monthly** net |
+| paycheck tax | **Net per paycheck**, by pay period |
+| tax withholding | **What to withhold on the W-4** so the year ends at zero |
 
-H1، اولین جمله و عدد برجسته باید این تفاوت را نشان بدهند. اگر چهار صفحه یک عدد را برجسته کنند، چهار صفحه‌ی تکراری‌اند هرچقدر هم URL متفاوت باشد.
+The H1, the first sentence and the headline number must show that difference. If all four highlight the same number, they are four duplicate pages however different their URLs.
 
-##### قواعد canonical
+##### Canonical rules
 
-هفت قاعده در `data/pages.json` ثبت و توسط بازرس چک می‌شوند: self-canonical مطلق · حذف همه‌ی پارامترها · بدون اسلش پایانی · یک هاست (apex یا www) · HTTPS اجباری · حروف کوچک · صفحات گروه دایرکتوری canonical مستقل دارند · هیچ صفحه‌ای هم‌زمان canonical و noindex ندارد.
+Seven rules are recorded in `data/pages.json` and checked by the auditor: absolute self-canonical · strip all parameters · no trailing slash · one host (apex or www) · HTTPS mandatory · lowercase · directory group pages carry their own canonical · no page is both canonicalised and noindexed.
 
-**نکته‌ی پارامترها:** ابزار مقایسه `?from=&to=` می‌گیرد تا از صفحات شهری پر شود، ولی همیشه به نسخه‌ی بدون پارامتر canonical می‌شود. این عمدی است — صفحه‌ی جفت‌شهر نمی‌سازیم (بخش ۶-۵)، پس پارامتر نباید صفحه‌ی قابل‌ایندکس بسازد.
+**A note on parameters:** the comparison tool accepts `?from=&to=` so it can be prefilled from city pages, but always canonicalises to the parameter-free version. That is deliberate — we do not build city-pair pages (section 6-5), so a parameter must not create an indexable page.
 
-#### تازگی محتوا
+#### Content freshness
 
-`dateModified` در JSON-LD **فقط وقتی به‌روز می‌شود که محتوا واقعاً عوض شده باشد.** به‌روزرسانی تاریخ بدون تغییر محتوا، دستکاری سیگنال است و کشف می‌شود.
+`dateModified` in the JSON-LD **updates only when the content genuinely changed.** Bumping the date without changing content is signal manipulation and it gets detected.
 
-به‌روزرسانی سالانه‌ی داده (بخش ۱۶) خودش یک تغییر واقعی است و `dateModified` را مشروع می‌کند — یک مزیت ساختاری این نیش که محتوای ثابت ندارد.
+The annual data update (section 16) is itself a genuine change and makes `dateModified` legitimate — a structural advantage of a niche whose content is not static.
 
 ---
 
-### ۹-۵. لینک‌سازی خارجی — مسیر بحرانی، نه کار جانبی
+### 9-5. External link building — the critical path, not a side task
 
-**ناسازگاری که این بخش رفع می‌کند:** بخش ۱۴ می‌گوید «رقبا با اعتبار دامنه رتبه گرفته‌اند و کیفیت به‌تنهایی کافی نیست» — و بعد کل استراتژی لینک یک سطر بود. اگر تشخیص درست باشد، لینک مسیر بحرانی است و باید به همان اندازه‌ی موتور مالیات جدی گرفته شود.
+**The inconsistency this section fixes:** section 14 says "competitors rank on domain authority and quality alone is not enough" — and then the entire link strategy was one line. If the diagnosis is right, links are the critical path and deserve to be taken as seriously as the tax engine.
 
-#### ۹-۵-۱. چرا محتوا به‌تنهایی کافی نیست
+#### 9-5-1. Why content alone is not enough
 
-SERP کیورد اصلی: شش جایگاه از ده تای اول ویجت‌های سفیدبرچسب روی دامنه‌ی بانک‌ها و بیمه‌هاست. محتوایشان ضعیف است. **با کیفیت شکستشان می‌دهیم، ولی گوگل کیفیت را وقتی می‌بیند که کسی به آن لینک داده باشد.** لینک، مکانیزم کشف کیفیت است، نه جایگزین آن.
+The SERP for the primary keyword: six of the top ten positions are white-label widgets on bank and insurance domains. Their content is weak. **We beat them on quality, but Google sees quality only once somebody has linked to it.** A link is the discovery mechanism for quality, not a substitute for it.
 
-#### ۹-۵-۲. دارایی‌های لینک‌پذیر — چیزی که مردم به آن لینک می‌دهند
+#### 9-5-2. Linkable assets — the things people actually link to
 
-ماشین‌حساب لینک نمی‌گیرد. **داده لینک می‌گیرد.** سه دارایی که از همان چیزی ساخته می‌شوند که داریم:
+Calculators do not attract links. **Data attracts links.** Three assets built from what we already have:
 
-| دارایی | چرا لینک می‌گیرد | هزینه |
+| Asset | Why it earns links | Cost |
 |---|---|---|
-| **«خالص $۹۵٬۰۰۰ در هر ۵۱ حوزه»** — جدول کامل، به‌روزشونده‌ی سالانه | یک واقعیت قابل‌نقل با عدد. روزنامه‌نگار و بلاگر به عدد لینک می‌دهند نه به ابزار | از موتور موجود، تقریباً صفر |
-| **«ارزان‌ترین و گران‌ترین متروها پس از مالیات»** | ترکیبی که هیچ‌کس ندارد؛ Numbeo مالیات ندارد | نیازمند دیتاست BEA |
-| **متدولوژی باز** — منابع، فرمول‌ها، محدودیت‌ها | سایت‌های داده‌محور به منبع قابل‌استناد لینک می‌دهند | از بخش ۶-۳ |
+| **"Net pay on $95,000 in all 51 jurisdictions"** — a complete table, updated annually | One quotable fact with a number. Journalists and bloggers link to a number, not to a tool | From the existing engine, near zero |
+| **"The cheapest and most expensive metros after tax"** | A combination nobody has; Numbeo has no tax | Requires the BEA dataset |
+| **Open methodology** — sources, formulas, limitations | Data-driven sites link to a citable source | From section 6-3 |
 
-**قاعده:** هر دارایی باید در یک جمله قابل‌نقل باشد. «سیاتل و پورتلند سه ساعت فاصله دارند و اختلاف خالص سالانه‌شان $۷٬۱۶۷ است» — این لینک می‌گیرد. «ماشین‌حساب ما دقیق است» نمی‌گیرد.
+**Rule:** every asset must be quotable in one sentence. "Seattle and Portland are three hours apart and their annual net pay differs by $7,167" — that earns links. "Our calculator is accurate" does not.
 
-#### ۹-۵-۳. کانال‌ها و ترتیب
+#### 9-5-3. Channels and order
 
-| فاز | کانال | قاعده |
+| Phase | Channel | Rule |
 |---|---|---|
-| ماه ۱-۳ | Reddit (r/personalfinance · r/moving · r/expats) · انجمن‌های تخصصی | **فقط پاسخ‌دادن، بدون لینک.** لینک زودهنگام = بن |
-| ماه ۳-۶ | همان انجمن‌ها، حالا با لینک وقتی واقعاً جواب سؤال است | نسبت حداقل ۱۰ پاسخ بدون لینک به ۱ با لینک |
-| ماه ۴+ | Hacker News · Indie Hackers — پست «چطور ساختیم» با تمرکز بر داده | یک‌بار، با کیفیت |
-| ماه ۶+ | تماس با نویسندگان مقالات نقل‌مکان و مالیات، با ارائه‌ی داده نه درخواست لینک | داده می‌دهیم، لینک می‌خواهیم — نه برعکس |
-| مستمر | HARO و مشابه‌ها — پاسخ کارشناسی با داده‌ی خودمان | |
+| Month 1–3 | Reddit (r/personalfinance · r/moving · r/expats) · specialist forums | **Answer only, no links.** An early link means a ban |
+| Month 3–6 | The same forums, now with links when it genuinely answers the question | A ratio of at least 10 link-free answers to 1 with a link |
+| Month 4+ | Hacker News · Indie Hackers — a "how we built it" post focused on the data | Once, done well |
+| Month 6+ | Contact authors of relocation and tax articles, offering data rather than asking for links | We give data and earn links — not the reverse |
+| Ongoing | HARO and similar — expert answers using our own data | |
 
-**آنچه انجام نمی‌شود:** خرید لینک · تبادل لینک · دایرکتوری‌های بی‌کیفیت · پست مهمان انبوه. در نیش YMYL این‌ها ریسک جریمه دارند که از سودشان بیشتر است.
+**What is never done:** buying links · link exchanges · low-quality directories · mass guest posting. In a YMYL niche these carry a penalty risk larger than their benefit.
 
-#### ۹-۵-۴. هدف کمّی و اندازه‌گیری
+#### 9-5-4. Quantitative target and measurement
 
-| زمان | دامنه‌های ارجاع‌دهنده‌ی طبیعی |
+| Time | Natural referring domains |
 |---|---|
-| ماه ۶ | ۵-۱۰ |
-| ماه ۱۲ | ۲۵-۴۰ |
-| ماه ۱۸ | ۶۰+ |
+| Month 6 | 5–10 |
+| Month 12 | 25–40 |
+| Month 18 | 60+ |
 
-**اگر در ماه ۶ زیر ۵ باشد، مشکل توزیع است نه محتوا** — و ساختن صفحه‌ی بیشتر حلش نمی‌کند. این یکی از علائم هشدار بخش ۱۷-۱ است.
+**If it is under 5 at month 6, the problem is distribution, not content** — and building more pages will not fix it. This is one of the warning signs in section 17-1.
 
-#### ۹-۵-۵. سهم زمان
+#### 9-5-5. Share of time
 
-**حداقل ۳۰٪ زمان پروژه از ماه ۳ به بعد.** اگر همه‌ی زمان صرف ساختن صفحه شود، صفحاتی می‌سازیم که کسی نمی‌بیند — دقیقاً همان تله‌ای که بخش ۱۴ توصیفش می‌کند.
-
----
-
-## ۱۰. AdSense
-
-### ۱۰-۱. پیش‌نیازهای تأیید
-
-- [ ] دامنه‌ی اختصاصی (نه زیردامنه‌ی رایگان)
-- [ ] ۳۰ تا ۴۰ صفحه‌ی کامل و منتشرشده
-- [ ] هر ۷ صفحه‌ی اعتماد (بخش ۶-۴) — به‌ویژه About واقعی و Privacy با افشای کوکی
-- [ ] ناوبری تمیز و بدون لینک شکسته
-- [ ] هیچ صفحه‌ی خالی یا «به‌زودی»
-- [ ] ترافیک ارگانیک اولیه (اجباری نیست ولی کمک می‌کند)
-
-### ۱۰-۲. انتظارات فرایند
-
-- بازبینی معمولاً چند روز تا چند هفته طول می‌کشد
-- **رد شدن در نوبت اول عادی است** و پایان کار نیست؛ دلیل را برطرف کن و دوباره اقدام کن
-- در نیش مالی (YMYL) سخت‌گیری بیشتر است — به همین دلیل صفحات اعتماد قبل از محتوا ساخته می‌شوند، نه بعدش
-- در تایم‌لاین برای **دو بار اقدام** جا گذاشته شده
-
-### ۱۰-۳. پیاده‌سازی فنی
-
-- `AdSlot` با `min-height` ثابت از همان رندر اول
-- بارگذاری تنبل اسکریپت (`next/script` با `strategy="afterInteractive"`)
-- حداکثر ۳ جایگاه در هر صفحه در ابتدا؛ تراکم بیشتر، هم UX و هم Core Web Vitals را خراب می‌کند
-- **هرگز کلیک روی تبلیغ خودت** — حتی یک‌بار می‌تواند به بن دائمی منجر شود
-- Auto Ads در ابتدا خاموش بماند تا کنترل CLS دست ما باشد
+**At least 30% of project time from month 3 onward.** If all the time goes into building pages, we build pages nobody sees — exactly the trap section 14 describes.
 
 ---
 
-### ۱۰-۴. نقشه‌ی جایگاه تبلیغات
+## 10. AdSense
 
-تراکم تبلیغات مستقیماً روی هدف ۵۰۰-۷۰۰ دلار اثر دارد، ولی زیاده‌روی هم UX و هم Core Web Vitals و هم رتبه را خراب می‌کند. حداکثر **سه جایگاه** در فاز ۱:
+### 10-1. Approval prerequisites
 
-| جایگاه | مکان | اندازه | `min-height` |
+- [ ] A dedicated domain (not a free subdomain)
+- [ ] 30–40 complete, published pages
+- [ ] All 7 trust pages (section 6-4) — especially a real About and a Privacy page with cookie disclosure
+- [ ] Clean navigation with no broken links
+- [ ] No empty or "coming soon" pages
+- [ ] Some initial organic traffic (not required, but it helps)
+
+### 10-2. Process expectations
+
+- Review usually takes a few days to a few weeks
+- **Being rejected the first time is normal** and not the end; fix the reason and reapply
+- A finance (YMYL) niche is scrutinised harder — which is why the trust pages are built before the content, not after
+- The timeline allows for **two applications**
+
+### 10-3. Technical implementation
+
+- `AdSlot` with a fixed `min-height` from the first render
+- Lazy script loading (`next/script` with `strategy="afterInteractive"`)
+- At most 3 slots per page initially; higher density damages both UX and Core Web Vitals
+- **Never click your own ads** — even once can lead to a permanent ban
+- Auto Ads stay off initially so we keep control of CLS
+
+---
+
+### 10-4. Ad placement map
+
+Ad density affects the $500–700 target directly, but overdoing it damages UX, Core Web Vitals and rankings alike. At most **three slots** in phase 1:
+
+| Slot | Location | Size | `min-height` |
 |---|---|---|---|
-| `after-result` | بلافاصله بعد از ResultCard | responsive | **۲۸۰px** |
-| `in-content` | بین بخش مقاله‌ای و FAQ | responsive | **۲۸۰px** |
-| `sidebar` | sticky، فقط ≥۱۰۲۴px | ۳۰۰×۶۰۰ | **۶۰۰px** |
+| `after-result` | Immediately after the ResultCard | responsive | **280px** |
+| `in-content` | Between the article section and the FAQ | responsive | **280px** |
+| `sidebar` | Sticky, ≥1024px only | 300×600 | **600px** |
 
-**قواعد سخت:**
+**Hard rules:**
 
-1. **هیچ تبلیغی بالای نتیجه نیست.** کاربر برای عدد آمده. تبلیغ قبل از عدد، هم نرخ خروج را بالا می‌برد هم سیگنال «محتوای کم‌ارزش» می‌دهد.
-2. **`min-height` از همان رندر اول رزرو می‌شود**، قبل از لود اسکریپت. CLS باید زیر ۰.۱ بماند.
-3. **Auto Ads خاموش** — کنترل CLS دست ما می‌ماند.
-4. **در موبایل جایگاه سایدبار وجود ندارد**، جایگزین نمی‌شود.
-5. **هرگز کلیک روی تبلیغ خودت** — حتی یک‌بار می‌تواند به بن دائمی منجر شود.
-6. صفحات اعتماد (About، Privacy، Terms، Contact) **بدون تبلیغ**. AdSense صفحات سیاست را با تبلیغ سنگین بد می‌بیند.
+1. **No ad above the result.** The user came for the number. An ad before the number raises exit rate and signals "thin content".
+2. **`min-height` is reserved from the first render**, before the script loads. CLS must stay under 0.1.
+3. **Auto Ads off** — CLS control stays with us.
+4. **The sidebar slot does not exist on mobile**, and is not substituted.
+5. **Never click your own ads** — even once can lead to a permanent ban.
+6. Trust pages (About, Privacy, Terms, Contact) carry **no ads**. AdSense views ad-heavy policy pages poorly.
 
-### ۱۰-۵. مهاجرت به شبکه‌ی پریمیوم
+### 10-5. Migrating to a premium network
 
-AdSense نقطه‌ی شروع است، نه مقصد. در حدود **۳۰ تا ۵۰ هزار سشن ماهانه** شبکه‌های پریمیوم معمولاً RPM را به‌طور معنادار بالا می‌برند — با همان ترافیک می‌تواند تفاوت $۵۰۰ و $۹۰۰ باشد.
+AdSense is the starting point, not the destination. At roughly **30,000–50,000 monthly sessions**, premium networks usually raise RPM meaningfully — on the same traffic that can be the difference between $500 and $900.
 
-- این را در **دروازه ۳** ارزیابی کن، نه زودتر
-- آستانه‌ها و شرایط شبکه‌ها تغییر می‌کند و باید همان موقع راستی‌آزمایی شود
-- معیار تصمیم: RPM واقعی سه ماه گذشته‌ی AdSense در برابر تخمین شبکه‌ی جدید، نه ادعای بازاریابی
-- تراکم تبلیغ شبکه‌های پریمیوم بالاتر است؛ اثرش روی Core Web Vitals قبل از مهاجرت اندازه‌گیری شود
+- Evaluate this at **gate 3**, not earlier
+- Network thresholds and terms change and must be verified at that time
+- The decision criterion: real AdSense RPM over the past three months versus the new network's estimate, not its marketing claim
+- Premium networks run higher ad density; measure the effect on Core Web Vitals before migrating
 
-### ۱۰-۶. رضایت کوکی — الزامی که با ورود اروپا فعال شد
+### 10-6. Cookie consent — a requirement activated by Europe
 
-تا قبل از مرحله ۲.۵ هدف فقط آمریکا بود و این «خوب است داشته باشیم» به‌نظر می‌رسید. **با ورود صفحات هزینه‌ی زندگی سطح کشور اروپا، به الزام تبدیل شد.**
+Before stage 2.5 the target was the US only and this looked like a nice-to-have. **With European country-level cost-of-living pages, it became mandatory.**
 
-**مسئله:** تحلیل ترافیک ما بدون کوکی است (بخش ۱۵-۱) پس مشکلی ندارد — ولی **AdSense کوکی می‌گذارد**. سیاست رضایت کاربر اروپایی گوگل، برای ترافیک اروپا یک CMP تأییدشده الزام می‌کند. بدون آن، گوگل می‌تواند نمایش تبلیغ به آن ترافیک را متوقف کند.
+**The issue:** our traffic analytics are cookieless (section 15-1), so they are fine — but **AdSense sets cookies**. Google's EU user consent policy requires a certified CMP for European traffic. Without one, Google can stop serving ads to that traffic.
 
-**تصمیم‌ها:**
+**Decisions:**
 
-1. **قبل از فعال‌کردن تبلیغ، یک CMP از فهرست تأییدشده‌ی گوگل نصب می‌شود.** نه بعدش
-2. **Consent Mode** پیاده می‌شود تا اندازه‌گیری در حالت عدم‌رضایت هم کار کند
-3. کاربر آمریکایی بنر نمی‌بیند — CMP فقط جایی فعال می‌شود که لازم است
-4. برای کالیفرنیا لینک «Do Not Sell or Share» در فوتر
-5. `/privacy` باید صریح بگوید **محاسبات کلاینت‌ساید می‌مانند و هیچ عدد مالی به سرور نمی‌رود** — در نیش مالی این خودش مزیت است، نه فقط الزام
+1. **A CMP from Google's certified list is installed before ads are enabled.** Not after
+2. **Consent Mode** is implemented so measurement still works in the non-consent state
+3. US users see no banner — the CMP activates only where it is required
+4. A "Do Not Sell or Share" footer link for California
+5. `/privacy` must state explicitly that **calculations stay client-side and no financial figure reaches a server** — in a finance niche that is an advantage, not only a requirement
 
-> ⚠️ جزئیات این الزامات تغییر می‌کند. قبل از پیاده‌سازی، فهرست CMP های تأییدشده و شرایط روز راستی‌آزمایی شود — مثل هر عدد دیگری در این سند.
+> ⚠️ The details of these requirements change. Before implementing, verify the certified CMP list and current terms — like every other number in this document.
 
-**گزینه‌ی جایگزین اگر CMP دیر شد:** تبلیغ برای ترافیک اروپا خاموش بماند تا وقتی CMP آماده شود. درآمد کمتر، ولی ریسک سیاستی صفر. **هرگز تبلیغ بدون رضایت به کاربر اروپایی نمایش داده نمی‌شود.**
+**The fallback if the CMP is late:** keep ads off for European traffic until the CMP is ready. Less revenue, but zero policy risk. **An ad is never served to a European user without consent.**
 
 ---
 
-## ۱۱. تایم‌لاین و دروازه‌های تصمیم
+## 11. Timeline and decision gates
 
-تفاوت اصلی با سند قبلی: **مرحله‌ی اعتبارسنجی واقعاً در تقویم جا دارد**، و بعد از هر مرحله یک دروازه‌ی تصمیم با معیار عددی هست.
+The main difference from the previous document: **the validation phase genuinely occupies calendar time**, and after each phase there is a decision gate with a numeric criterion.
 
-> ~~**مهلت واقعی پروژه دسامبر ۲۰۲۶ است**~~ — **منسوخ در نسخه ۴.** آن مهلت از فصلی‌بودن مالیات می‌آمد؛ خوشه‌ی مکان تقریباً بدون فصل است. فصل مالیاتی همچنان یک جهش می‌دهد ولی شکست پروژه به آن گره نخورده. متن زیر برای تاریخچه می‌ماند:
+> ~~**The project's real deadline is December 2026**~~ — **obsolete as of version 4.** That deadline came from tax seasonality; the place cluster is nearly seasonless. Tax season still gives a jump, but the project's failure is no longer tied to it. The text below is kept for history:
 >
-> **[منسوخ]** اعتبارسنجی کیورد نشان داد فصلی‌بودن تا **۴۶ برابر** است (turbotax calculator: ۳٬۶۰۰ در جولای، ۱۶۵٬۰۰۰ در ژانویه). صفحه‌ای که در فوریه منتشر شود، اوج را از دست داده و باید یک سال کامل صبر کند. امروز اواخر آگوست است — **حدود چهار ماه فرصت داریم.**
+> **[obsolete]** Keyword validation showed seasonality up to **46×** (turbotax calculator: 3,600 in July, 165,000 in January). A page published in February has missed the peak and must wait a full year. It is late August today — **we have roughly four months.**
 
-| ماه | کار | خروجی |
+| Month | Work | Output |
 |---|---|---|
-| **سپتامبر (هفته ۱)** | ✅ اعتبارسنجی کیورد (انجام شد) · استخراج ۱۳ قلم داده‌ی مالیاتی از منابع اولیه · ثبت دامنه · راه‌اندازی GSC | داده‌ی مالیاتی در JSON |
-| **سپتامبر** | موتور مالیات + تست‌های golden · ۷ صفحه‌ی اعتماد | موتور تست‌شده |
-| **اکتبر** | ۵ ابزار لایه ۱ · ۳ راهنمای اول · ۸ صفحه‌ی ایالتی | **دروازه ۱** |
-| **نوامبر** | ۳ ابزار خوشه‌ی W-2 · ۶ راهنمای باقی‌مانده · اقدام AdSense | AdSense تأییدشده |
-| **دسامبر** | 🎯 **همه‌چیز باید منتشر و ایندکس شده باشد** · تقویت لینک · آماده‌سازی فصل | **دروازه ۲** |
-| **ژانویه-آوریل** | فصل مالیاتی: اوج ترافیک · بهینه‌سازی زنده بر اساس GSC · هیچ صفحه‌ی جدید بزرگی | **دروازه ۳** (پایان آوریل) |
-| **مه به بعد** | بر اساس دروازه ۳: گسترش ایالت‌ها یا عمیق‌ترکردن خوشه‌ی W-2 | |
+| **September (week 1)** | ✅ Keyword validation (done) · extract 13 tax data items from primary sources · register the domain · set up GSC | Tax data in JSON |
+| **September** | Tax engine + golden tests · 7 trust pages | A tested engine |
+| **October** | 5 layer-1 tools · the first 3 guides · 8 state pages | **Gate 1** |
+| **November** | 3 W-2 cluster tools · the remaining 6 guides · apply to AdSense | AdSense approved |
+| **December** | 🎯 **Everything must be published and indexed** · link push · season preparation | **Gate 2** |
+| **January–April** | Tax season: peak traffic · live optimisation from GSC · no large new pages | **Gate 3** (end of April) |
+| **May onward** | Per gate 3: expand the states or deepen the W-2 cluster | |
 
-**نکته‌ی ترتیب:** اگر ظرفیت زمانی کم آمد، ترتیب حذف از آخر است — اول صفحات ایالتی، بعد راهنماها. **۵ ابزار لایه ۱ و ۷ صفحه‌ی اعتماد هرگز حذف نمی‌شوند**؛ بدون آن‌ها نه AdSense تأیید می‌شود نه ترافیکی می‌آید.
+**A note on order:** if time capacity runs short, cut from the end — state pages first, then guides. **The 5 layer-1 tools and the 7 trust pages are never cut**; without them there is neither AdSense approval nor traffic.
 
-### ۱۱-۱. دروازه‌های تصمیم — معیار عددی، نه احساس
+### 11-1. Decision gates — numeric criteria, not feelings
 
-**دروازه ۱ (پایان اکتبر) — «آیا اصلاً ایندکس می‌شویم؟»**
-۳ تا ۴ هفته بعد از انتشار ۸ صفحه‌ی نمونه:
-- ✅ **ادامه بده:** حداقل ۶ صفحه از ۸ صفحه ایندکس شده و impression می‌گیرند
-- ⚠️ **مکث و اصلاح:** ایندکس شده ولی صفر impression → مشکل انتخاب کیورد است، نه فنی. کیوردها را بازبینی کن قبل از ساختن ۴۳ صفحه‌ی بعدی
-- ❌ **توقف و بازنگری:** ایندکس نشده → مشکل فنی یا کیفیت محتواست. **به‌هیچ‌وجه مقیاس نده.** مقیاس‌دادن مشکل ایندکس، آن را چند برابر می‌کند
+**Gate 1 (end of October) — "are we being indexed at all?"**
+Three to four weeks after publishing the 8 sample pages:
+- ✅ **Continue:** at least 6 of the 8 are indexed and taking impressions
+- ⚠️ **Pause and fix:** indexed but zero impressions → the problem is keyword selection, not technical. Review the keywords before building the next 43 pages
+- ❌ **Stop and reconsider:** not indexed → a technical or content-quality problem. **Do not scale under any circumstances.** Scaling an indexation problem multiplies it
 
-**دروازه ۲ (پایان دسامبر) — «آیا آماده‌ی فصل هستیم؟»**
-- ✅ همه‌ی صفحات لایه ۱ و ۱.۵ ایندکس شده، AdSense تأیید شده، ترافیک ارگانیک ماهانه بالای ۱٬۰۰۰ بازدید و صعودی
-- ⚠️ زیر ۵۰۰ → متوقف کن و تا ژانویه فقط روی توزیع و لینک تمرکز کن، نه صفحه‌ی بیشتر. ورود به فصل با صفحات ایندکس‌نشده بی‌فایده است
-- بررسی: آیا صفحات ایالتی هم‌کانیبال می‌شوند؟ آیا کیوردی هست که در جایگاه ۱۱-۲۰ باشد و با کمی تقویت به صفحه‌ی اول برسد؟
+**Gate 2 (end of December) — "are we ready for the season?"**
+- ✅ All layer 1 and 1.5 pages indexed, AdSense approved, monthly organic traffic above 1,000 visits and rising
+- ⚠️ Under 500 → stop and focus solely on distribution and links until January, not more pages. Entering the season with unindexed pages is pointless
+- Check: are the state pages cannibalising each other? Is there a keyword sitting at position 11–20 that a small push would move to page one?
 
-**دروازه ۳ (پایان آوریل ۲۰۲۷، بعد از فصل مالیاتی) — «آیا فاز ۲ توجیه دارد؟»**
-- ✅ **برو به فاز ۲:** اوج فصل بالای ۳۰۰ دلار در ماه و پایه‌ی خارج از فصل بالای ۱۰۰ دلار → گسترش بده
-- ⚠️ **عمیق‌تر شو، نه پهن‌تر:** ۳۰-۱۰۰ دلار → همان نیش مالیات را عمیق‌تر کن. اضافه‌کردن نیش دوم روی پایه‌ی ضعیف، هر دو را ضعیف می‌کند
-- ❌ **بازنگری بنیادی:** زیر ۳۰ دلار → فرض اصلی اشتباه بوده. قبل از سرمایه‌گذاری بیشتر، تحلیل کن کجا
+**Gate 3 (end of April 2027, after tax season) — "is phase 2 justified?"**
+- ✅ **Go to phase 2:** season peak above $300/month and an out-of-season base above $100 → expand
+- ⚠️ **Go deeper, not wider:** $30–100 → deepen the same tax niche. Adding a second niche on a weak base weakens both
+- ❌ **Fundamental review:** under $30 → the core assumption was wrong. Analyse where before investing further
 
-### ۱۱-۲. ظرفیت زمانی — صادقانه
+### 11-2. Time capacity — honestly
 
-پس از بازنگری بخش ۶، فاز ۱ حدود **۳۵ هزار کلمه + یک اپلیکیشن + موتور محاسباتی تست‌شده** است (برآورد اولیه ۸۰ هزار کلمه بود).
+After the section 6 revision, phase 1 is roughly **35,000 words + an application + a tested calculation engine** (the initial estimate was 80,000 words).
 
-- تمام‌وقت: تا دسامبر کاملاً شدنی است
-- نیمه‌وقت (~۲۰ ساعت در هفته): تنگ ولی شدنی، به‌شرط رعایت ترتیب حذف بالا
-- اگر ظرفیت کمتر از این است، **دامنه را کم کن، نه کیفیت را**. ۵ ابزار عالی به‌مراتب بهتر از ۳۴ صفحه‌ی متوسط است — هم برای گوگل، هم برای AdSense
+- Full time: comfortably achievable by December
+- Part time (~20 hours a week): tight but doable, provided the cut order above is respected
+- If capacity is below that, **reduce scope, not quality**. Five excellent tools beat 34 mediocre pages by a wide margin — for Google and for AdSense alike
 
-**همین کاهش ۸۰ هزار به ۳۵ هزار کلمه، تفاوت بین «رسیدن به فصل مالیاتی ۲۰۲۷» و «از دست دادن آن» است.**
-
----
-
-## ۱۲. تعریف «انجام‌شده»
-
-هیچ صفحه‌ای منتشر نمی‌شود مگر همه‌ی موارد زیر برقرار باشند:
-
-**بودجه‌ی عملکرد — عدد، نه «سریع باشد»**
-
-| معیار | سقف |
-|---|---|
-| JS اولیه‌ی هر صفحه (فشرده) | **۹۰ KB** |
-| وزن کل صفحه بدون تبلیغ | **۳۵۰ KB** |
-| LCP | ≤ ۲.۰ ثانیه |
-| INP | ≤ ۲۰۰ میلی‌ثانیه |
-| CLS | ≤ ۰.۱ |
-
-**ممنوعیت‌های صریح در فاز ۱:** کتابخانه‌ی نمودار (Waterfall با CSS/SVG ساخته می‌شود) · کتابخانه‌ی تاریخ (‏`Intl` کافی است) · lodash · هر انیمیشن سنگین. با ۳۶ ابزار در صف، بدون سقف عددی Lighthouse آرام‌آرام می‌افتد و کسی متوجه نمی‌شود تا وقتی دیر شده.
-
-**فنی**
-- [ ] `curl` روی URL، محتوای کامل را در HTML برمی‌گرداند (نه پوسته‌ی خالی SPA)
-- [ ] بودجه‌ی عملکرد بالا رعایت شده
-- [ ] `title`، `description`، `canonical` و JSON-LD در HTML اولیه حاضرند
-- [ ] Lighthouse: Performance ≥ ۹۰، Accessibility ≥ ۹۵، CLS < ۰.۱
-- [ ] در گوشی واقعی تست شده
-- [ ] در `sitemap.xml` هست
-
-**داده**
-- [ ] هر عدد یک منبع اولیه‌ی لینک‌شده دارد
-- [ ] `lastVerified` کمتر از ۱۲ ماه
-- [ ] تست‌های موتور مالیات سبز
-
-**محتوا**
-- [ ] ۹۰۰ تا ۱٬۴۰۰ کلمه
-- [ ] حداقل یک واقعیت مختص همان ایالت از منبع اولیه
-- [ ] بازبینی انسانی انجام شده
-- [ ] ۵ سؤال FAQ با اعداد محاسبه‌شده‌ی همان ایالت
-- [ ] لینک به حداقل ۳ صفحه‌ی داخلی مرتبط
-- [ ] دیسکلیمر و تاریخ داده نمایش داده می‌شوند
-
-### ۱۲-۱. اضافه، برای صفحات ابزار
-
-صفحات ابزار هسته‌ی کسب‌وکارند و شرط‌های بیشتری دارند:
-
-- [ ] ماشین‌حساب با پیش‌فرض واقع‌بینانه باز می‌شود و **نتیجه از لحظه‌ی اول دیده می‌شود** (بخش ۸-۹)
-- [ ] فرم اولیه حداکثر ۴ فیلد؛ بقیه جمع‌شده
-- [ ] بخش «چطور محاسبه می‌شود» با اعداد همین کاربر — ورودی هدف AI Overview (بخش ۸-۸)
-- [ ] هر رشته‌ی `warnings` و `state.notes` در UI دیده می‌شود، دور ریخته نمی‌شود
-- [ ] رویدادهای بخش ۱۵-۲ ثبت می‌شوند
-- [ ] `min-height` هر AdSlot رزرو شده؛ CLS زیر ۰.۱ اندازه‌گیری شده
-- [ ] اعداد پولی با `tabular-nums` — هنگام تایپ نمی‌لرزند
-- [ ] H1 دقیقاً کیورد هدف از فهرست اعتبارسنجی‌شده
-
-### ۱۲-۲. اضافه، برای صفحات هزینه‌ی زندگی
-
-- [ ] **هیچ مبلغ دلاری اختراعی روی صفحه نیست** — دلارها یا از ورودی کاربرند یا از HUD/BLS با برچسب صریح «تخمین منطقه‌ای» (بخش ۴-۹-۱)
-- [ ] دسته‌ای که شاخص رسمی ندارد، نمایش داده نمی‌شود
-- [ ] سال داده‌ی BEA روی صفحه نوشته شده — این شاخص‌ها همیشه با تأخیر منتشر می‌شوند (بخش ۱۶-۲-۱)
-- [ ] **لینک متقابل به ماشین‌حساب مالیات همان ایالت** برقرار است — مزیتی که هیچ رقیبی ندارد
-- [ ] `/methodology` منابع BEA و HUD را با لینک فهرست می‌کند
-
-**تست دود نهایی:** صفحه را کنار صفحه‌ی رقیب بگذار. اگر نمی‌توانی در یک جمله بگویی چرا مال ما بهتر است، صفحه آماده نیست. برای این نیش آن جمله معمولاً یکی از این‌هاست: مالیات ایالتی واقعی دارد · نشان می‌دهد پول کجا رفت · تاریخ پرداخت بعدی را می‌گوید · می‌گوید کجا را نمی‌داند.
+**That reduction from 80,000 to 35,000 words is the difference between "making tax season 2027" and "missing it".**
 
 ---
 
-## ۱۳. داده‌ی مالیاتی — وضعیت و راستی‌آزمایی
+## 12. Definition of done
 
-**هیچ رقم مالیاتی در این سند نوشته نشده.** اعداد فقط در `src/data/tax-year-{year}/` زندگی می‌کنند، همراه با منبع و تاریخ.
+No page ships unless all of the following hold:
 
-### ۱۳-۱. وضعیت فعلی (۲۰۲۶-۰۸-۲۹)
+**Performance budget — a number, not "make it fast"**
 
-| مورد | وضعیت |
+| Metric | Ceiling |
 |---|---|
-| حوزه‌های استخراج‌شده | **۵۱ از ۵۱** (۵۰ ایالت + دی‌سی) |
-| ساختار | ۹ بدون مالیات · ۱۵ تخت · ۲۷ پلکانی |
-| فدرال | براکت‌های هر ۴ وضعیت + کسر استاندارد + SE tax + سقف Social Security + QBI |
-| خطای ساختاری | **۰** |
-| کلاس منبع | **ثانویه — تأییدنشده** |
-| برنامه‌ی پرداخت فصلی | **مشتق‌شده الگوریتمی** از ۲۶ U.S.C. ۶۶۵۴ و ۷۵۰۳ |
-| اقلام استخراج‌نشده | — |
+| Initial JS per page (compressed) | **90 KB** |
+| Total page weight excluding ads | **350 KB** |
+| LCP | ≤ 2.0 s |
+| INP | ≤ 200 ms |
+| CLS | ≤ 0.1 |
 
-### ۱۳-۲. ابزارها
+**Explicitly forbidden in phase 1:** a charting library (the waterfall is built with CSS/SVG) · a date library (`Intl` suffices) · lodash · any heavy animation. With 36 tools queued, Lighthouse drifts down quietly without a numeric ceiling and nobody notices until it is too late.
 
-| فایل | نقش |
-|---|---|
-| `scripts/extract_tax_data.py` | بازتولید کامل دیتاست از بسته‌ی مبدأ. مسیر واقعی هر ایالت را در خروجی ثبت می‌کند |
-| `scripts/validate_tax_data.py` | اعتبارسنجی ساختاری، برای CI. با `--strict` روی هشدارها هم شکست می‌خورد |
-| `scripts/estimated_tax.py` | اشتقاق برنامه‌ی پرداخت فصلی و قواعد safe harbor از متن قانون |
-| `docs/data-verification.md` | چک‌لیست ردیف‌به‌ردیف با لینک منبع اولیه‌ی هر قلم |
+**Technical**
+- [ ] `curl` on the URL returns the complete content in the HTML (not an empty SPA shell)
+- [ ] The performance budget above is met
+- [ ] `title`, `description`, `canonical` and JSON-LD are present in the initial HTML
+- [ ] Lighthouse: Performance ≥ 90, Accessibility ≥ 95, CLS < 0.1
+- [ ] Tested on a real phone
+- [ ] Present in `sitemap.xml`
 
-### ۱۳-۳. چرا داده هنوز «تأییدنشده» است
+**Data**
+- [ ] Every number has a linked primary source
+- [ ] `lastVerified` under 12 months
+- [ ] Tax engine tests green
 
-شبکه‌ی محیط توسعه به `irs.gov` و دپارتمان‌های درآمد ایالتی دسترسی ندارد. داده از درخت پارامتر یک مدل مالیاتی متن‌باز نگهداری‌شده استخراج شد که هر پارامترش ارجاع به منبع اولیه دارد؛ آن ارجاع‌ها در `provenance.sources` هر فایل کپی شده‌اند.
+**Content**
+- [ ] 900–1,400 words
+- [ ] At least one state-specific fact from a primary source
+- [ ] Human review completed
+- [ ] 5 FAQ questions with computed numbers for that state
+- [ ] Links to at least 3 related internal pages
+- [ ] The disclaimer and data date are displayed
 
-جایگزین «استخراج از جستجوی وب» آزمایش و رد شد: دو جستجوی متوالی برای همان کیورد، براکت‌های فدرال متناقض برگرداندند. این دقیقاً همان شکستی است که قانون شماره یک برای جلوگیری از آن نوشته شده.
+### 12-1. Additionally, for tool pages
 
-### ۱۳-۴. قواعد سخت
+Tool pages are the core of the business and carry extra conditions:
 
-1. **تا تیک‌خوردن ردیف مربوطه در `docs/data-verification.md`، آن صفحه منتشر نمی‌شود.**
-2. **۷ ایالتی که ارقام ۲۰۲۶ ندارند** (کالیفرنیا، آیداهو، مینه‌سوتا، میزوری، اورگن، ورمانت، ویسکانسین) براکت تورمی دارند و مقادیر فعلیشان **۲۰۲۵** است. تا انتشار ارقام جدید، یا صفحه ساخته نمی‌شود یا صریحاً «بر اساس ارقام ۲۰۲۵» برچسب می‌خورد. نمایش عدد ۲۰۲۵ زیر عنوان ۲۰۲۶ همان اشتباهی است که کل پروژه برای پرهیز از آن ساخته می‌شود.
-3. **تاریخ‌های سررسید فصلی از روی قانون محاسبه می‌شوند، نه کپی از جدول.** `scripts/estimated_tax.py` الگوی قانونی ۲۶ U.S.C. ۶۶۵۴(c)(2) را با قاعده‌ی تعطیلات ۷۵۰۳ ترکیب می‌کند و برای هر سالی تاریخ درست می‌دهد. دلیلش عملی است: دو منبع وب برای ۲۰۲۶ دو تاریخ متفاوت دادند (۱۵ و ۱۶ ژوئن) و محاسبه نشان داد ۱۵ ژوئن دوشنبه است، پس جابه‌جایی ندارد. سال‌هایی که واقعاً جابه‌جا می‌شوند (مثل آوریل ۲۰۲۸ به‌خاطر آخر هفته + روز رهایی دی‌سی) خودکار درست درمی‌آیند.
-4. بازاجرای اسکریپت استخراج، همه‌ی `verification` ها را به `pending` برمی‌گرداند. تأییدهای انجام‌شده قبل از بازاجرا کامیت شوند.
+- [ ] The calculator opens with realistic defaults and **the result is visible from the first moment** (section 8-9)
+- [ ] The initial form has at most 4 fields; the rest are collapsed
+- [ ] A "how it is calculated" section using this user's own numbers — the AI Overview entry point (section 8-8)
+- [ ] Every `warnings` and `state.notes` string is visible in the UI, not discarded
+- [ ] The events in section 15-2 are recorded
+- [ ] Every AdSlot's `min-height` is reserved; CLS measured below 0.1
+- [ ] Money figures use `tabular-nums` — they do not jitter while typing
+- [ ] The H1 is exactly the target keyword from the validated list
 
-### ۱۳-۵. نکات دقتی که در استخراج کشف شد
+### 12-2. Additionally, for cost-of-living pages
 
-این‌ها مواردی هستند که یک استخراج ساده‌انگارانه اشتباه می‌گرفت:
+- [ ] **No invented dollar amount appears on the page** — dollars come either from the user's input or from HUD/BLS with an explicit "regional estimate" label (section 4-9-1)
+- [ ] A category with no official index is not displayed
+- [ ] The BEA data year is written on the page — these indices are always published with a lag (section 16-2-1)
+- [ ] **The cross-link to that state's tax calculator** is present — the advantage no competitor has
+- [ ] `/methodology` lists the BEA and HUD sources with links
 
-| مورد | تله |
-|---|---|
-| ضریب ۰.۹۲۳۵ | فیلد `net_earnings_exemption` در مبدأ **۴۰۰ دلار** است (حداقل درآمد مشمول)، نه ضریب. ضریب باید از `۱ − (نرخ SS + نرخ Medicare) ÷ ۲` مشتق شود |
-| جورجیا | از ۲۰۲۴ تخت شده (۴.۹۹٪ برای ۲۰۲۶)، ولی جدول پلکانی منسوخش هنوز در داده هست |
-| لوئیزیانا | از ۲۰۲۵ تخت شده (۳٪)، همان تله |
-| کالیفرنیا | سقف ۱۲.۳٪ است، نه ۱۳.۳٪ — یک درصد اضافه مالیات جداگانه‌ی خدمات سلامت روان بالای یک میلیون دلار است |
-| نیوهمپشایر | مالیات بهره/سود سهامش از ۲۰۲۵ لغو شده؛ حالا واقعاً بدون مالیات بر درآمد است |
-| می‌سی‌سی‌پی | نرخ تخت با یک پله‌ی صفر است، نه پلکانی |
-| ایالت‌های تخت | نرخشان سال‌ها ثابت می‌ماند؛ «تاریخ قدیمی» به‌معنای «کهنه» نیست. فقط پارامتر تورمی می‌تواند کهنه باشد |
-| مالیات محلی | ۹ ایالت مالیات محلی مؤثر بر فریلنسرها دارند و در فیلد `localTaxNote` ثبت شده‌اند |
+**The final smoke test:** put the page next to a competitor's. If you cannot say in one sentence why ours is better, the page is not ready. For this niche that sentence is usually one of: it has real state tax · it shows where the money went · it tells you your next payment date · it says what it does not know.
 
 ---
 
-## ۱۴. جایگاه رقابتی
+## 13. Tax data — status and verification
 
-تحلیل SERP (سند تحقیق، بخش ۳) چیزی نشان داد که استراتژی محتوا را تعیین می‌کند.
+**No tax figure is written in this document.** The numbers live only in `src/data/tax-year-{year}/`, alongside their source and date.
 
-### ۱۴-۱. رقیب واقعی کیست
+### 13-1. Current status (2026-08-29)
 
-برای `self employment tax calculator`، شش جایگاه از ده جایگاه اول را **ویجت‌های سفیدبرچسب** روی سایت بانک‌ها و بیمه‌ها گرفته‌اند: UMB، GuideStone، The Hartford، یک کردیت‌یونیون در فلوریدا، Nationwide، CalcXML.
+| Item | Status |
+|---|---|
+| Jurisdictions extracted | **51 of 51** (50 states + DC) |
+| Structure | 9 no-tax · 15 flat · 27 progressive |
+| Federal | Brackets for all 4 statuses + standard deduction + SE tax + Social Security cap + QBI |
+| Structural errors | **0** |
+| Source class | **Secondary — unverified** |
+| Quarterly payment schedule | **Derived algorithmically** from 26 U.S.C. 6654 and 7503 |
+| Items not extracted | — |
 
-| | آن‌ها | ما |
+### 13-2. Tooling
+
+| File | Role |
+|---|---|
+| `scripts/extract_tax_data.py` | Rebuild the dataset from the source package. Records each state's actual path in its output |
+| `scripts/validate_tax_data.py` | Structural validation, for CI. With `--strict` it also fails on warnings |
+| `scripts/estimated_tax.py` | Derive the quarterly payment schedule and safe harbor rules from statute |
+| `docs/data-verification.md` | A row-by-row checklist with a primary-source link for every item |
+
+### 13-3. Why the data is still "unverified"
+
+The development environment's network cannot reach `irs.gov` or the state revenue departments. The data was extracted from the parameter tree of a maintained open-source tax model, where every parameter carries a reference to a primary source; those references are copied into each file's `provenance.sources`.
+
+The alternative — "extraction from web search" — was tried and rejected: two consecutive searches for the same keyword returned contradictory federal brackets. That is exactly the failure rule number one exists to prevent.
+
+### 13-4. Hard rules
+
+1. **A page does not ship until its corresponding row in `docs/data-verification.md` is ticked.**
+2. **The 7 states without 2026 figures** (California, Idaho, Minnesota, Missouri, Oregon, Vermont, Wisconsin) have inflation-indexed brackets and their current values are **2025**. Until the new figures are published, either the page is not built or it is explicitly labelled "based on 2025 figures". Showing a 2025 number under a 2026 heading is the exact mistake this whole project exists to avoid.
+3. **Quarterly due dates are computed from statute, not copied from a table.** `scripts/estimated_tax.py` combines the statutory pattern of 26 U.S.C. 6654(c)(2) with the holiday rule of 7503 and produces correct dates for any year. The reason is practical: two web sources gave two different dates for 2026 (June 15 and 16), and the calculation showed June 15 is a Monday, so no shift applies. Years that genuinely do shift (such as April 2028, from a weekend plus DC's Emancipation Day) come out correct automatically.
+4. Re-running the extraction script resets every `verification` to `pending`. Commit completed verifications before re-running.
+
+### 13-5. Accuracy details discovered during extraction
+
+These are the things a naive extraction would have got wrong:
+
+| Item | The trap |
+|---|---|
+| The 0.9235 factor | The source's `net_earnings_exemption` field is **$400** (the minimum earnings threshold), not the factor. The factor must be derived from `1 − (SS rate + Medicare rate) ÷ 2` |
+| Georgia | Flat since 2024 (4.99% for 2026), but its repealed progressive table is still in the data |
+| Louisiana | Flat since 2025 (3%), the same trap |
+| California | The top rate is 12.3%, not 13.3% — the extra percent is a separate mental health services tax above one million dollars |
+| New Hampshire | Its interest/dividends tax was repealed in 2025; it now genuinely has no income tax |
+| Mississippi | A flat rate with one zero-rate step, not progressive |
+| Flat states | Their rate stays fixed for years; "an old date" does not mean "stale". Only an inflation-indexed parameter can go stale |
+| Local tax | 9 states have local taxes affecting freelancers, recorded in the `localTaxNote` field |
+
+---
+
+## 14. Competitive position
+
+The SERP analysis (research document, section 3) revealed something that determines the content strategy.
+
+### 14-1. Who the real competitor is
+
+For `self employment tax calculator`, six of the top ten positions are **white-label widgets** on bank and insurance sites: UMB, GuideStone, The Hartford, a Florida credit union, Nationwide, CalcXML.
+
+| | Them | Us |
 |---|---|---|
-| منبع محاسبه | ویجت لایسنس‌شده، یکسان در همه | موتور اختصاصی با تست golden |
-| مالیات ایالتی | ندارند | هر ۵۱ حوزه |
-| جدول براکت‌به‌براکت | ندارند | دارد |
-| تقویم پرداخت فصلی | ندارند | با تاریخ‌های مشتق از قانون |
-| محدودیت‌ها | اعلام نمی‌کنند | صریح در `warnings` |
-| اعتبار دامنه | **بسیار بالا** | **صفر** |
+| Calculation source | A licensed widget, identical everywhere | A purpose-built engine with golden tests |
+| State tax | None | All 51 jurisdictions |
+| Bracket-by-bracket table | None | Yes |
+| Quarterly payment calendar | None | With dates derived from statute |
+| Limitations | Not declared | Explicit in `warnings` |
+| Domain authority | **Very high** | **Zero** |
 
-**نتیجه‌ی راهبردی:** از نظر کیفیت محتوا شکست‌دادنشان راحت است. ولی آن‌ها با اعتبار دامنه رتبه گرفته‌اند، نه با کیفیت — و اعتبار دامنه دقیقاً چیزی است که ما نداریم. **پس کیفیت به‌تنهایی کافی نیست؛ بخش ۹-۴ (لینک و توزیع) واقعاً حیاتی است، نه کار جانبی.**
+**The strategic conclusion:** on content quality they are easy to beat. But they rank on domain authority, not on quality — and domain authority is exactly what we lack. **So quality alone is not enough; section 9-4 (links and distribution) is genuinely critical, not a side task.**
 
-### ۱۴-۲. نشانه‌ی امیدوارکننده
+### 14-2. An encouraging sign
 
-`sdocpa.com` — یک دفتر حسابداری کوچک — در جایگاه ۱۳ است. و AI Overview همین کیورد به **`taxstra.com`** استناد می‌کند، یک سایت نیش کوچک، بالاتر از TaxAct و QuickBooks. سایت کوچک در این نیش می‌تواند برنده شود.
+`sdocpa.com` — a small accounting practice — sits at position 13. And the AI Overview for that same keyword cites **`taxstra.com`**, a small niche site, above TaxAct and QuickBooks. A small site can win in this niche.
 
-### ۱۴-۳. جمله‌ای که هر صفحه باید بتواند بگوید
+### 14-3. The sentence every page must be able to say
 
-> «صفحه‌ی ما را کنار صفحه‌ی رقیب بگذار. اگر نمی‌توانی در یک جمله بگویی چرا مال ما بهتر است، صفحه آماده نیست.»
+> "Put our page next to a competitor's. If you cannot say in one sentence why ours is better, the page is not ready."
 
-برای این نیش، آن جمله معمولاً یکی از این‌هاست: **مالیات ایالتی واقعی دارد** · **نشان می‌دهد پولت دقیقاً کجا رفت** · **تاریخ پرداخت بعدی‌ات را می‌گوید** · **می‌گوید کجا را نمی‌داند**.
+For this niche that sentence is usually one of: **it has real state tax** · **it shows exactly where your money went** · **it tells you your next payment date** · **it says what it does not know**.
 
 ---
 
-## ۱۵. اندازه‌گیری و ابزاردقیق
+## 15. Measurement and instrumentation
 
-دروازه‌های تصمیم بخش ۱۱ به داده نیاز دارند. اگر از روز اول اندازه نگیریم، در ماه سوم داده‌ای برای تصمیم نداریم.
+The decision gates in section 11 need data. If we do not measure from day one, there is nothing to decide with by month three.
 
-### ۱۵-۱. چه چیزی از روز اول
+### 15-1. What goes in from day one
 
-| ابزار | چه زمانی | چرا |
+| Tool | When | Why |
 |---|---|---|
-| Google Search Console | **قبل از انتشار اولین صفحه** | تنها منبع impression و جایگاه. تأخیر اینجا یعنی از دست‌دادن داده‌ی برگشت‌ناپذیر |
-| تحلیل ترافیک سبک (بدون کوکی) | با اولین صفحه | Plausible/Umami یا مشابه — سبک و بدون بنر کوکی |
-| داشبورد AdSense | بعد از تأیید | RPM واقعی جایگزین تخمین‌های بخش ۱ می‌شود |
+| Google Search Console | **Before the first page ships** | The only source of impressions and positions. Delay here means irrecoverable lost data |
+| Lightweight cookieless analytics | With the first page | Plausible/Umami or similar — light, and no cookie banner |
+| The AdSense dashboard | After approval | Real RPM replaces the estimates in section 1 |
 
-### ۱۵-۲. رویدادهایی که ثبت می‌شوند
+### 15-2. Events that are recorded
 
-ماشین‌حساب بدون ابزاردقیق، جعبه‌ی سیاه است — نمی‌فهمی کاربر کجا رها می‌کند.
+A calculator without instrumentation is a black box — you cannot tell where the user gives up.
 
-| رویداد | چه چیزی را جواب می‌دهد |
+| Event | The question it answers |
 |---|---|
-| `calc_interact` (اولین تغییر ورودی) | چند درصد بازدیدکنندگان اصلاً با ابزار کار می‌کنند؟ |
-| `calc_field_changed` (نام فیلد) | کدام فیلد گیج‌کننده است؟ کدام هرگز لمس نمی‌شود؟ |
-| `calc_advanced_opened` | آیا فیلدهای پیشرفته ارزش دارند یا شلوغی‌اند؟ |
-| `result_shared` | آیا دکمه‌ی اشتراک واقعاً مسیر ترافیک باز می‌کند؟ |
-| `state_changed` | کدام ایالت‌ها واقعاً انتخاب می‌شوند؟ **ورودی مستقیم تصمیم ساخت صفحه‌ی ایالتی نهم** |
-| `warning_shown` (نوع) | کدام محدودیت بیشتر به کاربر واقعی می‌خورد؟ اولویت رفعش |
+| `calc_interact` (first input change) | What share of visitors use the tool at all? |
+| `calc_field_changed` (field name) | Which field is confusing? Which is never touched? |
+| `calc_advanced_opened` | Are the advanced fields worth it, or just clutter? |
+| `result_shared` | Does the share button genuinely open a traffic route? |
+| `state_changed` | Which states are actually selected? **A direct input to the decision to build the ninth state page** |
+| `warning_shown` (type) | Which limitation hits real users most? That sets the fix priority |
 
-**قاعده:** هیچ داده‌ی شخصی و هیچ مقدار مالی ثبت نمی‌شود — فقط نام فیلد و رخداد. محاسبات کلاینت‌ساید می‌مانند و همین را در `/privacy` می‌نویسیم؛ در نیش مالی این خودش یک مزیت است.
+**Rule:** no personal data and no financial value is ever recorded — only the field name and the event. Calculations stay client-side and we say so in `/privacy`; in a finance niche that is itself an advantage.
 
-### ۱۵-۳. بازبینی ماهانه — نیم‌ساعت، نه پروژه
+### 15-3. Monthly review — half an hour, not a project
 
-هر ماه، همین چند عدد:
+Every month, just these numbers:
 
-1. **کیوردهای جایگاه ۱۱ تا ۲۰** — نزدیک‌ترین برد. تقویت این‌ها ارزان‌تر از نوشتن صفحه‌ی جدید است
-2. **صفحاتی با impression بالا و CTR پایین** — مشکل title/description است، نه محتوا
-3. **صفحاتی با ورود بالا و `calc_interact` پایین** — ماشین‌حساب پیدا نمی‌شود یا نمی‌ترساند
-4. **RPM به‌تفکیک صفحه** — کدام خوشه واقعاً پول می‌دهد
-5. **آیا کیوردی هست که فرض بخش ۶ را رد کند؟**
+1. **Keywords at positions 11–20** — the nearest win. Strengthening these is cheaper than writing a new page
+2. **Pages with high impressions and low CTR** — a title/description problem, not a content problem
+3. **Pages with high entries and low `calc_interact`** — the calculator is not being found, or it intimidates
+4. **RPM by page** — which cluster actually pays
+5. **Is there a keyword that refutes a section 6 assumption?**
 
 ---
 
-## ۱۶. رانبوک به‌روزرسانی سالانه
+## 16. Annual update runbook
 
-بزرگ‌ترین بدهی بلندمدت این پروژه. مالیات هر سال عوض می‌شود و **صفحاتی با داده‌ی منقضی از نداشتن صفحه بدترند** — هم برای کاربر هم برای اعتبار سایت.
+The project's largest long-term debt. Tax changes every year, and **pages with expired data are worse than no pages** — for the user and for the site's credibility alike.
 
-### ۱۶-۱. تقویم
+### 16-1. Calendar
 
-| زمان | کار |
+| Time | Work |
 |---|---|
-| **اکتبر-نوامبر** | IRS معمولاً Revenue Procedure سال بعد را منتشر می‌کند. `scripts/extract_tax_data.py --year {next}` اجرا شود |
-| **نوامبر** | SSA سقف Social Security سال بعد را اعلام می‌کند |
-| **دسامبر** | ایالت‌های تورمی ارقامشان را منتشر می‌کنند — همان ۷ ایالتی که در بخش ۱۳ کهنه علامت خورده‌اند |
-| **دسامبر** | راستی‌آزمایی طبق `docs/data-verification.md`، سپس `--strict` |
-| **ژانویه** | سوییچ سال پیش‌فرض سایت + به‌روزرسانی متن صفحات + انتشار |
+| **October–November** | The IRS usually publishes next year's Revenue Procedure. Run `scripts/extract_tax_data.py --year {next}` |
+| **November** | The SSA announces next year's Social Security cap |
+| **December** | Inflation-indexed states publish their figures — the same 7 states marked stale in section 13 |
+| **December** | Verify against `docs/data-verification.md`, then run `--strict` |
+| **January** | Switch the site's default year + update page copy + publish |
 
-### ۱۶-۲. رانبوک
+### 16-2. The runbook
 
 ```bash
 python3 scripts/extract_tax_data.py --year 2027
 python3 scripts/estimated_tax.py     --year 2027
 python3 scripts/validate_tax_data.py --year 2027
-npm test        # تست‌های golden باید با داده‌ی جدید هم منطقی بمانند
+npm test        # the golden tests must still make sense against the new data
 ```
 
-سپس:
-1. خروجی `stale for 2027` را بخوان — هر ایالتی که آنجاست یا صبر می‌کند یا برچسب سال قبل می‌خورد
-2. ردیف‌های `docs/data-verification.md` را تیک بزن
-3. **سال قبل حذف نمی‌شود.** `src/data/tax-year-2026/` می‌ماند؛ کاربری که دارد اظهارنامه‌ی سال قبل را پر می‌کند به آن نیاز دارد. یک انتخابگر سال روی ابزارها
-4. `dateModified` صفحات به‌روز شود — سیگنال تازگی برای گوگل
+Then:
+1. Read the `stale for 2027` output — every state listed there either waits or is labelled with the previous year
+2. Tick the rows in `docs/data-verification.md`
+3. **The previous year is not deleted.** `src/data/tax-year-2026/` stays; a user filling in last year's return needs it. Add a year selector on the tools
+4. Update the pages' `dateModified` — a freshness signal for Google
 
-### ۱۶-۲-۱. چرخه‌ی هزینه‌ی زندگی
+### 16-2-1. The cost-of-living cycle
 
-منابع این خوشه هم سالانه به‌روز می‌شوند، با تقویم متفاوت از مالیات:
+This cluster's sources also update annually, on a different calendar from tax:
 
-| منبع | زمان انتشار |
+| Source | Publication time |
 |---|---|
-| BEA Regional Price Parities | معمولاً اواخر سال، برای سال قبل |
-| HUD Fair Market Rent | معمولاً پاییز، برای سال مالی بعد |
-| Eurostat comparative price levels | سالانه |
+| BEA Regional Price Parities | Usually late in the year, for the prior year |
+| HUD Fair Market Rent | Usually autumn, for the next fiscal year |
+| Eurostat comparative price levels | Annually |
 
-**نکته‌ی مهم:** برخلاف مالیات که تاریخ اجرایش قطعی است، این شاخص‌ها با تأخیر منتشر می‌شوند — یعنی همیشه داده‌ی سال گذشته را نمایش می‌دهیم. **این باید روی صفحه صریح نوشته شود**، نه پنهان: «شاخص‌های BEA سال {year}، آخرین داده‌ی منتشرشده».
+**An important note:** unlike tax, whose effective date is definite, these indices are published with a lag — meaning we always display last year's data. **This must be stated explicitly on the page**, not hidden: "BEA indices for {year}, the most recent published data".
 
-### ۱۶-۳. محافظ خودکار
+### 16-3. The automatic guard
 
-`validate_tax_data.py` اگر دیتاست بیش از ۴۰۰ روز از تولیدش گذشته باشد **build را می‌شکند**. این عمدی است: فراموش‌کردن به‌روزرسانی باید به‌صورت خطای CI ظاهر شود، نه به‌صورت صفحات بی‌صدا غلط.
+`validate_tax_data.py` **breaks the build** if the dataset is more than 400 days past its generation. This is deliberate: forgetting to update must surface as a CI error, not as quietly wrong pages.
 
 ---
 
-## ۱۷. ریسک‌ها
+## 17. Risks
 
-صادقانه، با کاهنده‌ی مشخص. ریسکی که نوشته نشود، برنامه‌ای هم برایش نیست.
+Stated honestly, each with a specific mitigation. A risk that is not written down has no plan behind it.
 
-| # | ریسک | اثر | کاهنده |
+| # | Risk | Impact | Mitigation |
 |---|---|---|---|
-| ۱ | **دامنه‌ی نو ایندکس نمی‌شود** | کشنده | دروازه ۱ با معیار عددی. مقیاس‌ندادن قبل از اثبات. Next.js استاتیک به‌جای SPA |
-| ۲ | **AI Overview کلیک ارگانیک را می‌بلعد** | زیاد، و در حال بدترشدن | بخش ۶-۸ و ۸-۸: ساختار گام‌به‌گام برای استنادشدن. تنوع به کیوردهای ابزاری که کاربر باید تعامل کند، نه صرفاً پاسخ کوتاه بخواند |
-| ۳ | **رقبا اعتبار دامنه‌ی بسیار بالاتری دارند** | زیاد | بخش ۱۴. کیفیت + long-tail + توزیع فعال. پذیرش اینکه کیوردهای سر سال اول نمی‌آیند |
-| ۴ | **یک عدد غلط، ۵۱ صفحه را غلط می‌کند** | کشنده برای اعتبار | تست‌های golden · اعتبارسنج CI · قاعده‌ی راستی‌آزمایی قبل از انتشار |
-| ۵ | **AdSense رد می‌کند** | تأخیر ماه‌ها | صفحات اعتماد **قبل از** محتوا. جا گذاشتن برای دو بار اقدام |
-| ۶ | **ظرفیت زمانی کم می‌آید** | زیاد | ترتیب حذف صریح در بخش ۱۱: اول ایالت‌ها، بعد راهنماها؛ ابزارهای لایه ۱ هرگز |
-| ۷ | **آپدیت الگوریتم گوگل** | متغیر | تمرکز بر یک نیش، E-E-A-T واقعی، عدم اتکا به یک کیورد. اگر افت آمد: قبل از هر تغییری چهار هفته صبر کن — واکنش عجولانه به آپدیت، معمولاً بدترش می‌کند |
-| ۸ | **فصلی‌بودن، هدف ماهانه را نمی‌سازد** | زیاد | مرحله ۱.۵ و ۳ (بخش ۲-۳) که کیوردهای بدون فصل می‌آورند |
-| ۹ | **داده‌ی سالانه فراموش می‌شود** | زیاد | بخش ۱۶ + شکستن build بعد از ۴۰۰ روز |
-| ۱۰ | **دامنه‌ی پروژه به سمت «زندگی» می‌لغزد** | زیاد | بخش ۲-۲: ریاضی و سلامت صریحاً خارج از دامنه |
+| 1 | **A new domain does not get indexed** | Fatal | Gate 1 with a numeric criterion. No scaling before proof. Static Next.js instead of an SPA |
+| 2 | **AI Overviews swallow the organic click** | High, and getting worse | Sections 6-8 and 8-8: a step-by-step structure to earn the citation. Diversify toward tool keywords where the user must interact, not merely read a short answer |
+| 3 | **Competitors have far higher domain authority** | High | Section 14. Quality + long-tail + active distribution. Accepting that head keywords do not come in year one |
+| 4 | **One wrong number makes 51 pages wrong** | Fatal to credibility | Golden tests · a CI validator · the verify-before-publish rule |
+| 5 | **AdSense rejects the site** | Months of delay | Trust pages **before** content. Room for two applications |
+| 6 | **Time capacity runs short** | High | An explicit cut order in section 11: states first, then guides; the layer-1 tools never |
+| 7 | **A Google algorithm update** | Variable | Focus on one niche, real E-E-A-T, no reliance on a single keyword. If a drop comes: wait four weeks before changing anything — a rushed reaction to an update usually makes it worse |
+| 8 | **Seasonality does not deliver the monthly target** | High | Stages 1.5 and 3 (section 2-3), which bring seasonless keywords |
+| 9 | **The annual update is forgotten** | High | Section 16 + breaking the build after 400 days |
+| 10 | **Project scope drifts toward "life"** | High | Section 2-2: maths and health are explicitly out of scope |
 
-### ۱۷-۱. علائم هشدار زودهنگام
+### 17-1. Early warning signs
 
-این‌ها را در بازبینی ماهانه ببین؛ هر کدام قبل از اینکه ریسک بالا محقق شود ظاهر می‌شوند:
+Watch for these in the monthly review; each appears before the corresponding risk above materialises:
 
-- صفحات جدید بعد از سه هفته هنوز ایندکس نشده‌اند ← ریسک ۱
-- impression بالا می‌رود ولی کلیک ثابت می‌ماند ← ریسک ۲
-- `calc_interact` زیر ۲۰٪ ← ماشین‌حساب پیدا نمی‌شود، ریسک UX
-- هیچ صفحه‌ای از جایگاه ۲۰ بالاتر نمی‌آید با اینکه محتوا اضافه می‌شود ← ریسک ۳، وقت تمرکز روی لینک
-
----
-
-## ۱۸. فرایند افزودن یک ابزار جدید
-
-کاتالوگ ۳۶ ابزار دارد و ۱۲ تا در فاز ۱ است — یعنی **۲۴ تکرار** از این فرایند در پیش است. بدون چک‌لیست، هر کدام یک تصمیم موردی می‌شود و نتیجه‌اش ناهماهنگی است.
-
-### ۱۸-۱. دروازه‌ی صفر — قبل از نوشتن هر کدی
-
-- [ ] ابزار در [`tool-catalogue.md`](tool-catalogue.md) هست و ارزش بازارش ثبت شده
-- [ ] **SERP کیورد اصلی بررسی شده.** ارزش بازار بالا، رتبه‌ی آسان را تضمین نمی‌کند. اگر ده نتیجه‌ی اول همه برندهای بزرگ با محتوای قوی‌اند، سراغ long-tail برو یا از این ابزار بگذر
-- [ ] AI Overview دارد؟ اگر بله، ساختار «چطور محاسبه می‌شود» از همان اول طراحی شود
-- [ ] در کدام دسته است (A / B / مالیات / وام)؟ اگر هیچ‌کدام، **احتمالاً نباید ساخته شود** — بخش ۲-۲
-
-### ۱۸-۲. اسلاگ و مسیر
-
-- [ ] اسلاگ = کیورد هدف، از فهرست اعتبارسنجی‌شده (بخش ۶-۹)
-- [ ] بدون سال، بدون اسم برند
-- [ ] **اسلاگ بعد از انتشار قفل است** — تغییرش یعنی ریدایرکت دائمی
-
-### ۱۸-۳. منطق
-
-- [ ] اگر مالیاتی است: از `src/lib/tax/` استفاده می‌کند، **منطق جدید مالیاتی نمی‌نویسد** (قاعده‌ی ۳-۴-۱)
-- [ ] اگر داده لازم دارد: منبع اولیه دارد، در JSON با `sources` و `lastVerified`
-- [ ] اگر ریاضی ساده است: در `src/lib/calc/{name}.ts`، تابع خالص
-- [ ] تست دارد — حتی ریاضی ساده. `margin = (price − cost) / price` را هم می‌شود اشتباه نوشت
-- [ ] هر محدودیت در `warnings` می‌آید، بی‌صدا نه (بخش ۴-۸)
-
-### ۱۸-۴. صفحه
-
-- [ ] قالب بخش ۸-۸ · پیش‌فرض‌های بخش ۸-۹ · **هرگز فرم خالی**
-- [ ] بریف محتوای بخش ۷-۲-۱ (۶۰۰-۹۰۰ کلمه)
-- [ ] لینک به حداقل ۳ صفحه‌ی داخلی · و از حداقل ۲ صفحه به آن لینک داده شده
-- [ ] رویدادهای بخش ۱۵-۲ ثبت می‌شوند
-- [ ] در `sitemap.ts` می‌آید (خودکار از رجیستری)
-
-### ۱۸-۵. قبل از انتشار
-
-- [ ] تعریف «انجام‌شده» بخش ۱۲ و ۱۲-۱ کامل
-- [ ] بودجه‌ی عملکرد بخش ۱۲ رعایت شده
-- [ ] روی گوشی واقعی تست شده
-- [ ] تست دود: «چرا مال ما بهتر است؟» در یک جمله
-
-### ۱۸-۶. بعد از انتشار
-
-- [ ] در Search Console ثبت ایندکس شد
-- [ ] بعد از ۳-۴ هفته: impression می‌گیرد؟ اگر نه، **قبل از ساختن ابزار بعدی** دلیلش را بفهم
-- [ ] `calc_interact` بالای ۲۰٪؟ اگر نه، مشکل UX است نه محتوا
-
-> **قاعده‌ی ریتم:** بیش از سه ابزار هم‌زمان منتشر نمی‌شود. انتشار انبوه روی دامنه‌ی جوان، هم سیگنال بد است هم تشخیص اینکه کدام کار کرد را غیرممکن می‌کند.
+- New pages still not indexed after three weeks ← risk 1
+- Impressions rising while clicks stay flat ← risk 2
+- `calc_interact` under 20% ← the calculator is not being found; a UX risk
+- No page climbing above position 20 despite added content ← risk 3, time to focus on links
 
 ---
 
-## ۱۹. خلاصه‌ی تغییرات نسبت به سند قبلی
+## 18. Process for adding a new tool
 
-| # | ایراد سند قبلی | اصلاح |
+The catalogue has 36 tools and 12 are in phase 1 — meaning **24 iterations** of this process lie ahead. Without a checklist each becomes an ad-hoc decision, and the result is inconsistency.
+
+### 18-1. Gate zero — before writing any code
+
+- [ ] The tool is in [`tool-catalogue.md`](tool-catalogue.md) with its market value recorded
+- [ ] **The primary keyword's SERP has been checked.** High market value does not guarantee an easy ranking. If the top ten are all major brands with strong content, go long-tail or skip the tool
+- [ ] Does it have an AI Overview? If so, design the "how it is calculated" structure from the start
+- [ ] Which category is it in (A / B / tax / mortgage)? If none, **it probably should not be built** — section 2-2
+
+### 18-2. Slug and path
+
+- [ ] Slug = the target keyword, from the validated list (section 6-9)
+- [ ] No year, no brand name
+- [ ] **The slug is locked after publication** — changing it means a permanent redirect
+
+### 18-3. Logic
+
+- [ ] If it is tax-related: it uses `src/lib/tax/` and **writes no new tax logic** (rule 3-4-1)
+- [ ] If it needs data: it has a primary source, in JSON with `sources` and `lastVerified`
+- [ ] If it is simple arithmetic: in `src/lib/calc/{name}.ts`, a pure function
+- [ ] It has tests — even simple arithmetic. `margin = (price − cost) / price` can be written wrong too
+- [ ] Every limitation appears in `warnings`, never silently (section 4-8)
+
+### 18-4. The page
+
+- [ ] The template in section 8-8 · the defaults in section 8-9 · **never an empty form**
+- [ ] The content brief in section 7-2-1 (600–900 words)
+- [ ] Links to at least 3 internal pages · and is linked from at least 2
+- [ ] The events in section 15-2 are recorded
+- [ ] It appears in `sitemap.ts` (automatically, from the registry)
+
+### 18-5. Before publishing
+
+- [ ] The definition of done in sections 12 and 12-1 is complete
+- [ ] The performance budget in section 12 is met
+- [ ] Tested on a real phone
+- [ ] The smoke test: "why is ours better?" in one sentence
+
+### 18-6. After publishing
+
+- [ ] Indexation registered in Search Console
+- [ ] After 3–4 weeks: is it taking impressions? If not, understand why **before building the next tool**
+- [ ] Is `calc_interact` above 20%? If not, the problem is UX, not content
+
+> **The rhythm rule:** never publish more than three tools at once. Bulk publication on a young domain is both a bad signal and makes it impossible to tell which one worked.
+
+---
+
+## 19. Changelog
+
+| # | Fault in the previous document | Correction |
 |---|---|---|
-| ۱ | «static-first» ولی React SPA تعریف شده بود | Next.js با خروجی استاتیک واقعی |
-| ۲ | `FEDERAL_INCOME_RATE = 14` — نرخ ثابت اختراعی | موتور کامل براکت‌های پلکانی |
-| ۳ | `stateRate` به‌عنوان «نرخ مؤثر» حدسی | جدول براکت واقعی هر ایالت از منبع اولیه |
-| ۴ | صفحات مقایسه از ترکیب کارتزین (۱۲٬۷۲۰ صفحه) | حداکثر ۱۵ صفحه‌ی دستی و اعتبارسنجی‌شده |
-| ۵ | چک‌لیست «صبر و اعتبارسنجی» با تایم‌لاین ۶ ماهه ناسازگار بود | دروازه‌های تصمیم با معیار عددی، در تقویم جا داده شد |
-| ۶ | Numbeo به‌عنوان منبع داده | منابع اولیه‌ی عمومی + صفحه‌ی Methodology |
-| ۷ | `index` و مجموع ستون‌ها ناسازگار بودند | هیچ مقدار مشتق‌شده‌ای ذخیره نمی‌شود |
-| ۸ | ستون transport دو متدولوژی متفاوت داشت | هر فیلد یک تعریف مکتوب و یکسان |
-| ۹ | ستون بیمه با اعداد غیرواقعی | اگر داده‌ی واقعی نداریم، ستون حذف می‌شود |
-| ۱۰ | استراتژی توزیع در یک سطر | بخش ۹-۴ با کانال، زمان‌بندی و سهم ۳۰٪ از زمان پروژه |
-| ۱۱ | اعتبارسنجی کیورد به فاز ۲ موکول شده بود | ماه صفر، قبل از نوشتن هر صفحه |
-| ۱۲ | برنامه‌ای برای کهنه‌شدن سالانه‌ی داده نبود | چرخه‌ی به‌روزرسانی ژانویه + `nextReviewDue` + شکستن build |
-| ۱۳ | هدف ۵۰۰ دلار در ماه ۶ بدون پشتوانه‌ی محاسباتی | مدل درآمدی با سه سناریو و حساب معکوس RPM |
-| ۱۴ | هیچ الزام تستی برای منطق مالیاتی نبود | بخش ۴-۷، غیرقابل‌مذاکره |
-| ۱۵ | ضرایب حدسی خانوار `{single:1, couple:1.6}` | چهار وضعیت واقعی تشکیل پرونده با اثر ریاضی مستند |
+| 1 | "static-first" but a React SPA was specified | Next.js with a real static export |
+| 2 | `FEDERAL_INCOME_RATE = 14` — an invented flat rate | A complete progressive bracket engine |
+| 3 | `stateRate` as a guessed "effective rate" | A real bracket table per state from a primary source |
+| 4 | Comparison pages from cartesian combination (12,720 pages) | At most 15 manual, validated pages |
+| 5 | The "wait and validate" checklist contradicted the 6-month timeline | Decision gates with numeric criteria, given calendar space |
+| 6 | Numbeo as a data source | Public primary sources + a Methodology page |
+| 7 | `index` and the column totals were inconsistent | No derived value is stored |
+| 8 | The transport column used two different methodologies | Every field has one written, consistent definition |
+| 9 | The insurance column carried unreal numbers | If we have no real data, the column is dropped |
+| 10 | Distribution strategy in one line | Section 9-4 with channels, timing and a 30% share of project time |
+| 11 | Keyword validation deferred to phase 2 | Month zero, before writing any page |
+| 12 | No plan for the data going stale annually | A January update cycle + `nextReviewDue` + breaking the build |
+| 13 | A $500-by-month-6 target with no computational basis | A revenue model with three scenarios and RPM working-backwards |
+| 14 | No testing requirement for the tax logic | Section 4-7, non-negotiable |
+| 15 | Guessed household multipliers `{single:1, couple:1.6}` | Four real filing statuses with a documented mathematical effect |
 
-### ۱۹-۱. تغییرات دور دوم — پس از اعتبارسنجی کیورد (۲۰۲۶-۰۸-۲۹)
+### 19-1. Round two — after keyword validation (2026-08-29)
 
-این‌ها ایرادهای **بازنویسی خودم** بودند که فقط با داده‌ی واقعی آشکار شدند:
+These were faults in **my own rewrite**, revealed only by real data:
 
-| # | فرض غلط | اصلاح | مبنا |
+| # | Wrong assumption | Correction | Basis |
 |---|---|---|---|
-| ۱۶ | ۵۱ صفحه‌ی ایالتی هسته‌ی پروژه است | ۸ صفحه، لایه‌ی فرعی | کالیفرنیا ۲۱۰/ماه، تگزاس ۳۰/ماه |
-| ۱۷ | ابزارها لایه‌ی دوم‌اند | ابزارها هسته‌اند | estimated tax calculator ۲۷٬۱۰۰/ماه |
-| ۱۸ | خوشه‌ی W-2 خارج از دامنه است | به فاز ۱ منتقل شد | ۶× بازار، همان موتور، هزینه‌ی نهایی ~صفر |
-| ۱۹ | ۱۵ صفحه‌ی مقایسه‌ی ایالتی | به فاز ۲ موکول شد | حجم سطح ایالت خیلی کم است |
-| ۲۰ | تایم‌لاین «شش ماهه» | مهلت قطعی دسامبر ۲۰۲۶ | فصلی‌بودن تا ۴۶× |
-| ۲۱ | ~۸۰ هزار کلمه محتوا | ~۳۵ هزار کلمه | نتیجه‌ی کاهش دامنه |
-| ۲۲ | AI Overview در سند نبود | هدف صریح طراحی شد | taxstra.com بالای TaxAct استناد می‌گیرد |
-| ۲۳ | «۵۰۰ دلار از نیش مالیات» | نیش خوداشتغالی سقف ~$۲۵۰ دارد | مدل ترافیک، سند تحقیق بخش ۶ |
+| 16 | The 51 state pages are the core of the project | 8 pages, a secondary layer | California 210/month, Texas 30/month |
+| 17 | The tools are the second layer | The tools are the core | estimated tax calculator 27,100/month |
+| 18 | The W-2 cluster is out of scope | Moved into phase 1 | 6× the market, the same engine, near-zero marginal cost |
+| 19 | 15 state comparison pages | Deferred to phase 2 | State-level volume is far too low |
+| 20 | A "six-month" timeline | A hard December 2026 deadline | Seasonality up to 46× |
+| 21 | ~80,000 words of content | ~35,000 words | A consequence of the scope reduction |
+| 22 | AI Overviews were absent from the document | Made an explicit design target | taxstra.com is cited above TaxAct |
+| 23 | "$500 from the tax niche" | The self-employment niche caps at ~$250 | The traffic model, research document section 6 |
 
-### ۱۹-۲. تغییرات دور سوم — نسخه ۳.۰
+### 19-2. Round three — version 3.0
 
-پس از ساخت موتور، شکاف‌های خود سند آشکار شد:
+After the engine was built, the document's own gaps became visible:
 
-| # | شکاف | رفع |
+| # | Gap | Fix |
 |---|---|---|
-| ۲۴ | بخش ۴ طراحی را توصیف می‌کرد در حالی که موتور ساخته شده بود | بخش ۴ بازنویسی شد؛ «کد مرجع است» صریح شد |
-| ۲۵ | محدودیت‌های موتور جایی ثبت نشده بود | بخش ۴-۸ با هشت محدودیت و برنامه‌ی هرکدام |
-| ۲۶ | صفحات ابزار — هسته‌ی کسب‌وکار — قالب نداشتند | بخش ۸-۸ |
-| ۲۷ | UX ماشین‌حساب و پیش‌فرض‌ها مشخص نبود | بخش ۸-۹ — «هرگز خالی باز نمی‌شود» |
-| ۲۸ | «رنگ‌بندی ثابت» بدون هیچ مقدار مشخصی | بخش ۸-۷ با توکن‌های واقعی |
-| ۲۹ | قواعد URL نبود — منشأ ریدایرکت دائمی | بخش ۶-۹، از جمله «هرگز سال در URL» |
-| ۳۰ | جایگاه تبلیغات مشخص نبود، با اینکه مستقیماً هدف درآمدی است | بخش ۱۰-۴ و ۱۰-۵ |
-| ۳۱ | دروازه‌ها به داده نیاز داشتند ولی چیزی اندازه‌گیری نمی‌شد | بخش ۱۵ |
-| ۳۲ | یافته‌ی SERP در سند تحقیق مانده بود، به استراتژی تبدیل نشده بود | بخش ۱۴ |
-| ۳۳ | کهنه‌شدن سالانه‌ی داده «مشکل» بود ولی رانبوک نداشت | بخش ۱۶ |
-| ۳۴ | هیچ ریسکی نوشته نشده بود | بخش ۱۷، با علائم هشدار زودهنگام |
-| ۳۵ | ساختار پوشه با واقعیت نمی‌خواند | بخش ۳-۳ با علامت ✅/⬜ |
+| 24 | Section 4 described a design while the engine was already built | Section 4 rewritten; "the code is authoritative" made explicit |
+| 25 | The engine's limitations were recorded nowhere | Section 4-8, eight limitations each with a plan |
+| 26 | Tool pages — the core of the business — had no template | Section 8-8 |
+| 27 | Calculator UX and defaults were unspecified | Section 8-9 — "it never opens empty" |
+| 28 | "A consistent colour system" with no concrete values | Section 8-7 with real tokens |
+| 29 | No URL rules — the origin of permanent redirects | Section 6-9, including "never a year in the URL" |
+| 30 | Ad placement unspecified, despite being the revenue target directly | Sections 10-4 and 10-5 |
+| 31 | The gates needed data but nothing was measured | Section 15 |
+| 32 | The SERP finding stayed in the research document, never became strategy | Section 14 |
+| 33 | Annual data staleness was called "a problem" with no runbook | Section 16 |
+| 34 | No risk was written down | Section 17, with early warning signs |
+| 35 | The directory structure did not match reality | Section 3-3 with ✅/⬜ markers |
 
-### ۱۹-۳. تغییرات دور چهارم — نسخه ۳.۱
+### 19-3. Round four — version 3.1
 
-یک پس‌زدن درست، که یک فرض پنهان را آشکار کرد.
+One correct piece of pushback, which exposed a hidden assumption.
 
-| # | مورد | نتیجه |
+| # | Item | Outcome |
 |---|---|---|
-| ۳۶ | ادعای «cost of living ارزش کمتری دارد» هرگز اندازه‌گیری نشده بود | اندازه‌گیری شد: **۳٬۶۰۰ جستجو در ماه**. حدس درست بود، ولی استدلال نبود. حالا هست |
-| ۳۷ | cost of living از «موکول» به **رد‌شده** تغییر کرد | حجم کم + مشکل حل‌نشده‌ی منبع داده |
-| ۳۸ | **فرض پنهان:** گسترش با کار مالیات بر سر همان منبع کمیاب رقابت می‌کند | رد شد. منبع کمیاب «داده‌ی مالیاتی راستی‌آزمایی‌شده» است و خوشه‌ی ریاضی ساده از آن مصرف نمی‌کند |
-| ۳۹ | خوشه‌ی ۲.۴ میلیونی «ریاضی ساده، CPC بالا» کشف شد | margin ($۱۰.۹۲) · ebay fee ($۱۲.۲۳) · fuel ($۸.۹۳) · compound interest (۸۲۳ هزار) |
-| ۴۰ | تفکیک دسته‌ی A و B بر اساس «آیا همان مخاطب است» | تنش بین گسترش و اقتدار موضوعی را حل می‌کند |
-| ۴۱ | لایه A به فاز ۱ اضافه شد، **موازی نه بعدی** | ۴ ابزار، ۳۸ صفحه به‌جای ۳۴ |
-| ۴۲ | خوشه‌ی سر از ۱.۲ به ۳.۶ میلیون رسید | سهم لازم برای $۵۰۰ از ۱.۲٪ به **۰.۸٪** کاهش یافت |
+| 36 | The claim "cost of living is worth less" had never been measured | Measured: **3,600 searches a month**. The guess was right, but it was not an argument. Now it is |
+| 37 | Cost of living moved from "deferred" to **rejected** | Low volume + an unsolved data source problem |
+| 38 | **Hidden assumption:** expanding competes with the tax work for the same scarce resource | Rejected. The scarce resource is "verified tax data" and the simple-arithmetic cluster does not consume it |
+| 39 | A 2.4-million "simple maths, high CPC" cluster was discovered | margin ($10.92) · ebay fee ($12.23) · fuel ($8.93) · compound interest (823k) |
+| 40 | Splitting categories A and B by "is it the same audience" | Resolves the tension between expansion and topical authority |
+| 41 | Layer A added to phase 1, **in parallel rather than after** | 4 tools, 38 pages instead of 34 |
+| 42 | The head cluster went from 1.2 to 3.6 million | The share needed for $500 fell from 1.2% to **0.8%** |
 
-### ۱۹-۴. تغییرات دور پنجم — نسخه ۳.۲
+### 19-4. Round five — version 3.2
 
-| # | مورد | نتیجه |
+| # | Item | Outcome |
 |---|---|---|
-| ۴۳ | **اشتباه اندازه‌گیری من در cost of living** | فقط دم‌بلند سنجیده شده بود (۳٬۶۰۰). کیورد سر **۶۰٬۵۰۰** است — ۱۷ برابر. نتیجه عوض نشد ولی استدلال درست شد: بدترین **نسبت** ارزش به هزینه، نه نبود تقاضا |
-| ۴۴ | «ابزار بعدی کدام است؟» جواب سیستماتیک نداشت | [`tool-catalogue.md`](tool-catalogue.md) — ۳۶ ابزار، رتبه‌بندی‌شده با ارزش بازار در کنار هزینه‌ی ساخت |
-| ۴۵ | موجودی فاز ۱ هیچ‌جا شمرده نشده بود | بخش ۶-۰: **۳۹ صفحه، ۱۲ ابزار** |
-| ۴۶ | `hours calculator` بالاترین ارزش بازار کل کاتالوگ است و در نقشه نبود | دسته A، اولویت بالا |
+| 43 | **My measurement error on cost of living** | Only the long tail had been measured (3,600). The head term is **60,500** — 17× more. The conclusion did not change but the reasoning became correct: the worst value-to-cost **ratio**, not an absence of demand |
+| 44 | "Which tool is next?" had no systematic answer | [`tool-catalogue.md`](tool-catalogue.md) — 36 tools ranked by market value alongside build cost |
+| 45 | The phase 1 inventory had never been counted | Section 6-0: **39 pages, 12 tools** |
+| 46 | `hours calculator` is the catalogue's highest market value and was not on the map | Category A, high priority |
 
-### ۱۹-۵. تغییرات دور ششم — نسخه ۳.۳
+### 19-5. Round six — version 3.3
 
-| # | مورد | نتیجه |
+| # | Item | Outcome |
 |---|---|---|
-| ۴۷ | **سومین و آخرین تصحیح cost of living** | خوشه‌ی کامل **۱۵۸٬۰۰۰/ماه** است، نه ۳٬۶۰۰ و نه ۶۰٬۵۰۰. ادعای «پایین‌ترین ارزش کاتالوگ» هم غلط بود — میان‌رده است |
-| ۴۸ | تقاضا در **ابزار** است نه در **صفحه‌ی جفت** | ابزار مقایسه ۴۹٬۵۰۰ · بهترین جفت‌شهر ۲۶۰. یک ابزار عالی به‌جای هزاران صفحه |
-| ۴۹ | مسئله‌ی داده «حل‌نشده» نبود | BEA RPP · HUD FMR · BLS CPI · Eurostat — رسمی، رایگان، قابل استناد. **بهتر از Numbeo** |
-| ۵۰ | ساختار شهر/کشور که کاربر پیشنهاد داد، درست بود | داده‌ی رسمی دقیقاً به همین شکل منتشر می‌شود |
-| ۵۱ | صفحات شهری ۱۰-۱۷ برابر بهتر از صفحات ایالتی مالیات‌اند | مرحله ۲.۵ به نقشه‌راه اضافه شد |
+| 47 | **The third and final cost-of-living correction** | The full cluster is **158,000/month**, not 3,600 and not 60,500. The claim "the lowest value in the catalogue" was also wrong — it is mid-pack |
+| 48 | The demand is in the **tool**, not the **pair page** | The comparison tool 49,500 · the best city pair 260. One excellent tool instead of thousands of pages |
+| 49 | The data problem was not "unsolved" | BEA RPP · HUD FMR · BLS CPI · Eurostat — official, free, citable. **Better than Numbeo** |
+| 50 | The city/country structure the user proposed was correct | The official data is published at exactly those levels |
+| 51 | City pages are 10–17× better than the state tax pages | Stage 2.5 added to the roadmap |
 
-**درس روش‌شناختی این دور:** وقتی یک خوشه را رد می‌کنی، کیورد سر **و** خوشه‌ی اطرافش را بسنج. سه بار کم‌برآورد پشت سر هم، هر بار به‌خاطر سنجیدن یک برش باریک‌تر از واقعیت.
+**The methodological lesson of this round:** when rejecting a cluster, measure the head keyword **and** the cluster around it. Three consecutive underestimates, each from measuring a narrower slice of reality than existed.
 
-### ۱۹-۶. تغییرات دور هفتم — نسخه ۳.۴
+### 19-6. Round seven — version 3.4
 
-بازرسی سند، پنج شکاف پیدا کرد که مهم‌ترینش را خودِ دور قبل ساخته بود.
+A document audit found five gaps, the most important of which the previous round had created itself.
 
-| # | شکاف | رفع |
+| # | Gap | Fix |
 |---|---|---|
-| ۵۲ | **cost of living در ۶ بخش صفر اشاره داشت** — سند با خودش نمی‌خواند | موتور (۴-۹) · اسکیمای داده (۵-۵) · صفحات (۶-۸-۱) · بریف (۷-۲-۳) · بودجه (۱۲) · رانبوک (۱۶-۲-۱) |
-| ۵۳ | **رضایت کوکی** صفر اشاره — و با ورود اروپا الزام شد | بخش ۱۰-۶ |
-| ۵۴ | فرایند افزودن ابزار وجود نداشت، با ۲۴ تکرار در پیش | بخش ۱۹ |
-| ۵۵ | بودجه‌ی عملکرد عدد نداشت | بخش ۱۲: ۹۰KB جاوااسکریپت، ۳۵۰KB کل، با ممنوعیت‌های صریح |
-| ۵۶ | بریف محتوا فقط برای صفحات ایالتی بود — سه‌چهارم سایت بدون بریف | ۷-۲-۱ ابزار · ۷-۲-۲ راهنما · ۷-۲-۳ شهری |
-| ۵۷ | راهنمای لحن نبود، با ۳۵ هزار کلمه‌ی پیش‌نویس ماشینی | بخش ۷-۶، شامل افشای کمک ماشینی |
+| 52 | **Cost of living had zero mentions in 6 sections** — the document disagreed with itself | Engine (4-9) · data schema (5-5) · pages (6-8-1) · brief (7-2-3) · budget (12) · runbook (16-2-1) |
+| 53 | **Cookie consent** had zero mentions — and Europe made it mandatory | Section 10-6 |
+| 54 | No process for adding a tool existed, with 24 iterations ahead | Section 19 |
+| 55 | The performance budget had no numbers | Section 12: 90KB of JS, 350KB total, with explicit prohibitions |
+| 56 | The content brief covered only state pages — three quarters of the site had none | 7-2-1 tools · 7-2-2 guides · 7-2-3 city |
+| 57 | No tone guide, with 35,000 machine-drafted words ahead | Section 7-6, including disclosure of machine assistance |
 
-**تصمیم طراحی مهم در ۴-۹-۱:** برای هزینه‌ی زندگی **هیچ مبلغ دلاری برای هیچ شهری اختراع نمی‌شود.** منابع رسمی شاخص می‌دهند نه سبد دلاری؛ پس دلارها از عدد خود کاربر می‌آیند و ما فقط نسبت رسمی را اعمال می‌کنیم. این همان مشکل «ستون بیمه‌ی جعلی» دیتاست اولیه را از ریشه حذف می‌کند.
+**The important design decision in 4-9-1:** for cost of living, **no dollar amount is invented for any city.** The official sources publish indices rather than dollar baskets; so the dollars come from the user's own numbers and we only apply the official ratio. This removes the original dataset's "fabricated insurance column" problem at the root.
 
-### ۱۹-۷. تغییرات دور هشتم — نسخه ۴.۰ · تغییر هویت
+### 19-7. Round eight — version 4.0 · the identity change
 
-کاربر با یک اسکرین‌شات از پنج ابزار پرسید: «اینها خیلی به هم مرتبط‌اند و در یک context‌اند، نظرت چیه؟» — و درست دیده بود.
+The user asked, with a screenshot of five tools: "these are very related and sit in one context, what do you think?" — and they had seen it correctly.
 
-| # | مورد | نتیجه |
+| # | Item | Outcome |
 |---|---|---|
-| ۵۸ | پنج ابزار یک **قیف** بودند، نه یک فهرست | بخش ۲-۲-۲: هزینه‌ی زندگی → مقایسه → حقوق → مالیات |
-| ۵۹ | **عمق نشست در هیچ مدلی نبود** | مدل‌ها `بازدید × RPM` بودند. با قیف، صفحه‌به‌نشست از ۱.۱ به ۲.۲ می‌رود — **~۲ برابر درآمد با همان ترافیک** |
-| ۶۰ | هویت هسته یک جمله شد | «هزینه‌ی واقعی زندگی در یک مکان — و آنچه برایت می‌ماند» |
-| ۶۱ | مرز context صریح شد | margin · ebay fee · budget · compound interest · investment **حذف** |
-| ۶۲ | ابزارهای فریلنسری از هسته به خوشه‌ی دوم | موتورشان می‌ماند، ولی به جمله‌ی هسته جواب نمی‌دهند |
-| ۶۳ | خوشه ۶۴۰ هزار/ماه با CPC وزنی $۳.۴۷ | سهم لازم برای $۵۰۰: **~۳٪** |
-| ۶۴ | **مهلت دسامبر برداشته شد** | از فصلی‌بودن مالیات می‌آمد؛ خوشه‌ی مکان بدون فصل است |
-| ۶۵ | موتور مالیات از ابزار جانبی به **خندق** تبدیل شد | هیچ رقیبی هزینه‌ی زندگی و مالیات را یکجا نمی‌دهد |
+| 58 | The five tools were a **funnel**, not a list | Section 2-2-2: cost of living → comparison → salary → tax |
+| 59 | **Session depth was in no model** | The models were `visits × RPM`. With the funnel, pages per session goes from 1.1 to 2.2 — **~2× revenue on the same traffic** |
+| 60 | The core identity became one sentence | "The real cost of living in a place — and what you keep" |
+| 61 | The context boundary became explicit | margin · ebay fee · budget · compound interest · investment **removed** |
+| 62 | Freelancer tools moved from the core to the second cluster | Their engine stays, but they do not answer the core sentence |
+| 63 | A 640k/month cluster with a weighted CPC of $3.47 | The share needed for $500: **~3%** (since recomputed to 672k at $3.51) |
+| 64 | **The December deadline was removed** | It came from tax seasonality; the place cluster is seasonless |
+| 65 | The tax engine went from a side tool to **the moat** | No competitor gives cost of living and tax together |
 
-**اینکه چرا این تصمیم هر سه قید را هم‌زمان برآورده می‌کند:**
+**Why this decision satisfies all three constraints at once:**
 
-| قید | چطور برآورده شد |
+| Constraint | How it was met |
 |---|---|
-| $۵۰۰-۷۰۰ | خوشه ۶۴۰ هزار، سهم لازم ۳-۴٪ — در برابر ۶۵٪ که نسخه‌ی مالیات فریلنسری لازم داشت |
-| context واحد | یک جمله مرز را تعیین می‌کند؛ پنج ابزار پرحجم به‌خاطر همان جمله حذف شدند |
-| topical authority | هر صفحه به یک سؤال از یک تصمیم جواب می‌دهد، و لینک‌های داخلی مسیر قیف را دنبال می‌کنند نه یک شبکه‌ی تصادفی |
+| $500–700 | A 640k cluster needing a 3–4% share — against the 65% the freelancer-tax version required |
+| A single context | One sentence draws the boundary; five high-volume tools were removed because of it |
+| Topical authority | Every page answers one question from one decision, and the internal links follow the funnel path rather than a random mesh |
 
-**درس این جلسه:** هشت دور تغییر مسیر، و تقریباً هر بار محرکش پس‌زدن کاربر بود نه تحلیل من. الگویی که جواب داد: **هر ادعا را قبل از تصمیم اندازه بگیر** — سه بار همین یک خوشه را بدون اندازه‌گیری کافی رد کردم و هر سه بار غلط بود.
+**The lesson of this session:** eight rounds of course correction, and almost every one was triggered by the user's pushback rather than my analysis. The pattern that worked: **measure every claim before deciding** — I rejected this one cluster three times without adequate measurement and was wrong all three times.
 
-### ۱۹-۸. تغییرات دور نهم — نسخه ۴.۱ · دقت و ساختار
+### 19-8. Round nine — version 4.1 · precision and structure
 
-هدف این دور: اعداد از حدس به محاسبه، و ساختار programmatic از توصیف به مشخصات.
+The goal of this round: numbers from guesswork to computation, and the programmatic structure from description to specification.
 
-| # | مورد | نتیجه |
+| # | Item | Outcome |
 |---|---|---|
-| ۶۶ | اعداد در نثر پخش بودند و دستی به‌روز می‌شدند | `data/keywords.json` منبع واحد · `scripts/model_revenue.py` مدل را می‌سازد · `docs/revenue-model.md` خروجی است |
-| ۶۷ | **برآورد «ماه ۱۸-۲۴» خوش‌بینانه بود** | مدل با توزیع واقعی جایگاه و جریمه‌ی AI Overview: **سال سوم**. نثر سهم ۳٪ را فرض می‌گرفت بدون اینکه بپرسد کِی محقق می‌شود |
-| ۶۸ | معماری programmatic تعریف نشده بود | بخش ۶-۸: مدل موجودیت · ۵ قالب · دروازه‌ی تولید · بودجه‌ی یکتایی · گراف لینک · تفکیک sitemap |
-| ۶۹ | «هر صفحه یکتا باشد» عدد نداشت | بودجه‌ی یکتایی: ≥۴۰٪ متن یکتا · ≥۳ واقعیت از منبع اولیه · ≤۳۵٪ boilerplate، با شکستن build |
-| ۷۰ | معیار «کدام مترو صفحه می‌گیرد» نبود | دروازه: ≥۵۰۰ جستجو **و** پوشش BEA **و** پوشش HUD. موجودیت مردود در دیتاست می‌ماند ولی صفحه نمی‌گیرد |
-| ۷۱ | sitemap واحد، ایندکس غیرقابل‌تشخیص | تفکیک به tools/places/states/guides — تا دروازه‌ی ۱ بگوید کدام **قالب** شکست خورده |
-| ۷۲ | بخش ۶ هنوز لایه‌های هویت قدیمی را داشت | بازنویسی حول پنج مرحله‌ی قیف |
-| ۷۳ | مهلت دسامبر و مسیرهای `/freelance-tax` کهنه بودند | منسوخ و اصلاح شدند |
+| 66 | Numbers were scattered through prose and updated by hand | `data/keywords.json` is the single source · `scripts/model_revenue.py` builds the model · `docs/revenue-model.md` is the output |
+| 67 | **The "month 18–24" estimate was optimistic** | The model, with a real position distribution and an AI Overview penalty: **year three**. The prose assumed a 3% share without asking when it arrives |
+| 68 | The programmatic architecture was undefined | Section 6-8: entity model · 5 templates · generation gate · uniqueness budget · link graph · sitemap segmentation |
+| 69 | "Every page must be unique" had no number | The uniqueness budget: ≥40% unique text · ≥3 facts from a primary source · ≤35% boilerplate, with build breaking |
+| 70 | No criterion for "which metro earns a page" | The gate: ≥500 searches **and** BEA coverage **and** HUD coverage. A failing entity stays in the dataset but gets no page |
+| 71 | A single sitemap, with indistinguishable indexation | Split into tools/places/states/guides — so gate 1 can say which **template** failed |
+| 72 | Section 6 still carried the old identity's layers | Rewritten around the five funnel stages |
+| 73 | The December deadline and the `/freelance-tax` paths were stale | Marked obsolete and corrected |
 
-**یافته‌ی کمّی این دور:** تحلیل حساسیت نشان داد **عمق نشست بزرگ‌ترین اهرم منفرد است** — از ۱.۱ به ۲.۲ یعنی **+۱۰۵٪ درآمد بدون یک بازدید اضافه**. و تنها متغیری است که کاملاً در کنترل ماست؛ نه به گوگل بستگی دارد نه به رقبا. این معماری قیف را از یک ترجیح UX به مهم‌ترین تصمیم محصول ارتقا می‌دهد.
+**This round's quantitative finding:** the sensitivity analysis showed **session depth is the single largest lever** — from 1.1 to 2.2 means **+105% revenue with no extra visit**. And it is the only variable entirely under our control; it depends on neither Google nor competitors. That promotes the funnel architecture from a UX preference to the most important product decision.
 
-### ۱۹-۹. تغییرات دور دهم — نسخه ۴.۲ · عمق ابزار و سئو
+### 19-9. Round ten — version 4.2 · tool depth and SEO
 
-بازرسی سئو یک ناسازگاری جدی نشان داد و اسکرین‌شات کاربر دو وعده‌ی بی‌پشتوانه.
+An SEO audit exposed a serious inconsistency, and the user's screenshot exposed two unbacked promises.
 
-**ناسازگاری اصلی:** بخش ۱۴ می‌گفت «کیفیت به‌تنهایی کافی نیست، اعتبار دامنه مسیر بحرانی است» — و کل استراتژی لینک **۱ اشاره** در سند داشت. تشخیص درست بود و برنامه‌اش وجود نداشت.
+**The core inconsistency:** section 14 said "quality alone is not enough, domain authority is the critical path" — and the entire link strategy had **1 mention** in the document. The diagnosis was right and there was no plan behind it.
 
-| # | مورد | رفع |
+| # | Item | Fix |
 |---|---|---|
-| ۷۴ | لینک‌سازی خارجی ۱ اشاره، با اینکه مسیر بحرانی بود | بخش ۹-۵ کامل: دارایی‌های لینک‌پذیر · کانال با ترتیب · هدف کمّی · سهم ۳۰٪ زمان |
-| ۷۵ | **مقایسه مالیات را شامل نمی‌شد** | ۴-۹-۵: بدون مالیات، مقایسه همان چیزی است که Numbeo می‌دهد. خندق از بین می‌رفت |
-| ۷۶ | اندازه‌ی خانوار در موتور نبود | ۴-۹-۶، از HUD FMR و BLS — **بدون ضریب اختراعی** |
-| ۷۷ | مشارکت‌های اجتماعی صفر اشاره | ۴-۹-۷ — در اروپا اغلب از خود مالیات بیشتر است |
-| ۷۸ | `property-tax-calculator` نبود | ۲۲٬۲۰۰/ماه · و SmartAsset با صفحات per-state رتبه گرفته — **شاهد مستقیم که الگوی programmatic ایالتی کار می‌کند** |
-| ۷۹ | ابزار ترکیبی نبود | `job-offer-comparison` — کل قیف در یک جواب، لینک‌پذیرترین دارایی |
-| ۸۰ | اعتبارسنجی schema صفر | ۹-۴-۱ با تست CI و نوع `Dataset` برای متدولوژی |
-| ۸۱ | hreflang صفر، با اینکه اروپا در دامنه است | ۹-۴-۱، بدون ریدایرکت IP |
-| ۸۲ | صفحه‌بندی دایرکتوری صفر با ۱۰۰+ مترو | گروه‌بندی معنایی به‌جای صفحه‌بندی عددی |
-| ۸۳ | هم‌کانیبالی سطحی — و اینجا ریسک واقعی است | چهار صفحه سر یک کیورد؛ چهار قاعده‌ی جداسازی |
-| ۸۴ | `dateModified` سطحی | فقط با تغییر واقعی محتوا |
+| 74 | External link building had 1 mention, despite being the critical path | A complete section 9-5: linkable assets · channels in order · a quantitative target · a 30% share of time |
+| 75 | **The comparison did not include tax** | 4-9-5: without tax, the comparison is what Numbeo gives. The moat was disappearing |
+| 76 | Household size was not in the engine | 4-9-6, from HUD FMR and BLS — **with no invented multiplier** |
+| 77 | Social contributions had zero mentions | 4-9-7 — in Europe often larger than income tax itself |
+| 78 | `property-tax-calculator` was missing | 22,200/month · and SmartAsset ranks with per-state pages — **direct evidence that the state programmatic pattern works** |
+| 79 | There was no combined tool | `job-offer-comparison` — the whole funnel in one answer, the most linkable asset |
+| 80 | Schema validation had zero mentions | 9-4-1 with a CI test and a `Dataset` type for the methodology |
+| 81 | hreflang had zero mentions, despite Europe being in scope | 9-4-1, with no IP redirect |
+| 82 | Directory pagination had zero mentions with 100+ metros | Semantic grouping instead of numeric pagination |
+| 83 | Cannibalisation was treated superficially — and here the risk is real | Four pages chasing one keyword; four separation rules |
+| 84 | `dateModified` was superficial | Only on a genuine content change |
 
-**اصل راهنمای این دور:** برای این پروژه **عمق ابزار خودش استراتژی سئوست.** رقبا با اعتبار دامنه رتبه گرفته‌اند نه کیفیت؛ ما اعتبار نداریم و سریع هم به‌دست نمی‌آوریم. تنها مسیر، ابزاری است که لینک بگیرد و در AI Overview استناد شود — و آن ابزار باید عمیقاً بهتر باشد، نه کمی بهتر.
+**The guiding principle of this round:** for this project, **tool depth is itself the SEO strategy.** Competitors rank on domain authority, not quality; we have no authority and will not gain it quickly. The only route is a tool that earns links and gets cited in AI Overviews — and that tool has to be deeply better, not slightly better.
 
-### ۱۹-۱۰. تغییرات دور یازدهم — نسخه ۴.۳ · بازرس هم‌کانیبالی
+### 19-10. Round eleven — version 4.3 · the cannibalisation auditor
 
-هم‌کانیبالی از توصیه به **بررسی خودکار در CI** تبدیل شد: `data/pages.json` (نقشه‌ی صفحه‌به‌کیورد) + `scripts/audit_seo.py`.
+Cannibalisation moved from advice to an **automated CI check**: `data/pages.json` (the page-to-keyword map) + `scripts/audit_seo.py`.
 
-اجرای اول **۹ خطا** پیدا کرد. دو تای مهمش الگوی یکسانی داشتند:
+The first run found **9 errors**. The two important ones shared a pattern:
 
-| جفت | شباهت |
+| Pair | Similarity |
 |---|---|
-| `/tools/income-tax-calculator` ↔ `/state-taxes/{state}` | ۶۷٪ |
-| `/tools/cost-of-living-calculator` ↔ `/cost-of-living/{metro}` | ۶۷٪ |
+| `/tools/income-tax-calculator` ↔ `/state-taxes/{state}` | 67% |
+| `/tools/cost-of-living-calculator` ↔ `/cost-of-living/{metro}` | 67% |
 
-**ابزار عمومی با انتخابگر مکان، در برابر صفحه‌ی مکان مشخص.** بدون قاعده، ابزار عمومی که ۵۱ ایالت را پشتیبانی می‌کند ناخواسته با هر ۵۱ صفحه‌ی ایالتی رقابت می‌کند — و چون قوی‌تر است، صفحات ایالتی هرگز بالا نمی‌آیند. این تله‌ای است که تقریباً هر سایت programmatic در آن می‌افتد و از بیرون دیده نمی‌شود.
+**A generic tool with a location selector, versus a specific place page.** Without a rule, the generic tool supporting all 51 states unintentionally competes with all 51 state pages — and because it is stronger, the state pages never rise. This is the trap almost every programmatic site falls into and it is invisible from the outside.
 
-**وضعیت فعلی: ۱۸ صفحه · ۰ خطا · ۳ هشدار** — سه کیورد اندازه‌گیری‌نشده که قبل از ساخت باید سنجیده شوند.
+**Status then: 18 pages · 0 errors · 3 warnings** — three unmeasured keywords that had to be measured before building.
 
-### ۱۹-۱۱. تغییرات دور دوازدهم — نسخه ۴.۴ · هشدارها به صفر
+### 19-11. Round twelve — version 4.4 · warnings to zero
 
-سه هشدار بازرس، سه کیورد اندازه‌گیری‌نشده بودند. هر سه سنجیده شد:
+The auditor's three warnings were three unmeasured keywords. All three were measured:
 
-| کیورد | حجم | تصمیم |
+| Keyword | Volume | Decision |
 |---|---|---|
-| `state income tax rates by state` | ۳٬۶۰۰ | ✅ تأیید — هدف دایرکتوری ایالتی |
-| `cost of living by city` | ۸۸۰ | ✅ تأیید — هدف دایرکتوری شهری |
-| `job offer comparison calculator` | **۳۰** | ❌ **صفحه حذف شد** — به حالت داخل ابزار مقایسه تبدیل شد |
+| `state income tax rates by state` | 3,600 | ✅ Confirmed — the state directory's target |
+| `cost of living by city` | 880 | ✅ Confirmed — the city directory's target |
+| `job offer comparison calculator` | **30** | ❌ **Page removed** — became a mode inside the comparison tool |
 
-مورد سوم نشان می‌دهد بازرس کارش را می‌کند: ایده‌ای که دور قبل «پرچم‌دار» نامیدمش، با اندازه‌گیری معلوم شد ۳۰ جستجو در ماه دارد. قابلیت ارزشمند است و می‌ماند؛ صفحه‌ی اختصاصی‌اش نه.
+The third case shows the auditor doing its job: an idea I had called "the flagship" a round earlier turned out, on measurement, to have 30 searches a month. The capability is valuable and stays; its dedicated page does not.
 
-**و دو رقیب مستقیم پیدا شد که ادعای خندق را باریک‌تر می‌کند:**
+**And two direct competitors were found, narrowing the moat claim:**
 
-| رقیب | چه می‌کند |
+| Competitor | What it does |
 |---|---|
-| `costbycity.com` | هزینه‌ی زندگی ۳۸۷ متروی آمریکا با **BEA RPP** — همان مفهوم و همان منبع داده‌ی ما |
-| `realtakehomepay.com` | مقایسه‌ی پیشنهاد شغلی بر اساس خالص، ۵۰ ایالت |
+| `costbycity.com` | Cost of living for 387 US metros using **BEA RPP** — our exact concept and our exact data source |
+| `realtakehomepay.com` | Job offer comparison by take-home pay, 50 states |
 
-قبلاً نوشته بودم «هیچ‌کس این‌ها را با هم نمی‌دهد» بدون اینکه SERP این کیوردها را ببینم. تصحیح شد. سه نتیجه: انتخاب داده‌ی ما مستقلاً تأیید شد · سایت کوچک در این فضا رتبه می‌گیرد · ولی ما اولین نیستیم و تمایزمان **تقاطع** دو حوزه است، نه هیچ‌کدام به‌تنهایی.
+I had previously written "nobody offers these together" without looking at the SERP for these keywords. Corrected. Three consequences: our data choice was independently validated · a small site can rank in this space · but we are not first, and our differentiation is the **intersection** of the two areas, not either alone.
 
-**وضعیت: ۱۷ صفحه · ۰ خطا · ۰ هشدار.**
+**Status: 17 pages · 0 errors · 0 warnings.**
 
-### ۱۹-۱۲. تغییرات دور سیزدهم — نسخه ۴.۵ · سئوی روی صفحه
+### 19-12. Round thirteen — version 4.5 · on-page SEO
 
-ممیزی نشان داد بخش ۹ همه‌چیز را درباره‌ی **کدام** صفحه برای **کدام** کیورد
-داشت و هیچ‌چیز درباره‌ی اینکه آن صفحه در نتایج جست‌وجو **چه شکلی است**:
+The audit showed that section 9 had everything about **which** page targets **which** keyword and nothing about what that page **looks like** in search results:
 
-| موضوع | قبل | حالا |
+| Topic | Before | Now |
 |---|---|---|
-| فرمول title | ۰ اشاره | ۵ قالب، در `pages.json`، اجراشده |
-| meta description | ۰ اشاره | ۵ قالب + `metaHook` انگلیسی برای ۱۵ صفحه |
-| متن لینک داخلی | ۰ اشاره | ۴ قاعده |
-| JSON-LD مشخص | ۰ اشاره | به تفکیک هر قالب |
-| robots.txt | ۰ اشاره | ۴ قاعده |
-| OG image | ۱ اشاره‌ی گذرا | پویا به‌ازای موجودیت، با دلیلش |
+| Title formula | 0 mentions | 5 templates, in `pages.json`, enforced |
+| Meta description | 0 mentions | 5 templates + an English `metaHook` for 15 pages |
+| Internal anchor text | 0 mentions | 4 rules |
+| Concrete JSON-LD | 0 mentions | Per template |
+| robots.txt | 0 mentions | 4 rules |
+| OG image | 1 passing mention | Dynamic per entity, with its reasoning |
 
-بازرس از ۶ بررسی به **۱۰** رسید و همان لحظه‌ی افزوده‌شدن دو ایراد واقعی پیدا کرد:
+The auditor went from 6 checks to **10**, and the moment they were added it found two real defects:
 
-1. **meta فارسی می‌شد.** اول فیلد `output` را به‌عنوان متن meta گذاشته بودم؛
-   `output` توضیح داخلیِ فارسیِ سند است و کارش تفکیک صفحات از هم است. نتیجه
-   ۱۵ صفحه با meta فارسی می‌شد. `metaHook` انگلیسی جداگانه اضافه شد.
-2. **`Cost Of Living`.** رندر ساده‌ی حروف بزرگ، حروف اضافه را هم بزرگ می‌کرد.
-   بازرس حالا با همان قاعده‌ی حروف بزرگی می‌سنجد که منتشر می‌شود.
+1. **The meta would have been Persian.** I first wired the `output` field in as the meta text; `output` was an internal Persian description whose job is separating pages from each other. The result would have been 15 pages with Persian metas. A separate English `metaHook` was added.
+2. **`Cost Of Living`.** Naive capitalisation also capitalised prepositions. The auditor now measures with the same casing rule that ships.
 
-و یک محدودیت واقعی را روشن کرد: با `San Francisco-Oakland-Berkeley, CA`،
-عنوان PlacePage به **۵۹ از ۶۰** کاراکتر می‌رسد. الگوی آن قالب جا برای هیچ
-کلمه‌ی اضافه‌ای ندارد و این حالا در CI بسته است.
+And it made one real constraint visible: with `San Francisco-Oakland-Berkeley, CA`, the PlacePage title reaches **59 of 60** characters. That template's pattern has room for no additional word, and CI now holds that line.
 
-**وضعیت: ۱۷ صفحه · ۱۰ بررسی · ۰ خطا · ۰ هشدار.**
+**Status: 17 pages · 10 checks · 0 errors · 0 warnings.**
 
-### ۱۹-۱۳. تغییرات دور چهاردهم — نسخه ۴.۶ · مرز زبان
+### 19-13. Round fourteen — version 4.6 · the language boundary
 
-سایت انگلیسی است و سند فارسی؛ تا حالا این فقط یک قرارداد ذهنی بود و یک‌بار
-هم شکست: فیلد `output` توصیف داخلی فارسی بود و اتصالش به فرمول meta در دور
-قبل، ۱۵ صفحه با meta فارسی می‌ساخت.
+The site was English and the spec Persian; until then that was only a remembered convention, and it had already broken once: the `output` field was an internal Persian description, and wiring it into the meta formula the round before would have produced 15 pages with Persian metas.
 
-- کل `data/pages.json` و `data/keywords.json` به انگلیسی برگردانده شد —
-  ۶۶ رشته.
-- `scripts/check_language.py` اضافه شد و در CI اجرا می‌شود: هر کاراکتر
-  فارسی در `data/` · `src/` · `app/` · `public/` · `components/` · `content/`
-  build را می‌شکند. `docs/` مستثناست چون منتشر نمی‌شود.
-- مرز در بخش ۹-۳-۵ ثبت شد.
+- All of `data/pages.json` and `data/keywords.json` were translated to English — 66 strings.
+- `scripts/check_language.py` was added and runs in CI: any Persian character in `data/` · `src/` · `app/` · `public/` · `components/` · `content/` breaks the build.
+- The boundary was recorded in section 9-3-5.
 
-**وضعیت: ۶۶ فایل منتشرشدنی · ۰ رشته‌ی فارسی · ۱۷ صفحه · ۱۰ بررسی · ۰ خطا.**
+**Status: 66 shipping files · 0 Persian strings · 17 pages · 10 checks · 0 errors.**
+
+### 19-14. Round fifteen — version 4.7 · one language across the project
+
+The previous round drew a line between an English site and a Persian document. This round removed the line instead of policing it: the whole documentation set was translated to English.
+
+**Why, given that `docs/` never ships and carried no SEO risk:**
+
+- Every identifier the document discusses — field names, slugs, keywords, file paths, statutory citations — was already English. The prose around them was the only thing that was not, which made the document harder to search, harder to quote in a commit message, and harder to hand to anyone else.
+- The user had asked for an external agent to review the specification. A reviewer, human or otherwise, reads the project in one language.
+- A two-language project has a boundary that must be remembered. A one-language project does not have the boundary at all, and section 9-3-5's failure mode came from exactly that kind of remembered rule.
+
+**What changed:**
+
+- `docs/SPEC.md` (this document), `keyword-research.md`, `data-verification.md`, `tool-catalogue.md`, `revenue-model.md` and `README.md` translated in full.
+- `scripts/model_revenue.py`'s output strings translated, so the generated `revenue-model.md` stays English when regenerated.
+- `scripts/check_language.py` extended to cover `docs/` and `scripts/`, so the project is now single-language by enforcement rather than by intention.
+- **`docs/archive/` is exempt.** Those are the three original specifications as they were written. Translating a historical record destroys it; the archive stays verbatim and is excluded from the check.
+
+Persian numerals were converted to Western ones throughout, so figures in the document now match the figures in the datasets and script output they refer to.
+
+**Status: the whole project in one language · 17 pages · 10 checks · 0 errors · 0 warnings · 59 tests green.**
 
 ---
 
-*پایان سند. هر تغییری در تصمیم‌های بخش ۲ نیازمند بازنگری این سند است، نه اصلاح موضعی.*
+*End of document. Any change to the decisions in section 2 requires revising this document, not a local patch.*

@@ -1,344 +1,350 @@
-# اعتبارسنجی کیورد — ماه صفر
+# Keyword validation — month zero
 
-> **تاریخ اجرا:** ۲۰۲۶-۰۸-۲۹ · **بازار:** United States / English
-> **منبع:** داده‌ی ایندکس جستجو (حجم، CPC، روند ۱۲ ماهه) + SERP زنده
+> **Run date:** 2026-08-29 · **Market:** United States / English
+> **Source:** search index data (volume, CPC, 12-month trend) + live SERPs
 >
-> این سند خروجی مرحله‌ی ۹-۲ سند اصلی است و **ترتیب ساخت صفحات را تعیین می‌کند**.
+> This document is the output of step 9-2 of the main specification and **sets the order in which pages are built**.
 
 ---
 
-## ⚠️ دو هشدار پیش از خواندن اعداد
+## ⚠️ Two warnings before reading the numbers
 
-1. **`competition` در این داده، رقابت تبلیغات گوگل است، نه سختی سئو.** تقریباً همه‌ی کیوردهای مالیاتی «LOW» نشان داده می‌شوند چون تبلیغ‌کننده‌ی کمی دارند — این هیچ ربطی به سختی رتبه‌گرفتن ندارد. سختی واقعی را از بررسی SERP (بخش ۳) بخوان، نه از این ستون.
-2. **حجم‌ها تخمینی‌اند** (confidence حدود ۰.۷) و میانگین ۱۲ ماهه‌اند. در این نیش، میانگین گمراه‌کننده است — بخش ۴ را حتماً بخوان.
+1. **`competition` in this data is Google Ads competition, not SEO difficulty.** Almost every tax keyword shows as "LOW" because few advertisers bid on them — that has nothing to do with how hard it is to rank. Read real difficulty from the SERP analysis (section 3), not from that column.
+2. **Volumes are estimates** (confidence around 0.7) and are 12-month averages. In this niche the average is misleading — read section 4.
 
 ---
 
-## ۱. یافته‌ی اصلی: طرح ۵۱ صفحه‌ی ایالتی با داده پشتیبانی نمی‌شود
+## 1. The main finding: the 51-state-page plan is not supported by the data
 
-این مهم‌ترین نتیجه‌ی این تحقیق است و **فرض اصلی هر دو نسخه‌ی سند را رد می‌کند** — نسخه‌ی اول که ۵۱ استیت را هسته گرفته بود، و بازنویسی من که همان را نگه داشت.
+This is the most important result of this research and it **refutes the core assumption of both versions of the specification** — the first, which made 51 states the core, and my rewrite, which kept it.
 
-| کیورد | حجم ماهانه |
+| Keyword | Monthly volume |
 |---|---|
-| self employment tax calculator **california** | ۲۱۰ |
-| self employment tax calculator **texas** | ۳۰ |
-| self employment tax **by state** | ۱۰ |
-| self-employment tax calculator **federal and state** | ۱۱۰ |
+| self employment tax calculator **california** | 210 |
+| self employment tax calculator **texas** | 30 |
+| self employment tax **by state** | 10 |
+| self-employment tax calculator **federal and state** | 110 |
 
-کالیفرنیا پرجمعیت‌ترین ایالت آمریکاست و کل تقاضایش برای این موضوع **۲۱۰ جستجو در ماه** است. تگزاس ۳۰.
+California is the most populous state in the US and its entire demand for this topic is **210 searches a month**. Texas is 30.
 
-**برآورد کل ۵۱ ایالت:** حدود ۱٬۰۰۰ تا ۲٬۰۰۰ جستجو در ماه، روی هم. اگر در هر ۵۱ کیورد رتبه‌ی اول شویم — که در سال اول نمی‌شویم — حدود ۳۰۰ تا ۶۰۰ بازدید در ماه می‌گیریم.
+**Estimate for all 51 states:** roughly 1,000–2,000 searches a month combined. If we took position one on all 51 keywords — which will not happen in year one — that is roughly 300–600 visits a month.
 
-**هزینه‌اش:** ۵۱ صفحه × ۱٬۲۰۰ کلمه = **۶۱ هزار کلمه**، به‌علاوه‌ی استخراج جدول براکت و قواعد ۵۱ دپارتمان درآمد.
+**The cost:** 51 pages × 1,200 words = **61,000 words**, plus extracting bracket tables and rules from 51 revenue departments.
 
-**نتیجه:** بدترین نسبت بازده به کار در کل طرح. صفحات ایالتی از «هسته‌ی پروژه» به «لایه‌ی فرعی، حداکثر ۸ تا ۱۰ ایالت بزرگ» تنزل پیدا می‌کنند.
+**Conclusion:** the worst return-to-effort ratio in the whole plan. The state pages drop from "the core of the project" to "a secondary layer, at most 8–10 large states".
 
 ---
 
-## ۲. تقاضای واقعی کجاست
+## 2. Where the real demand is
 
-تقریباً همه‌ی حجم در چند صفحه‌ی ابزار عمومی است، نه در تفکیک جغرافیایی:
+Almost all the volume sits in a handful of generic tool pages, not in geographic segmentation:
 
-| کیورد | حجم ماهانه | CPC | ارزش تخمینی |
+| Keyword | Monthly volume | CPC | Estimated value |
 |---|---|---|---|
-| take home pay calculator | ۶۰٬۵۰۰ | $۵.۶۹ | بسیار بالا |
-| tax return calculator | ۴۰٬۵۰۰ | $۶.۳۸ | بسیار بالا |
-| **estimated tax calculator** | **۲۷٬۱۰۰** | $۲.۲۲ | **بالا — و اوج ژانویه‌ی انفجاری** |
-| irs estimated tax payment | ۳۳٬۱۰۰ | $۷.۲۸ | بالا |
-| estimated tax payments | ۲۲٬۲۰۰ | $۶.۷۷ | بالا |
-| paycheck tax calculator | ۱۸٬۱۰۰ | $۴.۴۸ | بالا |
-| tax withholding calculator | ۱۴٬۸۰۰ | $۵.۷۸ | بالا |
-| **self employment tax calculator** | **۹٬۹۰۰** | **$۵.۰۱** | **لنگرگاه نیش ما** |
-| self-employment tax brackets | ۴٬۴۰۰ | $۳.۰۹ | متوسط |
-| how to calculate self-employment tax | ۱٬۹۰۰ | $۶.۰۸ | متوسط |
-| 1099 tax calculator with deductions | ۷۲۰ | $۵.۸۱ | کم‌حجم، پرارزش |
-| self employment tax deductions calculator | ۳۹۰ | $۶.۱۳ (سقف $۱۵.۲۰) | کم‌حجم، پرارزش |
+| take home pay calculator | 60,500 | $5.69 | Very high |
+| tax return calculator | 40,500 | $6.38 | Very high |
+| **estimated tax calculator** | **27,100** | $2.22 | **High — and an explosive January peak** |
+| irs estimated tax payment | 33,100 | $7.28 | High |
+| estimated tax payments | 22,200 | $6.77 | High |
+| paycheck tax calculator | 18,100 | $4.48 | High |
+| tax withholding calculator | 14,800 | $5.78 | High |
+| **self employment tax calculator** | **9,900** | **$5.01** | **Our niche anchor** |
+| self-employment tax brackets | 4,400 | $3.09 | Medium |
+| how to calculate self-employment tax | 1,900 | $6.08 | Medium |
+| 1099 tax calculator with deductions | 720 | $5.81 | Low volume, high value |
+| self employment tax deductions calculator | 390 | $6.13 (top $15.20) | Low volume, high value |
 
-**یک صفحه‌ی عالی روی «estimated tax calculator» بیش از هر ۵۱ صفحه‌ی ایالتی ارزش دارد.**
+**One excellent page on "estimated tax calculator" is worth more than all 51 state pages.**
 
-### ۲-۱. کشف مهم: همان موتور، شش برابر بازار
+### 2-1. An important discovery: the same engine, six times the market
 
-موتوری که در بخش ۴ سند تعریف کردیم (براکت‌های فدرال + ایالتی + FICA) با کار اضافه‌ی اندکی، حقوق‌بگیر W-2 را هم محاسبه می‌کند. و آن سمت بازار **بسیار بزرگ‌تر** است:
+The engine defined in section 4 of the specification (federal + state brackets + FICA) also computes W-2 employees with very little extra work. And that side of the market is **much larger**:
 
-- take home pay calculator — ۶۰٬۵۰۰
-- income tax calculator — ۹۰٬۵۰۰
-- paycheck tax calculator — ۱۸٬۱۰۰
-- after tax income calculator — ۱۸٬۱۰۰
+- take home pay calculator — 60,500
+- income tax calculator — 90,500
+- paycheck tax calculator — 18,100
+- after tax income calculator — 18,100
 
-جمع خوشه‌ی W-2 حدود **۱۸۷ هزار در ماه** در برابر حدود **۳۰ هزار** برای خوشه‌ی خوداشتغالی.
+The W-2 cluster totals roughly **187,000 a month** against roughly **30,000** for the self-employment cluster.
 
-رقابتش سخت‌تر است، ولی **هزینه‌ی نهایی ساختش تقریباً صفر است** چون موتور همان است. این باید در فاز ۱.۵ (نه فاز ۲) قرار بگیرد.
+It is harder to compete in, but **its marginal build cost is near zero** because the engine is the same. This belongs in phase 1.5, not phase 2.
 
 ---
 
-## ۳. تحلیل SERP — آیا اصلاً می‌شود رقابت کرد؟
+## 3. SERP analysis — can we compete at all?
 
-بررسی زنده‌ی `self employment tax calculator` (۲۰۲۶-۰۸-۲۹):
+A live check of `self employment tax calculator` (2026-08-29):
 
-| جایگاه | دامنه | نوع |
+| Position | Domain | Type |
 |---|---|---|
-| ۱ | taxact.com | نرم‌افزار مالیاتی |
-| ۲ | apps.irs.gov | خود IRS |
-| ۳ | irs.gov | خود IRS |
-| ۴ | jacksonhewitt.com | نرم‌افزار مالیاتی |
-| ۵ | **umb.com** | یک بانک |
-| ۶ | **guidestone.org** | مؤسسه‌ی بازنشستگی |
-| ۷ | **thehartford.com** | شرکت بیمه |
-| ۸ | play.google.com | اپ اندروید |
-| ۹ | **midflorida.com** | یک کردیت‌یونیون محلی |
-| ۱۰ | **nationwide.com** | شرکت بیمه |
-| ۱۱ | calcxml.com | ویجت ماشین‌حساب |
-| ۱۳ | **sdocpa.com** | یک دفتر حسابداری کوچک |
+| 1 | taxact.com | Tax software |
+| 2 | apps.irs.gov | The IRS itself |
+| 3 | irs.gov | The IRS itself |
+| 4 | jacksonhewitt.com | Tax software |
+| 5 | **umb.com** | A bank |
+| 6 | **guidestone.org** | A retirement institution |
+| 7 | **thehartford.com** | An insurance company |
+| 8 | play.google.com | An Android app |
+| 9 | **midflorida.com** | A local credit union |
+| 10 | **nationwide.com** | An insurance company |
+| 11 | calcxml.com | A calculator widget |
+| 13 | **sdocpa.com** | A small accounting practice |
 
-### تفسیر
+### Interpretation
 
-**خبر خوب:** شش جایگاه از ده جایگاه اول را ویجت‌های سفیدبرچسب روی سایت بانک‌ها و بیمه‌ها گرفته‌اند. این‌ها محتوای عمیق ندارند، ایالت را پشتیبانی نمی‌کنند، تقویم پرداخت فصلی ندارند، و جدول براکت‌به‌براکت نشان نمی‌دهند. **از نظر کیفیت محتوا، شکست‌دادنشان راحت است.**
+**The good news:** six of the top ten positions are white-label widgets on bank and insurance sites. They have no depth of content, no state support, no quarterly payment calendar, and no bracket-by-bracket table. **On content quality they are easy to beat.**
 
-**خبر بد:** آن‌ها با اعتبار دامنه رتبه گرفته‌اند، نه با کیفیت. و اعتبار دامنه دقیقاً چیزی است که ما نداریم. این تأیید می‌کند که **کیفیت محتوا به‌تنهایی کافی نیست** — بخش ۹-۴ سند (لینک و توزیع) واقعاً حیاتی است، نه یک کار جانبی.
+**The bad news:** they rank on domain authority, not quality. And domain authority is exactly what we lack. This confirms that **content quality alone is not enough** — section 9-4 of the specification (links and distribution) is genuinely critical, not a side task.
 
-**خبر امیدوارکننده:** `sdocpa.com` — یک دفتر حسابداری کوچک — در جایگاه ۱۳ است. و مهم‌تر: AI Overview این کیورد به **`taxstra.com`** استناد می‌کند، یک سایت نیش کوچک، بالاتر از TaxAct و QuickBooks. یعنی سایت کوچک در این نیش می‌تواند برنده شود.
+**The encouraging news:** `sdocpa.com` — a small accounting practice — sits at position 13. And more importantly, the AI Overview for this keyword cites **`taxstra.com`**, a small niche site, above TaxAct and QuickBooks. A small site can win in this niche.
 
-### ۳-۱. AI Overview — یک واقعیت جدید که در سند نبود
+### 3-1. AI Overviews — a new reality the specification did not have
 
-روی کیورد اصلی، **AI Overview بالای همه‌ی نتایج ارگانیک نمایش داده می‌شود** (نتیجه‌ی اول ارگانیک عملاً در جایگاه مطلق ۲ است). این نرخ کلیک ارگانیک را به‌شدت فشرده می‌کند و مدل ترافیک ما باید محافظه‌کارانه‌تر شود.
+On the primary keyword, **an AI Overview is displayed above all organic results** (the first organic result is effectively in absolute position 2). This heavily compresses organic click-through and our traffic model has to become more conservative.
 
-ولی راه دیگری هم باز می‌کند: **استنادشدن در خود AI Overview.** `taxstra.com` دقیقاً همین کار را کرده. ساختاری که به آن استناد شده — تعریف گام‌به‌گام فرمول با اعداد مشخص — دقیقاً همان چیزی است که موتور ما تولید می‌کند. این باید یک هدف صریح در سند شود، نه یک اتفاق.
-
----
-
-## ۴. فصلی‌بودن — شدیدتر از فرض سند
-
-روند ۱۲ ماهه‌ی واقعی، نه میانگین:
-
-| کیورد | کف (تابستان) | اوج (ژانویه) | ضریب |
-|---|---|---|---|
-| turbotax calculator | ۳٬۶۰۰ | ۱۶۵٬۰۰۰ | **۴۶×** |
-| tax return calculator | ۶٬۶۰۰ | ۲۰۱٬۰۰۰ | **۳۰×** |
-| estimated tax calculator | ۶٬۶۰۰ | ۱۱۰٬۰۰۰ | **۱۷×** |
-| tax withholding calculator | ۸٬۱۰۰ | ۳۳٬۱۰۰ | ۴× |
-| self employment tax calculator | ۶٬۶۰۰ | ۱۸٬۱۰۰ | ۲.۷× |
-| take home pay calculator | ۴۹٬۵۰۰ | ۶۰٬۵۰۰ | ۱.۲× (تقریباً ثابت) |
-
-**دو نتیجه‌ی عملیاتی:**
-
-1. **مهلت واقعی پروژه دسامبر ۲۰۲۶ است، نه «شش ماه».** صفحه‌ای که در فوریه منتشر شود، اوج را از دست داده و باید یک سال صبر کند. الان اواخر آگوست است — حدود چهار ماه فرصت داریم.
-2. **`take home pay calculator` تقریباً بدون فصل است.** این یعنی جریان درآمد پایدار در ماه‌های خارج از فصل مالیاتی. برای اینکه درآمد ماهانه (که هدف ما «۵۰۰ دلار در ماه» است، نه «۶ هزار دلار در سال») یکنواخت باشد، خوشه‌ی W-2 نقش تثبیت‌کننده دارد.
+But it opens another route: **being cited inside the AI Overview.** `taxstra.com` did exactly that. The structure that earns the citation — a step-by-step definition of the formula with concrete numbers — is exactly what our engine produces. This should become an explicit goal in the specification, not an accident.
 
 ---
 
-## ۵. طرح صفحات بازنگری‌شده
+## 4. Seasonality — more extreme than the specification assumed
 
-از **~۷۵ صفحه** به **~۳۷ صفحه**. کمتر، ولی هر کدام روی تقاضای اثبات‌شده.
+The real 12-month trend, not the average:
 
-### لایه ۱ — ابزارهای اصلی (اول ساخته می‌شوند، اینها خودِ کسب‌وکارند)
-
-| # | مسیر | کیورد هدف | حجم |
+| Keyword | Trough (summer) | Peak (January) | Multiple |
 |---|---|---|---|
-| ۱ | `/tools/self-employment-tax-calculator` | self employment tax calculator | ۹٬۹۰۰ |
-| ۲ | `/tools/estimated-tax-calculator` | estimated tax calculator + estimated tax payments | ۲۷٬۱۰۰ + ۲۲٬۲۰۰ |
-| ۳ | `/tools/1099-tax-calculator` | خوشه‌ی 1099 | ~۱٬۵۰۰ |
-| ۴ | `/tools/freelance-tax-calculator` | ماشین‌حساب کامل، صفحه‌ی چتر | ~۱٬۰۰۰ |
-| ۵ | `/tools/self-employment-tax-deductions-calculator` | کم‌حجم ولی CPC تا $۱۵.۲۰ | ۳۹۰ |
+| turbotax calculator | 3,600 | 165,000 | **46×** |
+| tax return calculator | 6,600 | 201,000 | **30×** |
+| estimated tax calculator | 6,600 | 110,000 | **17×** |
+| tax withholding calculator | 8,100 | 33,100 | 4× |
+| self employment tax calculator | 6,600 | 18,100 | 2.7× |
+| take home pay calculator | 49,500 | 60,500 | 1.2× (nearly flat) |
 
-### لایه ۱.۵ — خوشه‌ی W-2 (همان موتور، شش برابر بازار)
+**Two operational consequences:**
 
-| # | مسیر | کیورد هدف | حجم |
+1. **The project's real deadline is December 2026, not "six months".** A page published in February has missed the peak and must wait a year. It is late August — roughly four months.
+2. **`take home pay calculator` is nearly seasonless.** That means steady income in the months outside tax season. For monthly revenue to be even — and our goal is "$500 a month", not "$6,000 a year" — the W-2 cluster is the stabiliser.
+
+> **Superseded in version 4 of the specification.** The December deadline came from tax seasonality. Once the core identity moved to the place cluster, which is nearly seasonless, the deadline no longer binds. Tax season still gives a jump; the project's failure is no longer tied to it.
+
+---
+
+## 5. Revised page plan
+
+From **~75 pages** to **~37 pages**. Fewer, but every one on proven demand.
+
+### Layer 1 — the core tools (built first; these are the business)
+
+| # | Path | Target keyword | Volume |
 |---|---|---|---|
-| ۶ | `/tools/take-home-pay-calculator` | take home pay calculator | ۶۰٬۵۰۰ |
-| ۷ | `/tools/paycheck-tax-calculator` | paycheck tax calculator | ۱۸٬۱۰۰ |
-| ۸ | `/tools/tax-withholding-calculator` | tax withholding calculator | ۱۴٬۸۰۰ |
+| 1 | `/tools/self-employment-tax-calculator` | self employment tax calculator | 9,900 |
+| 2 | `/tools/estimated-tax-calculator` | estimated tax calculator + estimated tax payments | 27,100 + 22,200 |
+| 3 | `/tools/1099-tax-calculator` | the 1099 cluster | ~1,500 |
+| 4 | `/tools/freelance-tax-calculator` | the complete calculator, an umbrella page | ~1,000 |
+| 5 | `/tools/self-employment-tax-deductions-calculator` | low volume but CPC up to $15.20 | 390 |
 
-> رقابتی‌تر است و احتمالاً سال اول رتبه‌ی خوبی نمی‌گیرد — ولی چون موتور مشترک است، هزینه‌ی نهایی هر کدام یک صفحه محتواست. ساختنشان صرف می‌کند حتی اگر بازدهش دیرتر بیاید.
+### Layer 1.5 — the W-2 cluster (same engine, six times the market)
 
-### لایه ۲ — راهنماهای با تقاضای اثبات‌شده (۹ صفحه)
+| # | Path | Target keyword | Volume |
+|---|---|---|---|
+| 6 | `/tools/take-home-pay-calculator` | take home pay calculator | 60,500 |
+| 7 | `/tools/paycheck-tax-calculator` | paycheck tax calculator | 18,100 |
+| 8 | `/tools/tax-withholding-calculator` | tax withholding calculator | 14,800 |
 
-| مسیر | حجم |
+> More competitive, and probably will not rank well in year one — but because the engine is shared, the marginal cost of each is one page of content. Worth building even if the return arrives later.
+
+### Layer 2 — guides with proven demand (9 pages)
+
+| Path | Volume |
 |---|---|
-| `/guides/self-employment-tax-brackets` | ۴٬۴۰۰ |
-| `/guides/how-to-calculate-self-employment-tax` | ۱٬۹۰۰ |
-| `/guides/self-employment-tax-vs-income-tax` | ۷۱۰ (دو کیورد) |
-| `/guides/how-to-avoid-self-employment-tax` (زاویه‌ی S-Corp) | ۲۶۰ |
-| `/guides/is-self-employment-tax-deductible` | ۲۱۰ |
-| `/guides/estimated-tax-due-dates` | از خوشه‌ی estimated |
-| `/guides/safe-harbor-and-underpayment-penalty` | از خوشه‌ی estimated |
-| `/guides/freelance-tax-deductions` | خوشه‌ی کسورات |
-| `/guides/home-office-deduction` | خوشه‌ی کسورات |
+| `/guides/self-employment-tax-brackets` | 4,400 |
+| `/guides/how-to-calculate-self-employment-tax` | 1,900 |
+| `/guides/self-employment-tax-vs-income-tax` | 710 (two keywords) |
+| `/guides/how-to-avoid-self-employment-tax` (the S-Corp angle) | 260 |
+| `/guides/is-self-employment-tax-deductible` | 210 |
+| `/guides/estimated-tax-due-dates` | from the estimated cluster |
+| `/guides/safe-harbor-and-underpayment-penalty` | from the estimated cluster |
+| `/guides/freelance-tax-deductions` | the deductions cluster |
+| `/guides/home-office-deduction` | the deductions cluster |
 
-### لایه ۳ — صفحات ایالتی: فقط ۸ ایالت، نه ۵۱
+### Layer 3 — state pages: 8 states, not 51
 
 California, New York, Texas, Florida, Illinois, Pennsylvania, Washington, Ohio
 
-**تا نتیجه‌ی دروازه ۱ مشخص نشده، ایالت نهم ساخته نمی‌شود.** اگر این ۸ صفحه impression گرفتند و رتبه آمد، به ۱۵ تا ۲۰ ایالت بعدی گسترش بده. اگر نه، متوقف کن — ۴۳ صفحه‌ی باقی‌مانده صرفه ندارد.
+**No ninth state is built until gate 1's outcome is known.** If these 8 take impressions and rank, expand to the next 15–20. If not, stop — the remaining 43 pages are not worth it.
 
-### لایه ۴ — صفحات اعتماد (۷ صفحه، بدون تغییر)
+### Layer 4 — trust pages (7 pages, unchanged)
 
 About · Methodology · Sources · Editorial Policy · Privacy · Terms · Contact
 
-**جمع: ۵ + ۳ + ۹ + ۸ + ۷ = ۳۲ صفحه** (به‌علاوه‌ی خانه و دایرکتوری = ۳۴). با آستانه‌ی ۳۰-۴۰ صفحه‌ی AdSense می‌خواند.
+**Total: 5 + 3 + 9 + 8 + 7 = 32 pages** (plus home and directory = 34). That meets AdSense's 30–40 page threshold.
 
-**حجم محتوا: از ۸۰ هزار کلمه به حدود ۳۵ هزار کلمه.** این تفاوت بین «شدنی تا دسامبر» و «نشدنی» است.
-
----
-
-## ۶. مدل ترافیک بازنگری‌شده
-
-کل تقاضای قابل‌دسترس طرح بالا (بدون خوشه‌ی W-2): حدود **۵۵ هزار جستجو در ماه**. با خوشه‌ی W-2: حدود **۱۴۰ هزار**.
-
-| مرحله | سهم واقع‌بینانه | بازدید ماهانه | درآمد با RPM $۲۰ |
-|---|---|---|---|
-| ماه ۶ (جایگاه ۱۵-۳۰) | ~۳٪ | ~۱٬۷۰۰ | ~$۳۵ |
-| ماه ۱۲ (جایگاه ۸-۱۵) | ~۸٪ | ~۴٬۵۰۰ | ~$۹۰ |
-| ماه ۱۸ (جایگاه ۴-۱۰) | ~۱۵٪ | ~۸٬۵۰۰ | ~$۱۷۰ |
-| + اوج ژانویه | — | ۳ تا ۵ برابر در آن ماه | — |
-
-### یافته‌ی صادقانه‌ی این مدل
-
-**خوشه‌ی مالیات خوداشتغالی به‌تنهایی به ۵۰۰ دلار در ماه نمی‌رسد** — حتی با عملکرد خوب. سقفش حدود ۱۵۰ تا ۲۵۰ دلار در ماه است، با جهش‌های فصلی.
-
-مسیر ۵۰۰ دلار سه جزء دارد و هر سه لازم‌اند:
-1. تسلط بر خوشه‌ی خوداشتغالی (این طرح) — پایه‌ی ~$۱۵۰
-2. **خوشه‌ی W-2 با همان موتور** — بزرگ‌ترین اهرم، ~$۲۰۰+
-3. اوج ژانویه تا آوریل — که به‌تنهایی می‌تواند چند ماه را بالای هدف ببرد
-
-به همین دلیل لایه ۱.۵ از «فاز ۲» به فاز ۱ منتقل شد. بدون آن، هدف عددی محقق نمی‌شود.
+**Content volume: from 80,000 words to about 35,000.** That is the difference between "achievable by December" and "not achievable".
 
 ---
 
-## ۶-۵. دور دوم اندازه‌گیری — خوشه‌ی مالی فراتر از مالیات (۲۰۲۶-۰۸-۲۹)
+## 6. Revised traffic model
 
-سؤال: آیا محدودکردن به مالیات فریلنسری درست است؟ برای جواب، خوشه‌ی مالی گسترده اندازه‌گیری شد.
+Total addressable demand for the plan above (excluding the W-2 cluster): roughly **55,000 searches a month**. With the W-2 cluster: roughly **140,000**.
 
-### cost of living — حالا اندازه‌گیری‌شده، نه فرض‌شده
-
-| کیورد | حجم | CPC | ارزش بازار |
+| Stage | Realistic share | Monthly visits | Revenue at $20 RPM |
 |---|---|---|---|
-| **cost of living calculator** | **۶۰٬۵۰۰** | $۱.۶۵ | ۹۹٬۸۲۵ |
-| cost of living comparison calculator | ۳٬۶۰۰ | $۲.۰۳ | ۷٬۳۰۸ |
+| Month 6 (position 15–30) | ~3% | ~1,700 | ~$35 |
+| Month 12 (position 8–15) | ~8% | ~4,500 | ~$90 |
+| Month 18 (position 4–10) | ~15% | ~8,500 | ~$170 |
+| + the January peak | — | 3–5× in that month | — |
 
-> ⛔ **این جدول دو بار اشتباه بود و هر دو بار اشتباه از من.**
+### The honest finding from this model
+
+**The self-employment tax cluster alone does not reach $500 a month** — even with good execution. Its ceiling is roughly $150–250 a month, with seasonal spikes.
+
+The path to $500 has three components and all three are required:
+1. Dominating the self-employment cluster (this plan) — a ~$150 base
+2. **The W-2 cluster on the same engine** — the largest lever, ~$200+
+3. The January-to-April peak — which alone can push several months above target
+
+That is why layer 1.5 moved from "phase 2" into phase 1. Without it the numeric goal is not met.
+
+---
+
+## 6-5. Second measurement round — the financial cluster beyond tax (2026-08-29)
+
+The question: is restricting to freelancer tax correct? To answer it, the broader financial cluster was measured.
+
+### Cost of living — now measured, not assumed
+
+| Keyword | Volume | CPC | Market value |
+|---|---|---|---|
+| **cost of living calculator** | **60,500** | $1.65 | 99,825 |
+| cost of living comparison calculator | 3,600 | $2.03 | 7,308 |
+
+> ⛔ **This table was wrong twice and both errors were mine.**
 >
-> **بار اول:** در بازبینی اولیه گفتم «cost of living ارزش کمتری دارد» بدون اینکه اندازه بگیرم.
-> **بار دوم:** اندازه گرفتم ولی **کیورد اشتباه** را — فقط `cost of living comparison calculator` را که یک دم‌بلند است (۳٬۶۰۰) — و بر همان اساس کل خوشه را رد کردم. کیورد سر `cost of living calculator` **۶۰٬۵۰۰** است، یعنی ۱۷ برابر چیزی که گزارش کردم.
+> **First:** in the initial review I said "cost of living is worth less" without measuring.
+> **Second:** I measured, but the **wrong keyword** — only `cost of living comparison calculator`, a long tail (3,600) — and rejected the whole cluster on that basis. The head term `cost of living calculator` is **60,500**, seventeen times what I reported.
 >
-> درس روش‌شناختی: وقتی یک خوشه را رد می‌کنی، باید **کیورد سر** را سنجیده باشی، نه اولین چیزی که در بسط ظاهر شد.
+> The methodological lesson: when rejecting a cluster, you must have measured the **head keyword**, not the first thing that appeared in the expansion.
 
-### تصحیح سوم — خوشه‌ی کامل، بالاخره
+### The third correction — the full cluster, finally
 
-دو تصحیح بالا هم هنوز ناقص بودند: فقط کیورد سر را شمردم، نه خوشه را.
+Both corrections above were still incomplete: I counted only the head keyword, not the cluster.
 
-| کیورد | حجم | CPC |
+| Keyword | Volume | CPC |
 |---|---|---|
-| cost of living calculator | ۶۰٬۵۰۰ | $۱.۶۵ |
-| **cost of living comparison** | **۴۹٬۵۰۰** | $۰.۹۷ |
-| cost of living in austin | ۳٬۶۰۰ | $۲.۷۱ |
-| cost of living in san francisco | ۲٬۹۰۰ | $۰.۸۹ |
-| cost of living in san antonio | ۱٬۹۰۰ | **$۸.۸۵** |
-| houston cost of living | ۱٬۹۰۰ | $۴.۰۵ |
-| cost of living in houston | ۱٬۳۰۰ | $۳.۳۷ |
+| cost of living calculator | 60,500 | $1.65 |
+| **cost of living comparison** | **49,500** | $0.97 |
+| cost of living in austin | 3,600 | $2.71 |
+| cost of living in san francisco | 2,900 | $0.89 |
+| cost of living in san antonio | 1,900 | **$8.85** |
+| houston cost of living | 1,900 | $4.05 |
+| cost of living in houston | 1,300 | $3.37 |
 
-**جمع خوشه با ~۳۰ شهر بزرگ: حدود ۱۵۸٬۰۰۰ جستجو در ماه.**
+**Cluster total with ~30 large cities: roughly 158,000 searches a month.**
 
-> ⛔ **سه بار، و هر سه بار کم‌برآورد.** بار اول بدون اندازه‌گیری. بار دوم کیورد اشتباه (۳٬۶۰۰). بار سوم فقط کیورد سر (۶۰٬۵۰۰) بدون خوشه. عدد واقعی **۱۵۸٬۰۰۰** است.
+> ⛔ **Three times, and underestimated every time.** First without measuring. Second on the wrong keyword (3,600). Third on the head keyword only (60,500) without the cluster. The real figure is **158,000**.
 >
-> ادعای «پایین‌ترین ارزش بازار کل کاتالوگ» هم غلط بود. با خوشه‌ی کامل، ارزش بازارش حدود **۳۰۰٬۰۰۰** است — میان‌رده، بالاتر از budget و discount و future value.
+> The claim "the lowest market value in the whole catalogue" was also wrong. With the full cluster its market value is around **300,000** — mid-pack, above budget, discount and future value.
 
-### یافته‌ی ساختاری — مهم‌تر از خود اعداد
+### The structural finding — more important than the numbers themselves
 
-مقایسه‌ی جفت‌شهرها را جدا سنجیدم:
+City-pair comparisons were measured separately:
 
-| کیورد | حجم |
+| Keyword | Volume |
 |---|---|
-| **cost of living comparison** (خودِ ابزار) | **۴۹٬۵۰۰** |
-| cost of living in austin vs dallas | ۲۶۰ |
-| cost of living in austin vs houston | ۱۷۰ |
-| cost of living in san antonio vs houston | ۷۰ |
-| cost of living in san antonio vs dallas | ۴۰ |
-| dallas vs houston vs austin cost of living | ۱۰ |
+| **cost of living comparison** (the tool itself) | **49,500** |
+| cost of living in austin vs dallas | 260 |
+| cost of living in austin vs houston | 170 |
+| cost of living in san antonio vs houston | 70 |
+| cost of living in san antonio vs dallas | 40 |
+| dallas vs houston vs austin cost of living | 10 |
 
-**تقاضا در «ابزار» است، نه در «صفحه‌ی جفت».** ۴۹٬۵۰۰ نفر دنبال ابزاری‌اند که خودشان دو مکان را انتخاب کنند؛ فقط ۲۶۰ نفر دنبال «آستین در برابر دالاس» مشخص‌اند.
+**The demand is in the "tool", not in the "pair page".** 49,500 people want a tool where they choose the two places themselves; only 260 are after a specific "Austin versus Dallas".
 
-این هم قاعده‌ی ضد-کارتزین سند را تأیید می‌کند و هم می‌گوید چه چیزی به‌جایش ساخته شود: **یک ابزار مقایسه‌ی عالی**، به‌علاوه‌ی صفحات تک‌شهری برای شهرهای بزرگ — و هیچ صفحه‌ی جفتی.
+This confirms the specification's anti-cartesian rule and also says what to build instead: **one excellent comparison tool**, plus single-city pages for the large cities — and no pair pages at all.
 
-### مقایسه با صفحات ایالتی مالیات
+### Compared with the state tax pages
 
-| | مالیات ایالتی | هزینه‌ی زندگی شهری |
+| | State tax | City cost of living |
 |---|---|---|
-| بهترین صفحه | کالیفرنیا ۲۱۰ | آستین ۳٬۶۰۰ |
-| صفحه‌ی متوسط | ~۴۰ | ~۱٬۵۰۰ |
-| نسبت | — | **~۱۰ تا ۱۷ برابر بهتر** |
+| Best page | California 210 | Austin 3,600 |
+| Median page | ~40 | ~1,500 |
+| Ratio | — | **~10 to 17 times better** |
 
-صفحات شهری cost-of-living به‌ازای هر صفحه **به‌مراتب** بهتر از صفحات ایالتی مالیات‌اند — که خودشان در سند به ۸ صفحه محدود شدند.
+Per page, the cost-of-living city pages are **far** better than the state tax pages — which were themselves cut to 8 pages in the specification.
 
-### مسئله‌ی داده — قابل حل با منابع رسمی رایگان
+### The data problem — solvable with free official sources
 
-| لایه | منبع | وضعیت |
+| Layer | Source | Status |
 |---|---|---|
-| شاخص قیمت منطقه‌ای آمریکا | **BEA Regional Price Parities** — سطح ایالت و متروپولیتن | رسمی، رایگان، قابل استناد |
-| اجاره‌ی آمریکا | **HUD Fair Market Rent** — سطح شهرستان | رسمی، رایگان، ماشین‌خوان |
-| اقلام مصرفی آمریکا | **BLS CPI منطقه‌ای** | رسمی، رایگان |
-| **اروپا — سطح کشور** | **Eurostat comparative price levels** | رسمی، رایگان |
+| US regional price index | **BEA Regional Price Parities** — state and metro level | Official, free, citable |
+| US rent | **HUD Fair Market Rent** — county level | Official, free, machine-readable |
+| US consumer items | **BLS regional CPI** | Official, free |
+| **Europe — country level** | **Eurostat comparative price levels** | Official, free |
 
-بسته‌های `eurostat`، `censusdata` و `cpi` روی PyPI موجودند. در این سندباکس دامنه‌های `.gov` مسدودند پس نمی‌توانم همین‌جا بکشمشان، ولی این محدودیت **محیط** است نه پروژه.
+The `eurostat`, `censusdata` and `cpi` packages exist on PyPI. `.gov` domains are blocked in this sandbox so they cannot be pulled here, but that is an **environment** limitation, not a project one.
 
-> **این از Numbeo بهتر است، نه بدتر.** داده‌ی دولتی رسمی که می‌توانیم لینکش بدهیم، دقیقاً همان داستان E-E-A-T است که سند برای مالیات ساخت — و چیزی که Numbeo نمی‌تواند بدهد.
+> **This is better than Numbeo, not worse.** Official government data we can link to is exactly the E-E-A-T story the specification built for tax — and something Numbeo cannot offer.
 
-**نتیجه‌ی نهایی:** cost of living وارد نقشه‌راه می‌شود. ساختارش هم دقیقاً همانی است که کاربر پیشنهاد داد: **شهر برای آمریکا، کشور برای اروپا** — چون داده‌ی رسمی موجود دقیقاً به همین شکل منتشر می‌شود.
+**Final conclusion:** cost of living enters the roadmap. Its structure is exactly what the user proposed: **cities for the US, countries for Europe** — because the available official data is published at precisely those levels.
 
-### خوشه‌ای که واقعاً باید اضافه شود
+### The cluster that genuinely should be added
 
-| کیورد | حجم | CPC | وابستگی داده |
+| Keyword | Volume | CPC | Data dependency |
 |---|---|---|---|
-| **margin calculator** | ۱۱۰٬۰۰۰ | **$۱۰.۹۲** (سقف $۲۹.۱۰) | هیچ |
-| **ebay fee calculator** | ۴۰٬۵۰۰ | **$۱۲.۲۳** | جدول کارمزد ثابت |
-| **fuel cost calculator** | ۴۰٬۵۰۰ | **$۸.۹۳** | هیچ |
-| apr calculator | ۳۳٬۱۰۰ | $۵.۴۴ | هیچ |
-| budget calculator | ۲۲٬۲۰۰ | $۵.۲۹ | هیچ |
-| options profit calculator | ۳۳٬۱۰۰ | $۵.۲۰ | هیچ |
-| compound interest calculator | **۸۲۳٬۰۰۰** | $۱.۷۴ | هیچ |
-| inflation calculator | **۵۵۰٬۰۰۰** | $۲.۹۷ | **BLS CPI — عمومی و رایگان** |
-| investment calculator | ۴۵۰٬۰۰۰ | $۲.۰۰ | هیچ |
-| interest calculator | ۱۶۵٬۰۰۰ | $۳.۴۹ | هیچ |
-| savings calculator | ۶۰٬۵۰۰ | $۳.۱۶ | هیچ |
-| salary ↔ hourly | ۹۹٬۰۰۰ | $۰.۸۸-۱.۷۲ | هیچ |
-| future value calculator | ۴۰٬۵۰۰ | $۱.۷۲ | هیچ |
-| monthly payment calculator | ۲۷٬۱۰۰ | $۳.۱۳ | هیچ |
+| **margin calculator** | 110,000 | **$10.92** (top $29.10) | none |
+| **ebay fee calculator** | 40,500 | **$12.23** | a fixed fee table |
+| **fuel cost calculator** | 40,500 | **$8.93** | none |
+| apr calculator | 33,100 | $5.44 | none |
+| budget calculator | 22,200 | $5.29 | none |
+| options profit calculator | 33,100 | $5.20 | none |
+| compound interest calculator | **823,000** | $1.74 | none |
+| inflation calculator | **550,000** | $2.97 | **BLS CPI — public and free** |
+| investment calculator | 450,000 | $2.00 | none |
+| interest calculator | 165,000 | $3.49 | none |
+| savings calculator | 60,500 | $3.16 | none |
+| salary ↔ hourly | 99,000 | $0.88–1.72 | none |
+| future value calculator | 40,500 | $1.72 | none |
+| monthly payment calculator | 27,100 | $3.13 | none |
 
-**جمع تقریبی: ۲.۴ میلیون جستجوی ماهانه.**
+**Approximate total: 2.4 million monthly searches.**
 
-### چرا این کشف مهم‌تر از حجمش است
+### Why this discovery matters more than its volume
 
-فرض پنهانی که اشتباه بود: «گسترش با کار مالیات بر سر همان منبع کمیاب رقابت می‌کند.»
+The hidden assumption that was wrong: "expanding competes with the tax work for the same scarce resource."
 
-منبع کمیاب این پروژه **داده‌ی مالیاتی راستی‌آزمایی‌شده و محتوای YMYL** است. ولی ستون آخر جدول بالا نشان می‌دهد این ماشین‌حساب‌ها از آن منبع مصرف نمی‌کنند:
+This project's scarce resource is **verified tax data and YMYL content**. But the last column above shows these calculators do not consume it:
 
-| | خوشه‌ی مالیات | این خوشه |
+| | The tax cluster | This cluster |
 |---|---|---|
-| دیتاست لازم | ۵۱ حوزه + فدرال + فصلی | تقریباً هیچ |
-| راستی‌آزمایی سالانه | اجباری | ندارد |
-| بار E-E-A-T | YMYL سنگین | سبک |
-| هزینه‌ی هر صفحه | چند ساعت داده + ۱٬۲۰۰ کلمه | چند ده خط ریاضی |
-| فصلی | تا ۴۶× | تقریباً ثابت |
+| Dataset required | 51 jurisdictions + federal + quarterly | almost none |
+| Annual verification | Mandatory | None |
+| E-E-A-T burden | Heavy YMYL | Light |
+| Cost per page | Hours of data + 1,200 words | A few dozen lines of arithmetic |
+| Seasonality | Up to 46× | Nearly flat |
 
-**یعنی این خوشه مهلت دسامبر را تهدید نمی‌کند** — برخلاف cost of living که خودش یک پروژه‌ی داده‌ای کامل است. می‌تواند موازی پیش برود، و در ماه‌های خارج از فصل مالیاتی کف درآمد را نگه دارد.
+**So this cluster does not threaten the December deadline** — unlike cost of living, which is a complete data project in itself. It can run in parallel and hold the revenue floor in the months outside tax season.
 
-**هشدار:** CPC بالا به‌معنای رتبه‌ی آسان نیست. `margin calculator` و `ebay fee calculator` رقیب تثبیت‌شده دارند. مزیتشان این است که YMYL سبک‌تری‌اند، پس سد اعتبار دامنه کوتاه‌تر است.
+**Warning:** a high CPC does not mean an easy ranking. `margin calculator` and `ebay fee calculator` have entrenched competitors. Their advantage is that they carry a lighter YMYL burden, so the domain-authority barrier is lower.
+
+> **Superseded in version 4 of the specification.** This entire cluster was later removed from scope: it has good volume and CPC but does not answer the core sentence, and it dilutes topical authority. See specification section 2-2-3. It is recorded here because the reasoning that produced it — the scarce-resource analysis — remains correct; only its conclusion was overridden by the context constraint.
 
 ---
 
-## ۷. تصمیم‌های حاصل از این تحقیق
+## 7. Decisions arising from this research
 
-| # | تصمیم | مبنا |
+| # | Decision | Basis |
 |---|---|---|
-| ۱ | ۵۱ صفحه‌ی ایالتی → ۸ صفحه | کالیفرنیا ۲۱۰/ماه، تگزاس ۳۰/ماه |
-| ۲ | ابزارها از لایه‌ی دوم به هسته‌ی پروژه ارتقا یافتند | ۹۹٪ تقاضا آنجاست |
-| ۳ | خوشه‌ی W-2 از فاز ۲ به فاز ۱.۵ منتقل شد | ۶× بازار، هزینه‌ی نهایی نزدیک صفر |
-| ۴ | `estimated-tax-calculator` بالاترین اولویت ساخت | ۲۷٬۱۰۰ + اوج ژانویه ۱۱۰٬۰۰۰ |
-| ۵ | مهلت پروژه: **دسامبر ۲۰۲۶** | فصلی‌بودن تا ۴۶ برابر |
-| ۶ | استنادشدن در AI Overview یک هدف صریح شد | taxstra.com ثابت کرد سایت کوچک می‌تواند |
-| ۷ | مدل درآمدی: خوشه‌ی مالیات به‌تنهایی به هدف نمی‌رسد | بخش ۶ بالا |
-| ۸ | cost of living تعویق می‌شود — این‌بار با اندازه‌گیری | ۳٬۶۰۰/ماه، بخش ۶-۵ |
-| ۹ | خوشه‌ی «ریاضی ساده، CPC بالا» اضافه می‌شود | ۲.۴ میلیون/ماه بدون وابستگی داده، بخش ۶-۵ |
+| 1 | 51 state pages → 8 pages | California 210/month, Texas 30/month |
+| 2 | Tools promoted from the second layer to the core of the project | 99% of demand is there |
+| 3 | The W-2 cluster moved from phase 2 to phase 1.5 | 6× the market, near-zero marginal cost |
+| 4 | `estimated-tax-calculator` is the highest build priority | 27,100 + a January peak of 110,000 |
+| 5 | Project deadline: **December 2026** | Seasonality up to 46× |
+| 6 | Being cited in AI Overviews became an explicit goal | taxstra.com proved a small site can |
+| 7 | Revenue model: the tax cluster alone does not reach the target | Section 6 above |
+| 8 | Cost of living deferred — this time with measurement | 3,600/month, section 6-5 |
+| 9 | The "simple maths, high CPC" cluster is added | 2.4 million/month with no data dependency, section 6-5 |
+
+> **Decisions 1, 5, 8 and 9 were later overturned**, and the corrections are recorded in this document above and in specification section 19. Decision 8 in particular was wrong three times over: the cluster is 158,000/month, not 3,600, and it became the core of the project. The table is kept as written because the record of a wrong decision is more useful than a quietly corrected one.
 
 ---
 
-*این سند نتیجه‌ی یک بار اجرای تحقیق است. بعد از سه ماه داده‌ی Search Console، باید با داده‌ی واقعی خودمان جایگزین شود، نه تکرار همین تحقیق.*
+*This document is the result of one research run. After three months of Search Console data it should be replaced with our own real data, not by repeating this research.*

@@ -1,48 +1,66 @@
 # LifeCalc Pro
 
-ماشین‌حساب‌های مالیات فریلنسری آمریکا — پروژه‌ی محتوا/ابزار با مدل درآمدی AdSense.
+The real cost of living and working in a place — and what actually stays with
+you. A calculator site for US metros and states, monetised with AdSense.
 
-## وضعیت
+## Reference document
 
-مرحله‌ی طراحی. هنوز کدی نوشته نشده.
+**[`docs/SPEC.md`](docs/SPEC.md)** is the project's only authority. Read it
+before any decision.
 
-## سند مرجع
+The earlier documents in `docs/archive/` are kept for history only and are
+**not authoritative** — they contradict each other and the current state in
+several places.
 
-**[`docs/SPEC.md`](docs/SPEC.md)** تنها مرجع پروژه است. قبل از هر تصمیمی خوانده شود.
+## Four hard rules
 
-اسناد قبلی در `docs/archive/` صرفاً برای تاریخچه نگه داشته شده‌اند و **مرجع نیستند** — در چند نقطه با هم و با وضعیت فعلی تناقض دارند.
+1. No tax figure enters the code from memory or a secondary source — only a
+   primary source with a URL and a date.
+2. No tax calculation is written outside `src/lib/tax/`.
+3. No page ships without green engine tests and human review.
+4. Everything outside `docs/archive/` is English. Enforced in CI.
 
-## سه قانون سخت
+## Status
 
-1. هیچ عدد مالیاتی از حافظه یا منبع ثانویه وارد کد نمی‌شود — فقط منبع اولیه با URL و تاریخ.
-2. هیچ محاسبه‌ی مالیاتی خارج از `src/lib/tax/` نوشته نمی‌شود.
-3. هیچ صفحه‌ای بدون تست سبز موتور مالیات و بازبینی انسانی منتشر نمی‌شود.
-
-## وضعیت
-
-| بخش | وضعیت |
+| Area | Status |
 |---|---|
-| دیتاست ۵۱ حوزه + فدرال + برنامه‌ی فصلی | ✅ استخراج‌شده، صفر خطای ساختاری |
-| موتور مالیات (`src/lib/tax/`) | ✅ ۵۹ تست سبز، تایپ‌چک تمیز |
-| راستی‌آزمایی داده با منبع اولیه | ⬜ باقی‌مانده |
-| اپلیکیشن Next.js | ⬜ شروع نشده |
+| Dataset: 51 jurisdictions + federal + quarterly schedule | ✅ Extracted, zero structural errors |
+| Tax engine (`src/lib/tax/`) | ✅ 59 tests green, typecheck clean |
+| Page and keyword map (`data/`) | ✅ 17 pages, 10 audit checks, zero errors |
+| Data verification against primary sources | ⬜ Outstanding — needs `.gov` access |
+| Cost-of-living dataset (BEA · HUD · Eurostat) | ⬜ Not started — needs `.gov` access |
+| Next.js application | ⬜ Not started |
+
+The specification is well ahead of the code: the tax engine and the datasets
+exist, the application does not.
+
+## Commands
 
 ```bash
-npm test              # تست‌های موتور
+npm test                          # engine tests
 npm run typecheck
-npm run data:validate # اعتبارسنجی ساختاری دیتاست
-npm run data:extract  # بازتولید دیتاست
+npm run data:validate             # dataset structural validation
+npm run data:extract              # rebuild the dataset
+
+python3 scripts/audit_seo.py      # cannibalisation, canonical and on-page audit
+python3 scripts/check_language.py # every shipping file is English
+python3 scripts/model_revenue.py  # rebuild docs/revenue-model.md
 ```
 
-## گام بعدی
+All five run in CI and break the build on failure.
 
-**اعتبارسنجی کیورد انجام شد** — نتایج و طرح صفحات در [`docs/keyword-research.md`](docs/keyword-research.md).
+## Next step
 
-**داده‌ی مالیاتی هر ۵۱ حوزه استخراج شد** — `src/data/tax-year-2026/`، صفر خطای ساختاری.
+Verify the rows in [`docs/data-verification.md`](docs/data-verification.md)
+against primary sources. Every dataset value is `verification: pending` until
+a human has checked it against IRS or state revenue department publications,
+and no page for a jurisdiction ships before its row is ticked.
 
-گام بعدی: راستی‌آزمایی ردیف‌های [`docs/data-verification.md`](docs/data-verification.md) با منبع اولیه، و وارد کردن دستی تاریخ‌های سررسید فصلی و قواعد safe harbor.
+## Related documents
 
-```bash
-python3 scripts/extract_tax_data.py --year 2026    # بازتولید دیتاست
-python3 scripts/validate_tax_data.py --year 2026   # اعتبارسنجی ساختاری
-```
+| Document | Role |
+|---|---|
+| [`docs/keyword-research.md`](docs/keyword-research.md) | Demand validation — the basis for the page plan |
+| [`docs/tool-catalogue.md`](docs/tool-catalogue.md) | 36 tools ranked by market value against build cost |
+| [`docs/revenue-model.md`](docs/revenue-model.md) | Generated — do not edit by hand |
+| [`docs/data-verification.md`](docs/data-verification.md) | Row-by-row verification checklist |

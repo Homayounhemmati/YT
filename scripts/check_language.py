@@ -1,25 +1,37 @@
 #!/usr/bin/env python3
-"""Fail the build if Persian text reaches anything that ships.
+"""Fail the build if non-English text appears anywhere in the project.
 
-The site is English. The spec is written in Persian because its readers are,
-but the spec never ships. The dangerous boundary is between the two: a Persian
-string in `data/` becomes a Persian meta description on a live page, which is
-exactly what nearly happened when `output` — an internal spec field — was first
-wired into the meta formula.
+The site is English, the data is English, and the documentation is English. That
+was not always true, and the one place it mattered most is instructive: `output`
+in `data/pages.json` held an internal Persian description, and wiring it into
+the meta formula would have shipped 15 Persian meta descriptions.
 
-So this draws the boundary as a check rather than a convention: SHIPPING paths
-must be pure English, DOC paths may be Persian, and nothing is left to memory.
+The first fix drew a boundary — English under `data/`, Persian under `docs/`.
+The second removed the boundary instead of policing it, because a rule you have
+to remember is the kind of rule that fails. The whole project is now one
+language, and this check is what keeps it that way.
+
+`docs/archive/` is the single exception. Those are the three original
+specifications as they were written; translating a historical record destroys
+it, so the archive stays verbatim and is skipped here.
 """
 import pathlib
 import re
 import sys
 
 # Arabic, Arabic Supplement, Extended-A, Presentation Forms, plus ZWNJ.
-PERSIAN = re.compile(r"[؀-ۿݐ-ݿࢠ-ࣿ"
-                     r"ﭐ-﷿ﹰ-﻿‌]")
+# Written as escapes rather than literals so this file does not trip its own
+# check — the detector must not contain what it detects.
+PERSIAN = re.compile(
+    "[\u0600-\u06ff\u0750-\u077f\u08a0-\u08ff"
+    "\ufb50-\ufdff\ufe70-\ufeff\u200c]")
 
-# Everything that can reach a rendered page or the JS bundle.
-SHIPPING = ("data", "src", "app", "public", "components", "content")
+# Everything that ships, plus everything that documents it.
+CHECKED = ("data", "src", "app", "public", "components", "content", "docs",
+           "scripts")
+
+# The originals, kept verbatim as a historical record.
+EXEMPT = (pathlib.PurePath("docs/archive"),)
 
 SKIP_DIRS = {".git", "node_modules", ".next", "out", "dist", "coverage",
              "__pycache__", ".venv"}
@@ -42,7 +54,7 @@ def main():
     errors = []
     scanned = 0
 
-    for top in SHIPPING:
+    for top in CHECKED:
         base = root / top
         if not base.is_dir():
             continue
@@ -51,21 +63,23 @@ def main():
                 continue
             if any(part in SKIP_DIRS for part in path.parts):
                 continue
+            if any(exempt in path.parents for exempt in EXEMPT):
+                continue
             if path.suffix.lower() in SKIP_SUFFIXES:
                 continue
             scanned += 1
             for line_no, text in offending_lines(path):
                 excerpt = text if len(text) <= 90 else text[:87] + "..."
-                errors.append(f"{path}:{line_no}: Persian text in a shipping "
-                              f"file — {excerpt}")
+                errors.append(f"{path}:{line_no}: non-English text — {excerpt}")
 
     for error in errors:
         print(f"ERROR  {error}")
 
-    print(f"\n{scanned} shipping files scanned · {len(errors)} errors")
+    print(f"\n{scanned} files scanned · {len(errors)} errors")
     if errors:
-        print("\nThe site is English. Persian belongs in docs/, which never "
-              "ships — move the text there, or translate it.")
+        print("\nThe whole project is English — the site, the data and the "
+              "docs. Translate the text, or, if it is a historical record, "
+              "put it in docs/archive/.")
     return 1 if errors else 0
 
 
