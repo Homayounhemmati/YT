@@ -1399,5 +1399,12 @@
       "Re-run the generator after any dataset change, then re-import. The annual tax update (section 16) changes 51 titles' year and every bracket sentence.",
       "Requirements R1-R9 (3-1) are verified against the live app by the protocol in 3-5 before this mapping is trusted."
     ]
+  },
+  "contentBudget": {
+    "$comment": "The anti-doorway thresholds from spec section 6-10-4, enforced by scripts/validate_content.py. A token counts as boilerplate when it appears on 80% or more of a template's pages.",
+    "minUniqueRatio": 0.4,
+    "minEntityNumbers": 3,
+    "minFaqWithNumbers": 3,
+    "maxBoilerplateRatio": 0.35
   }
 }

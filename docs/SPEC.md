@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 5.4
+> **Last revised:** 2026-09-06 · **Version:** 5.5
+>
+> **Version 5.5:** Thin content measured for the first time — the 51 state pages are ~80% identical furniture on scaffolding alone, and the body-copy requirement is now a number. Details in 20-22.
 >
 > **Version 5.4:** Platform requirements answered against a live Base44 app — R1, R3, R4, R5 verified; R2 and R8 recorded as inferred; R7 open. The 81-page plan stands. Details in 20-21.
 >
@@ -197,6 +199,35 @@ These are decided. Changing one means rewriting the document, not patching a lin
 | **Revenue model** | AdSense only in phase 1 | Tax affiliate offers (accounting software) get evaluated in phase 2 |
 | **Final destination** | **A financial calculator hub**, not a general "life" hub | Section 2-2 |
 | **Domain** | A single site | — |
+| **Exact-match domain** | Neutral. Not a ranking strategy | See below |
+
+#### A note on the exact-match domain
+
+An exact-match domain — one whose name is the target keyword — carried real
+ranking weight until Google's 2012 EMD update, which was built specifically to
+remove it. Today it is close to neutral as a ranking signal.
+
+**What it still does give**, and these are real:
+
+- A modest click-through advantage in the SERP, because the domain matches what
+  the user typed.
+- Natural anchor text: when someone links to the site by name, the link carries
+  the keyword without anyone engineering it. Section 9-5's link building benefits
+  from this at no cost.
+
+**What it does not give:** a shortcut past any of the requirements in this
+document. And there is one asymmetry worth stating plainly, because it inverts
+the intuition:
+
+> **An exact-match domain makes thin content more dangerous, not safer.** A
+> keyword domain over near-duplicate generated pages is the precise pattern the
+> EMD update and the 2024 scaled-content-abuse policy were written to catch. The
+> domain raises the site's profile against exactly the filter it is least able to
+> survive.
+
+The conclusion is not to change the domain. It is that the uniqueness budget in
+6-10-4 matters *more* here than it would on a brand domain — which is why it is
+now measured rather than asserted.
 
 ### 2-1. What was explicitly removed from the previous spec
 
@@ -1044,7 +1075,49 @@ Section 7-1 says every page must be unique. Here it gets a number:
 
 > ⚠️ **Calculator output counts as unique but is not sufficient.** A computed number does differentiate, but a page that is only a table and a number is a doorway page. At least one written section specific to that place is required.
 
-The content validation script measures these ratios before the build and breaks the build below threshold — the same pattern as `validate_tax_data.py`.
+`scripts/validate_content.py` measures these ratios and runs in CI — the same
+pattern as `validate_tax_data.py`. A token counts as boilerplate when it appears
+on 80% or more of a template's pages.
+
+#### What the measurement actually said
+
+The script was written after an audit found that this section had promised it for
+several revisions while nothing enforced it. Its first run, against the generated
+scaffolding:
+
+| Template | Pages | Median unique | Worst |
+|---|---|---|---|
+| TrustPage | 7 | 90% | 90% |
+| DirectoryPage | 3 | 67% | 61% |
+| ToolPage | 12 | 62% | 56% |
+| **StateTaxPage** | **51** | **21%** | **16%** |
+
+**The 51 state pages are about 80% identical furniture**, on the scaffolding
+alone. That is the doorway shape this section exists to prevent, and every other
+check in the project passed while it was true — cannibalisation, canonical,
+titles, anchors, crawl depth, all clean.
+
+The measurement is of scaffolding only, because no body copy exists yet. That is
+the useful moment to take it: **it converts "write good unique content" into a
+number.**
+
+| Body length | Required uniqueness of the body itself |
+|---|---|
+| 900 words | **44%** |
+| 1,200 words | **43%** |
+| 1,400 words | **42%** |
+
+So a state page's body copy must be **at least ~43% words that no other state
+page uses**. That is a demanding bar and it is meant to be: it rules out
+paraphrasing one article 51 times, and it is met by the material section 7-2
+already requires — that state's own bracket structure, its own local tax rules,
+its own filing deadlines and authority, pulled from its own revenue department.
+
+**The threshold judges the finished page.** Before body copy exists the script
+warns rather than fails; once `--bodies` points at real copy, the same threshold
+breaks the build.
+
+
 
 #### 6-10-5. The internal link graph
 
@@ -3328,6 +3401,60 @@ on the two pages someone checked and breaks on the thirtieth.
 
 **Status: 25 mapped pages · 20 checks · 74 generated pages · 0 errors · 59 tests
 green.**
+
+### 20-22. Round twenty-three — version 5.5 · the thin-content measurement
+
+Three standards were named as the ones that decide whether this site ranks: no
+cannibalisation, sound programmatic structure, no thin content. Checking which
+were actually enforced gave an uncomfortable answer — the first two were, and
+**the third had been promised by section 6-10-4 for several revisions while
+nothing measured it.**
+
+`scripts/validate_content.py` now does. Its first run:
+
+| Template | Pages | Median unique | Worst |
+|---|---|---|---|
+| TrustPage | 7 | 90% | 90% |
+| DirectoryPage | 3 | 67% | 61% |
+| ToolPage | 12 | 62% | 56% |
+| **StateTaxPage** | **51** | **21%** | **16%** |
+
+**The 51 state pages are roughly 80% identical furniture.** Every other check in
+the project passed while that was true: cannibalisation, canonical, titles,
+anchor text, crawl depth, orphans, clusters — all clean, on 51 pages that share
+four fifths of their words.
+
+That is the whole argument for measuring rather than asserting, in one table. The
+project has been thorough about *which page targets what* and had no instrument at
+all for *whether the page is worth having*.
+
+**The measurement converts an instruction into a number.** With a 174-word
+scaffolding at 21% unique, a 1,200-word body must itself be **43% unique** for the
+finished page to clear the 40% threshold. "Write good unique content" is
+unfalsifiable; "43% of this page's words must appear on no other state page" is
+not, and it is met by exactly the material 7-2 already requires — that state's own
+brackets, its own local tax rules, its own deadlines and authority.
+
+Two corrections to the check itself, both the same class of error as previous
+rounds:
+
+- **The numeric-token rule fired on tool and directory pages**, which legitimately
+  have no numbers in their copy — a calculator's numbers arrive at runtime. Scoped
+  to entity templates.
+- **The threshold judges a finished page**, so failing on scaffolding alone would
+  fail on the absence of work not yet due. It warns before body copy exists and
+  fails once `--bodies` points at real copy.
+
+Also recorded, in section 2: **an exact-match domain does not change any of this.**
+It is close to neutral as a ranking signal since 2012, gives a modest click-through
+and natural-anchor-text benefit, and carries one asymmetry worth stating — a
+keyword domain over near-duplicate generated pages is the precise pattern the EMD
+update and the 2024 scaled-content-abuse policy were written to catch. It raises
+the site's profile against the filter it is least able to survive. The conclusion
+is not to change the domain; it is that 6-10-4 matters more here, not less.
+
+**Status: 25 mapped pages · 20 checks · 74 generated pages · 5 CI validators ·
+0 errors · 59 tests green.**
 
 ---
 
