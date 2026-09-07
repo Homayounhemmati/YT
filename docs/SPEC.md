@@ -2508,6 +2508,36 @@ secondary rather than primary (13-3). All three US sources publish free,
 machine-readable, licence-clean data. This is an environment constraint, not a
 project one, and it is the first thing to resolve outside the sandbox.
 
+**Alternative routes were tested, not assumed.** PyPI is reachable and `.gov` is
+not, so packages install but fetch from blocked hosts at runtime. The `cpi` package
+does ship a 62 MB bundled database — but it holds **CPI, which measures inflation
+over time, not price level between places**. CPI cannot compare Austin with San
+Francisco; that is exactly what Regional Price Parities do and CPI does not. It is
+useful for the annual update in section 16 and useless for the comparison this
+project is built on.
+
+**So the blocker became one command instead of a research task:**
+
+```bash
+export BEA_API_KEY=...      # free, apps.bea.gov/API/signup
+export HUD_API_TOKEN=...    # free, huduser.gov FMR API
+python3 scripts/fetch_cost_of_living.py --year 2024
+python3 scripts/validate_cost_of_living.py --year 2024
+```
+
+`fetch_cost_of_living.py` builds only the metros that pass the 6-10-3 gate, in the
+5-5 schema, with sources and a `pending` verification state.
+`validate_cost_of_living.py` is the equivalent of `validate_tax_data.py` that 5-5
+required and that did not exist — it enforces the three rules the original city
+dataset broke: no derived value stored, one definition per column across every row,
+and a category with no official index omitted rather than substituted. It runs in
+CI and no-ops until the dataset exists.
+
+> ⚠️ **The API paths in the fetcher were written from documentation, not from a
+> successful call** — the sandbox cannot reach either host. Treat the first run as a
+> smoke test and check one metro against the published tables by hand before
+> generating 30 pages from it.
+
 **Why it matters more than the tax verification backlog:** the tax dataset
 exists and is merely unverified. This one does not exist at all, and stage 1 of
 the roadmap cannot start without it (section 11). It is the project's critical

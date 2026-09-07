@@ -9,7 +9,8 @@
     "typecheck": "tsc --noEmit",
     "data:extract": "python3 scripts/extract_tax_data.py --year 2026 && python3 scripts/estimated_tax.py --year 2026",
     "data:validate": "python3 scripts/validate_tax_data.py --year 2026",
-    "data:takehome": "tsx scripts/compute_takehome.ts"
+    "data:takehome": "tsx scripts/compute_takehome.ts",
+    "data:col": "python3 scripts/fetch_cost_of_living.py --year 2024 && python3 scripts/validate_cost_of_living.py --year 2024"
   },
   "devDependencies": {
     "@types/node": "^26.4.0",
