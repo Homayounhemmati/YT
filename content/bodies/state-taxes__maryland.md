@@ -62,3 +62,31 @@ The decision that matters inside Maryland is county, not state. Two identical
 earners in two adjacent counties face different combined rates on the same income,
 and that difference persists for as long as they live there — which makes it worth
 more attention than most people give it when choosing a neighbourhood.
+
+## How wide the county spread actually is
+
+Because every jurisdiction levies, the meaningful comparison inside Maryland is
+not whether you pay a local tax but how much. County rates differ by enough that
+two identical earners in adjacent counties see a visible gap in annual take-home —
+and unlike a one-off cost, it recurs every year for as long as they live there.
+
+That makes the county line a financial decision in a way it is not in most states.
+Someone choosing between two neighbourhoods that are twenty minutes apart may be
+choosing between two different effective tax rates, and the difference compounds
+over a decade of residence.
+
+## Why the 4.75% band dominates
+
+The single most useful fact about Maryland's schedule is the length of one bracket.
+The 4.75% band runs from $3,000 to $100,000 — a span of $97,000, wider than the
+other nine brackets combined.
+
+For anyone earning between those figures, which is most of the working population,
+Maryland is a flat-tax state in everything but name. The marginal rate does not
+move, so there is no threshold to plan around, and the effective rate converges on
+4.75% as income rises through the band.
+
+This is why comparing Maryland by its 6.5% top rate is misleading in both
+directions. It overstates the burden for almost everyone, and it obscures the
+combined state-plus-county figure that actually applies — which is the number a
+relocation decision should turn on.

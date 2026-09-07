@@ -63,3 +63,35 @@ in Manhattan against one in a no-income-tax state should be comparing three
 layers — federal, state, and city — against one. Comparing only the state layer
 understates the gap by a wide margin, and it is the single most common error in
 relocation arithmetic involving New York.
+
+## What the schedule does to an ordinary salary
+
+The compression at the bottom has a consequence worth stating plainly. Because
+3.9%, 4.4%, 5.15% and 5.4% are all exhausted below $13,900, the effective rate on
+a $60,000 salary is dominated almost entirely by the 5.4% and 5.9% bands. The
+nine-bracket schedule is, for most working New Yorkers, a two-bracket schedule
+wearing a longer coat.
+
+That also means marginal-rate planning is largely futile below $80,650. There is
+no threshold near a typical salary that rewards deferring income into the
+following year, which is a genuine difference from states whose brackets are
+spaced across the middle of the earnings distribution.
+
+The $8,000 standard deduction is worth about $472 at the 5.9% marginal rate — real,
+but small enough that it does not change a relocation decision on its own. It is
+also considerably smaller than the federal standard deduction, so a New Yorker
+shelters much less at the state layer than at the federal one, and the state
+taxable income is correspondingly closer to gross.
+
+## The quarterly obligation
+
+A self-employed New York resident makes two sets of estimated payments: federal
+instalments to the IRS and separate state instalments to the Department of
+Taxation and Finance. They are not combined, not netted, and not forgiven if the
+other is paid.
+
+The state operates its own underpayment penalty, calculated independently of
+anything owed federally. Someone who covers their federal liability precisely and
+overlooks the state schedule will still owe a penalty — a common first-year error
+and one that a national tax calculator, which models a single federal obligation,
+gives no warning about.

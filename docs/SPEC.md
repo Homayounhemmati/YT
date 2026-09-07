@@ -74,6 +74,7 @@
 | [`data-verification.md`](data-verification.md) | Verification checklist; the basis for section 13 |
 | [`onpage-spec.md`](onpage-spec.md) | **Generated** — the resolved on-page values for all 74 buildable pages (9-3-9) |
 | [`base44-questions.md`](base44-questions.md) | The platform questions that settle requirements R1–R9 (3-1, 3-5) |
+| [`copywriting.md`](copywriting.md) | How to write copy that clears the uniqueness budget — derived from measured pilot pages (7-6) |
 | `archive/` | The three original specs — **not authoritative** |
 
 ---
@@ -1316,6 +1317,19 @@ Tax changes annually. Fifty-one pages carrying expired data are worse than havin
 - Target readability: around ninth grade. Our audience is not an accountant
 - **No "we are the best" claims.** The correct number is the argument
 - **Disclosure of machine assistance** in `/editorial-policy`: machine drafting, human review and fact-checking. Hiding it is a trust risk; stating it is not
+
+**These are principles. The working guide is [`docs/copywriting.md`](copywriting.md)**,
+which turns them into a section-by-section playbook with measured targets, a list
+of constructions that are never used, and the research method for finding an
+entity's angle before writing. It is derived from four pages that were written and
+then measured, not from general advice.
+
+**One finding from it belongs here, because it changes this section's numbers:**
+uniqueness *falls* as length rises. The same four bodies scored 46% worst at ~530
+words and 43% worst at ~800. The added material was genuinely entity-specific and
+the ratio still slipped, because every paragraph also adds shared vocabulary. So
+the target inside 7-2's 900–1,400 range is **the bottom of it**: 900 dense words
+beat 1,400 where the last 500 are general.
 
 ---
 

@@ -61,3 +61,32 @@ The decisive variable is municipality, not state. Two people earning the same
 amount in different Pennsylvania towns can face materially different effective
 rates, and a self-employed person in Philadelphia faces a structure that has no
 resemblance to the flat-rate simplicity the state is known for.
+
+## What no standard deduction actually costs
+
+The absence is easy to skip past, so it is worth putting a number on it. A New
+York resident shelters the first $8,000 of state taxable income; a Pennsylvanian
+shelters nothing. At 3.07% that difference is roughly $246 a year — modest in
+isolation, but it is charged against a base rate so low that it represents a
+meaningful share of the total state bill.
+
+The effect is regressive in shape. At $30,000 of income the missing deduction
+raises the effective state rate noticeably; at $300,000 it is a rounding error.
+Pennsylvania is therefore more attractive the more you earn, which is the opposite
+of the pattern in every graduated state, and it is the real content of the
+"flat tax" description.
+
+## How the local layer is administered
+
+Local earned income tax is not collected by the state. It is administered through
+regional collectors, and the rate depends on the municipality of residence and, in
+some cases, on the municipality of work. That second detail catches people:
+someone living in one township and working in another may face a rate determined
+by a rule that has nothing to do with where they filed last year.
+
+For the self-employed the position is more complicated again. Philadelphia's Net
+Profits Tax applies directly to freelance income rather than to wages, and the
+Business Income and Receipts Tax applies to gross receipts as well as net income —
+so a Philadelphia freelancer can owe city tax on revenue in a year when profit was
+thin. That is a structural risk with no equivalent in most of the country, and it
+is invisible in any calculation built from the 3.07% state rate.

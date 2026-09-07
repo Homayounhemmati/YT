@@ -58,3 +58,33 @@ proprietor: Texas imposes a franchise tax on businesses above a revenue threshol
 It is not an income tax and it does not apply to most individual freelancers, but
 it is not nothing, and it is worth confirming against the Comptroller's current
 threshold before assuming a Texas entity carries no state obligation at all.
+
+## What replaces it, in practice
+
+Texas property tax is levied locally rather than by the state, and effective rates
+are high by national standards — high enough that for a homeowner the annual bill
+can approach or exceed what a middle-income earner would have paid in state income
+tax elsewhere. The exact figure depends on county and school district, which vary
+widely, so the honest statement is that the trade is real and its size is local.
+
+Sales tax adds a second layer, with a state rate plus local add-ons. It falls on
+consumption rather than income, which means it is proportionally heavier on
+households that spend most of what they earn — the opposite of the incidence of a
+graduated income tax.
+
+The combined effect is a genuine shift in who pays. A high earner who rents keeps
+substantially more in Texas than in a graduated state. A median-income homeowner
+with children may find much of the notional saving returned through the property
+bill, and the crossover point is a real question rather than a rhetorical one.
+
+## The franchise tax, for anyone with an entity
+
+Texas imposes a franchise tax on business entities above a revenue threshold. It
+is a tax on margin rather than on personal income, and most individual freelancers
+operating as sole proprietors fall outside it entirely.
+
+It matters for a specific group: someone who forms an LLC or corporation in Texas
+on the assumption that the state imposes nothing at all. That assumption is right
+about personal income tax and wrong about entity-level obligations, and the
+threshold moves — so it should be checked against the Comptroller's current figure
+rather than remembered from an earlier year.
