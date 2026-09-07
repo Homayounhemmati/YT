@@ -26,6 +26,7 @@ WORD = re.compile(r"[a-z0-9$%.,-]+")
 # Only entity-driven templates must carry their own numbers. A tool page's
 # numbers come from the calculator at runtime, not from its copy.
 ENTITY_TEMPLATES = {"StateTaxPage", "PlacePage"}
+PAGES_DOC = {}
 
 
 def words(text):
@@ -40,6 +41,29 @@ def page_text(entry):
     for f in entry.get("faq", []):
         parts += [f.get("question", ""), f.get("answer", "")]
     return " ".join(p for p in parts if p)
+
+
+def keyword_coverage(entry, pages_doc, body):
+    """A page can be perfectly unique and still not target its own keyword.
+    The uniqueness rules push toward varied phrasing; nothing pushed back, and the
+    first four pilot bodies hit 0 of 5 cluster variants as a result."""
+    template_path = {"StateTaxPage": "/state-taxes/{state}",
+                     "PlacePage": "/cost-of-living/{metro}"}.get(entry["template"])
+    if not template_path:
+        return None
+    spec = next((p for p in pages_doc["pages"] if p["path"] == template_path), None)
+    cluster = (spec or {}).get("cluster") or {}
+    variants = cluster.get("variants", [])
+    if not variants:
+        return None
+
+    # Resolve {state}/{metro} from the page's own H1, which always names the entity.
+    name = entry["h1"].replace(" Income Tax Calculator", "") \
+                      .replace("Cost of Living in ", "")
+    low = body.lower()
+    hits = [v for v in variants
+            if v.replace("{state}", name).replace("{metro}", name).lower() in low]
+    return {"name": name, "hits": hits, "total": len(variants)}
 
 
 def analyse(group_name, entries, thresholds, body_lookup=None):
@@ -80,6 +104,14 @@ def analyse(group_name, entries, thresholds, body_lookup=None):
 
         rows.append((path, len(toks), ratio, numbers, faq_with_numbers, pending))
 
+        if body_lookup and body_lookup.get(path):
+            cov = keyword_coverage(entry, PAGES_DOC, body_lookup[path])
+            if cov is not None and len(cov["hits"]) < thresholds["minVariantsInBody"]:
+                errors.append(
+                    f"{path}: body contains {len(cov['hits'])} of {cov['total']} "
+                    f"cluster variants, under {thresholds['minVariantsInBody']} — "
+                    "unique copy that never uses its own target phrasing (9-2-1)")
+
         if ratio < thresholds["minUniqueRatio"]:
             msg = (f"{path}: {ratio:.0%} of its words are unique to it, under "
                    f"{thresholds['minUniqueRatio']:.0%} — the rest is template "
@@ -108,12 +140,15 @@ def main():
                     help="also fail on unresolved PENDING_ placeholders")
     args = ap.parse_args()
 
+    global PAGES_DOC
     pages_doc = json.loads((ROOT / "data/pages.json").read_text())
+    PAGES_DOC = pages_doc
     gen = json.loads((ROOT / "data/onpage.generated.json").read_text())
     budget = pages_doc.get("contentBudget", {})
     thresholds = {
         "minUniqueRatio": budget.get("minUniqueRatio", 0.40),
         "minEntityNumbers": budget.get("minEntityNumbers", 3),
+        "minVariantsInBody": budget.get("minVariantsInBody", 2),
     }
 
     body_lookup = {}

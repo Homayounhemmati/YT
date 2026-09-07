@@ -7,7 +7,7 @@ sit relative to an ordinary salary.
 
 ## How New York income tax works
 
-The schedule begins at 3.9% on the first $8,500 of taxable income and steps up
+The New York tax brackets begin at 3.9% on the first $8,500 of taxable income and steps up
 quickly: 4.4% at $8,500, 5.15% at $11,700, and 5.4% at $13,900. Those first four
 brackets are compressed into a very narrow band of income, so a full-time earner
 passes through all of them within the first fortnight of the year.
@@ -17,6 +17,8 @@ at $80,650, followed by 6.85% at $215,400. Above that the schedule turns sharply
 9.65% at $1,077,550, 10.3% at $5 million, and 10.9% at $25 million. Those upper
 three brackets exist for a very small population and are the reason New York's top
 rate is quoted so often and applies so rarely.
+
+The New York income tax rate a filer actually faces therefore depends far more on which of the middle bands they sit in than on the headline top figure.
 
 New York allows a standard deduction of $8,000 for a single filer and $16,050 for
 a married couple filing jointly. That is a genuine deduction against state

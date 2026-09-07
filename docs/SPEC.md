@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 5.7
+> **Last revised:** 2026-09-06 · **Version:** 5.8
+>
+> **Version 5.8:** The pilot bodies were 46% unique and hit 0 of 5 target keyword variants — uniqueness rules with nothing pushing back. Fixed, enforced, and the trade-off measured. Details in 20-25.
 >
 > **Version 5.7:** All 51 take-home FAQ answers computed by the engine rather than left pending, and the four metros that pass the measurement gate generated. 78 of 78 buildable pages resolved. Details in 20-24.
 >
@@ -1121,6 +1123,28 @@ its own filing deadlines and authority, pulled from its own revenue department.
 **The threshold judges the finished page.** Before body copy exists the script
 warns rather than fails; once `--bodies` points at real copy, the same threshold
 breaks the build.
+
+#### Uniqueness and keyword targeting pull against each other
+
+The validator checks both, because optimising for one alone breaks the other. That
+is not theoretical — it happened:
+
+> **The four pilot bodies scored 46% unique and contained 0 of their 5 cluster
+> variants.** Four pages that were genuinely good and did not target their own
+> keyword.
+
+The cause was structural. Every uniqueness rule pushes toward varied phrasing, and
+nothing pushed back. A writer following them says "Maryland's schedule" and never
+writes "Maryland tax brackets" — the phrase people actually search.
+
+So `contentBudget.minVariantsInBody` requires **at least two** cluster variants in
+the body, and the cost of that was measured: adding two per page moved uniqueness
+from 45%/43% to 44%/42%, roughly half a point per variant, because a phrase on
+every page is shared vocabulary by definition.
+
+**Two is where the trade sits.** Five variants per page would cost about two and a
+half points and leave the worst page at roughly 40% — on the threshold with
+nothing spare. The floor is a guard against forgetting, not a density target.
 
 #### 6-10-4-1. The pilot — the requirement was tested before 61,000 words were written
 
@@ -3636,6 +3660,50 @@ promoted out of `plannedPages`.
 
 **Status: 78 generated pages · 20 checks · 7 CI validators · 4 bodies at 46%+ ·
 0 errors · 59 tests green.**
+
+### 20-25. Round twenty-six — version 5.8 · the rule the guide was missing
+
+The question was whether the SEO, content and copywriting documents are complete
+enough that keyword targeting will not be lost. Checking rather than agreeing found
+that it already had been.
+
+**The four pilot bodies scored 46% unique and contained 0 of their 5 cluster
+variants.** Not one of them used the phrase people actually search. The head
+keyword was absent from all four.
+
+**The cause was structural, not carelessness.** Every rule in the copywriting guide
+pushes toward varied phrasing — vary the sentence shape, do not repeat, find the
+angle nobody else has — and nothing pushed the other way. A writer following those
+instructions exactly writes "Maryland's schedule" and "the Maryland tax estimate",
+and never once writes "Maryland tax brackets".
+
+This is the sharpest example yet of a pattern this project keeps hitting: **an
+instruction that is correct in isolation produces a wrong result when it is the
+only instruction.** The uniqueness work was right. It was also, on its own,
+capable of producing four pages that rank for nothing.
+
+Three fixes:
+
+- `contentBudget.minVariantsInBody` requires **at least two** cluster variants in
+  the body, enforced by `validate_content.py`.
+- Section 3-a of the copywriting guide covers where variants go and what a natural
+  placement looks like — the test being whether you would have written the phrase
+  if nobody had told you it was a keyword.
+- The four bodies were fixed with natural placements only. Texas now reads "There
+  is no Texas income tax rate to quote and there are no Texas tax brackets", which
+  is both a keyword placement and the most accurate sentence on the page.
+
+**The trade-off was measured rather than assumed.** Adding two variants per page
+moved uniqueness from 45%/43% to 44%/42% — about half a point per variant, because
+a phrase repeated on every page becomes shared vocabulary by definition.
+
+That is why the floor is two and not five. Five per page would cost roughly two and
+a half points and leave the worst page at about 40%, on the threshold with nothing
+spare. **Uniqueness and keyword coverage pull against each other, and two is where
+the trade sits.**
+
+**Status: 78 generated pages · 20 checks · 7 CI validators · 4 bodies at 42% unique
+with variants hit · 0 errors · 59 tests green.**
 
 ---
 

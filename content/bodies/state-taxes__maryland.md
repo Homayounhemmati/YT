@@ -4,7 +4,7 @@ sit rather than how many there are.
 
 ## How Maryland income tax works
 
-There are ten brackets for a single filer, running from 2.0% to 6.5%. But the
+There are ten Maryland tax brackets for a single filer, running from 2.0% to 6.5%. But the
 first four are exhausted before $3,000 of taxable income: 2.0% from zero, 3.0% at
 $1,000, 4.0% at $2,000, and 4.75% at $3,000. Anyone earning a normal salary clears
 all four in their first week of the year and spends the rest of it in the 4.75%
@@ -14,7 +14,7 @@ Above that the steps resume, but gently — 5.0% at $100,000, 5.25% at $125,000,
 5.5% at $150,000, 5.75% at $250,000 — and the last two, 6.25% at $500,000 and 6.5%
 at $1,000,000, are rarely reached.
 
-The practical shape is therefore a single dominant band. For the great majority of
+The practical shape is therefore a single dominant band, and the Maryland income tax rate most residents actually pay is the one attached to it. For the great majority of
 earners Maryland is a 4.75% or 5.0% state, and the ten-bracket schedule describes
 the edges of the distribution rather than its centre. Someone comparing Maryland
 to a flat-rate state should compare against 4.75%, not against the 6.5% headline.

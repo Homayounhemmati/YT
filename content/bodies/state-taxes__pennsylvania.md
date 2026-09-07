@@ -4,13 +4,13 @@ more here than in almost any other state.
 
 ## How Pennsylvania income tax works
 
-There are no brackets. Every dollar of taxable income is taxed at the same 3.07%,
+There are no Pennsylvania tax brackets to speak of. Every dollar of taxable income is taxed at the same 3.07%,
 whether it is the first or the millionth. That makes the arithmetic trivial and
 the planning unusually predictable: there is no threshold to manage, no marginal
 step to cross, and no benefit to timing income across a year boundary for state
 purposes.
 
-The rate has not moved since 2021 and, unlike the schedules in most states, it
+The Pennsylvania income tax rate has not moved since 2021 and, unlike the schedules in most states, it
 carries no inflation indexation. There is nothing in it to index — a flat rate with
 no thresholds has no figures that drift with prices. A 2021 rate and a 2026 rate
 are the same number for a reason, and an unchanged date on this dataset is not a

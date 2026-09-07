@@ -107,6 +107,54 @@ none of them.**
 
 ---
 
+## 3-a. Keyword targeting — the rule this guide was missing
+
+The first version of this guide covered uniqueness thoroughly and said nothing
+about hitting the target keyword. The result was measurable: **the four pilot
+bodies scored 46% unique and contained 0 of their 5 cluster variants.** Four pages
+that were genuinely good and did not target their own keyword.
+
+The cause is structural, not careless. Every rule above pushes toward varied
+phrasing — vary the sentence shape, do not repeat, find the angle nobody else has
+— and nothing pushed the other way. Given those instructions a writer says
+"Maryland's schedule" and "the Maryland tax estimate", and never once writes
+"Maryland tax brackets", which is the phrase people actually search.
+
+### The rule
+
+> **The body must naturally use at least two of the page's cluster variants**
+> (spec 9-2-1). Enforced by `validate_content.py`.
+
+Two is deliberately low. **This is a floor against forgetting, not a density
+target.** Everything else in this guide guards the other side.
+
+### Where they go
+
+| Position | What goes there |
+|---|---|
+| H1 and title | The head keyword, exactly — already handled by the generated spec |
+| First H2 | Usually the most natural home for one variant |
+| Body, once each | Two variants, where they are the phrase you would have written anyway |
+| FAQ | Question phrasings, which are variants by nature |
+
+**The test for a natural placement:** would you have written that phrase if nobody
+had told you it was a keyword? "There are ten Maryland tax brackets for a single
+filer" passes. "Looking for Maryland tax brackets? You've come to the right place"
+does not, and it violates the banned-openings rule as well.
+
+### The cost, measured
+
+Adding two variants to each of the four pilot bodies moved uniqueness from 45%/43%
+to **44%/42%** — about half a point per variant, because a phrase added to every
+page becomes shared vocabulary by definition.
+
+That is the whole reason the floor is two and not five. Five variants across every
+page would cost roughly two and a half points and put the worst page at about 40%,
+on the threshold with nothing spare. **Keyword coverage and uniqueness pull against
+each other, and two is where the trade sits.**
+
+---
+
 ## 4. Section playbook
 
 ### "How {State} income tax works"
@@ -213,6 +261,7 @@ substance are not built.
 ## 8. Before publishing
 
 - [ ] The find-and-replace test (section 1)
+- [ ] At least two cluster variants used naturally (section 3-a)
 - [ ] The opening names a fact true of this entity and false of most others
 - [ ] At least one section a competitor's page could not contain
 - [ ] The authority is named, not "the state tax department"

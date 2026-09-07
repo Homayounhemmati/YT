@@ -1405,6 +1405,8 @@
     "minUniqueRatio": 0.4,
     "minEntityNumbers": 3,
     "minFaqWithNumbers": 3,
-    "maxBoilerplateRatio": 0.35
+    "maxBoilerplateRatio": 0.35,
+    "minVariantsInBody": 2,
+    "$variantNote": "The body must naturally use at least this many of its page's cluster variants. The uniqueness rules push toward varied phrasing and nothing pushed back — the first four pilot bodies scored 46% unique while hitting 0 of 5 variants. Two is deliberately low: this is a floor against forgetting, not a density target, and the anti-repetition rules in docs/copywriting.md guard the other side."
   }
 }

@@ -1,9 +1,10 @@
-Texas levies no broad-based individual income tax on earned income. There are no
-brackets, no flat rate, and no state return for wages or self-employment profit.
+Texas levies no broad-based individual income tax on earned income. There is no Texas income tax rate to quote and there are no Texas tax brackets, no flat rate, and no state return for wages or self-employment profit.
 That is the whole of the state-level answer, and it is genuinely simple — which is
 exactly why the interesting question is what replaces it.
 
 ## What you still owe
+
+The absence of a state layer does not make the question "how much is Texas income tax" uninteresting — it makes the answer short and the follow-up long.
 
 No state income tax does not mean no tax. A self-employed Texas resident still
 owes, in full:
