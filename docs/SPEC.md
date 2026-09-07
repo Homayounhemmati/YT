@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 5.9
+> **Last revised:** 2026-09-06 · **Version:** 5.10
+>
+> **Version 5.10:** All twelve tool bodies written — 553,600 searches a month covered, 58% median unique. Details in 20-27.
 >
 > **Version 5.9:** Four tool bodies written, covering 360,500 searches a month — the group that had zero while the 2,040-search group had four. Keyword check extended to every page with a cluster. Details in 20-26.
 >
@@ -3787,6 +3789,47 @@ matters.
 
 **Status: 78 generated pages · 20 checks · 8 CI validators · 8 bodies written
 (4 tool at 55%, 4 state at 42%) · 0 errors · 59 tests green.**
+
+### 20-27. Round twenty-eight — version 5.10 · the tool bodies
+
+All twelve tool page bodies are written. **553,600 searches a month now have copy**,
+against zero at the start of the round.
+
+| Template | Pages | Bodies | Median unique | Worst |
+|---|---|---|---|---|
+| ToolPage | 12 | **12** | **58%** | **55%** |
+| StateTaxPage | 51 | 4 | 44% | 42% |
+
+Tool pages measure substantially better than state pages, and the reason is
+structural rather than a matter of effort: a sales tax page and a mortgage page
+share far less vocabulary than fifty-one state pages ever can. **The 40% threshold
+is much harder to clear on entity templates**, which is worth knowing before
+writing the remaining 47 state bodies.
+
+Two defects surfaced while writing.
+
+**The keyword check could not see across a line break.** Markdown wraps, so
+"cost of living comparison\ncalculator" is one phrase on the page and two strings
+in the file. The check reported a missing keyword that was plainly present, which
+is the failure mode most likely to make someone edit correct copy to satisfy a
+broken instrument. It now collapses whitespace and strips emphasis before matching.
+
+**Three of the first four tool bodies hit 1 of 5 variants** and nothing complained,
+because the check was still scoped to entity templates. Fixed in the previous
+round; this round confirmed the fix catches real cases — `tax-withholding` was
+caught and corrected on the way in rather than after the fact.
+
+**One shortfall, stated rather than hidden.** Section 7-2-1 specifies 600–900 words
+for a tool page. These run 448–600. They are complete in structure — every section
+of the brief is present — but they sit at or below the floor of the range.
+
+The headroom exists to grow them: at 58% unique they are well clear of the 40%
+threshold, unlike the state pages at 44%. But the length finding in 6-10-4-1 applies
+— words added without substance dilute rather than add — so growing them means
+finding more that is genuinely specific to each tool, not padding to a count.
+
+**Status: 78 generated pages · 20 checks · 8 CI validators · 16 bodies (12 tool at
+55%, 4 state at 42%) · 553,600 searches covered · 0 errors · 59 tests green.**
 
 ---
 

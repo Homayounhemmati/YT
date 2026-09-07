@@ -63,7 +63,12 @@ def keyword_coverage(entry, pages_doc, body):
     # Resolve {state}/{metro} from the page's own H1, which always names the entity.
     name = entry["h1"].replace(" Income Tax Calculator", "") \
                       .replace("Cost of Living in ", "")
-    low = body.lower()
+    # Markdown wraps lines, so a phrase can be split across a newline and still read
+    # as one phrase on the page. Matching the raw text misses those — collapse
+    # whitespace and strip emphasis before comparing, or the check reports a
+    # missing keyword that is plainly present.
+    low = re.sub(r"[*_`]", "", body.lower())
+    low = re.sub(r"\s+", " ", low)
     hits = [v for v in variants
             if v.replace("{state}", name).replace("{metro}", name).lower() in low]
     return {"name": name, "hits": hits, "total": len(variants)}
