@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 5.8
+> **Last revised:** 2026-09-06 · **Version:** 5.9
+>
+> **Version 5.9:** Four tool bodies written, covering 360,500 searches a month — the group that had zero while the 2,040-search group had four. Keyword check extended to every page with a cluster. Details in 20-26.
 >
 > **Version 5.8:** The pilot bodies were 46% unique and hit 0 of 5 target keyword variants — uniqueness rules with nothing pushing back. Fixed, enforced, and the trade-off measured. Details in 20-25.
 >
@@ -3734,6 +3736,57 @@ the trade sits.**
 
 **Status: 78 generated pages · 20 checks · 7 CI validators · 4 bodies at 42% unique
 with variants hit · 0 errors · 59 tests green.**
+
+### 20-26. Round twenty-seven — version 5.9 · where the words should have gone
+
+Asked what the right next move is, the honest answer was that the last two rounds
+had been optimising the wrong thing. Counting bodies against search volume:
+
+| Template | Pages | Bodies written | Searches/month |
+|---|---|---|---|
+| **ToolPage** | 12 | **0** | **553,600** |
+| StateTaxPage | 51 | 4 | 2,040 |
+
+Four bodies had been written for the 2,040-search group and none for the
+553,600-search group. **A 271× misallocation**, and it looked like diligence the
+whole time.
+
+**A correction to an earlier claim in this document.** Round 20-24 framed the
+cost-of-living dataset as blocking a cluster "77× the entire state set". That
+compared the wrong things. The precise split:
+
+| | Searches/month | Share |
+|---|---|---|
+| Blocked on the BEA/HUD dataset | 159,400 | 24% |
+| **Buildable today** | **512,320** | **76%** |
+
+The two cost-of-living *tools* (110,000 searches) are blocked because a calculator
+with no index data cannot function — that part of the earlier claim holds. But the
+tax, payroll and mortgage tools carry 510,280 searches and are buildable now, on an
+engine that already exists and passes 59 tests. **Three quarters of the cluster was
+never blocked on anything.**
+
+Four tool bodies were written, highest volume first — sales tax, salary-to-hourly,
+income tax, take-home pay — covering 360,500 searches a month. They measure at
+**56% median unique, 55% worst**, comfortably above the 40% threshold and better
+than the state pages, because a sales tax page and a mortgage page have less shared
+vocabulary than fifty-one state pages ever will.
+
+**And the keyword check had the same blind spot as the writing.** It was scoped to
+entity templates, so the first four tool bodies hit 1 of 5 variants and nothing
+complained. The check now covers **any page with a declared cluster** — which,
+again, means it now covers the group carrying 553,600 searches rather than only the
+group carrying 2,040.
+
+The pattern is worth naming, because it has now appeared three rounds running:
+**the instrument is scoped to where the last problem was found, not to where the
+value is.** Uniqueness was measured before keyword coverage. Entity pages were
+checked before tool pages. State bodies were written before tool bodies. Each was a
+reasonable next step from the previous one, and the sequence drifted away from what
+matters.
+
+**Status: 78 generated pages · 20 checks · 8 CI validators · 8 bodies written
+(4 tool at 55%, 4 state at 42%) · 0 errors · 59 tests green.**
 
 ---
 

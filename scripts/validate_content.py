@@ -47,10 +47,13 @@ def keyword_coverage(entry, pages_doc, body):
     """A page can be perfectly unique and still not target its own keyword.
     The uniqueness rules push toward varied phrasing; nothing pushed back, and the
     first four pilot bodies hit 0 of 5 cluster variants as a result."""
+    # Any page with a declared cluster is checked, not only entity templates. The
+    # first four tool bodies hit 1 of 5 variants because the check did not reach
+    # them — and the tool pages carry 553,600 searches against the state pages'
+    # 2,040, so they were the wrong group to leave unchecked.
     template_path = {"StateTaxPage": "/state-taxes/{state}",
-                     "PlacePage": "/cost-of-living/{metro}"}.get(entry["template"])
-    if not template_path:
-        return None
+                     "PlacePage": "/cost-of-living/{metro}"}.get(
+                         entry["template"], entry["path"])
     spec = next((p for p in pages_doc["pages"] if p["path"] == template_path), None)
     cluster = (spec or {}).get("cluster") or {}
     variants = cluster.get("variants", [])
