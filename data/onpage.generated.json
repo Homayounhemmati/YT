@@ -44,6 +44,30 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/income-tax-calculator",
+          "anchor": "income tax calculator"
+        },
+        {
+          "to": "/tools/salary-to-hourly-calculator",
+          "anchor": "salary to hourly calculator"
+        },
+        {
+          "to": "/tools/home-affordability-calculator",
+          "anchor": "home affordability calculator"
+        },
+        {
+          "to": "/tools/closing-cost-calculator",
+          "anchor": "closing cost calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -570,6 +594,10 @@
         {
           "to": "/cost-of-living",
           "anchor": "cost of living by city"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -626,6 +654,14 @@
         {
           "to": "/tools/cost-of-living-comparison",
           "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/home-affordability-calculator",
+          "anchor": "home affordability calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -711,6 +747,10 @@
         {
           "to": "/cost-of-living",
           "anchor": "cost of living by city"
+        },
+        {
+          "to": "/tools/home-affordability-calculator",
+          "anchor": "home affordability calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -796,6 +836,10 @@
         {
           "to": "/cost-of-living",
           "anchor": "cost of living by city"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -962,6 +1006,10 @@
         {
           "to": "/tools/salary-comparison-by-city",
           "anchor": "salary comparison by city"
+        },
+        {
+          "to": "/tools/living-wage-calculator",
+          "anchor": "living wage calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -1047,6 +1095,10 @@
         {
           "to": "/tools/cost-of-living-comparison",
           "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/salary-to-hourly-calculator",
+          "anchor": "salary to hourly calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -1136,6 +1188,10 @@
         {
           "to": "/cost-of-living",
           "anchor": "cost of living by city"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -1225,6 +1281,10 @@
         {
           "to": "/tools/salary-comparison-by-city",
           "anchor": "salary comparison by city"
+        },
+        {
+          "to": "/tools/salary-to-hourly-calculator",
+          "anchor": "salary to hourly calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -1306,6 +1366,10 @@
         {
           "to": "/tools/cost-of-living-calculator",
           "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         }
       ],
       "dataVerification": "n/a",
@@ -1387,6 +1451,14 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/home-affordability-calculator",
+          "anchor": "home affordability calculator"
+        },
+        {
+          "to": "/tools/closing-cost-calculator",
+          "anchor": "closing cost calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -1524,6 +1596,10 @@
         {
           "to": "/cost-of-living/{metro}",
           "anchor": "cost of living in {metro}"
+        },
+        {
+          "to": "/tools/home-affordability-calculator",
+          "anchor": "home affordability calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -1605,6 +1681,10 @@
         {
           "to": "/tools/property-tax-calculator",
           "anchor": "property tax calculator"
+        },
+        {
+          "to": "/tools/home-affordability-calculator",
+          "anchor": "home affordability calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -1795,6 +1875,14 @@
         {
           "to": "/cost-of-living/austin-tx",
           "anchor": "cost of living in Austin"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending-bea-hud",
@@ -1900,6 +1988,14 @@
         {
           "to": "/cost-of-living/san-francisco-ca",
           "anchor": "cost of living in San Francisco"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending-bea-hud",
@@ -2005,6 +2101,14 @@
         {
           "to": "/cost-of-living/san-antonio-tx",
           "anchor": "cost of living in San Antonio"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending-bea-hud",
@@ -2110,6 +2214,14 @@
         {
           "to": "/cost-of-living/houston-tx",
           "anchor": "cost of living in Houston"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending-bea-hud",
@@ -2267,6 +2379,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -2424,6 +2540,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -2581,6 +2701,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -2738,6 +2862,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -2895,6 +3023,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -3052,6 +3184,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -3209,6 +3345,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -3366,6 +3506,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -3523,6 +3667,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -3680,6 +3828,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -3837,6 +3989,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -3994,6 +4150,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -4151,6 +4311,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -4308,6 +4472,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -4465,6 +4633,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -4622,6 +4794,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -4779,6 +4955,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -4936,6 +5116,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -5093,6 +5277,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -5250,6 +5438,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -5407,6 +5599,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -5564,6 +5760,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -5721,6 +5921,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -5878,6 +6082,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6035,6 +6243,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6192,6 +6404,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6349,6 +6565,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6506,6 +6726,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6663,6 +6887,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6820,6 +7048,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6977,6 +7209,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -7134,6 +7370,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -7291,6 +7531,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -7448,6 +7692,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -7605,6 +7853,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -7762,6 +8014,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -7919,6 +8175,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -8076,6 +8336,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -8233,6 +8497,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -8390,6 +8658,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -8547,6 +8819,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -8704,6 +8980,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -8861,6 +9141,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9018,6 +9302,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9175,6 +9463,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9332,6 +9624,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9489,6 +9785,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9646,6 +9946,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9803,6 +10107,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9960,6 +10268,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",
@@ -10117,6 +10429,10 @@
         {
           "to": "/state-taxes",
           "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "pending",

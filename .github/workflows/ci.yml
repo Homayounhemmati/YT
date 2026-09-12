@@ -40,6 +40,14 @@ jobs:
       - name: Generate and validate per-entity on-page values
         run: python3 scripts/generate_onpage.py
 
+      # Link equity is not distributed by intention, it is distributed by the
+      # graph. A page that carries 16% of the demand and receives 5% of the
+      # internal links will not rank for it, and nothing else in the audit
+      # notices. The entity templates are expanded first: 26 declared rows are
+      # 105 real URLs, and collapsing them hides where the equity actually goes.
+      - name: Internal link equity against demand
+        run: python3 scripts/analyze_link_equity.py
+
       # Thin content is the failure mode that sinks programmatic sites, and it is
       # invisible until traffic never arrives. Measure it, do not assume it.
       # No-ops until the dataset is built outside the sandbox (13-6), then guards it.

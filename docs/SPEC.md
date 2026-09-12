@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-12 · **Version:** 5.13
+> **Last revised:** 2026-09-12 · **Version:** 5.14
+>
+> **Version 5.14:** The internal link graph was measured against demand for the first time rather than assumed from the declared rules, and it was badly misallocated — the highest-volume page in the project held 16% of the demand and 5% of the equity. A twentieth check now enforces the ratio. Details in 20-30.
 >
 > **Version 5.13:** The tool portfolio was rebalanced onto the stated identity. Rent, affordability and living wage did not exist in the spec at all; two overlapping tax tools were removed. The life side went from 20% of tool volume to 48%. Details in 20-29.
 >
@@ -4173,6 +4175,80 @@ variable fully under our control, and the portfolio had been built against it.
 
 **Status: 79 generated pages · 20 checks · 0 audit errors · 17 bodies (13 tool at 59%
 median unique) · life side 48% of tool volume.**
+
+---
+
+### 20-30. Round thirty-one — version 5.14 · the link graph was never measured
+
+Section 9-3 had rules for anchor text, click depth and orphans, and every one of
+them passed. None of them asks the question that decides whether a page ranks:
+**does the page receiving the internal links have the demand that justifies them?**
+
+**The instrument was wrong first.** A first pass treated each declared row in
+`data/pages.json` as one node. But `/cost-of-living/{metro}` is 30 URLs and
+`/state-taxes/{state}` is 51: **26 declared rows are 105 real URLs**, and the two
+programmatic sets are 77% of them. Collapsing them understated the equity the
+programmatic pages pass by roughly two orders of magnitude and produced a
+different, wrong answer. `scripts/analyze_link_equity.py` expands the templates
+before running PageRank.
+
+**What the corrected measurement found.**
+
+| Page | Demand | Equity | Support |
+|---|---|---|---|
+| `/tools/sales-tax-calculator` | 16.5% | 5.2% | **0.32x** |
+| `/tools/rent-affordability-calculator` | 13.6% | 6.2% | **0.46x** |
+| `/tools/salary-comparison-by-city` | 0.7% | 7.1% | **10.8x** |
+
+The highest-volume page in the project had **one** inbound link, from the tool
+index. The 4,400-search page had four. And the 81 programmatic pages — the site's
+entire equity reservoir — linked to **neither** of the two largest tools.
+
+**The cause is structural, not an oversight.** Links were written when each page
+was written, so every page links to what its author had in mind at the time.
+Nothing ever looked at the resulting distribution. That is how a site ends up
+routing its authority to its smallest pages while its largest ones starve.
+
+**What changed.** Nineteen body links were added, every one of them justified by
+subject rather than by the metric:
+
+- **The 30 metro pages** now link to rent affordability and sales tax. Rent is the
+  largest line in any metro's cost and sales tax is what makes its goods cost what
+  they do — these were missing links about the page's own subject.
+- **The 51 state pages** now link to sales tax: the other half of what a state takes.
+- **The home page linked to 3 of 13 tools**, all three already over-supplied. It now
+  carries the highest-demand tools as well. A home page that promotes a site's
+  smallest pages is an on-page defect in its own right.
+- Sales tax had two outbound links and no route back into the funnel; it now
+  returns to the cost-of-living directory.
+
+**Result: every keyword page moved into the 0.76x–1.27x band; zero under-linked.**
+The two remaining over-linked pages (`living-wage` 5.8x, `salary-comparison-by-city`
+7.0x) are small pages whose inbound links are all topically correct. Removing a
+relevant link to flatten a ratio would be gaming the instrument, which is the
+failure this section exists to prevent.
+
+**A keyword correction, found while checking the new tools.** `living wage
+calculator` was recorded at 12,100 @ $6.36. That figure belongs to **`mit living
+wage calculator`** — a branded navigational query for `livingwage.mit.edu` that
+cannot be targeted at all. Verified against the live SERP: the real head term is
+**5,400 @ $9.06**. The page stays, on the highest CPC in the project, but the
+justification in 20-29 was overstated and is corrected here.
+
+**A rejection, measured rather than assumed.** A programmatic rent set
+(`/rent/{metro}`) was considered and rejected: `average rent in {city}` measures
+1,000–1,300 per city, and the metro pages already carry rent as a section. It
+would have been 30 thin pages competing with 30 existing ones.
+
+**What the SERP says about the living wage page.** At positions 3 and 4 for
+`living wage calculator` sit NerdWallet's and Bankrate's **cost-of-living**
+calculators. Google is blending the two intents, which means this page carries a
+real cannibalisation risk against our own `/tools/cost-of-living-calculator`. The
+differentiation rule applies with more force here than anywhere else on the site:
+one solves for cost given a place, the other solves for salary given a place, and
+the headline number must make that unmistakable.
+
+**Status: 79 generated pages · 21 checks · 9 CI validators · 0 under-linked pages.**
 
 ---
 

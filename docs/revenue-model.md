@@ -24,9 +24,9 @@
 
 | Metric | Value |
 |---|---|
-| Monthly cluster volume | **888,920** |
-| Weighted average CPC | **$2.96** |
-| Implied cluster RPM | $11.82 |
+| Monthly cluster volume | **882,220** |
+| Weighted average CPC | **$2.95** |
+| Implied cluster RPM | $11.78 |
 | Tools | 22 |
 | Programmatic pages | 81 |
 
@@ -34,25 +34,25 @@
 
 | Scenario | Position (hard/medium/easy) | Entries/mo | Visits/mo | Share | Revenue/mo |
 |---|---|---|---|---|---|
-| Year 1 — young domain | 25 / 18 / 12 | 5,570 | 12,255 | 0.6% | **$143** |
-| Year 2 — early authority | 14 / 10 / 6 | 14,596 | 32,111 | 1.6% | **$377** |
-| Year 3 — established | 8 / 6 / 4 | 27,115 | 59,654 | 3.1% | **$699** |
+| Year 1 — young domain | 25 / 18 / 12 | 5,545 | 12,199 | 0.6% | **$143** |
+| Year 2 — early authority | 14 / 10 / 6 | 14,573 | 32,060 | 1.7% | **$378** |
+| Year 3 — established | 8 / 6 / 4 | 26,994 | 59,387 | 3.1% | **$697** |
 
 ### When we reach $500-700
 
 - ❌ **Year 1 — young domain**: $143/month
-- ❌ **Year 2 — early authority**: $377/month
-- ✅ **Year 3 — established**: $699/month
+- ❌ **Year 2 — early authority**: $378/month
+- ✅ **Year 3 — established**: $697/month
 
 ## Sensitivity analysis — the RPM multiplier
 
 | Multiplier | Year 1 | Year 2 | Year 3 |
 |---|---|---|---|
-| ×2.0 | $72 | $189 | $350 |
-| ×3.0 | $107 | $283 | $525 |
-| ×4.0 | $143 | $377 | $699 |
-| ×5.0 | $179 | $472 | $874 |
-| ×6.0 | $215 | $566 | $1,049 |
+| ×2.0 | $71 | $189 | $348 |
+| ×3.0 | $107 | $283 | $523 |
+| ×4.0 | $143 | $378 | $697 |
+| ×5.0 | $178 | $472 | $871 |
+| ×6.0 | $214 | $567 | $1,045 |
 
 ## Sensitivity analysis — session depth
 
@@ -60,10 +60,10 @@ The depth the funnel in section 2-2-2 creates is directly a revenue multiplier.
 
 | Pages per session | Year 2 | Difference from 1.1 |
 |---|---|---|
-| 1.1 | $188 | — |
-| 1.5 | $257 | +37% |
-| 2.2 | $377 | +101% |
-| 3.0 | $515 | +175% |
+| 1.1 | $189 | — |
+| 1.5 | $258 | +36% |
+| 2.2 | $378 | +100% |
+| 3.0 | $515 | +173% |
 
 ## Contribution per tool (year 2 scenario)
 
@@ -82,10 +82,10 @@ The depth the funnel in section 2-2-2 creates is directly a revenue multiplier.
 | hourly to salary calculator | income | 49,500 | $0.88 | 10 | 866 | $15 |
 | how much house can i afford calculator | settle | 33,100 | $2.86 | 10 | 579 | $15 |
 | rent calculator | place | 60,500 | $1.02 | 14 | 762 | $14 |
-| house payment calculator | settle | 33,100 | $2.29 | 10 | 579 | $14 |
+| house payment calculator | settle | 33,100 | $2.29 | 10 | 579 | $13 |
 | property tax calculator | settle | 22,200 | $3.37 | 10 | 388 | $11 |
 | nyc salary calculator | income | 9,900 | $3.43 | 6 | 346 | $10 |
-| living wage calculator | income | 12,100 | $6.36 | 10 | 212 | $8 |
+| living wage calculator | income | 5,400 | $9.06 | 6 | 189 | $10 |
 | salary comparison | compare | 3,600 | $11.23 | 6 | 126 | $7 |
 | how much rent can i afford calculator | place | 4,400 | $3.35 | 6 | 154 | $4 |
 | state income tax rates by state | keep | 3,600 | $2.79 | 6 | 126 | $3 |

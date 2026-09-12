@@ -145,15 +145,6 @@
       "seasonal": true
     },
     {
-      "slug": "living-wage-calculator",
-      "term": "living wage calculator",
-      "volume": 12100,
-      "cpc": 6.36,
-      "step": "income",
-      "entry": true,
-      "seasonal": false
-    },
-    {
       "slug": "nyc-salary-calculator",
       "term": "nyc salary calculator",
       "volume": 9900,
@@ -161,6 +152,16 @@
       "step": "income",
       "entry": true,
       "seasonal": false
+    },
+    {
+      "slug": "living-wage-calculator",
+      "term": "living wage calculator",
+      "volume": 5400,
+      "cpc": 9.06,
+      "step": "income",
+      "entry": true,
+      "seasonal": false,
+      "$note": "Corrected 2026-09-12. The 12,100 first recorded was 'mit living wage calculator' — a branded navigational query for livingwage.mit.edu, which cannot be targeted. Verified against the live SERP: 5,400 @ $9.06."
     },
     {
       "slug": "salary-comparison-by-city",

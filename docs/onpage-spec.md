@@ -128,6 +128,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 | `/tools/income-tax-calculator` | income tax calculator |
 | `/tools/take-home-pay-calculator` | take home pay calculator |
 | `/state-taxes` | state income tax rates |
+| `/tools/sales-tax-calculator` | sales tax calculator |
 
 **JSON-LD**
 
@@ -263,6 +264,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 | `/tools/income-tax-calculator` | income tax calculator |
 | `/tools/take-home-pay-calculator` | take home pay calculator |
 | `/state-taxes` | state income tax rates |
+| `/tools/sales-tax-calculator` | sales tax calculator |
 
 **JSON-LD**
 
