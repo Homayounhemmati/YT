@@ -967,6 +967,40 @@ Every page belongs to one of the five funnel stages. A page belonging to no stag
 
 The capability is kept, the trafficless page is not built. This is exactly the discipline the `audit_seo.py` auditor enforces.
 
+#### Country versus country — a mode, not a page
+
+If the site compares two cities and publishes country pages, a user will expect to
+compare two countries. That is a real gap and the instinct behind it is right.
+
+**The engine is not the obstacle.** The comparison arithmetic is identical, and
+Eurostat publishes comparative price levels at country level exactly as BEA does at
+metro level.
+
+Three things are:
+
+1. **Zero measured volume.** Not low volume — unmeasured. Rule 18-1 forbids
+   building for an unproven target, and this document has been wrong three times by
+   assuming volume it had not checked (section 20-5).
+2. **The Eurostat dataset does not exist yet**, and it sits behind the BEA/HUD work
+   which is already the critical path.
+3. **Within one data region only.** A US metro cannot be compared to a European
+   country — BEA and Eurostat use different bases, and running the arithmetic anyway
+   produces a confident wrong answer, which is worse than no answer (4-9-3).
+
+There is also an economic asymmetry worth naming: **international traffic carries
+materially lower AdSense RPM than US traffic.** A country comparison is therefore
+worth less per visit than its search volume implies. That does not make it wrong;
+it raises the bar for building it rather than lowering it.
+
+**Decision:** build it as a **third mode of the existing comparison tool**, never
+as a page of its own, and only after the head keywords are measured and the
+Eurostat dataset exists. Recorded in `data/pages.json → plannedModes`.
+
+**The precedent is job-offer comparison** (6-1). It was an appealing idea, measured
+at 30 searches a month, and became a mode rather than a page. A mode costs no URL,
+creates no cannibalisation risk and cannot become a thin page — which is why it is
+the right shape for any capability whose demand is not yet proven.
+
 #### Stage 5 — Settling
 
 | Path | Target keyword | Volume | CPC |

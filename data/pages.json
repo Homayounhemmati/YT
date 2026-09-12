@@ -153,7 +153,8 @@
       "paramNote": "?from=&to= is for prefill only. Always canonicalises to the parameter-free version.",
       "modes": [
         "Compare two places on the same income",
-        "**Compare two job offers** — different income in each of two places"
+        "**Compare two job offers** — different income in each of two places",
+        "**Country vs country, within one data region** — pending the Eurostat dataset and a keyword measurement (see plannedModes)"
       ],
       "note": "The job-offer mode lives here, not on a separate page: 'job offer comparison calculator' gets only 30 searches a month.",
       "metaHook": "Compare two US metros side by side: the cost difference, the state tax difference, and what a move really leaves you. Free, no sign-up.",
@@ -1415,5 +1416,29 @@
     "maxBoilerplateRatio": 0.35,
     "minVariantsInBody": 2,
     "$variantNote": "The body must naturally use at least this many of its page's cluster variants. The uniqueness rules push toward varied phrasing and nothing pushed back — the first four pilot bodies scored 46% unique while hitting 0 of 5 variants. Two is deliberately low: this is a floor against forgetting, not a density target, and the anti-repetition rules in docs/copywriting.md guard the other side."
+  },
+  "plannedModes": {
+    "$comment": "Capabilities that belong inside an existing tool rather than on a page of their own. The precedent is job-offer comparison: measured at 30 searches a month, so it became a mode rather than a page (6-1). A mode adds no URL, no cannibalisation risk and no thin page.",
+    "modes": [
+      {
+        "id": "country-vs-country",
+        "tool": "/tools/cost-of-living-comparison",
+        "status": "unmeasured — not built",
+        "rationale": "Structurally sound: the comparison engine is identical, Eurostat publishes comparative price levels at country level, and a site offering city-vs-city plus country pages but no country-vs-country has a gap users notice.",
+        "blockers": [
+          "Zero measured search volume. Rule 18-1 forbids building for an unproven target, and this project has been wrong three times by assuming volume it had not checked (20-5).",
+          "Eurostat dataset does not exist yet.",
+          "Within one region only. A US metro cannot be compared to a European country — BEA and Eurostat use different bases, and presenting the arithmetic anyway would be a confident wrong answer (4-9-3)."
+        ],
+        "economicNote": "Even with volume, international traffic carries materially lower AdSense RPM than US traffic, so a country comparison is worth less per visit than its search volume suggests. That does not make it wrong — it makes the threshold for building it higher, not lower.",
+        "decision": "Build as a THIRD MODE of the existing comparison tool, never as its own page, and only after: (1) the head keywords are measured into data/keywords.json, and (2) the Eurostat dataset exists. Until both, it stays here as a recorded decision rather than an open question.",
+        "keywordsToMeasure": [
+          "cost of living comparison between countries",
+          "compare cost of living countries",
+          "country cost of living comparison",
+          "cost of living by country"
+        ]
+      }
+    ]
   }
 }
