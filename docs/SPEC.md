@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-06 · **Version:** 5.10
+> **Last revised:** 2026-09-12 · **Version:** 5.11
+>
+> **Version 5.11:** A ruthless audit, section 21. The headline: the BEA/HUD dataset blocks the funnel entrance, not just 24% of traffic — which puts roughly half of year-2 revenue behind it too. Plus no author identity (an AdSense blocker), and link building still has a section and no artifact.
 >
 > **Version 5.10:** All twelve tool bodies written — 553,600 searches a month covered, 58% median unique. Details in 20-27.
 >
@@ -70,6 +72,7 @@
 | 17 | Risks | |
 | 18 | Process for adding a new tool | |
 | 19 | Deployment, launch and recovery | |
+| 21 | Ruthless audit (2026-09-12) | |
 | 20 | Changelog | |
 
 ### Related documents
@@ -3830,6 +3833,132 @@ finding more that is genuinely specific to each tool, not padding to a count.
 
 **Status: 78 generated pages · 20 checks · 8 CI validators · 16 bodies (12 tool at
 55%, 4 state at 42%) · 553,600 searches covered · 0 errors · 59 tests green.**
+
+---
+
+## 21. Ruthless audit — 2026-09-12
+
+Six findings, measured rather than asserted, ordered by what they cost against the
+$500–700 goal. Two of them change the plan; the rest are work not yet done.
+
+### 21-1. The dataset blocks the funnel, not just 24% of the traffic
+
+This is the finding that reframes everything else.
+
+| Funnel stage (2-2-2) | Pages available |
+|---|---|
+| **1 — place** | **0 of 3** |
+| **2 — compare** | **0 of 1** |
+| 3 — income | 1 of 2 |
+| 4 — keep | 8 of 8 |
+| 5 — settle | 2 of 2 |
+
+**Stages 1 and 2 are entirely blocked**, and they are the funnel *entrance*. Round
+20-26 recorded the BEA/HUD dataset as blocking 24% of search volume. That
+understated it, because the revenue model's largest single lever — session depth at
+2.2 pages, worth +105% — is built on a funnel that starts at stage 1.
+
+| Pages per session | Year 2 revenue |
+|---|---|
+| 1.1 — no funnel | $169 |
+| **2.2 — the model's base case** | **$346** |
+
+Launching with stage 4 alone is a site of tax calculators that link to each other.
+**That is roughly $177 a month at year two, about half the projection** — on top of
+the 24% of traffic already counted.
+
+**The dataset is therefore worth 24% of traffic plus roughly half the revenue on
+the other 76%.** It is not one of several priorities. It is the precondition for
+the business model, and `scripts/fetch_cost_of_living.py` is two commands away from
+resolving it.
+
+### 21-2. There is no author, and that is an AdSense blocker
+
+`data/pages.json` still carries `{AUTHOR_NAME}` unresolved and `site.origin` as
+`https://example.com`.
+
+Section 7-4 requires a named author with a profile page and relevant background,
+and section 6-3 names a vague About page as **the most common reason for AdSense
+rejection in a YMYL niche**. Section 10-1 makes the trust pages a precondition for
+approval.
+
+No amount of content fixes this. It needs a real person's name, a real background,
+and a real contact route — and it needs deciding before the trust pages are
+written, because they are written around it.
+
+**Everything downstream of AdSense approval depends on a decision nobody has
+made.**
+
+### 21-3. Link building has a section and no artifact
+
+| Concern | What exists |
+|---|---|
+| Tax engine | 59 tests, a validator, CI |
+| On-page SEO | 20 checks, 78 generated pages, CI |
+| Content uniqueness | A validator, a measured pilot, CI |
+| **External links** | **A prose section** |
+
+Section 14 concludes that **domain authority is the binding constraint** and
+section 9-5 allocates **30% of project time** to it. Neither produced a target
+list, an outreach record, or a way to tell whether the month-6 goal of 5–10
+referring domains is being met.
+
+The project instrumented everything it could measure and left the thing it
+identified as the critical path entirely unmeasured. That asymmetry is not an
+oversight in one section; it is the shape of the whole project.
+
+### 21-4. 94,400 searches a month have no recorded decision
+
+Section 18-1 requires a decision for every tool in the catalogue. Absence of a page
+is a legitimate outcome; absence of a decision is not.
+
+| Tool | Volume | CPC | Status |
+|---|---|---|---|
+| bonus tax calculator | 22,200 | **$9.61** | No page, no deferral, no rejection |
+| heloc payment calculator | 27,100 | **$9.92** | " |
+| lottery tax calculator | 22,200 | $5.77 | " |
+| capital gains tax calculator | 14,800 | $3.96 | " |
+| effective tax rate calculator | 6,600 | $2.87 | " |
+| 1099 tax calculator | 1,500 | $5.81 | " |
+
+Two of them carry the **highest CPCs in the entire catalogue**. They may well
+belong outside the context boundary — that is a defensible answer — but nobody has
+given it, and the catalogue exists precisely so that this question gets answered
+rather than drifted past.
+
+### 21-5. The guides are the link asset, and they do not exist
+
+Nine pages. Section 9-5-2 calls guides the main recipient of external links, which
+makes them the intended solution to the constraint in 21-3.
+
+**Zero have measured keywords, so none can be promoted out of `plannedPages`, so
+none can be written.** The blocker is one keyword research pass.
+
+### 21-6. The ratio of specification to artifact
+
+| | |
+|---|---|
+| Specification | 3,836 lines |
+| Body copy | 9,238 words |
+| Engine tests | 59 passing |
+| **Pages built** | **0** |
+
+This has been flagged repeatedly and remains true. The specification is now
+considerably more complete than anything that could be built from it in a week,
+and every additional round of specification widens the gap rather than closing it.
+
+### 21-7. What this audit does not find
+
+Stated so the list above is read in proportion. The keyword targeting is sound and
+enforced. Cannibalisation is measured across 20 checks. Thin content has a
+validator and a measured pilot. The tax engine is tested to the cent against
+statute. The on-page specification is complete for all 78 buildable pages.
+
+**The work that was done is solid. The finding is that it was not always the work
+that mattered most** — 21-1 and 21-3 are both cases of the project going deep where
+it could measure rather than where the value was.
+
+---
 
 ---
 
