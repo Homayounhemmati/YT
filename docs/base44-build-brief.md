@@ -156,6 +156,36 @@ page you sampled.
   must not render "Texas tax brackets" — that outline is already correct in the
   generated file, so use it rather than a single shared template.
 
+
+### The comparison categories — three, not five
+
+The comparison and cost-of-living tools display **exactly the categories BEA
+publishes a separate index for**:
+
+| Displayed | Source |
+|---|---|
+| Rent | BEA RPP, rent component |
+| Goods | BEA RPP, goods component |
+| Other services | BEA RPP, services component |
+
+**Food and transport are not separate categories.** BEA does not publish them
+individually at metro level — food sits inside goods, transport inside services.
+
+> **Do not add a food row, a transport row, a healthcare row or a utilities row.**
+> No official index exists for them at this granularity, and the only way to fill
+> such a column is to estimate it.
+>
+> This is not a hypothetical caution. The project's original dataset had a
+> transport column holding 132 for New York (a transit pass) and 250 for Los
+> Angeles (car ownership) — two different methodologies in one column, which makes
+> every comparison using it wrong. It also had an insurance column sitting between
+> $195 and $215 for all 24 cities, which is not what insurance costs anywhere.
+
+A category with no official index is **omitted**, and the page says which
+categories it covers. An honest three-column comparison is worth more than a
+five-column one where two columns are invented, because the audience for this site
+knows what their own costs are and will notice.
+
 ### Internal links
 
 `internalLinks` gives every link with its anchor text. Both matter.
