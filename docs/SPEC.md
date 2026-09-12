@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-12 · **Version:** 5.12
+> **Last revised:** 2026-09-12 · **Version:** 5.13
+>
+> **Version 5.13:** The tool portfolio was rebalanced onto the stated identity. Rent, affordability and living wage did not exist in the spec at all; two overlapping tax tools were removed. The life side went from 20% of tool volume to 48%. Details in 20-29.
 >
 > **Version 5.12:** Author set (H.Hemati), the build-before-domain rule recorded (19-7), and the Base44 handoff brief written. Details in 20-28.
 >
@@ -316,11 +318,11 @@ Every stage answers the core sentence. The order runs from "what does it cost" t
 
 | Stage | Content | Role in the funnel |
 |---|---|---|
-| **1 — Place** | cost-of-living calculator · comparison · 5 sample cities → 25–30 | Funnel entrance, highest volume |
-| **2 — Income** | salary converter · salary↔hourly · take-home pay | "What do I need / what do I keep" |
-| **3 — Tax by place** | state income tax (51 jurisdictions, engine ready) · sales tax · paycheck · withholding | **The moat** — the cluster's highest CPC |
+| **1 — Place** | cost-of-living calculator · rent affordability · comparison · 5 sample cities → 25–30 | Funnel entrance, highest volume |
+| **2 — Income** | salary comparison by city · salary↔hourly · living wage | "What do I need / what do I keep" |
+| **3 — Tax by place** | state income tax (51 jurisdictions, engine ready) · sales tax · property tax · take-home pay | **The moat** — the cluster's highest CPC |
 | **4 — International** | country income tax · country-level European cost of living | An extension of the same funnel |
-| **5 — Settling** | house payment · closing cost in a city | The end of the funnel |
+| **5 — Settling** | home affordability · house payment · closing cost in a city | The end of the funnel |
 | **Second cluster** | Freelancer tools | Only after the core is established |
 
 **Two ordering rules:**
@@ -902,15 +904,15 @@ Phase 1 total: **39 pages** (not the 75 initially estimated). Exact count in sec
 
 | Stage | Pages | Count |
 |---|---|---|
-| 1 — Place | cost-of-living-calculator · cost-of-living-comparison · city pages | 2 + (5 → 30) |
-| 2 — Income | salary-comparison-by-city · salary-to-hourly · take-home-pay-calculator | 3 |
-| 3 — Tax by place | state pages + directory · sales-tax · paycheck-tax · tax-withholding | 3 + (8 → 51) |
+| 1 — Place | cost-of-living-calculator · rent-affordability-calculator · cost-of-living-comparison · city pages | 3 + (5 → 30) |
+| 2 — Income | salary-comparison-by-city · salary-to-hourly · living-wage-calculator | 3 |
+| 3 — Tax by place | state pages + directory · sales-tax · property-tax · take-home-pay | 4 + (8 → 51) |
 | 4 — International | income-tax-calculator · European country pages | 1 + later |
-| 5 — Settling | house-payment · closing-cost | 2 |
-| Guides | Around the funnel, not freelancer tax | 9 |
+| 5 — Settling | home-affordability · house-payment · closing-cost | 3 |
+| Guides | Around the funnel, not freelancer tax | 8 |
 | Trust pages | About · Methodology · Sources · Editorial · Privacy · Terms · Contact | 7 |
 | Home + tool index | | 2 |
-| **First-release total** | | **~42** |
+| **First-release total** | | **~43** |
 | Behind gates | City pages 5→30 · state pages 8→51 | up to ~110 |
 
 **The guides changed too.** They used to be about freelancer tax (deductions, home office, S-Corp). Now they follow the funnel: "what salary do you need to live in X" · "which states have no income tax" · "how sales tax changes the cost of living" · "what gets left out of a cost-of-living calculation".
@@ -924,6 +926,7 @@ Every page belongs to one of the five funnel stages. A page belonging to no stag
 | Path | Target keyword | Volume |
 |---|---|---|
 | `/tools/cost-of-living-calculator` | cost of living calculator | 60,500 |
+| `/tools/rent-affordability-calculator` | rent affordability calculator | **90,500** |
 | `/cost-of-living/{metro}` | "cost of living in X" | 1,300–3,600 each |
 | `/cost-of-living` | Directory | — |
 
@@ -939,6 +942,7 @@ Every page belongs to one of the five funnel stages. A page belonging to no stag
 |---|---|---|
 | `/tools/salary-to-hourly-calculator` | salary ↔ hourly | 99,000 |
 | `/tools/salary-comparison-by-city` | salary comparison by city | ~8,000 |
+| `/tools/living-wage-calculator` | living wage calculator | 12,100 ($6.36 CPC) |
 
 #### Stage 4 — What you keep *(the moat)*
 
@@ -948,8 +952,6 @@ Every page belongs to one of the five funnel stages. A page belonging to no stag
 | `/tools/property-tax-calculator` | property tax calculator | 22,200 | $3.37 |
 | `/tools/income-tax-calculator` | income tax calculator | 90,500 | $2.13 |
 | `/tools/take-home-pay-calculator` | take home pay calculator | 60,500 | **$5.69** |
-| `/tools/paycheck-tax-calculator` | paycheck tax calculator | 18,100 | $4.48 |
-| `/tools/tax-withholding-calculator` | tax withholding calculator | 14,800 | **$5.78** |
 | `/state-taxes/{state}` · `/state-taxes` | State tax | Low, but it closes the funnel | |
 
 **This stage carries the cluster's highest CPC and its tax engine is already built.** That is why the whole identity revision did not waste the engine.
@@ -1005,6 +1007,7 @@ the right shape for any capability whose demand is not yet proven.
 
 | Path | Target keyword | Volume | CPC |
 |---|---|---|---|
+| `/tools/home-affordability-calculator` | home affordability calculator | 49,500 | $2.51 |
 | `/tools/closing-cost-calculator` | closing cost calculator | 40,500 | **$6.18** |
 | `/tools/house-payment-calculator` | house payment calculator | 33,100 | $2.29 |
 
@@ -2044,18 +2047,26 @@ Without this rule, the generic tool that supports all 51 states unintentionally 
 
 A directory **lists**, a tool **calculates**. A directory does not embed a full calculator and a tool does not render the full entity list. If both do both, one has to go.
 
-##### The salary family of four
+##### The salary family — reduced from four to two
 
-`income tax` · `take-home pay` · `paycheck tax` · `tax withholding` — four queries with adjacent intent. Their separation **must be visible in the output**, not only in the URL:
+`income tax` · `take-home pay` · `paycheck tax` · `tax withholding` were four queries with adjacent intent, held apart only by a rule that their outputs must differ. Version 5.13 stopped defending that separation and collapsed it: `paycheck tax` (18,100) and `tax withholding` (14,800) were **removed**, and their intent folded into `take-home pay`, whose output now carries the per-paycheck breakdown.
+
+The reasoning is recorded in 20-29. A separation that needs a rule to survive is a separation Google is unlikely to honour, and two pages defended by a rule are worth less than one page that owns the intent outright.
 
 | Tool | The ResultCard's headline number |
 |---|---|
 | income tax | **Annual** tax liability + the bracket table |
-| take-home pay | **Annual and monthly** net |
-| paycheck tax | **Net per paycheck**, by pay period |
-| tax withholding | **What to withhold on the W-4** so the year ends at zero |
+| take-home pay | **Annual, monthly and per-paycheck** net |
 
-The H1, the first sentence and the headline number must show that difference. If all four highlight the same number, they are four duplicate pages however different their URLs.
+**The same test now applies to the two affordability tools**, which are genuinely distinct and must stay that way:
+
+| Tool | The ResultCard's headline number |
+|---|---|
+| home affordability | **A maximum price** — what income and debts support |
+| house payment | **A monthly payment** — what a given price costs |
+| rent affordability | **A rent ceiling** — and the metro's actual rent beside it |
+
+The H1, the first sentence and the headline number must show that difference. If two pages highlight the same number, they are duplicates however different their URLs.
 
 ##### Canonical rules
 
@@ -4082,6 +4093,86 @@ measured at 58% (tools) and 44% (states) against a 40% floor · 78 pages generat
 
 **Status: 78 generated pages · 20 checks · 8 CI validators · 16 bodies · author
 set · 0 errors.**
+
+---
+
+### 20-29. Round thirty — version 5.13 · the portfolio did not match the identity
+
+**What was found.** Section 2-2 states the identity as *"the real cost of living in a
+place — and what you actually keep"*. The tool portfolio built to serve it was 12 tools,
+of which **6 were tax tools**. Measured by search volume the split was:
+
+| Side | Tools | Volume | Share |
+|---|---|---|---|
+| Cost of living (stages 1, 2, 5) | 4 | 110,000 + 73,600 | **20%** |
+| Tax (stage 4) | 6 | 316,100 | **57%** |
+
+The funnel entrance — the half of the identity sentence that comes first — had one tool.
+The moat had six.
+
+**What was missing.** A live keyword pull found that the spec contained no entry at all
+for the largest life-side terms. `rent`, `afford` and `living wage` each appeared **zero
+times** in `data/keywords.json`:
+
+| Term | Volume | CPC |
+|---|---|---|
+| rent affordability calculator | 90,500 | $0.69 |
+| rent calculator | 60,500 | $1.02 |
+| home affordability calculator | 49,500 | $2.51 |
+| living wage calculator | 12,100 | **$6.36** |
+
+**Rent is not an adjacent topic — it is the largest component of the thing this site
+measures.** BEA's Regional Price Parity is built from rent, goods and services, and
+section 2-4 already committed to HUD Fair Market Rent at county level as the rent
+source. These tools therefore needed **no new dataset**: they run on data the project
+had already decided to fetch.
+
+**What changed.**
+
+| Action | Page | Volume |
+|---|---|---|
+| Added | `/tools/rent-affordability-calculator` (stage 1) | 90,500 |
+| Added | `/tools/home-affordability-calculator` (stage 5) | 49,500 |
+| Added | `/tools/living-wage-calculator` (stage 3) | 12,100 |
+| Removed | `/tools/paycheck-tax-calculator` | 18,100 |
+| Removed | `/tools/tax-withholding-calculator` | 14,800 |
+
+Net **+119,200** searches a month, and the life side moved from 20% to **48%** of tool
+volume. `sales-tax` and `property-tax` were kept: both are genuinely part of what a
+place costs, which is the test section 6-1 applies. `paycheck-tax` and `tax-withholding`
+failed that test — they are payroll mechanics, and their intent was already inside
+`take-home-pay`, whose output now carries the per-paycheck breakdown that justified them.
+
+**Three second-order corrections this forced:**
+
+1. **A planned guide had to go.** `/guides/salary-needed-to-live-in-city` was declared
+   with the intent *"given one place, what absolute income clears its cost of living"* —
+   which is precisely the living wage tool's intent. Per the rule in `plannedPages`, a
+   guide duplicating a tool's intent is cannibalisation that ships. The tool's head term
+   is measured and the guide's was not, so the guide was removed. Guides: 9 → 8.
+
+2. **The auditor rejected an overclaim of mine.** The three new clusters were written
+   with `variantsMeasured: true` when only their head terms had been measured. Check 11
+   refused all three. Corrected to `false`, and the two variants that *were* measured
+   (`how much house can i afford calculator` 33,100, `how much rent can i afford
+   calculator` 4,400) went into `keywords.json` as real data. This is the check earning
+   its place: the overclaim was invisible in the prose and fatal in the data.
+
+3. **`moving cost calculator` was rejected despite a $13.80 CPC** — the highest in the
+   project. There is no free authoritative dataset for mover rates, so the tool would
+   have to invent multipliers, which section 2 forbids and which is how thin content
+   gets built. It is recorded here as a deliberate rejection rather than an oversight.
+
+**The pattern, again.** The six tax tools entered the spec because they had high CPC.
+That is the same failure mode section 21 named: *the instrument gets scoped to where the
+last problem was found, not to where the value is.* Here it had a second edge — optimising
+for CPC selected for **dead-end pages**. Someone searching `sales tax calculator` takes a
+number and leaves; someone searching `rent calculator` is mid-decision about where to
+live, which is the entire funnel. Section 2-2-2 makes session depth the only revenue
+variable fully under our control, and the portfolio had been built against it.
+
+**Status: 79 generated pages · 20 checks · 0 audit errors · 17 bodies (13 tool at 59%
+median unique) · life side 48% of tool volume.**
 
 ---
 

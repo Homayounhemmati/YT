@@ -77,14 +77,6 @@
           "anchor": "take home pay calculator"
         },
         {
-          "to": "/tools/paycheck-tax-calculator",
-          "anchor": "paycheck tax calculator"
-        },
-        {
-          "to": "/tools/tax-withholding-calculator",
-          "anchor": "tax withholding calculator"
-        },
-        {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
         },
@@ -101,6 +93,18 @@
           "anchor": "house payment calculator"
         },
         {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/living-wage-calculator",
+          "anchor": "living wage calculator"
+        },
+        {
+          "to": "/tools/home-affordability-calculator",
+          "anchor": "home affordability calculator"
+        },
+        {
           "to": "/cost-of-living",
           "anchor": "cost of living by city"
         },
@@ -110,580 +114,6 @@
         }
       ],
       "cluster": null
-    },
-    {
-      "path": "/tools/cost-of-living-calculator",
-      "template": "ToolPage",
-      "primary": "cost of living calculator",
-      "output": "Monthly: what one city costs for the user's household",
-      "canonical": "self",
-      "stripsParams": true,
-      "metaHook": "Work out what a month actually costs in any US metro for your household size, using official BEA and HUD data. Free, no sign-up.",
-      "stage": 1,
-      "links": [
-        {
-          "to": "/tools/cost-of-living-comparison",
-          "anchor": "cost of living comparison"
-        },
-        {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
-        }
-      ],
-      "cluster": {
-        "intent": "What does it cost to live in one specific place, for a household like mine",
-        "variantsMeasured": false,
-        "variants": [
-          "cost of living estimator",
-          "cost of living calculator by city",
-          "living expenses calculator",
-          "monthly cost of living calculator",
-          "how much do i need to live in"
-        ]
-      },
-      "subject": "cost of living"
-    },
-    {
-      "path": "/tools/cost-of-living-comparison",
-      "template": "ToolPage",
-      "primary": "cost of living comparison",
-      "output": "Two places side by side: cost gap + tax gap + the real gap",
-      "canonical": "self",
-      "stripsParams": true,
-      "paramNote": "?from=&to= is for prefill only. Always canonicalises to the parameter-free version.",
-      "modes": [
-        "Compare two places on the same income",
-        "**Compare two job offers** — different income in each of two places",
-        "**Country vs country, within one data region** — pending the Eurostat dataset and a keyword measurement (see plannedModes)"
-      ],
-      "note": "The job-offer mode lives here, not on a separate page: 'job offer comparison calculator' gets only 30 searches a month.",
-      "metaHook": "Compare two US metros side by side: the cost difference, the state tax difference, and what a move really leaves you. Free, no sign-up.",
-      "stage": 2,
-      "links": [
-        {
-          "to": "/tools/salary-comparison-by-city",
-          "anchor": "salary comparison by city"
-        },
-        {
-          "to": "/tools/cost-of-living-calculator",
-          "anchor": "cost of living calculator"
-        },
-        {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
-        }
-      ],
-      "cluster": {
-        "intent": "How do two places compare, and what would moving change",
-        "variantsMeasured": false,
-        "variants": [
-          "cost of living comparison calculator",
-          "compare cost of living between cities",
-          "cost of living difference between two cities",
-          "city vs city cost of living",
-          "moving cost of living comparison"
-        ]
-      },
-      "subject": "a cost of living comparison"
-    },
-    {
-      "path": "/tools/salary-comparison-by-city",
-      "template": "ToolPage",
-      "primary": "salary comparison by city",
-      "output": "Equivalent salary in the destination city to hold the same standard of living",
-      "canonical": "self",
-      "stripsParams": true,
-      "metaHook": "Find the salary you would need in another city to keep the same standard of living — cost of living and state tax both included.",
-      "stage": 3,
-      "links": [
-        {
-          "to": "/tools/take-home-pay-calculator",
-          "anchor": "take home pay calculator"
-        },
-        {
-          "to": "/tools/cost-of-living-comparison",
-          "anchor": "cost of living comparison"
-        },
-        {
-          "to": "/tools/salary-to-hourly-calculator",
-          "anchor": "salary to hourly calculator"
-        }
-      ],
-      "cluster": {
-        "intent": "What salary do I need in city B to live as I do in city A",
-        "variantsMeasured": false,
-        "variants": [
-          "salary equivalent in another city",
-          "comparable salary calculator",
-          "what salary do i need in",
-          "relocation salary calculator",
-          "salary adjustment calculator by location"
-        ]
-      },
-      "note": "Renamed from /tools/salary-converter. That slug was a brand name, which rule 1 of section 6-7 forbids: the slug is the target keyword. Free to change because nothing is published — after indexation it would cost a permanent redirect.",
-      "subject": "an equivalent salary"
-    },
-    {
-      "path": "/tools/salary-to-hourly-calculator",
-      "template": "ToolPage",
-      "primary": "salary to hourly calculator",
-      "output": "Two-way conversion between annual salary and hourly rate",
-      "canonical": "self",
-      "stripsParams": true,
-      "note": "Two keywords, one page — it is a single two-way tool, and splitting it would produce two near-identical pages.",
-      "metaHook": "Convert an annual salary to an hourly rate, or an hourly rate to a salary, for any schedule. Shows the working. Free, no sign-up.",
-      "stage": 3,
-      "links": [
-        {
-          "to": "/tools/take-home-pay-calculator",
-          "anchor": "take home pay calculator"
-        },
-        {
-          "to": "/tools/salary-comparison-by-city",
-          "anchor": "salary comparison by city"
-        }
-      ],
-      "cluster": {
-        "intent": "Convert between an annual salary and an hourly rate, in either direction",
-        "variantsMeasured": false,
-        "variants": [
-          "hourly to salary calculator",
-          "annual salary to hourly",
-          "hourly rate to annual salary",
-          "convert hourly wage to salary",
-          "salary to hourly wage converter"
-        ]
-      },
-      "subject": "an hourly rate from a salary"
-    },
-    {
-      "path": "/tools/income-tax-calculator",
-      "template": "ToolPage",
-      "primary": "income tax calculator",
-      "output": "**Annual tax liability** + bracket-by-bracket table",
-      "canonical": "self",
-      "stripsParams": true,
-      "metaHook": "Estimate your federal and state income tax for the year, with the full bracket-by-bracket breakdown. Free, no sign-up.",
-      "stage": 4,
-      "links": [
-        {
-          "to": "/state-taxes",
-          "anchor": "state income tax rates"
-        },
-        {
-          "to": "/tools/take-home-pay-calculator",
-          "anchor": "take home pay calculator"
-        },
-        {
-          "to": "/tools/tax-withholding-calculator",
-          "anchor": "tax withholding calculator"
-        },
-        {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
-        }
-      ],
-      "cluster": {
-        "intent": "What is my total income tax liability for the year, and how is it bracketed",
-        "variantsMeasured": false,
-        "variants": [
-          "federal income tax calculator",
-          "tax bracket calculator",
-          "how much tax will i pay",
-          "income tax estimator",
-          "tax liability calculator"
-        ]
-      },
-      "subject": "income tax"
-    },
-    {
-      "path": "/tools/take-home-pay-calculator",
-      "template": "ToolPage",
-      "primary": "take home pay calculator",
-      "output": "**Annual and monthly net** from gross salary",
-      "canonical": "self",
-      "stripsParams": true,
-      "metaHook": "See what is left of a gross salary after federal, state, Social Security and Medicare — yearly and monthly. Free, no sign-up.",
-      "stage": 4,
-      "links": [
-        {
-          "to": "/tools/paycheck-tax-calculator",
-          "anchor": "paycheck tax calculator"
-        },
-        {
-          "to": "/tools/income-tax-calculator",
-          "anchor": "income tax calculator"
-        },
-        {
-          "to": "/state-taxes",
-          "anchor": "state income tax rates"
-        },
-        {
-          "to": "/tools/salary-comparison-by-city",
-          "anchor": "salary comparison by city"
-        }
-      ],
-      "cluster": {
-        "intent": "From a gross salary, what is my annual and monthly net",
-        "variantsMeasured": false,
-        "variants": [
-          "net pay calculator",
-          "after tax income calculator",
-          "salary after tax calculator",
-          "take home salary calculator",
-          "net salary calculator"
-        ]
-      },
-      "subject": "take-home pay"
-    },
-    {
-      "path": "/tools/paycheck-tax-calculator",
-      "template": "ToolPage",
-      "primary": "paycheck tax calculator",
-      "output": "**Net per paycheck**, broken out by pay period (weekly/biweekly/monthly)",
-      "canonical": "self",
-      "stripsParams": true,
-      "metaHook": "See what lands in your account each payday — weekly, biweekly, semi-monthly or monthly — after every tax and withholding.",
-      "stage": 4,
-      "links": [
-        {
-          "to": "/tools/take-home-pay-calculator",
-          "anchor": "take home pay calculator"
-        },
-        {
-          "to": "/tools/tax-withholding-calculator",
-          "anchor": "tax withholding calculator"
-        },
-        {
-          "to": "/tools/salary-to-hourly-calculator",
-          "anchor": "salary to hourly calculator"
-        }
-      ],
-      "cluster": {
-        "intent": "What lands in my account on each individual payday",
-        "variantsMeasured": false,
-        "variants": [
-          "paycheck calculator",
-          "biweekly paycheck calculator",
-          "payroll tax calculator",
-          "weekly paycheck calculator",
-          "semi monthly paycheck calculator"
-        ]
-      },
-      "subject": "a paycheck"
-    },
-    {
-      "path": "/tools/tax-withholding-calculator",
-      "template": "ToolPage",
-      "primary": "tax withholding calculator",
-      "output": "**What to withhold on the W-4** so the year ends at zero owed or refunded",
-      "canonical": "self",
-      "stripsParams": true,
-      "metaHook": "Work out what to put on your W-4 so you neither owe nor overpay at filing time. Shows the shortfall or the refund either way.",
-      "stage": 4,
-      "links": [
-        {
-          "to": "/tools/paycheck-tax-calculator",
-          "anchor": "paycheck tax calculator"
-        },
-        {
-          "to": "/tools/income-tax-calculator",
-          "anchor": "income tax calculator"
-        },
-        {
-          "to": "/tools/salary-comparison-by-city",
-          "anchor": "salary comparison by city"
-        }
-      ],
-      "cluster": {
-        "intent": "What should I put on my W-4 so the year ends at zero owed or refunded",
-        "variantsMeasured": false,
-        "variants": [
-          "w4 calculator",
-          "withholding estimator",
-          "federal withholding calculator",
-          "how much should i withhold",
-          "w-4 allowances calculator"
-        ]
-      },
-      "subject": "withholding"
-    },
-    {
-      "path": "/tools/sales-tax-calculator",
-      "template": "ToolPage",
-      "primary": "sales tax calculator",
-      "output": "Sales tax on one purchase in one jurisdiction",
-      "canonical": "self",
-      "stripsParams": true,
-      "metaHook": "Add sales tax to any purchase for any US state, county or city — with the state, local and combined rate each shown separately.",
-      "stage": 4,
-      "links": [
-        {
-          "to": "/state-taxes",
-          "anchor": "state income tax rates"
-        },
-        {
-          "to": "/tools/cost-of-living-calculator",
-          "anchor": "cost of living calculator"
-        }
-      ],
-      "cluster": {
-        "intent": "How much sales tax on this purchase in this jurisdiction",
-        "variantsMeasured": false,
-        "variants": [
-          "sales tax by zip code",
-          "reverse sales tax calculator",
-          "how much is sales tax",
-          "sales tax rate calculator",
-          "add sales tax to price"
-        ]
-      },
-      "subject": "sales tax"
-    },
-    {
-      "path": "/tools/property-tax-calculator",
-      "template": "ToolPage",
-      "primary": "property tax calculator",
-      "output": "Annual property tax from assessed value and jurisdiction",
-      "canonical": "self",
-      "stripsParams": true,
-      "metaHook": "Estimate annual property tax from a home's assessed value and its local rate, plus the effective rate on the purchase price.",
-      "stage": 4,
-      "links": [
-        {
-          "to": "/tools/house-payment-calculator",
-          "anchor": "house payment calculator"
-        },
-        {
-          "to": "/state-taxes",
-          "anchor": "state income tax rates"
-        }
-      ],
-      "cluster": {
-        "intent": "Annual property tax on a home of this value in this jurisdiction",
-        "variantsMeasured": false,
-        "variants": [
-          "property tax estimator",
-          "real estate tax calculator",
-          "how much are property taxes",
-          "millage rate calculator",
-          "annual property tax estimate"
-        ]
-      },
-      "subject": "property tax"
-    },
-    {
-      "path": "/tools/closing-cost-calculator",
-      "template": "ToolPage",
-      "primary": "closing cost calculator",
-      "canonical": "self",
-      "stripsParams": true,
-      "output": "The one-off costs of closing a home purchase",
-      "metaHook": "Add up the one-off costs of closing on a home — lender fees, title, escrow, taxes — so the cash needed at signing is no surprise.",
-      "stage": 5,
-      "links": [
-        {
-          "to": "/tools/house-payment-calculator",
-          "anchor": "house payment calculator"
-        },
-        {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
-        }
-      ],
-      "cluster": {
-        "intent": "How much cash do I need at closing as the buyer",
-        "variantsMeasured": false,
-        "variants": [
-          "closing costs estimator",
-          "how much are closing costs",
-          "buyer closing cost calculator",
-          "cash to close calculator",
-          "estimated closing costs"
-        ]
-      },
-      "subject": "closing costs"
-    },
-    {
-      "path": "/tools/house-payment-calculator",
-      "template": "ToolPage",
-      "primary": "house payment calculator",
-      "canonical": "self",
-      "stripsParams": true,
-      "output": "Monthly mortgage payment",
-      "metaHook": "Work out the full monthly cost of a home loan: principal, interest, taxes, insurance and PMI, not just the loan payment itself.",
-      "stage": 5,
-      "links": [
-        {
-          "to": "/tools/closing-cost-calculator",
-          "anchor": "closing cost calculator"
-        },
-        {
-          "to": "/tools/property-tax-calculator",
-          "anchor": "property tax calculator"
-        }
-      ],
-      "cluster": {
-        "intent": "What is the full monthly cost of this mortgage, not just principal and interest",
-        "variantsMeasured": false,
-        "variants": [
-          "mortgage payment calculator",
-          "monthly mortgage calculator",
-          "home loan payment calculator",
-          "piti calculator",
-          "monthly house payment estimate"
-        ]
-      },
-      "subject": "a house payment"
-    },
-    {
-      "path": "/cost-of-living",
-      "template": "DirectoryPage",
-      "primary": "cost of living by city",
-      "note": "Directory. Deliberately does not target the tool keyword.",
-      "canonical": "self",
-      "output": "**Browsable list** of every city with its index — a discovery point, not a calculator",
-      "metaHook": "Browse the cost of living index for every US metro area, ranked and searchable, built from official BEA regional price data.",
-      "stage": 1,
-      "links": [
-        {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
-        },
-        {
-          "to": "/tools/cost-of-living-calculator",
-          "anchor": "cost of living calculator"
-        },
-        {
-          "to": "/tools/cost-of-living-comparison",
-          "anchor": "cost of living comparison"
-        }
-      ],
-      "cluster": {
-        "intent": "Browse and rank places — discovery, not calculation",
-        "variantsMeasured": false,
-        "variants": [
-          "cost of living index by city",
-          "cost of living rankings",
-          "most expensive cities to live",
-          "cheapest cities to live",
-          "cost of living by metro area"
-        ]
-      }
-    },
-    {
-      "path": "/cost-of-living/{metro}",
-      "template": "PlacePage",
-      "primary": "cost of living in {metro}",
-      "canonical": "self",
-      "stripsParams": true,
-      "output": "Profile of **one specific city**: index, rent, its state tax",
-      "stage": 1,
-      "links": [
-        {
-          "to": "/state-taxes/{state}",
-          "anchor": "{state} income tax calculator"
-        },
-        {
-          "to": "/tools/cost-of-living-comparison",
-          "anchor": "cost of living comparison"
-        },
-        {
-          "to": "/tools/cost-of-living-calculator",
-          "anchor": "cost of living calculator"
-        },
-        {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
-        },
-        {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
-        }
-      ],
-      "cluster": {
-        "intent": "One specific place's cost profile, including what its state takes",
-        "variantsMeasured": false,
-        "variants": [
-          "{metro} cost of living",
-          "cost to live in {metro}",
-          "is {metro} expensive",
-          "average rent in {metro}",
-          "{metro} living expenses"
-        ]
-      }
-    },
-    {
-      "path": "/state-taxes",
-      "template": "DirectoryPage",
-      "primary": "state income tax rates by state",
-      "canonical": "self",
-      "output": "**Comparison table of all 51 jurisdictions' rates** at a glance — not a calculator",
-      "metaHook": "Compare income tax across all 50 states and DC in one table — brackets, flat rates, and the nine states that levy none at all.",
-      "stage": 4,
-      "links": [
-        {
-          "to": "/state-taxes/{state}",
-          "anchor": "{state} income tax calculator"
-        },
-        {
-          "to": "/tools/income-tax-calculator",
-          "anchor": "income tax calculator"
-        },
-        {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
-        }
-      ],
-      "cluster": {
-        "intent": "Compare every state's rate at a glance — a table, not a calculator",
-        "variantsMeasured": false,
-        "variants": [
-          "state income tax rates",
-          "states with no income tax",
-          "state tax rates comparison",
-          "income tax by state",
-          "state tax brackets by state"
-        ]
-      }
-    },
-    {
-      "path": "/state-taxes/{state}",
-      "template": "StateTaxPage",
-      "primary": "{state} income tax calculator",
-      "canonical": "self",
-      "stripsParams": true,
-      "output": "Tax profile of **one specific state** + calculation using that state",
-      "stage": 4,
-      "links": [
-        {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
-        },
-        {
-          "to": "/tools/income-tax-calculator",
-          "anchor": "income tax calculator"
-        },
-        {
-          "to": "/tools/take-home-pay-calculator",
-          "anchor": "take home pay calculator"
-        },
-        {
-          "to": "/state-taxes",
-          "anchor": "state income tax rates"
-        }
-      ],
-      "cluster": {
-        "intent": "One specific state's tax profile, and a calculation using it",
-        "variantsMeasured": false,
-        "variants": [
-          "{state} income tax rate",
-          "{state} state tax calculator",
-          "{state} tax brackets",
-          "how much is {state} income tax",
-          "{state} paycheck calculator"
-        ]
-      }
     },
     {
       "path": "/about",
@@ -836,6 +266,616 @@
         "Reporting an incorrect number",
         "Response times"
       ]
+    },
+    {
+      "path": "/tools/cost-of-living-calculator",
+      "template": "ToolPage",
+      "primary": "cost of living calculator",
+      "output": "Monthly: what one city costs for the user's household",
+      "canonical": "self",
+      "stripsParams": true,
+      "metaHook": "Work out what a month actually costs in any US metro for your household size, using official BEA and HUD data. Free, no sign-up.",
+      "stage": 1,
+      "links": [
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        }
+      ],
+      "cluster": {
+        "intent": "What does it cost to live in one specific place, for a household like mine",
+        "variantsMeasured": false,
+        "variants": [
+          "cost of living estimator",
+          "cost of living calculator by city",
+          "living expenses calculator",
+          "monthly cost of living calculator",
+          "how much do i need to live in"
+        ]
+      },
+      "subject": "cost of living"
+    },
+    {
+      "path": "/cost-of-living",
+      "template": "DirectoryPage",
+      "primary": "cost of living by city",
+      "note": "Directory. Deliberately does not target the tool keyword.",
+      "canonical": "self",
+      "output": "**Browsable list** of every city with its index — a discovery point, not a calculator",
+      "metaHook": "Browse the cost of living index for every US metro area, ranked and searchable, built from official BEA regional price data.",
+      "stage": 1,
+      "links": [
+        {
+          "to": "/cost-of-living/{metro}",
+          "anchor": "cost of living in {metro}"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        }
+      ],
+      "cluster": {
+        "intent": "Browse and rank places — discovery, not calculation",
+        "variantsMeasured": false,
+        "variants": [
+          "cost of living index by city",
+          "cost of living rankings",
+          "most expensive cities to live",
+          "cheapest cities to live",
+          "cost of living by metro area"
+        ]
+      }
+    },
+    {
+      "path": "/cost-of-living/{metro}",
+      "template": "PlacePage",
+      "primary": "cost of living in {metro}",
+      "canonical": "self",
+      "stripsParams": true,
+      "output": "Profile of **one specific city**: index, rent, its state tax",
+      "stage": 1,
+      "links": [
+        {
+          "to": "/state-taxes/{state}",
+          "anchor": "{state} income tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/cost-of-living/{metro}",
+          "anchor": "cost of living in {metro}"
+        }
+      ],
+      "cluster": {
+        "intent": "One specific place's cost profile, including what its state takes",
+        "variantsMeasured": false,
+        "variants": [
+          "{metro} cost of living",
+          "cost to live in {metro}",
+          "is {metro} expensive",
+          "average rent in {metro}",
+          "{metro} living expenses"
+        ]
+      }
+    },
+    {
+      "path": "/tools/rent-affordability-calculator",
+      "template": "ToolPage",
+      "primary": "rent affordability calculator",
+      "output": "**The highest monthly rent** the user's income supports, against real rents in the metro",
+      "canonical": "self",
+      "stripsParams": true,
+      "metaHook": "Find the highest rent your income can actually carry, then see how that figure lines up against real HUD market rents in your metro.",
+      "stage": 1,
+      "links": [
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/tools/living-wage-calculator",
+          "anchor": "living wage calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        }
+      ],
+      "cluster": {
+        "intent": "How much rent my income can actually carry in a particular place",
+        "variantsMeasured": false,
+        "variants": [
+          "rent calculator",
+          "how much rent can i afford",
+          "rent budget calculator",
+          "apartment affordability calculator",
+          "how much rent can i afford calculator"
+        ]
+      },
+      "subject": "affordable rent"
+    },
+    {
+      "path": "/tools/cost-of-living-comparison",
+      "template": "ToolPage",
+      "primary": "cost of living comparison",
+      "output": "Two places side by side: cost gap + tax gap + the real gap",
+      "canonical": "self",
+      "stripsParams": true,
+      "paramNote": "?from=&to= is for prefill only. Always canonicalises to the parameter-free version.",
+      "modes": [
+        "Compare two places on the same income",
+        "**Compare two job offers** — different income in each of two places",
+        "**Country vs country, within one data region** — pending the Eurostat dataset and a keyword measurement (see plannedModes)"
+      ],
+      "note": "The job-offer mode lives here, not on a separate page: 'job offer comparison calculator' gets only 30 searches a month.",
+      "metaHook": "Compare two US metros side by side: the cost difference, the state tax difference, and what a move really leaves you. Free, no sign-up.",
+      "stage": 2,
+      "links": [
+        {
+          "to": "/tools/salary-comparison-by-city",
+          "anchor": "salary comparison by city"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        }
+      ],
+      "cluster": {
+        "intent": "How do two places compare, and what would moving change",
+        "variantsMeasured": false,
+        "variants": [
+          "cost of living comparison calculator",
+          "compare cost of living between cities",
+          "cost of living difference between two cities",
+          "city vs city cost of living",
+          "moving cost of living comparison"
+        ]
+      },
+      "subject": "a cost of living comparison"
+    },
+    {
+      "path": "/tools/salary-comparison-by-city",
+      "template": "ToolPage",
+      "primary": "salary comparison by city",
+      "output": "Equivalent salary in the destination city to hold the same standard of living",
+      "canonical": "self",
+      "stripsParams": true,
+      "metaHook": "Find the salary you would need in another city to keep the same standard of living — cost of living and state tax both included.",
+      "stage": 3,
+      "links": [
+        {
+          "to": "/tools/take-home-pay-calculator",
+          "anchor": "take home pay calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/salary-to-hourly-calculator",
+          "anchor": "salary to hourly calculator"
+        }
+      ],
+      "cluster": {
+        "intent": "What salary do I need in city B to live as I do in city A",
+        "variantsMeasured": false,
+        "variants": [
+          "salary equivalent in another city",
+          "comparable salary calculator",
+          "what salary do i need in",
+          "relocation salary calculator",
+          "salary adjustment calculator by location"
+        ]
+      },
+      "note": "Renamed from /tools/salary-converter. That slug was a brand name, which rule 1 of section 6-7 forbids: the slug is the target keyword. Free to change because nothing is published — after indexation it would cost a permanent redirect.",
+      "subject": "an equivalent salary"
+    },
+    {
+      "path": "/tools/salary-to-hourly-calculator",
+      "template": "ToolPage",
+      "primary": "salary to hourly calculator",
+      "output": "Two-way conversion between annual salary and hourly rate",
+      "canonical": "self",
+      "stripsParams": true,
+      "note": "Two keywords, one page — it is a single two-way tool, and splitting it would produce two near-identical pages.",
+      "metaHook": "Convert an annual salary to an hourly rate, or an hourly rate to a salary, for any schedule. Shows the working. Free, no sign-up.",
+      "stage": 3,
+      "links": [
+        {
+          "to": "/tools/take-home-pay-calculator",
+          "anchor": "take home pay calculator"
+        },
+        {
+          "to": "/tools/salary-comparison-by-city",
+          "anchor": "salary comparison by city"
+        }
+      ],
+      "cluster": {
+        "intent": "Convert between an annual salary and an hourly rate, in either direction",
+        "variantsMeasured": false,
+        "variants": [
+          "hourly to salary calculator",
+          "annual salary to hourly",
+          "hourly rate to annual salary",
+          "convert hourly wage to salary",
+          "salary to hourly wage converter"
+        ]
+      },
+      "subject": "an hourly rate from a salary"
+    },
+    {
+      "path": "/tools/living-wage-calculator",
+      "template": "ToolPage",
+      "primary": "living wage calculator",
+      "output": "**The gross salary required** to cover one metro's costs for the user's household",
+      "canonical": "self",
+      "stripsParams": true,
+      "metaHook": "Work out the gross salary a US metro actually demands for your household size, before you accept an offer or commit to a move.",
+      "stage": 3,
+      "links": [
+        {
+          "to": "/tools/take-home-pay-calculator",
+          "anchor": "take home pay calculator"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        }
+      ],
+      "cluster": {
+        "intent": "What salary a specific place demands before I break even on it",
+        "variantsMeasured": false,
+        "variants": [
+          "salary needed to live",
+          "living wage by state",
+          "how much do i need to earn to live in",
+          "living wage by city",
+          "minimum salary to live comfortably"
+        ]
+      },
+      "subject": "a living wage"
+    },
+    {
+      "path": "/tools/income-tax-calculator",
+      "template": "ToolPage",
+      "primary": "income tax calculator",
+      "output": "**Annual tax liability** + bracket-by-bracket table",
+      "canonical": "self",
+      "stripsParams": true,
+      "metaHook": "Estimate your federal and state income tax for the year, with the full bracket-by-bracket breakdown. Free, no sign-up.",
+      "stage": 4,
+      "links": [
+        {
+          "to": "/state-taxes",
+          "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/take-home-pay-calculator",
+          "anchor": "take home pay calculator"
+        },
+        {
+          "to": "/tools/living-wage-calculator",
+          "anchor": "living wage calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        }
+      ],
+      "cluster": {
+        "intent": "What is my total income tax liability for the year, and how is it bracketed",
+        "variantsMeasured": false,
+        "variants": [
+          "federal income tax calculator",
+          "tax bracket calculator",
+          "how much tax will i pay",
+          "income tax estimator",
+          "tax liability calculator"
+        ]
+      },
+      "subject": "income tax"
+    },
+    {
+      "path": "/tools/take-home-pay-calculator",
+      "template": "ToolPage",
+      "primary": "take home pay calculator",
+      "output": "**Annual, monthly and per-paycheck net** from gross salary",
+      "canonical": "self",
+      "stripsParams": true,
+      "metaHook": "See what is left of a gross salary after federal, state, Social Security and Medicare — yearly and monthly. Free, no sign-up.",
+      "stage": 4,
+      "links": [
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/income-tax-calculator",
+          "anchor": "income tax calculator"
+        },
+        {
+          "to": "/state-taxes",
+          "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/salary-comparison-by-city",
+          "anchor": "salary comparison by city"
+        }
+      ],
+      "cluster": {
+        "intent": "From a gross salary, what is my annual, monthly and per-paycheck net after every withholding",
+        "variantsMeasured": false,
+        "variants": [
+          "net pay calculator",
+          "paycheck calculator",
+          "after tax income calculator",
+          "salary after tax calculator",
+          "payroll tax calculator"
+        ]
+      },
+      "subject": "take-home pay"
+    },
+    {
+      "path": "/tools/sales-tax-calculator",
+      "template": "ToolPage",
+      "primary": "sales tax calculator",
+      "output": "Sales tax on one purchase in one jurisdiction",
+      "canonical": "self",
+      "stripsParams": true,
+      "metaHook": "Add sales tax to any purchase for any US state, county or city — with the state, local and combined rate each shown separately.",
+      "stage": 4,
+      "links": [
+        {
+          "to": "/state-taxes",
+          "anchor": "state income tax rates"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        }
+      ],
+      "cluster": {
+        "intent": "How much sales tax on this purchase in this jurisdiction",
+        "variantsMeasured": false,
+        "variants": [
+          "sales tax by zip code",
+          "reverse sales tax calculator",
+          "how much is sales tax",
+          "sales tax rate calculator",
+          "add sales tax to price"
+        ]
+      },
+      "subject": "sales tax"
+    },
+    {
+      "path": "/tools/property-tax-calculator",
+      "template": "ToolPage",
+      "primary": "property tax calculator",
+      "output": "Annual property tax from assessed value and jurisdiction",
+      "canonical": "self",
+      "stripsParams": true,
+      "metaHook": "Estimate annual property tax from a home's assessed value and its local rate, plus the effective rate on the purchase price.",
+      "stage": 4,
+      "links": [
+        {
+          "to": "/tools/house-payment-calculator",
+          "anchor": "house payment calculator"
+        },
+        {
+          "to": "/state-taxes",
+          "anchor": "state income tax rates"
+        }
+      ],
+      "cluster": {
+        "intent": "Annual property tax on a home of this value in this jurisdiction",
+        "variantsMeasured": false,
+        "variants": [
+          "property tax estimator",
+          "real estate tax calculator",
+          "how much are property taxes",
+          "millage rate calculator",
+          "annual property tax estimate"
+        ]
+      },
+      "subject": "property tax"
+    },
+    {
+      "path": "/state-taxes",
+      "template": "DirectoryPage",
+      "primary": "state income tax rates by state",
+      "canonical": "self",
+      "output": "**Comparison table of all 51 jurisdictions' rates** at a glance — not a calculator",
+      "metaHook": "Compare income tax across all 50 states and DC in one table — brackets, flat rates, and the nine states that levy none at all.",
+      "stage": 4,
+      "links": [
+        {
+          "to": "/state-taxes/{state}",
+          "anchor": "{state} income tax calculator"
+        },
+        {
+          "to": "/tools/income-tax-calculator",
+          "anchor": "income tax calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        }
+      ],
+      "cluster": {
+        "intent": "Compare every state's rate at a glance — a table, not a calculator",
+        "variantsMeasured": false,
+        "variants": [
+          "state income tax rates",
+          "states with no income tax",
+          "state tax rates comparison",
+          "income tax by state",
+          "state tax brackets by state"
+        ]
+      }
+    },
+    {
+      "path": "/state-taxes/{state}",
+      "template": "StateTaxPage",
+      "primary": "{state} income tax calculator",
+      "canonical": "self",
+      "stripsParams": true,
+      "output": "Tax profile of **one specific state** + calculation using that state",
+      "stage": 4,
+      "links": [
+        {
+          "to": "/cost-of-living/{metro}",
+          "anchor": "cost of living in {metro}"
+        },
+        {
+          "to": "/tools/income-tax-calculator",
+          "anchor": "income tax calculator"
+        },
+        {
+          "to": "/tools/take-home-pay-calculator",
+          "anchor": "take home pay calculator"
+        },
+        {
+          "to": "/state-taxes",
+          "anchor": "state income tax rates"
+        }
+      ],
+      "cluster": {
+        "intent": "One specific state's tax profile, and a calculation using it",
+        "variantsMeasured": false,
+        "variants": [
+          "{state} income tax rate",
+          "{state} state tax calculator",
+          "{state} tax brackets",
+          "how much is {state} income tax",
+          "{state} paycheck calculator"
+        ]
+      }
+    },
+    {
+      "path": "/tools/closing-cost-calculator",
+      "template": "ToolPage",
+      "primary": "closing cost calculator",
+      "canonical": "self",
+      "stripsParams": true,
+      "output": "The one-off costs of closing a home purchase",
+      "metaHook": "Add up the one-off costs of closing on a home — lender fees, title, escrow, taxes — so the cash needed at signing is no surprise.",
+      "stage": 5,
+      "links": [
+        {
+          "to": "/tools/house-payment-calculator",
+          "anchor": "house payment calculator"
+        },
+        {
+          "to": "/cost-of-living/{metro}",
+          "anchor": "cost of living in {metro}"
+        }
+      ],
+      "cluster": {
+        "intent": "How much cash do I need at closing as the buyer",
+        "variantsMeasured": false,
+        "variants": [
+          "closing costs estimator",
+          "how much are closing costs",
+          "buyer closing cost calculator",
+          "cash to close calculator",
+          "estimated closing costs"
+        ]
+      },
+      "subject": "closing costs"
+    },
+    {
+      "path": "/tools/house-payment-calculator",
+      "template": "ToolPage",
+      "primary": "house payment calculator",
+      "canonical": "self",
+      "stripsParams": true,
+      "output": "Monthly mortgage payment",
+      "metaHook": "Work out the full monthly cost of a home loan: principal, interest, taxes, insurance and PMI, not just the loan payment itself.",
+      "stage": 5,
+      "links": [
+        {
+          "to": "/tools/closing-cost-calculator",
+          "anchor": "closing cost calculator"
+        },
+        {
+          "to": "/tools/property-tax-calculator",
+          "anchor": "property tax calculator"
+        }
+      ],
+      "cluster": {
+        "intent": "What is the full monthly cost of this mortgage, not just principal and interest",
+        "variantsMeasured": false,
+        "variants": [
+          "mortgage payment calculator",
+          "monthly mortgage calculator",
+          "home loan payment calculator",
+          "piti calculator",
+          "monthly house payment estimate"
+        ]
+      },
+      "subject": "a house payment"
+    },
+    {
+      "path": "/tools/home-affordability-calculator",
+      "template": "ToolPage",
+      "primary": "home affordability calculator",
+      "output": "**The maximum home price** the user's income and debts support",
+      "canonical": "self",
+      "stripsParams": true,
+      "metaHook": "See the top home price your income and debts support in a given metro, with the property tax and insurance that place really charges.",
+      "stage": 5,
+      "links": [
+        {
+          "to": "/tools/house-payment-calculator",
+          "anchor": "house payment calculator"
+        },
+        {
+          "to": "/tools/closing-cost-calculator",
+          "anchor": "closing cost calculator"
+        },
+        {
+          "to": "/tools/property-tax-calculator",
+          "anchor": "property tax calculator"
+        }
+      ],
+      "cluster": {
+        "intent": "What is the most expensive home my income can support, before I shop",
+        "variantsMeasured": false,
+        "variants": [
+          "how much house can i afford",
+          "house affordability calculator",
+          "mortgage affordability calculator",
+          "how much home can i afford",
+          "how much house can i afford calculator"
+        ]
+      },
+      "subject": "home affordability"
     }
   ],
   "canonicalRules": [
@@ -852,7 +892,8 @@
     "Directory versus tool: a directory **lists**, a tool **calculates**. A directory never embeds a full calculator, and a tool never renders the full entity list. If both do both, one of them has to go.",
     "The four salary-family tools (income tax / take-home / paycheck / withholding) have genuinely different primary outputs, and that difference must be visible in the H1, the first sentence and the headline number of the ResultCard — not only in the URL.",
     "No page is optimised for a keyword absent from `data/keywords.json`. An unmeasured keyword is an unproven target.",
-    "Monthly Search Console review: if two of our URLs take impressions for one query, within that same month one of them changes target or is canonicalised. Delay drags both down."
+    "Monthly Search Console review: if two of our URLs take impressions for one query, within that same month one of them changes target or is canonicalised. Delay drags both down.",
+    "Affordability and payment are different questions and must produce visibly different headline numbers: /tools/home-affordability-calculator answers 'what is the most I can buy' (a price), /tools/house-payment-calculator answers 'what does this cost me monthly' (a payment). The same separation holds for rent affordability against cost of living."
   ],
   "onPage": {
     "$comment": "Title/meta/H1 patterns per template, enforced by scripts/audit_seo.py. For 104 programmatic pages these formulas control SERP click-through directly; written once here rather than improvised per page. Everything in this file is English: it feeds the build.",
@@ -1315,12 +1356,6 @@
     "$comment": "The 9 guides from spec section 6-2, declared before they are written. Their head terms are NOT yet measured, so they are exempt from the measured-target rule until promoted into `pages` — but they are NOT exempt from collision checks. A guide that duplicates a tool page's intent is cannibalisation that ships, and guides are the main external-link asset (9-5-2), so it would be the expensive kind.",
     "promotionRule": "A planned page becomes a real page only after its head term is measured and added to data/keywords.json, and its cluster passes every check in scripts/audit_seo.py.",
     "pages": [
-      {
-        "path": "/guides/salary-needed-to-live-in-city",
-        "template": "GuidePage",
-        "proposedHead": "how much salary do you need to live in a city",
-        "intent": "Given one place, what absolute income clears its cost of living"
-      },
       {
         "path": "/guides/do-no-income-tax-states-cost-less",
         "template": "GuidePage",

@@ -98,7 +98,7 @@ requires a **measured** search volume of ≥500/month. Do not add more.
 ```
 /                               home
 /tools                          tool index
-/tools/{slug}                   12 tool pages
+/tools/{slug}                   13 tool pages
 /cost-of-living                 directory
 /cost-of-living/{metro}         4 metro pages
 /state-taxes                    directory

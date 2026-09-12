@@ -25,6 +25,28 @@ The wage base cap matters at higher salaries. Social Security stops applying abo
 an annual threshold, so the marginal deduction rate actually **falls** once you
 pass it, while Medicare continues without limit.
 
+## What that becomes on each payday
+
+The annual figure is divided by the number of pay periods before withholding is applied
+to the slice. On a $95,000 gross salary:
+
+| Frequency | Periods a year | Gross per check |
+|---|---|---|
+| Weekly | 52 | $1,827 |
+| **Biweekly** | **26** | **$3,654** |
+| Semi-monthly | 24 | $3,958 |
+| Monthly | 12 | $7,917 |
+
+Biweekly and semi-monthly are routinely confused and are not the same thing. Biweekly
+means every two weeks, which gives 26 checks and two months a year containing three of
+them. Semi-monthly means twice a month, which gives 24 checks of identical size on
+fixed dates. The per-check figure is smaller under biweekly pay at the same annual
+salary, and the two extra checks are what close the gap.
+
+One further wrinkle: what is withheld from each check comes from the W-4 on file, not
+from your tax bracket. Withholding is an estimate the employer makes on your behalf,
+and the refund or bill in April is the correction to it.
+
 ## Why the state matters more than people assume
 
 The federal layer is the same everywhere. The state layer is not, and it is where

@@ -147,8 +147,16 @@ From **~75 pages** to **~37 pages**. Fewer, but every one on proven demand.
 | # | Path | Target keyword | Volume |
 |---|---|---|---|
 | 6 | `/tools/take-home-pay-calculator` | take home pay calculator | 60,500 |
-| 7 | `/tools/paycheck-tax-calculator` | paycheck tax calculator | 18,100 |
-| 8 | `/tools/tax-withholding-calculator` | tax withholding calculator | 14,800 |
+| ~~7~~ | ~~`/tools/paycheck-tax-calculator`~~ | ~~paycheck tax calculator~~ | ~~18,100~~ |
+| ~~8~~ | ~~`/tools/tax-withholding-calculator`~~ | ~~tax withholding calculator~~ | ~~14,800~~ |
+
+> **Rows 7 and 8 were dropped in spec version 5.13 (section 20-29).** Their intent sits
+> inside take-home pay, which now carries the per-paycheck breakdown, and the volume they
+> represented was reallocated to the cost-of-living side of the portfolio — rent
+> affordability (90,500), home affordability (49,500) and living wage (12,100), none of
+> which this month-zero research had looked for. This document records what was measured
+> in August 2026 and is not edited to match later decisions; read `data/keywords.json`
+> for the current set.
 
 > More competitive, and probably will not rank well in year one — but because the engine is shared, the marginal cost of each is one page of content. Worth building even if the return arrives later.
 

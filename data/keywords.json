@@ -28,24 +28,6 @@
       "seasonal": false
     },
     {
-      "slug": "salary-to-hourly-calculator",
-      "term": "salary to hourly calculator",
-      "volume": 49500,
-      "cpc": 1.72,
-      "step": "income",
-      "entry": true,
-      "seasonal": false
-    },
-    {
-      "slug": "hourly-to-salary",
-      "term": "hourly to salary calculator",
-      "volume": 49500,
-      "cpc": 0.88,
-      "step": "income",
-      "entry": true,
-      "seasonal": false
-    },
-    {
       "slug": "income-tax-calculator",
       "term": "income tax calculator",
       "volume": 90500,
@@ -53,6 +35,15 @@
       "step": "keep",
       "entry": true,
       "seasonal": true
+    },
+    {
+      "slug": "rent-affordability-calculator",
+      "term": "rent affordability calculator",
+      "volume": 90500,
+      "cpc": 0.69,
+      "step": "place",
+      "entry": true,
+      "seasonal": false
     },
     {
       "slug": "take-home-pay-calculator",
@@ -73,11 +64,47 @@
       "seasonal": false
     },
     {
+      "slug": "rent-calculator",
+      "term": "rent calculator",
+      "volume": 60500,
+      "cpc": 1.02,
+      "step": "place",
+      "entry": false,
+      "seasonal": false
+    },
+    {
+      "slug": "salary-to-hourly-calculator",
+      "term": "salary to hourly calculator",
+      "volume": 49500,
+      "cpc": 1.72,
+      "step": "income",
+      "entry": true,
+      "seasonal": false
+    },
+    {
+      "slug": "hourly-to-salary",
+      "term": "hourly to salary calculator",
+      "volume": 49500,
+      "cpc": 0.88,
+      "step": "income",
+      "entry": true,
+      "seasonal": false
+    },
+    {
       "slug": "cost-of-living-comparison",
       "term": "cost of living comparison",
       "volume": 49500,
       "cpc": 0.97,
       "step": "compare",
+      "entry": true,
+      "seasonal": false
+    },
+    {
+      "slug": "home-affordability-calculator",
+      "term": "home affordability calculator",
+      "volume": 49500,
+      "cpc": 2.51,
+      "step": "settle",
       "entry": true,
       "seasonal": false
     },
@@ -100,38 +127,29 @@
       "seasonal": false
     },
     {
-      "slug": "paycheck-tax-calculator",
-      "term": "paycheck tax calculator",
-      "volume": 18100,
-      "cpc": 4.48,
-      "step": "keep",
-      "entry": true,
+      "slug": "how-much-house-can-i-afford-calculator",
+      "term": "how much house can i afford calculator",
+      "volume": 33100,
+      "cpc": 2.86,
+      "step": "settle",
+      "entry": false,
       "seasonal": false
     },
     {
-      "slug": "tax-withholding-calculator",
-      "term": "tax withholding calculator",
-      "volume": 14800,
-      "cpc": 5.78,
-      "step": "keep",
+      "slug": "property-tax-calculator",
+      "term": "property tax calculator",
+      "volume": 22200,
+      "cpc": 3.37,
+      "step": "settle",
       "entry": true,
       "seasonal": true
     },
     {
-      "slug": "salary-comparison-by-city",
-      "term": "salary comparison by city",
-      "volume": 4400,
-      "cpc": 1.39,
-      "step": "compare",
-      "entry": true,
-      "seasonal": false
-    },
-    {
-      "slug": "salary-comparison",
-      "term": "salary comparison",
-      "volume": 3600,
-      "cpc": 11.23,
-      "step": "compare",
+      "slug": "living-wage-calculator",
+      "term": "living wage calculator",
+      "volume": 12100,
+      "cpc": 6.36,
+      "step": "income",
       "entry": true,
       "seasonal": false
     },
@@ -145,6 +163,33 @@
       "seasonal": false
     },
     {
+      "slug": "salary-comparison-by-city",
+      "term": "salary comparison by city",
+      "volume": 4400,
+      "cpc": 1.39,
+      "step": "compare",
+      "entry": true,
+      "seasonal": false
+    },
+    {
+      "slug": "how-much-rent-can-i-afford-calculator",
+      "term": "how much rent can i afford calculator",
+      "volume": 4400,
+      "cpc": 3.35,
+      "step": "place",
+      "entry": false,
+      "seasonal": false
+    },
+    {
+      "slug": "salary-comparison",
+      "term": "salary comparison",
+      "volume": 3600,
+      "cpc": 11.23,
+      "step": "compare",
+      "entry": true,
+      "seasonal": false
+    },
+    {
       "slug": "cost-of-living-comparison-calculator",
       "term": "cost of living comparison calculator",
       "volume": 3600,
@@ -154,13 +199,13 @@
       "seasonal": false
     },
     {
-      "slug": "property-tax-calculator",
-      "term": "property tax calculator",
-      "volume": 22200,
-      "cpc": 3.37,
-      "step": "settle",
+      "slug": "state-income-tax-rates",
+      "term": "state income tax rates by state",
+      "volume": 3600,
+      "cpc": 2.79,
+      "step": "keep",
       "entry": true,
-      "seasonal": true
+      "seasonal": false
     },
     {
       "slug": "cost-of-living-by-city",
@@ -168,15 +213,6 @@
       "volume": 880,
       "cpc": 1.22,
       "step": "place",
-      "entry": true,
-      "seasonal": false
-    },
-    {
-      "slug": "state-income-tax-rates",
-      "term": "state income tax rates by state",
-      "volume": 3600,
-      "cpc": 2.79,
-      "step": "keep",
       "entry": true,
       "seasonal": false
     }
