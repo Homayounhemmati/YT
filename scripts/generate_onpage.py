@@ -124,9 +124,11 @@ def build_state(st, pages_doc, page_spec, tpl, origin, site_name, data_year):
 
     def fill(block, extra=None):
         out = json.loads(json.dumps(block))
+        author = pages_doc["site"].get("author", {}).get("name", "")
         repl = {"{TITLE}": title, "{CANONICAL}": canonical, "{ORIGIN}": origin,
                 "{SITE_NAME}": site_name, "{DATE_MODIFIED}": data_year,
-                "{ENTITY_NAME}": name, "{STATE_ABBR}": st["abbr"]}
+                "{ENTITY_NAME}": name, "{STATE_ABBR}": st["abbr"],
+                "{AUTHOR_NAME}": author}
         repl.update(extra or {})
 
         def walk(o):

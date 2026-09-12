@@ -3,7 +3,14 @@
   "site": {
     "origin": "https://example.com",
     "trailingSlash": false,
-    "canonicalHost": "apex"
+    "canonicalHost": "apex",
+    "name": "LifeCalc Pro",
+    "author": {
+      "name": "H.Hemati",
+      "url": "{ORIGIN}/about",
+      "$comment": "Section 7-4 requires a named author for a YMYL niche, and 6-3 names a vague About page as the most common AdSense rejection reason. The name is set; the background paragraph on /about still has to be written by a human, because inventing a biography is the one thing that would make this worse than leaving it blank."
+    },
+    "$originNote": "PLACEHOLDER until the domain is bought. Every canonical, every JSON-LD url and every OG tag is built from this value, so it is changed in exactly one place — but see spec 19-7: the site must not be indexed on a platform subdomain before the real domain is connected."
   },
   "pages": [
     {

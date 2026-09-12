@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-12 · **Version:** 5.11
+> **Last revised:** 2026-09-12 · **Version:** 5.12
+>
+> **Version 5.12:** Author set (H.Hemati), the build-before-domain rule recorded (19-7), and the Base44 handoff brief written. Details in 20-28.
 >
 > **Version 5.11:** A ruthless audit, section 21. The headline: the BEA/HUD dataset blocks the funnel entrance, not just 24% of traffic — which puts roughly half of year-2 revenue behind it too. Plus no author identity (an AdSense blocker), and link building still has a section and no artifact.
 >
@@ -84,6 +86,7 @@
 | [`onpage-spec.md`](onpage-spec.md) | **Generated** — the resolved on-page values for all 74 buildable pages (9-3-9) |
 | [`base44-questions.md`](base44-questions.md) | The platform questions that settle requirements R1–R9 (3-1, 3-5) |
 | [`copywriting.md`](copywriting.md) | How to write copy that clears the uniqueness budget — derived from measured pilot pages (7-6) |
+| [`base44-build-brief.md`](base44-build-brief.md) | **The handoff document** — what to build, and what not to improvise |
 | `archive/` | The three original specs — **not authoritative** |
 
 ---
@@ -2941,6 +2944,49 @@ URL after indexation (section 6-7), a lost Search Console history, and a
 dishonest `lastmod` (section 9-6-4) — Google's distrust of that field is
 site-wide and not quickly undone.
 
+### 19-7. Building before the domain is bought
+
+The build order is: construct the site on the platform, then buy the domain. That
+is a reasonable sequence and it carries exactly one risk, which is avoidable but
+not recoverable.
+
+**The risk:** if the site is indexed on a `*.base44.app` subdomain and the custom
+domain arrives afterwards, every signal earned in the meantime belongs to a domain
+that is being abandoned. A 301 carries much of it across, but not all, and the
+transition costs weeks of ranking volatility at precisely the moment a new site can
+least afford it. Worse, the two hosts serving identical content is the duplicate
+described in 19-2.
+
+**The rule, therefore:**
+
+> **Nothing is indexable until the real domain is connected.** Build freely on the
+> platform subdomain; keep it out of the index until the domain exists.
+
+Concretely, for the whole pre-domain period:
+
+| Action | When |
+|---|---|
+| `robots.txt` disallowing everything, or the platform's password protection | From the first deploy |
+| Search Console property | **Only after** the custom domain is connected — a property on the subdomain collects history for a site that will not exist |
+| Sitemap submission | After the domain, never before |
+| Any link shared publicly | After the domain. A link posted to a forum is a crawl invitation |
+
+The cost of this discipline is nothing, because nothing of value happens in the
+index during construction anyway. The cost of skipping it is a migration.
+
+**One exception worth knowing:** section 15-1 says Search Console history cannot be
+backfilled, and that is still true — but it starts from the domain, not from the
+build. Connecting the domain the week before launch loses nothing.
+
+#### The one value that encodes this
+
+`data/pages.json → site.origin` is `https://example.com` until the domain is
+bought. Every canonical, JSON-LD URL and OG tag is generated from it, so the
+domain is changed **in one place and regenerated**, not edited across 78 pages.
+
+That is the whole reason the on-page values are generated rather than typed
+(9-3-9), and buying the domain late is the case it was designed for.
+
 ---
 
 ## 20. Changelog
@@ -3959,6 +4005,49 @@ that mattered most** — 21-1 and 21-3 are both cases of the project going deep 
 it could measure rather than where the value was.
 
 ---
+
+### 20-28. Round twenty-nine — version 5.12 · the handoff
+
+Two decisions from the audit in section 21 are now made, and the specification is
+packaged for handoff.
+
+**Author: H.Hemati.** Recorded in `data/pages.json → site.author` and resolved
+through every generated `Person` and `Organization` block —
+`{AUTHOR_NAME}` no longer appears anywhere in the output. What is deliberately
+**not** done: the background paragraph on `/about`. Inventing a biography is the one
+thing that would make a YMYL trust page worse than leaving it blank, so the name is
+set and the substance is a human's to write.
+
+**Domain: deferred by choice**, built first and bought later. That sequence is fine
+and carries exactly one risk, now recorded as section 19-7:
+
+> If the site is indexed on a platform subdomain and the custom domain arrives
+> afterwards, the authority earned belongs to a domain being abandoned — and both
+> hosts serving identical content is a duplicate of the whole site.
+
+The rule that removes it costs nothing: **nothing is indexable until the real
+domain is connected.** No Search Console property, no sitemap, no public link
+during the build. Section 15-1 still holds — Search Console history cannot be
+backfilled — but it starts from the domain, not from the build, so connecting the
+week before launch loses nothing.
+
+This is also the case the generated on-page values were designed for. `site.origin`
+is one value; the domain arrives, it is set, `generate_onpage.py` runs, and 78
+pages update. Had these been typed into a dashboard, buying the domain late would
+mean editing 78 canonicals by hand.
+
+**[`docs/base44-build-brief.md`](base44-build-brief.md) is the handoff document.**
+It states what to build and, more usefully, what not to improvise — the SEO values
+are generated data rather than suggestions, the tax engine is imported rather than
+reimplemented, and the context boundary is a list of things that must not be added
+however reasonable they sound.
+
+**Verification at handoff:** 20 checks · 0 errors · 0 warnings · thin content
+measured at 58% (tools) and 44% (states) against a 40% floor · 78 pages generated ·
+73 link edges all carrying anchor text · 59 engine tests green.
+
+**Status: 78 generated pages · 20 checks · 8 CI validators · 16 bodies · author
+set · 0 errors.**
 
 ---
 
