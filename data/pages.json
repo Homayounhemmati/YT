@@ -10,7 +10,9 @@
       "url": "{ORIGIN}/about",
       "$comment": "Section 7-4 requires a named author for a YMYL niche, and 6-3 names a vague About page as the most common AdSense rejection reason. The name is set; the background paragraph on /about still has to be written by a human, because inventing a biography is the one thing that would make this worse than leaving it blank."
     },
-    "$originNote": "PLACEHOLDER until the domain is bought. Every canonical, every JSON-LD url and every OG tag is built from this value, so it is changed in exactly one place — but see spec 19-7: the site must not be indexed on a platform subdomain before the real domain is connected."
+    "$originNote": "PLACEHOLDER until the domain is bought. Every canonical, every JSON-LD url and every OG tag is built from this value, so it is changed in exactly one place — but see spec 19-7: the site must not be indexed on a platform subdomain before the real domain is connected.",
+    "contentUpdated": "2026-09-12",
+    "$contentUpdatedNote": "Feeds schema.org dateModified, which must be an ISO 8601 date — a bare year is invalid and Google ignores it. Declared here rather than taken from the build clock: rule 9-4-1 says dateModified changes on a genuine content change, and a value derived from generation time would claim a fresh edit on every CI run."
   },
   "pages": [
     {
@@ -72,7 +74,7 @@
       "path": "/tools",
       "template": "DirectoryPage",
       "primary": null,
-      "note": "The tool index. Like the home page it deliberately targets no keyword — every tool keyword already belongs to a tool page, and a hub competing with its own children is the worst kind of cannibalisation. It exists for crawling and for people, which is why the audit exempts it from the measured-target rule but not from the crawl-depth rule.",
+      "note": "The tool index. Like the home page it deliberately targets no keyword — every tool keyword already belongs to a tool page, and a hub competing with its own children is the worst kind of cannibalisation. It exists for crawling and for people, which is why the audit exempts it from the measured-target rule but not from the crawl-depth rule. It carries no `primary` by design, so the DirectoryPage title formula had nothing to resolve and emitted the literal '{Primary} (2026)'. `displayName` is what the formula falls back to.",
       "canonical": "self",
       "metaHook": "Every calculator on the site in one place: cost of living, salary, income tax, take-home pay, sales tax, property and home costs.",
       "links": [
@@ -137,7 +139,13 @@
           "anchor": "state income tax rates"
         }
       ],
-      "cluster": null
+      "cluster": null,
+      "displayName": "All Calculators",
+      "h2Outline": [
+        "Every calculator on the site",
+        "Which one answers your question",
+        "How these tools fit together"
+      ]
     },
     {
       "path": "/about",
@@ -368,7 +376,12 @@
           "cheapest cities to live",
           "cost of living by metro area"
         ]
-      }
+      },
+      "h2Outline": [
+        "Cost of living index by metro area",
+        "How to read a regional price parity",
+        "What the index leaves out"
+      ]
     },
     {
       "path": "/cost-of-living/{metro}",
@@ -817,7 +830,12 @@
           "income tax by state",
           "state tax brackets by state"
         ]
-      }
+      },
+      "h2Outline": [
+        "Income tax rates for all 51 jurisdictions",
+        "The nine states with no income tax",
+        "Why the rate alone does not decide what you keep"
+      ]
     },
     {
       "path": "/state-taxes/{state}",
@@ -1077,17 +1095,16 @@
         "h1": "{Primary}",
         "meta": "{Hook}",
         "rules": [
-          "A directory never repeats a tool keyword in its title."
+          "A directory never repeats a tool keyword in its title.",
+          "Outlines are per page. One outline across three directories is template furniture: a list of cities, a list of states and a list of calculators do not share a structure.",
+          "No 'Frequently asked questions' heading. structuredData forbids FAQPage on a directory because a directory lists rather than answers, and an H2 with nothing behind it is thin content whichever way it is marked up."
         ],
-        "h2Outline": [
-          "The full list",
-          "How to read these numbers",
-          "Frequently asked questions"
-        ],
+        "h2Outline": null,
         "breadcrumb": [
           "Home",
           "{Primary}"
-        ]
+        ],
+        "h2OutlinePerPage": true
       },
       "Home": {
         "title": "Cost of Living and Take-Home Pay Calculators",
@@ -1152,10 +1169,11 @@
       "Navigation and footer links are exempt from the 25-body-link ceiling but must stay identical across pages."
     ],
     "openGraph": [
-      "Dynamic OG image per entity (`opengraph-image.tsx`) — the place name and its index number rendered on the image.",
+      "Per-entity OG image — the place name and its index number rendered on the image. If the platform cannot generate images per row, a per-template static image is the fallback; what must never happen is one image for the whole site, because then every shared link looks like every other.",
       "A static image for tools, carrying the tool name.",
       "`og:title` may differ from `<title>` — the year is dropped on social networks.",
-      "Without an OG image a link looks dead on Reddit and forums — and section 9-5 earns its links there."
+      "Without an OG image a link looks dead on Reddit and forums — and section 9-5 earns its links there.",
+      "Required tags on every page: og:title, og:description, og:url (the canonical, absolute), og:type, og:image (absolute URL, 1200x630), og:site_name, twitter:card=summary_large_image. A relative og:image is not fetched."
     ],
     "robots": [
       "`/api/` and internal paths: Disallow.",
@@ -1315,11 +1333,11 @@
         ],
         [
           "What tax do you still pay in {State}?",
-          "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+          "{FEDERAL_ONLY}"
         ],
         [
           "Is {State} actually cheaper overall?",
-          "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+          "{CHEAPER_ANSWER}"
         ],
         [
           "Are there local income taxes in {State}?",
@@ -1349,9 +1367,246 @@
         ],
         [
           "Where does this data come from?",
-          "BEA Regional Price Parities and HUD Fair Market Rent for {DATA_YEAR}, both official and free to cite."
+          "BEA Regional Price Parities for the {Metro} metropolitan area and HUD Fair Market Rent for the {State} counties it covers, both for {DATA_YEAR}. Official, free to cite, and republished here rather than estimated."
         ]
-      ]
+      ],
+      "ToolPage": {
+        "$comment": "Four questions per tool page, authored rather than formula-driven: each tool answers a different question, so one outline across thirteen tools would produce the defect recorded in 20-19. These are the highest-volume pages on the site and had no FAQ at all. NOTE ON RICH RESULTS: since August 2023 Google shows FAQ rich results only for well-known government and health sites, so the FAQPage markup here will not produce them. The value is the on-page content itself — People Also Ask capture and long-tail coverage — not the snippet.",
+        "cost-of-living-calculator": [
+          [
+            "How is cost of living calculated?",
+            "It is a price level, not a budget. The index used here comes from BEA Regional Price Parities, which measure the price of rent, goods and services in one metro against the national average of 100 — so a metro at 112 is 12% more expensive than the country as a whole."
+          ],
+          [
+            "What is included in cost of living?",
+            "Rent, goods and services. Rent comes from HUD Fair Market Rent at county level, and it is the component that varies most between places. Income tax is not part of the price level and is handled separately, because two places at the same price level can leave you with very different amounts of money."
+          ],
+          [
+            "Is cost of living the same as inflation?",
+            "No, and confusing the two is the most common error here. Inflation measures how prices change over time in one place; a cost-of-living index measures how prices differ between places at one point in time. CPI cannot tell you whether Austin is cheaper than San Francisco."
+          ],
+          [
+            "What salary do I need in this city?",
+            "That is the reverse calculation, and it depends on household size as much as on the city. The living wage calculator solves for the gross salary a place requires rather than the cost a salary has to cover."
+          ]
+        ],
+        "rent-affordability-calculator": [
+          [
+            "How much rent can I afford on my salary?",
+            "The federal standard is 30% of gross income, which comes from the Brooke Amendment: 25% in 1969, raised to 30% in 1981. A household paying above 30% is officially cost burdened, and above 50% severely cost burdened."
+          ],
+          [
+            "Is the 30% rule still realistic?",
+            "It is a policy threshold, not a market forecast. In the most expensive metros 30% of a median income does not reach the 40th-percentile rent, which is why this tool shows your ceiling next to the metro's actual rent rather than returning the percentage alone."
+          ],
+          [
+            "What income do landlords require?",
+            "Most screening uses a gross multiple rather than a percentage: commonly three times the monthly rent in gross monthly income, which works out to a 33% ceiling. New York often uses 40x the monthly rent in annual income. What you can carry and what you will be approved for are different numbers."
+          ],
+          [
+            "Does the 30% include utilities?",
+            "HUD publishes rent both with and without a utility allowance, and the gap runs from roughly $80 to over $250 a month depending on climate and unit type. A figure quoted without saying which one it is will be wrong by that much."
+          ]
+        ],
+        "cost-of-living-comparison": [
+          [
+            "How do I compare the cost of living between two cities?",
+            "Compare price levels, not budgets. Each metro carries a BEA Regional Price Parity against a national base of 100, so the ratio between two metros' figures is the real difference in what a month costs there."
+          ],
+          [
+            "Does a higher salary in an expensive city leave me better off?",
+            "Not reliably. The price difference between two metros and the state income tax difference work in the same direction more often than people expect, so a raise that looks large in gross terms can be smaller than the cost gap it has to cover."
+          ],
+          [
+            "Which costs differ most between cities?",
+            "Rent, by a wide margin. Goods and services vary far less because they move through national supply chains, which is why a comparison that averages everything together understates how much of the difference is housing."
+          ],
+          [
+            "Is a cost of living comparison the same as a salary comparison?",
+            "No. A cost comparison tells you what a place charges; a salary comparison tells you what an income is worth there after tax. Both are needed, and the second is the one job offers usually omit."
+          ]
+        ],
+        "salary-to-hourly-calculator": [
+          [
+            "How do I convert a salary to an hourly rate?",
+            "Divide the annual salary by the hours worked in a year. A standard full-time year is 2,080 hours — 40 hours over 52 weeks — so $95,000 becomes about $45.67 an hour before tax."
+          ],
+          [
+            "Is 2,080 hours right for everyone?",
+            "It ignores paid leave. A salaried employee with three weeks off is still paid for 2,080 hours but works closer to 1,960, which raises the effective hourly rate by about 6%. A contractor paid only for hours worked has no such cushion."
+          ],
+          [
+            "How do I convert hourly pay to a salary?",
+            "Multiply by the hours you actually work in a year rather than by 2,080. The distinction matters most for part-time and shift work, where the assumed number drives the whole answer."
+          ],
+          [
+            "Should I compare offers by hourly rate or salary?",
+            "Neither on its own. An hourly rate ignores benefits and paid leave, and a salary ignores the hours behind it. Comparing what each leaves after tax in the place you would live is the only version that settles the question."
+          ]
+        ],
+        "salary-comparison-by-city": [
+          [
+            "How do I compare job offers in two different cities?",
+            "Convert both to what they leave after tax, then measure each against what its city charges. An offer is better only if it wins on both, and a gross-to-gross comparison decides neither."
+          ],
+          [
+            "Does a raise cover a move to a more expensive city?",
+            "Only if it clears the price gap and the tax gap together. Moving from a state with no income tax to one with a progressive schedule can cost several thousand dollars a year on an identical salary, on top of the higher rent."
+          ],
+          [
+            "Which states have no income tax?",
+            "Nine: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington and Wyoming. They are not automatically cheaper — several recover the revenue through sales and property tax."
+          ],
+          [
+            "How much does state tax change take-home pay?",
+            "On a $95,000 salary the spread between the best and worst jurisdiction is about $7,167 a year, or 7.5% of the salary. None of it appears in an offer letter."
+          ]
+        ],
+        "living-wage-calculator": [
+          [
+            "What is a living wage?",
+            "The gross salary that covers a specific place's actual costs for a specific household. It is computed from local rent, goods, services and tax, unlike a minimum wage, which is a statutory floor set without reference to any of them."
+          ],
+          [
+            "How is a living wage different from the minimum wage?",
+            "The federal minimum wage has been $7.25 an hour since July 2009, which is $15,080 over a 2,080-hour year — below the poverty guideline for a household of two in every state. A living wage is an arithmetic result; a minimum wage is a legislated number."
+          ],
+          [
+            "Does a living wage include savings?",
+            "No. It is a break-even figure covering costs without debt repayment, retirement saving beyond payroll deductions, or discretionary spending. Knowing how far an offer sits above the floor is a separate and more useful question."
+          ],
+          [
+            "Why does household size change the answer so much?",
+            "Child care behaves like a second rent. For a household with two young children it exceeds housing costs in much of the country, which is why the gap between household types is usually larger than the gap between cities."
+          ]
+        ],
+        "sales-tax-calculator": [
+          [
+            "How do I calculate sales tax?",
+            "Multiply the pre-tax price by the combined rate, which is the state rate plus any county, city and special district rates. The combined rate is what you pay, and it is often well above the state rate alone."
+          ],
+          [
+            "Which states have no sales tax?",
+            "Five: Alaska, Delaware, Montana, New Hampshire and Oregon. Alaska is the exception that matters — it has no state sales tax but permits local ones, so parts of the state do charge it."
+          ],
+          [
+            "Why does the rate change within one state?",
+            "Because local jurisdictions stack their own rates on top of the state rate. Two addresses a few miles apart can face different combined rates, which is why a state-level figure is not enough to price a purchase."
+          ],
+          [
+            "Does sales tax affect the cost of living?",
+            "Yes, and it is the part most cost-of-living comparisons leave out. A state with no income tax that charges a high combined sales tax recovers much of the difference on everything you buy."
+          ]
+        ],
+        "income-tax-calculator": [
+          [
+            "How is income tax calculated?",
+            "Federal tax is bracketed: each slice of taxable income is taxed at its own rate, so the top rate applies only to the income above that threshold, never to the whole amount. State tax is then applied under that state's own rules."
+          ],
+          [
+            "What is the difference between marginal and effective tax rate?",
+            "The marginal rate is what the next dollar is taxed at; the effective rate is total tax divided by total income. The effective rate is always lower, and mistaking one for the other is why people overestimate what a raise costs them."
+          ],
+          [
+            "Do all states tax income?",
+            "No. Nine levy no income tax on wages. Of the rest, some apply a single flat rate and others a progressive schedule with a top rate above 10%."
+          ],
+          [
+            "Is income tax the same as what comes out of my paycheck?",
+            "No. What is withheld comes from the W-4 on file and is an estimate; the liability calculated here is the actual amount owed for the year. The refund or bill in April is the difference between the two."
+          ]
+        ],
+        "take-home-pay-calculator": [
+          [
+            "How do I calculate take-home pay?",
+            "Subtract federal income tax, state income tax, Social Security at 6.2% and Medicare at 1.45% from gross pay. Social Security and Medicare together are FICA, 7.65% for an employee."
+          ],
+          [
+            "Why is my take-home pay so much lower than my salary?",
+            "On a $95,000 salary the deductions run to roughly a quarter of the figure, and the exact amount depends on the state by as much as $7,167 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
+          ],
+          [
+            "What is the difference between biweekly and semi-monthly pay?",
+            "Biweekly is every two weeks: 26 checks a year, with two months containing three of them. Semi-monthly is twice a month: 24 checks of identical size. At the same salary the biweekly check is smaller, and the two extra checks close the gap."
+          ],
+          [
+            "Do self-employed people pay more?",
+            "Yes. An employer pays a matching 7.65% FICA that never appears on a payslip. A self-employed person pays both halves — 15.3% — which is the largest single difference between an employee and a contractor at the same gross figure."
+          ]
+        ],
+        "property-tax-calculator": [
+          [
+            "How is property tax calculated?",
+            "Assessed value multiplied by the local rate, often expressed in mills. Assessed value is set by the county and is frequently lower than market value, so applying a rate to a sale price overstates the bill."
+          ],
+          [
+            "Which states have the highest property tax?",
+            "New Jersey and Illinois exceed 2% of value a year, while Hawaii sits near 0.3%. On a $1,000,000 home that difference is more than $1,400 a month."
+          ],
+          [
+            "Does property tax affect what I can afford?",
+            "Directly. Lenders count it inside the housing ratio, so a high-tax county reduces the price you qualify for at an identical income and interest rate."
+          ],
+          [
+            "Can property tax rise after I buy?",
+            "Yes. Reassessment on sale is common, and a bill based on the previous owner's assessment can rise sharply in the first year. Some states cap annual increases; most do not cap the reset at sale."
+          ]
+        ],
+        "home-affordability-calculator": [
+          [
+            "How much house can I afford?",
+            "Conventional underwriting applies two ratios to gross monthly income: 28% for housing alone and 36% for housing plus all other debt. The second is the binding one for most buyers."
+          ],
+          [
+            "What is the 28/36 rule?",
+            "A guideline, not a law. The Qualified Mortgage standard allows debt-to-income up to 43%, FHA lending routinely approves above that, and automated underwriting has pushed some approvals near 50%. The conservative answer and the maximum answer are far apart."
+          ],
+          [
+            "How do car and student loans affect it?",
+            "They count fully against the back-end ratio while contributing nothing toward the house. Two households with identical incomes and a $600 monthly difference in car payments qualify for roughly $100,000 of price difference."
+          ],
+          [
+            "Is the price I qualify for the price I should pay?",
+            "No. Closing costs run 2% to 5% of the purchase price and are paid at the table, and maintenance is conventionally budgeted at 1% of home value a year. Neither reduces what you qualify for; both reduce what you should want."
+          ]
+        ],
+        "closing-cost-calculator": [
+          [
+            "How much are closing costs?",
+            "Typically 2% to 5% of the purchase price for a buyer. On a $400,000 home that is $8,000 to $20,000, due at closing and separate from the down payment."
+          ],
+          [
+            "What is included in closing costs?",
+            "Lender fees, title insurance, escrow and recording fees, appraisal, prepaid interest, and the first instalments of property tax and homeowners insurance. The prepaid items are the part most estimates leave out."
+          ],
+          [
+            "Who pays closing costs, the buyer or the seller?",
+            "Both, in different proportions, and the split is negotiable and varies by state. The seller usually carries the agent commissions; transfer taxes fall on either side depending on local custom."
+          ],
+          [
+            "Why do closing costs vary so much by state?",
+            "Transfer taxes and title practice differ sharply. Some states charge no transfer tax at all while others charge above 1% of the price, which alone can double the buyer's total."
+          ]
+        ],
+        "house-payment-calculator": [
+          [
+            "What is included in a monthly house payment?",
+            "Principal, interest, property tax, homeowners insurance, and mortgage insurance where the down payment is under 20% — together known as PITI. A figure covering only principal and interest understates the real payment substantially."
+          ],
+          [
+            "What is PMI and when does it stop?",
+            "Private mortgage insurance is charged when the down payment falls below 20% of the price. On a conventional loan it can be cancelled once equity reaches 20%, and lenders must remove it automatically at 22%."
+          ],
+          [
+            "How much does the interest rate change the payment?",
+            "A great deal over a 30-year term, because early payments are almost entirely interest. The rate also changes the price you qualify for, since lenders test the payment rather than the loan amount."
+          ],
+          [
+            "Is a house payment the same as what a home costs me?",
+            "No. Maintenance, conventionally budgeted at 1% of value a year, and HOA dues where they apply sit outside the payment entirely and outside every lender calculation."
+          ]
+        ]
+      }
     },
     "metaFormulas": {
       "StateTaxPage.taxed": "Estimate {State} state and federal income tax on your salary, with a bracket-by-bracket breakdown of exactly where each dollar goes.",
@@ -1566,6 +1821,52 @@
           "cost of living by country"
         ]
       }
+    ]
+  },
+  "sitemaps": {
+    "$comment": "Section 6-8-6 described this segmentation in prose and shipped no artifact, so a builder had nothing to implement. Each page's segment is now derived by template and written into data/onpage.generated.json, and the index below is the file tree to produce. The point of segmenting is gate 1: one flat sitemap tells you '60% indexed' and not which template failed.",
+    "index": "/sitemap.xml",
+    "segments": [
+      {
+        "file": "/sitemaps/tools.xml",
+        "templates": [
+          "ToolPage"
+        ]
+      },
+      {
+        "file": "/sitemaps/places.xml",
+        "templates": [
+          "PlacePage"
+        ]
+      },
+      {
+        "file": "/sitemaps/states.xml",
+        "templates": [
+          "StateTaxPage"
+        ]
+      },
+      {
+        "file": "/sitemaps/guides.xml",
+        "templates": [
+          "GuidePage"
+        ]
+      },
+      {
+        "file": "/sitemaps/core.xml",
+        "templates": [
+          "Home",
+          "DirectoryPage",
+          "TrustPage"
+        ]
+      }
+    ],
+    "rules": [
+      "Every indexable page appears in exactly one segment. A page in two segments is a page whose coverage number cannot be read.",
+      "A page is listed only when it is actually reachable and returns 200. A sitemap that lists a page the build has not produced teaches Search Console to distrust the file.",
+      "No page carrying a PENDING_ placeholder is listed, and none is linked from a directory either — it is not built at all until its data exists (rule 5-3).",
+      "lastmod comes from site.contentUpdated, the same declared date as schema.org dateModified. A lastmod taken from the build clock claims a change on every deploy and Google learns to ignore the field.",
+      "No priority and no changefreq. Google has ignored both for years and they are one more thing to keep consistent.",
+      "robots.txt names the index only; the index names the segments."
     ]
   }
 }

@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-12 · **Version:** 5.14
+> **Last revised:** 2026-09-12 · **Version:** 5.15
+>
+> **Version 5.15:** The generated output was audited for the first time rather than the rules that produce it, and it was carrying eight defects no existing check could see — including 54 pages linking to a literal `{metro}` URL. A twenty-second check now audits the output. Details in 20-31.
 >
 > **Version 5.14:** The internal link graph was measured against demand for the first time rather than assumed from the declared rules, and it was badly misallocated — the highest-volume page in the project held 16% of the demand and 5% of the equity. A twentieth check now enforces the ratio. Details in 20-30.
 >
@@ -4249,6 +4251,81 @@ one solves for cost given a place, the other solves for salary given a place, an
 the headline number must make that unmistakable.
 
 **Status: 79 generated pages · 21 checks · 9 CI validators · 0 under-linked pages.**
+
+---
+
+### 20-31. Round thirty-two — version 5.15 · auditing the output, not the rules
+
+Twenty-one checks passed. `audit_seo.py` read `data/pages.json` and found nothing.
+So did `validate_content.py`, `check_language.py` and `analyze_link_equity.py`. Then
+the generated file was read directly, and it was carrying eight defects, every one of
+them invisible in the rules that produced it.
+
+| # | Defect | Scale |
+|---|---|---|
+| 1 | Internal links shipped the literal string `{metro}` / `{state}` | **54 pages** |
+| 2 | Breadcrumb parent node pointed at the page itself | 13 pages |
+| 3 | `dateModified: "2026"` — not an ISO 8601 date, so ignored | 64 blocks |
+| 4 | `/tools` title was the unresolved template `{Primary} (2026)` | 1 page |
+| 5 | Tool pages had no FAQ at all | 13 pages |
+| 6 | Two FAQ answers byte-identical across the no-tax states | 9 pages |
+| 7 | Structured data the spec declares and the generator never emitted | 4 templates |
+| 8 | All three directories shared one H2 outline, promising an absent FAQ | 3 pages |
+
+**Defect 1 is the one that mattered.** Every state page declared a link to
+`/cost-of-living/{metro}`. `build_state` substituted `{state}` and nothing
+substituted `{metro}`, so 51 state pages, both directories and one tool page linked
+to a URL that does not exist. Three cases were tangled together and needed different
+answers, which is why nobody had written the substitution:
+
+- **A directory linking to an entity template** means *every row* — it expands to the
+  full list.
+- **An entity page linking to another entity family** means *the sibling in my state*
+  — Texas resolves to Austin; Alabama, which has no metro in the set, falls back to
+  the directory rather than to a broken URL.
+- **A tool page linking to an entity template** cannot pick a row at all, so it takes
+  the directory.
+
+`resolve_entity_links()` implements the three, and no generated page now contains an
+unresolved token anywhere — links, titles, headings or structured data.
+
+**Defect 6 is the recurring one.** Section 7-2 says the generator resolves FAQ answers
+"so no two pages share an answer". Two of the five answers on the `none` outline
+contained no entity token at all, so nine pages carried byte-identical text under
+entity-specific questions. Both now resolve against the engine: Florida's page says it
+leaves $74,160 against Oregon's $66,993, a gap of $7,167. **A rule that is stated but
+not enforced is a rule the output does not have.**
+
+**Defect 7, the same shape.** `structuredData` declared `ItemList` for directories,
+`FAQPage` and `Dataset` for place pages, and `Organization + Person` on `/about` — the
+author identity section 7-4 requires for AdSense. None was emitted. All four now are,
+and the new check compares the declaration against the output in both directions,
+including the `No FAQPage` prohibitions.
+
+**What was also closed here:**
+
+- **Sitemap segmentation had a diagram and no artifact** (6-8-6), so a builder had
+  nothing to implement. `data/pages.json` now carries the segment map and the generator
+  emits the tree with every URL assigned: tools 13, states 51, core 11, places 0.
+  The four place pages are **excluded because they carry `PENDING_` placeholders** —
+  a sitemap that lists a page the build has not produced teaches Search Console to
+  distrust the file.
+- **`lastmod` and `dateModified` now come from one declared date**, `site.contentUpdated`,
+  not from the build clock. A date taken from generation time claims a fresh edit on
+  every CI run, and Google learns to ignore the field.
+- **The last Next.js assumption in the data** — `opengraph-image.tsx` — was replaced
+  with a platform-neutral requirement plus the OG tag list, since the build is Base44.
+- **FAQ rich results are not expected and the spec now says so.** Since August 2023
+  Google shows them only for well-known government and health sites. The 52 authored
+  tool answers earn their place as on-page content and People Also Ask coverage, not
+  as a snippet. Recording this prevents the markup being counted as a win it is not.
+
+**The lesson, stated plainly.** This project has now found the same class of defect in
+four consecutive rounds: 9-3-9, 20-19, 20-29 and here. Each time the rule read correctly
+and the output did not carry it. `scripts/audit_onpage_output.py` is the first check that
+reads what will actually be published.
+
+**Status: 79 generated pages · 22 checks · 10 CI validators · 0 errors across every gate.**
 
 ---
 

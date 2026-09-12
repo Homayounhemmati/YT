@@ -48,6 +48,15 @@ jobs:
       - name: Internal link equity against demand
         run: python3 scripts/analyze_link_equity.py
 
+      # Audits the OUTPUT, not the rules that produced it. Every defect this
+      # catches was invisible in data/pages.json and obvious in the generated
+      # page: a breadcrumb whose parent was the page itself, a dateModified of
+      # "2026", a title that shipped the literal "{Primary}", and 54 pages
+      # linking to a literal "{metro}" URL. A template is not reviewable; its
+      # output is.
+      - name: Audit the generated on-page output
+        run: python3 scripts/audit_onpage_output.py
+
       # Thin content is the failure mode that sinks programmatic sites, and it is
       # invisible until traffic never arrives. Measure it, do not assume it.
       # No-ops until the dataset is built outside the sandbox (13-6), then guards it.

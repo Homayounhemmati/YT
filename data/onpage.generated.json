@@ -5,6 +5,347 @@
   "pending": [
     "PlacePage index and rent answers require the BEA/HUD dataset (13-6)"
   ],
+  "sitemap": {
+    "$comment": "The file tree to produce. Section 6-8-6 and data/pages.json sitemaps.",
+    "index": "/sitemap.xml",
+    "lastmod": "2026-09-12",
+    "segments": [
+      {
+        "file": "/sitemaps/tools.xml",
+        "urlCount": 13,
+        "urls": [
+          {
+            "loc": "https://example.com/tools/cost-of-living-calculator",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/rent-affordability-calculator",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/cost-of-living-comparison",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/salary-comparison-by-city",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/salary-to-hourly-calculator",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/living-wage-calculator",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/income-tax-calculator",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/take-home-pay-calculator",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/sales-tax-calculator",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/property-tax-calculator",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/closing-cost-calculator",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/house-payment-calculator",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/home-affordability-calculator",
+            "lastmod": "2026-09-12"
+          }
+        ]
+      },
+      {
+        "file": "/sitemaps/places.xml",
+        "urlCount": 0,
+        "urls": []
+      },
+      {
+        "file": "/sitemaps/states.xml",
+        "urlCount": 51,
+        "urls": [
+          {
+            "loc": "https://example.com/state-taxes/alabama",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/alaska",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/arizona",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/arkansas",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/california",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/colorado",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/connecticut",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/delaware",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/florida",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/georgia",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/hawaii",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/idaho",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/illinois",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/indiana",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/iowa",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/kansas",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/kentucky",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/louisiana",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/maine",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/maryland",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/massachusetts",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/michigan",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/minnesota",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/mississippi",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/missouri",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/montana",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/nebraska",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/nevada",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/new-hampshire",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/new-jersey",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/new-mexico",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/new-york",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/north-carolina",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/north-dakota",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/ohio",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/oklahoma",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/oregon",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/pennsylvania",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/rhode-island",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/south-carolina",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/south-dakota",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/tennessee",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/texas",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/utah",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/vermont",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/virginia",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/washington-dc",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/washington",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/west-virginia",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/wisconsin",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes/wyoming",
+            "lastmod": "2026-09-12"
+          }
+        ]
+      },
+      {
+        "file": "/sitemaps/guides.xml",
+        "urlCount": 0,
+        "urls": []
+      },
+      {
+        "file": "/sitemaps/core.xml",
+        "urlCount": 11,
+        "urls": [
+          {
+            "loc": "https://example.com",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/about",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/methodology",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/sources",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/editorial-policy",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/privacy",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/terms",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/contact",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/cost-of-living",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/state-taxes",
+            "lastmod": "2026-09-12"
+          }
+        ]
+      }
+    ],
+    "excluded": [
+      "/cost-of-living/austin-tx",
+      "/cost-of-living/san-francisco-ca",
+      "/cost-of-living/san-antonio-tx",
+      "/cost-of-living/houston-tx"
+    ]
+  },
   "pages": [
     {
       "path": "/",
@@ -23,7 +364,20 @@
         "Start here"
       ],
       "faq": [],
-      "jsonLd": [],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "LifeCalc Pro",
+          "url": "https://example.com",
+          "logo": "https://example.com/logo.png",
+          "founder": {
+            "@type": "Person",
+            "name": "H.Hemati",
+            "url": "https://example.com/about"
+          }
+        }
+      ],
       "internalLinks": [
         {
           "to": "/tools/cost-of-living-calculator",
@@ -71,26 +425,27 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/core.xml"
     },
     {
       "path": "/tools",
       "template": "DirectoryPage",
       "entity": null,
-      "title": "{Primary} (2026)",
-      "titleChars": 16,
-      "h1": "{Primary}",
+      "title": "All Calculators (2026)",
+      "titleChars": 22,
+      "h1": "All Calculators",
       "metaDescription": "Every calculator on the site in one place: cost of living, salary, income tax, take-home pay, sales tax, property and home costs.",
       "metaChars": 129,
       "canonical": "https://example.com/tools",
       "breadcrumb": [
         "Home",
-        "{Primary}"
+        "All Calculators"
       ],
       "h2Outline": [
-        "The full list",
-        "How to read these numbers",
-        "Frequently asked questions"
+        "Every calculator on the site",
+        "Which one answers your question",
+        "How these tools fit together"
       ],
       "faq": [],
       "jsonLd": [
@@ -107,7 +462,105 @@
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "{Primary}"
+              "name": "All Calculators"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "All Calculators (2026)",
+          "numberOfItems": 15,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "cost of living calculator",
+              "url": "https://example.com/tools/cost-of-living-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "cost of living comparison",
+              "url": "https://example.com/tools/cost-of-living-comparison"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "salary comparison by city",
+              "url": "https://example.com/tools/salary-comparison-by-city"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "salary to hourly calculator",
+              "url": "https://example.com/tools/salary-to-hourly-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "income tax calculator",
+              "url": "https://example.com/tools/income-tax-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "name": "take home pay calculator",
+              "url": "https://example.com/tools/take-home-pay-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "name": "sales tax calculator",
+              "url": "https://example.com/tools/sales-tax-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "name": "property tax calculator",
+              "url": "https://example.com/tools/property-tax-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 9,
+              "name": "closing cost calculator",
+              "url": "https://example.com/tools/closing-cost-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 10,
+              "name": "house payment calculator",
+              "url": "https://example.com/tools/house-payment-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 11,
+              "name": "rent affordability calculator",
+              "url": "https://example.com/tools/rent-affordability-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 12,
+              "name": "living wage calculator",
+              "url": "https://example.com/tools/living-wage-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 13,
+              "name": "home affordability calculator",
+              "url": "https://example.com/tools/home-affordability-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 14,
+              "name": "cost of living by city",
+              "url": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 15,
+              "name": "state income tax rates",
+              "url": "https://example.com/state-taxes"
             }
           ]
         }
@@ -175,7 +628,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/core.xml"
     },
     {
       "path": "/about",
@@ -215,6 +669,18 @@
               "name": "About"
             }
           ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "LifeCalc Pro",
+          "url": "https://example.com",
+          "logo": "https://example.com/logo.png",
+          "founder": {
+            "@type": "Person",
+            "name": "H.Hemati",
+            "url": "https://example.com/about"
+          }
         }
       ],
       "internalLinks": [
@@ -224,7 +690,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/core.xml"
     },
     {
       "path": "/methodology",
@@ -273,7 +740,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/core.xml"
     },
     {
       "path": "/sources",
@@ -322,7 +790,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/core.xml"
     },
     {
       "path": "/editorial-policy",
@@ -371,7 +840,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/core.xml"
     },
     {
       "path": "/privacy",
@@ -420,7 +890,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/core.xml"
     },
     {
       "path": "/terms",
@@ -468,7 +939,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/core.xml"
     },
     {
       "path": "/contact",
@@ -516,7 +988,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/core.xml"
     },
     {
       "path": "/tools/cost-of-living-calculator",
@@ -539,7 +1012,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "How is cost of living calculated?",
+          "answer": "It is a price level, not a budget. The index used here comes from BEA Regional Price Parities, which measure the price of rent, goods and services in one metro against the national average of 100 — so a metro at 112 is 12% more expensive than the country as a whole."
+        },
+        {
+          "question": "What is included in cost of living?",
+          "answer": "Rent, goods and services. Rent comes from HUD Fair Market Rent at county level, and it is the component that varies most between places. Income tax is not part of the price level and is handled separately, because two places at the same price level can leave you with very different amounts of money."
+        },
+        {
+          "question": "Is cost of living the same as inflation?",
+          "answer": "No, and confusing the two is the most common error here. Inflation measures how prices change over time in one place; a cost-of-living index measures how prices differ between places at one point in time. CPI cannot tell you whether Austin is cheaper than San Francisco."
+        },
+        {
+          "question": "What salary do I need in this city?",
+          "answer": "That is the reverse calculation, and it depends on household size as much as on the city. The living wage calculator solves for the gross salary a place requires rather than the cost a salary has to cover."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -555,7 +1045,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/cost-of-living-calculator"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -583,7 +1073,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How is cost of living calculated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It is a price level, not a budget. The index used here comes from BEA Regional Price Parities, which measure the price of rent, goods and services in one metro against the national average of 100 — so a metro at 112 is 12% more expensive than the country as a whole."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is included in cost of living?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Rent, goods and services. Rent comes from HUD Fair Market Rent at county level, and it is the component that varies most between places. Income tax is not part of the price level and is handled separately, because two places at the same price level can leave you with very different amounts of money."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is cost of living the same as inflation?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, and confusing the two is the most common error here. Inflation measures how prices change over time in one place; a cost-of-living index measures how prices differ between places at one point in time. CPI cannot tell you whether Austin is cheaper than San Francisco."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do I need in this city?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "That is the reverse calculation, and it depends on household size as much as on the city. The living wage calculator solves for the gross salary a place requires rather than the cost a salary has to cover."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -601,7 +1129,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/cost-of-living",
@@ -618,9 +1147,9 @@
         "Cost of Living by City"
       ],
       "h2Outline": [
-        "The full list",
-        "How to read these numbers",
-        "Frequently asked questions"
+        "Cost of living index by metro area",
+        "How to read a regional price parity",
+        "What the index leaves out"
       ],
       "faq": [],
       "jsonLd": [
@@ -640,12 +1169,80 @@
               "name": "Cost of Living by City"
             }
           ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Cost of Living by City (2026)",
+          "numberOfItems": 8,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "cost of living in Austin",
+              "url": "https://example.com/cost-of-living/austin-tx"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "cost of living in San Francisco",
+              "url": "https://example.com/cost-of-living/san-francisco-ca"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "cost of living in San Antonio",
+              "url": "https://example.com/cost-of-living/san-antonio-tx"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "cost of living in Houston",
+              "url": "https://example.com/cost-of-living/houston-tx"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "cost of living calculator",
+              "url": "https://example.com/tools/cost-of-living-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "name": "cost of living comparison",
+              "url": "https://example.com/tools/cost-of-living-comparison"
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "name": "rent affordability calculator",
+              "url": "https://example.com/tools/rent-affordability-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "name": "home affordability calculator",
+              "url": "https://example.com/tools/home-affordability-calculator"
+            }
+          ]
         }
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "cost of living in San Francisco"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "cost of living in Houston"
         },
         {
           "to": "/tools/cost-of-living-calculator",
@@ -665,7 +1262,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/core.xml"
     },
     {
       "path": "/tools/rent-affordability-calculator",
@@ -688,7 +1286,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "How much rent can I afford on my salary?",
+          "answer": "The federal standard is 30% of gross income, which comes from the Brooke Amendment: 25% in 1969, raised to 30% in 1981. A household paying above 30% is officially cost burdened, and above 50% severely cost burdened."
+        },
+        {
+          "question": "Is the 30% rule still realistic?",
+          "answer": "It is a policy threshold, not a market forecast. In the most expensive metros 30% of a median income does not reach the 40th-percentile rent, which is why this tool shows your ceiling next to the metro's actual rent rather than returning the percentage alone."
+        },
+        {
+          "question": "What income do landlords require?",
+          "answer": "Most screening uses a gross multiple rather than a percentage: commonly three times the monthly rent in gross monthly income, which works out to a 33% ceiling. New York often uses 40x the monthly rent in annual income. What you can carry and what you will be approved for are different numbers."
+        },
+        {
+          "question": "Does the 30% include utilities?",
+          "answer": "HUD publishes rent both with and without a utility allowance, and the gap runs from roughly $80 to over $250 a month depending on climate and unit type. A figure quoted without saying which one it is will be wrong by that much."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -704,7 +1319,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/rent-affordability-calculator"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -732,7 +1347,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much rent can I afford on my salary?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The federal standard is 30% of gross income, which comes from the Brooke Amendment: 25% in 1969, raised to 30% in 1981. A household paying above 30% is officially cost burdened, and above 50% severely cost burdened."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the 30% rule still realistic?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It is a policy threshold, not a market forecast. In the most expensive metros 30% of a median income does not reach the 40th-percentile rent, which is why this tool shows your ceiling next to the metro's actual rent rather than returning the percentage alone."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What income do landlords require?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most screening uses a gross multiple rather than a percentage: commonly three times the monthly rent in gross monthly income, which works out to a 33% ceiling. New York often uses 40x the monthly rent in annual income. What you can carry and what you will be approved for are different numbers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does the 30% include utilities?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "HUD publishes rent both with and without a utility allowance, and the gap runs from roughly $80 to over $250 a month depending on climate and unit type. A figure quoted without saying which one it is will be wrong by that much."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -754,7 +1407,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/tools/cost-of-living-comparison",
@@ -777,7 +1431,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "How do I compare the cost of living between two cities?",
+          "answer": "Compare price levels, not budgets. Each metro carries a BEA Regional Price Parity against a national base of 100, so the ratio between two metros' figures is the real difference in what a month costs there."
+        },
+        {
+          "question": "Does a higher salary in an expensive city leave me better off?",
+          "answer": "Not reliably. The price difference between two metros and the state income tax difference work in the same direction more often than people expect, so a raise that looks large in gross terms can be smaller than the cost gap it has to cover."
+        },
+        {
+          "question": "Which costs differ most between cities?",
+          "answer": "Rent, by a wide margin. Goods and services vary far less because they move through national supply chains, which is why a comparison that averages everything together understates how much of the difference is housing."
+        },
+        {
+          "question": "Is a cost of living comparison the same as a salary comparison?",
+          "answer": "No. A cost comparison tells you what a place charges; a salary comparison tells you what an income is worth there after tax. Both are needed, and the second is the one job offers usually omit."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -793,7 +1464,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/cost-of-living-comparison"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -821,7 +1492,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I compare the cost of living between two cities?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Compare price levels, not budgets. Each metro carries a BEA Regional Price Parity against a national base of 100, so the ratio between two metros' figures is the real difference in what a month costs there."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does a higher salary in an expensive city leave me better off?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Not reliably. The price difference between two metros and the state income tax difference work in the same direction more often than people expect, so a raise that looks large in gross terms can be smaller than the cost gap it has to cover."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which costs differ most between cities?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Rent, by a wide margin. Goods and services vary far less because they move through national supply chains, which is why a comparison that averages everything together understates how much of the difference is housing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is a cost of living comparison the same as a salary comparison?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. A cost comparison tells you what a place charges; a salary comparison tells you what an income is worth there after tax. Both are needed, and the second is the one job offers usually omit."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -843,7 +1552,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/tools/salary-comparison-by-city",
@@ -866,7 +1576,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "How do I compare job offers in two different cities?",
+          "answer": "Convert both to what they leave after tax, then measure each against what its city charges. An offer is better only if it wins on both, and a gross-to-gross comparison decides neither."
+        },
+        {
+          "question": "Does a raise cover a move to a more expensive city?",
+          "answer": "Only if it clears the price gap and the tax gap together. Moving from a state with no income tax to one with a progressive schedule can cost several thousand dollars a year on an identical salary, on top of the higher rent."
+        },
+        {
+          "question": "Which states have no income tax?",
+          "answer": "Nine: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington and Wyoming. They are not automatically cheaper — several recover the revenue through sales and property tax."
+        },
+        {
+          "question": "How much does state tax change take-home pay?",
+          "answer": "On a $95,000 salary the spread between the best and worst jurisdiction is about $7,167 a year, or 7.5% of the salary. None of it appears in an offer letter."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -882,7 +1609,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/salary-comparison-by-city"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -910,7 +1637,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I compare job offers in two different cities?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Convert both to what they leave after tax, then measure each against what its city charges. An offer is better only if it wins on both, and a gross-to-gross comparison decides neither."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does a raise cover a move to a more expensive city?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Only if it clears the price gap and the tax gap together. Moving from a state with no income tax to one with a progressive schedule can cost several thousand dollars a year on an identical salary, on top of the higher rent."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which states have no income tax?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nine: Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington and Wyoming. They are not automatically cheaper — several recover the revenue through sales and property tax."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does state tax change take-home pay?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "On a $95,000 salary the spread between the best and worst jurisdiction is about $7,167 a year, or 7.5% of the salary. None of it appears in an offer letter."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -928,7 +1693,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/tools/salary-to-hourly-calculator",
@@ -951,7 +1717,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "How do I convert a salary to an hourly rate?",
+          "answer": "Divide the annual salary by the hours worked in a year. A standard full-time year is 2,080 hours — 40 hours over 52 weeks — so $95,000 becomes about $45.67 an hour before tax."
+        },
+        {
+          "question": "Is 2,080 hours right for everyone?",
+          "answer": "It ignores paid leave. A salaried employee with three weeks off is still paid for 2,080 hours but works closer to 1,960, which raises the effective hourly rate by about 6%. A contractor paid only for hours worked has no such cushion."
+        },
+        {
+          "question": "How do I convert hourly pay to a salary?",
+          "answer": "Multiply by the hours you actually work in a year rather than by 2,080. The distinction matters most for part-time and shift work, where the assumed number drives the whole answer."
+        },
+        {
+          "question": "Should I compare offers by hourly rate or salary?",
+          "answer": "Neither on its own. An hourly rate ignores benefits and paid leave, and a salary ignores the hours behind it. Comparing what each leaves after tax in the place you would live is the only version that settles the question."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -967,7 +1750,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/salary-to-hourly-calculator"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -995,7 +1778,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I convert a salary to an hourly rate?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Divide the annual salary by the hours worked in a year. A standard full-time year is 2,080 hours — 40 hours over 52 weeks — so $95,000 becomes about $45.67 an hour before tax."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is 2,080 hours right for everyone?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "It ignores paid leave. A salaried employee with three weeks off is still paid for 2,080 hours but works closer to 1,960, which raises the effective hourly rate by about 6%. A contractor paid only for hours worked has no such cushion."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I convert hourly pay to a salary?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Multiply by the hours you actually work in a year rather than by 2,080. The distinction matters most for part-time and shift work, where the assumed number drives the whole answer."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Should I compare offers by hourly rate or salary?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Neither on its own. An hourly rate ignores benefits and paid leave, and a salary ignores the hours behind it. Comparing what each leaves after tax in the place you would live is the only version that settles the question."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -1013,7 +1834,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/tools/living-wage-calculator",
@@ -1036,7 +1858,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "What is a living wage?",
+          "answer": "The gross salary that covers a specific place's actual costs for a specific household. It is computed from local rent, goods, services and tax, unlike a minimum wage, which is a statutory floor set without reference to any of them."
+        },
+        {
+          "question": "How is a living wage different from the minimum wage?",
+          "answer": "The federal minimum wage has been $7.25 an hour since July 2009, which is $15,080 over a 2,080-hour year — below the poverty guideline for a household of two in every state. A living wage is an arithmetic result; a minimum wage is a legislated number."
+        },
+        {
+          "question": "Does a living wage include savings?",
+          "answer": "No. It is a break-even figure covering costs without debt repayment, retirement saving beyond payroll deductions, or discretionary spending. Knowing how far an offer sits above the floor is a separate and more useful question."
+        },
+        {
+          "question": "Why does household size change the answer so much?",
+          "answer": "Child care behaves like a second rent. For a household with two young children it exceeds housing costs in much of the country, which is why the gap between household types is usually larger than the gap between cities."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -1052,7 +1891,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/living-wage-calculator"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -1080,7 +1919,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is a living wage?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The gross salary that covers a specific place's actual costs for a specific household. It is computed from local rent, goods, services and tax, unlike a minimum wage, which is a statutory floor set without reference to any of them."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How is a living wage different from the minimum wage?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The federal minimum wage has been $7.25 an hour since July 2009, which is $15,080 over a 2,080-hour year — below the poverty guideline for a household of two in every state. A living wage is an arithmetic result; a minimum wage is a legislated number."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does a living wage include savings?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. It is a break-even figure covering costs without debt repayment, retirement saving beyond payroll deductions, or discretionary spending. Knowing how far an offer sits above the floor is a separate and more useful question."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why does household size change the answer so much?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Child care behaves like a second rent. For a household with two young children it exceeds housing costs in much of the country, which is why the gap between household types is usually larger than the gap between cities."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -1102,7 +1979,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/tools/income-tax-calculator",
@@ -1125,7 +2003,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "How is income tax calculated?",
+          "answer": "Federal tax is bracketed: each slice of taxable income is taxed at its own rate, so the top rate applies only to the income above that threshold, never to the whole amount. State tax is then applied under that state's own rules."
+        },
+        {
+          "question": "What is the difference between marginal and effective tax rate?",
+          "answer": "The marginal rate is what the next dollar is taxed at; the effective rate is total tax divided by total income. The effective rate is always lower, and mistaking one for the other is why people overestimate what a raise costs them."
+        },
+        {
+          "question": "Do all states tax income?",
+          "answer": "No. Nine levy no income tax on wages. Of the rest, some apply a single flat rate and others a progressive schedule with a top rate above 10%."
+        },
+        {
+          "question": "Is income tax the same as what comes out of my paycheck?",
+          "answer": "No. What is withheld comes from the W-4 on file and is an estimate; the liability calculated here is the actual amount owed for the year. The refund or bill in April is the difference between the two."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -1141,7 +2036,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/income-tax-calculator"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -1169,7 +2064,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How is income tax calculated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Federal tax is bracketed: each slice of taxable income is taxed at its own rate, so the top rate applies only to the income above that threshold, never to the whole amount. State tax is then applied under that state's own rules."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between marginal and effective tax rate?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The marginal rate is what the next dollar is taxed at; the effective rate is total tax divided by total income. The effective rate is always lower, and mistaking one for the other is why people overestimate what a raise costs them."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do all states tax income?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Nine levy no income tax on wages. Of the rest, some apply a single flat rate and others a progressive schedule with a top rate above 10%."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is income tax the same as what comes out of my paycheck?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. What is withheld comes from the W-4 on file and is an estimate; the liability calculated here is the actual amount owed for the year. The refund or bill in April is the difference between the two."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -1195,7 +2128,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/tools/take-home-pay-calculator",
@@ -1218,7 +2152,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "How do I calculate take-home pay?",
+          "answer": "Subtract federal income tax, state income tax, Social Security at 6.2% and Medicare at 1.45% from gross pay. Social Security and Medicare together are FICA, 7.65% for an employee."
+        },
+        {
+          "question": "Why is my take-home pay so much lower than my salary?",
+          "answer": "On a $95,000 salary the deductions run to roughly a quarter of the figure, and the exact amount depends on the state by as much as $7,167 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
+        },
+        {
+          "question": "What is the difference between biweekly and semi-monthly pay?",
+          "answer": "Biweekly is every two weeks: 26 checks a year, with two months containing three of them. Semi-monthly is twice a month: 24 checks of identical size. At the same salary the biweekly check is smaller, and the two extra checks close the gap."
+        },
+        {
+          "question": "Do self-employed people pay more?",
+          "answer": "Yes. An employer pays a matching 7.65% FICA that never appears on a payslip. A self-employed person pays both halves — 15.3% — which is the largest single difference between an employee and a contractor at the same gross figure."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -1234,7 +2185,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/take-home-pay-calculator"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -1262,7 +2213,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I calculate take-home pay?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Subtract federal income tax, state income tax, Social Security at 6.2% and Medicare at 1.45% from gross pay. Social Security and Medicare together are FICA, 7.65% for an employee."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why is my take-home pay so much lower than my salary?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "On a $95,000 salary the deductions run to roughly a quarter of the figure, and the exact amount depends on the state by as much as $7,167 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between biweekly and semi-monthly pay?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Biweekly is every two weeks: 26 checks a year, with two months containing three of them. Semi-monthly is twice a month: 24 checks of identical size. At the same salary the biweekly check is smaller, and the two extra checks close the gap."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do self-employed people pay more?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. An employer pays a matching 7.65% FICA that never appears on a payslip. A self-employed person pays both halves — 15.3% — which is the largest single difference between an employee and a contractor at the same gross figure."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -1288,7 +2277,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/tools/sales-tax-calculator",
@@ -1311,7 +2301,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "How do I calculate sales tax?",
+          "answer": "Multiply the pre-tax price by the combined rate, which is the state rate plus any county, city and special district rates. The combined rate is what you pay, and it is often well above the state rate alone."
+        },
+        {
+          "question": "Which states have no sales tax?",
+          "answer": "Five: Alaska, Delaware, Montana, New Hampshire and Oregon. Alaska is the exception that matters — it has no state sales tax but permits local ones, so parts of the state do charge it."
+        },
+        {
+          "question": "Why does the rate change within one state?",
+          "answer": "Because local jurisdictions stack their own rates on top of the state rate. Two addresses a few miles apart can face different combined rates, which is why a state-level figure is not enough to price a purchase."
+        },
+        {
+          "question": "Does sales tax affect the cost of living?",
+          "answer": "Yes, and it is the part most cost-of-living comparisons leave out. A state with no income tax that charges a high combined sales tax recovers much of the difference on everything you buy."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -1327,7 +2334,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/sales-tax-calculator"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -1355,7 +2362,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I calculate sales tax?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Multiply the pre-tax price by the combined rate, which is the state rate plus any county, city and special district rates. The combined rate is what you pay, and it is often well above the state rate alone."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which states have no sales tax?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Five: Alaska, Delaware, Montana, New Hampshire and Oregon. Alaska is the exception that matters — it has no state sales tax but permits local ones, so parts of the state do charge it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why does the rate change within one state?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Because local jurisdictions stack their own rates on top of the state rate. Two addresses a few miles apart can face different combined rates, which is why a state-level figure is not enough to price a purchase."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does sales tax affect the cost of living?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, and it is the part most cost-of-living comparisons leave out. A state with no income tax that charges a high combined sales tax recovers much of the difference on everything you buy."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -1373,7 +2418,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/tools/property-tax-calculator",
@@ -1396,7 +2442,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "How is property tax calculated?",
+          "answer": "Assessed value multiplied by the local rate, often expressed in mills. Assessed value is set by the county and is frequently lower than market value, so applying a rate to a sale price overstates the bill."
+        },
+        {
+          "question": "Which states have the highest property tax?",
+          "answer": "New Jersey and Illinois exceed 2% of value a year, while Hawaii sits near 0.3%. On a $1,000,000 home that difference is more than $1,400 a month."
+        },
+        {
+          "question": "Does property tax affect what I can afford?",
+          "answer": "Directly. Lenders count it inside the housing ratio, so a high-tax county reduces the price you qualify for at an identical income and interest rate."
+        },
+        {
+          "question": "Can property tax rise after I buy?",
+          "answer": "Yes. Reassessment on sale is common, and a bill based on the previous owner's assessment can rise sharply in the first year. Some states cap annual increases; most do not cap the reset at sale."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -1412,7 +2475,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/property-tax-calculator"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -1440,7 +2503,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How is property tax calculated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Assessed value multiplied by the local rate, often expressed in mills. Assessed value is set by the county and is frequently lower than market value, so applying a rate to a sale price overstates the bill."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Which states have the highest property tax?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "New Jersey and Illinois exceed 2% of value a year, while Hawaii sits near 0.3%. On a $1,000,000 home that difference is more than $1,400 a month."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does property tax affect what I can afford?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Directly. Lenders count it inside the housing ratio, so a high-tax county reduces the price you qualify for at an identical income and interest rate."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can property tax rise after I buy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Reassessment on sale is common, and a bill based on the previous owner's assessment can rise sharply in the first year. Some states cap annual increases; most do not cap the reset at sale."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -1462,7 +2563,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/state-taxes",
@@ -1479,9 +2581,9 @@
         "State Income Tax Rates by State"
       ],
       "h2Outline": [
-        "The full list",
-        "How to read these numbers",
-        "Frequently asked questions"
+        "Income tax rates for all 51 jurisdictions",
+        "The nine states with no income tax",
+        "Why the rate alone does not decide what you keep"
       ],
       "faq": [],
       "jsonLd": [
@@ -1501,12 +2603,538 @@
               "name": "State Income Tax Rates by State"
             }
           ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "State Income Tax Rates by State (2026)",
+          "numberOfItems": 53,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Alabama income tax calculator",
+              "url": "https://example.com/state-taxes/alabama"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Alaska income tax calculator",
+              "url": "https://example.com/state-taxes/alaska"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Arizona income tax calculator",
+              "url": "https://example.com/state-taxes/arizona"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "Arkansas income tax calculator",
+              "url": "https://example.com/state-taxes/arkansas"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "California income tax calculator",
+              "url": "https://example.com/state-taxes/california"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "name": "Colorado income tax calculator",
+              "url": "https://example.com/state-taxes/colorado"
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "name": "Connecticut income tax calculator",
+              "url": "https://example.com/state-taxes/connecticut"
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "name": "Delaware income tax calculator",
+              "url": "https://example.com/state-taxes/delaware"
+            },
+            {
+              "@type": "ListItem",
+              "position": 9,
+              "name": "Florida income tax calculator",
+              "url": "https://example.com/state-taxes/florida"
+            },
+            {
+              "@type": "ListItem",
+              "position": 10,
+              "name": "Georgia income tax calculator",
+              "url": "https://example.com/state-taxes/georgia"
+            },
+            {
+              "@type": "ListItem",
+              "position": 11,
+              "name": "Hawaii income tax calculator",
+              "url": "https://example.com/state-taxes/hawaii"
+            },
+            {
+              "@type": "ListItem",
+              "position": 12,
+              "name": "Idaho income tax calculator",
+              "url": "https://example.com/state-taxes/idaho"
+            },
+            {
+              "@type": "ListItem",
+              "position": 13,
+              "name": "Illinois income tax calculator",
+              "url": "https://example.com/state-taxes/illinois"
+            },
+            {
+              "@type": "ListItem",
+              "position": 14,
+              "name": "Indiana income tax calculator",
+              "url": "https://example.com/state-taxes/indiana"
+            },
+            {
+              "@type": "ListItem",
+              "position": 15,
+              "name": "Iowa income tax calculator",
+              "url": "https://example.com/state-taxes/iowa"
+            },
+            {
+              "@type": "ListItem",
+              "position": 16,
+              "name": "Kansas income tax calculator",
+              "url": "https://example.com/state-taxes/kansas"
+            },
+            {
+              "@type": "ListItem",
+              "position": 17,
+              "name": "Kentucky income tax calculator",
+              "url": "https://example.com/state-taxes/kentucky"
+            },
+            {
+              "@type": "ListItem",
+              "position": 18,
+              "name": "Louisiana income tax calculator",
+              "url": "https://example.com/state-taxes/louisiana"
+            },
+            {
+              "@type": "ListItem",
+              "position": 19,
+              "name": "Maine income tax calculator",
+              "url": "https://example.com/state-taxes/maine"
+            },
+            {
+              "@type": "ListItem",
+              "position": 20,
+              "name": "Maryland income tax calculator",
+              "url": "https://example.com/state-taxes/maryland"
+            },
+            {
+              "@type": "ListItem",
+              "position": 21,
+              "name": "Massachusetts income tax calculator",
+              "url": "https://example.com/state-taxes/massachusetts"
+            },
+            {
+              "@type": "ListItem",
+              "position": 22,
+              "name": "Michigan income tax calculator",
+              "url": "https://example.com/state-taxes/michigan"
+            },
+            {
+              "@type": "ListItem",
+              "position": 23,
+              "name": "Minnesota income tax calculator",
+              "url": "https://example.com/state-taxes/minnesota"
+            },
+            {
+              "@type": "ListItem",
+              "position": 24,
+              "name": "Mississippi income tax calculator",
+              "url": "https://example.com/state-taxes/mississippi"
+            },
+            {
+              "@type": "ListItem",
+              "position": 25,
+              "name": "Missouri income tax calculator",
+              "url": "https://example.com/state-taxes/missouri"
+            },
+            {
+              "@type": "ListItem",
+              "position": 26,
+              "name": "Montana income tax calculator",
+              "url": "https://example.com/state-taxes/montana"
+            },
+            {
+              "@type": "ListItem",
+              "position": 27,
+              "name": "Nebraska income tax calculator",
+              "url": "https://example.com/state-taxes/nebraska"
+            },
+            {
+              "@type": "ListItem",
+              "position": 28,
+              "name": "Nevada income tax calculator",
+              "url": "https://example.com/state-taxes/nevada"
+            },
+            {
+              "@type": "ListItem",
+              "position": 29,
+              "name": "New Hampshire income tax calculator",
+              "url": "https://example.com/state-taxes/new-hampshire"
+            },
+            {
+              "@type": "ListItem",
+              "position": 30,
+              "name": "New Jersey income tax calculator",
+              "url": "https://example.com/state-taxes/new-jersey"
+            },
+            {
+              "@type": "ListItem",
+              "position": 31,
+              "name": "New Mexico income tax calculator",
+              "url": "https://example.com/state-taxes/new-mexico"
+            },
+            {
+              "@type": "ListItem",
+              "position": 32,
+              "name": "New York income tax calculator",
+              "url": "https://example.com/state-taxes/new-york"
+            },
+            {
+              "@type": "ListItem",
+              "position": 33,
+              "name": "North Carolina income tax calculator",
+              "url": "https://example.com/state-taxes/north-carolina"
+            },
+            {
+              "@type": "ListItem",
+              "position": 34,
+              "name": "North Dakota income tax calculator",
+              "url": "https://example.com/state-taxes/north-dakota"
+            },
+            {
+              "@type": "ListItem",
+              "position": 35,
+              "name": "Ohio income tax calculator",
+              "url": "https://example.com/state-taxes/ohio"
+            },
+            {
+              "@type": "ListItem",
+              "position": 36,
+              "name": "Oklahoma income tax calculator",
+              "url": "https://example.com/state-taxes/oklahoma"
+            },
+            {
+              "@type": "ListItem",
+              "position": 37,
+              "name": "Oregon income tax calculator",
+              "url": "https://example.com/state-taxes/oregon"
+            },
+            {
+              "@type": "ListItem",
+              "position": 38,
+              "name": "Pennsylvania income tax calculator",
+              "url": "https://example.com/state-taxes/pennsylvania"
+            },
+            {
+              "@type": "ListItem",
+              "position": 39,
+              "name": "Rhode Island income tax calculator",
+              "url": "https://example.com/state-taxes/rhode-island"
+            },
+            {
+              "@type": "ListItem",
+              "position": 40,
+              "name": "South Carolina income tax calculator",
+              "url": "https://example.com/state-taxes/south-carolina"
+            },
+            {
+              "@type": "ListItem",
+              "position": 41,
+              "name": "South Dakota income tax calculator",
+              "url": "https://example.com/state-taxes/south-dakota"
+            },
+            {
+              "@type": "ListItem",
+              "position": 42,
+              "name": "Tennessee income tax calculator",
+              "url": "https://example.com/state-taxes/tennessee"
+            },
+            {
+              "@type": "ListItem",
+              "position": 43,
+              "name": "Texas income tax calculator",
+              "url": "https://example.com/state-taxes/texas"
+            },
+            {
+              "@type": "ListItem",
+              "position": 44,
+              "name": "Utah income tax calculator",
+              "url": "https://example.com/state-taxes/utah"
+            },
+            {
+              "@type": "ListItem",
+              "position": 45,
+              "name": "Vermont income tax calculator",
+              "url": "https://example.com/state-taxes/vermont"
+            },
+            {
+              "@type": "ListItem",
+              "position": 46,
+              "name": "Virginia income tax calculator",
+              "url": "https://example.com/state-taxes/virginia"
+            },
+            {
+              "@type": "ListItem",
+              "position": 47,
+              "name": "Washington, D.C. income tax calculator",
+              "url": "https://example.com/state-taxes/washington-dc"
+            },
+            {
+              "@type": "ListItem",
+              "position": 48,
+              "name": "Washington income tax calculator",
+              "url": "https://example.com/state-taxes/washington"
+            },
+            {
+              "@type": "ListItem",
+              "position": 49,
+              "name": "West Virginia income tax calculator",
+              "url": "https://example.com/state-taxes/west-virginia"
+            },
+            {
+              "@type": "ListItem",
+              "position": 50,
+              "name": "Wisconsin income tax calculator",
+              "url": "https://example.com/state-taxes/wisconsin"
+            },
+            {
+              "@type": "ListItem",
+              "position": 51,
+              "name": "Wyoming income tax calculator",
+              "url": "https://example.com/state-taxes/wyoming"
+            },
+            {
+              "@type": "ListItem",
+              "position": 52,
+              "name": "income tax calculator",
+              "url": "https://example.com/tools/income-tax-calculator"
+            },
+            {
+              "@type": "ListItem",
+              "position": 53,
+              "name": "cost of living by city",
+              "url": "https://example.com/cost-of-living"
+            }
+          ]
         }
       ],
       "internalLinks": [
         {
-          "to": "/state-taxes/{state}",
-          "anchor": "{state} income tax calculator"
+          "to": "/state-taxes/alabama",
+          "anchor": "Alabama income tax calculator"
+        },
+        {
+          "to": "/state-taxes/alaska",
+          "anchor": "Alaska income tax calculator"
+        },
+        {
+          "to": "/state-taxes/arizona",
+          "anchor": "Arizona income tax calculator"
+        },
+        {
+          "to": "/state-taxes/arkansas",
+          "anchor": "Arkansas income tax calculator"
+        },
+        {
+          "to": "/state-taxes/california",
+          "anchor": "California income tax calculator"
+        },
+        {
+          "to": "/state-taxes/colorado",
+          "anchor": "Colorado income tax calculator"
+        },
+        {
+          "to": "/state-taxes/connecticut",
+          "anchor": "Connecticut income tax calculator"
+        },
+        {
+          "to": "/state-taxes/delaware",
+          "anchor": "Delaware income tax calculator"
+        },
+        {
+          "to": "/state-taxes/florida",
+          "anchor": "Florida income tax calculator"
+        },
+        {
+          "to": "/state-taxes/georgia",
+          "anchor": "Georgia income tax calculator"
+        },
+        {
+          "to": "/state-taxes/hawaii",
+          "anchor": "Hawaii income tax calculator"
+        },
+        {
+          "to": "/state-taxes/idaho",
+          "anchor": "Idaho income tax calculator"
+        },
+        {
+          "to": "/state-taxes/illinois",
+          "anchor": "Illinois income tax calculator"
+        },
+        {
+          "to": "/state-taxes/indiana",
+          "anchor": "Indiana income tax calculator"
+        },
+        {
+          "to": "/state-taxes/iowa",
+          "anchor": "Iowa income tax calculator"
+        },
+        {
+          "to": "/state-taxes/kansas",
+          "anchor": "Kansas income tax calculator"
+        },
+        {
+          "to": "/state-taxes/kentucky",
+          "anchor": "Kentucky income tax calculator"
+        },
+        {
+          "to": "/state-taxes/louisiana",
+          "anchor": "Louisiana income tax calculator"
+        },
+        {
+          "to": "/state-taxes/maine",
+          "anchor": "Maine income tax calculator"
+        },
+        {
+          "to": "/state-taxes/maryland",
+          "anchor": "Maryland income tax calculator"
+        },
+        {
+          "to": "/state-taxes/massachusetts",
+          "anchor": "Massachusetts income tax calculator"
+        },
+        {
+          "to": "/state-taxes/michigan",
+          "anchor": "Michigan income tax calculator"
+        },
+        {
+          "to": "/state-taxes/minnesota",
+          "anchor": "Minnesota income tax calculator"
+        },
+        {
+          "to": "/state-taxes/mississippi",
+          "anchor": "Mississippi income tax calculator"
+        },
+        {
+          "to": "/state-taxes/missouri",
+          "anchor": "Missouri income tax calculator"
+        },
+        {
+          "to": "/state-taxes/montana",
+          "anchor": "Montana income tax calculator"
+        },
+        {
+          "to": "/state-taxes/nebraska",
+          "anchor": "Nebraska income tax calculator"
+        },
+        {
+          "to": "/state-taxes/nevada",
+          "anchor": "Nevada income tax calculator"
+        },
+        {
+          "to": "/state-taxes/new-hampshire",
+          "anchor": "New Hampshire income tax calculator"
+        },
+        {
+          "to": "/state-taxes/new-jersey",
+          "anchor": "New Jersey income tax calculator"
+        },
+        {
+          "to": "/state-taxes/new-mexico",
+          "anchor": "New Mexico income tax calculator"
+        },
+        {
+          "to": "/state-taxes/new-york",
+          "anchor": "New York income tax calculator"
+        },
+        {
+          "to": "/state-taxes/north-carolina",
+          "anchor": "North Carolina income tax calculator"
+        },
+        {
+          "to": "/state-taxes/north-dakota",
+          "anchor": "North Dakota income tax calculator"
+        },
+        {
+          "to": "/state-taxes/ohio",
+          "anchor": "Ohio income tax calculator"
+        },
+        {
+          "to": "/state-taxes/oklahoma",
+          "anchor": "Oklahoma income tax calculator"
+        },
+        {
+          "to": "/state-taxes/oregon",
+          "anchor": "Oregon income tax calculator"
+        },
+        {
+          "to": "/state-taxes/pennsylvania",
+          "anchor": "Pennsylvania income tax calculator"
+        },
+        {
+          "to": "/state-taxes/rhode-island",
+          "anchor": "Rhode Island income tax calculator"
+        },
+        {
+          "to": "/state-taxes/south-carolina",
+          "anchor": "South Carolina income tax calculator"
+        },
+        {
+          "to": "/state-taxes/south-dakota",
+          "anchor": "South Dakota income tax calculator"
+        },
+        {
+          "to": "/state-taxes/tennessee",
+          "anchor": "Tennessee income tax calculator"
+        },
+        {
+          "to": "/state-taxes/texas",
+          "anchor": "Texas income tax calculator"
+        },
+        {
+          "to": "/state-taxes/utah",
+          "anchor": "Utah income tax calculator"
+        },
+        {
+          "to": "/state-taxes/vermont",
+          "anchor": "Vermont income tax calculator"
+        },
+        {
+          "to": "/state-taxes/virginia",
+          "anchor": "Virginia income tax calculator"
+        },
+        {
+          "to": "/state-taxes/washington-dc",
+          "anchor": "Washington, D.C. income tax calculator"
+        },
+        {
+          "to": "/state-taxes/washington",
+          "anchor": "Washington income tax calculator"
+        },
+        {
+          "to": "/state-taxes/west-virginia",
+          "anchor": "West Virginia income tax calculator"
+        },
+        {
+          "to": "/state-taxes/wisconsin",
+          "anchor": "Wisconsin income tax calculator"
+        },
+        {
+          "to": "/state-taxes/wyoming",
+          "anchor": "Wyoming income tax calculator"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -1518,7 +3146,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/core.xml"
     },
     {
       "path": "/tools/closing-cost-calculator",
@@ -1541,7 +3170,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "How much are closing costs?",
+          "answer": "Typically 2% to 5% of the purchase price for a buyer. On a $400,000 home that is $8,000 to $20,000, due at closing and separate from the down payment."
+        },
+        {
+          "question": "What is included in closing costs?",
+          "answer": "Lender fees, title insurance, escrow and recording fees, appraisal, prepaid interest, and the first instalments of property tax and homeowners insurance. The prepaid items are the part most estimates leave out."
+        },
+        {
+          "question": "Who pays closing costs, the buyer or the seller?",
+          "answer": "Both, in different proportions, and the split is negotiable and varies by state. The seller usually carries the agent commissions; transfer taxes fall on either side depending on local custom."
+        },
+        {
+          "question": "Why do closing costs vary so much by state?",
+          "answer": "Transfer taxes and title practice differ sharply. Some states charge no transfer tax at all while others charge above 1% of the price, which alone can double the buyer's total."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -1557,7 +3203,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/closing-cost-calculator"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -1585,7 +3231,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much are closing costs?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Typically 2% to 5% of the purchase price for a buyer. On a $400,000 home that is $8,000 to $20,000, due at closing and separate from the down payment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is included in closing costs?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Lender fees, title insurance, escrow and recording fees, appraisal, prepaid interest, and the first instalments of property tax and homeowners insurance. The prepaid items are the part most estimates leave out."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Who pays closing costs, the buyer or the seller?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Both, in different proportions, and the split is negotiable and varies by state. The seller usually carries the agent commissions; transfer taxes fall on either side depending on local custom."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why do closing costs vary so much by state?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Transfer taxes and title practice differ sharply. Some states charge no transfer tax at all while others charge above 1% of the price, which alone can double the buyer's total."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -1594,8 +3278,8 @@
           "anchor": "house payment calculator"
         },
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/home-affordability-calculator",
@@ -1603,7 +3287,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/tools/house-payment-calculator",
@@ -1626,7 +3311,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "What is included in a monthly house payment?",
+          "answer": "Principal, interest, property tax, homeowners insurance, and mortgage insurance where the down payment is under 20% — together known as PITI. A figure covering only principal and interest understates the real payment substantially."
+        },
+        {
+          "question": "What is PMI and when does it stop?",
+          "answer": "Private mortgage insurance is charged when the down payment falls below 20% of the price. On a conventional loan it can be cancelled once equity reaches 20%, and lenders must remove it automatically at 22%."
+        },
+        {
+          "question": "How much does the interest rate change the payment?",
+          "answer": "A great deal over a 30-year term, because early payments are almost entirely interest. The rate also changes the price you qualify for, since lenders test the payment rather than the loan amount."
+        },
+        {
+          "question": "Is a house payment the same as what a home costs me?",
+          "answer": "No. Maintenance, conventionally budgeted at 1% of value a year, and HOA dues where they apply sit outside the payment entirely and outside every lender calculation."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -1642,7 +3344,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/house-payment-calculator"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -1670,7 +3372,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is included in a monthly house payment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Principal, interest, property tax, homeowners insurance, and mortgage insurance where the down payment is under 20% — together known as PITI. A figure covering only principal and interest understates the real payment substantially."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is PMI and when does it stop?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Private mortgage insurance is charged when the down payment falls below 20% of the price. On a conventional loan it can be cancelled once equity reaches 20%, and lenders must remove it automatically at 22%."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How much does the interest rate change the payment?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A great deal over a 30-year term, because early payments are almost entirely interest. The rate also changes the price you qualify for, since lenders test the payment rather than the loan amount."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is a house payment the same as what a home costs me?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Maintenance, conventionally budgeted at 1% of value a year, and HOA dues where they apply sit outside the payment entirely and outside every lender calculation."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -1688,7 +3428,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/tools/home-affordability-calculator",
@@ -1711,7 +3452,24 @@
         "Who needs this",
         "Frequently asked questions"
       ],
-      "faq": [],
+      "faq": [
+        {
+          "question": "How much house can I afford?",
+          "answer": "Conventional underwriting applies two ratios to gross monthly income: 28% for housing alone and 36% for housing plus all other debt. The second is the binding one for most buyers."
+        },
+        {
+          "question": "What is the 28/36 rule?",
+          "answer": "A guideline, not a law. The Qualified Mortgage standard allows debt-to-income up to 43%, FHA lending routinely approves above that, and automated underwriting has pushed some approvals near 50%. The conservative answer and the maximum answer are far apart."
+        },
+        {
+          "question": "How do car and student loans affect it?",
+          "answer": "They count fully against the back-end ratio while contributing nothing toward the house. Two households with identical incomes and a $600 monthly difference in car payments qualify for roughly $100,000 of price difference."
+        },
+        {
+          "question": "Is the price I qualify for the price I should pay?",
+          "answer": "No. Closing costs run 2% to 5% of the purchase price and are paid at the table, and maintenance is conventionally budgeted at 1% of home value a year. Neither reduces what you qualify for; both reduce what you should want."
+        }
+      ],
       "jsonLd": [
         {
           "@context": "https://schema.org",
@@ -1727,7 +3485,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Calculators",
-              "item": "https://example.com/tools/home-affordability-calculator"
+              "item": "https://example.com/tools"
             },
             {
               "@type": "ListItem",
@@ -1755,7 +3513,45 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How much house can I afford?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Conventional underwriting applies two ratios to gross monthly income: 28% for housing alone and 36% for housing plus all other debt. The second is the binding one for most buyers."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the 28/36 rule?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A guideline, not a law. The Qualified Mortgage standard allows debt-to-income up to 43%, FHA lending routinely approves above that, and automated underwriting has pushed some approvals near 50%. The conservative answer and the maximum answer are far apart."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do car and student loans affect it?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "They count fully against the back-end ratio while contributing nothing toward the house. Two households with identical incomes and a $600 monthly difference in car payments qualify for roughly $100,000 of price difference."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the price I qualify for the price I should pay?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Closing costs run 2% to 5% of the purchase price and are paid at the table, and maintenance is conventionally budgeted at 1% of home value a year. Neither reduces what you qualify for; both reduce what you should want."
+              }
+            }
+          ]
         }
       ],
       "internalLinks": [
@@ -1773,7 +3569,8 @@
         }
       ],
       "dataVerification": "n/a",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/tools.xml"
     },
     {
       "path": "/cost-of-living/austin-tx",
@@ -1817,7 +3614,7 @@
         },
         {
           "question": "Where does this data come from?",
-          "answer": "BEA Regional Price Parities and HUD Fair Market Rent for 2026, both official and free to cite."
+          "answer": "BEA Regional Price Parities for the Austin metropolitan area and HUD Fair Market Rent for the Texas counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
         }
       ],
       "jsonLd": [
@@ -1853,6 +3650,64 @@
             "addressRegion": "TX",
             "addressCountry": "US"
           }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How expensive is Austin?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PENDING_DATA: needs BEA/HUD figures for Austin, TX (13-6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical rent in Austin?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PENDING_DATA: needs BEA/HUD figures for Austin, TX (13-6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do you need to live in Austin?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PENDING_DATA: needs BEA/HUD figures for Austin, TX (13-6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Texas tax affect what you keep in Austin?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. On a $95,000 self-employment profit, a Texas resident keeps about $74,160 — an effective 21.9%. That figure applies anywhere in Texas, so it is the same in Austin as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does this data come from?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BEA Regional Price Parities for the Austin metropolitan area and HUD Fair Market Rent for the Texas counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Cost of living indices for Austin, TX",
+          "description": "Regional price parities and fair market rents for Austin, TX, 2026.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+            "https://www.huduser.gov/portal/datasets/fmr.html"
+          ],
+          "dateModified": "2026-09-12"
         }
       ],
       "internalLinks": [
@@ -1886,7 +3741,8 @@
         }
       ],
       "dataVerification": "pending-bea-hud",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": null
     },
     {
       "path": "/cost-of-living/san-francisco-ca",
@@ -1930,7 +3786,7 @@
         },
         {
           "question": "Where does this data come from?",
-          "answer": "BEA Regional Price Parities and HUD Fair Market Rent for 2026, both official and free to cite."
+          "answer": "BEA Regional Price Parities for the San Francisco metropolitan area and HUD Fair Market Rent for the California counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
         }
       ],
       "jsonLd": [
@@ -1966,6 +3822,64 @@
             "addressRegion": "CA",
             "addressCountry": "US"
           }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How expensive is San Francisco?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PENDING_DATA: needs BEA/HUD figures for San Francisco, CA (13-6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical rent in San Francisco?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PENDING_DATA: needs BEA/HUD figures for San Francisco, CA (13-6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do you need to live in San Francisco?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PENDING_DATA: needs BEA/HUD figures for San Francisco, CA (13-6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does California tax affect what you keep in San Francisco?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. On a $95,000 self-employment profit, a California resident keeps about $70,041 — an effective 26.3%. That figure applies anywhere in California, so it is the same in San Francisco as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does this data come from?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BEA Regional Price Parities for the San Francisco metropolitan area and HUD Fair Market Rent for the California counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Cost of living indices for San Francisco, CA",
+          "description": "Regional price parities and fair market rents for San Francisco, CA, 2026.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+            "https://www.huduser.gov/portal/datasets/fmr.html"
+          ],
+          "dateModified": "2026-09-12"
         }
       ],
       "internalLinks": [
@@ -1999,7 +3913,8 @@
         }
       ],
       "dataVerification": "pending-bea-hud",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": null
     },
     {
       "path": "/cost-of-living/san-antonio-tx",
@@ -2043,7 +3958,7 @@
         },
         {
           "question": "Where does this data come from?",
-          "answer": "BEA Regional Price Parities and HUD Fair Market Rent for 2026, both official and free to cite."
+          "answer": "BEA Regional Price Parities for the San Antonio metropolitan area and HUD Fair Market Rent for the Texas counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
         }
       ],
       "jsonLd": [
@@ -2079,6 +3994,64 @@
             "addressRegion": "TX",
             "addressCountry": "US"
           }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How expensive is San Antonio?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PENDING_DATA: needs BEA/HUD figures for San Antonio, TX (13-6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical rent in San Antonio?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PENDING_DATA: needs BEA/HUD figures for San Antonio, TX (13-6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do you need to live in San Antonio?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PENDING_DATA: needs BEA/HUD figures for San Antonio, TX (13-6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Texas tax affect what you keep in San Antonio?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. On a $95,000 self-employment profit, a Texas resident keeps about $74,160 — an effective 21.9%. That figure applies anywhere in Texas, so it is the same in San Antonio as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does this data come from?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BEA Regional Price Parities for the San Antonio metropolitan area and HUD Fair Market Rent for the Texas counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Cost of living indices for San Antonio, TX",
+          "description": "Regional price parities and fair market rents for San Antonio, TX, 2026.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+            "https://www.huduser.gov/portal/datasets/fmr.html"
+          ],
+          "dateModified": "2026-09-12"
         }
       ],
       "internalLinks": [
@@ -2112,7 +4085,8 @@
         }
       ],
       "dataVerification": "pending-bea-hud",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": null
     },
     {
       "path": "/cost-of-living/houston-tx",
@@ -2156,7 +4130,7 @@
         },
         {
           "question": "Where does this data come from?",
-          "answer": "BEA Regional Price Parities and HUD Fair Market Rent for 2026, both official and free to cite."
+          "answer": "BEA Regional Price Parities for the Houston metropolitan area and HUD Fair Market Rent for the Texas counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
         }
       ],
       "jsonLd": [
@@ -2192,6 +4166,64 @@
             "addressRegion": "TX",
             "addressCountry": "US"
           }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How expensive is Houston?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PENDING_DATA: needs BEA/HUD figures for Houston, TX (13-6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical rent in Houston?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PENDING_DATA: needs BEA/HUD figures for Houston, TX (13-6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do you need to live in Houston?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PENDING_DATA: needs BEA/HUD figures for Houston, TX (13-6)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Texas tax affect what you keep in Houston?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. On a $95,000 self-employment profit, a Texas resident keeps about $74,160 — an effective 21.9%. That figure applies anywhere in Texas, so it is the same in Houston as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Where does this data come from?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "BEA Regional Price Parities for the Houston metropolitan area and HUD Fair Market Rent for the Texas counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Cost of living indices for Houston, TX",
+          "description": "Regional price parities and fair market rents for Houston, TX, 2026.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+            "https://www.huduser.gov/portal/datasets/fmr.html"
+          ],
+          "dateModified": "2026-09-12"
         }
       ],
       "internalLinks": [
@@ -2225,7 +4257,8 @@
         }
       ],
       "dataVerification": "pending-bea-hud",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": null
     },
     {
       "path": "/state-taxes/alabama",
@@ -2314,7 +4347,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -2365,8 +4398,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -2386,7 +4419,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/alaska",
@@ -2417,11 +4451,11 @@
         },
         {
           "question": "What tax do you still pay in Alaska?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Alaska — an effective 21.9% with no state layer on top of it."
         },
         {
           "question": "Is Alaska actually cheaper overall?",
-          "answer": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+          "answer": "Not automatically. On income tax alone Alaska leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Alaska?",
@@ -2475,7 +4509,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -2494,7 +4528,7 @@
               "name": "What tax do you still pay in Alaska?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Alaska — an effective 21.9% with no state layer on top of it."
               }
             },
             {
@@ -2502,7 +4536,7 @@
               "name": "Is Alaska actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+                "text": "Not automatically. On income tax alone Alaska leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -2526,8 +4560,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -2547,7 +4581,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/arizona",
@@ -2636,7 +4671,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -2687,8 +4722,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -2708,7 +4743,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/arkansas",
@@ -2797,7 +4833,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -2848,8 +4884,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -2869,7 +4905,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/california",
@@ -2958,7 +4995,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -3009,8 +5046,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "cost of living in San Francisco"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -3030,7 +5067,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": true
+      "staleForTargetYear": true,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/colorado",
@@ -3119,7 +5157,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -3170,8 +5208,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -3191,7 +5229,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/connecticut",
@@ -3280,7 +5319,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -3331,8 +5370,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -3352,7 +5391,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/delaware",
@@ -3441,7 +5481,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -3492,8 +5532,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -3513,7 +5553,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/florida",
@@ -3544,11 +5585,11 @@
         },
         {
           "question": "What tax do you still pay in Florida?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Florida — an effective 21.9% with no state layer on top of it."
         },
         {
           "question": "Is Florida actually cheaper overall?",
-          "answer": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+          "answer": "Not automatically. On income tax alone Florida leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Florida?",
@@ -3602,7 +5643,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -3621,7 +5662,7 @@
               "name": "What tax do you still pay in Florida?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Florida — an effective 21.9% with no state layer on top of it."
               }
             },
             {
@@ -3629,7 +5670,7 @@
               "name": "Is Florida actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+                "text": "Not automatically. On income tax alone Florida leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -3653,8 +5694,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -3674,7 +5715,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/georgia",
@@ -3763,7 +5805,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -3814,8 +5856,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -3835,7 +5877,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/hawaii",
@@ -3924,7 +5967,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -3975,8 +6018,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -3996,7 +6039,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/idaho",
@@ -4085,7 +6129,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -4136,8 +6180,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -4157,7 +6201,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": true
+      "staleForTargetYear": true,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/illinois",
@@ -4246,7 +6291,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -4297,8 +6342,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -4318,7 +6363,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/indiana",
@@ -4407,7 +6453,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -4458,8 +6504,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -4479,7 +6525,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/iowa",
@@ -4568,7 +6615,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -4619,8 +6666,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -4640,7 +6687,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/kansas",
@@ -4729,7 +6777,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -4780,8 +6828,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -4801,7 +6849,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/kentucky",
@@ -4890,7 +6939,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -4941,8 +6990,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -4962,7 +7011,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/louisiana",
@@ -5051,7 +7101,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -5102,8 +7152,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -5123,7 +7173,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/maine",
@@ -5212,7 +7263,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -5263,8 +7314,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -5284,7 +7335,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/maryland",
@@ -5373,7 +7425,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -5424,8 +7476,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -5445,7 +7497,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/massachusetts",
@@ -5534,7 +7587,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -5585,8 +7638,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -5606,7 +7659,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/michigan",
@@ -5695,7 +7749,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -5746,8 +7800,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -5767,7 +7821,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/minnesota",
@@ -5856,7 +7911,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -5907,8 +7962,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -5928,7 +7983,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": true
+      "staleForTargetYear": true,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/mississippi",
@@ -6017,7 +8073,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -6068,8 +8124,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -6089,7 +8145,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/missouri",
@@ -6178,7 +8235,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -6229,8 +8286,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -6250,7 +8307,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": true
+      "staleForTargetYear": true,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/montana",
@@ -6339,7 +8397,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -6390,8 +8448,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -6411,7 +8469,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/nebraska",
@@ -6500,7 +8559,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -6551,8 +8610,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -6572,7 +8631,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/nevada",
@@ -6603,11 +8663,11 @@
         },
         {
           "question": "What tax do you still pay in Nevada?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Nevada — an effective 21.9% with no state layer on top of it."
         },
         {
           "question": "Is Nevada actually cheaper overall?",
-          "answer": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+          "answer": "Not automatically. On income tax alone Nevada leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Nevada?",
@@ -6661,7 +8721,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -6680,7 +8740,7 @@
               "name": "What tax do you still pay in Nevada?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Nevada — an effective 21.9% with no state layer on top of it."
               }
             },
             {
@@ -6688,7 +8748,7 @@
               "name": "Is Nevada actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+                "text": "Not automatically. On income tax alone Nevada leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -6712,8 +8772,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -6733,7 +8793,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/new-hampshire",
@@ -6764,11 +8825,11 @@
         },
         {
           "question": "What tax do you still pay in New Hampshire?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in New Hampshire — an effective 21.9% with no state layer on top of it."
         },
         {
           "question": "Is New Hampshire actually cheaper overall?",
-          "answer": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+          "answer": "Not automatically. On income tax alone New Hampshire leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in New Hampshire?",
@@ -6822,7 +8883,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -6841,7 +8902,7 @@
               "name": "What tax do you still pay in New Hampshire?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in New Hampshire — an effective 21.9% with no state layer on top of it."
               }
             },
             {
@@ -6849,7 +8910,7 @@
               "name": "Is New Hampshire actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+                "text": "Not automatically. On income tax alone New Hampshire leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -6873,8 +8934,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -6894,7 +8955,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/new-jersey",
@@ -6983,7 +9045,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -7034,8 +9096,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -7055,7 +9117,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/new-mexico",
@@ -7144,7 +9207,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -7195,8 +9258,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -7216,7 +9279,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/new-york",
@@ -7305,7 +9369,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -7356,8 +9420,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -7377,7 +9441,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/north-carolina",
@@ -7466,7 +9531,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -7517,8 +9582,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -7538,7 +9603,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/north-dakota",
@@ -7627,7 +9693,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -7678,8 +9744,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -7699,7 +9765,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/ohio",
@@ -7788,7 +9855,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -7839,8 +9906,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -7860,7 +9927,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/oklahoma",
@@ -7949,7 +10017,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -8000,8 +10068,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -8021,7 +10089,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/oregon",
@@ -8110,7 +10179,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -8161,8 +10230,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -8182,7 +10251,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": true
+      "staleForTargetYear": true,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/pennsylvania",
@@ -8271,7 +10341,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -8322,8 +10392,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -8343,7 +10413,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/rhode-island",
@@ -8432,7 +10503,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -8483,8 +10554,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -8504,7 +10575,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/south-carolina",
@@ -8593,7 +10665,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -8644,8 +10716,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -8665,7 +10737,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/south-dakota",
@@ -8696,11 +10769,11 @@
         },
         {
           "question": "What tax do you still pay in South Dakota?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in South Dakota — an effective 21.9% with no state layer on top of it."
         },
         {
           "question": "Is South Dakota actually cheaper overall?",
-          "answer": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+          "answer": "Not automatically. On income tax alone South Dakota leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in South Dakota?",
@@ -8754,7 +10827,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -8773,7 +10846,7 @@
               "name": "What tax do you still pay in South Dakota?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in South Dakota — an effective 21.9% with no state layer on top of it."
               }
             },
             {
@@ -8781,7 +10854,7 @@
               "name": "Is South Dakota actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+                "text": "Not automatically. On income tax alone South Dakota leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -8805,8 +10878,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -8826,7 +10899,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/tennessee",
@@ -8857,11 +10931,11 @@
         },
         {
           "question": "What tax do you still pay in Tennessee?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Tennessee — an effective 21.9% with no state layer on top of it."
         },
         {
           "question": "Is Tennessee actually cheaper overall?",
-          "answer": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+          "answer": "Not automatically. On income tax alone Tennessee leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Tennessee?",
@@ -8915,7 +10989,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -8934,7 +11008,7 @@
               "name": "What tax do you still pay in Tennessee?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Tennessee — an effective 21.9% with no state layer on top of it."
               }
             },
             {
@@ -8942,7 +11016,7 @@
               "name": "Is Tennessee actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+                "text": "Not automatically. On income tax alone Tennessee leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -8966,8 +11040,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -8987,7 +11061,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/texas",
@@ -9018,11 +11093,11 @@
         },
         {
           "question": "What tax do you still pay in Texas?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Texas — an effective 21.9% with no state layer on top of it."
         },
         {
           "question": "Is Texas actually cheaper overall?",
-          "answer": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+          "answer": "Not automatically. On income tax alone Texas leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Texas?",
@@ -9076,7 +11151,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -9095,7 +11170,7 @@
               "name": "What tax do you still pay in Texas?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Texas — an effective 21.9% with no state layer on top of it."
               }
             },
             {
@@ -9103,7 +11178,7 @@
               "name": "Is Texas actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+                "text": "Not automatically. On income tax alone Texas leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -9127,8 +11202,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "cost of living in Austin"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -9148,7 +11223,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/utah",
@@ -9237,7 +11313,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -9288,8 +11364,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -9309,7 +11385,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/vermont",
@@ -9398,7 +11475,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -9449,8 +11526,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -9470,7 +11547,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": true
+      "staleForTargetYear": true,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/virginia",
@@ -9559,7 +11637,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -9610,8 +11688,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -9631,7 +11709,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/washington-dc",
@@ -9720,7 +11799,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -9771,8 +11850,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -9792,7 +11871,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/washington",
@@ -9823,11 +11903,11 @@
         },
         {
           "question": "What tax do you still pay in Washington?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Washington — an effective 21.9% with no state layer on top of it."
         },
         {
           "question": "Is Washington actually cheaper overall?",
-          "answer": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+          "answer": "Not automatically. On income tax alone Washington leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Washington?",
@@ -9881,7 +11961,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -9900,7 +11980,7 @@
               "name": "What tax do you still pay in Washington?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Washington — an effective 21.9% with no state layer on top of it."
               }
             },
             {
@@ -9908,7 +11988,7 @@
               "name": "Is Washington actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+                "text": "Not automatically. On income tax alone Washington leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -9932,8 +12012,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -9953,7 +12033,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/west-virginia",
@@ -10042,7 +12123,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -10093,8 +12174,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -10114,7 +12195,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/wisconsin",
@@ -10203,7 +12285,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -10254,8 +12336,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -10275,7 +12357,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": true
+      "staleForTargetYear": true,
+      "sitemap": "/sitemaps/states.xml"
     },
     {
       "path": "/state-taxes/wyoming",
@@ -10306,11 +12389,11 @@
         },
         {
           "question": "What tax do you still pay in Wyoming?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Wyoming — an effective 21.9% with no state layer on top of it."
         },
         {
           "question": "Is Wyoming actually cheaper overall?",
-          "answer": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+          "answer": "Not automatically. On income tax alone Wyoming leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Wyoming?",
@@ -10364,7 +12447,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026"
+          "dateModified": "2026-09-12"
         },
         {
           "@context": "https://schema.org",
@@ -10383,7 +12466,7 @@
               "name": "What tax do you still pay in Wyoming?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full."
+                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Wyoming — an effective 21.9% with no state layer on top of it."
               }
             },
             {
@@ -10391,7 +12474,7 @@
               "name": "Is Wyoming actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. States without an income tax usually recover it through sales and property tax, so compare total cost rather than one line."
+                "text": "Not automatically. On income tax alone Wyoming leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -10415,8 +12498,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/{metro}",
-          "anchor": "cost of living in {metro}"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -10436,7 +12519,8 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": false
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml"
     }
   ]
 }
