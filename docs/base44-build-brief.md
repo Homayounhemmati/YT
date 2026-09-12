@@ -11,6 +11,44 @@ in `data/onpage.generated.json` and every one of them is validated by CI.
 
 ---
 
+## 0. Build order — read this before starting
+
+**71 of the 78 pages are fully buildable and functional today.** Seven are not:
+
+| Page | Why |
+|---|---|
+| `/tools/cost-of-living-calculator` | No index data to compute with — a calculator that cannot calculate |
+| `/tools/cost-of-living-comparison` | Same |
+| `/tools/salary-comparison-by-city` | Same |
+| `/cost-of-living` + 4 metro pages | 3 of 5 FAQ answers are placeholders, and a cost-of-living page with no cost data is thin content by definition |
+
+All seven wait on one thing: the BEA/HUD dataset, which is two commands outside the
+sandbox (`scripts/fetch_cost_of_living.py`).
+
+### This does **not** block starting
+
+**Build the 71 now.** The ordering problem that would normally exist — launching
+without the funnel entrance costs roughly half the projected revenue (spec 21-1) —
+does not apply during construction, because **nothing is indexed until the domain
+is connected anyway** (section 7 below).
+
+So the sequence is:
+
+1. **Build the 71 functional pages.** Nothing public, nothing indexed.
+2. **Fetch the cost-of-living dataset** — two commands, any machine with internet.
+3. **Add the remaining 7 pages**, now with real data.
+4. **Buy the domain**, set `site.origin`, regenerate, re-import.
+5. **Then** remove the index block and launch — with the funnel intact.
+
+### What must not happen
+
+**Do not launch with the 71 alone.** Seven of them link into the place cluster and
+become dead ends without it, which means a visitor arriving from search leaves
+after one page. The revenue model assumes 2.2 pages per session; without the funnel
+entrance it is 1.1, and that is roughly half of year-two revenue.
+
+The 71 are a complete, correct build. They are not a complete site.
+
 ## 1. What the site is
 
 A calculator site answering one question in two halves: **what a place costs, and
