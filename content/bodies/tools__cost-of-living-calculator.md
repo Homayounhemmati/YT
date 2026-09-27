@@ -1,60 +1,64 @@
-What a place costs is not a single number, and any tool that gives you one has
-invented it. Housing, groceries and services move independently, and the ratio
-between them differs enough between cities that a single "index" hides the part
-that decides whether a move works.
+What a place costs depends on who is living there. One person in a studio and a
+family of four in a three-bedroom home do not face the same city, so this calculator
+starts from your household — how many people, how many bedrooms — and builds the
+month line by line, saying where every line comes from.
 
 ## How cost of living is calculated
 
-This calculator does not tell you what a city costs. It tells you what **your**
-costs become there.
+Rent is taken directly from the Department of Housing and Urban Development's Fair
+Market Rent for the bedrooms you need. It is a gross rent, so it already includes the
+utilities a tenant pays, and it is the one line published in dollars for every county
+in the country.
 
-```
-target cost = your cost × (target index ÷ your city's index)
-```
+Every other line starts from what households of your size spend nationally, from the
+Bureau of Labor Statistics' Consumer Expenditure Survey, and is priced at the local
+price level, from the Bureau of Economic Analysis's Regional Price Parities. Goods are
+priced with the goods index and services with the services index, because the two
+move differently between places:
 
-The indices come from the **BEA Regional Price Parities**, which measure the price
-level of one metro against the national average of 100. An index of 112 means
-prices are 12% above the national average; 91 means 9% below.
-
-They are published by category, so the scaling is done per category rather than
-once across the whole budget:
-
-| Category | Why it is separate |
+| Line | Where it comes from |
 |---|---|
-| Rent | Varies far more between metros than anything else — often the whole difference |
-| Goods | Groceries and retail, which move much less |
-| Other services | Healthcare, childcare, repairs |
+| Rent and utilities | HUD Fair Market Rent, by bedroom count |
+| Groceries, clothing, car purchase and fuel | National spending × local goods prices |
+| Eating out, health care, car insurance and upkeep, public transportation, phone and internet, education | National spending × local services prices |
+| Entertainment, personal care | National spending × the overall local price level |
 
-**No dollar figure for any city is invented here.** The dollars are yours; only the
-ratio comes from the data. That matters because spending patterns differ — a
-household spending 45% on rent and one spending 25% experience the same city
-differently, and a **living expenses calculator** built on an average basket
-describes neither.
+A price index of 100 is the national average; 112 means prices 12% above it, and 91
+means 9% below. The ratio between two places is the difference in what the same
+spending costs in each.
 
-For anyone without their own figures to hand, a regional default is shown from HUD
-Fair Market Rent and BLS regional CPI, labelled as an estimate rather than as your
-cost.
+## Your figures replace the estimate
+
+The line-by-line total is an estimate for a typical household of your size, and it is
+labelled as one. Replace any line with what you actually spend — your rent, your car
+payment, your grocery bill — and the total becomes yours. A household spending 45% of
+its budget on rent and one spending 25% live in the same city very differently, and a
+**living expenses calculator** that cannot take your numbers describes neither.
+
+## From a monthly cost to a salary
+
+The total is what a month costs after tax. The salary that covers it depends on the
+state, because income tax comes out before any of it can be spent: the living wage
+calculator turns the monthly total into the gross salary this place requires, and the
+paycheck calculator shows what a salary you are offered leaves after that state's tax.
 
 ## What this does not include
 
-- **Health insurance.** No reliable index exists at metro level, so the column is
-  absent rather than filled with a plausible number.
-- **State and local income tax**, which is the other half of the question and is
-  handled by the tax tools — a cost comparison that ignores what you keep is only
-  half an answer.
-- **One-off moving costs**, which are real but do not recur.
-- **Within-metro variation.** A metro index is an average across neighbourhoods
-  that can differ from each other by more than two metros differ from one another.
+- Savings, debt repayment and child care, which vary too much between households for
+  an average to mean anything.
+- Income tax, shown separately so that the cost of a place and the tax of a state can
+  be compared on their own.
+- One-off moving costs, which are real but do not recur.
+- Variation within a metro area: the price level is an average across neighbourhoods
+  that can differ from each other more than two metros differ.
 
-The BEA publishes annually and with a lag, so the index year is shown on the page.
-It is the most recent official data, not this month's prices.
+The price data is published annually and with a lag, so the year of every source is
+shown next to the result.
 
 ## Who needs this
 
-Anyone weighing a move, a remote job in another city, or an offer that comes with
-relocation. The useful question is rarely "is Austin expensive" — it is "does
-$95,000 in Austin leave me better off than $85,000 where I am", and that needs your
-numbers rather than a national average.
-
-A **monthly cost of living calculator** answers the first half. The second half is
-tax, and the two belong in the same session because neither is decisive alone.
+Anyone deciding whether they can afford a place before they move there — a new job, a
+remote role, a return home. The question is rarely "is Austin expensive"; it is "does
+$95,000 in Austin leave me better off than $85,000 where I am". A **monthly cost of
+living calculator** answers what the month costs, and the paycheck calculator answers
+what the salary leaves; the decision needs both.

@@ -42,7 +42,8 @@ frequently reverses once cost and tax are both applied.
 
 ## What this does not include
 
-- Health insurance, which has no reliable metro-level index.
+- The premiums of a particular health plan: the price level covers medical services
+  but not the terms of an employer's plan.
 - Local income tax, levied in nine states — New York City and every Maryland
   county are the largest cases, and both move the answer materially.
 - One-off moving costs.

@@ -303,10 +303,10 @@
       "path": "/tools/cost-of-living-calculator",
       "template": "ToolPage",
       "primary": "cost of living calculator",
-      "output": "Monthly: what one city costs for the user's household",
+      "output": "**What a month costs in one place for your household**, line by line — HUD rent for the bedrooms you need, then groceries, eating out, transportation, health care and the rest at local prices — and the salary that covers it after that state's tax",
       "canonical": "self",
       "stripsParams": true,
-      "metaHook": "Work out what a month actually costs in any US metro for your household size, using official BEA and HUD data. Free, no sign-up.",
+      "metaHook": "See what a month costs your household in any US metro: HUD rent for the bedrooms you need, plus groceries, transport and health care at local prices.",
       "stage": 1,
       "links": [
         {
@@ -324,6 +324,14 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator",
+          "anchor": "paycheck calculator"
+        },
+        {
+          "to": "/tools/living-wage-calculator",
+          "anchor": "living wage calculator"
         }
       ],
       "cluster": {
@@ -337,7 +345,8 @@
           "how much do i need to live in"
         ]
       },
-      "subject": "cost of living"
+      "subject": "cost of living",
+      "funnelRole": "The centre of the funnel, not its only entrance: most visitors arrive on paycheck pages (about 1 million searches a month against 110,000 for the cost-of-living pair). Every state paycheck page and the national paycheck page link here; this page links on to the comparison, rent affordability, the living wage and the paycheck calculator."
     },
     {
       "path": "/cost-of-living",
@@ -532,7 +541,7 @@
       "path": "/tools/salary-comparison-by-city",
       "template": "ToolPage",
       "primary": "salary comparison by city",
-      "output": "Equivalent salary in the destination city to hold the same standard of living",
+      "output": "**The salary that keeps your spending power after a move — after both states' income tax**, not prices alone: the destination salary that buys, after its state's tax, what your current salary buys after yours (equivalentSalaryAfterTax)",
       "canonical": "self",
       "stripsParams": true,
       "metaHook": "Find the salary you would need in another city to keep the same standard of living — cost of living and state tax both included.",
@@ -724,6 +733,10 @@
           "to": "/tools/paycheck-calculator/{state}",
           "anchor": "{state}",
           "$note": "A hub lists its children by name. '{state} paycheck calculator' as the anchor would repeat this page's own head term (9-3-1); the child's title and H1 carry it."
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "cluster": {
@@ -890,6 +903,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "cluster": {
@@ -1402,11 +1419,11 @@
         "cost-of-living-calculator": [
           [
             "How is cost of living calculated?",
-            "It is a price level, not a budget. The index used here comes from BEA Regional Price Parities, which measure the price of rent, goods and services in one metro against the national average of 100 — so a metro at 112 is 12% more expensive than the country as a whole."
+            "Rent comes straight from HUD's Fair Market Rent. Every other line is what households of your size spend nationally, from the BLS Consumer Expenditure Survey, priced at the local price level from BEA Regional Price Parities — the national average is 100, so a metro at 112 is 12% more expensive. Any line can be replaced with your own figure."
           ],
           [
             "What is included in cost of living?",
-            "Rent, goods and services. Rent comes from HUD Fair Market Rent at county level, and it is the component that varies most between places. Income tax is not part of the price level and is handled separately, because two places at the same price level can leave you with very different amounts of money."
+            "Rent and utilities from HUD Fair Market Rent for the bedrooms you need, then groceries, eating out, transportation, health care, clothing, phone and internet, entertainment, personal care and education — national spending for a household of your size, priced at local prices. Income tax is shown separately, because a place's prices and a state's tax are different questions."
           ],
           [
             "Is cost of living the same as inflation?",

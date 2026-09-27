@@ -884,8 +884,8 @@
       "title": "Cost of Living Calculator (2026)",
       "titleChars": 32,
       "h1": "Cost of Living Calculator",
-      "metaDescription": "Work out what a month actually costs in any US metro for your household size, using official BEA and HUD data. Free, no sign-up.",
-      "metaChars": 128,
+      "metaDescription": "See what a month costs your household in any US metro: HUD rent for the bedrooms you need, plus groceries, transport and health care at local prices.",
+      "metaChars": 149,
       "canonical": "https://example.com/tools/cost-of-living-calculator",
       "breadcrumb": [
         "Home",
@@ -901,11 +901,11 @@
       "faq": [
         {
           "question": "How is cost of living calculated?",
-          "answer": "It is a price level, not a budget. The index used here comes from BEA Regional Price Parities, which measure the price of rent, goods and services in one metro against the national average of 100 — so a metro at 112 is 12% more expensive than the country as a whole."
+          "answer": "Rent comes straight from HUD's Fair Market Rent. Every other line is what households of your size spend nationally, from the BLS Consumer Expenditure Survey, priced at the local price level from BEA Regional Price Parities — the national average is 100, so a metro at 112 is 12% more expensive. Any line can be replaced with your own figure."
         },
         {
           "question": "What is included in cost of living?",
-          "answer": "Rent, goods and services. Rent comes from HUD Fair Market Rent at county level, and it is the component that varies most between places. Income tax is not part of the price level and is handled separately, because two places at the same price level can leave you with very different amounts of money."
+          "answer": "Rent and utilities from HUD Fair Market Rent for the bedrooms you need, then groceries, eating out, transportation, health care, clothing, phone and internet, entertainment, personal care and education — national spending for a household of your size, priced at local prices. Income tax is shown separately, because a place's prices and a state's tax are different questions."
         },
         {
           "question": "Is cost of living the same as inflation?",
@@ -970,7 +970,7 @@
               "name": "How is cost of living calculated?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "It is a price level, not a budget. The index used here comes from BEA Regional Price Parities, which measure the price of rent, goods and services in one metro against the national average of 100 — so a metro at 112 is 12% more expensive than the country as a whole."
+                "text": "Rent comes straight from HUD's Fair Market Rent. Every other line is what households of your size spend nationally, from the BLS Consumer Expenditure Survey, priced at the local price level from BEA Regional Price Parities — the national average is 100, so a metro at 112 is 12% more expensive. Any line can be replaced with your own figure."
               }
             },
             {
@@ -978,7 +978,7 @@
               "name": "What is included in cost of living?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Rent, goods and services. Rent comes from HUD Fair Market Rent at county level, and it is the component that varies most between places. Income tax is not part of the price level and is handled separately, because two places at the same price level can leave you with very different amounts of money."
+                "text": "Rent and utilities from HUD Fair Market Rent for the bedrooms you need, then groceries, eating out, transportation, health care, clothing, phone and internet, entertainment, personal care and education — national spending for a household of your size, priced at local prices. Income tax is shown separately, because a place's prices and a state's tax are different questions."
               }
             },
             {
@@ -1016,6 +1016,14 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator",
+          "anchor": "paycheck calculator"
+        },
+        {
+          "to": "/tools/living-wage-calculator",
+          "anchor": "living wage calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -2172,6 +2180,10 @@
         {
           "to": "/tools/paycheck-calculator/texas",
           "anchor": "Texas"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "n/a",
@@ -3078,15 +3090,15 @@
       "faq": [
         {
           "question": "How expensive is Austin?",
-          "answer": "PENDING_DATA: needs BEA/HUD figures for Austin, TX (13-6)."
+          "answer": "PENDING_DATA: needs BEA price indices for Austin, TX (13-6)."
         },
         {
           "question": "What is a typical rent in Austin?",
-          "answer": "PENDING_DATA: needs BEA/HUD figures for Austin, TX (13-6)."
+          "answer": "HUD's Fair Market Rent for Austin is $1,562 a month for a one-bedroom and $1,852 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
         },
         {
           "question": "What salary do you need to live in Austin?",
-          "answer": "PENDING_DATA: needs BEA/HUD figures for Austin, TX (13-6)."
+          "answer": "PENDING_DATA: needs BEA price indices for Austin, TX (13-6)."
         },
         {
           "question": "Does Texas tax affect what you keep in Austin?",
@@ -3140,7 +3152,7 @@
               "name": "How expensive is Austin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA/HUD figures for Austin, TX (13-6)."
+                "text": "PENDING_DATA: needs BEA price indices for Austin, TX (13-6)."
               }
             },
             {
@@ -3148,7 +3160,7 @@
               "name": "What is a typical rent in Austin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA/HUD figures for Austin, TX (13-6)."
+                "text": "HUD's Fair Market Rent for Austin is $1,562 a month for a one-bedroom and $1,852 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
               }
             },
             {
@@ -3156,7 +3168,7 @@
               "name": "What salary do you need to live in Austin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA/HUD figures for Austin, TX (13-6)."
+                "text": "PENDING_DATA: needs BEA price indices for Austin, TX (13-6)."
               }
             },
             {
@@ -3220,7 +3232,7 @@
           "anchor": "sales tax calculator"
         }
       ],
-      "dataVerification": "pending-bea-hud",
+      "dataVerification": "rent-ready; price-indices-pending-bea",
       "staleForTargetYear": false,
       "sitemap": null,
       "built": false
@@ -3252,15 +3264,15 @@
       "faq": [
         {
           "question": "How expensive is San Francisco?",
-          "answer": "PENDING_DATA: needs BEA/HUD figures for San Francisco, CA (13-6)."
+          "answer": "PENDING_DATA: needs BEA price indices for San Francisco, CA (13-6)."
         },
         {
           "question": "What is a typical rent in San Francisco?",
-          "answer": "PENDING_DATA: needs BEA/HUD figures for San Francisco, CA (13-6)."
+          "answer": "HUD's Fair Market Rent for San Francisco is $2,977 a month for a one-bedroom and $3,604 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
         },
         {
           "question": "What salary do you need to live in San Francisco?",
-          "answer": "PENDING_DATA: needs BEA/HUD figures for San Francisco, CA (13-6)."
+          "answer": "PENDING_DATA: needs BEA price indices for San Francisco, CA (13-6)."
         },
         {
           "question": "Does California tax affect what you keep in San Francisco?",
@@ -3314,7 +3326,7 @@
               "name": "How expensive is San Francisco?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA/HUD figures for San Francisco, CA (13-6)."
+                "text": "PENDING_DATA: needs BEA price indices for San Francisco, CA (13-6)."
               }
             },
             {
@@ -3322,7 +3334,7 @@
               "name": "What is a typical rent in San Francisco?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA/HUD figures for San Francisco, CA (13-6)."
+                "text": "HUD's Fair Market Rent for San Francisco is $2,977 a month for a one-bedroom and $3,604 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
               }
             },
             {
@@ -3330,7 +3342,7 @@
               "name": "What salary do you need to live in San Francisco?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA/HUD figures for San Francisco, CA (13-6)."
+                "text": "PENDING_DATA: needs BEA price indices for San Francisco, CA (13-6)."
               }
             },
             {
@@ -3394,7 +3406,7 @@
           "anchor": "sales tax calculator"
         }
       ],
-      "dataVerification": "pending-bea-hud",
+      "dataVerification": "rent-ready; price-indices-pending-bea",
       "staleForTargetYear": false,
       "sitemap": null,
       "built": false
@@ -3426,15 +3438,15 @@
       "faq": [
         {
           "question": "How expensive is San Antonio?",
-          "answer": "PENDING_DATA: needs BEA/HUD figures for San Antonio, TX (13-6)."
+          "answer": "PENDING_DATA: needs BEA price indices for San Antonio, TX (13-6)."
         },
         {
           "question": "What is a typical rent in San Antonio?",
-          "answer": "PENDING_DATA: needs BEA/HUD figures for San Antonio, TX (13-6)."
+          "answer": "HUD's Fair Market Rent for San Antonio is $1,177 a month for a one-bedroom and $1,426 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
         },
         {
           "question": "What salary do you need to live in San Antonio?",
-          "answer": "PENDING_DATA: needs BEA/HUD figures for San Antonio, TX (13-6)."
+          "answer": "PENDING_DATA: needs BEA price indices for San Antonio, TX (13-6)."
         },
         {
           "question": "Does Texas tax affect what you keep in San Antonio?",
@@ -3488,7 +3500,7 @@
               "name": "How expensive is San Antonio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA/HUD figures for San Antonio, TX (13-6)."
+                "text": "PENDING_DATA: needs BEA price indices for San Antonio, TX (13-6)."
               }
             },
             {
@@ -3496,7 +3508,7 @@
               "name": "What is a typical rent in San Antonio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA/HUD figures for San Antonio, TX (13-6)."
+                "text": "HUD's Fair Market Rent for San Antonio is $1,177 a month for a one-bedroom and $1,426 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
               }
             },
             {
@@ -3504,7 +3516,7 @@
               "name": "What salary do you need to live in San Antonio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA/HUD figures for San Antonio, TX (13-6)."
+                "text": "PENDING_DATA: needs BEA price indices for San Antonio, TX (13-6)."
               }
             },
             {
@@ -3568,7 +3580,7 @@
           "anchor": "sales tax calculator"
         }
       ],
-      "dataVerification": "pending-bea-hud",
+      "dataVerification": "rent-ready; price-indices-pending-bea",
       "staleForTargetYear": false,
       "sitemap": null,
       "built": false
@@ -3600,15 +3612,15 @@
       "faq": [
         {
           "question": "How expensive is Houston?",
-          "answer": "PENDING_DATA: needs BEA/HUD figures for Houston, TX (13-6)."
+          "answer": "PENDING_DATA: needs BEA price indices for Houston, TX (13-6)."
         },
         {
           "question": "What is a typical rent in Houston?",
-          "answer": "PENDING_DATA: needs BEA/HUD figures for Houston, TX (13-6)."
+          "answer": "HUD's Fair Market Rent for Houston is $1,323 a month for a one-bedroom and $1,573 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
         },
         {
           "question": "What salary do you need to live in Houston?",
-          "answer": "PENDING_DATA: needs BEA/HUD figures for Houston, TX (13-6)."
+          "answer": "PENDING_DATA: needs BEA price indices for Houston, TX (13-6)."
         },
         {
           "question": "Does Texas tax affect what you keep in Houston?",
@@ -3662,7 +3674,7 @@
               "name": "How expensive is Houston?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA/HUD figures for Houston, TX (13-6)."
+                "text": "PENDING_DATA: needs BEA price indices for Houston, TX (13-6)."
               }
             },
             {
@@ -3670,7 +3682,7 @@
               "name": "What is a typical rent in Houston?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA/HUD figures for Houston, TX (13-6)."
+                "text": "HUD's Fair Market Rent for Houston is $1,323 a month for a one-bedroom and $1,573 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
               }
             },
             {
@@ -3678,7 +3690,7 @@
               "name": "What salary do you need to live in Houston?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA/HUD figures for Houston, TX (13-6)."
+                "text": "PENDING_DATA: needs BEA price indices for Houston, TX (13-6)."
               }
             },
             {
@@ -3742,7 +3754,7 @@
           "anchor": "sales tax calculator"
         }
       ],
-      "dataVerification": "pending-bea-hud",
+      "dataVerification": "rent-ready; price-indices-pending-bea",
       "staleForTargetYear": false,
       "sitemap": null,
       "built": false
@@ -3911,6 +3923,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -4082,6 +4098,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -4253,6 +4273,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -4424,6 +4448,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -4595,6 +4623,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -4766,6 +4798,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -4937,6 +4973,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -5108,6 +5148,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -5279,6 +5323,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -5450,6 +5498,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -5621,6 +5673,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -5792,6 +5848,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -5963,6 +6023,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6134,6 +6198,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6305,6 +6373,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6476,6 +6548,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6647,6 +6723,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6818,6 +6898,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -6989,6 +7073,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -7160,6 +7248,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -7331,6 +7423,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -7502,6 +7598,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -7673,6 +7773,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -7844,6 +7948,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -8015,6 +8123,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -8186,6 +8298,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -8357,6 +8473,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -8528,6 +8648,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -8699,6 +8823,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -8870,6 +8998,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9041,6 +9173,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9212,6 +9348,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9383,6 +9523,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9554,6 +9698,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9725,6 +9873,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -9896,6 +10048,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -10067,6 +10223,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -10238,6 +10398,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -10409,6 +10573,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -10580,6 +10748,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -10751,6 +10923,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -10922,6 +11098,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -11093,6 +11273,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -11264,6 +11448,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -11435,6 +11623,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -11606,6 +11798,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -11777,6 +11973,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -11948,6 +12148,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -12119,6 +12323,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -12290,6 +12498,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",
@@ -12461,6 +12673,10 @@
         {
           "to": "/tools/sales-tax-calculator",
           "anchor": "sales tax calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
         }
       ],
       "dataVerification": "pending",

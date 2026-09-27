@@ -37,12 +37,22 @@ bodies = {("/" if f.stem == "home" else "/" + f.stem.replace("__", "/"))
 
 # --- data -----------------------------------------------------------------
 col = sorted((ROOT / "src/data").glob("cost-of-living-*/us/*.json"))
+fmr = sorted((ROOT / "src/data").glob("rent-fy*/fmr-counties.json"))
+ces = sorted((ROOT / "src/data").glob("ces-*/baseline.json"))
+if not fmr:
+    add("BLOCKER", "data", "HUD Fair Market Rents not imported.",
+        "me: scripts/import_hud_fmr.py (reads the policyengine-us wheel)")
 if not col:
-    add("BLOCKER", "data", "Cost-of-living dataset (BEA RPP + HUD FMR) does not exist. Four "
-        "tools cannot compute without it: cost of living, comparison, rent affordability "
-        "(market side), living wage.",
-        "you: allow apps.bea.gov and www.huduser.gov in the environment, or run "
-        "scripts/fetch_cost_of_living.py locally with free keys")
+    add("BLOCKER", "data", "BEA Regional Price Parities missing. HUD rents are imported for every "
+        "county, so rent affordability and the living wage work; the cost-of-living calculator, "
+        "the comparison and the metro pages still need the price level.",
+        "you: allow apps.bea.gov in the environment (or run scripts/fetch_cost_of_living.py "
+        "locally with a free BEA key)")
+if not ces:
+    add("BLOCKER", "data", "BLS Consumer Expenditure averages missing: the cost-of-living "
+        "calculator's household estimate (groceries, transport, health care...) needs them. "
+        "Visitors can still enter their own figures.",
+        "you: allow api.bls.gov in the environment (or run scripts/fetch_ces.py locally)")
 states = [json.loads(f.read_text()) for f in (ROOT / "src/data/tax-year-2026/states").glob("*.json")]
 unverified = [s["slug"] for s in states if s.get("verification") != "verified"]
 if unverified:

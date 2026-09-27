@@ -15,10 +15,18 @@
       "cpc": 2.71,
       "slug": "austin-tx",
       "indices": null,
-      "referenceRent": null,
-      "dataStatus": "pending-bea-hud",
+      "referenceRent": {
+        "bedrooms0": 1474.0,
+        "bedrooms1": 1562.0,
+        "bedrooms2": 1852.0,
+        "bedrooms3": 2347.0,
+        "bedrooms4": 2760.0
+      },
+      "dataStatus": "rent-ready; price-indices-pending-bea",
       "stateAbbr": "TX",
-      "principalCounty": "Travis County"
+      "principalCounty": "Travis County",
+      "principalCountyFips": "48453",
+      "rentSource": "HUD FMR FY2026 (Travis County, TX)"
     },
     {
       "name": "San Francisco, CA",
@@ -29,10 +37,18 @@
       "cpc": 0.89,
       "slug": "san-francisco-ca",
       "indices": null,
-      "referenceRent": null,
-      "dataStatus": "pending-bea-hud",
+      "referenceRent": {
+        "bedrooms0": 2485.0,
+        "bedrooms1": 2977.0,
+        "bedrooms2": 3604.0,
+        "bedrooms3": 4604.0,
+        "bedrooms4": 4772.0
+      },
+      "dataStatus": "rent-ready; price-indices-pending-bea",
       "stateAbbr": "CA",
-      "principalCounty": "San Francisco County"
+      "principalCounty": "San Francisco County",
+      "principalCountyFips": "06075",
+      "rentSource": "HUD FMR FY2026 (San Francisco County, CA)"
     },
     {
       "name": "San Antonio, TX",
@@ -43,10 +59,18 @@
       "cpc": 8.85,
       "slug": "san-antonio-tx",
       "indices": null,
-      "referenceRent": null,
-      "dataStatus": "pending-bea-hud",
+      "referenceRent": {
+        "bedrooms0": 1077.0,
+        "bedrooms1": 1177.0,
+        "bedrooms2": 1426.0,
+        "bedrooms3": 1830.0,
+        "bedrooms4": 2132.0
+      },
+      "dataStatus": "rent-ready; price-indices-pending-bea",
       "stateAbbr": "TX",
-      "principalCounty": "Bexar County"
+      "principalCounty": "Bexar County",
+      "principalCountyFips": "48029",
+      "rentSource": "HUD FMR FY2026 (Bexar County, TX)"
     },
     {
       "name": "Houston, TX",
@@ -57,10 +81,18 @@
       "cpc": 4.05,
       "slug": "houston-tx",
       "indices": null,
-      "referenceRent": null,
-      "dataStatus": "pending-bea-hud",
+      "referenceRent": {
+        "bedrooms0": 1280.0,
+        "bedrooms1": 1323.0,
+        "bedrooms2": 1573.0,
+        "bedrooms3": 2116.0,
+        "bedrooms4": 2639.0
+      },
+      "dataStatus": "rent-ready; price-indices-pending-bea",
       "stateAbbr": "TX",
-      "principalCounty": "Harris County"
+      "principalCounty": "Harris County",
+      "principalCountyFips": "48201",
+      "rentSource": "HUD FMR FY2026 (Harris County, TX)"
     }
   ]
 }

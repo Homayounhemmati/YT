@@ -47,7 +47,10 @@ no separate index the overall index is used and the page says so.
   quotes a figure in a state with local income tax says the figure is before it.
 - State-specific credits and most additions and subtractions to income.
 - Tax on investment income, and the treatment of stock compensation.
-- Health insurance costs, for which no official index exists at metro level.
+- The premiums of your own health plan. The health-care line in a household estimate
+  is national average spending priced at the local services level, which includes
+  medical services but not the terms of a particular employer plan; replace it with
+  your own figure where you know it.
 - Your employer's withholding, which is an estimate; we compute the liability, and
   the refund or bill at filing is the difference between the two.
 

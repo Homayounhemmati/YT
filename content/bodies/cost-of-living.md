@@ -25,7 +25,7 @@ is not inflation, which compares one place across time.
 ## What the index leaves out
 
 A price index says nothing about income tax, which is why each metro page adds what a
-salary keeps after the state's tax. It also does not cover health insurance premiums,
-for which no official metro-level index exists, or the costs specific to your
-household, such as child care. For those, the comparison tools scale your own figures
-rather than inventing an average.
+salary keeps after the state's tax. It prices medical services with everything else
+but not the premiums of a particular health plan, and it cannot know costs specific
+to your household, such as child care. For those, the calculators take your own
+figures rather than inventing an average.

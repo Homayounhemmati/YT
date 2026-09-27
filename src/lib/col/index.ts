@@ -6,8 +6,10 @@ import {
   COST_CATEGORIES,
   type Bedrooms,
   type CostCategory,
+  type HouseholdSize,
   type MonthlyCosts,
   type PlaceCostData,
+  type SpendingBaseline,
 } from "./types.js";
 
 export * from "./types.js";
@@ -361,29 +363,8 @@ export function livingWage(input: LivingWageInput): LivingWage {
   }
 
   const required = (rent + other) * 12;
-  const netAt = (grossCents: Cents) =>
-    toCents(
-      estimateWageTakeHome(
-        {
-          taxYear: input.taxYear,
-          filingStatus: input.filingStatus,
-          annualWages: toDollars(grossCents),
-        },
-        input.tax,
-      ).netPay,
-    );
-
-  // Net pay rises with gross everywhere (no marginal rate reaches 100%), so the
-  // smallest gross that clears the requirement is found by bisection, to the cent.
-  let lo: Cents = required;
-  let hi: Cents = Math.max(required * 3, 100);
-  while (netAt(hi) < required) hi *= 2;
-  while (hi - lo > 1) {
-    const mid = Math.floor((lo + hi) / 2);
-    if (netAt(mid) >= required) hi = mid;
-    else lo = mid;
-  }
-  const gross = netAt(lo) >= required ? lo : hi;
+  const netAt = netPayFn(input.taxYear, input.filingStatus, input.tax);
+  const gross = grossForNet(required, netAt);
 
   warnings.push(
     "A break-even figure: it covers the costs entered and nothing else — no " +
@@ -402,3 +383,169 @@ export function livingWage(input: LivingWageInput): LivingWage {
   };
 }
 
+
+
+// ---------------------------------------------------------------------------
+// Shared: solve for the gross salary that yields a given net
+// ---------------------------------------------------------------------------
+
+function netPayFn(taxYear: number, filingStatus: FilingStatus, tax: EngineData) {
+  return (grossCents: Cents): Cents =>
+    toCents(
+      estimateWageTakeHome(
+        { taxYear, filingStatus, annualWages: toDollars(grossCents) },
+        tax,
+      ).netPay,
+    );
+}
+
+/**
+ * Smallest gross (in cents) whose net pay reaches `targetNet`. Net pay rises with
+ * gross everywhere — no combined marginal rate reaches 100% — so bisection finds
+ * it to the cent.
+ */
+export function grossForNet(targetNet: Cents, netAt: (g: Cents) => Cents): Cents {
+  if (targetNet <= 0) return 0;
+  let lo: Cents = targetNet;
+  let hi: Cents = Math.max(targetNet * 3, 100);
+  while (netAt(hi) < targetNet) hi *= 2;
+  while (hi - lo > 1) {
+    const mid = Math.floor((lo + hi) / 2);
+    if (netAt(mid) >= targetNet) hi = mid;
+    else lo = mid;
+  }
+  return netAt(lo) >= targetNet ? lo : hi;
+}
+
+// ---------------------------------------------------------------------------
+// Equivalent salary AFTER tax — the figure no price-only tool can give
+// ---------------------------------------------------------------------------
+
+export interface EquivalentAfterTax {
+  originNetPay: number;
+  /** Net pay needed at the destination to buy what origin net pay buys. */
+  targetNetAtDestination: number;
+  /** Gross salary at the destination that produces that net pay. */
+  equivalentGross: number;
+  /** The price-only answer, for contrast: salary x index ratio. */
+  priceOnlyEquivalent: number;
+  /** How far tax moves the answer away from the price-only one. */
+  taxAdjustment: number;
+  warnings: string[];
+}
+
+export function equivalentSalaryAfterTax(
+  input: { taxYear: number; filingStatus: FilingStatus; salary: number },
+  origin: PlaceTax,
+  destination: PlaceTax,
+): EquivalentAfterTax {
+  assertComparable(origin.place, destination.place);
+  const oNet = netPayFn(input.taxYear, input.filingStatus, origin.tax)(toCents(input.salary));
+  const target = scale(oNet, destination.place.indices.allItems, origin.place.indices.allItems);
+  const gross = grossForNet(target, netPayFn(input.taxYear, input.filingStatus, destination.tax));
+  const priceOnly = toCents(equivalentSalary(input.salary, origin.place, destination.place));
+  return {
+    originNetPay: toDollars(oNet),
+    targetNetAtDestination: toDollars(target),
+    equivalentGross: toDollars(gross),
+    priceOnlyEquivalent: toDollars(priceOnly),
+    taxAdjustment: toDollars(gross - priceOnly),
+    warnings: [
+      "Holds after-tax spending power constant: the destination salary buys, after " +
+        "that state's tax, what the current salary buys after the current state's tax.",
+    ],
+  };
+}
+
+// ---------------------------------------------------------------------------
+// What one place costs a household, by category
+// ---------------------------------------------------------------------------
+
+export interface CityCostRow {
+  key: string;
+  label: string;
+  monthly: number;
+  basis: "HUD Fair Market Rent" | "national average at local prices" | "your figure";
+}
+
+export interface CityCostInput {
+  place: PlaceCostData;
+  householdSize: HouseholdSize;
+  bedrooms: Bedrooms;
+  baseline: SpendingBaseline;
+  /** The household's own monthly figures, replacing a category's estimate. */
+  own?: Partial<Record<string, number>>;
+  rentOverride?: number;
+}
+
+export interface CityCost {
+  rows: CityCostRow[];
+  monthlyTotal: number;
+  annualTotal: number;
+  warnings: string[];
+}
+
+/**
+ * Rent is HUD's figure for the bedroom count; every other category is the
+ * national average for a household of this size, priced at the place's own
+ * price level. Nothing is invented: a category the baseline does not carry is
+ * not shown, and a place without price indices is refused rather than guessed.
+ */
+export function cityMonthlyCost(input: CityCostInput): CityCost {
+  const { place, baseline } = input;
+  if (!(place.indices?.allItems > 0)) {
+    throw new Error(`${place.name} has no price level yet; its costs cannot be estimated.`);
+  }
+  const warnings: string[] = [];
+  const rows: CityCostRow[] = [];
+
+  const fmr = place.referenceRent?.[`bedrooms${input.bedrooms}`];
+  if (input.rentOverride != null) {
+    rows.push({ key: "rent", label: "Rent and utilities", monthly: toDollars(toCents(input.rentOverride)), basis: "your figure" });
+  } else if (fmr != null) {
+    rows.push({ key: "rent", label: "Rent and utilities", monthly: toDollars(toCents(fmr)), basis: "HUD Fair Market Rent" });
+  } else {
+    throw new Error(`No Fair Market Rent for ${input.bedrooms} bedrooms in ${place.name}; enter a rent.`);
+  }
+
+  const annual = baseline.annualByHouseholdSize[`${input.householdSize}`];
+  for (const [key, cat] of Object.entries(baseline.categories)) {
+    const own = input.own?.[key];
+    if (own != null) {
+      rows.push({ key, label: cat.label, monthly: toDollars(toCents(own)), basis: "your figure" });
+      continue;
+    }
+    const base = annual?.[key];
+    if (base == null) continue;
+    let index = place.indices[cat.index];
+    if (index == null) {
+      index = place.indices.allItems;
+      warnings.push(`${cat.label}: no separate ${cat.index} index for ${place.name}; the overall price level was used.`);
+    }
+    const monthly = Math.round((toCents(base) * index) / 100 / 12);
+    rows.push({ key, label: cat.label, monthly: toDollars(monthly), basis: "national average at local prices" });
+  }
+
+  const total = rows.reduce((a, r) => a + toCents(r.monthly), 0);
+  warnings.push(
+    "Categories other than rent are an estimate for a typical household of this size " +
+      "at local prices, not your own spending. Replace any line with your figure.",
+  );
+  if (baseline.year !== place.dataYear) {
+    warnings.push(`Spending averages are for ${baseline.year}; price levels for ${place.dataYear}.`);
+  }
+  return { rows, monthlyTotal: toDollars(total), annualTotal: toDollars(total * 12), warnings };
+}
+
+/** A default the user can change: two people per bedroom, never fewer than one bedroom. */
+export function suggestedBedrooms(people: number): Bedrooms {
+  return Math.min(4, Math.max(1, Math.ceil(people / 2))) as Bedrooms;
+}
+
+/** HUD county rents to the engine's `referenceRent` shape. */
+export function referenceRentFromFmr(
+  county: { rent: Record<string, number> | null } | undefined,
+): NonNullable<PlaceCostData["referenceRent"]> | null {
+  if (!county?.rent) return null;
+  return { ...county.rent } as NonNullable<PlaceCostData["referenceRent"]>;
+}

@@ -13,12 +13,13 @@ import { loadEstimated, loadFederal, loadState } from "../src/lib/tax/load.js";
 import { estimateWageTakeHome } from "../src/lib/tax/payroll.js";
 import { closingCosts, homeAffordability, housePayment } from "../src/lib/calc/housing.js";
 import { addSalesTax, annualGrossFromHourly, propertyTax, removeSalesTax, salaryToHourly } from "../src/lib/calc/everyday.js";
-import { rentAffordability } from "../src/lib/col/index.js";
+import { readFileSync } from "node:fs";
+import { referenceRentFromFmr, rentAffordability, type PlaceCostData } from "../src/lib/col/index.js";
 
 const YEAR = 2026;
 const federal = loadFederal(YEAR), estimated = loadEstimated(YEAR);
 const tax = (s: string) => ({ federal, estimated, state: loadState(YEAR, s) });
-const usd = (n: number) => "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const usd = (n: number) => (n < 0 ? "-$" : "$") + Math.abs(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const rows: string[] = [];
 const section = (title: string, head: string[], body: (string | number)[][]) => {
   rows.push(`\n## ${title}\n`, `| ${head.join(" | ")} |`, `|${head.map(() => "---").join("|")}|`);
@@ -89,6 +90,22 @@ section("Property tax", ["Market value", "Assessment", "Mills", "Annual", "Effec
 const ra = rentAffordability({ grossAnnualIncome: 60000 });
 section("Rent affordability", ["Income", "30% ceiling", "50% line", "3× screen"],
   [[usd(60000), usd(ra.ceiling), usd(ra.severeLine), usd(ra.landlordScreenMax)]]);
+
+// Real HUD FY2026 rents, from scripts/import_hud_fmr.py
+const fmr = JSON.parse(readFileSync("src/data/rent-fy2026/fmr-counties.json", "utf8"));
+const county = (fips: string): PlaceCostData => ({
+  slug: fips, name: `${fmr.counties[fips].name}, ${fmr.counties[fips].state}`, type: "metro", region: "us",
+  dataYear: fmr.fiscalYear, stateSlug: null, indices: { allItems: 100 },
+  referenceRent: referenceRentFromFmr(fmr.counties[fips]), sources: [], lastVerified: "", verification: "pending",
+});
+const rr = (inc: number, fips: string, b: 0 | 1 | 2 | 3) => {
+  const r = rentAffordability({ grossAnnualIncome: inc, place: county(fips), bedrooms: b });
+  const m = r.market!;
+  return [usd(inc), county(fips).name, b, usd(m.fairMarketRent), m.shareOfIncome.toFixed(1) + "%", m.burden, usd(m.headroom), usd(m.incomeNeededAt30)];
+};
+section(`Rent affordability against HUD FY${fmr.fiscalYear} Fair Market Rent (real data)`,
+  ["Income", "County", "Bedrooms", "HUD rent", "Share of income", "Burden", "Headroom", "Income needed at 30%"],
+  [rr(60000, "48453", 1), rr(60000, "06075", 1), rr(85000, "48201", 2), rr(45000, "48029", 0)]);
 
 const head = [
   "# Calculator acceptance cases",

@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-27 · **Version:** 5.17
+> **Last revised:** 2026-09-27 · **Version:** 5.18
+>
+> **Version 5.18:** The cost-of-living calculator is rebuilt as the centre of the funnel: a household month line by line, and the salary that covers it after tax. HUD rents for all 3,158 single-rent counties are now real data, read from the policyengine-us bundle; the BEA price level and BLS spending averages are the remaining inputs. Details in 20-34.
 >
 > **Version 5.17:** The pending paycheck decision was taken: the take-home tool is now the paycheck calculator (550,000 a month) and the state set is '{State} Paycheck Calculator' on the salary engine. The state engine now models personal exemptions, eight state pages and every trust page are written, and launch blockers fell from 13 to 6 — all six outside this repository. Details in 20-33.
 >
@@ -763,7 +765,7 @@ difference:
 | Limitation | Why |
 |---|---|
 | ~~Tax is not included in the comparison~~ | **Corrected.** A cross-link is not enough: a comparison that ignores tax is exactly what competitors give. Section 4-9-5 |
-| Health insurance | No reliable official index at metro level. **The column is not created** (rule 5-3) |
+| Health insurance premiums of a specific plan | No official index at metro level. *(Revised in 20-34: the household estimate carries a "Health care" line — national CES health spending priced at the BEA services level, which includes medical services — labelled as an estimate and replaceable by the user's own figure. No plan-specific premium is ever shown.)* |
 | Comparing the US with Europe | BEA and Eurostat use different bases; combining them is meaningless. Comparison stays **within a region** |
 | Currency conversion | Cross-country European comparison stays in euros |
 
@@ -4441,6 +4443,44 @@ session the model assumes is confirmed (`docs/measurement.md`).
 **Launch blockers: 13 → 6**, each outside this repository — the cost-of-living dataset
 (network access), primary-source verification of state data, a fifth measured metro,
 the About biography, the domain, and verifying the Base44 build.
+
+---
+
+### 20-34. Round thirty-five — version 5.18 · the cost-of-living calculator, completed as far as the data allows
+
+**Its place in the funnel.** Measured demand puts about 1 million searches a month on
+paycheck pages and about 110,000 on the cost-of-living pair, so most visitors will not
+enter here. The calculator is the funnel's centre rather than its only entrance: every
+paycheck page links to it, and it links on to the comparison, rent affordability, the
+living wage and the paycheck calculator. Its output answers the question a paycheck
+visitor has next — *what does living there cost me?*
+
+**What it now computes.** A household month, line by line: rent and utilities from
+HUD Fair Market Rent for the bedrooms needed; groceries, eating out, car purchase and
+fuel, car insurance and upkeep, public transport, health care, clothing, phone and
+internet, entertainment, personal care and education from national spending for a
+household of that size (BLS Consumer Expenditure Survey) priced at the local goods or
+services level (BEA RPP); any line replaceable by the visitor's own figure; and the
+gross salary that covers the total after that state's tax. The comparison tool gains
+`equivalentSalaryAfterTax` — the destination salary that preserves after-tax spending
+power, shown beside the price-only answer. 13 new tests; 135 in total.
+
+**Rent was never blocked.** The policyengine-us package bundles HUD's FY2025 and FY2026
+county FMR file and the Census county names. `import_hud_fmr.py` writes FY2026 rents for
+3,158 counties; 59 New England counties priced by town get a range, never an invented
+county figure. Rent affordability and the living wage now run on real data nationally,
+the metro rent FAQ answers resolve, and the acceptance table carries real-rent cases —
+among them that a one-bedroom at San Francisco's Fair Market Rent needs $119,080 a year
+to stay under the 30% line. `fetch_cost_of_living.py` no longer needs a HUD key.
+
+**Health care, revised.** 4-9-3 kept health insurance out because no metro index exists
+for premiums. The household estimate now carries a health-care line — national spending
+priced at the BEA services level, which includes medical services — labelled as an
+estimate and replaceable; no plan-specific premium is ever shown.
+
+**What remains.** BEA price parities (`apps.bea.gov`) and BLS spending averages
+(`api.bls.gov`, `scripts/fetch_ces.py`) — two network allowances, after which the
+calculator, the comparison and the metro pages are complete.
 
 ---
 

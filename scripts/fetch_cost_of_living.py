@@ -11,7 +11,6 @@ schema is specified in 5-5, the page templates are generated, and the audit chec
 are in place. This script is the missing step.
 
     export BEA_API_KEY=...      # free: https://apps.bea.gov/API/signup/
-    export HUD_API_TOKEN=...    # free: https://www.huduser.gov/portal/dataset/fmr-api.html
     python3 scripts/fetch_cost_of_living.py --rpp-year 2024 --fmr-year 2026
 
 Writes src/data/cost-of-living-{year}/us/{metro-slug}.json in the 5-5 schema, then
@@ -184,16 +183,20 @@ def main():
     args = ap.parse_args()
 
     bea_key = os.environ.get("BEA_API_KEY")
-    hud_token = os.environ.get("HUD_API_TOKEN")
-    if not bea_key or not hud_token:
-        sys.exit("Both BEA_API_KEY and HUD_API_TOKEN are required — a metro without "
-                 "rent is not a cost-of-living page. Free keys:\n"
-                 "  https://apps.bea.gov/API/signup/\n"
-                 "  https://www.huduser.gov/portal/dataset/fmr-api.html")
+    if not bea_key:
+        sys.exit("BEA_API_KEY is required. Free key: https://apps.bea.gov/API/signup/")
+
+    # Rent no longer needs the HUD API: scripts/import_hud_fmr.py writes HUD's
+    # county file locally, and each metro names its principal county's FIPS code.
+    fmr_path = ROOT / f"src/data/rent-fy{args.fmr_year}/fmr-counties.json"
+    if not fmr_path.exists():
+        sys.exit(f"{fmr_path.relative_to(ROOT)} is missing: run scripts/import_hud_fmr.py "
+                 f"--year {args.fmr_year} first")
+    fmr = json.loads(fmr_path.read_text())
 
     metros = json.loads((ROOT / args.metros).read_text())["metros"]
     for m in metros:
-        for field in ("stateAbbr", "principalCounty"):
+        for field in ("stateAbbr", "principalCounty", "principalCountyFips"):
             if not m.get(field):
                 sys.exit(f"{m['slug']}: metros.json needs `{field}`")
     retrieved = datetime.date.today().isoformat()
@@ -207,8 +210,10 @@ def main():
 
     for m in metros:
         code, row = match_msa(rpp, m)
-        fips = county_fips(hud_token, m["stateAbbr"], m["principalCounty"])
-        rent = fetch_fmr(hud_token, args.fmr_year, fips)
+        county = fmr["counties"].get(m["principalCountyFips"])
+        if not county or not county.get("rent"):
+            sys.exit(f"{m['slug']}: no single HUD FMR for county {m['principalCountyFips']}")
+        rent = county["rent"]
         doc = {
             "slug": m["slug"],
             "name": row["name"],
@@ -226,9 +231,8 @@ def main():
                 {"label": f"BEA Regional Price Parities, MARPP, {args.rpp_year}",
                  "url": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
                  "retrieved": retrieved},
-                {"label": f"HUD Fair Market Rent, FY{args.fmr_year}",
-                 "url": "https://www.huduser.gov/portal/datasets/fmr.html",
-                 "retrieved": retrieved},
+                {"label": fmr["source"]["label"], "url": fmr["source"]["url"],
+                 "retrieved": fmr["source"]["retrieved"]},
             ],
             "lastVerified": "",
             "verification": "pending",

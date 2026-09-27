@@ -356,9 +356,17 @@ def build_metro(m, pages_doc, page_spec, tpl, origin, site_name, data_year, ld,
     faq = []
     for q, a in pages_doc["onPage"]["faqFormulas"]["PlacePage"]:
         answer = sub(a)
-        if "{INDEX_SENTENCE}" in answer or "{RENT_SENTENCE}" in answer \
+        rent = m.get("referenceRent") or {}
+        if "{RENT_SENTENCE}" in answer and rent.get("bedrooms1") and rent.get("bedrooms2"):
+            # HUD's county file is local now (scripts/import_hud_fmr.py), so the rent
+            # answer no longer waits on the BEA price indices.
+            answer = (f"HUD's Fair Market Rent for {display} is {money(rent['bedrooms1'])} a month "
+                      f"for a one-bedroom and {money(rent['bedrooms2'])} for a two-bedroom. That is "
+                      "gross rent, including the utilities a tenant pays, at the 40th percentile of "
+                      "what recent movers paid — a typical rent, not a luxury one.")
+        elif "{INDEX_SENTENCE}" in answer or "{RENT_SENTENCE}" in answer \
                 or "{SALARY_SENTENCE}" in answer:
-            answer = f"PENDING_DATA: needs BEA/HUD figures for {m['name']} (13-6)."
+            answer = f"PENDING_DATA: needs BEA price indices for {m['name']} (13-6)."
         elif "{TAX_SENTENCE}" in answer:
             answer = (
                 f"Yes. On a $95,000 salary, a single {state} resident keeps "

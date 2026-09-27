@@ -77,3 +77,12 @@ The last row has a $10,000 401(k) deferral: FICA must be unchanged from the row 
 | Income | 30% ceiling | 50% line | 3× screen |
 |---|---|---|---|
 | $60,000.00 | $1,500.00 | $2,500.00 | $1,666.66 |
+
+## Rent affordability against HUD FY2026 Fair Market Rent (real data)
+
+| Income | County | Bedrooms | HUD rent | Share of income | Burden | Headroom | Income needed at 30% |
+|---|---|---|---|---|---|---|---|
+| $60,000.00 | Travis County, TX | 1 | $1,562.00 | 31.2% | cost burdened | -$62.00 | $62,480.00 |
+| $60,000.00 | San Francisco County, CA | 1 | $2,977.00 | 59.5% | severely cost burdened | -$1,477.00 | $119,080.00 |
+| $85,000.00 | Harris County, TX | 2 | $1,573.00 | 22.2% | not burdened | $552.00 | $62,920.00 |
+| $45,000.00 | Bexar County, TX | 0 | $1,077.00 | 28.7% | not burdened | $48.00 | $43,080.00 |

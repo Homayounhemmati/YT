@@ -20,7 +20,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 | `/privacy` | Privacy — LifeCalc Pro | 22 | 122 | n/a |
 | `/terms` | Terms — LifeCalc Pro | 20 | 123 | n/a |
 | `/contact` | Contact — LifeCalc Pro | 22 | 114 | n/a |
-| `/tools/cost-of-living-calculator` | Cost of Living Calculator (2026) | 32 | 128 | n/a |
+| `/tools/cost-of-living-calculator` | Cost of Living Calculator (2026) | 32 | 149 | n/a |
 | `/cost-of-living` | Cost of Living by City (2026) | 29 | 124 | n/a |
 | `/tools/rent-affordability-calculator` | Rent Affordability Calculator (2026) | 36 | 132 | n/a |
 | `/tools/cost-of-living-comparison` | Cost of Living Comparison (2026) | 32 | 135 | n/a |
@@ -35,10 +35,10 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 | `/tools/closing-cost-calculator` | Closing Cost Calculator (2026) | 30 | 129 | n/a |
 | `/tools/house-payment-calculator` | House Payment Calculator (2026) | 31 | 127 | n/a |
 | `/tools/home-affordability-calculator` | Home Affordability Calculator (2026) | 36 | 133 | n/a |
-| `/cost-of-living/austin-tx` | Cost of Living in Austin (2026) | 31 | 120 | pending-bea-hud |
-| `/cost-of-living/san-francisco-ca` | Cost of Living in San Francisco (2026) | 38 | 132 | pending-bea-hud |
-| `/cost-of-living/san-antonio-tx` | Cost of Living in San Antonio (2026) | 36 | 125 | pending-bea-hud |
-| `/cost-of-living/houston-tx` | Cost of Living in Houston (2026) | 32 | 121 | pending-bea-hud |
+| `/cost-of-living/austin-tx` | Cost of Living in Austin (2026) | 31 | 120 | rent-ready; price-indices-pending-bea |
+| `/cost-of-living/san-francisco-ca` | Cost of Living in San Francisco (2026) | 38 | 132 | rent-ready; price-indices-pending-bea |
+| `/cost-of-living/san-antonio-tx` | Cost of Living in San Antonio (2026) | 36 | 125 | rent-ready; price-indices-pending-bea |
+| `/cost-of-living/houston-tx` | Cost of Living in Houston (2026) | 32 | 121 | rent-ready; price-indices-pending-bea |
 | `/tools/paycheck-calculator/alabama` | Alabama Paycheck Calculator (2026) | 34 | 141 | pending |
 | `/tools/paycheck-calculator/alaska` | Alaska Paycheck Calculator (2026) | 33 | 127 | pending |
 | `/tools/paycheck-calculator/arizona` | Arizona Paycheck Calculator (2026) | 34 | 141 | pending |
@@ -129,6 +129,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 | `/tools/paycheck-calculator` | paycheck calculator |
 | `/state-taxes` | state income tax rates |
 | `/tools/sales-tax-calculator` | sales tax calculator |
+| `/tools/cost-of-living-calculator` | cost of living calculator |
 
 **JSON-LD**
 
@@ -271,6 +272,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 | `/tools/paycheck-calculator` | paycheck calculator |
 | `/state-taxes` | state income tax rates |
 | `/tools/sales-tax-calculator` | sales tax calculator |
+| `/tools/cost-of-living-calculator` | cost of living calculator |
 
 **JSON-LD**
 
