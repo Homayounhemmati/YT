@@ -5,7 +5,7 @@ income and debts and returns the highest price those support.
 
 ## The 28/36 rule, and where lenders depart from it
 
-Conventional underwriting applies two ratios to gross monthly income:
+The long-standing rule of thumb applies two ratios to gross monthly income:
 
 ```
 front-end  28%  — housing alone: principal, interest, taxes, insurance, HOA
@@ -17,12 +17,14 @@ and minimum card payments all count against it while contributing nothing toward
 house. Two households with identical incomes and a $600 monthly difference in car
 payments qualify for roughly $65,000 to $80,000 of price difference at a 6–7% rate.
 
-The 28/36 figures are guidance rather than law. A 43% debt-to-income cap was part of
-the federal Qualified Mortgage rule until 2021, when a price-based test replaced it; 43%
-survives as a common ceiling in manual underwriting, and Fannie Mae's automated
-underwriting approves some loans up to 50%. **How much
-house can i afford** therefore has a conservative answer and a maximum answer, and the
-gap between them is where most buyer regret lives.
+The 28/36 figures are guidance rather than law, and the lenders' own limits sit around
+them. Fannie Mae sets no front-end ratio at all: for a loan underwritten by hand, total
+debt may reach 36% of income — up to 45% with strong credit and reserves — and its
+automated underwriting accepts up to 50%. FHA caps a manually underwritten loan at 31%
+for housing and 43% in total unless compensating factors allow more. A 43% cap was also
+part of the federal Qualified Mortgage rule until 2021, when a price-based test replaced
+it. **How much house can i afford** therefore has a conservative answer and a maximum
+answer, and the gap between them is where most buyer regret lives.
 
 ## The four components of the payment being tested
 

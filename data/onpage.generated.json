@@ -1457,7 +1457,7 @@
         },
         {
           "question": "How much does state tax change take-home pay?",
-          "answer": "On a $95,000 salary the spread between the best and worst jurisdiction is more than $7,500 a year, or about 8% of the salary. None of it appears in an offer letter."
+          "answer": "On a $95,000 salary, state tax alone runs from nothing in Texas or Florida to $4,565 a year in New York, about 4.8% of the salary, before any city tax. None of it appears in an offer letter."
         }
       ],
       "jsonLd": [
@@ -1538,7 +1538,7 @@
               "name": "How much does state tax change take-home pay?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "On a $95,000 salary the spread between the best and worst jurisdiction is more than $7,500 a year, or about 8% of the salary. None of it appears in an offer letter."
+                "text": "On a $95,000 salary, state tax alone runs from nothing in Texas or Florida to $4,565 a year in New York, about 4.8% of the salary, before any city tax. None of it appears in an offer letter."
               }
             }
           ]
@@ -2033,7 +2033,7 @@
         },
         {
           "question": "Why is my take-home pay so much lower than my salary?",
-          "answer": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state by more than $7,500 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
+          "answer": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state: $4,565 a year between Texas and New York alone. Pre-tax deductions like a 401(k) and health premiums change it further."
         },
         {
           "question": "What is the difference between biweekly and semi-monthly pay?",
@@ -2106,7 +2106,7 @@
               "name": "Why is my take-home pay so much lower than my salary?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state by more than $7,500 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
+                "text": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state: $4,565 a year between Texas and New York alone. Pre-tax deductions like a 401(k) and health premiums change it further."
               }
             },
             {

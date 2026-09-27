@@ -57,10 +57,11 @@ def tokens(text):
     text = re.sub(r"\*\*|__", "", text)
     for m in NUM.finditer(text):
         tok = norm(m.group())
-        # "401(k)", "199A" and "W-4" are names, not quantities.
+        # "401(k)", "199A", "W-4" and "MW507" are names, not quantities.
         after = text[m.end():m.end() + 3]
         before = text[max(0, m.start() - 2):m.start()]
-        if after.startswith("(k)") or after[:1].isalpha() or re.fullmatch(r"[A-Z]-", before):
+        if (after.startswith("(k)") or after[:1].isalpha() or re.fullmatch(r"[A-Z]-", before)
+                or before[-1:].isalpha()):
             continue
         yield tok
 

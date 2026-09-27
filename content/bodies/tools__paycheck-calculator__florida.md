@@ -17,12 +17,22 @@ A **florida take home pay calculator** that shows a larger figure than this for 
 same salary has either left out FICA or assumed pre-tax deductions you have not
 entered; one that shows less has usually applied self-employment tax.
 
+## Why the zero is durable
+
+Florida's zero is written into its constitution rather than left to each year's
+budget: the finance and taxation article forbids the state to tax the income of
+natural persons who are residents or citizens. Introducing a wage tax would take a
+constitutional amendment put to Florida's voters, which is why relocation advisers and
+employers treat the state's position as settled rather than as a rate that could
+change next session.
+
 ## Moving to Florida from a taxed state
 
 Most people running these numbers are comparing a job in Florida with one somewhere
-else. The state layer is where that comparison moves: on this salary, the gap between
-the best and worst states runs to more than $7,500 a year, about 8% of gross, and
-Florida sits at the top of that range.
+else. The state layer is where that comparison moves: on this salary New York's state
+tax alone is $4,565 a year, about 4.8% of gross, and Florida's is nothing — so a move
+between the two changes take-home by that much before any city tax or rent is
+counted.
 
 What the paycheck does not show is the rest of the cost of living. Florida funds
 itself through sales tax, property tax and tourism levies rather than wages, and home

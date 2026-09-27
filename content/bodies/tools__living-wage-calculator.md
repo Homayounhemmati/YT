@@ -28,7 +28,7 @@ Costs are paid out of net income, but salaries are quoted in gross. A tool that
 compares a metro's costs against a gross figure is comparing two things measured on
 different scales. Nine states levy no income tax at all; the rest range from Arizona's
 flat 2.5% to progressive schedules passing 10%. On a single $95,000 salary the
-spread between the best and worst state runs to more than $7,500 a year, which is a
+state line alone runs from nothing in Texas to $4,565 in New York, which is a
 meaningful share of what a household would call breathing room.
 
 This is why **how much do i need to earn to live in** a given city is a tax question as

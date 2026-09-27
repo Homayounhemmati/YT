@@ -99,6 +99,28 @@ for (const slug of slugs) {
   };
 }
 
+// Cross-state figures quoted in copy use VERIFIED states only (data/tax-primary):
+// an unverified state's model can be missing a whole provision (Oregon's federal
+// tax subtraction), and a national "best minus worst" would inherit that error.
+type Out = { name: string; takeHome: number; stateTax: number; selfEmployed: { takeHome: number } };
+const verified = slugs.filter((s) => loadState(YEAR, s).verification === "verified");
+const vrows = verified.map((s) => [s, out[s] as Out] as const);
+const best = vrows.reduce((a, b) => (b[1].takeHome > a[1].takeHome ? b : a));
+const worst = vrows.reduce((a, b) => (b[1].takeHome < a[1].takeHome ? b : a));
+const seGap = vrows.map(([, r]) => round(r.takeHome - r.selfEmployed.takeHome));
+const verifiedSpread = {
+  states: verified,
+  best: { slug: best[0], takeHome: best[1].takeHome },
+  worst: { slug: worst[0], takeHome: worst[1].takeHome, stateTax: worst[1].stateTax },
+  spread: round(best[1].takeHome - worst[1].takeHome),
+  spreadPctOfGross: +(((best[1].takeHome - worst[1].takeHome) / AMOUNT) * 100).toFixed(1),
+  selfEmployedGapMin: Math.min(...seGap),
+  selfEmployedGapMax: Math.max(...seGap),
+};
+console.log(`verified   ${verified.length} states · spread $${verifiedSpread.spread} ` +
+  `(${verifiedSpread.spreadPctOfGross}%) · self-employed gap $${verifiedSpread.selfEmployedGapMin}` +
+  `-$${verifiedSpread.selfEmployedGapMax}`);
+
 writeFileSync(
   "data/takehome-95k.json",
   JSON.stringify(
@@ -110,6 +132,7 @@ writeFileSync(
         "scenario. Never quote a selfEmployed figure under the word 'salary'.",
       taxYear: YEAR,
       scenario: { filingStatus: "single", amount: AMOUNT },
+      verifiedSpread,
       states: out,
     },
     null,

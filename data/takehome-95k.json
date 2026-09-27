@@ -5,6 +5,31 @@
     "filingStatus": "single",
     "amount": 95000
   },
+  "verifiedSpread": {
+    "states": [
+      "florida",
+      "georgia",
+      "illinois",
+      "maryland",
+      "new-york",
+      "north-carolina",
+      "pennsylvania",
+      "texas"
+    ],
+    "best": {
+      "slug": "florida",
+      "takeHome": 75662.5
+    },
+    "worst": {
+      "slug": "new-york",
+      "takeHome": 71097.75,
+      "stateTax": 4564.75
+    },
+    "spread": 4564.75,
+    "spreadPctOfGross": 4.8,
+    "selfEmployedGapMin": 1108.57,
+    "selfEmployedGapMax": 1502.74
+  },
   "states": {
     "alabama": {
       "name": "Alabama",

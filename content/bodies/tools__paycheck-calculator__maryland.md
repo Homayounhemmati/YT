@@ -52,6 +52,15 @@ Maryland's standard deduction is also indexed now: a recent law replaced the old
 percentage-of-income deduction with a flat amount that rises with inflation each year,
 which is why the 2026 figure differs slightly from last year's.
 
+## Form MW507
+
+Maryland's withholding certificate is Form MW507, and it is where the shrinking
+exemption turns into real money. Each exemption claimed on it is worth $3,200 of
+income for withholding, and the form's own worksheet tells employees above $100,000 of
+income ($150,000 on a joint return) to claim fewer. Skip the worksheet and your
+employer keeps withholding as if the full exemption applied; the shortfall arrives as
+a balance due when you file, together with the county share it carried.
+
 ## Hourly pay and overtime
 
 Hourly workers in Maryland pay the same layers on whatever their hours come to, with

@@ -21,13 +21,14 @@
       "id": "salary-spread",
       "scope": "*",
       "tokens": [
-        "$7,500",
-        "8%"
+        "$4,565",
+        "4.8%",
+        "$71,098"
       ],
       "basis": "computed",
-      "means": "Best-minus-worst state take-home on a $95,000 salary is more than $7,500, about 8% of gross",
-      "reference": "data/takehome-95k.json: Alaska 75,662.50 - Oregon 67,908.06 = 7,754.44 on Oregon's 2025 brackets; 2026 indexing lowers Oregon's tax slightly, so the copy states a floor. Re-confirm when Oregon's 2026 brackets are extracted.",
-      "status": "needs-verification"
+      "means": "Among verified states, state tax on a $95,000 salary runs from $0 (Texas, Florida) to $4,564.75 (New York), 4.8% of gross; New York take-home $71,097.75",
+      "reference": "data/takehome-95k.json verifiedSpread (scripts/compute_takehome.ts): verified states only, because an unverified model can be missing a whole provision (Oregon's federal tax subtraction). Replaces the earlier 'more than $7,500', which rested on Oregon's incomplete model.",
+      "status": "verified"
     },
     {
       "id": "employee-fica",
@@ -78,7 +79,21 @@
       "basis": "statute",
       "means": "BEA Regional Price Parities are expressed against a national average of 100",
       "reference": "BEA RPP methodology, https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
-      "status": "cited-not-fetched"
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+          "phrases": [
+            "are expressed as a percentage of the overall national price level"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area"
+        ]
+      }
     },
     {
       "id": "hud-cost-burden",
@@ -89,8 +104,23 @@
       ],
       "basis": "statute",
       "means": "HUD cost burden (>30% of income on housing) and severe cost burden (>50%)",
-      "reference": "HUD CHAS data definitions, https://www.huduser.gov/portal/datasets/cp.html",
-      "status": "cited-not-fetched"
+      "reference": "HUD CHAS background, definitions of cost burden and severe cost burden, https://www.huduser.gov/portal/datasets/cp/CHAS/bg_chas.html",
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://www.huduser.gov/portal/datasets/cp/CHAS/bg_chas.html",
+          "phrases": [
+            "Monthly housing costs (including utilities) exceeding 30% of monthly income",
+            "Monthly housing costs (including utilities) exceeding 50% of monthly income"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://www.huduser.gov/portal/datasets/cp/CHAS/bg_chas.html"
+        ]
+      }
     },
     {
       "id": "state-counts",
@@ -117,7 +147,28 @@
       "basis": "external",
       "means": "Buyer closing costs typically run 2% to 5% of the purchase price",
       "reference": "Freddie Mac, 'Closing costs' (My Home), and CFPB Closing Disclosure guidance",
-      "status": "needs-verification"
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://myhome.freddiemac.com/blog/homebuying/what-are-closing-costs-and-how-much-will-i-pay",
+          "phrases": [
+            "pay between 2% and 5% of the home purchase price in closing fees"
+          ]
+        },
+        {
+          "url": "https://www.consumerfinance.gov/owning-a-home/prepare/determine-your-down-payment/",
+          "phrases": [
+            "range from 2-5% of the home purchase price"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://myhome.freddiemac.com/blog/homebuying/what-are-closing-costs-and-how-much-will-i-pay",
+          "https://www.consumerfinance.gov/owning-a-home/prepare/determine-your-down-payment/"
+        ]
+      }
     },
     {
       "id": "closing-examples",
@@ -142,7 +193,21 @@
       "basis": "statute",
       "means": "Some states' realty transfer tax exceeds 1% of price",
       "reference": "e.g. Delaware realty transfer tax, 30 Del. C. ch. 54",
-      "status": "cited-not-fetched"
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://delcode.delaware.gov/title30/c054/sc01/index.html",
+          "phrases": [
+            "a realty transfer tax at the rate of 3 percent of the value of the property"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://delcode.delaware.gov/title30/c054/sc01/index.html"
+        ]
+      }
     },
     {
       "id": "rpp-reading",
@@ -197,9 +262,24 @@
         "36%"
       ],
       "basis": "external",
-      "means": "Conventional front-end and back-end ratio guidance",
-      "reference": "Fannie Mae / FHA conventional underwriting guidance",
-      "status": "needs-verification"
+      "means": "The 28/36 front-end and back-end rule of thumb",
+      "reference": "FDIC Money Smart, 'How Much Mortgage Can I Afford?' (front-end 25%-28%, back-end 33%-36%)",
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://www.fdic.gov/system/files/2024-08/borrowing-money-how-much-mortgage-can-i-afford.pdf",
+          "phrases": [
+            "less than or equal to 25% to 28% of monthly gross income",
+            "less than or equal to 33% or 36% of monthly gross income"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://www.fdic.gov/system/files/2024-08/borrowing-money-how-much-mortgage-can-i-afford.pdf"
+        ]
+      }
     },
     {
       "id": "qm-2021",
@@ -210,19 +290,61 @@
       ],
       "basis": "statute",
       "means": "The 43% DTI cap left the General QM definition in 2021",
-      "reference": "CFPB General QM Final Rule (December 2020, effective March 1, 2021), 12 CFR 1026.43(e)(2)",
-      "status": "cited-not-fetched"
+      "reference": "CFPB, Qualified Mortgage Definition: General QM Loan Definition, final rule, 85 FR (December 29, 2020), effective March 1, 2021 (Federal Register document 2020-27567)",
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://www.federalregister.gov/api/v1/documents/2020-27567.json?fields[]=abstract&fields[]=effective_on",
+          "phrases": [
+            "removes the General QM loan definition's 43 percent DTI limit",
+            "2021-03-01"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://www.federalregister.gov/api/v1/documents/2020-27567.json?fields[]=abstract&fields[]=effective_on"
+        ]
+      }
     },
     {
       "id": "du-50",
       "scope": "home-affordability-calculator",
       "tokens": [
-        "50%"
+        "50%",
+        "36%",
+        "45%",
+        "31%",
+        "43%"
       ],
       "basis": "external",
-      "means": "Fannie Mae Desktop Underwriter maximum DTI",
-      "reference": "Fannie Mae Selling Guide B3-6-02",
-      "status": "cited-not-fetched"
+      "means": "Fannie Mae: manual maximum total DTI 36%, up to 45% with credit and reserves, DU up to 50%; FHA manual 31/43 without compensating factors",
+      "reference": "Fannie Mae Selling Guide B3-6-02; HUD Handbook 4000.1, Approvable Ratio Requirements (Manual)",
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://selling-guide.fanniemae.com/sel/b3-6-02/debt-income-ratios",
+          "phrases": [
+            "For manually underwritten loans, Fannie Mae's maximum total DTI ratio is 36% of the borrower's stable monthly income",
+            "The maximum can be exceeded up to 45%",
+            "For loan casefiles underwritten through DU, the maximum allowable DTI ratio is 50%"
+          ]
+        },
+        {
+          "url": "https://www.hud.gov/sites/dfiles/OCHCO/documents/4000.1hsgh-102021.pdf",
+          "phrases": [
+            "580 and above 31/43 No compensating factors required"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://selling-guide.fanniemae.com/sel/b3-6-02/debt-income-ratios",
+          "https://www.hud.gov/sites/dfiles/OCHCO/documents/4000.1hsgh-102021.pdf"
+        ]
+      }
     },
     {
       "id": "car-payment",
@@ -285,8 +407,23 @@
       ],
       "basis": "statute",
       "means": "PMI below 20% down; cancellable at 80% LTV, automatic at 78% (22% equity)",
-      "reference": "Homeowners Protection Act of 1998, 12 U.S.C. 4902",
-      "status": "cited-not-fetched"
+      "reference": "Homeowners Protection Act of 1998, 12 U.S.C. 4901 (definitions of cancellation date and termination date) and 4902",
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://www.law.cornell.edu/uscode/text/12/4901",
+          "phrases": [
+            "is first scheduled to reach 80 percent of the original value of the property securing the loan",
+            "is first scheduled to reach 78 percent of the original value of the property securing the loan"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://www.law.cornell.edu/uscode/text/12/4901"
+        ]
+      }
     },
     {
       "id": "tax-rate-gap",
@@ -344,7 +481,21 @@
       "basis": "statute",
       "means": "QBI deduction of up to 20%",
       "reference": "26 U.S.C. 199A(a)",
-      "status": "cited-not-fetched"
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://www.law.cornell.edu/uscode/text/26/199A",
+          "phrases": [
+            "an amount equal to 20 percent of the excess"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://www.law.cornell.edu/uscode/text/26/199A"
+        ]
+      }
     },
     {
       "id": "min-wage",
@@ -354,9 +505,23 @@
         "2009"
       ],
       "basis": "statute",
-      "means": "Federal minimum wage since July 24, 2009",
+      "means": "Federal minimum wage since July 24, 2009 (the 60th day after May 25, 2007 is July 24, 2007; 24 months later is July 24, 2009)",
       "reference": "29 U.S.C. 206(a)(1)(C)",
-      "status": "cited-not-fetched"
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://www.law.cornell.edu/uscode/text/29/206",
+          "phrases": [
+            "$6.55 an hour, beginning 12 months after that 60th day; and (C) $7.25 an hour, beginning 24 months after that 60th day"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://www.law.cornell.edu/uscode/text/29/206"
+        ]
+      }
     },
     {
       "id": "min-wage-annual",
@@ -388,13 +553,38 @@
       "id": "assessment-ratios",
       "scope": "property-tax-calculator",
       "tokens": [
-        "40%",
+        "40%"
+      ],
+      "basis": "statute",
+      "means": "Georgia assesses at 40% of fair market value",
+      "reference": "O.C.G.A. 48-5-7, as stated by the Georgia Department of Revenue",
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://dor.georgia.gov/property-tax-valuation",
+          "phrases": [
+            "In Georgia property is required to be assessed at 40% of the fair market value unless otherwise specified by law. (O.C.G.A. 48-5-7)"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://dor.georgia.gov/property-tax-valuation"
+        ]
+      }
+    },
+    {
+      "id": "assessment-ratio-ct",
+      "scope": "property-tax-calculator",
+      "tokens": [
         "70%"
       ],
       "basis": "statute",
-      "means": "Georgia assesses at 40% of fair market value, Connecticut at 70%",
-      "reference": "O.C.G.A. 48-5-7(a); Conn. Gen. Stat. 12-62a(b)",
-      "status": "cited-not-fetched"
+      "means": "Connecticut assesses at 70% of fair market value",
+      "reference": "Conn. Gen. Stat. 12-62a(b)",
+      "status": "cited-not-fetched",
+      "note": "cga.ct.gov and justia were unreachable from the build network (TLS chain / 403); confirm from https://www.cga.ct.gov/current/pub/chap_203.htm"
     },
     {
       "id": "georgia-example",
@@ -445,7 +635,23 @@
       "basis": "statute",
       "means": "Brooke Amendment 25% cap (1969), raised to 30% (1981)",
       "reference": "Brooke Amendment, Housing and Urban Development Act of 1969 (Pub. L. 91-152); raised to 30% by the Omnibus Budget Reconciliation Act of 1981 (Pub. L. 97-35)",
-      "status": "cited-not-fetched"
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://www.huduser.gov/portal//portal/sites/default/files/pdf/Rent-Reform-in-Subsidized-Housing.pdf",
+          "phrases": [
+            "In 1969, the Brooke Amendment established limitations on the rents charged",
+            "limited rent charges to 25 percent of an assisted family's income",
+            "raising the threshold to 30 percent (enacted in 1981)"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://www.huduser.gov/portal//portal/sites/default/files/pdf/Rent-Reform-in-Subsidized-Housing.pdf"
+        ]
+      }
     },
     {
       "id": "rent-examples",
@@ -564,12 +770,12 @@
       "id": "se-vs-salary",
       "scope": "paycheck-calculator",
       "tokens": [
-        "$879",
+        "$1,109",
         "$1,503"
       ],
       "basis": "computed",
       "means": "Range of salary-minus-self-employment take-home across 51 jurisdictions",
-      "reference": "data/takehome-95k.json",
+      "reference": "data/takehome-95k.json · recomputed over verified states: verifiedSpread.selfEmployedGapMin 1,108.57, Max 1,502.74",
       "status": "verified"
     },
     {
@@ -581,7 +787,21 @@
       "basis": "statute",
       "means": "Overtime at 1.5 times the regular rate above 40 hours in a workweek",
       "reference": "Fair Labor Standards Act, 29 U.S.C. 207(a)(1)",
-      "status": "cited-not-fetched"
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://www.law.cornell.edu/uscode/text/29/207",
+          "phrases": [
+            "for a workweek longer than forty hours unless such employee receives compensation for his employment in excess of the hours above specified at a rate not less than one and one-half times the regular rate"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://www.law.cornell.edu/uscode/text/29/207"
+        ]
+      }
     },
     {
       "id": "hourly-example",
