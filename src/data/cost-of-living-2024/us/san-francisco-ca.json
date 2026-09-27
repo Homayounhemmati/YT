@@ -1,0 +1,40 @@
+{
+  "slug": "san-francisco-ca",
+  "name": "San Francisco-Oakland-Fremont, CA (Metropolitan Statistical Area)",
+  "displayName": "San Francisco",
+  "type": "metro",
+  "region": "us",
+  "msaCode": "41860",
+  "dataYear": 2024,
+  "fmrYear": 2026,
+  "indices": {
+    "allItems": 115.613,
+    "goods": 108.465,
+    "rent": 194.718,
+    "utilities": 172.585,
+    "otherServices": 106.207
+  },
+  "referenceRent": {
+    "bedrooms0": 2485.0,
+    "bedrooms1": 2977.0,
+    "bedrooms2": 3604.0,
+    "bedrooms3": 4604.0,
+    "bedrooms4": 4772.0
+  },
+  "rentCounty": "San Francisco County, CA",
+  "stateSlug": "california",
+  "sources": [
+    {
+      "label": "BEA Regional Price Parities, MARPP, 2024 (released 2026-02-10)",
+      "url": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+      "retrieved": "2026-09-27"
+    },
+    {
+      "label": "HUD Fair Market Rents, FY2026",
+      "url": "https://www.huduser.gov/portal/datasets/fmr.html",
+      "retrieved": "2026-09-27"
+    }
+  ],
+  "lastVerified": "",
+  "verification": "pending"
+}

@@ -1,0 +1,40 @@
+{
+  "slug": "austin-tx",
+  "name": "Austin-Round Rock-San Marcos, TX (Metropolitan Statistical Area)",
+  "displayName": "Austin",
+  "type": "metro",
+  "region": "us",
+  "msaCode": "12420",
+  "dataYear": 2024,
+  "fmrYear": 2026,
+  "indices": {
+    "allItems": 98.066,
+    "goods": 93.757,
+    "rent": 120.361,
+    "utilities": 82.044,
+    "otherServices": 96.24
+  },
+  "referenceRent": {
+    "bedrooms0": 1474.0,
+    "bedrooms1": 1562.0,
+    "bedrooms2": 1852.0,
+    "bedrooms3": 2347.0,
+    "bedrooms4": 2760.0
+  },
+  "rentCounty": "Travis County, TX",
+  "stateSlug": "texas",
+  "sources": [
+    {
+      "label": "BEA Regional Price Parities, MARPP, 2024 (released 2026-02-10)",
+      "url": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+      "retrieved": "2026-09-27"
+    },
+    {
+      "label": "HUD Fair Market Rents, FY2026",
+      "url": "https://www.huduser.gov/portal/datasets/fmr.html",
+      "retrieved": "2026-09-27"
+    }
+  ],
+  "lastVerified": "",
+  "verification": "pending"
+}

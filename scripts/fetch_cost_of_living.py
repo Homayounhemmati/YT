@@ -172,40 +172,80 @@ def match_msa(rpp, metro):
     return hits[0]
 
 
+BULK = "https://apps.bea.gov/regional/zip/MARPP.zip"
+
+
+def load_bulk():
+    """BEA's own bulk file for table MARPP — no API key, straight from the source.
+    Returns ({msa_code: {"name", "indices": {component: value}}}, year, released)."""
+    import csv, io, zipfile
+    req = urllib.request.Request(BULK, headers={"User-Agent": "LifeCalc data import"})
+    with urllib.request.urlopen(req, timeout=120) as r:
+        z = zipfile.ZipFile(io.BytesIO(r.read()))
+    name = next(n for n in z.namelist() if n.startswith("MARPP_MSA") and n.endswith(".csv"))
+    released = z.getinfo(name).date_time
+    rows = list(csv.DictReader(io.TextIOWrapper(z.open(name), encoding="latin-1")))
+    years = [c for c in rows[0] if c.strip().isdigit()]
+    year = max(years)
+    # Components are matched by description, never by line number (utilities is
+    # line 4 and "other" line 5 — a hard-coded 4 would store utilities as other).
+    comp = {}
+    for r in rows:
+        desc = (r.get("Description") or "").strip().lower()
+        for key, needles in RPP_COMPONENTS.items():
+            if "rpp" in desc and any(n in desc for n in needles):
+                if key == "otherServices" and "services" not in desc:
+                    continue
+                if key == "goods" and "services" in desc:
+                    continue
+                comp.setdefault(r["LineCode"], key)
+    out = {}
+    for r in rows:
+        key = comp.get(r.get("LineCode"))
+        if not key:
+            continue
+        code = r["GeoFIPS"].strip().strip('"')
+        v = (r.get(year) or "").strip()
+        try:
+            val = float(v)
+        except ValueError:
+            continue   # "(NA)" or suppressed: the category is omitted, never filled
+        e = out.setdefault(code, {"name": r["GeoName"].strip().strip('"'), "indices": {}})
+        e["indices"][key] = val
+    return out, int(year), "%04d-%02d-%02d" % released[:3], sorted(set(comp.values()))
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--rpp-year", type=int, required=True,
-                    help="latest BEA RPP year (published with a lag of about a year)")
     ap.add_argument("--fmr-year", type=int, required=True,
                     help="HUD fiscal year of the Fair Market Rents (current FY)")
     ap.add_argument("--metros", default="data/metros.json",
                     help="only metros that pass the gate in 6-10-3 are built")
     args = ap.parse_args()
 
-    bea_key = os.environ.get("BEA_API_KEY")
-    if not bea_key:
-        sys.exit("BEA_API_KEY is required. Free key: https://apps.bea.gov/API/signup/")
-
-    # Rent no longer needs the HUD API: scripts/import_hud_fmr.py writes HUD's
-    # county file locally, and each metro names its principal county's FIPS code.
+    # Rent comes from HUD's county file, imported locally by
+    # scripts/import_hud_fmr.py; each metro names its principal county's FIPS code.
     fmr_path = ROOT / f"src/data/rent-fy{args.fmr_year}/fmr-counties.json"
     if not fmr_path.exists():
         sys.exit(f"{fmr_path.relative_to(ROOT)} is missing: run scripts/import_hud_fmr.py "
                  f"--year {args.fmr_year} first")
     fmr = json.loads(fmr_path.read_text())
 
-    metros = json.loads((ROOT / args.metros).read_text())["metros"]
+    metros_doc = json.loads((ROOT / args.metros).read_text())
+    metros = metros_doc["metros"]
     for m in metros:
         for field in ("stateAbbr", "principalCounty", "principalCountyFips"):
             if not m.get(field):
                 sys.exit(f"{m['slug']}: metros.json needs `{field}`")
     retrieved = datetime.date.today().isoformat()
 
-    print(f"fetching BEA regional price parities for {args.rpp_year}...")
-    rpp = fetch_rpp(bea_key, args.rpp_year)
-    print(f"  {len(rpp)} MSAs returned\n")
+    print("fetching BEA Regional Price Parities (bulk file MARPP)...")
+    rpp, year, released, components = load_bulk()
+    print(f"  {len(rpp)} areas · latest year {year} · file dated {released} · components {components}\n")
+    if "allItems" not in components:
+        sys.exit("the all-items line was not identified — stopping rather than guessing")
 
-    outdir = ROOT / f"src/data/cost-of-living-{args.rpp_year}/us"
+    outdir = ROOT / f"src/data/cost-of-living-{year}/us"
     outdir.mkdir(parents=True, exist_ok=True)
 
     for m in metros:
@@ -221,14 +261,14 @@ def main():
             "type": "metro",
             "region": "us",
             "msaCode": code,
-            "dataYear": args.rpp_year,
+            "dataYear": year,
             "fmrYear": args.fmr_year,
             "indices": row["indices"],
             "referenceRent": rent,
             "rentCounty": f"{m['principalCounty']}, {m['stateAbbr']}",
             "stateSlug": m["stateSlug"],
             "sources": [
-                {"label": f"BEA Regional Price Parities, MARPP, {args.rpp_year}",
+                {"label": f"BEA Regional Price Parities, MARPP, {year} (released {released})",
                  "url": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
                  "retrieved": retrieved},
                 {"label": fmr["source"]["label"], "url": fmr["source"]["url"],
@@ -238,13 +278,16 @@ def main():
             "verification": "pending",
         }
         (outdir / f"{m['slug']}.json").write_text(json.dumps(doc, indent=2) + "\n")
-        print(f"  {m['slug']:<22} {row['name'][:48]:<48} all items "
-              f"{row['indices'].get('allItems')}  1BR ${rent['bedrooms1']}")
+        m["indices"] = row["indices"]
+        m["dataYear"] = year
+        m["msaCode"] = code
+        m["dataStatus"] = "indices-and-rent-ready"
+        print(f"  {m['slug']:<18} {row['name'][:46]:<46} all items "
+              f"{row['indices'].get('allItems')}  1BR ${rent['bedrooms1']:,.0f}")
 
-    print(f"\nwrote {len(metros)} files to {outdir.relative_to(ROOT)}")
-    print("BEFORE TRUSTING: check one metro by hand against the published BEA table "
-          "and the HUD FMR lookup, then set lastVerified and verification.")
-    print(f"next: python3 scripts/validate_cost_of_living.py --year {args.rpp_year}")
+    (ROOT / args.metros).write_text(json.dumps(metros_doc, indent=2, ensure_ascii=False) + "\n")
+    print(f"\nwrote {len(metros)} files to {outdir.relative_to(ROOT)} and updated {args.metros}")
+    print(f"next: python3 scripts/validate_cost_of_living.py --year {year}")
     return 0
 
 

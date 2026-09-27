@@ -35,10 +35,10 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 | `/tools/closing-cost-calculator` | Closing Cost Calculator (2026) | 30 | 129 | n/a |
 | `/tools/house-payment-calculator` | House Payment Calculator (2026) | 31 | 127 | n/a |
 | `/tools/home-affordability-calculator` | Home Affordability Calculator (2026) | 36 | 133 | n/a |
-| `/cost-of-living/austin-tx` | Cost of Living in Austin (2026) | 31 | 120 | rent-ready; price-indices-pending-bea |
-| `/cost-of-living/san-francisco-ca` | Cost of Living in San Francisco (2026) | 38 | 132 | rent-ready; price-indices-pending-bea |
-| `/cost-of-living/san-antonio-tx` | Cost of Living in San Antonio (2026) | 36 | 125 | rent-ready; price-indices-pending-bea |
-| `/cost-of-living/houston-tx` | Cost of Living in Houston (2026) | 32 | 121 | rent-ready; price-indices-pending-bea |
+| `/cost-of-living/austin-tx` | Cost of Living in Austin (2026) | 31 | 120 | indices-and-rent-ready |
+| `/cost-of-living/san-francisco-ca` | Cost of Living in San Francisco (2026) | 38 | 132 | indices-and-rent-ready |
+| `/cost-of-living/san-antonio-tx` | Cost of Living in San Antonio (2026) | 36 | 125 | indices-and-rent-ready |
+| `/cost-of-living/houston-tx` | Cost of Living in Houston (2026) | 32 | 121 | indices-and-rent-ready |
 | `/tools/paycheck-calculator/alabama` | Alabama Paycheck Calculator (2026) | 34 | 141 | pending |
 | `/tools/paycheck-calculator/alaska` | Alaska Paycheck Calculator (2026) | 33 | 127 | pending |
 | `/tools/paycheck-calculator/arizona` | Arizona Paycheck Calculator (2026) | 34 | 141 | pending |

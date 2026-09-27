@@ -1,0 +1,40 @@
+{
+  "slug": "san-antonio-tx",
+  "name": "San Antonio-New Braunfels, TX (Metropolitan Statistical Area)",
+  "displayName": "San Antonio",
+  "type": "metro",
+  "region": "us",
+  "msaCode": "41700",
+  "dataYear": 2024,
+  "fmrYear": 2026,
+  "indices": {
+    "allItems": 94.716,
+    "goods": 93.757,
+    "rent": 94.575,
+    "utilities": 82.169,
+    "otherServices": 96.24
+  },
+  "referenceRent": {
+    "bedrooms0": 1077.0,
+    "bedrooms1": 1177.0,
+    "bedrooms2": 1426.0,
+    "bedrooms3": 1830.0,
+    "bedrooms4": 2132.0
+  },
+  "rentCounty": "Bexar County, TX",
+  "stateSlug": "texas",
+  "sources": [
+    {
+      "label": "BEA Regional Price Parities, MARPP, 2024 (released 2026-02-10)",
+      "url": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+      "retrieved": "2026-09-27"
+    },
+    {
+      "label": "HUD Fair Market Rents, FY2026",
+      "url": "https://www.huduser.gov/portal/datasets/fmr.html",
+      "retrieved": "2026-09-27"
+    }
+  ],
+  "lastVerified": "",
+  "verification": "pending"
+}

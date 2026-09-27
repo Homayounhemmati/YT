@@ -14,7 +14,13 @@
       "volume": 3600,
       "cpc": 2.71,
       "slug": "austin-tx",
-      "indices": null,
+      "indices": {
+        "allItems": 98.066,
+        "goods": 93.757,
+        "rent": 120.361,
+        "utilities": 82.044,
+        "otherServices": 96.24
+      },
       "referenceRent": {
         "bedrooms0": 1474.0,
         "bedrooms1": 1562.0,
@@ -22,11 +28,13 @@
         "bedrooms3": 2347.0,
         "bedrooms4": 2760.0
       },
-      "dataStatus": "rent-ready; price-indices-pending-bea",
+      "dataStatus": "indices-and-rent-ready",
       "stateAbbr": "TX",
       "principalCounty": "Travis County",
       "principalCountyFips": "48453",
-      "rentSource": "HUD FMR FY2026 (Travis County, TX)"
+      "rentSource": "HUD FMR FY2026 (Travis County, TX)",
+      "dataYear": 2024,
+      "msaCode": "12420"
     },
     {
       "name": "San Francisco, CA",
@@ -36,7 +44,13 @@
       "volume": 2900,
       "cpc": 0.89,
       "slug": "san-francisco-ca",
-      "indices": null,
+      "indices": {
+        "allItems": 115.613,
+        "goods": 108.465,
+        "rent": 194.718,
+        "utilities": 172.585,
+        "otherServices": 106.207
+      },
       "referenceRent": {
         "bedrooms0": 2485.0,
         "bedrooms1": 2977.0,
@@ -44,11 +58,13 @@
         "bedrooms3": 4604.0,
         "bedrooms4": 4772.0
       },
-      "dataStatus": "rent-ready; price-indices-pending-bea",
+      "dataStatus": "indices-and-rent-ready",
       "stateAbbr": "CA",
       "principalCounty": "San Francisco County",
       "principalCountyFips": "06075",
-      "rentSource": "HUD FMR FY2026 (San Francisco County, CA)"
+      "rentSource": "HUD FMR FY2026 (San Francisco County, CA)",
+      "dataYear": 2024,
+      "msaCode": "41860"
     },
     {
       "name": "San Antonio, TX",
@@ -58,7 +74,13 @@
       "volume": 1900,
       "cpc": 8.85,
       "slug": "san-antonio-tx",
-      "indices": null,
+      "indices": {
+        "allItems": 94.716,
+        "goods": 93.757,
+        "rent": 94.575,
+        "utilities": 82.169,
+        "otherServices": 96.24
+      },
       "referenceRent": {
         "bedrooms0": 1077.0,
         "bedrooms1": 1177.0,
@@ -66,11 +88,13 @@
         "bedrooms3": 1830.0,
         "bedrooms4": 2132.0
       },
-      "dataStatus": "rent-ready; price-indices-pending-bea",
+      "dataStatus": "indices-and-rent-ready",
       "stateAbbr": "TX",
       "principalCounty": "Bexar County",
       "principalCountyFips": "48029",
-      "rentSource": "HUD FMR FY2026 (Bexar County, TX)"
+      "rentSource": "HUD FMR FY2026 (Bexar County, TX)",
+      "dataYear": 2024,
+      "msaCode": "41700"
     },
     {
       "name": "Houston, TX",
@@ -80,7 +104,13 @@
       "volume": 1900,
       "cpc": 4.05,
       "slug": "houston-tx",
-      "indices": null,
+      "indices": {
+        "allItems": 98.629,
+        "goods": 100.639,
+        "rent": 104.51,
+        "utilities": 95.288,
+        "otherServices": 95.595
+      },
       "referenceRent": {
         "bedrooms0": 1280.0,
         "bedrooms1": 1323.0,
@@ -88,11 +118,13 @@
         "bedrooms3": 2116.0,
         "bedrooms4": 2639.0
       },
-      "dataStatus": "rent-ready; price-indices-pending-bea",
+      "dataStatus": "indices-and-rent-ready",
       "stateAbbr": "TX",
       "principalCounty": "Harris County",
       "principalCountyFips": "48201",
-      "rentSource": "HUD FMR FY2026 (Harris County, TX)"
+      "rentSource": "HUD FMR FY2026 (Harris County, TX)",
+      "dataYear": 2024,
+      "msaCode": "26420"
     }
   ]
 }

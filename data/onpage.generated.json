@@ -3232,7 +3232,7 @@
           "anchor": "sales tax calculator"
         }
       ],
-      "dataVerification": "rent-ready; price-indices-pending-bea",
+      "dataVerification": "indices-and-rent-ready",
       "staleForTargetYear": false,
       "sitemap": null,
       "built": false
@@ -3406,7 +3406,7 @@
           "anchor": "sales tax calculator"
         }
       ],
-      "dataVerification": "rent-ready; price-indices-pending-bea",
+      "dataVerification": "indices-and-rent-ready",
       "staleForTargetYear": false,
       "sitemap": null,
       "built": false
@@ -3580,7 +3580,7 @@
           "anchor": "sales tax calculator"
         }
       ],
-      "dataVerification": "rent-ready; price-indices-pending-bea",
+      "dataVerification": "indices-and-rent-ready",
       "staleForTargetYear": false,
       "sitemap": null,
       "built": false
@@ -3754,7 +3754,7 @@
           "anchor": "sales tax calculator"
         }
       ],
-      "dataVerification": "rent-ready; price-indices-pending-bea",
+      "dataVerification": "indices-and-rent-ready",
       "staleForTargetYear": false,
       "sitemap": null,
       "built": false

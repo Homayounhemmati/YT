@@ -1,0 +1,40 @@
+{
+  "slug": "houston-tx",
+  "name": "Houston-Pasadena-The Woodlands, TX (Metropolitan Statistical Area)",
+  "displayName": "Houston",
+  "type": "metro",
+  "region": "us",
+  "msaCode": "26420",
+  "dataYear": 2024,
+  "fmrYear": 2026,
+  "indices": {
+    "allItems": 98.629,
+    "goods": 100.639,
+    "rent": 104.51,
+    "utilities": 95.288,
+    "otherServices": 95.595
+  },
+  "referenceRent": {
+    "bedrooms0": 1280.0,
+    "bedrooms1": 1323.0,
+    "bedrooms2": 1573.0,
+    "bedrooms3": 2116.0,
+    "bedrooms4": 2639.0
+  },
+  "rentCounty": "Harris County, TX",
+  "stateSlug": "texas",
+  "sources": [
+    {
+      "label": "BEA Regional Price Parities, MARPP, 2024 (released 2026-02-10)",
+      "url": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+      "retrieved": "2026-09-27"
+    },
+    {
+      "label": "HUD Fair Market Rents, FY2026",
+      "url": "https://www.huduser.gov/portal/datasets/fmr.html",
+      "retrieved": "2026-09-27"
+    }
+  ],
+  "lastVerified": "",
+  "verification": "pending"
+}
