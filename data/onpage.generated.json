@@ -5329,7 +5329,7 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
+      "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
       "built": true
@@ -5504,7 +5504,7 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
+      "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
       "built": true
@@ -5894,7 +5894,7 @@
         },
         {
           "question": "How much is a biweekly paycheck on $95,000 in Illinois?",
-          "answer": "About $2,735 every two weeks for a single filer, from $71,101 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,963."
+          "answer": "About $2,735 every two weeks for a single filer, from $71,105 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,963."
         },
         {
           "question": "Are there local income taxes in Illinois?",
@@ -5902,7 +5902,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Illinois?",
-          "answer": "About $71,101 of a $95,000 salary for a single filer, an effective 25.2%. Of that, $4,561 is Illinois state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $71,105 of a $95,000 salary for a single filer, an effective 25.2%. Of that, $4,558 is Illinois state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -5981,7 +5981,7 @@
               "name": "How much is a biweekly paycheck on $95,000 in Illinois?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $2,735 every two weeks for a single filer, from $71,101 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,963."
+                "text": "About $2,735 every two weeks for a single filer, from $71,105 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,963."
               }
             },
             {
@@ -5997,7 +5997,7 @@
               "name": "How much of a $95,000 salary do you keep in Illinois?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,101 of a $95,000 salary for a single filer, an effective 25.2%. Of that, $4,561 is Illinois state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $71,105 of a $95,000 salary for a single filer, an effective 25.2%. Of that, $4,558 is Illinois state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -6029,7 +6029,7 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
+      "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
       "built": true
@@ -7119,7 +7119,7 @@
         },
         {
           "question": "How much is a biweekly paycheck on $95,000 in Maryland?",
-          "answer": "About $2,751 every two weeks for a single filer before local income tax, from $71,514 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,980."
+          "answer": "About $2,751 every two weeks for a single filer before local income tax, from $71,516 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,980."
         },
         {
           "question": "Are there local income taxes in Maryland?",
@@ -7127,7 +7127,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Maryland?",
-          "answer": "About $71,514 of a $95,000 salary for a single filer before local income tax, an effective 24.7%. Of that, $4,149 is Maryland state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $71,516 of a $95,000 salary for a single filer before local income tax, an effective 24.7%. Of that, $4,147 is Maryland state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -7206,7 +7206,7 @@
               "name": "How much is a biweekly paycheck on $95,000 in Maryland?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $2,751 every two weeks for a single filer before local income tax, from $71,514 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,980."
+                "text": "About $2,751 every two weeks for a single filer before local income tax, from $71,516 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,980."
               }
             },
             {
@@ -7222,7 +7222,7 @@
               "name": "How much of a $95,000 salary do you keep in Maryland?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,514 of a $95,000 salary for a single filer before local income tax, an effective 24.7%. Of that, $4,149 is Maryland state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $71,516 of a $95,000 salary for a single filer before local income tax, an effective 24.7%. Of that, $4,147 is Maryland state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -7254,7 +7254,7 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
+      "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
       "built": true
@@ -9354,7 +9354,7 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
+      "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
       "built": true
@@ -9529,7 +9529,7 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
+      "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
       "built": true
@@ -10404,7 +10404,7 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
+      "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
       "built": true
@@ -11279,7 +11279,7 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
+      "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
       "built": true

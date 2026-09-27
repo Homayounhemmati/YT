@@ -176,7 +176,8 @@
   "verification": "pending",
   "personalExemption": null,
   "modelCoverage": {
-    "personalExemption": "not-extracted"
+    "personalExemption": "not-extracted",
+    "benefitRecapture": "not-modelled"
   },
   "staleForTargetYear": false
 }

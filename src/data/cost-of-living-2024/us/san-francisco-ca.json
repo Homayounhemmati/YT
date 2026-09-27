@@ -35,6 +35,7 @@
       "retrieved": "2026-09-27"
     }
   ],
-  "lastVerified": "",
-  "verification": "pending"
+  "lastVerified": "2026-09-27",
+  "verification": "verified",
+  "verifiedBy": "price parities read from BEA's MARPP file itself; rents from the HUD county file, matched to https://www.huduser.gov/portal/datasets/fmr/fmr2026/FY26_FMRs_revised.xlsx"
 }

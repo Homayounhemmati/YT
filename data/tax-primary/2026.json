@@ -1,0 +1,926 @@
+{
+  "taxYear": 2026,
+  "purpose": "Every value a page relies on, checked against the primary source that sets it. scripts/apply_primary_sources.py applies the corrections below to the extracted dataset, checks every expected value, and marks a jurisdiction verified only when all of them match. extract_tax_data.py runs it after every extraction, so a regeneration cannot undo a correction.",
+  "federal": {
+    "sources": [
+      {
+        "title": "Rev. Proc. 2025-32, section 4.01 (tax rate tables), 4.14 (standard deduction), 4.26 (QBI)",
+        "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "2026 Form 1040-ES (Social Security maximum $184,500; 92.35%; due dates; safe harbor)",
+        "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "26 U.S.C. 1401 (12.4%, 2.9%, 0.9% over $200,000/$250,000/$125,000)",
+        "url": "https://www.law.cornell.edu/uscode/text/26/1401",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "26 U.S.C. 3101 (employee 6.2%, 1.45%, 0.9%)",
+        "url": "https://www.law.cornell.edu/uscode/text/26/3101",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "26 U.S.C. 6017 ($400 self-employment filing threshold)",
+        "url": "https://www.law.cornell.edu/uscode/text/26/6017",
+        "retrieved": "2026-09-27"
+      }
+    ],
+    "expect": {
+      "brackets": {
+        "single": [
+          [
+            0,
+            10
+          ],
+          [
+            12400,
+            12
+          ],
+          [
+            50400,
+            22
+          ],
+          [
+            105700,
+            24
+          ],
+          [
+            201775,
+            32
+          ],
+          [
+            256225,
+            35
+          ],
+          [
+            640600,
+            37
+          ]
+        ],
+        "marriedJointly": [
+          [
+            0,
+            10
+          ],
+          [
+            24800,
+            12
+          ],
+          [
+            100800,
+            22
+          ],
+          [
+            211400,
+            24
+          ],
+          [
+            403550,
+            32
+          ],
+          [
+            512450,
+            35
+          ],
+          [
+            768700,
+            37
+          ]
+        ],
+        "marriedSeparately": [
+          [
+            0,
+            10
+          ],
+          [
+            12400,
+            12
+          ],
+          [
+            50400,
+            22
+          ],
+          [
+            105700,
+            24
+          ],
+          [
+            201775,
+            32
+          ],
+          [
+            256225,
+            35
+          ],
+          [
+            384350,
+            37
+          ]
+        ],
+        "headOfHousehold": [
+          [
+            0,
+            10
+          ],
+          [
+            17700,
+            12
+          ],
+          [
+            67450,
+            22
+          ],
+          [
+            105700,
+            24
+          ],
+          [
+            201750,
+            32
+          ],
+          [
+            256200,
+            35
+          ],
+          [
+            640600,
+            37
+          ]
+        ]
+      },
+      "standardDeduction": {
+        "single": 16100,
+        "marriedJointly": 32200,
+        "marriedSeparately": 16100,
+        "headOfHousehold": 24150
+      },
+      "selfEmployment.socialSecurityRate": 12.4,
+      "selfEmployment.medicareRate": 2.9,
+      "selfEmployment.socialSecurityWageBase": 184500,
+      "selfEmployment.minimumEarningsThreshold": 400,
+      "selfEmployment.neseFactor": 0.9235,
+      "selfEmployment.additionalMedicare.rate": 0.9,
+      "qbi.maxRate": 20.0,
+      "qbi.phaseOutStart": {
+        "single": 201750,
+        "marriedJointly": 403500,
+        "marriedSeparately": 201775,
+        "headOfHousehold": 201750
+      }
+    }
+  },
+  "states": {
+    "texas": {
+      "sources": [
+        {
+          "title": "Tex. Const. art. VIII, sec. 24-a (H.J.R. 38, 86th Legislature, adopted November 5, 2019): \"The legislature may not impose a tax on the net incomes of individuals\"",
+          "url": "https://capitol.texas.gov/tlodocs/86R/billtext/pdf/HJ00038E.pdf",
+          "retrieved": "2026-09-27"
+        }
+      ],
+      "expect": {
+        "structure": "none"
+      }
+    },
+    "florida": {
+      "sources": [
+        {
+          "title": "Fla. Const. art. VII, sec. 5(a): no tax upon the income of natural persons who are residents",
+          "url": "https://www.flsenate.gov/Laws/Constitution",
+          "retrieved": "2026-09-27"
+        }
+      ],
+      "expect": {
+        "structure": "none"
+      }
+    },
+    "pennsylvania": {
+      "sources": [
+        {
+          "title": "Pennsylvania Department of Revenue, Personal Income Tax: \"levied at the rate of 3.07 percent\"",
+          "url": "https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/personal-income-tax",
+          "retrieved": "2026-09-27"
+        },
+        {
+          "title": "2025 PA-40 instructions: \"PA law does not allow standard deductions, deductions for personal exemptions\"; cafeteria-plan payments for hospitalization and sickness are nontaxable; Tax Forgiveness (Schedule SP) reduces all or part of the liability",
+          "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+          "retrieved": "2026-09-27"
+        }
+      ],
+      "expect": {
+        "structure": "flat",
+        "flatRate": 3.07,
+        "standardDeduction": {},
+        "personalExemption": null
+      }
+    },
+    "north-carolina": {
+      "sources": [
+        {
+          "title": "NCDOR Tax Rate Schedules: \"For Taxable Years after 2025, the North Carolina individual income tax rate is 3.99%\" (S.L. 2023-134)",
+          "url": "https://www.ncdor.gov/taxes-forms/individual-income-tax/tax-rate-schedules",
+          "retrieved": "2026-09-27"
+        },
+        {
+          "title": "NCDOR, North Carolina Standard Deduction: $12,750 / $25,500 / $12,750 / $19,125",
+          "url": "https://www.ncdor.gov/taxes-forms/individual-income-tax/filing-topics/north-carolina-standard-deduction-or-north-carolina-itemized-deductions",
+          "retrieved": "2026-09-27"
+        },
+        {
+          "title": "NC-30 2026 Income Tax Withholding Tables (3.99%, $12,750)",
+          "url": "https://www.ncdor.gov/income-tax-withholding-tables-and-instructions-employers/open",
+          "retrieved": "2026-09-27"
+        }
+      ],
+      "expect": {
+        "structure": "flat",
+        "flatRate": 3.99,
+        "standardDeduction": {
+          "single": 12750,
+          "marriedJointly": 25500,
+          "marriedSeparately": 12750,
+          "headOfHousehold": 19125
+        }
+      }
+    },
+    "georgia": {
+      "sources": [
+        {
+          "title": "Georgia DOR, 2026 Employer's Withholding Tax Guide (revised June 2026): HB 463, retroactive to January 1, 2026 \u2014 flat 4.99%; standard deduction $30,000 married filing jointly, $15,000 single, head of household and married filing separately",
+          "url": "https://dor.georgia.gov/document/document/2026-employers-tax-guide-updated-june-2026/download",
+          "retrieved": "2026-09-27"
+        }
+      ],
+      "expect": {
+        "structure": "flat",
+        "flatRate": 4.99,
+        "standardDeduction": {
+          "single": 15000,
+          "marriedJointly": 30000,
+          "marriedSeparately": 15000,
+          "headOfHousehold": 15000
+        }
+      },
+      "set": {
+        "withholdingTransition": {
+          "previousRate": 5.19,
+          "newRateWithholdingFrom": "2026-05-11",
+          "note": "HB 463 cut the 2026 rate to 4.99% retroactively; employers withheld 5.19% until May 11, 2026."
+        }
+      },
+      "why": "Not a correction: records the mid-year withholding change so the page can explain it.",
+      "annotationOnly": true
+    },
+    "illinois": {
+      "sources": [
+        {
+          "title": "Illinois DOR Informational Bulletin FY 2026-15: \"The 2025 personal exemption amount is $2,850\"; \"The personal exemption amount for tax year 2026 will increase to $2,925\"; not allowed above $250,000 AGI ($500,000 joint)",
+          "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/bulletins/documents/2026/fy-2026-15.pdf",
+          "retrieved": "2026-09-27"
+        },
+        {
+          "title": "IL-700-T 2026: \"The income tax rate is 4.95 percent and the exemption allowance is $2,925\"",
+          "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/withholding/documents/currentyear/il-700-t.pdf",
+          "retrieved": "2026-09-27"
+        }
+      ],
+      "set": {
+        "personalExemption": {
+          "byStatus": {
+            "single": {
+              "amount": 2925,
+              "maxAgi": 250000
+            },
+            "marriedJointly": {
+              "amount": 5850,
+              "maxAgi": 500000
+            },
+            "marriedSeparately": {
+              "amount": 2925,
+              "maxAgi": 250000
+            },
+            "headOfHousehold": {
+              "amount": 2925,
+              "maxAgi": 250000
+            }
+          },
+          "staleComponent": false,
+          "effectiveFrom": "2026-01-01",
+          "priorYear": {
+            "year": 2025,
+            "amount": 2850
+          }
+        }
+      },
+      "why": "The extracted exemption ($2,850) was the 2025 amount, carried forward because upstream had not indexed it; a joint return claims two exemptions.",
+      "expect": {
+        "structure": "flat",
+        "flatRate": 4.95,
+        "standardDeduction": {}
+      }
+    },
+    "maryland": {
+      "sources": [
+        {
+          "title": "Md. Code, Tax-General section 10-105(a): State rates and brackets",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-105&enactments=false",
+          "retrieved": "2026-09-27"
+        },
+        {
+          "title": "Md. Code, Tax-General section 10-217: $3,350 / $6,700 for 2025, indexed from 2026 by the IRC 1(f)(3) cost-of-living adjustment (2024 base), each increase rounded down to a multiple of $50",
+          "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-217&enactments=false",
+          "retrieved": "2026-09-27"
+        },
+        {
+          "title": "Comptroller of Maryland, 2026 Employer Withholding Guide and Form MW507 (2026): standard deduction $3,400; exemption $3,200 with the AGI phase-down table",
+          "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/withholding/2026/withholding-guide.pdf",
+          "retrieved": "2026-09-27"
+        },
+        {
+          "title": "BLS chained CPI-U (SUUR0000SA0), 12-month averages to August 2024 and August 2025, via FRED",
+          "url": "https://fred.stlouisfed.org/series/SUUR0000SA0",
+          "retrieved": "2026-09-27"
+        }
+      ],
+      "set": {
+        "standardDeduction": {
+          "single": 3400,
+          "marriedJointly": 6850,
+          "marriedSeparately": 3400,
+          "headOfHousehold": 6850
+        }
+      },
+      "why": "The extracted amounts ($3,350/$6,700) were 2025's. $3,400 is published by the Comptroller. The Comptroller has not yet published the joint/head-of-household figure; $6,850 is section 10-217(c) applied to BLS data (C-CPI-U 177.206 / 173.016 = +2.42%; $6,700 x 2.42% = $162 -> rounded down to $150), and the same formula reproduces the published $3,400 ($81 -> $50). Recheck against the 2026 resident booklet when it is released.",
+      "computed": [
+        "standardDeduction.marriedJointly",
+        "standardDeduction.headOfHousehold"
+      ],
+      "expect": {
+        "structure": "progressive",
+        "brackets": {
+          "single": [
+            [
+              0,
+              2
+            ],
+            [
+              1000,
+              3
+            ],
+            [
+              2000,
+              4
+            ],
+            [
+              3000,
+              4.75
+            ],
+            [
+              100000,
+              5
+            ],
+            [
+              125000,
+              5.25
+            ],
+            [
+              150000,
+              5.5
+            ],
+            [
+              250000,
+              5.75
+            ],
+            [
+              500000,
+              6.25
+            ],
+            [
+              1000000,
+              6.5
+            ]
+          ],
+          "marriedSeparately": [
+            [
+              0,
+              2
+            ],
+            [
+              1000,
+              3
+            ],
+            [
+              2000,
+              4
+            ],
+            [
+              3000,
+              4.75
+            ],
+            [
+              100000,
+              5
+            ],
+            [
+              125000,
+              5.25
+            ],
+            [
+              150000,
+              5.5
+            ],
+            [
+              250000,
+              5.75
+            ],
+            [
+              500000,
+              6.25
+            ],
+            [
+              1000000,
+              6.5
+            ]
+          ],
+          "marriedJointly": [
+            [
+              0,
+              2
+            ],
+            [
+              1000,
+              3
+            ],
+            [
+              2000,
+              4
+            ],
+            [
+              3000,
+              4.75
+            ],
+            [
+              150000,
+              5
+            ],
+            [
+              175000,
+              5.25
+            ],
+            [
+              225000,
+              5.5
+            ],
+            [
+              300000,
+              5.75
+            ],
+            [
+              600000,
+              6.25
+            ],
+            [
+              1200000,
+              6.5
+            ]
+          ],
+          "headOfHousehold": [
+            [
+              0,
+              2
+            ],
+            [
+              1000,
+              3
+            ],
+            [
+              2000,
+              4
+            ],
+            [
+              3000,
+              4.75
+            ],
+            [
+              150000,
+              5
+            ],
+            [
+              175000,
+              5.25
+            ],
+            [
+              225000,
+              5.5
+            ],
+            [
+              300000,
+              5.75
+            ],
+            [
+              600000,
+              6.25
+            ],
+            [
+              1200000,
+              6.5
+            ]
+          ]
+        },
+        "personalExemption.byStatus.single": {
+          "amount": 3200,
+          "agiSchedule": [
+            {
+              "overAgi": 100000,
+              "amount": 1600
+            },
+            {
+              "overAgi": 125000,
+              "amount": 800
+            },
+            {
+              "overAgi": 150000,
+              "amount": 0
+            }
+          ]
+        },
+        "personalExemption.byStatus.marriedJointly": {
+          "amount": 3200,
+          "agiSchedule": [
+            {
+              "overAgi": 150000,
+              "amount": 1600
+            },
+            {
+              "overAgi": 175000,
+              "amount": 800
+            },
+            {
+              "overAgi": 200000,
+              "amount": 0
+            }
+          ]
+        }
+      }
+    },
+    "new-york": {
+      "sources": [
+        {
+          "title": "Chapter 59 of the Laws of 2025 (S.3009-C / A.3009-C), Part B: Tax Law section 601(a), (b), (c) rate schedules for 2026 and the section 601(d-5) supplemental tax",
+          "url": "https://nyassembly.gov/leg/?default_fld=&leg_video=&bn=A03009&term=2025&Summary=Y&Text=Y",
+          "retrieved": "2026-09-27"
+        },
+        {
+          "title": "NYS-50-T-NYS (1/26): 2026 rate schedules revised under chapter 59 of the Laws of 2025",
+          "url": "https://www.tax.ny.gov/pdf/publications/withholding/nys50_t_nys.pdf",
+          "retrieved": "2026-09-27"
+        },
+        {
+          "title": "IT-201-I: standard deduction $8,000 / $16,050 / $8,000 / $11,200 (Tax Law section 614)",
+          "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+          "retrieved": "2026-09-27"
+        }
+      ],
+      "set": {
+        "benefitRecapture": {
+          "agiFloor": 107650,
+          "agiCeiling": 25000000,
+          "topRate": 10.9,
+          "phaseWidth": 50000,
+          "byStatus": {
+            "marriedJointly": {
+              "lowIncome": {
+                "below": 27900,
+                "rate": 5.4
+              },
+              "rows": [
+                {
+                  "over": 27900,
+                  "notOver": 161550,
+                  "recaptureBase": 0,
+                  "incrementalBenefit": 333,
+                  "agiLess": 107650
+                },
+                {
+                  "over": 161550,
+                  "notOver": 323200,
+                  "recaptureBase": 333,
+                  "incrementalBenefit": 807,
+                  "agiLess": 161550
+                },
+                {
+                  "over": 323200,
+                  "notOver": 2155350,
+                  "recaptureBase": 1140,
+                  "incrementalBenefit": 3071,
+                  "agiLess": 323200
+                },
+                {
+                  "over": 2155350,
+                  "notOver": 5000000,
+                  "recaptureBase": 4211,
+                  "incrementalBenefit": 60350,
+                  "agiLess": 2155350
+                },
+                {
+                  "over": 5000000,
+                  "notOver": 25000000,
+                  "recaptureBase": 64561,
+                  "incrementalBenefit": 32500,
+                  "agiLess": 5000000
+                }
+              ]
+            },
+            "headOfHousehold": {
+              "lowIncome": {
+                "below": 107650,
+                "rate": 5.9
+              },
+              "rows": [
+                {
+                  "over": 107650,
+                  "notOver": 269300,
+                  "recaptureBase": 0,
+                  "incrementalBenefit": 787,
+                  "agiLess": 107650
+                },
+                {
+                  "over": 269300,
+                  "notOver": 1616450,
+                  "recaptureBase": 787,
+                  "incrementalBenefit": 2559,
+                  "agiLess": 269300
+                },
+                {
+                  "over": 1616450,
+                  "notOver": 5000000,
+                  "recaptureBase": 3346,
+                  "incrementalBenefit": 45260,
+                  "agiLess": 1616450
+                },
+                {
+                  "over": 5000000,
+                  "notOver": 25000000,
+                  "recaptureBase": 48606,
+                  "incrementalBenefit": 32500,
+                  "agiLess": 5000000
+                }
+              ]
+            },
+            "single": {
+              "lowIncome": {
+                "below": 80650,
+                "rate": 5.9
+              },
+              "rows": [
+                {
+                  "over": 80650,
+                  "notOver": 215400,
+                  "recaptureBase": 0,
+                  "incrementalBenefit": 567,
+                  "agiLess": 107650
+                },
+                {
+                  "over": 215400,
+                  "notOver": 1077550,
+                  "recaptureBase": 567,
+                  "incrementalBenefit": 2047,
+                  "agiLess": 215400
+                },
+                {
+                  "over": 1077550,
+                  "notOver": 5000000,
+                  "recaptureBase": 2614,
+                  "incrementalBenefit": 30172,
+                  "agiLess": 1077550
+                },
+                {
+                  "over": 5000000,
+                  "notOver": 25000000,
+                  "recaptureBase": 32786,
+                  "incrementalBenefit": 32500,
+                  "agiLess": 5000000
+                }
+              ]
+            },
+            "marriedSeparately": {
+              "lowIncome": {
+                "below": 80650,
+                "rate": 5.9
+              },
+              "rows": [
+                {
+                  "over": 80650,
+                  "notOver": 215400,
+                  "recaptureBase": 0,
+                  "incrementalBenefit": 567,
+                  "agiLess": 107650
+                },
+                {
+                  "over": 215400,
+                  "notOver": 1077550,
+                  "recaptureBase": 567,
+                  "incrementalBenefit": 2047,
+                  "agiLess": 215400
+                },
+                {
+                  "over": 1077550,
+                  "notOver": 5000000,
+                  "recaptureBase": 2614,
+                  "incrementalBenefit": 30172,
+                  "agiLess": 1077550
+                },
+                {
+                  "over": 5000000,
+                  "notOver": 25000000,
+                  "recaptureBase": 32786,
+                  "incrementalBenefit": 32500,
+                  "agiLess": 5000000
+                }
+              ]
+            }
+          },
+          "source": "N.Y. Tax Law section 601(d-5), added by chapter 59 of the Laws of 2025, Part B"
+        },
+        "modelCoverage": {
+          "personalExemption": "none",
+          "benefitRecapture": "modelled"
+        }
+      },
+      "why": "The extracted dataset had the 2026 schedules but not the supplemental tax that recaptures the lower brackets above $107,650 of AGI.",
+      "expect": {
+        "structure": "progressive",
+        "brackets": {
+          "single": [
+            [
+              0,
+              3.9
+            ],
+            [
+              8500,
+              4.4
+            ],
+            [
+              11700,
+              5.15
+            ],
+            [
+              13900,
+              5.4
+            ],
+            [
+              80650,
+              5.9
+            ],
+            [
+              215400,
+              6.85
+            ],
+            [
+              1077550,
+              9.65
+            ],
+            [
+              5000000,
+              10.3
+            ],
+            [
+              25000000,
+              10.9
+            ]
+          ],
+          "marriedSeparately": [
+            [
+              0,
+              3.9
+            ],
+            [
+              8500,
+              4.4
+            ],
+            [
+              11700,
+              5.15
+            ],
+            [
+              13900,
+              5.4
+            ],
+            [
+              80650,
+              5.9
+            ],
+            [
+              215400,
+              6.85
+            ],
+            [
+              1077550,
+              9.65
+            ],
+            [
+              5000000,
+              10.3
+            ],
+            [
+              25000000,
+              10.9
+            ]
+          ],
+          "marriedJointly": [
+            [
+              0,
+              3.9
+            ],
+            [
+              17150,
+              4.4
+            ],
+            [
+              23600,
+              5.15
+            ],
+            [
+              27900,
+              5.4
+            ],
+            [
+              161550,
+              5.9
+            ],
+            [
+              323200,
+              6.85
+            ],
+            [
+              2155350,
+              9.65
+            ],
+            [
+              5000000,
+              10.3
+            ],
+            [
+              25000000,
+              10.9
+            ]
+          ],
+          "headOfHousehold": [
+            [
+              0,
+              3.9
+            ],
+            [
+              12800,
+              4.4
+            ],
+            [
+              17650,
+              5.15
+            ],
+            [
+              20900,
+              5.4
+            ],
+            [
+              107650,
+              5.9
+            ],
+            [
+              269300,
+              6.85
+            ],
+            [
+              1616450,
+              9.65
+            ],
+            [
+              5000000,
+              10.3
+            ],
+            [
+              25000000,
+              10.9
+            ]
+          ]
+        },
+        "standardDeduction": {
+          "single": 8000,
+          "marriedJointly": 16050,
+          "marriedSeparately": 8000,
+          "headOfHousehold": 11200
+        }
+      }
+    }
+  },
+  "coverage": {
+    "connecticut": {
+      "modelCoverage.benefitRecapture": "not-modelled",
+      "why": "Connecticut phases out its lower brackets and adds a benefit recapture at higher incomes; the engine does not apply it yet, so the page stays behind the gate."
+    }
+  }
+}

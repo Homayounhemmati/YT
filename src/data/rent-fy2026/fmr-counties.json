@@ -7,7 +7,7 @@
   "via": "policyengine-us 2.15.9.dist (bundled copy of the HUD county file)",
   "retrieved": "2026-09-27"
  },
- "verification": "pending",
+ "verification": "verified",
  "counties": {
   "01001": {
    "state": "AL",
@@ -36474,5 +36474,11 @@
   "29056",
   "60999",
   "69999"
- ]
+ ],
+ "verified": {
+  "date": "2026-09-27",
+  "against": "https://www.huduser.gov/portal/datasets/fmr/fmr2026/FY26_FMRs_revised.xlsx",
+  "countiesChecked": 3158,
+  "method": "every county, every bedroom count, exact match"
+ }
 }

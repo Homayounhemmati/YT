@@ -243,17 +243,17 @@
       "structure": "flat",
       "scenario": "salary",
       "gross": 95000,
-      "totalTax": 23898.93,
-      "takeHome": 71101.07,
-      "stateTax": 4561.43,
+      "totalTax": 23895.21,
+      "takeHome": 71104.79,
+      "stateTax": 4557.71,
       "fica": 7267.5,
       "federalTax": 12070,
       "effectiveRate": 25.2,
       "warnings": [],
       "selfEmployed": {
-        "totalTax": 25069.44,
-        "takeHome": 69930.56,
-        "stateTax": 4229.2,
+        "totalTax": 25065.73,
+        "takeHome": 69934.27,
+        "stateTax": 4225.49,
         "effectiveRate": 26.4
       }
     },
@@ -376,17 +376,17 @@
       "structure": "progressive",
       "scenario": "salary",
       "gross": 95000,
-      "totalTax": 23486.38,
-      "takeHome": 71513.62,
-      "stateTax": 4148.88,
+      "totalTax": 23484,
+      "takeHome": 71516,
+      "stateTax": 4146.5,
       "fica": 7267.5,
       "federalTax": 12070,
       "effectiveRate": 24.7,
       "warnings": [],
       "selfEmployed": {
-        "totalTax": 24670.32,
-        "takeHome": 70329.68,
-        "stateTax": 3830.08,
+        "totalTax": 24667.94,
+        "takeHome": 70332.06,
+        "stateTax": 3827.7,
         "effectiveRate": 26
       }
     },
@@ -604,6 +604,14 @@
       }
     },
     "new-york": {
+      "recaptureExample": {
+        "salary": 150000,
+        "stateTax": 8290,
+        "scheduleOnly": 7809.75,
+        "supplemental": 480.25,
+        "marginalInPhaseIn": 7.03,
+        "phaseInEnds": 157650
+      },
       "name": "New York",
       "structure": "progressive",
       "scenario": "salary",

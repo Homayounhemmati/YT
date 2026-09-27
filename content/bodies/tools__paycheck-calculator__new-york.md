@@ -27,6 +27,22 @@ On this salary the last dollars fall in the 5.9% band. The rate applies only to 
 slice inside each band, never to the whole income — which is why the effective state
 rate is well under 5.9%.
 
+## Above $107,650: the supplemental tax
+
+New York does not let higher earners keep the benefit of its lower brackets. Once
+adjusted gross income passes **$107,650**, a supplemental tax takes it back. For a
+single filer that benefit is worth $567, and it is recaptured gradually over the next
+$50,000 of income — so between $107,650 and $157,650 each extra dollar costs about
+**7.03%** in state tax (5.9% plus $567 spread over $50,000), not the 5.9% the bracket
+table shows.
+
+On a $150,000 salary the brackets alone give $7,810 of state tax; the supplemental tax
+adds $480, for **$8,290**. Past $157,650 the full $567 is in and the next dollar is
+back to 5.9%. The same pattern repeats higher up — above $215,400 and $1,077,550 of
+taxable income — and above $25 million of income every dollar is taxed at 10.9%. A
+**new york state income tax calculator** that stops at the bracket table understates
+the tax for anyone in these ranges; this one applies the law as written.
+
 ## Per paycheck
 
 Every two weeks: about **$2,735**. Twice a month: about $2,962. Weekly: about $1,367.

@@ -19,6 +19,8 @@ import path from "node:path";
 import { estimateTax, type EngineData } from "../src/lib/tax/index.js";
 import { loadEstimated, loadFederal, loadState } from "../src/lib/tax/load.js";
 import { estimateWageTakeHome } from "../src/lib/tax/payroll.js";
+import { applyBrackets } from "../src/lib/tax/brackets.js";
+import { computeStateTax } from "../src/lib/tax/state.js";
 
 const YEAR = 2026;
 const AMOUNT = 95_000;
@@ -54,7 +56,29 @@ for (const slug of slugs) {
     { federal, estimated, state: null },
   );
 
+  // A state that recaptures its lower brackets (New York) gets a second worked
+  // example inside the phase-in range, so the copy that explains it can quote
+  // engine figures rather than hand arithmetic.
+  let recaptureExample: Record<string, number> | undefined;
+  const rule = state.benefitRecapture;
+  const rows = state.brackets.single;
+  if (rule && rows) {
+    const salary = 150_000;
+    const agi = salary * 100;
+    const r = computeStateTax({ federalAgi: agi, filingStatus: "single", state });
+    const scheduleOnly = applyBrackets(r.taxableIncome, rows).tax;
+    recaptureExample = {
+      salary,
+      stateTax: r.amount / 100,
+      scheduleOnly: scheduleOnly / 100,
+      supplemental: (r.amount - scheduleOnly) / 100,
+      marginalInPhaseIn: r.marginalRate,
+      phaseInEnds: rule.agiFloor + rule.phaseWidth,
+    };
+  }
+
   out[slug] = {
+    ...(recaptureExample ? { recaptureExample } : {}),
     name: state.name,
     structure: state.structure,
     scenario: "salary",

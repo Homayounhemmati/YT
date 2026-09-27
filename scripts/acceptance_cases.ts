@@ -34,9 +34,15 @@ const pay = (w: number, s: string, extra: Record<string, number> = {}, periods: 
 section("Paycheck / take-home pay (single filer, 2026)",
   ["Salary", "State", "Checks/yr", "FICA", "Federal", "State", "Net / year", "First check"],
   [pay(95000, "texas"), pay(95000, "pennsylvania"), pay(95000, "california"), pay(95000, "new-york", {}, 24),
-   pay(60000, "florida", {}, 52), pay(250000, "texas"), pay(95000, "pennsylvania", { preTaxRetirement: 10000 })]);
-rows.push("", "The last row has a $10,000 401(k) deferral: FICA must be unchanged from the row " +
-  "without it, federal tax lower, and Pennsylvania tax unchanged (Pennsylvania taxes deferrals).");
+   pay(60000, "florida", {}, 52), pay(250000, "texas"), pay(95000, "pennsylvania", { preTaxRetirement: 10000 }),
+   pay(95000, "maryland"), pay(95000, "illinois"), pay(300000, "illinois"),
+   pay(150000, "new-york"), pay(300000, "new-york")]);
+rows.push("", "The Pennsylvania row with a $10,000 401(k) deferral: FICA must be unchanged from the row " +
+  "without it, federal tax lower, and Pennsylvania tax unchanged (Pennsylvania taxes deferrals).",
+  "", "Maryland uses the 2026 standard deduction ($3,400 single) and the $3,200 exemption; Illinois " +
+  "the 2026 exemption ($2,925), which disappears above $250,000 of AGI. The New York rows at " +
+  "$150,000 and $300,000 include the section 601(d-5) supplemental tax ($480.25 and $2,614.00 on " +
+  "top of the bracket tax): a build that applies only the bracket table fails them.");
 
 // Hourly mode
 const hr = (rate: number, hours: number, s: string) => {

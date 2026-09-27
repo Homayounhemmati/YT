@@ -65,31 +65,52 @@
     ],
     "inflationIndexed": false
   },
-  "verification": "pending",
+  "verification": "verified",
   "personalExemption": {
     "byStatus": {
       "single": {
-        "amount": 2850,
+        "amount": 2925,
         "maxAgi": 250000
       },
       "marriedJointly": {
-        "amount": 5700,
+        "amount": 5850,
         "maxAgi": 500000
       },
       "marriedSeparately": {
-        "amount": 2850,
+        "amount": 2925,
         "maxAgi": 250000
       },
       "headOfHousehold": {
-        "amount": 2850,
+        "amount": 2925,
         "maxAgi": 250000
       }
     },
-    "staleComponent": true,
-    "effectiveFrom": "2025-01-01"
+    "staleComponent": false,
+    "effectiveFrom": "2026-01-01",
+    "priorYear": {
+      "year": 2025,
+      "amount": 2850
+    }
   },
   "modelCoverage": {
     "personalExemption": "modelled"
   },
-  "staleForTargetYear": false
+  "staleForTargetYear": false,
+  "verified": {
+    "date": "2026-09-27",
+    "against": [
+      {
+        "title": "Illinois DOR Informational Bulletin FY 2026-15: \"The 2025 personal exemption amount is $2,850\"; \"The personal exemption amount for tax year 2026 will increase to $2,925\"; not allowed above $250,000 AGI ($500,000 joint)",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/research/publications/bulletins/documents/2026/fy-2026-15.pdf",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "IL-700-T 2026: \"The income tax rate is 4.95 percent and the exemption allowance is $2,925\"",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/withholding/documents/currentyear/il-700-t.pdf",
+        "retrieved": "2026-09-27"
+      }
+    ],
+    "register": "data/tax-primary/2026.json",
+    "correction": "The extracted exemption ($2,850) was the 2025 amount, carried forward because upstream had not indexed it; a joint return claims two exemptions."
+  }
 }

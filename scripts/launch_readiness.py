@@ -53,16 +53,31 @@ if not ces:
         "calculator's household estimate (groceries, transport, health care...) needs them. "
         "Visitors can still enter their own figures.",
         "you: allow api.bls.gov in the environment (or run scripts/fetch_ces.py locally)")
+for c in ces:
+    if json.loads(c.read_text()).get("verification") != "verified":
+        add("TODO", "data", f"{c.relative_to(ROOT)} was read through FRED, which mirrors BLS; one value "
+            "was matched against the BLS API, the other 54 series are not yet cross-checked.",
+            "me: scripts/fetch_ces.py --via bls with a BLS key (the keyless daily quota is shared)")
+fmr_docs = [json.loads(f.read_text()) for f in fmr]
+if any(d.get("verification") != "verified" for d in fmr_docs):
+    add("TODO", "data", "HUD Fair Market Rents not yet matched against HUD's own county file.",
+        "me: scripts/verify_hud_fmr.py")
 states = [json.loads(f.read_text()) for f in (ROOT / "src/data/tax-year-2026/states").glob("*.json")]
-unverified = [s["slug"] for s in states if s.get("verification") != "verified"]
+fed = json.loads((ROOT / "src/data/tax-year-2026/federal.json").read_text())
+if fed.get("verification") != "verified":
+    add("BLOCKER", "data", "Federal tax data is not checked against Rev. Proc. 2025-32 / Form 1040-ES; "
+        "a mistake there is on every page.", "me: scripts/apply_primary_sources.py")
+with_body = {s["slug"] for s in states if f"/tools/paycheck-calculator/{s['slug']}" in bodies}
+unverified = sorted(s["slug"] for s in states if s.get("verification") != "verified")
+launch_unverified = [s for s in unverified if s in with_body]
+if launch_unverified:
+    add("BLOCKER", "data", f"{len(launch_unverified)} state(s) with a written page are not yet checked "
+        f"against a primary source: {', '.join(launch_unverified)} (rule 13-4-1).",
+        "me: add them to data/tax-primary and run scripts/apply_primary_sources.py")
 if unverified:
-    add("BLOCKER", "data", f"{len(unverified)} of {len(states)} state tax datasets are not yet checked "
-        "against a primary source (rule 13-4-1: no page ships until a human has checked it).",
-        "you or me with network access to state revenue sites; checklist in docs/data-verification.md")
-stale = [s["name"] for s in states if s.get("staleForTargetYear")]
-if stale:
-    add("TODO", "data", f"{len(stale)} states carry prior-year brackets and are held behind the gate: "
-        + ", ".join(sorted(stale)), "re-run scripts/extract_tax_data.py when upstream publishes 2026")
+    add("TODO", "data", f"{len(unverified)} of {len(states)} state datasets are not yet checked against "
+        "a primary source; their pages stay behind the gate until they are.",
+        "me: one register entry per state in data/tax-primary/2026.json")
 
 # --- programmatic gate ----------------------------------------------------
 if gate["metrosBuilt"] < 5:

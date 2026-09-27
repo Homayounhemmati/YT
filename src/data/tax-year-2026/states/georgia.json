@@ -87,10 +87,27 @@
     ],
     "inflationIndexed": false
   },
-  "verification": "pending",
+  "verification": "verified",
   "personalExemption": null,
   "modelCoverage": {
     "personalExemption": "none"
   },
-  "staleForTargetYear": false
+  "staleForTargetYear": false,
+  "verified": {
+    "date": "2026-09-27",
+    "against": [
+      {
+        "title": "Georgia DOR, 2026 Employer's Withholding Tax Guide (revised June 2026): HB 463, retroactive to January 1, 2026 — flat 4.99%; standard deduction $30,000 married filing jointly, $15,000 single, head of household and married filing separately",
+        "url": "https://dor.georgia.gov/document/document/2026-employers-tax-guide-updated-june-2026/download",
+        "retrieved": "2026-09-27"
+      }
+    ],
+    "register": "data/tax-primary/2026.json",
+    "correction": "Not a correction: records the mid-year withholding change so the page can explain it."
+  },
+  "withholdingTransition": {
+    "previousRate": 5.19,
+    "newRateWithholdingFrom": "2026-05-11",
+    "note": "HB 463 cut the 2026 rate to 4.99% retroactively; employers withheld 5.19% until May 11, 2026."
+  }
 }

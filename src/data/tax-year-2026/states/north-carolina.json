@@ -81,10 +81,31 @@
     ],
     "inflationIndexed": false
   },
-  "verification": "pending",
+  "verification": "verified",
   "personalExemption": null,
   "modelCoverage": {
     "personalExemption": "none"
   },
-  "staleForTargetYear": false
+  "staleForTargetYear": false,
+  "verified": {
+    "date": "2026-09-27",
+    "against": [
+      {
+        "title": "NCDOR Tax Rate Schedules: \"For Taxable Years after 2025, the North Carolina individual income tax rate is 3.99%\" (S.L. 2023-134)",
+        "url": "https://www.ncdor.gov/taxes-forms/individual-income-tax/tax-rate-schedules",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "NCDOR, North Carolina Standard Deduction: $12,750 / $25,500 / $12,750 / $19,125",
+        "url": "https://www.ncdor.gov/taxes-forms/individual-income-tax/filing-topics/north-carolina-standard-deduction-or-north-carolina-itemized-deductions",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "NC-30 2026 Income Tax Withholding Tables (3.99%, $12,750)",
+        "url": "https://www.ncdor.gov/income-tax-withholding-tables-and-instructions-employers/open",
+        "retrieved": "2026-09-27"
+      }
+    ],
+    "register": "data/tax-primary/2026.json"
+  }
 }

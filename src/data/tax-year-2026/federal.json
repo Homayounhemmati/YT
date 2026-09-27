@@ -247,5 +247,36 @@
       }
     ]
   },
-  "verification": "pending"
+  "verification": "verified",
+  "verified": {
+    "date": "2026-09-27",
+    "against": [
+      {
+        "title": "Rev. Proc. 2025-32, section 4.01 (tax rate tables), 4.14 (standard deduction), 4.26 (QBI)",
+        "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "2026 Form 1040-ES (Social Security maximum $184,500; 92.35%; due dates; safe harbor)",
+        "url": "https://www.irs.gov/pub/irs-pdf/f1040es.pdf",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "26 U.S.C. 1401 (12.4%, 2.9%, 0.9% over $200,000/$250,000/$125,000)",
+        "url": "https://www.law.cornell.edu/uscode/text/26/1401",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "26 U.S.C. 3101 (employee 6.2%, 1.45%, 0.9%)",
+        "url": "https://www.law.cornell.edu/uscode/text/26/3101",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "26 U.S.C. 6017 ($400 self-employment filing threshold)",
+        "url": "https://www.law.cornell.edu/uscode/text/26/6017",
+        "retrieved": "2026-09-27"
+      }
+    ],
+    "register": "data/tax-primary/2026.json"
+  }
 }

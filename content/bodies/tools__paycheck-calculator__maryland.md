@@ -7,7 +7,7 @@ layer exactly and say plainly that the county layer is on top.
 ## The state layer on $95,000
 
 Maryland starts from your wages, then takes off two things before its brackets
-apply: a flat **$3,350 standard deduction** for a single filer, and a **$3,200
+apply: a flat **$3,400 standard deduction** for a single filer, and a **$3,200
 personal exemption**. What is left is taxed through these brackets:
 
 | Taxable income | Rate |
@@ -21,8 +21,8 @@ personal exemption**. What is left is taxed through these brackets:
 | $150,000 to $250,000 | 5.5% |
 | higher bands | 5.75% to 6.5% |
 
-On a $95,000 salary the state tax comes to **$4,149**, and take-home after federal
-tax, Social Security and Medicare is **$71,514** — an effective 24.7% before county
+On a $95,000 salary the state tax comes to **$4,147**, and take-home after federal
+tax, Social Security and Medicare is **$71,516** — an effective 24.7% before county
 tax. Every two weeks that is about $2,751 a check.
 
 ## The exemption shrinks as income rises
@@ -40,6 +40,18 @@ the same return and through the same withholding as the state tax. Because it va
 by county and applies to every resident, it is left out of the figures above rather
 than guessed. Treat them as the most you could keep; the county line comes off that.
 
+## How the county share is withheld
+
+Employers do not withhold the two layers separately. The Comptroller publishes a
+withholding table for each county rate, built from the state brackets and that
+county's rate added together, so many pay stubs show a single Maryland line that
+already includes the county. To see the state part on its own, compare it with the
+figure on this page; the difference is your county.
+
+Maryland's standard deduction is also indexed now: a recent law replaced the old
+percentage-of-income deduction with a flat amount that rises with inflation each year,
+which is why the 2026 figure differs slightly from last year's.
+
 ## Hourly pay and overtime
 
 Hourly workers in Maryland pay the same layers on whatever their hours come to, with
@@ -49,5 +61,5 @@ tax on all wages, not only the base.
 
 ## Self-employed
 
-The same $95,000 as self-employment profit leaves $70,330 after federal, state and
+The same $95,000 as self-employment profit leaves $70,332 after federal, state and
 self-employment tax, again before county tax.

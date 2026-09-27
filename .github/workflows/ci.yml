@@ -24,6 +24,14 @@ jobs:
       - name: Validate tax dataset
         run: python3 scripts/validate_tax_data.py --year 2026
 
+      # Every value a page relies on must still match the primary source recorded
+      # in data/tax-primary; a hand edit to a verified dataset fails here.
+      - name: Primary-source register
+        run: |
+          python3 scripts/apply_primary_sources.py --year 2026
+          git diff --exit-code -- src/data/tax-year-2026 || {
+            echo "::error::the datasets disagree with data/tax-primary/2026.json — re-run scripts/apply_primary_sources.py and commit"; exit 1; }
+
       # Two pages competing for one query is invisible until it has already
       # cost rankings. Catch it in the plan, not in Search Console.
       - name: Cannibalisation and canonical audit

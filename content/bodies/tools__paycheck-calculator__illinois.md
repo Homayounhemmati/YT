@@ -5,16 +5,16 @@ and disappears entirely at higher incomes.
 
 ## $95,000 in Illinois
 
-Illinois allows a **$2,850 personal exemption**, then taxes the rest at 4.95%. On a
-$95,000 salary that is **$4,561** of state tax, and a single filer takes home
-**$71,101** after federal tax, Social Security and Medicare — an effective 25.2%.
+Illinois allows a **$2,925 personal exemption** for 2026, then taxes the rest at 4.95%.
+On a $95,000 salary that is **$4,558** of state tax, and a single filer takes home
+**$71,105** after federal tax, Social Security and Medicare — an effective 25.2%.
 
 Per check: about $2,735 every two weeks, about $2,963 twice a month, about $5,925 on a
 monthly payroll.
 
-The exemption is adjusted for inflation each year, and the amount used here is the
-latest one published. When the new amount is released the state tax moves by a few
-dollars, not more.
+The exemption is adjusted for inflation each year: it was $2,850 for 2025. A married
+couple filing jointly claims two, $5,850 between them. Each year's change moves the
+state tax by a few dollars, not more.
 
 ## Where the exemption stops
 
@@ -38,6 +38,16 @@ Illinois follows the federal treatment of 401(k) deferrals, so a contribution lo
 both federal and state taxable wages. It does not lower Social Security or Medicare.
 Health premiums deducted through payroll lower all four lines.
 
+## Form IL-W-4
+
+Illinois withholding runs on its own certificate, Form IL-W-4, not the federal W-4.
+Its first line counts basic allowances — yourself, a spouse, dependents — and each one
+is worth a full $2,925 exemption for 2026. The second is for the extra allowances
+available to older workers and to the blind, which are worth far less per paycheck.
+The third asks for any additional flat amount to withhold. Because the rate is flat, the arithmetic
+employers follow is short: subtract the allowances from wages and take 4.95% of the
+rest, which is why an Illinois pay stub is easy to check against the figures here.
+
 ## Salaried against hourly
 
 An **illinois salary calculator** and an hourly one differ only in how gross pay is
@@ -46,5 +56,5 @@ no higher state bracket for extra hours to push into.
 
 ## Self-employed
 
-The same $95,000 as self-employment profit leaves $69,931 after federal, state and
+The same $95,000 as self-employment profit leaves $69,934 after federal, state and
 self-employment tax.

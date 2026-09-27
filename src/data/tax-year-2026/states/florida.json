@@ -17,10 +17,21 @@
     "resolvedPaths": {},
     "sources": []
   },
-  "verification": "pending",
+  "verification": "verified",
   "staleForTargetYear": false,
   "personalExemption": null,
   "modelCoverage": {
     "personalExemption": "none"
+  },
+  "verified": {
+    "date": "2026-09-27",
+    "against": [
+      {
+        "title": "Fla. Const. art. VII, sec. 5(a): no tax upon the income of natural persons who are residents",
+        "url": "https://www.flsenate.gov/Laws/Constitution",
+        "retrieved": "2026-09-27"
+      }
+    ],
+    "register": "data/tax-primary/2026.json"
   }
 }

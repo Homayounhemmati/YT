@@ -56,3 +56,9 @@ Form G-4, which asks for marital status and allowances separately. Filling in th
 federal form and not the Georgia one leaves your employer withholding at the default,
 which may not match the tax this page computes. If the two differ, the gap comes back
 as a refund or a bill when you file.
+
+2026 has a second gap built in. The cut to 4.99% was signed in the spring and made
+retroactive to January 1, but employers kept withholding at the old 5.19% until
+mid-May 2026. Paychecks from the first months of the year therefore took slightly more
+than the tax that is finally owed, and most Georgia employees will get that difference
+back as a refund when they file.

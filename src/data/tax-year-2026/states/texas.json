@@ -17,10 +17,21 @@
     "resolvedPaths": {},
     "sources": []
   },
-  "verification": "pending",
+  "verification": "verified",
   "staleForTargetYear": false,
   "personalExemption": null,
   "modelCoverage": {
     "personalExemption": "none"
+  },
+  "verified": {
+    "date": "2026-09-27",
+    "against": [
+      {
+        "title": "Tex. Const. art. VIII, sec. 24-a (H.J.R. 38, 86th Legislature, adopted November 5, 2019): \"The legislature may not impose a tax on the net incomes of individuals\"",
+        "url": "https://capitol.texas.gov/tlodocs/86R/billtext/pdf/HJ00038E.pdf",
+        "retrieved": "2026-09-27"
+      }
+    ],
+    "register": "data/tax-primary/2026.json"
   }
 }

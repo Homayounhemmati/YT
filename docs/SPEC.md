@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-27 · **Version:** 5.18
+> **Last revised:** 2026-09-27 · **Version:** 5.19
+>
+> **Version 5.19:** Every data input is now real and checked against its publisher: federal and the eight launch states against their 2026 primary sources (three corrections, including New York's supplemental tax, which the engine now applies), BEA price parities from BEA's own file, HUD rents matched county by county to HUD's revised FY2026 spreadsheet, and BLS household spending by size. Launch blockers fell from 7 to 4, none of them data. Details in 20-35.
 >
 > **Version 5.18:** The cost-of-living calculator is rebuilt as the centre of the funnel: a household month line by line, and the salary that covers it after tax. HUD rents for all 3,158 single-rent counties are now real data, read from the policyengine-us bundle; the BEA price level and BLS spending averages are the remaining inputs. Details in 20-34.
 >
@@ -4485,3 +4487,23 @@ calculator, the comparison and the metro pages are complete.
 ---
 
 *End of document. Any change to the decisions in section 2 requires revising this document, not a local patch.*
+
+### 20-35. Round thirty-six — version 5.19 · the data, fetched and checked against its publishers
+
+With network access open, every input was fetched from the organisation that publishes it and every value a page relies on was checked against a primary document, not a search summary.
+
+**Tax data — a register, not a tick-box.** `data/tax-primary/2026.json` records, per jurisdiction, the primary sources opened (with retrieval date), any value they correct, values computed from a statute's own formula where the agency has not yet published them, and every value a page relies on. `scripts/apply_primary_sources.py` applies the corrections, checks every value and marks a jurisdiction verified only when all match; the extractor runs it after every extraction and CI fails if a dataset disagrees with the register. The state-page gate now also requires `verification: "verified"` (rule 13-4-1 enforced in code).
+
+- **Federal:** all brackets and standard deductions (Rev. Proc. 2025-32), QBI thresholds, the $184,500 wage base, 92.35%, due dates and safe harbor (2026 Form 1040-ES), FICA, Additional Medicare and the $400 threshold (26 U.S.C. 1401, 3101, 6017). Everything matched.
+- **Illinois:** the exemption was 2025's $2,850; 2026 is **$2,925** (Bulletin FY 2026-15, IL-700-T).
+- **Maryland:** the standard deduction was 2025's $3,350; the Comptroller publishes **$3,400** for 2026. The joint and head-of-household figure is not yet published; **$6,850** is Tax-General 10-217(c) applied to BLS chained CPI, and the same formula reproduces the published $3,400. HB 411 (2026, $4,100) died in committee.
+- **New York:** brackets were right, but the section 601(d-5) **supplemental tax** above $107,650 of AGI was missing — New York salaries above that line were understated (by $480 at $150,000, $2,614 at $300,000). It is now data (the statute's own table) plus `supplementalTax()`, with tests worked from the statute and two acceptance rows the Base44 build must match.
+- **Georgia** (4.99%, $15,000/$30,000 under HB 463, retroactive; withholding stayed at 5.19% until May 11, 2026), **North Carolina**, **Pennsylvania**, **Texas**, **Florida**: confirmed.
+- **Connecticut** also recaptures its lower brackets; the engine does not apply that yet, so it is flagged and held behind the gate.
+
+**Cost-of-living data.** BEA Regional Price Parities 2024 now come from BEA's bulk file (no key; components matched by description). HUD FY2026 rents, imported from the policyengine-us bundle, were matched to HUD's own revised spreadsheet — all 3,158 counties, every bedroom count, exact (`scripts/verify_hud_fmr.py`). BLS Consumer Expenditure 2024 by size of consumer unit: the series codes in the draft were wrong (LB04 is age; size is LB05) and two item codes did not exist; both were corrected against the series titles, and "car purchase and fuel" is derived exactly from the CE hierarchy because the gasoline series ends in 2023. The series were read through FRED, which mirrors BLS; one value was matched against the BLS API, the rest await a keyed BLS call (TODO).
+
+**Copy.** The Maryland, Illinois and New York pages carry the corrected figures, New York gained a section explaining the supplemental tax, Georgia one on the 2026 withholding gap, Pennsylvania on health cover and Tax Forgiveness, Illinois on Form IL-W-4, Maryland on county withholding, North Carolina on separate returns. Three pages (Texas, Florida, Pennsylvania) wrongly listed the Additional Medicare Tax as not included; the engine applies it, and the copy now says so.
+
+**Launch readiness:** 4 blockers, all outside the data — metro bodies (and a fifth metro), the /about biography, the domain, the Base44 build. Tests: 150.
+

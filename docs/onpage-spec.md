@@ -47,18 +47,18 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 | `/tools/paycheck-calculator/colorado` | Colorado Paycheck Calculator (2026) | 35 | 142 | pending |
 | `/tools/paycheck-calculator/connecticut` | Connecticut Paycheck Calculator (2026) | 38 | 145 | pending |
 | `/tools/paycheck-calculator/delaware` | Delaware Paycheck Calculator (2026) | 35 | 142 | pending |
-| `/tools/paycheck-calculator/florida` | Florida Paycheck Calculator (2026) | 34 | 128 | pending |
-| `/tools/paycheck-calculator/georgia` | Georgia Paycheck Calculator (2026) | 34 | 141 | pending |
+| `/tools/paycheck-calculator/florida` | Florida Paycheck Calculator (2026) | 34 | 128 | verified |
+| `/tools/paycheck-calculator/georgia` | Georgia Paycheck Calculator (2026) | 34 | 141 | verified |
 | `/tools/paycheck-calculator/hawaii` | Hawaii Paycheck Calculator (2026) | 33 | 140 | pending |
 | `/tools/paycheck-calculator/idaho` | Idaho Paycheck Calculator (2026) | 32 | 139 | ⚠️ 2025 |
-| `/tools/paycheck-calculator/illinois` | Illinois Paycheck Calculator (2026) | 35 | 142 | pending |
+| `/tools/paycheck-calculator/illinois` | Illinois Paycheck Calculator (2026) | 35 | 142 | verified |
 | `/tools/paycheck-calculator/indiana` | Indiana Paycheck Calculator (2026) | 34 | 141 | pending |
 | `/tools/paycheck-calculator/iowa` | Iowa Paycheck Calculator (2026) | 31 | 138 | pending |
 | `/tools/paycheck-calculator/kansas` | Kansas Paycheck Calculator (2026) | 33 | 140 | pending |
 | `/tools/paycheck-calculator/kentucky` | Kentucky Paycheck Calculator (2026) | 35 | 142 | pending |
 | `/tools/paycheck-calculator/louisiana` | Louisiana Paycheck Calculator (2026) | 36 | 143 | pending |
 | `/tools/paycheck-calculator/maine` | Maine Paycheck Calculator (2026) | 32 | 139 | pending |
-| `/tools/paycheck-calculator/maryland` | Maryland Paycheck Calculator (2026) | 35 | 142 | pending |
+| `/tools/paycheck-calculator/maryland` | Maryland Paycheck Calculator (2026) | 35 | 142 | verified |
 | `/tools/paycheck-calculator/massachusetts` | Massachusetts Paycheck Calculator (2026) | 40 | 147 | pending |
 | `/tools/paycheck-calculator/michigan` | Michigan Paycheck Calculator (2026) | 35 | 142 | pending |
 | `/tools/paycheck-calculator/minnesota` | Minnesota Paycheck Calculator (2026) | 36 | 143 | ⚠️ 2025 |
@@ -70,18 +70,18 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 | `/tools/paycheck-calculator/new-hampshire` | New Hampshire Paycheck Calculator (2026) | 40 | 134 | pending |
 | `/tools/paycheck-calculator/new-jersey` | New Jersey Paycheck Calculator (2026) | 37 | 144 | pending |
 | `/tools/paycheck-calculator/new-mexico` | New Mexico Paycheck Calculator (2026) | 37 | 144 | pending |
-| `/tools/paycheck-calculator/new-york` | New York Paycheck Calculator (2026) | 35 | 142 | pending |
-| `/tools/paycheck-calculator/north-carolina` | North Carolina Paycheck Calculator (2026) | 41 | 148 | pending |
+| `/tools/paycheck-calculator/new-york` | New York Paycheck Calculator (2026) | 35 | 142 | verified |
+| `/tools/paycheck-calculator/north-carolina` | North Carolina Paycheck Calculator (2026) | 41 | 148 | verified |
 | `/tools/paycheck-calculator/north-dakota` | North Dakota Paycheck Calculator (2026) | 39 | 146 | pending |
 | `/tools/paycheck-calculator/ohio` | Ohio Paycheck Calculator (2026) | 31 | 138 | pending |
 | `/tools/paycheck-calculator/oklahoma` | Oklahoma Paycheck Calculator (2026) | 35 | 142 | pending |
 | `/tools/paycheck-calculator/oregon` | Oregon Paycheck Calculator (2026) | 33 | 140 | ⚠️ 2025 |
-| `/tools/paycheck-calculator/pennsylvania` | Pennsylvania Paycheck Calculator (2026) | 39 | 146 | pending |
+| `/tools/paycheck-calculator/pennsylvania` | Pennsylvania Paycheck Calculator (2026) | 39 | 146 | verified |
 | `/tools/paycheck-calculator/rhode-island` | Rhode Island Paycheck Calculator (2026) | 39 | 146 | pending |
 | `/tools/paycheck-calculator/south-carolina` | South Carolina Paycheck Calculator (2026) | 41 | 148 | pending |
 | `/tools/paycheck-calculator/south-dakota` | South Dakota Paycheck Calculator (2026) | 39 | 133 | pending |
 | `/tools/paycheck-calculator/tennessee` | Tennessee Paycheck Calculator (2026) | 36 | 130 | pending |
-| `/tools/paycheck-calculator/texas` | Texas Paycheck Calculator (2026) | 32 | 126 | pending |
+| `/tools/paycheck-calculator/texas` | Texas Paycheck Calculator (2026) | 32 | 126 | verified |
 | `/tools/paycheck-calculator/utah` | Utah Paycheck Calculator (2026) | 31 | 138 | pending |
 | `/tools/paycheck-calculator/vermont` | Vermont Paycheck Calculator (2026) | 34 | 141 | ⚠️ 2025 |
 | `/tools/paycheck-calculator/virginia` | Virginia Paycheck Calculator (2026) | 35 | 142 | pending |

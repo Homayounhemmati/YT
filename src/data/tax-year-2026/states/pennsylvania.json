@@ -45,10 +45,26 @@
     ],
     "inflationIndexed": false
   },
-  "verification": "pending",
+  "verification": "verified",
   "personalExemption": null,
   "modelCoverage": {
     "personalExemption": "none"
   },
-  "staleForTargetYear": false
+  "staleForTargetYear": false,
+  "verified": {
+    "date": "2026-09-27",
+    "against": [
+      {
+        "title": "Pennsylvania Department of Revenue, Personal Income Tax: \"levied at the rate of 3.07 percent\"",
+        "url": "https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/personal-income-tax",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "2025 PA-40 instructions: \"PA law does not allow standard deductions, deductions for personal exemptions\"; cafeteria-plan payments for hospitalization and sickness are nontaxable; Tax Forgiveness (Schedule SP) reduces all or part of the liability",
+        "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
+        "retrieved": "2026-09-27"
+      }
+    ],
+    "register": "data/tax-primary/2026.json"
+  }
 }

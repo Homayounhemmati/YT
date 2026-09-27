@@ -19,8 +19,15 @@ their answers depend on published indices, and fixture indices must never be sho
 | $60,000.00 | florida | 52 | $4,590.00 | $5,020.00 | $0.00 | $50,390.00 | $969.04 |
 | $250,000.00 | texas | 26 | $15,514.00 | $51,304.00 | $0.00 | $183,182.00 | $7,045.47 |
 | $95,000.00 | pennsylvania | 26 | $7,267.50 | $9,870.00 | $2,916.50 | $64,946.00 | $2,497.93 |
+| $95,000.00 | maryland | 26 | $7,267.50 | $12,070.00 | $4,146.50 | $71,516.00 | $2,750.62 |
+| $95,000.00 | illinois | 26 | $7,267.50 | $12,070.00 | $4,557.71 | $71,104.79 | $2,734.80 |
+| $300,000.00 | illinois | 26 | $16,689.00 | $68,134.25 | $14,850.00 | $200,326.75 | $7,704.88 |
+| $150,000.00 | new-york | 26 | $11,475.00 | $24,734.00 | $8,290.00 | $105,501.00 | $4,057.74 |
+| $300,000.00 | new-york | 26 | $16,689.00 | $68,134.25 | $20,001.45 | $195,175.30 | $7,506.75 |
 
-The last row has a $10,000 401(k) deferral: FICA must be unchanged from the row without it, federal tax lower, and Pennsylvania tax unchanged (Pennsylvania taxes deferrals).
+The Pennsylvania row with a $10,000 401(k) deferral: FICA must be unchanged from the row without it, federal tax lower, and Pennsylvania tax unchanged (Pennsylvania taxes deferrals).
+
+Maryland uses the 2026 standard deduction ($3,400 single) and the $3,200 exemption; Illinois the 2026 exemption ($2,925), which disappears above $250,000 of AGI. The New York rows at $150,000 and $300,000 include the section 601(d-5) supplemental tax ($480.25 and $2,614.00 on top of the bracket tax): a build that applies only the bracket table fails them.
 
 ## Paycheck, hourly mode (overtime at 1.5x above 40 hours; biweekly)
 

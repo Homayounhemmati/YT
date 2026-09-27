@@ -47,8 +47,29 @@ certification that tells the employer which municipality's earned income tax to
 withhold. Getting that form right matters more to the paycheck than anything else a
 Pennsylvanian can change.
 
+## Health cover is treated differently from the 401(k)
+
+Pennsylvania's refusal to exclude retirement deferrals does not extend to health
+cover. Premiums paid through an employer's cafeteria plan for medical coverage are
+nontaxable in Pennsylvania, as they are federally, so they come off the state line as
+well as the federal one. That is why, on a Pennsylvania W-2, the state wages box
+usually sits above the federal one by roughly the 401(k) amount and not by the health
+premium.
+
+## Tax forgiveness
+
+With no standard deduction, Pennsylvania reaches low-income households another way:
+Tax Forgiveness, a credit claimed on Schedule SP with the annual return that can wipe
+out all or part of the state tax. Eligibility is measured on a broad definition of
+income that counts many amounts the tax itself ignores, and on the number of
+dependents. It is not applied through withholding, so a worker who qualifies still
+sees 3.07% taken from each check and gets it back after filing. The figures here are
+before any forgiveness.
+
 ## Not included
 
 - Local earned income tax and local services tax.
 - Any withholding that differs from the liability shown.
-- Additional Medicare Tax above $200,000 of wages for a single filer.
+
+The calculator does apply the Additional Medicare Tax once wages pass $200,000 for a
+single filer; at $95,000 it does not arise.

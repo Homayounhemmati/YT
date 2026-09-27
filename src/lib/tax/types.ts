@@ -63,12 +63,48 @@ export interface StateData {
     }>>;
     staleComponent?: boolean;
     effectiveFrom?: string;
+    /** The previous year's amount, kept so copy can quote the change. */
+    priorYear?: { year: number; amount: number };
   } | null;
+  /**
+   * New York's supplemental tax (Tax Law section 601(d-5) for 2026): above an AGI
+   * floor the benefit of the lower brackets is taken back, phased in over
+   * `phaseWidth` dollars of AGI. Amounts are the statute's own table, not derived.
+   */
+  benefitRecapture?: BenefitRecapture | null;
   /** Whether each part of the state's model is established: a page is built only when it is. */
-  modelCoverage?: { personalExemption: "modelled" | "none" | "not-extracted" };
+  modelCoverage?: {
+    personalExemption: "modelled" | "none" | "not-extracted";
+    /** "not-modelled": the state has a recapture the engine does not yet apply (Connecticut). */
+    benefitRecapture?: "modelled" | "none" | "not-modelled";
+  };
   localTaxNote: string | null;
   notes: string[];
   staleForTargetYear?: boolean;
+  /** "verified" once every value a page relies on matches a primary source (data/tax-primary). */
+  verification?: "verified" | "pending" | "missing";
+}
+
+export interface BenefitRecapture {
+  agiFloor: number;
+  /** Above this AGI the whole taxable income is taxed at `topRate`. */
+  agiCeiling: number;
+  topRate: number;
+  phaseWidth: number;
+  byStatus: Partial<Record<FilingStatus, {
+    /** Taxable income at or below `below`: (rate x income - schedule tax) x phase-in fraction. */
+    lowIncome: { below: number; rate: number };
+    /** Taxable income over `over` and not over `notOver`. */
+    rows: {
+      over: number;
+      notOver: number;
+      recaptureBase: number;
+      incrementalBenefit: number;
+      /** The applicable amount is AGI minus this. */
+      agiLess: number;
+    }[];
+  }>>;
+  source: string;
 }
 
 export interface EstimatedData {

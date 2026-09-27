@@ -176,10 +176,10 @@
   },
   "flatRate": null,
   "standardDeduction": {
-    "single": 3350,
-    "marriedJointly": 6700,
-    "marriedSeparately": 3350,
-    "headOfHousehold": 6700
+    "single": 3400,
+    "marriedJointly": 6850,
+    "marriedSeparately": 3400,
+    "headOfHousehold": 6850
   },
   "surtax": null,
   "localTaxNote": "Every Maryland county and Baltimore City levies a local income tax on top of the state tax. Not included in this calculation.",
@@ -262,7 +262,7 @@
     ],
     "inflationIndexed": false
   },
-  "verification": "pending",
+  "verification": "verified",
   "personalExemption": {
     "byStatus": {
       "single": {
@@ -339,5 +339,36 @@
   "modelCoverage": {
     "personalExemption": "modelled"
   },
-  "staleForTargetYear": false
+  "staleForTargetYear": false,
+  "verified": {
+    "date": "2026-09-27",
+    "against": [
+      {
+        "title": "Md. Code, Tax-General section 10-105(a): State rates and brackets",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-105&enactments=false",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "Md. Code, Tax-General section 10-217: $3,350 / $6,700 for 2025, indexed from 2026 by the IRC 1(f)(3) cost-of-living adjustment (2024 base), each increase rounded down to a multiple of $50",
+        "url": "https://mgaleg.maryland.gov/mgawebsite/Laws/StatuteText?article=gtg&section=10-217&enactments=false",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "Comptroller of Maryland, 2026 Employer Withholding Guide and Form MW507 (2026): standard deduction $3,400; exemption $3,200 with the AGI phase-down table",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/withholding/2026/withholding-guide.pdf",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "BLS chained CPI-U (SUUR0000SA0), 12-month averages to August 2024 and August 2025, via FRED",
+        "url": "https://fred.stlouisfed.org/series/SUUR0000SA0",
+        "retrieved": "2026-09-27"
+      }
+    ],
+    "register": "data/tax-primary/2026.json",
+    "computedFromStatute": [
+      "standardDeduction.marriedJointly",
+      "standardDeduction.headOfHousehold"
+    ],
+    "correction": "The extracted amounts ($3,350/$6,700) were 2025's. $3,400 is published by the Comptroller. The Comptroller has not yet published the joint/head-of-household figure; $6,850 is section 10-217(c) applied to BLS data (C-CPI-U 177.206 / 173.016 = +2.42%; $6,700 x 2.42% = $162 -> rounded down to $150), and the same formula reproduces the published $3,400 ($81 -> $50). Recheck against the 2026 resident booklet when it is released."
+  }
 }

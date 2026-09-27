@@ -60,10 +60,14 @@ self-employment profit carries $20,840 of tax rather than $19,338, because a
 self-employed person pays both halves of Social Security and Medicare. Take-home falls
 to $74,160, still without a Texas line.
 
-## What this calculation leaves out
+## What the $95,000 example assumes
+
+The calculator handles each of these when you enter them; the worked figures above
+leave them out:
 
 - Pre-tax deductions: a 401(k) lowers federal income tax but not Social Security or
   Medicare, and health premiums taken through payroll lower all three.
-- Additional Medicare Tax, which starts at $200,000 of wages for a single filer.
-- Any withholding that differs from the liability shown — the refund or bill in April
-  is the difference between the two.
+- Wages above $200,000 for a single filer, where the Additional Medicare Tax begins.
+
+What no paycheck calculator can know is your withholding: the refund or bill in April
+is the difference between what was withheld and the liability shown here.

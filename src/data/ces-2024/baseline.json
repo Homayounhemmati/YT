@@ -1,0 +1,123 @@
+{
+  "year": 2024,
+  "source": {
+    "label": "BLS Consumer Expenditure Survey, 2024, by size of consumer unit (series retrieved through FRED, Federal Reserve Bank of St. Louis)",
+    "url": "https://www.bls.gov/cex/",
+    "retrieved": "2026-09-27",
+    "mirror": "https://fred.stlouisfed.org/"
+  },
+  "categories": {
+    "food_home": {
+      "label": "Groceries",
+      "index": "goods"
+    },
+    "food_away": {
+      "label": "Eating out",
+      "index": "otherServices"
+    },
+    "vehicles_fuel": {
+      "label": "Car purchase and fuel",
+      "index": "goods"
+    },
+    "vehicle_other": {
+      "label": "Car insurance and upkeep",
+      "index": "otherServices"
+    },
+    "public_transit": {
+      "label": "Public transportation",
+      "index": "otherServices"
+    },
+    "health": {
+      "label": "Health care",
+      "index": "otherServices"
+    },
+    "apparel": {
+      "label": "Clothing",
+      "index": "goods"
+    },
+    "phone": {
+      "label": "Phone service",
+      "index": "otherServices"
+    },
+    "entertainment": {
+      "label": "Entertainment",
+      "index": "allItems"
+    },
+    "personal_care": {
+      "label": "Personal care",
+      "index": "allItems"
+    },
+    "education": {
+      "label": "Education",
+      "index": "otherServices"
+    }
+  },
+  "annualByHouseholdSize": {
+    "1": {
+      "food_home": 3395.0,
+      "food_away": 2249.0,
+      "vehicles_fuel": 3836.0,
+      "vehicle_other": 2383.0,
+      "public_transit": 734.0,
+      "health": 4026.0,
+      "apparel": 1113.0,
+      "phone": 849.0,
+      "entertainment": 2187.0,
+      "personal_care": 619.0,
+      "education": 818.0
+    },
+    "2": {
+      "food_home": 6088.0,
+      "food_away": 4070.0,
+      "vehicles_fuel": 8404.0,
+      "vehicle_other": 4282.0,
+      "public_transit": 1326.0,
+      "health": 7228.0,
+      "apparel": 1994.0,
+      "phone": 1451.0,
+      "entertainment": 3933.0,
+      "personal_care": 1023.0,
+      "education": 1133.0
+    },
+    "3": {
+      "food_home": 7597.0,
+      "food_away": 4609.0,
+      "vehicles_fuel": 9555.0,
+      "vehicle_other": 4903.0,
+      "public_transit": 1234.0,
+      "health": 6706.0,
+      "apparel": 2404.0,
+      "phone": 1758.0,
+      "entertainment": 4091.0,
+      "personal_care": 1188.0,
+      "education": 2585.0
+    },
+    "4": {
+      "food_home": 8697.0,
+      "food_away": 5847.0,
+      "vehicles_fuel": 11841.0,
+      "vehicle_other": 6136.0,
+      "public_transit": 1550.0,
+      "health": 7629.0,
+      "apparel": 2653.0,
+      "phone": 2031.0,
+      "entertainment": 4995.0,
+      "personal_care": 1347.0,
+      "education": 2668.0
+    },
+    "5": {
+      "food_home": 10274.0,
+      "food_away": 5331.0,
+      "vehicles_fuel": 12103.0,
+      "vehicle_other": 6083.0,
+      "public_transit": 1002.0,
+      "health": 6819.0,
+      "apparel": 3358.0,
+      "phone": 2203.0,
+      "entertainment": 4416.0,
+      "personal_care": 1144.0,
+      "education": 2458.0
+    }
+  },
+  "verification": "pending"
+}

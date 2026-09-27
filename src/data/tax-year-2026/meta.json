@@ -109,7 +109,7 @@
       "bracketCount": 0,
       "hasStandardDeduction": false,
       "stale": false,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "georgia",
@@ -119,7 +119,7 @@
       "bracketCount": 0,
       "hasStandardDeduction": true,
       "stale": false,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "hawaii",
@@ -159,7 +159,7 @@
       "bracketCount": 0,
       "hasStandardDeduction": false,
       "stale": false,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "indiana",
@@ -219,7 +219,7 @@
       "bracketCount": 10,
       "hasStandardDeduction": true,
       "stale": false,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "maine",
@@ -289,7 +289,7 @@
       "bracketCount": 0,
       "hasStandardDeduction": true,
       "stale": false,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "north-dakota",
@@ -359,7 +359,7 @@
       "bracketCount": 9,
       "hasStandardDeduction": true,
       "stale": false,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "ohio",
@@ -399,7 +399,7 @@
       "bracketCount": 0,
       "hasStandardDeduction": false,
       "stale": false,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "rhode-island",
@@ -449,7 +449,7 @@
       "bracketCount": 0,
       "hasStandardDeduction": false,
       "stale": false,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "utah",
@@ -521,5 +521,6 @@
       "stale": false,
       "verification": "pending"
     }
-  ]
+  ],
+  "verifiedCount": 8
 }

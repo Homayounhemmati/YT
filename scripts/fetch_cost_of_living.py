@@ -277,6 +277,13 @@ def main():
             "lastVerified": "",
             "verification": "pending",
         }
+        # The indices come straight from BEA's own file; the rents are verified
+        # when scripts/verify_hud_fmr.py has matched HUD's spreadsheet exactly.
+        if fmr.get("verification") == "verified":
+            doc["verification"] = "verified"
+            doc["lastVerified"] = retrieved
+            doc["verifiedBy"] = ("price parities read from BEA's MARPP file itself; rents from the "
+                                 f"HUD county file, matched to {fmr['verified']['against']}")
         (outdir / f"{m['slug']}.json").write_text(json.dumps(doc, indent=2) + "\n")
         m["indices"] = row["indices"]
         m["dataYear"] = year

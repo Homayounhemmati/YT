@@ -1,6 +1,6 @@
 import { applyBrackets, marginalRate } from "./brackets.js";
 import { type Cents, atLeastZero, percentOf, toCents } from "./money.js";
-import type { BracketRow, FilingStatus, StateData, StateResult } from "./types.js";
+import type { BenefitRecapture, BracketRow, FilingStatus, StateData, StateResult } from "./types.js";
 
 export interface StateArgs {
   federalAgi: Cents;
@@ -51,6 +51,44 @@ export function personalExemption(
     if (federalAgi > toCents(step.overAgi)) amount = step.amount;
   }
   return toCents(amount);
+}
+
+/**
+ * New York's supplemental tax, in cents, on top of the schedule tax `scheduleTax`.
+ * Follows the statute clause by clause: recapture base plus incremental benefit
+ * times the phase-in fraction (the lesser of $50,000 or the applicable amount,
+ * over $50,000); below the first row, (rate x income - schedule tax) times the
+ * fraction measured from the AGI floor; above the ceiling, top rate on all of it.
+ */
+export function supplementalTax(
+  rule: BenefitRecapture,
+  filingStatus: FilingStatus,
+  federalAgi: Cents,
+  taxableIncome: Cents,
+  scheduleTax: Cents,
+): Cents {
+  const agi = federalAgi;
+  if (agi <= toCents(rule.agiFloor) || taxableIncome <= 0) return 0;
+  if (agi > toCents(rule.agiCeiling)) {
+    return atLeastZero(percentOf(taxableIncome, rule.topRate) - scheduleTax);
+  }
+  const table = rule.byStatus[filingStatus];
+  if (!table) return 0;
+  const width = toCents(rule.phaseWidth);
+  const fraction = (applicable: Cents) => Math.min(width, atLeastZero(applicable)) / width;
+
+  if (taxableIncome <= toCents(table.lowIncome.below)) {
+    const full = percentOf(taxableIncome, table.lowIncome.rate) - scheduleTax;
+    return atLeastZero(Math.round(full * fraction(agi - toCents(rule.agiFloor))));
+  }
+  const row = table.rows.find(
+    (r) => taxableIncome > toCents(r.over) && taxableIncome <= toCents(r.notOver),
+  );
+  if (!row) return 0;
+  return (
+    toCents(row.recaptureBase) +
+    Math.round(toCents(row.incrementalBenefit) * fraction(agi - toCents(row.agiLess)))
+  );
 }
 
 export function computeStateTax({
@@ -135,6 +173,40 @@ export function computeStateTax({
   } else {
     amount = 0;
     notes.push("No rate schedule available for this filing status.");
+  }
+
+  if (state.benefitRecapture) {
+    const extra = supplementalTax(
+      state.benefitRecapture, filingStatus, federalAgi, taxableIncome, amount,
+    );
+    if (extra > 0) {
+      amount += extra;
+      // Inside the phase-in the next dollar costs more than the bracket rate says;
+      // measure it rather than report the schedule's rate.
+      const step = toCents(100);
+      const rowsNow = rows && rows.length > 0 ? rows : null;
+      const scheduleAt = (ti: Cents) =>
+        rowsNow ? applyBrackets(ti, rowsNow).tax : percentOf(ti, state.flatRate ?? 0);
+      const next =
+        scheduleAt(taxableIncome + step) +
+        supplementalTax(
+          state.benefitRecapture, filingStatus, federalAgi + step,
+          taxableIncome + step, scheduleAt(taxableIncome + step),
+        );
+      marginal = Math.round(((next - amount) / step) * 10000) / 100;
+      const floor = state.benefitRecapture.agiFloor.toLocaleString("en-US");
+      notes.push(
+        `Above $${floor} of adjusted gross income ${state.name} takes back the ` +
+          "benefit of its lower brackets (a supplemental tax), phased in over the " +
+          `next $${state.benefitRecapture.phaseWidth.toLocaleString("en-US")}. It is included here.`,
+      );
+    }
+  }
+  if (state.modelCoverage?.benefitRecapture === "not-modelled") {
+    notes.push(
+      "This state takes back the benefit of its lower brackets at higher incomes; " +
+        "that recapture is not yet modelled, so tax at high incomes is understated.",
+    );
   }
 
   // A separate levy stacked on the ordinary schedule, such as California's

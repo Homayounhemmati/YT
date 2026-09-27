@@ -563,11 +563,17 @@ def main():
     # ...nor is a state whose personal exemption has not been established: the
     # engine would quote a take-home figure that is wrong by the exemption times
     # the rate (Maryland was $311 out before 5.17).
+    # ...nor one whose figures have not been checked against a primary source
+    # (rule 13-4-1; data/tax-primary), nor one with a bracket recapture the
+    # engine does not apply (Connecticut).
     built_states = {s["slug"] for s in states
                     if page_spec["path"].replace("{state}", s["slug"]) in bodies
                     and not s.get("staleForTargetYear")
+                    and s.get("verification") == "verified"
                     and (s.get("modelCoverage") or {}).get("personalExemption")
-                        in ("modelled", "none")}
+                        in ("modelled", "none")
+                    and (s.get("modelCoverage") or {}).get("benefitRecapture")
+                        != "not-modelled"}
     metro_rows = [{"slug": m["slug"], "display": m["displayName"],
                    "stateSlug": m["stateSlug"], "volume": m.get("volume", 0)}
                   for m in metros if m["slug"] in built_metros]

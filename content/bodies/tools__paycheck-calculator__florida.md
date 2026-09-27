@@ -43,9 +43,12 @@ The federal side is heavier. The same $95,000 as self-employment profit carries
 $20,840 of tax rather than $19,338, leaving $74,160 — still with no state line, but
 with both halves of Social Security and Medicare falling on one person.
 
-## Not included here
+## What the $95,000 example assumes
+
+The worked figures assume none of the following; the calculator applies each one when
+you enter it:
 
 - Pre-tax 401(k) contributions, which lower income tax but not Social Security or
   Medicare.
 - Health, dental and vision premiums taken through payroll, which lower all three.
-- Additional Medicare Tax above $200,000 of wages for a single filer.
+- Wages above $200,000 for a single filer, where the Additional Medicare Tax begins.

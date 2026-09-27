@@ -794,6 +794,14 @@ def main():
     print("  extraction gaps: %d %s" % (len(missing), missing))
     print("upstream policyengine-us %s" % version)
 
+    # Re-apply every primary-source correction and re-check every verified value;
+    # a changed upstream value fails here instead of reaching a page.
+    import subprocess
+    rc = subprocess.call([sys.executable, str(pathlib.Path(__file__).with_name(
+        "apply_primary_sources.py")), "--year", str(args.year)])
+    if rc:
+        sys.exit("primary-source check failed: see the mismatches above")
+
 
 if __name__ == "__main__":
     main()

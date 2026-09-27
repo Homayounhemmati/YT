@@ -133,3 +133,36 @@ describe("gross for net", () => {
     expect(grossForNet(0, () => 0)).toBe(0);
   });
 });
+
+// REAL: BEA RPP 2024 (MARPP bulk file) and BLS Consumer Expenditure 2024 by size
+// of consumer unit, as imported by scripts/fetch_cost_of_living.py and
+// scripts/fetch_ces.py. Expected values are worked by hand from those files.
+describe("real data: a one-person household in Austin", () => {
+  const austin: PlaceCostData = JSON.parse(
+    readFileSync("src/data/cost-of-living-2024/us/austin-tx.json", "utf8"));
+  const ces: SpendingBaseline = JSON.parse(
+    readFileSync("src/data/ces-2024/baseline.json", "utf8"));
+  const r = cityMonthlyCost({ place: austin, householdSize: 1, bedrooms: 1, baseline: ces });
+  const row = (key: string) => r.rows.find((x) => x.key === key)!;
+
+  it("uses Travis County's FY2026 one-bedroom Fair Market Rent", () => {
+    expect(row("rent").monthly).toBe(1562);
+  });
+  it("prices groceries at Austin's goods parity (93.757)", () => {
+    // 3,395 a year x 93.757 / 100 / 12 = 265.254
+    expect(row("food_home").monthly).toBe(265.25);
+  });
+  it("prices health care at Austin's other-services parity (96.240)", () => {
+    // 4,026 x 96.24 / 100 / 12 = 322.885
+    expect(row("health").monthly).toBe(322.89);
+  });
+  it("shows every CES category and no housing or utilities line besides rent", () => {
+    expect(r.rows.map((x) => x.key).sort()).toEqual(
+      ["rent", ...Object.keys(ces.categories)].sort());
+  });
+  it("adds up to the sum of its rows", () => {
+    const sum = r.rows.reduce((a, x) => a + Math.round(x.monthly * 100), 0) / 100;
+    expect(r.monthlyTotal).toBe(sum);
+    expect(r.annualTotal).toBe(Math.round(sum * 12 * 100) / 100);
+  });
+});

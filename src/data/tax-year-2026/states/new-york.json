@@ -239,10 +239,193 @@
     ],
     "inflationIndexed": false
   },
-  "verification": "pending",
+  "verification": "verified",
   "personalExemption": null,
   "modelCoverage": {
-    "personalExemption": "none"
+    "personalExemption": "none",
+    "benefitRecapture": "modelled"
   },
-  "staleForTargetYear": false
+  "staleForTargetYear": false,
+  "benefitRecapture": {
+    "agiFloor": 107650,
+    "agiCeiling": 25000000,
+    "topRate": 10.9,
+    "phaseWidth": 50000,
+    "byStatus": {
+      "marriedJointly": {
+        "lowIncome": {
+          "below": 27900,
+          "rate": 5.4
+        },
+        "rows": [
+          {
+            "over": 27900,
+            "notOver": 161550,
+            "recaptureBase": 0,
+            "incrementalBenefit": 333,
+            "agiLess": 107650
+          },
+          {
+            "over": 161550,
+            "notOver": 323200,
+            "recaptureBase": 333,
+            "incrementalBenefit": 807,
+            "agiLess": 161550
+          },
+          {
+            "over": 323200,
+            "notOver": 2155350,
+            "recaptureBase": 1140,
+            "incrementalBenefit": 3071,
+            "agiLess": 323200
+          },
+          {
+            "over": 2155350,
+            "notOver": 5000000,
+            "recaptureBase": 4211,
+            "incrementalBenefit": 60350,
+            "agiLess": 2155350
+          },
+          {
+            "over": 5000000,
+            "notOver": 25000000,
+            "recaptureBase": 64561,
+            "incrementalBenefit": 32500,
+            "agiLess": 5000000
+          }
+        ]
+      },
+      "headOfHousehold": {
+        "lowIncome": {
+          "below": 107650,
+          "rate": 5.9
+        },
+        "rows": [
+          {
+            "over": 107650,
+            "notOver": 269300,
+            "recaptureBase": 0,
+            "incrementalBenefit": 787,
+            "agiLess": 107650
+          },
+          {
+            "over": 269300,
+            "notOver": 1616450,
+            "recaptureBase": 787,
+            "incrementalBenefit": 2559,
+            "agiLess": 269300
+          },
+          {
+            "over": 1616450,
+            "notOver": 5000000,
+            "recaptureBase": 3346,
+            "incrementalBenefit": 45260,
+            "agiLess": 1616450
+          },
+          {
+            "over": 5000000,
+            "notOver": 25000000,
+            "recaptureBase": 48606,
+            "incrementalBenefit": 32500,
+            "agiLess": 5000000
+          }
+        ]
+      },
+      "single": {
+        "lowIncome": {
+          "below": 80650,
+          "rate": 5.9
+        },
+        "rows": [
+          {
+            "over": 80650,
+            "notOver": 215400,
+            "recaptureBase": 0,
+            "incrementalBenefit": 567,
+            "agiLess": 107650
+          },
+          {
+            "over": 215400,
+            "notOver": 1077550,
+            "recaptureBase": 567,
+            "incrementalBenefit": 2047,
+            "agiLess": 215400
+          },
+          {
+            "over": 1077550,
+            "notOver": 5000000,
+            "recaptureBase": 2614,
+            "incrementalBenefit": 30172,
+            "agiLess": 1077550
+          },
+          {
+            "over": 5000000,
+            "notOver": 25000000,
+            "recaptureBase": 32786,
+            "incrementalBenefit": 32500,
+            "agiLess": 5000000
+          }
+        ]
+      },
+      "marriedSeparately": {
+        "lowIncome": {
+          "below": 80650,
+          "rate": 5.9
+        },
+        "rows": [
+          {
+            "over": 80650,
+            "notOver": 215400,
+            "recaptureBase": 0,
+            "incrementalBenefit": 567,
+            "agiLess": 107650
+          },
+          {
+            "over": 215400,
+            "notOver": 1077550,
+            "recaptureBase": 567,
+            "incrementalBenefit": 2047,
+            "agiLess": 215400
+          },
+          {
+            "over": 1077550,
+            "notOver": 5000000,
+            "recaptureBase": 2614,
+            "incrementalBenefit": 30172,
+            "agiLess": 1077550
+          },
+          {
+            "over": 5000000,
+            "notOver": 25000000,
+            "recaptureBase": 32786,
+            "incrementalBenefit": 32500,
+            "agiLess": 5000000
+          }
+        ]
+      }
+    },
+    "source": "N.Y. Tax Law section 601(d-5), added by chapter 59 of the Laws of 2025, Part B"
+  },
+  "verified": {
+    "date": "2026-09-27",
+    "against": [
+      {
+        "title": "Chapter 59 of the Laws of 2025 (S.3009-C / A.3009-C), Part B: Tax Law section 601(a), (b), (c) rate schedules for 2026 and the section 601(d-5) supplemental tax",
+        "url": "https://nyassembly.gov/leg/?default_fld=&leg_video=&bn=A03009&term=2025&Summary=Y&Text=Y",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "NYS-50-T-NYS (1/26): 2026 rate schedules revised under chapter 59 of the Laws of 2025",
+        "url": "https://www.tax.ny.gov/pdf/publications/withholding/nys50_t_nys.pdf",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "IT-201-I: standard deduction $8,000 / $16,050 / $8,000 / $11,200 (Tax Law section 614)",
+        "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
+        "retrieved": "2026-09-27"
+      }
+    ],
+    "register": "data/tax-primary/2026.json",
+    "correction": "The extracted dataset had the 2026 schedules but not the supplemental tax that recaptures the lower brackets above $107,650 of AGI."
+  }
 }

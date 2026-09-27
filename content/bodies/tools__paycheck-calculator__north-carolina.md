@@ -48,6 +48,15 @@ A traditional 401(k) contribution lowers both federal and North Carolina taxable
 wages, since the state follows the federal exclusion. Health premiums deducted before
 tax lower Social Security and Medicare as well.
 
+## Married filing separately
+
+North Carolina ties the spouses' choices together. A married person filing separately
+gets the $12,750 standard deduction only if the other spouse also takes the standard
+deduction; if the other spouse itemizes, the standard deduction is zero. A head of
+household gets $19,125 and a couple filing jointly $25,500. This **north carolina
+paycheck calculator** assumes the other spouse takes the standard deduction too; if
+yours itemizes, the state tax on a separate return is higher than shown here.
+
 ## Form NC-4
 
 North Carolina has its own withholding certificate, Form NC-4, and an employer uses it
