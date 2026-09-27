@@ -6,6 +6,7 @@ import {
   principalAndInterest,
 } from "../housing.js";
 import {
+  annualGrossFromHourly,
   addSalesTax,
   combinedRate,
   hourlyToSalary,
@@ -150,5 +151,15 @@ describe("property tax", () => {
     expect(r.annualTax).toBe(7_500);
     expect(r.monthlyTax).toBe(625);
     expect(r.effectiveRatePercent).toBeCloseTo(1.875, 10);
+  });
+});
+
+describe("hourly gross with overtime", () => {
+  it("backs the published example: $25 an hour, 45 hours a week", () => {
+    // 40 x 25 x 52 = 52,000; 5 x 37.50 x 52 = 9,750; total 61,750
+    expect(annualGrossFromHourly({ rate: 25, hoursPerWeek: 45 })).toEqual({ regular: 52_000, overtime: 9_750, annual: 61_750 });
+  });
+  it("pays no overtime at or below 40 hours", () => {
+    expect(annualGrossFromHourly({ rate: 20, hoursPerWeek: 40 }).overtime).toBe(0);
   });
 });

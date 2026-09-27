@@ -51,10 +51,12 @@ def keyword_coverage(entry, pages_doc, body):
     # first four tool bodies hit 1 of 5 variants because the check did not reach
     # them — and the tool pages carry 553,600 searches against the state pages'
     # 2,040, so they were the wrong group to leave unchecked.
-    template_path = {"StateTaxPage": "/state-taxes/{state}",
-                     "PlacePage": "/cost-of-living/{metro}"}.get(
-                         entry["template"], entry["path"])
-    spec = next((p for p in pages_doc["pages"] if p["path"] == template_path), None)
+    # Entity pages are checked against their template's declared cluster; the
+    # template is found by type, not by a hard-coded path.
+    if entry["template"] in ("StateTaxPage", "PlacePage"):
+        spec = next((p for p in pages_doc["pages"] if p["template"] == entry["template"]), None)
+    else:
+        spec = next((p for p in pages_doc["pages"] if p["path"] == entry["path"]), None)
     cluster = (spec or {}).get("cluster") or {}
     variants = cluster.get("variants", [])
     if not variants:

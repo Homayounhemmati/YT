@@ -117,3 +117,30 @@ export function propertyTax(input: PropertyTaxInput): PropertyTaxResult {
     effectiveRatePercent: mv > 0 ? (annual / mv) * 100 : 0,
   };
 }
+
+// ---------------------------------------------------------------------------
+// Hourly gross with overtime (feeds the paycheck calculator's hourly mode)
+// ---------------------------------------------------------------------------
+
+export interface HourlyInput {
+  rate: number;
+  hoursPerWeek: number;
+  weeksPerYear?: number;
+}
+
+/** FLSA, 29 U.S.C. 207(a)(1): hours above 40 in a workweek at 1.5x the regular rate. */
+export const OVERTIME_THRESHOLD_HOURS = 40;
+export const OVERTIME_MULTIPLIER = 1.5;
+
+export function annualGrossFromHourly(input: HourlyInput): {
+  regular: number; overtime: number; annual: number;
+} {
+  if (input.rate < 0 || input.hoursPerWeek < 0) throw new Error("Rate and hours must be positive.");
+  const weeks = input.weeksPerYear ?? 52;
+  const rate = toCents(input.rate);
+  const regularHours = Math.min(input.hoursPerWeek, OVERTIME_THRESHOLD_HOURS);
+  const overtimeHours = Math.max(0, input.hoursPerWeek - OVERTIME_THRESHOLD_HOURS);
+  const regular = Math.round(rate * regularHours * weeks);
+  const overtime = Math.round(rate * OVERTIME_MULTIPLIER * overtimeHours * weeks);
+  return { regular: toDollars(regular), overtime: toDollars(overtime), annual: toDollars(regular + overtime) };
+}

@@ -84,7 +84,10 @@ def rows_from(data):
     for s in data["programmaticSets"]:
         m = s["modelled"]
         rows.append({
-            "name": s["id"], "volume": m["medianVolume"] * m["pages"],
+            # Measured sets are summed row by row; only unmeasured rows are modelled.
+            "name": s["id"],
+            "volume": (m["observedTotal"] + m["unmeasuredPages"] * m["unmeasuredEach"]
+                       if "observedTotal" in m else m["medianVolume"] * m["pages"]),
             "cpc": m["cpc"], "step": s["step"], "pages": m["pages"],
             "kind": "programmatic",
             "perPageVolume": m["medianVolume"],

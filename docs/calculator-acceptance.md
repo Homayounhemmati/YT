@@ -22,6 +22,14 @@ their answers depend on published indices, and fixture indices must never be sho
 
 The last row has a $10,000 401(k) deferral: FICA must be unchanged from the row without it, federal tax lower, and Pennsylvania tax unchanged (Pennsylvania taxes deferrals).
 
+## Paycheck, hourly mode (overtime at 1.5x above 40 hours; biweekly)
+
+| Rate | Hours/week | State | Regular / yr | Overtime / yr | Gross / yr | Net / yr | First check |
+|---|---|---|---|---|---|---|---|
+| $25.00 | 40 | texas | $52,000.00 | $0.00 | $52,000.00 | $43,962.00 | $1,690.85 |
+| $25.00 | 45 | texas | $52,000.00 | $9,750.00 | $61,750.00 | $51,796.12 | $1,992.16 |
+| $18.50 | 32 | florida | $30,784.00 | $0.00 | $30,784.00 | $26,914.94 | $1,035.19 |
+
 ## House payment (30 years, insurance $1,800/yr, PMI 0.5%)
 
 | Price | Down | Rate | Tax rate | P&I | PMI | Total / month | PMI ends after month |

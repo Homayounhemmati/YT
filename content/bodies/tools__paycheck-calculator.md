@@ -3,7 +3,7 @@ consistently larger than people expect. On a $95,000 salary the difference runs 
 a fifth to more than a quarter of the figure — and the exact amount depends on which
 state you live in, by more than $7,500 a year.
 
-## How take-home pay is calculated
+## How a paycheck is calculated
 
 Four deductions come out of gross pay, in this order:
 
@@ -41,7 +41,18 @@ Biweekly and semi-monthly are routinely confused and are not the same thing. Biw
 means every two weeks, which gives 26 checks and two months a year containing three of
 them. Semi-monthly means twice a month, which gives 24 checks of identical size on
 fixed dates. The per-check figure is smaller under biweekly pay at the same annual
-salary, and the two extra checks are what close the gap.
+salary, and the two extra checks are what close the gap — which is also why a
+**weekly paycheck calculator** and a biweekly one give different per-check figures from
+the same annual pay.
+
+## From an hourly wage
+
+Hourly pay starts one step earlier: gross pay for the period is the rate times the
+hours worked, and hours above 40 in a workweek are paid at 1.5 times the regular rate
+under the Fair Labor Standards Act. At $25 an hour, a 40-hour week over 52 weeks is
+$52,000 a year; five hours of overtime every week adds 5 × $37.50 × 52 = $9,750, for
+$61,750. An **hourly paycheck calculator** then applies exactly the same deductions as
+for a salary — the tax code does not distinguish how the gross figure was earned.
 
 One further wrinkle: what is withheld from each check comes from the W-4 on file, not
 from your tax bracket. Withholding is an estimate the employer makes on your behalf,
@@ -63,14 +74,15 @@ about 8% of the salary, and it is invisible in any offer letter. A self-employed
 same $95,000 keeps between $879 and $1,503 less, depending on the state, because
 they pay both halves of FICA.
 
-An **after tax income calculator** that stops at the federal layer therefore answers the easy half of the question and leaves the half that actually varies.
+A **take home pay calculator** that stops at the federal layer therefore answers the
+easy half of the question and leaves the half that actually varies.
 
 ## What this does not include
 
 - Retirement contributions, health insurance premiums and HSA deductions, which
   reduce taxable income and therefore change the answer.
-- Local income tax in the nine states that permit it — New York City and Maryland's
-  counties are the largest cases.
+- Local income tax where it applies — New York City, every Maryland and Indiana
+  county, and most Pennsylvania municipalities are the largest cases.
 - Wage garnishments, union dues and other post-tax deductions.
 - Bonuses, which are withheld at a flat supplemental rate that usually differs from
   your marginal rate.
@@ -80,7 +92,7 @@ An **after tax income calculator** that stops at the federal layer therefore ans
 Anyone comparing two offers, and anyone planning a move. Those are the two
 situations where a gross figure is actively misleading rather than merely
 incomplete — a higher salary in a higher-tax state can leave you with less, and a
-**net pay calculator** is the only way to see it before you sign.
+**paycheck tax calculator** is the only way to see it before you sign.
 
 It is also the honest starting point for a cost-of-living comparison. What a place
 costs is only half the question; what you keep there is the other half, and

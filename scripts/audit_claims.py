@@ -38,9 +38,13 @@ def norm(tok):
 
 
 def sources():
-    """(slug, kind, text) for every tool body and tool FAQ."""
+    """(slug, kind, text) for every tool body and tool FAQ. State bodies
+    (tools__paycheck-calculator__{state}) are checked against their own dataset
+    in state_numbers() instead."""
     for f in sorted((ROOT / "content/bodies").glob("tools__*.md")):
-        yield f.stem.split("__")[1], "body", f.read_text()
+        parts = f.stem.split("__")
+        if len(parts) == 2:
+            yield parts[1], "body", f.read_text()
     faq = json.loads((ROOT / "data/pages.json").read_text())["onPage"]["faqFormulas"]["ToolPage"]
     for slug, rows in faq.items():
         if slug.startswith("$"):
@@ -60,6 +64,55 @@ def tokens(text):
         yield tok
 
 
+def fmt_forms(v):
+    """Every way a dataset value can legitimately appear in copy."""
+    out = set()
+    if isinstance(v, bool) or not isinstance(v, (int, float)):
+        return out
+    whole = int(round(v))
+    out |= {f"${whole:,}", f"{whole:,}", str(whole), f"${v:,.2f}"}
+    out |= {f"{v:g}%", f"{v:.2f}%", f"{v:.1f}%"}
+    return out
+
+
+def walk_numbers(o):
+    if isinstance(o, dict):
+        for x in o.values():
+            yield from walk_numbers(x)
+    elif isinstance(o, list):
+        for x in o:
+            yield from walk_numbers(x)
+    elif isinstance(o, (int, float)) and not isinstance(o, bool):
+        yield o
+
+
+def state_numbers(covered_global):
+    """A hand-written state body may only quote numbers found in that state's tax
+    data, the engine's take-home figures for it, federal data, or a global claim."""
+    errors = []
+    fed = set().union(*(fmt_forms(v) for v in walk_numbers(
+        json.loads((ROOT / "src/data/tax-year-2026/federal.json").read_text()))))
+    th = json.loads((ROOT / "data/takehome-95k.json").read_text())["states"]
+    for f in sorted((ROOT / "content/bodies").glob("tools__paycheck-calculator__*.md")):
+        slug = f.stem.split("__")[2]
+        data = json.loads((ROOT / f"src/data/tax-year-2026/states/{slug}.json").read_text())
+        allowed = set(fed) | set(covered_global)
+        for v in walk_numbers({k: v for k, v in data.items() if k != "provenance"}):
+            allowed |= fmt_forms(v)
+        row = th.get(slug, {})
+        for v in walk_numbers(row):
+            allowed |= fmt_forms(v)
+        if row:
+            for n in (26, 24, 12, 52):
+                allowed |= fmt_forms(row["takeHome"] / n)
+        allowed |= {str(data.get("taxYear", ""))}
+        for tok in tokens(f.read_text()):
+            if tok not in allowed:
+                errors.append(f"state body {slug}: '{tok}' matches nothing in its dataset, "
+                              "the engine's figures for it, federal data, or a global claim")
+    return errors
+
+
 def main():
     reg = json.loads((ROOT / "data/claims.json").read_text())
     covered = collections.defaultdict(set)   # slug or "*" -> tokens
@@ -75,6 +128,8 @@ def main():
             inventory[slug].add(tok)
             if tok not in covered["*"] and tok not in covered[slug]:
                 errors.append(f"{slug} ({kind}): '{tok}' is not in data/claims.json")
+
+    errors += state_numbers(covered["*"])
 
     if "--inventory" in sys.argv:
         for slug in sorted(inventory):

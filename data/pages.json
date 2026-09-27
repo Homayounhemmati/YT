@@ -32,8 +32,8 @@
           "anchor": "cost of living comparison"
         },
         {
-          "to": "/tools/take-home-pay-calculator",
-          "anchor": "take home pay calculator"
+          "to": "/tools/paycheck-calculator",
+          "anchor": "paycheck calculator"
         },
         {
           "to": "/cost-of-living",
@@ -99,8 +99,8 @@
           "anchor": "income tax calculator"
         },
         {
-          "to": "/tools/take-home-pay-calculator",
-          "anchor": "take home pay calculator"
+          "to": "/tools/paycheck-calculator",
+          "anchor": "paycheck calculator"
         },
         {
           "to": "/tools/sales-tax-calculator",
@@ -397,8 +397,8 @@
       "stage": 1,
       "links": [
         {
-          "to": "/state-taxes/{state}",
-          "anchor": "{state} income tax calculator"
+          "to": "/tools/paycheck-calculator/{state}",
+          "anchor": "{state} paycheck calculator"
         },
         {
           "to": "/tools/cost-of-living-comparison",
@@ -539,8 +539,8 @@
       "stage": 3,
       "links": [
         {
-          "to": "/tools/take-home-pay-calculator",
-          "anchor": "take home pay calculator"
+          "to": "/tools/paycheck-calculator",
+          "anchor": "paycheck calculator"
         },
         {
           "to": "/tools/cost-of-living-comparison",
@@ -581,8 +581,8 @@
       "stage": 3,
       "links": [
         {
-          "to": "/tools/take-home-pay-calculator",
-          "anchor": "take home pay calculator"
+          "to": "/tools/paycheck-calculator",
+          "anchor": "paycheck calculator"
         },
         {
           "to": "/tools/salary-comparison-by-city",
@@ -617,8 +617,8 @@
       "stage": 3,
       "links": [
         {
-          "to": "/tools/take-home-pay-calculator",
-          "anchor": "take home pay calculator"
+          "to": "/tools/paycheck-calculator",
+          "anchor": "paycheck calculator"
         },
         {
           "to": "/tools/rent-affordability-calculator",
@@ -661,8 +661,8 @@
           "anchor": "state income tax rates"
         },
         {
-          "to": "/tools/take-home-pay-calculator",
-          "anchor": "take home pay calculator"
+          "to": "/tools/paycheck-calculator",
+          "anchor": "paycheck calculator"
         },
         {
           "to": "/tools/living-wage-calculator",
@@ -691,13 +691,13 @@
       "subject": "income tax"
     },
     {
-      "path": "/tools/take-home-pay-calculator",
+      "path": "/tools/paycheck-calculator",
       "template": "ToolPage",
-      "primary": "take home pay calculator",
-      "output": "**Annual, monthly and per-paycheck net** from gross salary",
+      "primary": "paycheck calculator",
+      "output": "**Net pay per paycheck**, from a salary or an hourly wage, after federal, state, Social Security and Medicare",
       "canonical": "self",
       "stripsParams": true,
-      "metaHook": "See what is left of a gross salary after federal, state, Social Security and Medicare — yearly and monthly. Free, no sign-up.",
+      "metaHook": "Enter a salary or an hourly wage and see what lands in each paycheck after federal, state, Social Security and Medicare. Free, no sign-up.",
       "stage": 4,
       "links": [
         {
@@ -719,20 +719,28 @@
         {
           "to": "/tools/salary-to-hourly-calculator",
           "anchor": "salary to hourly calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/{state}",
+          "anchor": "{state}",
+          "$note": "A hub lists its children by name. '{state} paycheck calculator' as the anchor would repeat this page's own head term (9-3-1); the child's title and H1 carry it."
         }
       ],
       "cluster": {
-        "intent": "From a gross salary, what is my annual, monthly and per-paycheck net after every withholding",
+        "intent": "What lands in my account each payday, from a salary or an hourly wage, after every tax",
         "variantsMeasured": false,
         "variants": [
-          "net pay calculator",
-          "paycheck calculator",
-          "after tax income calculator",
-          "salary after tax calculator",
-          "payroll tax calculator"
-        ]
+          "take home pay calculator",
+          "hourly paycheck calculator",
+          "paycheck tax calculator",
+          "weekly paycheck calculator",
+          "take home paycheck calculator"
+        ],
+        "$note": "Four of the five variants are measured (keywords.json, entry:false); the flag stays false because variant volume never enters the revenue model."
       },
-      "subject": "take-home pay"
+      "subject": "a paycheck",
+      "hub": "{state}",
+      "hubNote": "The national page is also the parent of the 51 state paycheck pages and lists every built one. '{state} paycheck calculator' belongs to the state page, never to this one (rule 9-4-1: an entity-qualified variant belongs to the entity page)."
     },
     {
       "path": "/tools/sales-tax-calculator",
@@ -824,8 +832,8 @@
       "stage": 4,
       "links": [
         {
-          "to": "/state-taxes/{state}",
-          "anchor": "{state} income tax calculator"
+          "to": "/tools/paycheck-calculator/{state}",
+          "anchor": "{state} paycheck calculator"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -851,15 +859,16 @@
         "Income tax rates for all 51 jurisdictions",
         "The nine states with no income tax",
         "Why the rate alone does not decide what you keep"
-      ]
+      ],
+      "note": "The rates table. Each row links to that state's paycheck page once it is built; the directory keeps the rate-comparison query, the child pages keep the paycheck one."
     },
     {
-      "path": "/state-taxes/{state}",
+      "path": "/tools/paycheck-calculator/{state}",
       "template": "StateTaxPage",
-      "primary": "{state} income tax calculator",
+      "primary": "{state} paycheck calculator",
       "canonical": "self",
       "stripsParams": true,
-      "output": "Tax profile of **one specific state** + calculation using that state",
+      "output": "**Net pay per paycheck in one state**, plus that state's income tax for the year",
       "stage": 4,
       "links": [
         {
@@ -871,8 +880,8 @@
           "anchor": "income tax calculator"
         },
         {
-          "to": "/tools/take-home-pay-calculator",
-          "anchor": "take home pay calculator"
+          "to": "/tools/paycheck-calculator",
+          "anchor": "paycheck calculator"
         },
         {
           "to": "/state-taxes",
@@ -884,14 +893,14 @@
         }
       ],
       "cluster": {
-        "intent": "One specific state's tax profile, and a calculation using it",
+        "intent": "What a paycheck leaves in one specific state, and what that state's income tax takes",
         "variantsMeasured": false,
         "variants": [
-          "{state} income tax rate",
-          "{state} state tax calculator",
-          "{state} tax brackets",
-          "how much is {state} income tax",
-          "{state} paycheck calculator"
+          "{state} income tax calculator",
+          "{state} take home pay calculator",
+          "{state} paycheck tax calculator",
+          "{state} hourly paycheck calculator",
+          "{state} salary calculator"
         ]
       }
     },
@@ -1086,12 +1095,13 @@
         ]
       },
       "StateTaxPage": {
-        "title": "{State} Income Tax Calculator ({year})",
-        "h1": "{State} Income Tax Calculator",
-        "meta": "Estimate {State} state and federal income tax on your salary, with a bracket-by-bracket breakdown of exactly where each dollar goes.",
+        "title": "{State} Paycheck Calculator ({year})",
+        "h1": "{State} Paycheck Calculator",
+        "meta": "See what a {State} paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
         "rules": [
-          "The state name comes first — the user's query is 'california income tax', not 'income tax california'.",
-          "The nine no-tax states get a different meta: '{State} has no state income tax — here is what you still owe federally'."
+          "The state name comes first — the query is 'texas paycheck calculator', not 'paycheck calculator texas'.",
+          "Headed by the paycheck because that is what people search for the page (Texas 60,500 a month against 5,400 for 'texas income tax calculator'); the annual state income tax is the second output, and '{state} income tax calculator' a variant of the same page.",
+          "The nine no-tax states get their own meta and outline: there is no state line to explain."
         ],
         "h2Outline": [
           "How {State} income tax works",
@@ -1102,7 +1112,8 @@
         ],
         "breadcrumb": [
           "Home",
-          "State Taxes",
+          "Calculators",
+          "Paycheck Calculator",
           "{State}"
         ]
       },
@@ -1330,8 +1341,8 @@
           "The highest {State} rate is {TOP_RATE}%, which applies above {TOP_THRESHOLD}."
         ],
         [
-          "Does {State} tax self-employment income?",
-          "Yes. {State} taxes net self-employment profit as ordinary income, on top of the 15.3% federal self-employment tax."
+          "How much is a biweekly paycheck on $95,000 in {State}?",
+          "{BIWEEKLY_ANSWER}"
         ],
         [
           "Are there local income taxes in {State}?",
@@ -1532,24 +1543,6 @@
             "No. What is withheld comes from the W-4 on file and is an estimate; the liability calculated here is the actual amount owed for the year. The refund or bill in April is the difference between the two."
           ]
         ],
-        "take-home-pay-calculator": [
-          [
-            "How do I calculate take-home pay?",
-            "Subtract federal income tax, state income tax, Social Security at 6.2% and Medicare at 1.45% from gross pay. Social Security and Medicare together are FICA, 7.65% for an employee."
-          ],
-          [
-            "Why is my take-home pay so much lower than my salary?",
-            "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state by more than $7,500 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
-          ],
-          [
-            "What is the difference between biweekly and semi-monthly pay?",
-            "Biweekly is every two weeks: 26 checks a year, with two months containing three of them. Semi-monthly is twice a month: 24 checks of identical size. At the same salary the biweekly check is smaller, and the two extra checks close the gap."
-          ],
-          [
-            "Do self-employed people pay more?",
-            "Yes. An employer pays a matching 7.65% FICA that never appears on a payslip. A self-employed person pays both halves — 15.3% — which is the largest single difference between an employee and a contractor at the same gross figure."
-          ]
-        ],
         "property-tax-calculator": [
           [
             "How is property tax calculated?",
@@ -1621,12 +1614,30 @@
             "Is a house payment the same as what a home costs me?",
             "No. Maintenance, conventionally budgeted at 1% of value a year, and HOA dues where they apply sit outside the payment entirely and outside every lender calculation."
           ]
+        ],
+        "paycheck-calculator": [
+          [
+            "How do I calculate my paycheck?",
+            "Start from gross pay for the period, then subtract federal income tax withholding, state income tax, Social Security at 6.2% and Medicare at 1.45%, and any pre-tax deductions. From an hourly wage, gross pay is the rate times the hours in the period, with overtime at 1.5 times the rate above 40 hours a week."
+          ],
+          [
+            "Why is my take-home pay so much lower than my salary?",
+            "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state by more than $7,500 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
+          ],
+          [
+            "What is the difference between biweekly and semi-monthly pay?",
+            "Biweekly is every two weeks: 26 checks a year, with two months containing three of them. Semi-monthly is twice a month: 24 checks of identical size. At the same salary the biweekly check is smaller, and the two extra checks close the gap."
+          ],
+          [
+            "Do self-employed people pay more?",
+            "Yes. An employer pays a matching 7.65% FICA that never appears on a payslip. A self-employed person pays both halves — 15.3% — which is the largest single difference between an employee and a contractor at the same gross figure."
+          ]
         ]
       }
     },
     "metaFormulas": {
-      "StateTaxPage.taxed": "Estimate {State} state and federal income tax on your salary, with a bracket-by-bracket breakdown of exactly where each dollar goes.",
-      "StateTaxPage.none": "{State} has no state income tax — see what you still owe federally, and what actually lands in your account each month.",
+      "StateTaxPage.taxed": "See what a {State} paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
+      "StateTaxPage.none": "{State} has no state income tax. See exactly what lands in each paycheck after federal income tax, Social Security and Medicare.",
       "PlacePage": "What a month costs in {Metro}, from official BEA and HUD data — rent, goods, services, and what you keep after {State} tax."
     },
     "shortestSubstitutions": {
@@ -1638,24 +1649,24 @@
     "h2Variants": {
       "$comment": "An outline formula that ignores its entity's shape produces headings that are wrong on the page — 'Texas tax brackets' on a state that has none. The generator picks the variant from the dataset's `structure` field.",
       "StateTaxPage.taxed": [
-        "How {State} income tax works",
-        "{State} tax brackets",
+        "How a {State} paycheck is calculated",
+        "{State} income tax brackets",
         "Local tax in {State}",
-        "Filing and deadlines in {State}",
+        "{State} take-home by pay frequency",
         "Frequently asked questions"
       ],
       "StateTaxPage.none": [
-        "Why {State} has no income tax",
-        "What you still owe in {State}",
+        "What comes out of a {State} paycheck",
+        "Why there is no {State} tax line",
         "Local tax in {State}",
         "Is {State} actually cheaper?",
         "Frequently asked questions"
       ],
       "StateTaxPage.flat": [
-        "How {State} income tax works",
+        "How a {State} paycheck is calculated",
         "The {State} flat rate",
         "Local tax in {State}",
-        "Filing and deadlines in {State}",
+        "{State} take-home by pay frequency",
         "Frequently asked questions"
       ]
     }
@@ -1665,17 +1676,19 @@
     "globalNav": [
       "/",
       "/tools",
+      "/tools/paycheck-calculator",
       "/cost-of-living",
       "/state-taxes"
     ],
-    "globalNavNote": "Present in the header of every page. Exempt from the 25-body-link ceiling, but it is what guarantees no page sits deeper than the directory that lists it.",
+    "globalNavNote": "Present in the header of every page. Exempt from the 25-body-link ceiling, but it is what guarantees no page sits deeper than the directory that lists it. Since 5.17 the nav also carries the paycheck calculator: it is 48% of the site's measured demand, and no body link can give a page that share of the equity.",
     "maxClickDepth": 3,
     "bodyLinkCeiling": 25,
     "navAnchors": {
       "/": "LifeCalc",
       "/tools": "all calculators",
       "/cost-of-living": "cost of living by city",
-      "/state-taxes": "state income tax rates"
+      "/state-taxes": "state income tax rates",
+      "/tools/paycheck-calculator": "paycheck calculator"
     },
     "anchorRules": [
       "Anchor text is written with the DESTINATION page's head term, never the source's own keyword — an outbound link that repeats your own target keyword gives the signal to the wrong page.",

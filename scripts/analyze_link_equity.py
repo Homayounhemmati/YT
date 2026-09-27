@@ -21,10 +21,11 @@ vol = {x["slug"]: x["volume"] for x in k["keywords"]}
 # equity, and modelling the planned 30 metros and 51 states credited the tools
 # with links from 77 pages that will not exist on day one.
 _gen = json.load(open("data/onpage.generated.json"))["sitemap"]["gate"]
-EXPANSION = {"/cost-of-living/{metro}": _gen["metrosBuilt"],
-             "/state-taxes/{state}": _gen["statesBuilt"]}
+_tpl = {p["template"]: p["path"] for p in d["pages"] if "{" in p["path"]}
+METRO, STATE = _tpl["PlacePage"], _tpl["StateTaxPage"]
+EXPANSION = {METRO: _gen["metrosBuilt"], STATE: _gen["statesBuilt"]}
 if "--planned" in sys.argv:   # the full programme, for comparison
-    EXPANSION = {"/cost-of-living/{metro}": 30, "/state-taxes/{state}": 51}
+    EXPANSION = {METRO: 30, STATE: 51}
 
 nav = d["crawl"]["globalNav"]
 foot = d["crawl"]["globalFooter"]
@@ -87,8 +88,15 @@ bad = []
 for path, v, p in sorted(scored, key=lambda r: -r[1]):
     ds, es = v / tv * 100, p / tp * 100
     r = es / ds
-    tag = "UNDER-LINKED" if r < 0.7 else ("over-linked" if r > 2.0 else "ok")
-    if r < 0.7: bad.append((path, r))
+    # A page in the global navigation is linked from every page: that is the most
+    # any internal graph can give it. If one term dominates demand (paycheck is
+    # 48% of it), its ratio stays under 0.7 however the graph is drawn, and a check
+    # that fires on a graph already at its maximum is worse than no check.
+    if r < 0.7 and path in nav:
+        tag = "at maximum (nav)"
+    else:
+        tag = "UNDER-LINKED" if r < 0.7 else ("over-linked" if r > 2.0 else "ok")
+        if r < 0.7: bad.append((path, r))
     print(f"{path:<44}{v:>9,}{ds:>7.1f}%{es:>7.1f}%  {r:>5.2f}x {tag}")
 
 print(f"\n{len(bad)} under-linked page(s)")

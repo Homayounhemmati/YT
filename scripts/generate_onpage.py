@@ -118,6 +118,17 @@ def federal_only_answer(st):
             f"FICA fall on the one person.")
 
 
+def biweekly_answer(st):
+    row = TAKEHOME.get(st["slug"])
+    if not row:
+        return f"PENDING_ENGINE: run scripts/compute_takehome.ts to resolve {st['name']}."
+    local = " before local income tax" if st.get("localTaxNote") else ""
+    check = row["takeHome"] / 26
+    return (f"About {money(check)} every two weeks for a single filer{local}, from "
+            f"{money(row['takeHome'])} of net pay a year across 26 checks. Paid semi-monthly "
+            f"instead, the same salary gives 24 checks of about {money(row['takeHome'] / 24)}.")
+
+
 def cheaper_answer(st):
     """Per-state, against the worst jurisdiction in the same computed set."""
     row = TAKEHOME.get(st["slug"])
@@ -242,12 +253,13 @@ def build_state(st, pages_doc, page_spec, tpl, origin, site_name, data_year,
                     .replace("{TAKEHOME_ANSWER}", takehome_answer(st))
                     .replace("{FEDERAL_ONLY}", federal_only_answer(st))
                     .replace("{CHEAPER_ANSWER}", cheaper_answer(st))
+                    .replace("{BIWEEKLY_ANSWER}", biweekly_answer(st))
                     .replace("{year}", str(st["taxYear"])))
 
     variants = pages_doc["onPage"]["h2Variants"]
     outline = variants.get(f"StateTaxPage.{st['structure']}") or variants[key]
 
-    path = f"/state-taxes/{st['slug']}"
+    path = page_spec["path"].replace("{state}", st["slug"])
     canonical = origin + path
     title = sub(tpl["title"])
     h1 = sub(tpl["h1"])
@@ -258,10 +270,15 @@ def build_state(st, pages_doc, page_spec, tpl, origin, site_name, data_year,
            for q, a in pages_doc["onPage"]["faqFormulas"][key]]
 
     ld = pages_doc["onPage"]["jsonLd"]
-    breadcrumb_items = [
-        {"@type": "ListItem", "position": i + 1, "name": c,
-         **({"item": origin + ("" if i == 0 else "/state-taxes")} if i < len(crumbs) - 1 else {})}
-        for i, c in enumerate(crumbs)]
+    # Ancestors come from the path, like every other page: /tools/paycheck-calculator/texas
+    # has Calculators and Paycheck Calculator above it.
+    segments = [s for s in path.split("/") if s]
+    breadcrumb_items = []
+    for i, c in enumerate(crumbs):
+        node = {"@type": "ListItem", "position": i + 1, "name": c}
+        if i < len(crumbs) - 1:
+            node["item"] = origin if i == 0 else origin + "/" + "/".join(segments[:i])
+        breadcrumb_items.append(node)
 
     def fill(block, extra=None):
         out = json.loads(json.dumps(block))
@@ -444,7 +461,7 @@ def build_static(page, pages_doc, tpl, origin, site_name, data_year, ld,
     # feeding it the raw declared links puts "{metro}" into the structured data.
     resolved_links = resolve_entity_links(
         page.get("links", []), metros=metros, states=states,
-        expand=(page["template"] == "DirectoryPage"))
+        expand=(page["template"] == "DirectoryPage" or bool(page.get("hub"))))
     if page["template"] == "DirectoryPage" and resolved_links:
         blocks.append(_itemlist_block(ld, title, resolved_links, origin))
     # Organization carries the author identity section 7-4 requires for AdSense.
@@ -505,7 +522,7 @@ def main():
     site_name = pages_doc["site"].get("name", "LifeCalc Pro")
     limits = pages_doc["onPage"]["limits"]
     tpl = pages_doc["onPage"]["templates"]["StateTaxPage"]
-    page_spec = next(p for p in pages_doc["pages"] if p["path"] == "/state-taxes/{state}")
+    page_spec = next(p for p in pages_doc["pages"] if p["template"] == "StateTaxPage")
 
     state_dir = ROOT / "src/data/tax-year-2026/states"
     states = [json.loads(f.read_text()) for f in sorted(state_dir.glob("*.json"))]
@@ -534,7 +551,7 @@ def main():
     # A state whose brackets are prior-year figures is not published under a
     # 2026 title (rule 16-2-1) — it waits behind the gate until confirmed.
     built_states = {s["slug"] for s in states
-                    if f"/state-taxes/{s['slug']}" in bodies
+                    if page_spec["path"].replace("{state}", s["slug"]) in bodies
                     and not s.get("staleForTargetYear")}
     metro_rows = [{"slug": m["slug"], "display": m["displayName"],
                    "stateSlug": m["stateSlug"], "volume": m.get("volume", 0)}

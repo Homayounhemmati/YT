@@ -12,7 +12,7 @@ import { writeFileSync } from "node:fs";
 import { loadEstimated, loadFederal, loadState } from "../src/lib/tax/load.js";
 import { estimateWageTakeHome } from "../src/lib/tax/payroll.js";
 import { closingCosts, homeAffordability, housePayment } from "../src/lib/calc/housing.js";
-import { addSalesTax, propertyTax, removeSalesTax, salaryToHourly } from "../src/lib/calc/everyday.js";
+import { addSalesTax, annualGrossFromHourly, propertyTax, removeSalesTax, salaryToHourly } from "../src/lib/calc/everyday.js";
 import { rentAffordability } from "../src/lib/col/index.js";
 
 const YEAR = 2026;
@@ -36,6 +36,16 @@ section("Paycheck / take-home pay (single filer, 2026)",
    pay(60000, "florida", {}, 52), pay(250000, "texas"), pay(95000, "pennsylvania", { preTaxRetirement: 10000 })]);
 rows.push("", "The last row has a $10,000 401(k) deferral: FICA must be unchanged from the row " +
   "without it, federal tax lower, and Pennsylvania tax unchanged (Pennsylvania taxes deferrals).");
+
+// Hourly mode
+const hr = (rate: number, hours: number, s: string) => {
+  const g = annualGrossFromHourly({ rate, hoursPerWeek: hours });
+  const r = estimateWageTakeHome({ taxYear: YEAR, filingStatus: "single", annualWages: g.annual, payPeriods: 26 }, tax(s));
+  return [usd(rate), hours, s, usd(g.regular), usd(g.overtime), usd(g.annual), usd(r.netPay), usd(r.netPerPaycheck[0]!)];
+};
+section("Paycheck, hourly mode (overtime at 1.5x above 40 hours; biweekly)",
+  ["Rate", "Hours/week", "State", "Regular / yr", "Overtime / yr", "Gross / yr", "Net / yr", "First check"],
+  [hr(25, 40, "texas"), hr(25, 45, "texas"), hr(18.5, 32, "florida")]);
 
 // House payment
 const hp = (price: number, down: number, rate: number, t: number) => {

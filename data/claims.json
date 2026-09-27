@@ -530,7 +530,7 @@
     },
     {
       "id": "pay-periods",
-      "scope": "take-home-pay-calculator",
+      "scope": "paycheck-calculator",
       "tokens": [
         "$1,827",
         "$3,654",
@@ -547,7 +547,7 @@
     },
     {
       "id": "state-takehome",
-      "scope": "take-home-pay-calculator",
+      "scope": "paycheck-calculator",
       "tokens": [
         "$75,663",
         "$72,746",
@@ -562,7 +562,7 @@
     },
     {
       "id": "se-vs-salary",
-      "scope": "take-home-pay-calculator",
+      "scope": "paycheck-calculator",
       "tokens": [
         "$879",
         "$1,503"
@@ -570,6 +570,33 @@
       "basis": "computed",
       "means": "Range of salary-minus-self-employment take-home across 51 jurisdictions",
       "reference": "data/takehome-95k.json",
+      "status": "verified"
+    },
+    {
+      "id": "flsa-overtime",
+      "scope": "paycheck-calculator",
+      "tokens": [
+        "1.5"
+      ],
+      "basis": "statute",
+      "means": "Overtime at 1.5 times the regular rate above 40 hours in a workweek",
+      "reference": "Fair Labor Standards Act, 29 U.S.C. 207(a)(1)",
+      "status": "cited-not-fetched"
+    },
+    {
+      "id": "hourly-example",
+      "scope": "paycheck-calculator",
+      "tokens": [
+        "$25",
+        "$52,000",
+        "$37.50",
+        "$9,750",
+        "$61,750",
+        "5"
+      ],
+      "basis": "computed",
+      "means": "$25 x 40 x 52; overtime 5 h x $37.50 x 52",
+      "reference": "arithmetic; everyday.ts hourlyToSalary",
       "status": "verified"
     }
   ]

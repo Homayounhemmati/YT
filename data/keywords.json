@@ -19,6 +19,15 @@
   },
   "keywords": [
     {
+      "slug": "paycheck-calculator",
+      "term": "paycheck calculator",
+      "volume": 550000,
+      "cpc": 11.65,
+      "step": "keep",
+      "entry": true,
+      "seasonal": false
+    },
+    {
       "slug": "sales-tax-calculator",
       "term": "sales tax calculator",
       "volume": 110000,
@@ -51,8 +60,9 @@
       "volume": 60500,
       "cpc": 5.69,
       "step": "keep",
-      "entry": true,
-      "seasonal": false
+      "entry": false,
+      "seasonal": false,
+      "$note": "Variant of paycheck-calculator since 5.17 (shared SERP)."
     },
     {
       "slug": "cost-of-living-calculator",
@@ -145,6 +155,24 @@
       "seasonal": true
     },
     {
+      "slug": "hourly-paycheck-calculator",
+      "term": "hourly paycheck calculator",
+      "volume": 22200,
+      "cpc": 4.8,
+      "step": "keep",
+      "entry": false,
+      "seasonal": false
+    },
+    {
+      "slug": "paycheck-tax-calculator",
+      "term": "paycheck tax calculator",
+      "volume": 18100,
+      "cpc": 3.29,
+      "step": "keep",
+      "entry": false,
+      "seasonal": false
+    },
+    {
       "slug": "nyc-salary-calculator",
       "term": "nyc salary calculator",
       "volume": 9900,
@@ -182,6 +210,15 @@
       "seasonal": false
     },
     {
+      "slug": "weekly-paycheck-calculator",
+      "term": "weekly paycheck calculator",
+      "volume": 4400,
+      "cpc": 3.71,
+      "step": "keep",
+      "entry": false,
+      "seasonal": false
+    },
+    {
       "slug": "salary-comparison",
       "term": "salary comparison",
       "volume": 3600,
@@ -206,6 +243,15 @@
       "cpc": 2.79,
       "step": "keep",
       "entry": true,
+      "seasonal": false
+    },
+    {
+      "slug": "take-home-paycheck-calculator",
+      "term": "take home paycheck calculator",
+      "volume": 1300,
+      "cpc": 4.21,
+      "step": "keep",
+      "entry": false,
       "seasonal": false
     },
     {
@@ -258,26 +304,144 @@
       }
     },
     {
-      "id": "us-state-tax-pages",
-      "template": "state-taxes/{state}",
+      "id": "us-state-paycheck-pages",
+      "template": "tools/paycheck-calculator/{state}",
       "step": "keep",
-      "$comment": "Measured directly and found weak: california 210, texas 30. Kept because the dataset and engine already exist and they close the funnel, not because the volume justifies them.",
+      "$comment": "Re-measured 2026-09-27 on the term people use for the page, '{state} paycheck calculator'. The earlier figures (California 210, Texas 30) measured 'self employment tax calculator {state}' and are superseded. 25 states measured; the 26 unmeasured are modelled at 1,000 each — Alaska's figure, the smallest measured — which understates mid-sized states such as Kentucky or Connecticut on purpose.",
       "observed": [
         {
-          "term": "self employment tax calculator california",
-          "volume": 210,
-          "cpc": 4.82
+          "term": "texas paycheck calculator",
+          "volume": 60500,
+          "cpc": 9.83
         },
         {
-          "term": "self employment tax calculator texas",
-          "volume": 30,
-          "cpc": 10.08
+          "term": "california paycheck calculator",
+          "volume": 49500,
+          "cpc": 9.55
+        },
+        {
+          "term": "new york paycheck calculator",
+          "volume": 40500,
+          "cpc": 7.58
+        },
+        {
+          "term": "florida paycheck calculator",
+          "volume": 27100,
+          "cpc": 2.47
+        },
+        {
+          "term": "illinois paycheck calculator",
+          "volume": 22200,
+          "cpc": 7.56
+        },
+        {
+          "term": "north carolina paycheck calculator",
+          "volume": 22200,
+          "cpc": 7.47
+        },
+        {
+          "term": "georgia paycheck calculator",
+          "volume": 18100,
+          "cpc": 11.21
+        },
+        {
+          "term": "ohio paycheck calculator",
+          "volume": 18100,
+          "cpc": 6.71
+        },
+        {
+          "term": "pennsylvania paycheck calculator",
+          "volume": 18100,
+          "cpc": 4.02
+        },
+        {
+          "term": "new jersey paycheck calculator",
+          "volume": 18100,
+          "cpc": 6.53
+        },
+        {
+          "term": "virginia paycheck calculator",
+          "volume": 14800,
+          "cpc": 9.3
+        },
+        {
+          "term": "michigan paycheck calculator",
+          "volume": 14800,
+          "cpc": 13.92
+        },
+        {
+          "term": "oregon paycheck calculator",
+          "volume": 12100,
+          "cpc": 13.27
+        },
+        {
+          "term": "colorado paycheck calculator",
+          "volume": 12100,
+          "cpc": 6.58
+        },
+        {
+          "term": "tennessee paycheck calculator",
+          "volume": 12100,
+          "cpc": 7.17
+        },
+        {
+          "term": "massachusetts paycheck calculator",
+          "volume": 12100,
+          "cpc": 5.34
+        },
+        {
+          "term": "indiana paycheck calculator",
+          "volume": 12100,
+          "cpc": 9.91
+        },
+        {
+          "term": "minnesota paycheck calculator",
+          "volume": 9900,
+          "cpc": 26.32
+        },
+        {
+          "term": "maryland paycheck calculator",
+          "volume": 9900,
+          "cpc": null
+        },
+        {
+          "term": "arizona paycheck calculator",
+          "volume": 9900,
+          "cpc": 14.51
+        },
+        {
+          "term": "wisconsin paycheck calculator",
+          "volume": 8100,
+          "cpc": 8.35
+        },
+        {
+          "term": "washington paycheck calculator",
+          "volume": 8100,
+          "cpc": 20.51
+        },
+        {
+          "term": "south carolina paycheck calculator",
+          "volume": 8100,
+          "cpc": 7.85
+        },
+        {
+          "term": "alabama paycheck calculator",
+          "volume": 6600,
+          "cpc": 9.16
+        },
+        {
+          "term": "alaska paycheck calculator",
+          "volume": 1000,
+          "cpc": null
         }
       ],
       "modelled": {
         "pages": 51,
-        "medianVolume": 40,
-        "cpc": 3.0
+        "observedTotal": 446100,
+        "unmeasuredPages": 26,
+        "unmeasuredEach": 1000,
+        "medianVolume": 12100,
+        "cpc": 8.98
       }
     }
   ],
@@ -353,7 +517,7 @@
     }
   ],
   "paycheckDemand": {
-    "$comment": "Measured 2026-09-27. The state set in programmaticSets was measured on 'self employment tax calculator {state}' (California 210, Texas 30) — the freelancer identity this project left behind — and modelled at a median of 40. The term people use for the same page is '{state} paycheck calculator'. Recorded here as data; the portfolio decision it implies (retargeting the state pages and the take-home tool) is recorded in spec 20-32 as pending.",
+    "$comment": "Measured 2026-09-27. The state set in programmaticSets was measured on 'self employment tax calculator {state}' (California 210, Texas 30) — the freelancer identity this project left behind — and modelled at a median of 40. The term people use for the same page is '{state} paycheck calculator'. Recorded here as data; the portfolio decision it implies (retargeting the state pages and the take-home tool) was taken in spec 20-33.",
     "national": [
       {
         "term": "paycheck calculator",
