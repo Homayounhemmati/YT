@@ -1405,7 +1405,7 @@
           ],
           [
             "Does the 30% include utilities?",
-            "HUD publishes rent both with and without a utility allowance, and the gap runs from roughly $80 to over $250 a month depending on climate and unit type. A figure quoted without saying which one it is will be wrong by that much."
+            "Yes. HUD measures cost burden on gross rent, which is shelter rent plus the utilities a tenant pays, and Fair Market Rent is published on the same basis. If a listing quotes rent alone, add your utilities before comparing it against the 30% line."
           ]
         ],
         "cost-of-living-comparison": [
@@ -1459,7 +1459,7 @@
           ],
           [
             "How much does state tax change take-home pay?",
-            "On a $95,000 salary the spread between the best and worst jurisdiction is about $7,167 a year, or 7.5% of the salary. None of it appears in an offer letter."
+            "On a $95,000 salary the spread between the best and worst jurisdiction is about $7,754 a year, or 8.2% of the salary. None of it appears in an offer letter."
           ]
         ],
         "living-wage-calculator": [
@@ -1523,7 +1523,7 @@
           ],
           [
             "Why is my take-home pay so much lower than my salary?",
-            "On a $95,000 salary the deductions run to roughly a quarter of the figure, and the exact amount depends on the state by as much as $7,167 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
+            "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state by as much as $7,754 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
           ],
           [
             "What is the difference between biweekly and semi-monthly pay?",

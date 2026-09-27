@@ -14,6 +14,7 @@ Output:
 Metro pages appear once the cost-of-living dataset exists (section 13-6).
 """
 import collections
+from decimal import ROUND_HALF_UP, Decimal
 import json
 import pathlib
 import sys
@@ -28,8 +29,15 @@ def title_case(phrase):
                     for i, w in enumerate(phrase.split()))
 
 
+def whole(n):
+    """Round half up. Python's round() and format() round half to even, so
+    75,662.50 printed as 75,662 while the body copy, rounded by hand, said
+    75,663. One page must not carry two roundings of the same figure."""
+    return int(Decimal(str(n)).quantize(Decimal("1"), rounding=ROUND_HALF_UP))
+
+
 def money(n):
-    return f"${n:,.0f}"
+    return f"${whole(n):,}"
 
 
 def rate(r):
@@ -77,16 +85,18 @@ def takehome_answer(st):
     if not row:
         return (f"PENDING_ENGINE: run scripts/compute_takehome.ts to resolve "
                 f"{st['name']}.")
-    keep = f"${row['takeHome']:,.0f}"
+    keep = f"{money(row['takeHome'])}"
     rate = f"{row['effectiveRate']:.1f}%"
+    # Top-level fields are the SALARY scenario (employee FICA). The earlier text
+    # quoted a self-employment figure under a question that asks about a salary.
     if st["structure"] == "none":
-        return (f"About {keep} of a $95,000 self-employment profit, an effective "
-                f"{rate} once federal income tax and the 15.3% self-employment tax "
-                f"are taken. There is no {st['name']} state layer to add.")
-    state_cost = f"${row['stateTax']:,.0f}"
-    return (f"About {keep} of a $95,000 self-employment profit, an effective "
+        return (f"About {keep} of a $95,000 salary for a single filer, an effective "
+                f"{rate} once federal income tax, Social Security and Medicare are "
+                f"taken. There is no {st['name']} state layer to add.")
+    state_cost = f"{money(row['stateTax'])}"
+    return (f"About {keep} of a $95,000 salary for a single filer, an effective "
             f"{rate}. Of that, {state_cost} is {st['name']} state tax — the rest is "
-            "federal income tax and the 15.3% self-employment tax.")
+            "federal income tax, Social Security and Medicare.")
 
 
 def federal_only_answer(st):
@@ -96,10 +106,12 @@ def federal_only_answer(st):
     row = TAKEHOME.get(st["slug"])
     if not row:
         return f"PENDING_ENGINE: run scripts/compute_takehome.ts to resolve {st['name']}."
-    return (f"Federal income tax and, if self-employed, the 15.3% federal "
-            f"self-employment tax both apply in full. On $95,000 of self-employment "
-            f"profit that is ${row['totalTax']:,.0f} in {st['name']} — an effective "
-            f"{row['effectiveRate']:.1f}% with no state layer on top of it.")
+    se = row["selfEmployed"]
+    return (f"Federal income tax, plus Social Security and Medicare, apply in full. "
+            f"On a $95,000 salary that is {money(row['totalTax'])} in {st['name']} — an "
+            f"effective {row['effectiveRate']:.1f}% with no state layer. Self-employed, "
+            f"the same $95,000 pays {money(se['totalTax'])}, because both halves of "
+            f"FICA fall on the one person.")
 
 
 def cheaper_answer(st):
@@ -110,8 +122,8 @@ def cheaper_answer(st):
     worst = min(TAKEHOME.values(), key=lambda r: r["takeHome"])
     gap = row["takeHome"] - worst["takeHome"]
     return (f"Not automatically. On income tax alone {st['name']} leaves "
-            f"${row['takeHome']:,.0f} of a $95,000 profit against "
-            f"${worst['takeHome']:,.0f} in {worst['name']}, a gap of ${gap:,.0f} a year. "
+            f"{money(row['takeHome'])} of a $95,000 salary against "
+            f"{money(worst['takeHome'])} in {worst['name']}, a gap of {money(gap)} a year. "
             f"But states without an income tax usually recover it through sales and "
             f"property tax, so compare the total a place costs rather than one line of it.")
 
@@ -327,8 +339,8 @@ def build_metro(m, pages_doc, page_spec, tpl, origin, site_name, data_year, ld,
             answer = f"PENDING_DATA: needs BEA/HUD figures for {m['name']} (13-6)."
         elif "{TAX_SENTENCE}" in answer:
             answer = (
-                f"Yes. On a $95,000 self-employment profit, a {state} resident keeps "
-                f"about ${th.get('takeHome', 0):,.0f} — an effective "
+                f"Yes. On a $95,000 salary, a single {state} resident keeps "
+                f"about {money(th.get('takeHome', 0))} — an effective "
                 f"{th.get('effectiveRate', 0):.1f}%. That figure applies anywhere in "
                 f"{state}, so it is the same in {display} as in the rest of the state, "
                 "and it is the half of the comparison most cost-of-living tools omit."

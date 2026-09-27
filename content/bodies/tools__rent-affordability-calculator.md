@@ -37,9 +37,10 @@ rarely agree: what you can carry, and what a leasing office will approve you for
 
 ## What the percentage leaves out
 
-- Utilities. HUD's own figures come in two forms, rent alone and rent including a
-  utility allowance, and the gap between them runs from $80 to over $250 a month
-  depending on climate and unit type.
+- Utilities, depending on the lease. Fair Market Rent is gross rent — shelter rent
+  plus the utilities a tenant pays — and HUD's 30% test is measured on the same
+  basis. A listing that quotes rent alone has to have its utilities added before it
+  can be compared against either figure.
 - Renters insurance, parking, and pet rent, none of which appear in the advertised
   figure.
 - State income tax, which changes the gross-to-net ratio the whole rule is built on.

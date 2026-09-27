@@ -228,13 +228,16 @@ legally sound. But **do not hedge a fact**: Pennsylvania's rate is 3.07%, not
 
 - Percentages as the source states them: **3.07%**, not "about 3%".
 - Dollars with thousands separators and no cents in prose: **$95,000**, and
-  **$74,160** rather than $74,159.76 in body copy. The calculator gives the cent;
+  **$75,663** rather than $75,662.50 in body copy — rounded half up, never half to even. The calculator gives the cent;
   the sentence gives the figure.
 - **Every number traceable to the dataset or a primary source.** If you cannot
   point at where it came from, it does not go in.
+- **A salary figure and a self-employment figure are different numbers.** On
+  $95,000 they differ by $879–$1,503 depending on the state. Never quote one under
+  the other's name; `data/takehome-95k.json` keeps them in separate fields.
 - Bracket thresholds exactly: **$215,400**, never "around $215,000".
-- Give a number its meaning in the same sentence: "$7,167 — 7.5% of gross income"
-  says something that "$7,167" alone does not.
+- Give a number its meaning in the same sentence: "$7,754 — 8.2% of gross income"
+  says something that "$7,754" alone does not.
 
 ---
 

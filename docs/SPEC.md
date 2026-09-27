@@ -777,7 +777,7 @@ full comparison output:
   real annual difference = tax difference − cost difference
 ```
 
-**Computed with the existing engine** ($95,000, single, 2026): Seattle and Portland have similar cost of living, but their annual net differs by **$7,167** — 7.5% of gross income, from state tax alone. No cost-of-living tool shows this.
+**Computed with the engine** ($95,000 salary, single, 2026): Seattle and Portland have similar cost of living, but their annual net pay differs by **$7,754** — 8.2% of gross income, from state tax alone. No cost-of-living tool shows this. *(Corrected in 20-32: the figure first quoted here, $7,167, was the self-employment scenario labelled as a salary.)*
 
 It is the only output on the site that is quotable in one sentence and attracts links (section 9-5-2).
 
@@ -2104,7 +2104,7 @@ Calculators do not attract links. **Data attracts links.** Three assets built fr
 | **"The cheapest and most expensive metros after tax"** | A combination nobody has; Numbeo has no tax | Requires the BEA dataset |
 | **Open methodology** — sources, formulas, limitations | Data-driven sites link to a citable source | From section 6-3 |
 
-**Rule:** every asset must be quotable in one sentence. "Seattle and Portland are three hours apart and their annual net pay differs by $7,167" — that earns links. "Our calculator is accurate" does not.
+**Rule:** every asset must be quotable in one sentence. "Seattle and Portland are three hours apart and their annual net pay differs by $7,754" — that earns links. "Our calculator is accurate" does not.
 
 #### 9-5-3. Channels and order
 

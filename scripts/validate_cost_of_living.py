@@ -64,17 +64,29 @@ def main():
 
         rent = doc.get("referenceRent")
         if rent:
-            for k in ("bedrooms1", "bedrooms2"):
-                v = rent.get(k)
-                if v is not None and (not isinstance(v, (int, float)) or v <= 0):
+            sizes = [f"bedrooms{n}" for n in range(5)]
+            for k, v in rent.items():
+                if k not in sizes:
+                    errors.append(f"{slug}: unknown referenceRent key '{k}'")
+                elif not isinstance(v, (int, float)) or v <= 0:
                     errors.append(f"{slug}: referenceRent.{k} is {v!r}")
-            if rent.get("bedrooms1") and rent.get("bedrooms2") \
-                    and rent["bedrooms1"] > rent["bedrooms2"]:
-                errors.append(f"{slug}: one-bedroom rent exceeds two-bedroom — "
-                              "the columns are probably swapped")
+            present = [rent[k] for k in sizes if k in rent]
+            if present != sorted(present):
+                errors.append(f"{slug}: Fair Market Rent does not rise with bedroom "
+                              "count — the columns are probably misaligned")
+            if "bedrooms1" not in rent:
+                errors.append(f"{slug}: no one-bedroom FMR — the rent tool's default")
         else:
-            warnings.append(f"{slug}: no referenceRent (HUD FMR) — rent scaling "
-                            "cannot be shown for this metro")
+            # Rent is the largest line in every metro and the rent tool cannot run
+            # without it. A metro without rent is not a cost-of-living page.
+            errors.append(f"{slug}: no referenceRent (HUD FMR)")
+
+        if doc.get("region") not in ("us", "eu"):
+            errors.append(f"{slug}: region must be 'us' or 'eu' — the engine refuses "
+                          "to compare across regions and needs to know which")
+        for src in doc.get("sources") or []:
+            if not src.get("retrieved"):
+                errors.append(f"{slug}: source '{src.get('label')}' has no retrieval date")
 
         if not doc.get("sources"):
             errors.append(f"{slug}: no sources (rule 5-1)")

@@ -16,7 +16,9 @@
       "slug": "austin-tx",
       "indices": null,
       "referenceRent": null,
-      "dataStatus": "pending-bea-hud"
+      "dataStatus": "pending-bea-hud",
+      "stateAbbr": "TX",
+      "principalCounty": "Travis County"
     },
     {
       "name": "San Francisco, CA",
@@ -28,7 +30,9 @@
       "slug": "san-francisco-ca",
       "indices": null,
       "referenceRent": null,
-      "dataStatus": "pending-bea-hud"
+      "dataStatus": "pending-bea-hud",
+      "stateAbbr": "CA",
+      "principalCounty": "San Francisco County"
     },
     {
       "name": "San Antonio, TX",
@@ -40,7 +44,9 @@
       "slug": "san-antonio-tx",
       "indices": null,
       "referenceRent": null,
-      "dataStatus": "pending-bea-hud"
+      "dataStatus": "pending-bea-hud",
+      "stateAbbr": "TX",
+      "principalCounty": "Bexar County"
     },
     {
       "name": "Houston, TX",
@@ -52,7 +58,9 @@
       "slug": "houston-tx",
       "indices": null,
       "referenceRent": null,
-      "dataStatus": "pending-bea-hud"
+      "dataStatus": "pending-bea-hud",
+      "stateAbbr": "TX",
+      "principalCounty": "Harris County"
     }
   ]
 }

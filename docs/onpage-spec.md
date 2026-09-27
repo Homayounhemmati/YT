@@ -118,7 +118,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 - **Are there local income taxes in California?**
   No. California has no local income tax on top of the state rate, so the figure above is the whole state-level picture.
 - **How much of a $95,000 salary do you keep in California?**
-  About $70,041 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,119 is California state tax — the rest is federal income tax and the 15.3% self-employment tax.
+  About $70,920 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,743 is California state tax — the rest is federal income tax, Social Security and Medicare.
 
 **Internal links**
 
@@ -219,7 +219,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
         "name": "How much of a $95,000 salary do you keep in California?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "About $70,041 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,119 is California state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "text": "About $70,920 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,743 is California state tax — the rest is federal income tax, Social Security and Medicare."
         }
       }
     ]
@@ -248,13 +248,13 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 - **Does Texas have a state income tax?**
   No. Texas levies no broad-based individual income tax on earned income.
 - **What tax do you still pay in Texas?**
-  Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Texas — an effective 21.9% with no state layer on top of it.
+  Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Texas — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person.
 - **Is Texas actually cheaper overall?**
-  Not automatically. On income tax alone Texas leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it.
+  Not automatically. On income tax alone Texas leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it.
 - **Are there local income taxes in Texas?**
   No. Texas has no local income tax on top of the state rate, so the figure above is the whole state-level picture.
 - **How much of a $95,000 salary do you keep in Texas?**
-  About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Texas state layer to add.
+  About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Texas state layer to add.
 
 **Internal links**
 
@@ -331,7 +331,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
         "name": "What tax do you still pay in Texas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Texas — an effective 21.9% with no state layer on top of it."
+          "text": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Texas — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
         }
       },
       {
@@ -339,7 +339,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
         "name": "Is Texas actually cheaper overall?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not automatically. On income tax alone Texas leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "text": "Not automatically. On income tax alone Texas leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         }
       },
       {
@@ -355,7 +355,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
         "name": "How much of a $95,000 salary do you keep in Texas?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Texas state layer to add."
+          "text": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Texas state layer to add."
         }
       }
     ]

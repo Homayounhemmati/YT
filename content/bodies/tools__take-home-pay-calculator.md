@@ -1,7 +1,7 @@
 The gap between what you are offered and what arrives in your account is
-consistently larger than people expect. On a $95,000 salary the difference runs to
-roughly a quarter of the figure — and the exact amount depends on which state you
-live in, by as much as $7,000 a year.
+consistently larger than people expect. On a $95,000 salary the difference runs from
+a fifth to more than a quarter of the figure — and the exact amount depends on which
+state you live in, by as much as $7,754 a year.
 
 ## How take-home pay is calculated
 
@@ -52,14 +52,16 @@ and the refund or bill in April is the correction to it.
 The federal layer is the same everywhere. The state layer is not, and it is where
 the same salary produces materially different outcomes:
 
-| On $95,000 of self-employment profit | Take-home |
+| On a $95,000 salary, single filer | Take-home |
 |---|---|
-| Alaska, Texas, Florida (no state income tax) | ~$74,160 |
-| Pennsylvania (flat 3.07%) | ~$71,449 |
-| Oregon (progressive, no local layer) | ~$66,993 |
+| Alaska, Texas, Florida (no state income tax) | ~$75,663 |
+| Pennsylvania (flat 3.07%) | ~$72,746 |
+| Oregon (progressive, no local layer) | ~$67,908 |
 
-**A $7,167 spread on identical gross pay**, from state tax alone. That is 7.5% of
-the salary, and it is invisible in any offer letter.
+**A $7,754 spread on identical gross pay**, from state tax alone. That is 8.2% of
+the salary, and it is invisible in any offer letter. A self-employed person on the
+same $95,000 keeps between $879 and $1,503 less, depending on the state, because
+they pay both halves of FICA.
 
 An **after tax income calculator** that stops at the federal layer therefore answers the easy half of the question and leaves the half that actually varies.
 

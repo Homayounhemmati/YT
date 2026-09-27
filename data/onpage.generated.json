@@ -1301,7 +1301,7 @@
         },
         {
           "question": "Does the 30% include utilities?",
-          "answer": "HUD publishes rent both with and without a utility allowance, and the gap runs from roughly $80 to over $250 a month depending on climate and unit type. A figure quoted without saying which one it is will be wrong by that much."
+          "answer": "Yes. HUD measures cost burden on gross rent, which is shelter rent plus the utilities a tenant pays, and Fair Market Rent is published on the same basis. If a listing quotes rent alone, add your utilities before comparing it against the 30% line."
         }
       ],
       "jsonLd": [
@@ -1382,7 +1382,7 @@
               "name": "Does the 30% include utilities?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "HUD publishes rent both with and without a utility allowance, and the gap runs from roughly $80 to over $250 a month depending on climate and unit type. A figure quoted without saying which one it is will be wrong by that much."
+                "text": "Yes. HUD measures cost burden on gross rent, which is shelter rent plus the utilities a tenant pays, and Fair Market Rent is published on the same basis. If a listing quotes rent alone, add your utilities before comparing it against the 30% line."
               }
             }
           ]
@@ -1591,7 +1591,7 @@
         },
         {
           "question": "How much does state tax change take-home pay?",
-          "answer": "On a $95,000 salary the spread between the best and worst jurisdiction is about $7,167 a year, or 7.5% of the salary. None of it appears in an offer letter."
+          "answer": "On a $95,000 salary the spread between the best and worst jurisdiction is about $7,754 a year, or 8.2% of the salary. None of it appears in an offer letter."
         }
       ],
       "jsonLd": [
@@ -1672,7 +1672,7 @@
               "name": "How much does state tax change take-home pay?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "On a $95,000 salary the spread between the best and worst jurisdiction is about $7,167 a year, or 7.5% of the salary. None of it appears in an offer letter."
+                "text": "On a $95,000 salary the spread between the best and worst jurisdiction is about $7,754 a year, or 8.2% of the salary. None of it appears in an offer letter."
               }
             }
           ]
@@ -2159,7 +2159,7 @@
         },
         {
           "question": "Why is my take-home pay so much lower than my salary?",
-          "answer": "On a $95,000 salary the deductions run to roughly a quarter of the figure, and the exact amount depends on the state by as much as $7,167 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
+          "answer": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state by as much as $7,754 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
         },
         {
           "question": "What is the difference between biweekly and semi-monthly pay?",
@@ -2232,7 +2232,7 @@
               "name": "Why is my take-home pay so much lower than my salary?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "On a $95,000 salary the deductions run to roughly a quarter of the figure, and the exact amount depends on the state by as much as $7,167 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
+                "text": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state by as much as $7,754 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
               }
             },
             {
@@ -3610,7 +3610,7 @@
         },
         {
           "question": "Does Texas tax affect what you keep in Austin?",
-          "answer": "Yes. On a $95,000 self-employment profit, a Texas resident keeps about $74,160 — an effective 21.9%. That figure applies anywhere in Texas, so it is the same in Austin as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+          "answer": "Yes. On a $95,000 salary, a single Texas resident keeps about $75,663 — an effective 20.4%. That figure applies anywhere in Texas, so it is the same in Austin as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
         },
         {
           "question": "Where does this data come from?",
@@ -3684,7 +3684,7 @@
               "name": "Does Texas tax affect what you keep in Austin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. On a $95,000 self-employment profit, a Texas resident keeps about $74,160 — an effective 21.9%. That figure applies anywhere in Texas, so it is the same in Austin as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+                "text": "Yes. On a $95,000 salary, a single Texas resident keeps about $75,663 — an effective 20.4%. That figure applies anywhere in Texas, so it is the same in Austin as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
               }
             },
             {
@@ -3782,7 +3782,7 @@
         },
         {
           "question": "Does California tax affect what you keep in San Francisco?",
-          "answer": "Yes. On a $95,000 self-employment profit, a California resident keeps about $70,041 — an effective 26.3%. That figure applies anywhere in California, so it is the same in San Francisco as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+          "answer": "Yes. On a $95,000 salary, a single California resident keeps about $70,920 — an effective 25.3%. That figure applies anywhere in California, so it is the same in San Francisco as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
         },
         {
           "question": "Where does this data come from?",
@@ -3856,7 +3856,7 @@
               "name": "Does California tax affect what you keep in San Francisco?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. On a $95,000 self-employment profit, a California resident keeps about $70,041 — an effective 26.3%. That figure applies anywhere in California, so it is the same in San Francisco as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+                "text": "Yes. On a $95,000 salary, a single California resident keeps about $70,920 — an effective 25.3%. That figure applies anywhere in California, so it is the same in San Francisco as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
               }
             },
             {
@@ -3954,7 +3954,7 @@
         },
         {
           "question": "Does Texas tax affect what you keep in San Antonio?",
-          "answer": "Yes. On a $95,000 self-employment profit, a Texas resident keeps about $74,160 — an effective 21.9%. That figure applies anywhere in Texas, so it is the same in San Antonio as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+          "answer": "Yes. On a $95,000 salary, a single Texas resident keeps about $75,663 — an effective 20.4%. That figure applies anywhere in Texas, so it is the same in San Antonio as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
         },
         {
           "question": "Where does this data come from?",
@@ -4028,7 +4028,7 @@
               "name": "Does Texas tax affect what you keep in San Antonio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. On a $95,000 self-employment profit, a Texas resident keeps about $74,160 — an effective 21.9%. That figure applies anywhere in Texas, so it is the same in San Antonio as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+                "text": "Yes. On a $95,000 salary, a single Texas resident keeps about $75,663 — an effective 20.4%. That figure applies anywhere in Texas, so it is the same in San Antonio as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
               }
             },
             {
@@ -4126,7 +4126,7 @@
         },
         {
           "question": "Does Texas tax affect what you keep in Houston?",
-          "answer": "Yes. On a $95,000 self-employment profit, a Texas resident keeps about $74,160 — an effective 21.9%. That figure applies anywhere in Texas, so it is the same in Houston as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+          "answer": "Yes. On a $95,000 salary, a single Texas resident keeps about $75,663 — an effective 20.4%. That figure applies anywhere in Texas, so it is the same in Houston as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
         },
         {
           "question": "Where does this data come from?",
@@ -4200,7 +4200,7 @@
               "name": "Does Texas tax affect what you keep in Houston?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. On a $95,000 self-employment profit, a Texas resident keeps about $74,160 — an effective 21.9%. That figure applies anywhere in Texas, so it is the same in Houston as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+                "text": "Yes. On a $95,000 salary, a single Texas resident keeps about $75,663 — an effective 20.4%. That figure applies anywhere in Texas, so it is the same in Houston as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
               }
             },
             {
@@ -4301,7 +4301,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Alabama?",
-          "answer": "About $69,785 of a $95,000 self-employment profit, an effective 26.5%. Of that, $4,374 is Alabama state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $70,953 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,710 is Alabama state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -4390,7 +4390,7 @@
               "name": "How much of a $95,000 salary do you keep in Alabama?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $69,785 of a $95,000 self-employment profit, an effective 26.5%. Of that, $4,374 is Alabama state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $70,953 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,710 is Alabama state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -4451,11 +4451,11 @@
         },
         {
           "question": "What tax do you still pay in Alaska?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Alaska — an effective 21.9% with no state layer on top of it."
+          "answer": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Alaska — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
         },
         {
           "question": "Is Alaska actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Alaska leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. On income tax alone Alaska leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Alaska?",
@@ -4463,7 +4463,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Alaska?",
-          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Alaska state layer to add."
+          "answer": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Alaska state layer to add."
         }
       ],
       "jsonLd": [
@@ -4528,7 +4528,7 @@
               "name": "What tax do you still pay in Alaska?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Alaska — an effective 21.9% with no state layer on top of it."
+                "text": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Alaska — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
               }
             },
             {
@@ -4536,7 +4536,7 @@
               "name": "Is Alaska actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Alaska leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. On income tax alone Alaska leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -4552,7 +4552,7 @@
               "name": "How much of a $95,000 salary do you keep in Alaska?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Alaska state layer to add."
+                "text": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Alaska state layer to add."
               }
             }
           ]
@@ -4625,7 +4625,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Arizona?",
-          "answer": "About $72,346 of a $95,000 self-employment profit, an effective 23.8%. Of that, $1,813 is Arizona state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $73,681 of a $95,000 salary for a single filer, an effective 22.4%. Of that, $1,981 is Arizona state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -4714,7 +4714,7 @@
               "name": "How much of a $95,000 salary do you keep in Arizona?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $72,346 of a $95,000 self-employment profit, an effective 23.8%. Of that, $1,813 is Arizona state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $73,681 of a $95,000 salary for a single filer, an effective 22.4%. Of that, $1,981 is Arizona state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -4787,7 +4787,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Arkansas?",
-          "answer": "About $71,260 of a $95,000 self-employment profit, an effective 25.0%. Of that, $2,899 is Arkansas state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $72,515 of a $95,000 salary for a single filer, an effective 23.7%. Of that, $3,148 is Arkansas state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -4876,7 +4876,7 @@
               "name": "How much of a $95,000 salary do you keep in Arkansas?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,260 of a $95,000 self-employment profit, an effective 25.0%. Of that, $2,899 is Arkansas state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $72,515 of a $95,000 salary for a single filer, an effective 23.7%. Of that, $3,148 is Arkansas state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -4949,7 +4949,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in California?",
-          "answer": "About $70,041 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,119 is California state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $70,920 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,743 is California state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -5038,7 +5038,7 @@
               "name": "How much of a $95,000 salary do you keep in California?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,041 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,119 is California state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $70,920 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,743 is California state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -5111,7 +5111,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Colorado?",
-          "answer": "About $70,275 of a $95,000 self-employment profit, an effective 26.0%. Of that, $3,885 is Colorado state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,483 of a $95,000 salary for a single filer, an effective 24.8%. Of that, $4,180 is Colorado state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -5200,7 +5200,7 @@
               "name": "How much of a $95,000 salary do you keep in Colorado?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,275 of a $95,000 self-employment profit, an effective 26.0%. Of that, $3,885 is Colorado state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,483 of a $95,000 salary for a single filer, an effective 24.8%. Of that, $4,180 is Colorado state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -5273,7 +5273,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Connecticut?",
-          "answer": "About $70,054 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,106 is Connecticut state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,188 of a $95,000 salary for a single filer, an effective 25.1%. Of that, $4,475 is Connecticut state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -5362,7 +5362,7 @@
               "name": "How much of a $95,000 salary do you keep in Connecticut?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,054 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,106 is Connecticut state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,188 of a $95,000 salary for a single filer, an effective 25.1%. Of that, $4,475 is Connecticut state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -5435,7 +5435,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Delaware?",
-          "answer": "About $69,564 of a $95,000 self-employment profit, an effective 26.8%. Of that, $4,596 is Delaware state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $70,624 of a $95,000 salary for a single filer, an effective 25.7%. Of that, $5,039 is Delaware state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -5524,7 +5524,7 @@
               "name": "How much of a $95,000 salary do you keep in Delaware?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $69,564 of a $95,000 self-employment profit, an effective 26.8%. Of that, $4,596 is Delaware state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $70,624 of a $95,000 salary for a single filer, an effective 25.7%. Of that, $5,039 is Delaware state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -5585,11 +5585,11 @@
         },
         {
           "question": "What tax do you still pay in Florida?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Florida — an effective 21.9% with no state layer on top of it."
+          "answer": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Florida — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
         },
         {
           "question": "Is Florida actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Florida leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. On income tax alone Florida leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Florida?",
@@ -5597,7 +5597,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Florida?",
-          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Florida state layer to add."
+          "answer": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Florida state layer to add."
         }
       ],
       "jsonLd": [
@@ -5662,7 +5662,7 @@
               "name": "What tax do you still pay in Florida?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Florida — an effective 21.9% with no state layer on top of it."
+                "text": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Florida — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
               }
             },
             {
@@ -5670,7 +5670,7 @@
               "name": "Is Florida actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Florida leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. On income tax alone Florida leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -5686,7 +5686,7 @@
               "name": "How much of a $95,000 salary do you keep in Florida?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Florida state layer to add."
+                "text": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Florida state layer to add."
               }
             }
           ]
@@ -5759,7 +5759,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Georgia?",
-          "answer": "About $70,503 of a $95,000 self-employment profit, an effective 25.8%. Of that, $3,657 is Georgia state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,671 of a $95,000 salary for a single filer, an effective 24.6%. Of that, $3,992 is Georgia state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -5848,7 +5848,7 @@
               "name": "How much of a $95,000 salary do you keep in Georgia?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,503 of a $95,000 self-employment profit, an effective 25.8%. Of that, $3,657 is Georgia state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,671 of a $95,000 salary for a single filer, an effective 24.6%. Of that, $3,992 is Georgia state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -5921,7 +5921,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Hawaii?",
-          "answer": "About $69,167 of a $95,000 self-employment profit, an effective 27.2%. Of that, $4,993 is Hawaii state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $70,159 of a $95,000 salary for a single filer, an effective 26.1%. Of that, $5,503 is Hawaii state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -6010,7 +6010,7 @@
               "name": "How much of a $95,000 salary do you keep in Hawaii?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $69,167 of a $95,000 self-employment profit, an effective 27.2%. Of that, $4,993 is Hawaii state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $70,159 of a $95,000 salary for a single filer, an effective 26.1%. Of that, $5,503 is Hawaii state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -6083,7 +6083,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Idaho?",
-          "answer": "About $69,735 of a $95,000 self-employment profit, an effective 26.6%. Of that, $4,424 is Idaho state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $70,882 of a $95,000 salary for a single filer, an effective 25.4%. Of that, $4,780 is Idaho state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -6172,7 +6172,7 @@
               "name": "How much of a $95,000 salary do you keep in Idaho?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $69,735 of a $95,000 self-employment profit, an effective 26.6%. Of that, $4,424 is Idaho state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $70,882 of a $95,000 salary for a single filer, an effective 25.4%. Of that, $4,780 is Idaho state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -6245,7 +6245,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Illinois?",
-          "answer": "About $69,789 of a $95,000 self-employment profit, an effective 26.5%. Of that, $4,370 is Illinois state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $70,960 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,703 is Illinois state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -6334,7 +6334,7 @@
               "name": "How much of a $95,000 salary do you keep in Illinois?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $69,789 of a $95,000 self-employment profit, an effective 26.5%. Of that, $4,370 is Illinois state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $70,960 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,703 is Illinois state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -6407,7 +6407,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Indiana?",
-          "answer": "About $71,555 of a $95,000 self-employment profit, an effective 24.7%. Of that, $2,605 is Indiana state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $72,860 of a $95,000 salary for a single filer, an effective 23.3%. Of that, $2,803 is Indiana state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -6496,7 +6496,7 @@
               "name": "How much of a $95,000 salary do you keep in Indiana?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,555 of a $95,000 self-employment profit, an effective 24.7%. Of that, $2,605 is Indiana state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $72,860 of a $95,000 salary for a single filer, an effective 23.3%. Of that, $2,803 is Indiana state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -6569,7 +6569,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Iowa?",
-          "answer": "About $70,889 of a $95,000 self-employment profit, an effective 25.4%. Of that, $3,271 is Iowa state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $72,136 of a $95,000 salary for a single filer, an effective 24.1%. Of that, $3,526 is Iowa state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -6658,7 +6658,7 @@
               "name": "How much of a $95,000 salary do you keep in Iowa?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,889 of a $95,000 self-employment profit, an effective 25.4%. Of that, $3,271 is Iowa state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $72,136 of a $95,000 salary for a single filer, an effective 24.1%. Of that, $3,526 is Iowa state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -6731,7 +6731,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Kansas?",
-          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9%. Of that, $0 is Kansas state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4%. Of that, $0 is Kansas state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -6820,7 +6820,7 @@
               "name": "How much of a $95,000 salary do you keep in Kansas?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9%. Of that, $0 is Kansas state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4%. Of that, $0 is Kansas state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -6893,7 +6893,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Kentucky?",
-          "answer": "About $71,070 of a $95,000 self-employment profit, an effective 25.2%. Of that, $3,090 is Kentucky state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $72,338 of a $95,000 salary for a single filer, an effective 23.9%. Of that, $3,325 is Kentucky state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -6982,7 +6982,7 @@
               "name": "How much of a $95,000 salary do you keep in Kentucky?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,070 of a $95,000 self-employment profit, an effective 25.2%. Of that, $3,090 is Kentucky state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $72,338 of a $95,000 salary for a single filer, an effective 23.9%. Of that, $3,325 is Kentucky state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -7055,7 +7055,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Louisiana?",
-          "answer": "About $71,896 of a $95,000 self-employment profit, an effective 24.3%. Of that, $2,264 is Louisiana state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $73,198 of a $95,000 salary for a single filer, an effective 22.9%. Of that, $2,465 is Louisiana state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -7144,7 +7144,7 @@
               "name": "How much of a $95,000 salary do you keep in Louisiana?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,896 of a $95,000 self-employment profit, an effective 24.3%. Of that, $2,264 is Louisiana state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $73,198 of a $95,000 salary for a single filer, an effective 22.9%. Of that, $2,465 is Louisiana state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -7217,7 +7217,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Maine?",
-          "answer": "About $69,439 of a $95,000 self-employment profit, an effective 26.9%. Of that, $4,720 is Maine state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $70,462 of a $95,000 salary for a single filer, an effective 25.8%. Of that, $5,200 is Maine state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -7306,7 +7306,7 @@
               "name": "How much of a $95,000 salary do you keep in Maine?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $69,439 of a $95,000 self-employment profit, an effective 26.9%. Of that, $4,720 is Maine state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $70,462 of a $95,000 salary for a single filer, an effective 25.8%. Of that, $5,200 is Maine state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -7379,7 +7379,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Maryland?",
-          "answer": "About $70,019 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,141 is Maryland state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,203 of a $95,000 salary for a single filer, an effective 25.1%. Of that, $4,460 is Maryland state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -7468,7 +7468,7 @@
               "name": "How much of a $95,000 salary do you keep in Maryland?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,019 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,141 is Maryland state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,203 of a $95,000 salary for a single filer, an effective 25.1%. Of that, $4,460 is Maryland state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -7541,7 +7541,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Massachusetts?",
-          "answer": "About $69,745 of a $95,000 self-employment profit, an effective 26.6%. Of that, $4,414 is Massachusetts state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $70,913 of a $95,000 salary for a single filer, an effective 25.4%. Of that, $4,750 is Massachusetts state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -7630,7 +7630,7 @@
               "name": "How much of a $95,000 salary do you keep in Massachusetts?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $69,745 of a $95,000 self-employment profit, an effective 26.6%. Of that, $4,414 is Massachusetts state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $70,913 of a $95,000 salary for a single filer, an effective 25.4%. Of that, $4,750 is Massachusetts state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -7703,7 +7703,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Michigan?",
-          "answer": "About $70,408 of a $95,000 self-employment profit, an effective 25.9%. Of that, $3,752 is Michigan state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,625 of a $95,000 salary for a single filer, an effective 24.6%. Of that, $4,038 is Michigan state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -7792,7 +7792,7 @@
               "name": "How much of a $95,000 salary do you keep in Michigan?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,408 of a $95,000 self-employment profit, an effective 25.9%. Of that, $3,752 is Michigan state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,625 of a $95,000 salary for a single filer, an effective 24.6%. Of that, $4,038 is Michigan state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -7865,7 +7865,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Minnesota?",
-          "answer": "About $68,628 of a $95,000 self-employment profit, an effective 27.8%. Of that, $5,531 is Minnesota state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $69,675 of a $95,000 salary for a single filer, an effective 26.7%. Of that, $5,988 is Minnesota state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -7954,7 +7954,7 @@
               "name": "How much of a $95,000 salary do you keep in Minnesota?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $68,628 of a $95,000 self-employment profit, an effective 27.8%. Of that, $5,531 is Minnesota state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $69,675 of a $95,000 salary for a single filer, an effective 26.7%. Of that, $5,988 is Minnesota state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -8027,7 +8027,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Mississippi?",
-          "answer": "About $71,120 of a $95,000 self-employment profit, an effective 25.1%. Of that, $3,040 is Mississippi state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $72,355 of a $95,000 salary for a single filer, an effective 23.8%. Of that, $3,308 is Mississippi state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -8116,7 +8116,7 @@
               "name": "How much of a $95,000 salary do you keep in Mississippi?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,120 of a $95,000 self-employment profit, an effective 25.1%. Of that, $3,040 is Mississippi state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $72,355 of a $95,000 salary for a single filer, an effective 23.8%. Of that, $3,308 is Mississippi state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -8189,7 +8189,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Missouri?",
-          "answer": "About $70,186 of a $95,000 self-employment profit, an effective 26.1%. Of that, $3,974 is Missouri state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,373 of a $95,000 salary for a single filer, an effective 24.9%. Of that, $4,289 is Missouri state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -8278,7 +8278,7 @@
               "name": "How much of a $95,000 salary do you keep in Missouri?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,186 of a $95,000 self-employment profit, an effective 26.1%. Of that, $3,974 is Missouri state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,373 of a $95,000 salary for a single filer, an effective 24.9%. Of that, $4,289 is Missouri state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -8351,7 +8351,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Montana?",
-          "answer": "About $69,623 of a $95,000 self-employment profit, an effective 26.7%. Of that, $4,537 is Montana state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $70,746 of a $95,000 salary for a single filer, an effective 25.5%. Of that, $4,916 is Montana state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -8440,7 +8440,7 @@
               "name": "How much of a $95,000 salary do you keep in Montana?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $69,623 of a $95,000 self-employment profit, an effective 26.7%. Of that, $4,537 is Montana state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $70,746 of a $95,000 salary for a single filer, an effective 25.5%. Of that, $4,916 is Montana state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -8513,7 +8513,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Nebraska?",
-          "answer": "About $70,444 of a $95,000 self-employment profit, an effective 25.8%. Of that, $3,716 is Nebraska state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,641 of a $95,000 salary for a single filer, an effective 24.6%. Of that, $4,022 is Nebraska state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -8602,7 +8602,7 @@
               "name": "How much of a $95,000 salary do you keep in Nebraska?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,444 of a $95,000 self-employment profit, an effective 25.8%. Of that, $3,716 is Nebraska state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,641 of a $95,000 salary for a single filer, an effective 24.6%. Of that, $4,022 is Nebraska state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -8663,11 +8663,11 @@
         },
         {
           "question": "What tax do you still pay in Nevada?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Nevada — an effective 21.9% with no state layer on top of it."
+          "answer": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Nevada — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
         },
         {
           "question": "Is Nevada actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Nevada leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. On income tax alone Nevada leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Nevada?",
@@ -8675,7 +8675,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Nevada?",
-          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Nevada state layer to add."
+          "answer": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Nevada state layer to add."
         }
       ],
       "jsonLd": [
@@ -8740,7 +8740,7 @@
               "name": "What tax do you still pay in Nevada?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Nevada — an effective 21.9% with no state layer on top of it."
+                "text": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Nevada — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
               }
             },
             {
@@ -8748,7 +8748,7 @@
               "name": "Is Nevada actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Nevada leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. On income tax alone Nevada leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -8764,7 +8764,7 @@
               "name": "How much of a $95,000 salary do you keep in Nevada?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Nevada state layer to add."
+                "text": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Nevada state layer to add."
               }
             }
           ]
@@ -8825,11 +8825,11 @@
         },
         {
           "question": "What tax do you still pay in New Hampshire?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in New Hampshire — an effective 21.9% with no state layer on top of it."
+          "answer": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in New Hampshire — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
         },
         {
           "question": "Is New Hampshire actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone New Hampshire leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. On income tax alone New Hampshire leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in New Hampshire?",
@@ -8837,7 +8837,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in New Hampshire?",
-          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no New Hampshire state layer to add."
+          "answer": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no New Hampshire state layer to add."
         }
       ],
       "jsonLd": [
@@ -8902,7 +8902,7 @@
               "name": "What tax do you still pay in New Hampshire?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in New Hampshire — an effective 21.9% with no state layer on top of it."
+                "text": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in New Hampshire — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
               }
             },
             {
@@ -8910,7 +8910,7 @@
               "name": "Is New Hampshire actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone New Hampshire leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. On income tax alone New Hampshire leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -8926,7 +8926,7 @@
               "name": "How much of a $95,000 salary do you keep in New Hampshire?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no New Hampshire state layer to add."
+                "text": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no New Hampshire state layer to add."
               }
             }
           ]
@@ -8999,7 +8999,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in New Jersey?",
-          "answer": "About $70,662 of a $95,000 self-employment profit, an effective 25.6%. Of that, $3,498 is New Jersey state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,737 of a $95,000 salary for a single filer, an effective 24.5%. Of that, $3,925 is New Jersey state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -9088,7 +9088,7 @@
               "name": "How much of a $95,000 salary do you keep in New Jersey?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,662 of a $95,000 self-employment profit, an effective 25.6%. Of that, $3,498 is New Jersey state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,737 of a $95,000 salary for a single filer, an effective 24.5%. Of that, $3,925 is New Jersey state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -9161,7 +9161,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in New Mexico?",
-          "answer": "About $70,376 of a $95,000 self-employment profit, an effective 25.9%. Of that, $3,784 is New Mexico state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,550 of a $95,000 salary for a single filer, an effective 24.7%. Of that, $4,113 is New Mexico state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -9250,7 +9250,7 @@
               "name": "How much of a $95,000 salary do you keep in New Mexico?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,376 of a $95,000 self-employment profit, an effective 25.9%. Of that, $3,784 is New Mexico state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,550 of a $95,000 salary for a single filer, an effective 24.7%. Of that, $4,113 is New Mexico state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -9323,7 +9323,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in New York?",
-          "answer": "About $69,989 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,171 is New York state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,098 of a $95,000 salary for a single filer, an effective 25.2%. Of that, $4,565 is New York state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -9412,7 +9412,7 @@
               "name": "How much of a $95,000 salary do you keep in New York?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $69,989 of a $95,000 self-employment profit, an effective 26.3%. Of that, $4,171 is New York state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,098 of a $95,000 salary for a single filer, an effective 25.2%. Of that, $4,565 is New York state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -9485,7 +9485,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in North Carolina?",
-          "answer": "About $71,146 of a $95,000 self-employment profit, an effective 25.1%. Of that, $3,014 is North Carolina state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $72,381 of a $95,000 salary for a single filer, an effective 23.8%. Of that, $3,282 is North Carolina state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -9574,7 +9574,7 @@
               "name": "How much of a $95,000 salary do you keep in North Carolina?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,146 of a $95,000 self-employment profit, an effective 25.1%. Of that, $3,014 is North Carolina state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $72,381 of a $95,000 salary for a single filer, an effective 23.8%. Of that, $3,282 is North Carolina state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -9647,7 +9647,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in North Dakota?",
-          "answer": "About $73,405 of a $95,000 self-employment profit, an effective 22.7%. Of that, $755 is North Dakota state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $74,777 of a $95,000 salary for a single filer, an effective 21.3%. Of that, $886 is North Dakota state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -9736,7 +9736,7 @@
               "name": "How much of a $95,000 salary do you keep in North Dakota?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $73,405 of a $95,000 self-employment profit, an effective 22.7%. Of that, $755 is North Dakota state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $74,777 of a $95,000 salary for a single filer, an effective 21.3%. Of that, $886 is North Dakota state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -9809,7 +9809,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Ohio?",
-          "answer": "About $72,116 of a $95,000 self-employment profit, an effective 24.1%. Of that, $2,044 is Ohio state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $73,434 of a $95,000 salary for a single filer, an effective 22.7%. Of that, $2,228 is Ohio state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -9898,7 +9898,7 @@
               "name": "How much of a $95,000 salary do you keep in Ohio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $72,116 of a $95,000 self-employment profit, an effective 24.1%. Of that, $2,044 is Ohio state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $73,434 of a $95,000 salary for a single filer, an effective 22.7%. Of that, $2,228 is Ohio state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -9971,7 +9971,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Oklahoma?",
-          "answer": "About $70,687 of a $95,000 self-employment profit, an effective 25.6%. Of that, $3,472 is Oklahoma state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,888 of a $95,000 salary for a single filer, an effective 24.3%. Of that, $3,775 is Oklahoma state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -10060,7 +10060,7 @@
               "name": "How much of a $95,000 salary do you keep in Oklahoma?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,687 of a $95,000 self-employment profit, an effective 25.6%. Of that, $3,472 is Oklahoma state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,888 of a $95,000 salary for a single filer, an effective 24.3%. Of that, $3,775 is Oklahoma state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -10133,7 +10133,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Oregon?",
-          "answer": "About $66,993 of a $95,000 self-employment profit, an effective 29.5%. Of that, $7,167 is Oregon state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $67,908 of a $95,000 salary for a single filer, an effective 28.5%. Of that, $7,754 is Oregon state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -10222,7 +10222,7 @@
               "name": "How much of a $95,000 salary do you keep in Oregon?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $66,993 of a $95,000 self-employment profit, an effective 29.5%. Of that, $7,167 is Oregon state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $67,908 of a $95,000 salary for a single filer, an effective 28.5%. Of that, $7,754 is Oregon state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -10295,7 +10295,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Pennsylvania?",
-          "answer": "About $71,449 of a $95,000 self-employment profit, an effective 24.8%. Of that, $2,710 is Pennsylvania state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $72,746 of a $95,000 salary for a single filer, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -10384,7 +10384,7 @@
               "name": "How much of a $95,000 salary do you keep in Pennsylvania?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,449 of a $95,000 self-employment profit, an effective 24.8%. Of that, $2,710 is Pennsylvania state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $72,746 of a $95,000 salary for a single filer, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -10457,7 +10457,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Rhode Island?",
-          "answer": "About $71,269 of a $95,000 self-employment profit, an effective 25.0%. Of that, $2,891 is Rhode Island state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $72,502 of a $95,000 salary for a single filer, an effective 23.7%. Of that, $3,160 is Rhode Island state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -10546,7 +10546,7 @@
               "name": "How much of a $95,000 salary do you keep in Rhode Island?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,269 of a $95,000 self-employment profit, an effective 25.0%. Of that, $2,891 is Rhode Island state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $72,502 of a $95,000 salary for a single filer, an effective 23.7%. Of that, $3,160 is Rhode Island state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -10619,7 +10619,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in South Carolina?",
-          "answer": "About $70,526 of a $95,000 self-employment profit, an effective 25.8%. Of that, $3,634 is South Carolina state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,679 of a $95,000 salary for a single filer, an effective 24.5%. Of that, $3,984 is South Carolina state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -10708,7 +10708,7 @@
               "name": "How much of a $95,000 salary do you keep in South Carolina?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,526 of a $95,000 self-employment profit, an effective 25.8%. Of that, $3,634 is South Carolina state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,679 of a $95,000 salary for a single filer, an effective 24.5%. Of that, $3,984 is South Carolina state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -10769,11 +10769,11 @@
         },
         {
           "question": "What tax do you still pay in South Dakota?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in South Dakota — an effective 21.9% with no state layer on top of it."
+          "answer": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in South Dakota — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
         },
         {
           "question": "Is South Dakota actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone South Dakota leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. On income tax alone South Dakota leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in South Dakota?",
@@ -10781,7 +10781,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in South Dakota?",
-          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no South Dakota state layer to add."
+          "answer": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no South Dakota state layer to add."
         }
       ],
       "jsonLd": [
@@ -10846,7 +10846,7 @@
               "name": "What tax do you still pay in South Dakota?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in South Dakota — an effective 21.9% with no state layer on top of it."
+                "text": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in South Dakota — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
               }
             },
             {
@@ -10854,7 +10854,7 @@
               "name": "Is South Dakota actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone South Dakota leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. On income tax alone South Dakota leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -10870,7 +10870,7 @@
               "name": "How much of a $95,000 salary do you keep in South Dakota?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no South Dakota state layer to add."
+                "text": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no South Dakota state layer to add."
               }
             }
           ]
@@ -10931,11 +10931,11 @@
         },
         {
           "question": "What tax do you still pay in Tennessee?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Tennessee — an effective 21.9% with no state layer on top of it."
+          "answer": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Tennessee — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
         },
         {
           "question": "Is Tennessee actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Tennessee leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. On income tax alone Tennessee leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Tennessee?",
@@ -10943,7 +10943,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Tennessee?",
-          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Tennessee state layer to add."
+          "answer": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Tennessee state layer to add."
         }
       ],
       "jsonLd": [
@@ -11008,7 +11008,7 @@
               "name": "What tax do you still pay in Tennessee?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Tennessee — an effective 21.9% with no state layer on top of it."
+                "text": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Tennessee — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
               }
             },
             {
@@ -11016,7 +11016,7 @@
               "name": "Is Tennessee actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Tennessee leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. On income tax alone Tennessee leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -11032,7 +11032,7 @@
               "name": "How much of a $95,000 salary do you keep in Tennessee?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Tennessee state layer to add."
+                "text": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Tennessee state layer to add."
               }
             }
           ]
@@ -11093,11 +11093,11 @@
         },
         {
           "question": "What tax do you still pay in Texas?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Texas — an effective 21.9% with no state layer on top of it."
+          "answer": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Texas — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
         },
         {
           "question": "Is Texas actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Texas leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. On income tax alone Texas leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Texas?",
@@ -11105,7 +11105,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Texas?",
-          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Texas state layer to add."
+          "answer": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Texas state layer to add."
         }
       ],
       "jsonLd": [
@@ -11170,7 +11170,7 @@
               "name": "What tax do you still pay in Texas?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Texas — an effective 21.9% with no state layer on top of it."
+                "text": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Texas — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
               }
             },
             {
@@ -11178,7 +11178,7 @@
               "name": "Is Texas actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Texas leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. On income tax alone Texas leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -11194,7 +11194,7 @@
               "name": "How much of a $95,000 salary do you keep in Texas?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Texas state layer to add."
+                "text": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Texas state layer to add."
               }
             }
           ]
@@ -11267,7 +11267,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Utah?",
-          "answer": "About $70,231 of a $95,000 self-employment profit, an effective 26.1%. Of that, $3,929 is Utah state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,435 of a $95,000 salary for a single filer, an effective 24.8%. Of that, $4,228 is Utah state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -11356,7 +11356,7 @@
               "name": "How much of a $95,000 salary do you keep in Utah?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,231 of a $95,000 self-employment profit, an effective 26.1%. Of that, $3,929 is Utah state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,435 of a $95,000 salary for a single filer, an effective 24.8%. Of that, $4,228 is Utah state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -11429,7 +11429,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Vermont?",
-          "answer": "About $69,938 of a $95,000 self-employment profit, an effective 26.4%. Of that, $4,222 is Vermont state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $70,998 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,665 is Vermont state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -11518,7 +11518,7 @@
               "name": "How much of a $95,000 salary do you keep in Vermont?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $69,938 of a $95,000 self-employment profit, an effective 26.4%. Of that, $4,222 is Vermont state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $70,998 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,665 is Vermont state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -11591,7 +11591,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Virginia?",
-          "answer": "About $69,341 of a $95,000 self-employment profit, an effective 27.0%. Of that, $4,819 is Virginia state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $70,458 of a $95,000 salary for a single filer, an effective 25.8%. Of that, $5,205 is Virginia state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -11680,7 +11680,7 @@
               "name": "How much of a $95,000 salary do you keep in Virginia?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $69,341 of a $95,000 self-employment profit, an effective 27.0%. Of that, $4,819 is Virginia state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $70,458 of a $95,000 salary for a single filer, an effective 25.8%. Of that, $5,205 is Virginia state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -11753,7 +11753,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Washington, D.C.?",
-          "answer": "About $69,530 of a $95,000 self-employment profit, an effective 26.8%. Of that, $4,630 is Washington, D.C. state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $70,463 of a $95,000 salary for a single filer, an effective 25.8%. Of that, $5,200 is Washington, D.C. state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -11842,7 +11842,7 @@
               "name": "How much of a $95,000 salary do you keep in Washington, D.C.?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $69,530 of a $95,000 self-employment profit, an effective 26.8%. Of that, $4,630 is Washington, D.C. state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $70,463 of a $95,000 salary for a single filer, an effective 25.8%. Of that, $5,200 is Washington, D.C. state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -11903,11 +11903,11 @@
         },
         {
           "question": "What tax do you still pay in Washington?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Washington — an effective 21.9% with no state layer on top of it."
+          "answer": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Washington — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
         },
         {
           "question": "Is Washington actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Washington leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. On income tax alone Washington leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Washington?",
@@ -11915,7 +11915,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Washington?",
-          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Washington state layer to add."
+          "answer": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Washington state layer to add."
         }
       ],
       "jsonLd": [
@@ -11980,7 +11980,7 @@
               "name": "What tax do you still pay in Washington?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Washington — an effective 21.9% with no state layer on top of it."
+                "text": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Washington — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
               }
             },
             {
@@ -11988,7 +11988,7 @@
               "name": "Is Washington actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Washington leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. On income tax alone Washington leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -12004,7 +12004,7 @@
               "name": "How much of a $95,000 salary do you keep in Washington?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Washington state layer to add."
+                "text": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Washington state layer to add."
               }
             }
           ]
@@ -12077,7 +12077,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in West Virginia?",
-          "answer": "About $70,914 of a $95,000 self-employment profit, an effective 25.4%. Of that, $3,246 is West Virginia state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $72,109 of a $95,000 salary for a single filer, an effective 24.1%. Of that, $3,554 is West Virginia state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -12166,7 +12166,7 @@
               "name": "How much of a $95,000 salary do you keep in West Virginia?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,914 of a $95,000 self-employment profit, an effective 25.4%. Of that, $3,246 is West Virginia state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $72,109 of a $95,000 salary for a single filer, an effective 24.1%. Of that, $3,554 is West Virginia state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -12239,7 +12239,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Wisconsin?",
-          "answer": "About $70,073 of a $95,000 self-employment profit, an effective 26.2%. Of that, $4,087 is Wisconsin state tax — the rest is federal income tax and the 15.3% self-employment tax."
+          "answer": "About $71,220 of a $95,000 salary for a single filer, an effective 25.0%. Of that, $4,443 is Wisconsin state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -12328,7 +12328,7 @@
               "name": "How much of a $95,000 salary do you keep in Wisconsin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,073 of a $95,000 self-employment profit, an effective 26.2%. Of that, $4,087 is Wisconsin state tax — the rest is federal income tax and the 15.3% self-employment tax."
+                "text": "About $71,220 of a $95,000 salary for a single filer, an effective 25.0%. Of that, $4,443 is Wisconsin state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -12389,11 +12389,11 @@
         },
         {
           "question": "What tax do you still pay in Wyoming?",
-          "answer": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Wyoming — an effective 21.9% with no state layer on top of it."
+          "answer": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Wyoming — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
         },
         {
           "question": "Is Wyoming actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Wyoming leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. On income tax alone Wyoming leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Wyoming?",
@@ -12401,7 +12401,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Wyoming?",
-          "answer": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Wyoming state layer to add."
+          "answer": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Wyoming state layer to add."
         }
       ],
       "jsonLd": [
@@ -12466,7 +12466,7 @@
               "name": "What tax do you still pay in Wyoming?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Federal income tax and, if self-employed, the 15.3% federal self-employment tax both apply in full. On $95,000 of self-employment profit that is $20,840 in Wyoming — an effective 21.9% with no state layer on top of it."
+                "text": "Federal income tax, plus Social Security and Medicare, apply in full. On a $95,000 salary that is $19,338 in Wyoming — an effective 20.4% with no state layer. Self-employed, the same $95,000 pays $20,840, because both halves of FICA fall on the one person."
               }
             },
             {
@@ -12474,7 +12474,7 @@
               "name": "Is Wyoming actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Wyoming leaves $74,160 of a $95,000 profit against $66,993 in Oregon, a gap of $7,167 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. On income tax alone Wyoming leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -12490,7 +12490,7 @@
               "name": "How much of a $95,000 salary do you keep in Wyoming?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $74,160 of a $95,000 self-employment profit, an effective 21.9% once federal income tax and the 15.3% self-employment tax are taken. There is no Wyoming state layer to add."
+                "text": "About $75,663 of a $95,000 salary for a single filer, an effective 20.4% once federal income tax, Social Security and Medicare are taken. There is no Wyoming state layer to add."
               }
             }
           ]
