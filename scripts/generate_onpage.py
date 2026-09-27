@@ -796,6 +796,9 @@ def main():
             heads = re.findall(r"^## (.+?)\s*$", body_file.read_text(), re.M)
             if heads:
                 e["h2Outline"] = heads + (["Frequently asked questions"] if e.get("faq") else [])
+            elif e.get("built") and e["h2Outline"]:
+                errors.append(f"{p}: the body has no H2 headings, but the outline promises "
+                              f"{e['h2Outline']} — the page would render without them")
 
     titles = {}
     for e in entries:
