@@ -550,9 +550,14 @@ def main():
                     and m.get("indices") and m.get("referenceRent")}
     # A state whose brackets are prior-year figures is not published under a
     # 2026 title (rule 16-2-1) — it waits behind the gate until confirmed.
+    # ...nor is a state whose personal exemption has not been established: the
+    # engine would quote a take-home figure that is wrong by the exemption times
+    # the rate (Maryland was $311 out before 5.17).
     built_states = {s["slug"] for s in states
                     if page_spec["path"].replace("{state}", s["slug"]) in bodies
-                    and not s.get("staleForTargetYear")}
+                    and not s.get("staleForTargetYear")
+                    and (s.get("modelCoverage") or {}).get("personalExemption")
+                        in ("modelled", "none")}
     metro_rows = [{"slug": m["slug"], "display": m["displayName"],
                    "stateSlug": m["stateSlug"], "volume": m.get("volume", 0)}
                   for m in metros if m["slug"] in built_metros]

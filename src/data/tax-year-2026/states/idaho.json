@@ -118,5 +118,9 @@
     "marriedSeparately": 4811.0,
     "headOfHousehold": 9622.0
   },
+  "personalExemption": null,
+  "modelCoverage": {
+    "personalExemption": "not-extracted"
+  },
   "staleForTargetYear": true
 }

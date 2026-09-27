@@ -37,6 +37,22 @@ const EMPTY: StateComputation = {
  * conformity rules. Rather than model them half-way and be quietly wrong, the
  * engine says so in `notes`.
  */
+/** The filer's personal exemption in cents at a given federal AGI. */
+export function personalExemption(
+  state: StateData,
+  filingStatus: StateArgs["filingStatus"],
+  federalAgi: Cents,
+): Cents {
+  const rule = state.personalExemption?.byStatus[filingStatus];
+  if (!rule) return 0;
+  if (rule.maxAgi != null && federalAgi > toCents(rule.maxAgi)) return 0;
+  let amount = rule.amount;
+  for (const step of rule.agiSchedule ?? []) {
+    if (federalAgi > toCents(step.overAgi)) amount = step.amount;
+  }
+  return toCents(amount);
+}
+
 export function computeStateTax({
   federalAgi,
   filingStatus,
@@ -85,7 +101,14 @@ export function computeStateTax({
   );
 
   const standardDeduction = toCents(state.standardDeduction[filingStatus] ?? 0);
-  const taxableIncome = atLeastZero(federalAgi - standardDeduction);
+  const exemption = personalExemption(state, filingStatus, federalAgi);
+  if (state.modelCoverage?.personalExemption === "not-extracted") {
+    notes.push(
+      "Any personal exemption this state allows is not yet modelled, so its tax " +
+        "may be slightly overstated.",
+    );
+  }
+  const taxableIncome = atLeastZero(federalAgi - standardDeduction - exemption);
 
   let amount: Cents;
   let brackets: StateResult["brackets"] = [];

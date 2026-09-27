@@ -19,5 +19,9 @@
     "sources": []
   },
   "verification": "pending",
-  "staleForTargetYear": false
+  "staleForTargetYear": false,
+  "personalExemption": null,
+  "modelCoverage": {
+    "personalExemption": "none"
+  }
 }

@@ -1,6 +1,6 @@
 {
   "taxYear": 2026,
-  "generatedAt": "2026-09-27T08:24:54Z",
+  "generatedAt": "2026-09-27T09:43:24Z",
   "generatedBy": "scripts/extract_tax_data.py",
   "upstream": {
     "package": "policyengine-us",
@@ -217,7 +217,7 @@
       "structure": "progressive",
       "flatRate": null,
       "bracketCount": 10,
-      "hasStandardDeduction": false,
+      "hasStandardDeduction": true,
       "stale": false,
       "verification": "pending"
     },

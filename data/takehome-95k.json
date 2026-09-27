@@ -243,18 +243,18 @@
       "structure": "flat",
       "scenario": "salary",
       "gross": 95000,
-      "totalTax": 24040,
-      "takeHome": 70960,
-      "stateTax": 4702.5,
+      "totalTax": 23898.93,
+      "takeHome": 71101.07,
+      "stateTax": 4561.43,
       "fica": 7267.5,
       "federalTax": 12070,
-      "effectiveRate": 25.3,
+      "effectiveRate": 25.2,
       "warnings": [],
       "selfEmployed": {
-        "totalTax": 25210.52,
-        "takeHome": 69789.48,
-        "stateTax": 4370.28,
-        "effectiveRate": 26.5
+        "totalTax": 25069.44,
+        "takeHome": 69930.56,
+        "stateTax": 4229.2,
+        "effectiveRate": 26.4
       }
     },
     "indiana": {
@@ -376,18 +376,18 @@
       "structure": "progressive",
       "scenario": "salary",
       "gross": 95000,
-      "totalTax": 23797.5,
-      "takeHome": 71202.5,
-      "stateTax": 4460,
+      "totalTax": 23486.38,
+      "takeHome": 71513.62,
+      "stateTax": 4148.88,
       "fica": 7267.5,
       "federalTax": 12070,
-      "effectiveRate": 25.1,
+      "effectiveRate": 24.7,
       "warnings": [],
       "selfEmployed": {
-        "totalTax": 24981.44,
-        "takeHome": 70018.56,
-        "stateTax": 4141.2,
-        "effectiveRate": 26.3
+        "totalTax": 24670.32,
+        "takeHome": 70329.68,
+        "stateTax": 3830.08,
+        "effectiveRate": 26
       }
     },
     "massachusetts": {
@@ -857,20 +857,20 @@
       "structure": "progressive",
       "scenario": "salary",
       "gross": 95000,
-      "totalTax": 24002,
-      "takeHome": 70998,
-      "stateTax": 4664.5,
+      "totalTax": 23652.2,
+      "takeHome": 71347.8,
+      "stateTax": 4314.7,
       "fica": 7267.5,
       "federalTax": 12070,
-      "effectiveRate": 25.3,
+      "effectiveRate": 24.9,
       "warnings": [
         "Vermont figures are from the prior tax year; the state had not published updated brackets."
       ],
       "selfEmployed": {
-        "totalTax": 25061.78,
-        "takeHome": 69938.22,
-        "stateTax": 4221.54,
-        "effectiveRate": 26.4
+        "totalTax": 24711.98,
+        "takeHome": 70288.02,
+        "stateTax": 3871.74,
+        "effectiveRate": 26
       }
     },
     "virginia": {

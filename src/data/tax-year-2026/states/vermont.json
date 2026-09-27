@@ -83,6 +83,7 @@
   "surtax": null,
   "localTaxNote": null,
   "notes": [
+    "The personal exemption is inflation-indexed and the latest published amount is the 2025 one; the 2026 amount differs by a small indexing step.",
     "These figures are inflation-indexed but the latest published values take effect 2025-01-01, so they are 2025 figures, not 2026. The state had not released uprated brackets when this was extracted. Do not label them as 2026 on the site until confirmed."
   ],
   "provenance": {
@@ -122,10 +123,59 @@
       {
         "title": "Vermont 2025 Income Tax Rate Schedules",
         "url": "https://tax.vermont.gov/sites/tax/files/documents/RateSched-2025.pdf#page=1"
+      },
+      {
+        "title": "Legal Code Titl. 32 V.S.A. § 5811(21)(C)(i)",
+        "url": "http://legislature.vermont.gov/statutes/section/32/151/05811"
+      },
+      {
+        "title": "2022 Vermont Income Tax Return Form Line 5",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-111-2022.pdf"
+      },
+      {
+        "title": "2021 Vermont Income Tax Return Form Line 5",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-111-2021.pdf"
+      },
+      {
+        "title": "2023 Vermont Income Tax Return Form Line 5",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-111-2023.pdf"
+      },
+      {
+        "title": "2024 Vermont Income Tax Return Form Line 5",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-111-2024.pdf"
+      },
+      {
+        "title": "2025 Vermont Income Tax Return Form Line 5",
+        "url": "https://tax.vermont.gov/sites/tax/files/documents/IN-111-2025.pdf"
       }
     ],
     "inflationIndexed": true
   },
   "verification": "pending",
+  "personalExemption": {
+    "byStatus": {
+      "single": {
+        "amount": 5300,
+        "maxAgi": null
+      },
+      "marriedJointly": {
+        "amount": 10600,
+        "maxAgi": null
+      },
+      "marriedSeparately": {
+        "amount": 5300,
+        "maxAgi": null
+      },
+      "headOfHousehold": {
+        "amount": 5300,
+        "maxAgi": null
+      }
+    },
+    "staleComponent": true,
+    "effectiveFrom": "2025-01-01"
+  },
+  "modelCoverage": {
+    "personalExemption": "modelled"
+  },
   "staleForTargetYear": true
 }

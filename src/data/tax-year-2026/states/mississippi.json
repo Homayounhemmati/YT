@@ -123,5 +123,9 @@
   },
   "verification": "pending",
   "zeroBracketUpTo": 10000.0,
+  "personalExemption": null,
+  "modelCoverage": {
+    "personalExemption": "not-extracted"
+  },
   "staleForTargetYear": false
 }

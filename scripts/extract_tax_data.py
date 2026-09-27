@@ -521,6 +521,14 @@ def resolve_state_rates(z, code, year):
 def state_standard_deduction(z, code, year):
     on = "%d-12-31" % year
     node = load(z, "gov/states/%s/tax/income/deductions/standard/amount.yaml" % code)
+    # Maryland moved to a flat standard deduction in 2025 and keeps it at a
+    # different path, gated by an `applies` flag. Reading only the usual path
+    # left Maryland with no standard deduction at all.
+    if node is None:
+        applies = load(z, "gov/states/%s/tax/income/deductions/standard/flat_deduction/applies.yaml" % code)
+        flag, _ = value_at(applies, on) if applies is not None else (None, None)
+        if flag:
+            node = load(z, "gov/states/%s/tax/income/deductions/standard/flat_deduction/amount.yaml" % code)
     if node is None:
         return {}, []
     out = {}
@@ -531,6 +539,78 @@ def state_standard_deduction(z, code, year):
         if v is not None:
             out[ours] = v
     return out, references(node)
+
+
+# States confirmed to allow no personal exemption for the filer. Each entry names
+# why, so the absence is a recorded fact rather than an extraction gap.
+NO_PERSONAL_EXEMPTION = {
+    "pa": "Pennsylvania allows no personal exemption (72 P.S. 7303).",
+    "ny": "New York allows exemptions for dependents only, not for the filer.",
+    "nc": "North Carolina repealed the personal exemption from 2014.",
+}
+PE_STATUS_FILES = {"single": "single", "marriedJointly": "joint",
+                   "marriedSeparately": "separate", "headOfHousehold": "head"}
+
+
+def state_personal_exemption(z, code, year):
+    """(exemption, coverage, refs). `coverage` is 'none', 'modelled' or
+    'not-extracted'. The state engine subtracts the exemption after the standard
+    deduction; a state whose coverage is not established is not published."""
+    on = "%d-12-31" % year
+    if code in NO_INCOME_TAX:
+        return None, "none", []
+    if code in NO_PERSONAL_EXEMPTION:
+        return None, "none", []
+    base = "gov/states/%s/tax/income/" % code
+
+    # Layout 1 — a per-status amount with an availability switch (Georgia).
+    avail = load(z, base + "exemptions/personal/availability.yaml")
+    if avail is not None:
+        flag, _ = value_at(avail, on)
+        if flag is False:
+            return None, "none", references(avail)
+
+    # Layout 2 — an AGI-banded schedule per filing status (Maryland).
+    out, refs, stale = {}, [], False
+    for ours, theirs in PE_STATUS_FILES.items():
+        node = load(z, base + "exemptions/personal/%s.yaml" % theirs)
+        if not (isinstance(node, dict) and isinstance(node.get("brackets"), list)):
+            continue
+        sched = []
+        for b in node["brackets"]:
+            thr, _ = value_at(b.get("threshold", {}), on)
+            amt, _ = value_at(b.get("amount", {}), on)
+            if amt is None:
+                continue
+            sched.append({"overAgi": None if thr is None or (isinstance(thr, float) and thr < 0) else thr,
+                          "amount": amt})
+        if sched:
+            first = sched[0]["amount"]
+            out[ours] = {"amount": first,
+                         "agiSchedule": [s for s in sched[1:] if s["overAgi"] is not None]}
+            refs += references(node)
+            stale = stale or is_uprated(node)
+    if out:
+        return {"byStatus": out, "staleComponent": stale}, "modelled", refs
+
+    # Layout 3 — one amount per person with an income limit (Illinois).
+    node = load(z, base + "exemption/personal.yaml")
+    if node is not None:
+        amt, since = value_at(node, on)
+        if amt is not None:
+            limit = load(z, base + "exemption/income_limit.yaml")
+            ex = {}
+            for ours, theirs in FILING_STATUSES.items():
+                cap = None
+                if isinstance(limit, dict):
+                    cap, _ = value_at(limit.get(theirs, {}), on)
+                ex[ours] = {"amount": amt * (2 if ours == "marriedJointly" else 1),
+                            "maxAgi": cap}
+            return ({"byStatus": ex,
+                     "staleComponent": bool(is_uprated(node) and since and int(since[:4]) < year),
+                     "effectiveFrom": since},
+                    "modelled", references(node) + references(limit))
+    return None, "not-extracted", []
 
 
 def build_state(z, code, year):
@@ -558,6 +638,8 @@ def build_state(z, code, year):
         rec["provenance"] = {"extractedFrom": "classification",
                              "resolvedPaths": {}, "sources": []}
         rec["staleForTargetYear"] = False
+        rec["personalExemption"] = None
+        rec["modelCoverage"] = {"personalExemption": "none"}
         return rec
 
     brackets, frate, eff, refs, resolved, extra = resolve_state_rates(z, code, year)
@@ -607,6 +689,17 @@ def build_state(z, code, year):
             "This state applies one bracket table to every filing status.")
 
     rec["standardDeduction"] = std
+    ex, coverage, erefs = state_personal_exemption(z, code, year)
+    rec["personalExemption"] = ex
+    rec["modelCoverage"] = {"personalExemption": coverage}
+    if code in NO_PERSONAL_EXEMPTION:
+        rec["notes"].append(NO_PERSONAL_EXEMPTION[code])
+    if ex and ex.get("staleComponent"):
+        rec["notes"].append(
+            "The personal exemption is inflation-indexed and the latest published "
+            "amount is the %s one; the %d amount differs by a small indexing step."
+            % ((ex.get("effectiveFrom") or "prior-year")[:4], year))
+    srefs = srefs + erefs
 
     seen, sources = set(), []
     for r in refs + srefs:

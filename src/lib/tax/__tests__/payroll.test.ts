@@ -118,3 +118,26 @@ describe("pay periods", () => {
     expect(bw.netPerPaycheck[0]!).toBeLessThan(sm.netPerPaycheck[0]!);
   });
 });
+
+describe("personal exemptions and the Maryland flat deduction", () => {
+  // Maryland, $95,000 salary: AGI 95,000 - standard 3,350 - exemption 3,200 = 88,450
+  //   2% x 1,000 = 20.00 · 3% x 1,000 = 30.00 · 4% x 1,000 = 40.00
+  //   4.75% x (88,450 - 3,000) = 4,058.88   -> 4,148.88
+  it("Maryland subtracts its flat standard deduction and $3,200 exemption", () => {
+    expect(cents(run({ annualWages: 95_000 }, "maryland").stateTax)).toBe(414_888);
+  });
+  it("Maryland's exemption steps down above $100,000 of AGI", () => {
+    const at100 = run({ annualWages: 100_000 }, "maryland").stateTax;
+    const at110 = run({ annualWages: 110_000 }, "maryland").stateTax;
+    // 10,000 more income at 4.75%-5% plus 1,600 of lost exemption
+    expect(at110 - at100).toBeGreaterThan(10_000 * 0.0475 + 1_600 * 0.0475);
+  });
+  // Illinois, $95,000: (95,000 - 2,850) x 4.95% = 4,561.43
+  it("Illinois subtracts its personal exemption before the flat rate", () => {
+    expect(cents(run({ annualWages: 95_000 }, "illinois").stateTax)).toBe(456_143);
+  });
+  it("Illinois allows no exemption above $250,000 of AGI", () => {
+    // 300,000 x 4.95% = 14,850.00
+    expect(cents(run({ annualWages: 300_000 }, "illinois").stateTax)).toBe(1_485_000);
+  });
+});

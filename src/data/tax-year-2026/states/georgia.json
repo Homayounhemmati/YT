@@ -75,10 +75,22 @@
       {
         "title": "Georgia HB463 (2025-2026), Section 2-3 amending O.C.G.A. § 48-7-27(a)(1)(B)",
         "url": "https://www.legis.ga.gov/api/legislation/document/20252026/249080#page=3"
+      },
+      {
+        "title": "2023 Form 500 Instructions",
+        "url": "https://dor.georgia.gov/document/document/2023-it-511-individual-income-tax-booklet/download#page=13"
+      },
+      {
+        "title": "Official Code of Georgia Annotated | CH17 Income Taxes | O.C.G.A. § 48-7-26",
+        "url": "https://casetext.com/statute/code-of-georgia/title-48-revenue-and-taxation/chapter-7-income-taxes/article-2-imposition-rate-and-computation-exemptions/section-48-7-26-personal-exemptions"
       }
     ],
     "inflationIndexed": false
   },
   "verification": "pending",
+  "personalExemption": null,
+  "modelCoverage": {
+    "personalExemption": "none"
+  },
   "staleForTargetYear": false
 }

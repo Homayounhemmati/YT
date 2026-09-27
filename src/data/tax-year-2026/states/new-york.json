@@ -167,7 +167,9 @@
   },
   "surtax": null,
   "localTaxNote": "New York City and Yonkers levy resident income taxes on top of the state tax. Not included in this calculation.",
-  "notes": [],
+  "notes": [
+    "New York allows exemptions for dependents only, not for the filer."
+  ],
   "provenance": {
     "extractedFrom": "policyengine-us",
     "resolvedPaths": {
@@ -238,5 +240,9 @@
     "inflationIndexed": false
   },
   "verification": "pending",
+  "personalExemption": null,
+  "modelCoverage": {
+    "personalExemption": "none"
+  },
   "staleForTargetYear": false
 }

@@ -175,7 +175,12 @@
     ]
   },
   "flatRate": null,
-  "standardDeduction": {},
+  "standardDeduction": {
+    "single": 3350,
+    "marriedJointly": 6700,
+    "marriedSeparately": 3350,
+    "headOfHousehold": 6700
+  },
   "surtax": null,
   "localTaxNote": "Every Maryland county and Baltimore City levies a local income tax on top of the state tax. Not included in this calculation.",
   "notes": [
@@ -225,10 +230,114 @@
       {
         "title": "Maryland House Bill 352 - Budget Reconciliation and Financing Act of 2025",
         "url": "https://mgaleg.maryland.gov/2025RS/Chapters_noln/CH_604_hb0352e.pdf#page=161"
+      },
+      {
+        "title": "Maryland 2025 Resident Tax Forms and Instructions - Standard Deduction",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf#page=21"
+      },
+      {
+        "title": "Maryland House Bill 352 - Budget Reconciliation and Financing Act of 2025 (page 164 - chained CPI indexing)",
+        "url": "https://mgaleg.maryland.gov/2025RS/Chapters_noln/CH_604_hb0352e.pdf#page=164"
+      },
+      {
+        "title": "Maryland new tax year update - exemptions and deductions",
+        "url": "https://www.marylandtaxes.gov/new-tax-year-update.php#:~:text=Standard%20Deduction%20%2D%20The%20tax%20year,spouse%2C%20and%20taxpayers%20filing%20jointly."
+      },
+      {
+        "title": "Maryland 2025 Resident Tax Forms and Instructions - Exemption Amount Chart",
+        "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/instructions/2025/resident-booklet.pdf#page=12"
+      },
+      {
+        "title": "Maryland 2024 State & Local Tax Forms & Instructions - Exemption Amount Chart",
+        "url": "https://www.marylandtaxes.gov/forms/24-forms/Resident-Booklet.pdf#page=12"
+      },
+      {
+        "title": "2023 State & Local Tax Forms & Instructions Maryland",
+        "url": "https://www.marylandtaxes.gov/forms/23_forms/Resident-Booklet.pdf#page=11"
+      },
+      {
+        "title": "Part III - Exemptions Section 10-211 Individuals Other Than Fiduciaries (c)(1)",
+        "url": "https://casetext.com/statute/code-of-maryland/article-tax-general/title-10-income-tax/subtitle-2-maryland-taxable-income-calculations-for-individual/part-iii-exemptions/section-10-211-individuals-other-than-fiduciaries?searchWithin=true&listingIndexId=code-of-maryland.article-tax-general&q=blind&type=statute&sort=relevance&p=1"
       }
     ],
     "inflationIndexed": false
   },
   "verification": "pending",
+  "personalExemption": {
+    "byStatus": {
+      "single": {
+        "amount": 3200,
+        "agiSchedule": [
+          {
+            "overAgi": 100000,
+            "amount": 1600
+          },
+          {
+            "overAgi": 125000,
+            "amount": 800
+          },
+          {
+            "overAgi": 150000,
+            "amount": 0
+          }
+        ]
+      },
+      "marriedJointly": {
+        "amount": 3200,
+        "agiSchedule": [
+          {
+            "overAgi": 150000,
+            "amount": 1600
+          },
+          {
+            "overAgi": 175000,
+            "amount": 800
+          },
+          {
+            "overAgi": 200000,
+            "amount": 0
+          }
+        ]
+      },
+      "marriedSeparately": {
+        "amount": 3200,
+        "agiSchedule": [
+          {
+            "overAgi": 100000,
+            "amount": 1600
+          },
+          {
+            "overAgi": 125000,
+            "amount": 800
+          },
+          {
+            "overAgi": 150000,
+            "amount": 0
+          }
+        ]
+      },
+      "headOfHousehold": {
+        "amount": 3200,
+        "agiSchedule": [
+          {
+            "overAgi": 150000,
+            "amount": 1600
+          },
+          {
+            "overAgi": 175000,
+            "amount": 800
+          },
+          {
+            "overAgi": 200000,
+            "amount": 0
+          }
+        ]
+      }
+    },
+    "staleComponent": false
+  },
+  "modelCoverage": {
+    "personalExemption": "modelled"
+  },
   "staleForTargetYear": false
 }

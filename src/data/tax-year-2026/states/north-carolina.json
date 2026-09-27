@@ -14,7 +14,9 @@
   },
   "surtax": null,
   "localTaxNote": null,
-  "notes": [],
+  "notes": [
+    "North Carolina repealed the personal exemption from 2014."
+  ],
   "provenance": {
     "extractedFrom": "policyengine-us",
     "resolvedPaths": {
@@ -80,5 +82,9 @@
     "inflationIndexed": false
   },
   "verification": "pending",
+  "personalExemption": null,
+  "modelCoverage": {
+    "personalExemption": "none"
+  },
   "staleForTargetYear": false
 }

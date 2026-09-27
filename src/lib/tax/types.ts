@@ -50,6 +50,22 @@ export interface StateData {
   zeroBracketUpTo?: number | Record<string, number>;
   standardDeduction: Partial<Record<FilingStatus, number>>;
   surtax: BracketRow[] | null;
+  /**
+   * Personal exemption for the filer, subtracted after the standard deduction.
+   * `agiSchedule` replaces the amount above each AGI threshold (Maryland);
+   * `maxAgi` removes it above a ceiling (Illinois).
+   */
+  personalExemption?: {
+    byStatus: Partial<Record<FilingStatus, {
+      amount: number;
+      agiSchedule?: { overAgi: number; amount: number }[];
+      maxAgi?: number | null;
+    }>>;
+    staleComponent?: boolean;
+    effectiveFrom?: string;
+  } | null;
+  /** Whether each part of the state's model is established: a page is built only when it is. */
+  modelCoverage?: { personalExemption: "modelled" | "none" | "not-extracted" };
   localTaxNote: string | null;
   notes: string[];
   staleForTargetYear?: boolean;

@@ -61,5 +61,9 @@
     "inflationIndexed": false
   },
   "verification": "pending",
+  "personalExemption": null,
+  "modelCoverage": {
+    "personalExemption": "not-extracted"
+  },
   "staleForTargetYear": false
 }

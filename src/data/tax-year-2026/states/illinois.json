@@ -10,6 +10,7 @@
   "surtax": null,
   "localTaxNote": null,
   "notes": [
+    "The personal exemption is inflation-indexed and the latest published amount is the 2025 one; the 2026 amount differs by a small indexing step.",
     "Latest change took effect 2017-07-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
   ],
   "provenance": {
@@ -36,10 +37,59 @@
       {
         "title": "Illinois Department of Revenue 2025 Form IL-1040 Instructions",
         "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf#page=1"
+      },
+      {
+        "title": "Illinois Income Tax Act, 35 ILCS 5/204 (b)",
+        "url": "https://witnessslips.ilga.gov/legislation/ilcs/ilcs5.asp?ActID=577&ChapterID=8"
+      },
+      {
+        "title": "Illinois 2021 Form IL-1040 Instructions",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/2021/individual/il-1040-instr.pdf#page=8"
+      },
+      {
+        "title": "Illinois 2022 Form IL-1040 Instructions",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/2022/individual/il-1040-instr.pdf#page=8"
+      },
+      {
+        "title": "Illinois 2023 Form IL-1040 Instructions",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/2023/individual/il-1040-instr.pdf#page=8"
+      },
+      {
+        "title": "Illinois 2024 Form IL-1040 Instructions",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/2024/individual/il-1040-instr.pdf#page=8"
+      },
+      {
+        "title": "Illinois Department of Revenue 2025 Form IL-1040 Instructions",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-instr.pdf#page=8"
       }
     ],
     "inflationIndexed": false
   },
   "verification": "pending",
+  "personalExemption": {
+    "byStatus": {
+      "single": {
+        "amount": 2850,
+        "maxAgi": 250000
+      },
+      "marriedJointly": {
+        "amount": 5700,
+        "maxAgi": 500000
+      },
+      "marriedSeparately": {
+        "amount": 2850,
+        "maxAgi": 250000
+      },
+      "headOfHousehold": {
+        "amount": 2850,
+        "maxAgi": 250000
+      }
+    },
+    "staleComponent": true,
+    "effectiveFrom": "2025-01-01"
+  },
+  "modelCoverage": {
+    "personalExemption": "modelled"
+  },
   "staleForTargetYear": false
 }
