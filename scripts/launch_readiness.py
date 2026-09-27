@@ -32,7 +32,8 @@ def run(*args):
 pages = json.loads((ROOT / "data/pages.json").read_text())
 gen = json.loads((ROOT / "data/onpage.generated.json").read_text())
 gate = gen["sitemap"]["gate"]
-bodies = {"/" + f.stem.replace("__", "/") for f in (ROOT / "content/bodies").glob("*.md")}
+bodies = {("/" if f.stem == "home" else "/" + f.stem.replace("__", "/"))
+          for f in (ROOT / "content/bodies").glob("*.md")}
 
 # --- data -----------------------------------------------------------------
 col = sorted((ROOT / "src/data").glob("cost-of-living-*/us/*.json"))
@@ -63,6 +64,11 @@ if gate["statesBuilt"] < 8:
         "release is 8 (6-0).", "me: write state bodies (current data only)")
 
 # --- copy -----------------------------------------------------------------
+about = ROOT / "content/bodies/about.md"
+if about.exists() and "PENDING_HUMAN" in about.read_text():
+    add("BLOCKER", "copy", "/about has no biography: the 'Who writes this' section is marked "
+        "PENDING_HUMAN. AdSense reviewers and readers look for a real person here (7-4).",
+        "you: replace the marked block with a true first-person paragraph")
 for p in pages["pages"]:
     if p["template"] in ("TrustPage", "DirectoryPage", "Home") and p["path"] not in bodies:
         lvl = "BLOCKER" if p["template"] == "TrustPage" else "TODO"
@@ -93,7 +99,10 @@ if not (ROOT / "docs/link-building.md").exists():
 add("TODO", "legal", "Consent: a Google-certified CMP for EEA/UK/CH visitors before ads serve "
     "there, a US-state 'Do not sell or share' link with AdSense restricted data processing, and "
     "GA4 Consent Mode (docs/measurement.md section 5).",
-    "you: enable Google's CMP in AdSense Privacy & messaging; me: the privacy-policy text")
+    "you: enable Google's CMP in AdSense Privacy & messaging (the privacy text is written)")
+add("TODO", "platform", "Build promises made in the published copy — in-browser calculation, "
+    "value-free analytics, footer consent links, contact form, state citations — not yet "
+    "verified on the built site (build-spec section 5).", "you, after the build")
 add("TODO", "platform", "Base44 calculators not yet checked against docs/calculator-acceptance.md "
     "— every row must match to the cent.", "you, after the build")
 add("BLOCKER", "platform", "Base44 build not yet verified against R1-R9 (server-rendered content, "

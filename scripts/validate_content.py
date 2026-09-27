@@ -166,7 +166,8 @@ def main():
     if args.bodies:
         d = pathlib.Path(args.bodies)
         for f in d.glob("*.md"):
-            body_lookup["/" + f.stem.replace("__", "/")] = f.read_text()
+            key = "/" if f.stem == "home" else "/" + f.stem.replace("__", "/")
+            body_lookup[key] = f.read_text()
         print(f"loaded {len(body_lookup)} body files from {d}\n")
 
     groups = collections.defaultdict(list)

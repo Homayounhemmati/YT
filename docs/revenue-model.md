@@ -24,35 +24,35 @@
 
 | Metric | Value |
 |---|---|
-| Monthly cluster volume | **882,220** |
-| Weighted average CPC | **$2.95** |
-| Implied cluster RPM | $11.78 |
-| Tools | 22 |
+| Monthly cluster volume | **1,948,280** |
+| Weighted average CPC | **$6.89** |
+| Implied cluster RPM | $27.57 |
+| Tools | 27 |
 | Programmatic pages | 81 |
 
 ## Scenarios
 
 | Scenario | Position (hard/medium/easy) | Entries/mo | Visits/mo | Share | Revenue/mo |
 |---|---|---|---|---|---|
-| Year 1 — young domain | 25 / 18 / 12 | 5,545 | 12,199 | 0.6% | **$143** |
-| Year 2 — early authority | 14 / 10 / 6 | 14,573 | 32,060 | 1.7% | **$378** |
-| Year 3 — established | 8 / 6 / 4 | 26,994 | 59,387 | 3.1% | **$697** |
+| Year 1 — young domain | 25 / 18 / 12 | 11,847 | 26,063 | 0.6% | **$700** |
+| Year 2 — early authority | 14 / 10 / 6 | 30,598 | 67,316 | 1.6% | **$1,818** |
+| Year 3 — established | 8 / 6 / 4 | 57,838 | 127,244 | 3.0% | **$3,441** |
 
 ### When we reach $500-700
 
-- ❌ **Year 1 — young domain**: $143/month
-- ❌ **Year 2 — early authority**: $378/month
-- ✅ **Year 3 — established**: $697/month
+- ✅ **Year 1 — young domain**: $700/month
+- ✅ **Year 2 — early authority**: $1,818/month
+- ✅ **Year 3 — established**: $3,441/month
 
 ## Sensitivity analysis — the RPM multiplier
 
 | Multiplier | Year 1 | Year 2 | Year 3 |
 |---|---|---|---|
-| ×2.0 | $71 | $189 | $348 |
-| ×3.0 | $107 | $283 | $523 |
-| ×4.0 | $143 | $378 | $697 |
-| ×5.0 | $178 | $472 | $871 |
-| ×6.0 | $214 | $567 | $1,045 |
+| ×2.0 | $350 | $909 | $1,720 |
+| ×3.0 | $525 | $1,363 | $2,581 |
+| ×4.0 | $700 | $1,818 | $3,441 |
+| ×5.0 | $875 | $2,272 | $4,301 |
+| ×6.0 | $1,050 | $2,726 | $5,161 |
 
 ## Sensitivity analysis — session depth
 
@@ -60,38 +60,43 @@ The depth the funnel in section 2-2-2 creates is directly a revenue multiplier.
 
 | Pages per session | Year 2 | Difference from 1.1 |
 |---|---|---|
-| 1.1 | $189 | — |
-| 1.5 | $258 | +36% |
-| 2.2 | $378 | +100% |
-| 3.0 | $515 | +173% |
+| 1.1 | $890 | — |
+| 1.5 | $1,227 | +38% |
+| 2.2 | $1,818 | +104% |
+| 3.0 | $2,492 | +180% |
 
 ## Contribution per tool (year 2 scenario)
 
 | Tool | Stage | Volume | CPC | Position | Entries/mo | Revenue/mo |
 |---|---|---|---|---|---|---|
-| sales tax calculator | keep | 110,000 | $6.91 | 14 | 1,386 | $58 |
-| us-metro-pages | place | 45,000 | $2.50 | 6 | 1,575 | $38 |
-| take home pay calculator | keep | 60,500 | $5.69 | 14 | 762 | $28 |
-| closing cost calculator | settle | 40,500 | $6.18 | 10 | 709 | $28 |
-| income tax calculator | keep | 90,500 | $2.13 | 14 | 1,140 | $26 |
-| home affordability calculator | settle | 49,500 | $2.51 | 10 | 866 | $21 |
-| rent affordability calculator | place | 90,500 | $0.69 | 14 | 1,140 | $19 |
-| salary to hourly calculator | income | 49,500 | $1.72 | 10 | 866 | $18 |
-| cost of living calculator | place | 60,500 | $1.65 | 14 | 762 | $16 |
-| cost of living comparison | compare | 49,500 | $0.97 | 10 | 866 | $16 |
-| hourly to salary calculator | income | 49,500 | $0.88 | 10 | 866 | $15 |
-| how much house can i afford calculator | settle | 33,100 | $2.86 | 10 | 579 | $15 |
-| rent calculator | place | 60,500 | $1.02 | 14 | 762 | $14 |
-| house payment calculator | settle | 33,100 | $2.29 | 10 | 579 | $13 |
-| property tax calculator | settle | 22,200 | $3.37 | 10 | 388 | $11 |
-| nyc salary calculator | income | 9,900 | $3.43 | 6 | 346 | $10 |
-| living wage calculator | income | 5,400 | $9.06 | 6 | 189 | $10 |
-| salary comparison | compare | 3,600 | $11.23 | 6 | 126 | $7 |
-| how much rent can i afford calculator | place | 4,400 | $3.35 | 6 | 154 | $4 |
-| state income tax rates by state | keep | 3,600 | $2.79 | 6 | 126 | $3 |
-| salary comparison by city | compare | 4,400 | $1.39 | 6 | 154 | $3 |
-| cost of living comparison calculator | compare | 3,600 | $2.03 | 6 | 126 | $3 |
-| us-state-tax-pages | keep | 2,040 | $3.00 | 6 | 71 | $2 |
+| us-state-paycheck-pages | keep | 472,100 | $8.98 | 10 | 8,262 | $570 |
+| paycheck calculator | keep | 550,000 | $11.65 | 14 | 6,930 | $552 |
+| sales tax calculator | keep | 110,000 | $6.91 | 14 | 1,386 | $84 |
+| us-metro-pages | place | 45,000 | $2.50 | 6 | 1,575 | $68 |
+| income tax calculator | keep | 90,500 | $2.13 | 14 | 1,140 | $47 |
+| take home pay calculator | keep | 60,500 | $5.69 | 14 | 762 | $43 |
+| closing cost calculator | settle | 40,500 | $6.18 | 10 | 709 | $41 |
+| rent affordability calculator | place | 90,500 | $0.69 | 14 | 1,140 | $41 |
+| home affordability calculator | settle | 49,500 | $2.51 | 10 | 866 | $37 |
+| salary to hourly calculator | income | 49,500 | $1.72 | 10 | 866 | $35 |
+| cost of living comparison | compare | 49,500 | $0.97 | 10 | 866 | $32 |
+| hourly to salary calculator | income | 49,500 | $0.88 | 10 | 866 | $32 |
+| cost of living calculator | place | 60,500 | $1.65 | 14 | 762 | $30 |
+| rent calculator | place | 60,500 | $1.02 | 14 | 762 | $28 |
+| how much house can i afford calculator | settle | 33,100 | $2.86 | 10 | 579 | $26 |
+| house payment calculator | settle | 33,100 | $2.29 | 10 | 579 | $24 |
+| hourly paycheck calculator | keep | 22,200 | $4.80 | 10 | 388 | $20 |
+| property tax calculator | settle | 22,200 | $3.37 | 10 | 388 | $18 |
+| nyc salary calculator | income | 9,900 | $3.43 | 6 | 346 | $16 |
+| paycheck tax calculator | keep | 18,100 | $3.29 | 10 | 317 | $15 |
+| living wage calculator | income | 5,400 | $9.06 | 6 | 189 | $13 |
+| salary comparison | compare | 3,600 | $11.23 | 6 | 126 | $10 |
+| weekly paycheck calculator | keep | 4,400 | $3.71 | 6 | 154 | $7 |
+| how much rent can i afford calculator | place | 4,400 | $3.35 | 6 | 154 | $7 |
+| salary comparison by city | compare | 4,400 | $1.39 | 6 | 154 | $6 |
+| state income tax rates by state | keep | 3,600 | $2.79 | 6 | 126 | $6 |
+| cost of living comparison calculator | compare | 3,600 | $2.03 | 6 | 126 | $5 |
+| take home paycheck calculator | keep | 1,300 | $4.21 | 6 | 45 | $2 |
 | cost of living by city | place | 880 | $1.22 | 6 | 31 | $1 |
 
 ## What was deliberately left out

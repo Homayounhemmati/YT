@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-27 · **Version:** 5.16
+> **Last revised:** 2026-09-27 · **Version:** 5.17
+>
+> **Version 5.17:** The pending paycheck decision was taken: the take-home tool is now the paycheck calculator (550,000 a month) and the state set is '{State} Paycheck Calculator' on the salary engine. The state engine now models personal exemptions, eight state pages and every trust page are written, and launch blockers fell from 13 to 6 — all six outside this repository. Details in 20-33.
 >
 > **Version 5.16:** Every calculator now has a tested reference engine, the salary figures are an employee's rather a freelancer's, every number in published copy is registered against a source, and the publication gate is enforced in code. Twelve published figures or rules were wrong and are corrected. The biggest open finding: the state set was measured on the wrong term, and '{state} paycheck calculator' is 446,100 searches across 25 states. Details in 20-32.
 >
@@ -962,8 +964,9 @@ Every page belongs to one of the five funnel stages. A page belonging to no stag
 | `/tools/sales-tax-calculator` | sales tax calculator | 110,000 | **$6.91** |
 | `/tools/property-tax-calculator` | property tax calculator | 22,200 | $3.37 |
 | `/tools/income-tax-calculator` | income tax calculator | 90,500 | $2.13 |
-| `/tools/take-home-pay-calculator` | take home pay calculator | 60,500 | **$5.69** |
-| `/state-taxes/{state}` · `/state-taxes` | State tax | Low, but it closes the funnel | |
+| `/tools/paycheck-calculator` | paycheck calculator (take home pay calculator a variant) | **550,000** | **$11.65** |
+| `/tools/paycheck-calculator/{state}` | {state} paycheck calculator | 446,100 across 25 measured states | ~$9 |
+| `/state-taxes` | State income tax rates by state (directory) | — | |
 
 **This stage carries the cluster's highest CPC and its tax engine is already built.** That is why the whole identity revision did not waste the engine.
 
@@ -1107,7 +1110,7 @@ relations:
 | Template | Path | Entity | Count |
 |---|---|---|---|
 | `PlacePage` | `/cost-of-living/{slug}` | Metro · Country | 30 → 100+ |
-| `StateTaxPage` | `/state-taxes/{state}` | State | 51 |
+| `StateTaxPage` | `/tools/paycheck-calculator/{state}` | State | 51 (8 built) |
 | `ToolPage` | `/tools/{slug}` | — (manual) | ~12 |
 | `DirectoryPage` | `/cost-of-living` · `/state-taxes` | Collection | 2 |
 | `GuidePage` | `/guides/{slug}` | — (manual) | 9 |
@@ -4387,6 +4390,57 @@ four of nine top URLs with "take home pay calculator", so one page should own bo
 Acting on it retargets the take-home tool and all 51 state pages to the salary engine;
 that is a portfolio decision for the owner, and the data is in `keywords.json →
 paycheckDemand`.
+
+---
+
+### 20-33. Round thirty-four — version 5.17 · the paycheck decision, and everything the build needs from here
+
+**The decision recorded as pending in 20-32 was taken.** `/tools/take-home-pay-calculator`
+is now `/tools/paycheck-calculator`, headed by "paycheck calculator" (550,000 a month,
+$11.65) with "take home pay calculator" a variant — the two share four of nine top
+results. It accepts hourly pay, because the top result for the query is an hourly
+calculator. The state set is `/tools/paycheck-calculator/{state}`, "{State} Paycheck
+Calculator", on the salary engine; the national page is its parent and lists every
+built state by name. It joins the global navigation, and the equity check now treats
+a nav page as at its structural maximum rather than flagging it.
+
+This is the second half of the identity sentence — *what you actually keep* — and the
+funnel is unchanged: the cost-of-living tools remain its entrance, and every state page
+links to the metro pages in its state.
+
+**The state engine was missing personal exemptions.** It subtracted the standard
+deduction only; Maryland's $3,200 exemption and its flat $3,350 standard deduction
+(kept at a path the extractor did not read) were both absent, putting Maryland tax
+$311 too high on $95,000, and Illinois $141 too high. The extractor now reads the three
+exemption layouts the upstream model uses, records each state's coverage, and the gate
+publishes only states whose exemption is established: 15 jurisdictions today.
+
+**Eight state pages** — Texas, New York, Pennsylvania, Maryland, Florida, Illinois,
+North Carolina, Georgia — are written salary-first, each around what is specific to it,
+and every number in them is checked by the claims audit against that state's own
+dataset. The first draft of the audit caught "$215,000" for a bracket that starts at
+$215,400.
+
+**Every trust page, the home page and the three directories now have copy.** The
+privacy page carries the disclosures AdSense requires; the promises the copy makes —
+in-browser calculation, value-free analytics, footer consent links, a contact form,
+state citations under each calculator — are written into build-spec section 5 as
+requirements. The About page's biography is marked PENDING_HUMAN: it is the one piece
+the author has to write.
+
+**What the model now says, and the conservative reading.** With the measured paycheck
+demand the modelled cluster is 1.95 million searches a month: year 1 about $700, year 2
+about $1,800, year 3 about $3,400 a month. The national "paycheck calculator" SERP is
+held by ADP, SmartAsset and PaycheckCity, and the model's uniform position assumptions
+are least credible there, so the same model was run without the national paycheck
+cluster at all: **year 1 about $400, year 2 about $980, year 3 about $1,890**. The
+$500–700 target is reached in year 2 even if the national term never ranks — provided
+the state pages do, links are earned (`docs/link-building.md`) and the 2.2 pages per
+session the model assumes is confirmed (`docs/measurement.md`).
+
+**Launch blockers: 13 → 6**, each outside this repository — the cost-of-living dataset
+(network access), primary-source verification of state data, a fifth measured metro,
+the About biography, the domain, and verifying the Base44 build.
 
 ---
 

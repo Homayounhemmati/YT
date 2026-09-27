@@ -545,7 +545,7 @@ def main():
     # pages on a new domain. Unbuilt rows are still generated for review, but
     # they are passed to no link resolver, so nothing links to them, and they
     # stay out of the sitemap.
-    bodies = {"/" + f.stem.replace("__", "/")
+    bodies = {("/" if f.stem == "home" else "/" + f.stem.replace("__", "/"))
               for f in (ROOT / "content/bodies").glob("*.md")}
     built_metros = {m["slug"] for m in metros
                     if f"/cost-of-living/{m['slug']}" in bodies

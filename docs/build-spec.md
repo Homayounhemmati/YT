@@ -102,7 +102,7 @@ requires a **measured** search volume of ≥500/month. Do not add more.
 /cost-of-living                 directory
 /cost-of-living/{metro}         metro pages — only those in the sitemap (0 today)
 /state-taxes                    directory
-/state-taxes/{state}            state pages — only those in the sitemap (4 today)
+/tools/paycheck-calculator/{state}   state paycheck pages — only those in the sitemap (8 today)
 /about /methodology /sources /editorial-policy /privacy /terms /contact
 ```
 
@@ -232,6 +232,21 @@ cannot, the platform's calculators must reproduce **every row of
 from the engines; a calculator that disagrees with it is wrong, and it is the
 calculator that changes. This is a your-money-or-your-life subject where a wrong
 number is the whole risk.
+
+### Promises the published copy makes — the build must keep them
+
+The trust pages state these as facts. Each is a build requirement, not a nice-to-have:
+
+- **Calculations run in the browser.** No input a visitor types — salary, rent, price —
+  is sent to the server, written to the platform's database, or included in an
+  analytics event (privacy page, "What stays in your browser").
+- **Analytics events carry categories, never values** (`docs/measurement.md` section 1).
+- **Footer links:** a consent-settings link for EEA/UK/CH visitors (Google-certified CMP)
+  and "Do not sell or share my personal information" for US-state visitors.
+- **A contact form** on `/contact` that reaches the author (contact page, first line).
+- **State citations beneath each state calculator**, taken from that state's
+  `provenance.sources` in the dataset (sources page, "State tax sources").
+- **No ad between a calculator and its result** (about page, "How this site makes money").
 
 ### Calculator UX
 
