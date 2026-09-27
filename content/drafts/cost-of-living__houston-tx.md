@@ -68,7 +68,8 @@ that paycheck is the whole difference: the tax line does the work the price line
 does not.
 
 Covering the one-person month above takes a gross salary of about $49,626, and the
-family of four needs about $97,503 filing jointly. Both are break-even figures with
+family of four — two adults, two children — needs about $92,026 on one income filing
+jointly, after the child tax credit. Both are break-even figures with
 nothing set aside, so treat them as the floor, not the target.
 
 ## Who Houston suits

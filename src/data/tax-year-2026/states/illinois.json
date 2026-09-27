@@ -108,9 +108,35 @@
         "title": "IL-700-T 2026: \"The income tax rate is 4.95 percent and the exemption allowance is $2,925\"",
         "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/withholding/documents/currentyear/il-700-t.pdf",
         "retrieved": "2026-09-27"
+      },
+      {
+        "title": "2025 Schedule IL-E/EITC: \"Multiply the total number of dependents you are claiming by $2,850\"",
+        "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-schedule-il-e-eic.pdf",
+        "retrieved": "2026-09-27"
       }
     ],
     "register": "data/tax-primary/2026.json",
-    "correction": "The extracted exemption ($2,850) was the 2025 amount, carried forward because upstream had not indexed it; a joint return claims two exemptions."
+    "correction": "The extracted exemption ($2,850) was the 2025 amount, carried forward because upstream had not indexed it; a joint return claims two exemptions. Adds dependents at the exemption amount."
+  },
+  "dependentAllowance": {
+    "byStatus": {
+      "single": {
+        "amount": 2925,
+        "maxAgi": 250000
+      },
+      "marriedJointly": {
+        "amount": 2925,
+        "maxAgi": 500000
+      },
+      "marriedSeparately": {
+        "amount": 2925,
+        "maxAgi": 250000
+      },
+      "headOfHousehold": {
+        "amount": 2925,
+        "maxAgi": 250000
+      }
+    },
+    "source": "Schedule IL-E/EITC: dependents at the exemption amount ($2,850 for 2025; $2,925 for 2026 per Bulletin FY 2026-15); not allowed above $250,000 AGI ($500,000 joint)"
   }
 }

@@ -303,10 +303,10 @@
       "path": "/tools/cost-of-living-calculator",
       "template": "ToolPage",
       "primary": "cost of living calculator",
-      "output": "**What a month costs in one place for your household**, line by line — HUD rent for the bedrooms you need, then groceries, eating out, transportation, health care and the rest at local prices — and the salary that covers it after that state's tax",
+      "output": "**What a month costs in any US city, county or New England town for your household**, line by line — HUD rent for the bedrooms you need, then groceries, eating out, transportation, health care and the rest in current local prices — the salary that covers it after that state's tax, and optionally the comparison with where you live now",
       "canonical": "self",
       "stripsParams": true,
-      "metaHook": "See what a month costs your household in any US metro: HUD rent for the bedrooms you need, plus groceries, transport and health care at local prices.",
+      "metaHook": "What a month costs your household in any US city or county, line by line at local prices, and the salary that covers it after state tax.",
       "stage": 1,
       "links": [
         {
@@ -1419,11 +1419,11 @@
         "cost-of-living-calculator": [
           [
             "How is cost of living calculated?",
-            "Rent comes straight from HUD's Fair Market Rent. Every other line is what households of your size spend nationally, from the BLS Consumer Expenditure Survey, priced at the local price level from BEA Regional Price Parities — the national average is 100, so a metro at 112 is 12% more expensive. Any line can be replaced with your own figure."
+            "Rent comes straight from HUD's Fair Market Rent for the county or town. Every other line is what households of your size spend nationally, from the BLS Consumer Expenditure Survey, carried to current prices with the Consumer Price Index and priced at the local price level from BEA Regional Price Parities — the national average is 100, so a place at 112 is 12% more expensive. Any line can be replaced with your own figure."
           ],
           [
             "What is included in cost of living?",
-            "Rent and utilities from HUD Fair Market Rent for the bedrooms you need, then groceries, eating out, transportation, health care, clothing, phone and internet, entertainment, personal care and education — national spending for a household of your size, priced at local prices. Income tax is shown separately, because a place's prices and a state's tax are different questions."
+            "Rent and utilities from HUD Fair Market Rent for the bedrooms you need, then groceries, eating out, car purchase and fuel, car insurance and repairs, public transport, health care and insurance, clothing, phone service, household services, supplies and furniture, entertainment, personal care and education — national spending for a household of your size, at local prices. Savings, debt and child care are left out, because an average says nothing about yours."
           ],
           [
             "Is cost of living the same as inflation?",
@@ -1431,7 +1431,7 @@
           ],
           [
             "What salary do I need in this city?",
-            "That is the reverse calculation, and it depends on household size as much as on the city. The living wage calculator solves for the gross salary a place requires rather than the cost a salary has to cover."
+            "The calculator answers it directly: it takes the month's total and solves for the gross salary whose take-home, after federal tax, Social Security, Medicare and that state's income tax, covers it exactly. It is a break-even figure, before savings, and it depends on household size as much as on the place."
           ]
         ],
         "rent-affordability-calculator": [

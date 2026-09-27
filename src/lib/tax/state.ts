@@ -6,6 +6,8 @@ export interface StateArgs {
   federalAgi: Cents;
   filingStatus: FilingStatus;
   state: StateData | null;
+  /** Qualifying children and other dependents, for state dependent allowances. */
+  dependents?: { children: number; others: number };
 }
 
 export interface StateComputation extends Omit<StateResult, "amount" | "surtax" | "taxableIncome"> {
@@ -91,10 +93,31 @@ export function supplementalTax(
   );
 }
 
+/** The state's allowance for dependents in cents at a given federal AGI. */
+export function dependentAllowance(
+  state: StateData,
+  filingStatus: FilingStatus,
+  federalAgi: Cents,
+  dependents: { children: number; others: number },
+): Cents {
+  const rule = state.dependentAllowance;
+  const byStatus = rule?.byStatus[filingStatus];
+  if (!rule || !byStatus) return 0;
+  const count = dependents.children + (rule.childrenOnly ? 0 : dependents.others);
+  if (count <= 0) return 0;
+  if (byStatus.maxAgi != null && federalAgi > toCents(byStatus.maxAgi)) return 0;
+  let amount = byStatus.amount;
+  for (const step of byStatus.agiSchedule ?? []) {
+    if (federalAgi > toCents(step.overAgi)) amount = step.amount;
+  }
+  return toCents(amount) * count;
+}
+
 export function computeStateTax({
   federalAgi,
   filingStatus,
   state,
+  dependents,
 }: StateArgs): StateComputation {
   if (!state) return { ...EMPTY };
 
@@ -146,7 +169,15 @@ export function computeStateTax({
         "may be slightly overstated.",
     );
   }
-  const taxableIncome = atLeastZero(federalAgi - standardDeduction - exemption);
+  const deps = dependents ?? { children: 0, others: 0 };
+  const forDependents = dependentAllowance(state, filingStatus, federalAgi, deps);
+  if (deps.children + deps.others > 0 && !state.dependentAllowance && state.verification !== "verified") {
+    notes.push(
+      "This state's allowances for dependents are not yet modelled, so its tax for a " +
+        "household with children may be slightly overstated.",
+    );
+  }
+  const taxableIncome = atLeastZero(federalAgi - standardDeduction - exemption - forDependents);
 
   let amount: Cents;
   let brackets: StateResult["brackets"] = [];

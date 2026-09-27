@@ -9,6 +9,7 @@
 | Event | When | Parameters |
 |---|---|---|
 | `calculate` | A calculator produces a result | `tool` (slug), `input_mode` (salary / hourly), `pay_frequency`, `has_state` |
+| `calculate` (cost of living) | as above, for `/tools/cost-of-living-calculator` | adds `state`, `place_kind`, `adults`, `children`, `bedrooms`, `has_own_figures`, `has_compare`, `state_data` — still no amounts (`docs/base44-cost-of-living-calculator.md` section 7) |
 | `funnel_click` | A click on an internal link to another tool or entity page | `from`, `to`, `from_stage`, `to_stage`, `placement` (result_card / body / related / nav) |
 | `source_click` | A click to a cited primary source (IRS, BEA, HUD, a state revenue site) | `source_domain` |
 | `faq_open` | An FAQ answer is expanded | `tool`, `question_index` |

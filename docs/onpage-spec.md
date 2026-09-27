@@ -20,7 +20,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 | `/privacy` | Privacy — LifeCalc Pro | 22 | 122 | n/a |
 | `/terms` | Terms — LifeCalc Pro | 20 | 123 | n/a |
 | `/contact` | Contact — LifeCalc Pro | 22 | 114 | n/a |
-| `/tools/cost-of-living-calculator` | Cost of Living Calculator (2026) | 32 | 149 | n/a |
+| `/tools/cost-of-living-calculator` | Cost of Living Calculator (2026) | 32 | 136 | n/a |
 | `/cost-of-living` | Cost of Living by City (2026) | 29 | 124 | n/a |
 | `/tools/rent-affordability-calculator` | Rent Affordability Calculator (2026) | 36 | 132 | n/a |
 | `/tools/cost-of-living-comparison` | Cost of Living Comparison (2026) | 32 | 135 | n/a |
@@ -244,11 +244,13 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 
 **H2 outline**
 
-1. What comes out of a Texas paycheck
-2. Why there is no Texas tax line
-3. Local tax in Texas
-4. Is Texas actually cheaper?
-5. Frequently asked questions
+1. What a $95,000 salary leaves in Texas
+2. Per check
+3. Where the missing state tax shows up instead
+4. Hourly workers
+5. Self-employed in Texas
+6. What the $95,000 example assumes
+7. Frequently asked questions
 
 **FAQ**
 

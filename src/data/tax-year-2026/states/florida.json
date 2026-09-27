@@ -33,5 +33,6 @@
       }
     ],
     "register": "data/tax-primary/2026.json"
-  }
+  },
+  "dependentAllowance": null
 }

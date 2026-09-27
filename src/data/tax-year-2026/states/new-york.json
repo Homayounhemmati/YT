@@ -437,7 +437,7 @@
       }
     ],
     "register": "data/tax-primary/2026.json",
-    "correction": "The extracted dataset had the 2026 schedules but not the supplemental tax that recaptures the lower brackets above $107,650 of AGI. Also adds the employee Paid Family Leave and disability contributions withheld from New York paychecks."
+    "correction": "The extracted dataset had the 2026 schedules but not the supplemental tax that recaptures the lower brackets above $107,650 of AGI. Also adds the employee Paid Family Leave and disability contributions withheld from New York paychecks. Adds the $1,000 dependent exemption."
   },
   "employeeContributions": [
     {
@@ -455,5 +455,22 @@
       "optional": true,
       "source": "Workers' Compensation Law 209: one-half of one percent of wages, not more than 60 cents a week; employers may, but need not, deduct it"
     }
-  ]
+  ],
+  "dependentAllowance": {
+    "byStatus": {
+      "single": {
+        "amount": 1000
+      },
+      "marriedJointly": {
+        "amount": 1000
+      },
+      "marriedSeparately": {
+        "amount": 1000
+      },
+      "headOfHousehold": {
+        "amount": 1000
+      }
+    },
+    "source": "IT-201-I line 36: \"The value of each New York State dependent exemption is $1,000\""
+  }
 }

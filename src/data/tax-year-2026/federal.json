@@ -275,8 +275,35 @@
         "title": "26 U.S.C. 6017 ($400 self-employment filing threshold)",
         "url": "https://www.law.cornell.edu/uscode/text/26/6017",
         "retrieved": "2026-09-27"
+      },
+      {
+        "title": "Rev. Proc. 2025-32 section 4.05: child tax credit $2,200 for 2026; refundable portion $1,700 (26 U.S.C. 24(h) as amended by OBBBA section 70104)",
+        "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "26 U.S.C. 24: $500 for other dependents; phase-out $50 per $1,000 above $400,000 joint / $200,000 otherwise; refundable at 15% of earned income above $2,500",
+        "url": "https://www.law.cornell.edu/uscode/text/26/24",
+        "retrieved": "2026-09-27"
       }
     ],
     "register": "data/tax-primary/2026.json"
+  },
+  "childTaxCredit": {
+    "perChild": 2200,
+    "refundablePerChild": 1700,
+    "perOtherDependent": 500,
+    "earnedIncomeThreshold": 2500,
+    "refundableRatePercent": 15,
+    "phaseOut": {
+      "threshold": {
+        "single": 200000,
+        "marriedJointly": 400000,
+        "marriedSeparately": 200000,
+        "headOfHousehold": 200000
+      },
+      "step": 1000,
+      "reductionPerStep": 50
+    }
   }
 }

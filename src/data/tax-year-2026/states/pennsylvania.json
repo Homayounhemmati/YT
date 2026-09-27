@@ -81,5 +81,6 @@
       "rate": 0.07,
       "source": "PA Department of Labor and Industry, Yearly Tax Highlights, calendar year 2026: employee UC withholding 0.07 percent, no wage cap"
     }
-  ]
+  ],
+  "dependentAllowance": null
 }

@@ -104,8 +104,136 @@
         "title": "NC-30 2026 Income Tax Withholding Tables (3.99%, $12,750)",
         "url": "https://www.ncdor.gov/income-tax-withholding-tables-and-instructions-employers/open",
         "retrieved": "2026-09-27"
+      },
+      {
+        "title": "2025 D-401 Individual Income Tax Instructions, Line 10 Child Deduction Table",
+        "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+        "retrieved": "2026-09-27"
       }
     ],
-    "register": "data/tax-primary/2026.json"
+    "register": "data/tax-primary/2026.json",
+    "correction": "Adds North Carolina's child deduction."
+  },
+  "dependentAllowance": {
+    "childrenOnly": true,
+    "byStatus": {
+      "marriedJointly": {
+        "amount": 3000,
+        "agiSchedule": [
+          {
+            "overAgi": 40000,
+            "amount": 2500
+          },
+          {
+            "overAgi": 60000,
+            "amount": 2000
+          },
+          {
+            "overAgi": 80000,
+            "amount": 1500
+          },
+          {
+            "overAgi": 100000,
+            "amount": 1000
+          },
+          {
+            "overAgi": 120000,
+            "amount": 500
+          },
+          {
+            "overAgi": 140000,
+            "amount": 0
+          }
+        ]
+      },
+      "headOfHousehold": {
+        "amount": 3000,
+        "agiSchedule": [
+          {
+            "overAgi": 30000,
+            "amount": 2500
+          },
+          {
+            "overAgi": 45000,
+            "amount": 2000
+          },
+          {
+            "overAgi": 60000,
+            "amount": 1500
+          },
+          {
+            "overAgi": 75000,
+            "amount": 1000
+          },
+          {
+            "overAgi": 90000,
+            "amount": 500
+          },
+          {
+            "overAgi": 105000,
+            "amount": 0
+          }
+        ]
+      },
+      "single": {
+        "amount": 3000,
+        "agiSchedule": [
+          {
+            "overAgi": 20000,
+            "amount": 2500
+          },
+          {
+            "overAgi": 30000,
+            "amount": 2000
+          },
+          {
+            "overAgi": 40000,
+            "amount": 1500
+          },
+          {
+            "overAgi": 50000,
+            "amount": 1000
+          },
+          {
+            "overAgi": 60000,
+            "amount": 500
+          },
+          {
+            "overAgi": 70000,
+            "amount": 0
+          }
+        ]
+      },
+      "marriedSeparately": {
+        "amount": 3000,
+        "agiSchedule": [
+          {
+            "overAgi": 20000,
+            "amount": 2500
+          },
+          {
+            "overAgi": 30000,
+            "amount": 2000
+          },
+          {
+            "overAgi": 40000,
+            "amount": 1500
+          },
+          {
+            "overAgi": 50000,
+            "amount": 1000
+          },
+          {
+            "overAgi": 60000,
+            "amount": 500
+          },
+          {
+            "overAgi": 70000,
+            "amount": 0
+          }
+        ]
+      }
+    },
+    "source": "NC D-401 (2025) Child Deduction Table, per qualifying child by federal AGI (G.S. 105-153.5(a1)); the amounts are statutory, not indexed"
   }
 }

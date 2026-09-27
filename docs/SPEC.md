@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-27 · **Version:** 5.19
+> **Last revised:** 2026-09-27 · **Version:** 5.20
+>
+> **Version 5.20:** The cost-of-living calculator is ready to build: every US county, New England town and incorporated city, a 14-line budget in current prices, adults and children with the child tax credit, a single engine call, a self-contained Base44 brief and acceptance rows. Details in 20-36.
 >
 > **Version 5.19:** Every data input is now real and checked against its publisher: federal and the eight launch states against their 2026 primary sources (three corrections, including New York's supplemental tax, which the engine now applies), BEA price parities from BEA's own file, HUD rents matched county by county to HUD's revised FY2026 spreadsheet, and BLS household spending by size. Launch blockers fell from 7 to 4, none of them data. Details in 20-35.
 >
@@ -4514,4 +4516,17 @@ With network access open, every input was fetched from the organisation that pub
 - **Claims.** 13 of the 15 pending claims were confirmed from their sources by `scripts/verify_claims.py`; the home-affordability copy now attributes each debt-to-income limit to the lender that sets it. Still pending: Connecticut's 70% (its official sites are unreachable from the build network) and the property-tax extremes (the Census API now needs a key).
 
 **Metro pages.** Every metro FAQ is now answered from data (BEA levels, HUD rents, and the salary that covers an average household after tax, from `scripts/compute_metro_figures.ts`), and the page gate now also requires the metro's state to be verified, so San Francisco waits for California. Bodies for Austin, Houston and San Antonio are written and number-audited but kept in `content/drafts/`: three pages from one state cannot clear the 40% uniqueness bar against each other, which is the situation the five-sample, geographically varied launch rule exists for. They are promoted when two non-Texas metros are measured and written.
+
+### 20-36. Round thirty-seven — version 5.20 · the cost-of-living calculator, built to hand over
+
+The question was whether the calculator is complete enough to give to Base44. An audit said no, for six reasons, each now fixed:
+
+1. **It knew four cities.** `scripts/build_col_places.py` now builds every place from the publishers' own files: BEA 2024 parities for 387 metros and every state's metropolitan and nonmetropolitan portion (485 areas; BEA's zero rows for portions that do not exist are dropped), HUD FY2026 revised rents for 3,077 counties and 1,603 New England towns, the Census July 2023 delineation for metro membership, and 19,308 cities from the Census 2024 estimates, each attached to the county holding most of its people, with the others offered when their rent or prices differ. A 144 KB (gzipped) national search index; per-state files loaded on choice.
+2. **The budget missed lines and was in 2024 dollars.** Household services, household supplies and furniture were added from the CE survey (child care deliberately not); each category is carried to August 2026 prices by its own CPI component. Austin's one-person month moved from $3,330 to $3,687 — the old figure understated.
+3. **Families were taxed as if childless.** The engine now applies the federal child tax credit (Rev. Proc. 2025-32: $2,200, $1,700 refundable, 26 U.S.C. 24 phase-out) and the dependent allowances of the verified states; inputs are adults and children, and filing status follows adults. A Houston family of four needs $92,026, not $97,503. Maryland's joint returns were given one personal exemption instead of two; fixed.
+4. **No single contract.** `computeCostOfLiving()` returns the whole result card, including a `stateDataStatus` so a state not yet verified is shown with its caveat rather than hidden. 0.5 ms per calculation.
+5. **No acceptance cases.** Eight cost-of-living rows, a line-by-line table and a comparison row are generated from the engine into `docs/calculator-acceptance.md`.
+6. **The copy described a different tool** ("phone and internet", salary "on another page"). Rewritten, with the FAQ and meta; every page's generated H2 outline now comes from its written body (they had drifted on 22 pages).
+
+The brief for the builder is `docs/base44-cost-of-living-calculator.md`. 182 tests.
 

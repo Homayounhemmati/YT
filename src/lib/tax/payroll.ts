@@ -39,6 +39,9 @@ export interface WageInput {
    */
   section125?: number;
   payPeriods?: PayPeriods;
+  /** Children who qualify for the child tax credit, and other dependents. */
+  qualifyingChildren?: number;
+  otherDependents?: number;
 }
 
 export interface FicaResult {
@@ -137,6 +140,8 @@ export function estimateWageTakeHome(
       businessIncome: 0,
       w2Wages: toDollars(incomeTaxWages),
       w2SocialSecurityWages: toDollars(ficaWages),
+      qualifyingChildren: input.qualifyingChildren ?? 0,
+      otherDependents: input.otherDependents ?? 0,
     },
     data,
   );
@@ -156,6 +161,7 @@ export function estimateWageTakeHome(
       federalAgi: toCents(core.adjustedGrossIncome) + retirement,
       filingStatus: input.filingStatus,
       state: data.state,
+      dependents: { children: input.qualifyingChildren ?? 0, others: input.otherDependents ?? 0 },
     });
     stateTax = s.amount + s.surtax;
   }

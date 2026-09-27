@@ -46,6 +46,8 @@ filing threshold (26 U.S.C. 1401, 3101, 6017). Every extracted value matched.
 | New York | Brackets correct, but the **section 601(d-5) supplemental tax** above $107,650 of AGI was missing. Now modelled from the statute's own table | none at $95,000; **+$480** at $150,000, +$2,614 at $300,000 |
 | New York (payroll) | Paid Family Leave (0.432%, max $411.91) and disability insurance (0.5%, max $0.60 a week) were not deducted | take-home $71,098 → **$70,656** |
 | Pennsylvania (payroll) | Employee unemployment contribution (0.07% of all wages, 2026) was not deducted | take-home $72,746 → **$72,680** |
+| Maryland (couples) | A joint return claims two personal exemptions (MW507); the dataset gave one | joint filers' state tax overstated by up to $152 |
+| Children | Federal child tax credit ($2,200 a child, $1,700 refundable) and the state allowances for dependents (IL $2,925, MD $3,200, NY $1,000, GA $5,000, NC's child deduction by AGI) were not modelled | a family's tax overstated by thousands; now applied |
 | Georgia | 4.99% and $15,000 / $30,000 confirmed (HB 463, retroactive to January 1, 2026; employers withheld 5.19% until May 11, 2026) | — |
 | Texas, Florida, Pennsylvania, North Carolina | Confirmed as extracted | — |
 

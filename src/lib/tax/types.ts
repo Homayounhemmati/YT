@@ -38,6 +38,15 @@ export interface FederalData {
     maxRate: number;
     phaseOutStart: Record<FilingStatus, number>;
   };
+  /** 26 U.S.C. 24 as amended; amounts from the year's Revenue Procedure. */
+  childTaxCredit?: {
+    perChild: number;
+    refundablePerChild: number;
+    perOtherDependent: number;
+    earnedIncomeThreshold: number;
+    refundableRatePercent: number;
+    phaseOut: { threshold: Record<FilingStatus, number>; step: number; reductionPerStep: number };
+  };
 }
 
 export interface StateData {
@@ -87,6 +96,20 @@ export interface StateData {
     optional?: boolean;
     source: string;
   }[];
+  /**
+   * What the state allows per dependent, subtracted like the personal exemption.
+   * `childrenOnly`: only qualifying children count (North Carolina's child deduction).
+   * `agiSchedule` steps the amount by federal AGI; `maxAgi` removes it above a ceiling.
+   */
+  dependentAllowance?: {
+    childrenOnly?: boolean;
+    byStatus: Partial<Record<FilingStatus, {
+      amount: number;
+      agiSchedule?: { overAgi: number; amount: number }[];
+      maxAgi?: number | null;
+    }>>;
+    source: string;
+  } | null;
   /** Whether each part of the state's model is established: a page is built only when it is. */
   modelCoverage?: {
     personalExemption: "modelled" | "none" | "not-extracted";
@@ -163,6 +186,11 @@ export interface TaxInput {
   hsaContribution?: number;
   itemizedDeductions?: number;
 
+  /** Children who qualify for the child tax credit (under 17 at year end). */
+  qualifyingChildren?: number;
+  /** Other dependents: the $500 credit, and state dependent allowances. */
+  otherDependents?: number;
+
   /** Specified service trade or business, which limits QBI above the threshold. */
   isSpecifiedServiceBusiness?: boolean;
   priorYearTaxLiability?: number;
@@ -234,6 +262,8 @@ export interface TaxResult {
   taxableIncome: number;
 
   federalTax: number;
+  federalTaxBeforeCredits: number;
+  childTaxCredit: { nonrefundable: number; refundable: number };
   federalBrackets: BracketDetail[];
   state: StateResult;
 

@@ -27,6 +27,16 @@
         "title": "26 U.S.C. 6017 ($400 self-employment filing threshold)",
         "url": "https://www.law.cornell.edu/uscode/text/26/6017",
         "retrieved": "2026-09-27"
+      },
+      {
+        "title": "Rev. Proc. 2025-32 section 4.05: child tax credit $2,200 for 2026; refundable portion $1,700 (26 U.S.C. 24(h) as amended by OBBBA section 70104)",
+        "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "26 U.S.C. 24: $500 for other dependents; phase-out $50 per $1,000 above $400,000 joint / $200,000 otherwise; refundable at 15% of earned income above $2,500",
+        "url": "https://www.law.cornell.edu/uscode/text/26/24",
+        "retrieved": "2026-09-27"
       }
     ],
     "expect": {
@@ -170,6 +180,27 @@
         "marriedJointly": 403500,
         "marriedSeparately": 201775,
         "headOfHousehold": 201750
+      },
+      "childTaxCredit.perChild": 2200,
+      "childTaxCredit.refundablePerChild": 1700
+    },
+    "set": {
+      "childTaxCredit": {
+        "perChild": 2200,
+        "refundablePerChild": 1700,
+        "perOtherDependent": 500,
+        "earnedIncomeThreshold": 2500,
+        "refundableRatePercent": 15,
+        "phaseOut": {
+          "threshold": {
+            "single": 200000,
+            "marriedJointly": 400000,
+            "marriedSeparately": 200000,
+            "headOfHousehold": 200000
+          },
+          "step": 1000,
+          "reductionPerStep": 50
+        }
       }
     }
   },
@@ -183,8 +214,13 @@
         }
       ],
       "expect": {
-        "structure": "none"
-      }
+        "structure": "none",
+        "dependentAllowance": null
+      },
+      "set": {
+        "dependentAllowance": null
+      },
+      "annotationOnly": true
     },
     "florida": {
       "sources": [
@@ -195,8 +231,13 @@
         }
       ],
       "expect": {
-        "structure": "none"
-      }
+        "structure": "none",
+        "dependentAllowance": null
+      },
+      "set": {
+        "dependentAllowance": null
+      },
+      "annotationOnly": true
     },
     "pennsylvania": {
       "sources": [
@@ -220,7 +261,8 @@
         "structure": "flat",
         "flatRate": 3.07,
         "standardDeduction": {},
-        "personalExemption": null
+        "personalExemption": null,
+        "dependentAllowance": null
       },
       "set": {
         "employeeContributions": [
@@ -233,7 +275,8 @@
         ],
         "modelCoverage": {
           "payrollContributions": "modelled"
-        }
+        },
+        "dependentAllowance": null
       },
       "why": "Adds the employee unemployment-compensation withholding (0.07% of all wages) that every Pennsylvania paycheck carries."
     },
@@ -253,6 +296,11 @@
           "title": "NC-30 2026 Income Tax Withholding Tables (3.99%, $12,750)",
           "url": "https://www.ncdor.gov/income-tax-withholding-tables-and-instructions-employers/open",
           "retrieved": "2026-09-27"
+        },
+        {
+          "title": "2025 D-401 Individual Income Tax Instructions, Line 10 Child Deduction Table",
+          "url": "https://www.ncdor.gov/2025-d-401-individual-income-tax-instructions/open",
+          "retrieved": "2026-09-27"
         }
       ],
       "expect": {
@@ -264,7 +312,132 @@
           "marriedSeparately": 12750,
           "headOfHousehold": 19125
         }
-      }
+      },
+      "set": {
+        "dependentAllowance": {
+          "childrenOnly": true,
+          "byStatus": {
+            "marriedJointly": {
+              "amount": 3000,
+              "agiSchedule": [
+                {
+                  "overAgi": 40000,
+                  "amount": 2500
+                },
+                {
+                  "overAgi": 60000,
+                  "amount": 2000
+                },
+                {
+                  "overAgi": 80000,
+                  "amount": 1500
+                },
+                {
+                  "overAgi": 100000,
+                  "amount": 1000
+                },
+                {
+                  "overAgi": 120000,
+                  "amount": 500
+                },
+                {
+                  "overAgi": 140000,
+                  "amount": 0
+                }
+              ]
+            },
+            "headOfHousehold": {
+              "amount": 3000,
+              "agiSchedule": [
+                {
+                  "overAgi": 30000,
+                  "amount": 2500
+                },
+                {
+                  "overAgi": 45000,
+                  "amount": 2000
+                },
+                {
+                  "overAgi": 60000,
+                  "amount": 1500
+                },
+                {
+                  "overAgi": 75000,
+                  "amount": 1000
+                },
+                {
+                  "overAgi": 90000,
+                  "amount": 500
+                },
+                {
+                  "overAgi": 105000,
+                  "amount": 0
+                }
+              ]
+            },
+            "single": {
+              "amount": 3000,
+              "agiSchedule": [
+                {
+                  "overAgi": 20000,
+                  "amount": 2500
+                },
+                {
+                  "overAgi": 30000,
+                  "amount": 2000
+                },
+                {
+                  "overAgi": 40000,
+                  "amount": 1500
+                },
+                {
+                  "overAgi": 50000,
+                  "amount": 1000
+                },
+                {
+                  "overAgi": 60000,
+                  "amount": 500
+                },
+                {
+                  "overAgi": 70000,
+                  "amount": 0
+                }
+              ]
+            },
+            "marriedSeparately": {
+              "amount": 3000,
+              "agiSchedule": [
+                {
+                  "overAgi": 20000,
+                  "amount": 2500
+                },
+                {
+                  "overAgi": 30000,
+                  "amount": 2000
+                },
+                {
+                  "overAgi": 40000,
+                  "amount": 1500
+                },
+                {
+                  "overAgi": 50000,
+                  "amount": 1000
+                },
+                {
+                  "overAgi": 60000,
+                  "amount": 500
+                },
+                {
+                  "overAgi": 70000,
+                  "amount": 0
+                }
+              ]
+            }
+          },
+          "source": "NC D-401 (2025) Child Deduction Table, per qualifying child by federal AGI (G.S. 105-153.5(a1)); the amounts are statutory, not indexed"
+        }
+      },
+      "why": "Adds North Carolina's child deduction."
     },
     "georgia": {
       "sources": [
@@ -289,10 +462,26 @@
           "previousRate": 5.19,
           "newRateWithholdingFrom": "2026-05-11",
           "note": "HB 463 cut the 2026 rate to 4.99% retroactively; employers withheld 5.19% until May 11, 2026."
+        },
+        "dependentAllowance": {
+          "byStatus": {
+            "single": {
+              "amount": 5000
+            },
+            "marriedJointly": {
+              "amount": 5000
+            },
+            "marriedSeparately": {
+              "amount": 5000
+            },
+            "headOfHousehold": {
+              "amount": 5000
+            }
+          },
+          "source": "Georgia 2026 Employer's Withholding Tax Guide: HB 463 raised the dependent deduction from $4,000 to $5,000, retroactive to January 1, 2026"
         }
       },
-      "why": "Not a correction: records the mid-year withholding change so the page can explain it.",
-      "annotationOnly": true
+      "why": "Records the mid-year withholding change, and adds the $5,000 dependent deduction."
     },
     "illinois": {
       "sources": [
@@ -304,6 +493,11 @@
         {
           "title": "IL-700-T 2026: \"The income tax rate is 4.95 percent and the exemption allowance is $2,925\"",
           "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/withholding/documents/currentyear/il-700-t.pdf",
+          "retrieved": "2026-09-27"
+        },
+        {
+          "title": "2025 Schedule IL-E/EITC: \"Multiply the total number of dependents you are claiming by $2,850\"",
+          "url": "https://tax.illinois.gov/content/dam/soi/en/web/tax/forms/incometax/documents/currentyear/individual/il-1040-schedule-il-e-eic.pdf",
           "retrieved": "2026-09-27"
         }
       ],
@@ -333,9 +527,30 @@
             "year": 2025,
             "amount": 2850
           }
+        },
+        "dependentAllowance": {
+          "byStatus": {
+            "single": {
+              "amount": 2925,
+              "maxAgi": 250000
+            },
+            "marriedJointly": {
+              "amount": 2925,
+              "maxAgi": 500000
+            },
+            "marriedSeparately": {
+              "amount": 2925,
+              "maxAgi": 250000
+            },
+            "headOfHousehold": {
+              "amount": 2925,
+              "maxAgi": 250000
+            }
+          },
+          "source": "Schedule IL-E/EITC: dependents at the exemption amount ($2,850 for 2025; $2,925 for 2026 per Bulletin FY 2026-15); not allowed above $250,000 AGI ($500,000 joint)"
         }
       },
-      "why": "The extracted exemption ($2,850) was the 2025 amount, carried forward because upstream had not indexed it; a joint return claims two exemptions.",
+      "why": "The extracted exemption ($2,850) was the 2025 amount, carried forward because upstream had not indexed it; a joint return claims two exemptions. Adds dependents at the exemption amount.",
       "expect": {
         "structure": "flat",
         "flatRate": 4.95,
@@ -371,9 +586,155 @@
           "marriedJointly": 6850,
           "marriedSeparately": 3400,
           "headOfHousehold": 6850
+        },
+        "dependentAllowance": {
+          "byStatus": {
+            "single": {
+              "amount": 3200,
+              "agiSchedule": [
+                {
+                  "overAgi": 100000,
+                  "amount": 1600
+                },
+                {
+                  "overAgi": 125000,
+                  "amount": 800
+                },
+                {
+                  "overAgi": 150000,
+                  "amount": 0
+                }
+              ]
+            },
+            "marriedSeparately": {
+              "amount": 3200,
+              "agiSchedule": [
+                {
+                  "overAgi": 100000,
+                  "amount": 1600
+                },
+                {
+                  "overAgi": 125000,
+                  "amount": 800
+                },
+                {
+                  "overAgi": 150000,
+                  "amount": 0
+                }
+              ]
+            },
+            "marriedJointly": {
+              "amount": 3200,
+              "agiSchedule": [
+                {
+                  "overAgi": 150000,
+                  "amount": 1600
+                },
+                {
+                  "overAgi": 175000,
+                  "amount": 800
+                },
+                {
+                  "overAgi": 200000,
+                  "amount": 0
+                }
+              ]
+            },
+            "headOfHousehold": {
+              "amount": 3200,
+              "agiSchedule": [
+                {
+                  "overAgi": 150000,
+                  "amount": 1600
+                },
+                {
+                  "overAgi": 175000,
+                  "amount": 800
+                },
+                {
+                  "overAgi": 200000,
+                  "amount": 0
+                }
+              ]
+            }
+          },
+          "source": "Form MW507 (2026): each exemption, dependents included, is worth $3,200 and steps down with federal AGI"
+        },
+        "personalExemption": {
+          "byStatus": {
+            "single": {
+              "amount": 3200,
+              "agiSchedule": [
+                {
+                  "overAgi": 100000,
+                  "amount": 1600
+                },
+                {
+                  "overAgi": 125000,
+                  "amount": 800
+                },
+                {
+                  "overAgi": 150000,
+                  "amount": 0
+                }
+              ]
+            },
+            "marriedSeparately": {
+              "amount": 3200,
+              "agiSchedule": [
+                {
+                  "overAgi": 100000,
+                  "amount": 1600
+                },
+                {
+                  "overAgi": 125000,
+                  "amount": 800
+                },
+                {
+                  "overAgi": 150000,
+                  "amount": 0
+                }
+              ]
+            },
+            "marriedJointly": {
+              "amount": 6400,
+              "agiSchedule": [
+                {
+                  "overAgi": 150000,
+                  "amount": 3200
+                },
+                {
+                  "overAgi": 175000,
+                  "amount": 1600
+                },
+                {
+                  "overAgi": 200000,
+                  "amount": 0
+                }
+              ]
+            },
+            "headOfHousehold": {
+              "amount": 3200,
+              "agiSchedule": [
+                {
+                  "overAgi": 150000,
+                  "amount": 1600
+                },
+                {
+                  "overAgi": 175000,
+                  "amount": 800
+                },
+                {
+                  "overAgi": 200000,
+                  "amount": 0
+                }
+              ]
+            }
+          },
+          "staleComponent": false
         }
       },
-      "why": "The extracted amounts ($3,350/$6,700) were 2025's. $3,400 is published by the Comptroller. The Comptroller has not yet published the joint/head-of-household figure; $6,850 is section 10-217(c) applied to BLS data (C-CPI-U 177.206 / 173.016 = +2.42%; $6,700 x 2.42% = $162 -> rounded down to $150), and the same formula reproduces the published $3,400 ($81 -> $50). Recheck against the 2026 resident booklet when it is released.",
+      "why": "The extracted amounts ($3,350/$6,700) were 2025's. $3,400 is published by the Comptroller. The Comptroller has not yet published the joint/head-of-household figure; $6,850 is section 10-217(c) applied to BLS data (C-CPI-U 177.206 / 173.016 = +2.42%; $6,700 x 2.42% = $162 -> rounded down to $150), and the same formula reproduces the published $3,400 ($81 -> $50). Recheck against the 2026 resident booklet when it is released. Adds dependents at the same $3,200 exemption value. A joint return claims two personal exemptions (MW507: 'Multiply the number of your personal exemptions by the value of each exemption'); the extracted data gave a married couple one.",
       "computed": [
         "standardDeduction.marriedJointly",
         "standardDeduction.headOfHousehold"
@@ -568,15 +929,15 @@
           ]
         },
         "personalExemption.byStatus.marriedJointly": {
-          "amount": 3200,
+          "amount": 6400,
           "agiSchedule": [
             {
               "overAgi": 150000,
-              "amount": 1600
+              "amount": 3200
             },
             {
               "overAgi": 175000,
-              "amount": 800
+              "amount": 1600
             },
             {
               "overAgi": 200000,
@@ -796,9 +1157,26 @@
             "optional": true,
             "source": "Workers' Compensation Law 209: one-half of one percent of wages, not more than 60 cents a week; employers may, but need not, deduct it"
           }
-        ]
+        ],
+        "dependentAllowance": {
+          "byStatus": {
+            "single": {
+              "amount": 1000
+            },
+            "marriedJointly": {
+              "amount": 1000
+            },
+            "marriedSeparately": {
+              "amount": 1000
+            },
+            "headOfHousehold": {
+              "amount": 1000
+            }
+          },
+          "source": "IT-201-I line 36: \"The value of each New York State dependent exemption is $1,000\""
+        }
       },
-      "why": "The extracted dataset had the 2026 schedules but not the supplemental tax that recaptures the lower brackets above $107,650 of AGI. Also adds the employee Paid Family Leave and disability contributions withheld from New York paychecks.",
+      "why": "The extracted dataset had the 2026 schedules but not the supplemental tax that recaptures the lower brackets above $107,650 of AGI. Also adds the employee Paid Family Leave and disability contributions withheld from New York paychecks. Adds the $1,000 dependent exemption.",
       "expect": {
         "structure": "progressive",
         "brackets": {

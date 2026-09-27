@@ -30,8 +30,8 @@ const federal = loadFederal(TAX_YEAR);
 const estimated = loadEstimated(TAX_YEAR);
 
 const scenarios = [
-  { key: "single", people: 1, bedrooms: 1, filingStatus: "single" },
-  { key: "family", people: 4, bedrooms: 2, filingStatus: "marriedJointly" },
+  { key: "single", people: 1, bedrooms: 1, filingStatus: "single", children: 0 },
+  { key: "family", people: 4, bedrooms: 2, filingStatus: "marriedJointly", children: 2 },
 ] as const;
 
 const out: Record<string, unknown> = {};
@@ -46,7 +46,8 @@ for (const file of readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
     const requiredNet = toCents(cost.annualTotal);
     const netAt = (g: number) =>
       toCents(estimateWageTakeHome(
-        { taxYear: TAX_YEAR, filingStatus: s.filingStatus as FilingStatus, annualWages: toDollars(g) },
+        { taxYear: TAX_YEAR, filingStatus: s.filingStatus as FilingStatus, annualWages: toDollars(g),
+          qualifyingChildren: s.children },
         tax).netPay);
     const gross = grossForNet(requiredNet, netAt);
     row[s.key] = {

@@ -227,7 +227,7 @@ Every calculator has a tested reference implementation in this repository.
 | Engine | Covers | Tests |
 |---|---|---|
 | `src/lib/tax/` + `payroll.ts` | Income tax, take-home / paycheck (salary, per-period, 401(k) and section 125 rules, state exemptions, New York supplemental tax, state payroll contributions) | 97 |
-| `src/lib/col/` | Cost of living, comparison with tax, rent affordability, living wage, household monthly cost | 38 — including real BEA, HUD and BLS data |
+| `src/lib/col/` | Cost of living calculator (`computeCostOfLiving`, every US place), comparison with tax, rent affordability, living wage | 55 — all on real BEA, HUD, Census, BLS and CPI data |
 | `src/lib/calc/` | House payment (PITI, PMI), home affordability, closing costs, salary↔hourly, sales tax, property tax | 20 |
 
 **New York's supplemental tax.** Above $107,650 of AGI, New York adds a tax that takes
@@ -246,25 +246,12 @@ number is the whole risk.
 
 ### The cost-of-living calculator — inputs and result card
 
-This is the centre of the funnel: paycheck pages send visitors here, and it sends
-them on. Build it to this contract (engine: `cityMonthlyCost`, `grossForNet`,
-`suggestedBedrooms` in `src/lib/col`).
-
-**Inputs** — never an empty form; defaults shown on first paint:
-1. Metro (select). 2. People in the household, 1 to 5+ (default 1). 3. Bedrooms
-(default `suggestedBedrooms(people)`, changeable). 4. Optional: the visitor's own
-monthly figure for any line — it replaces that line's estimate. 5. Optional: a salary.
-
-**Result card, in this order:**
-1. **What a month costs** this household here — the total, labelled "estimate for a
-   typical household of this size" unless every line is the visitor's own.
-2. **The salary that covers it after {State} tax** — `grossForNet(annual total)`.
-3. **Line by line** — each line with its basis: *HUD Fair Market Rent* · *national
-   average at local prices* · *your figure*.
-4. **Next steps** (the funnel): compare with where you live now → the comparison;
-   what your salary leaves in {State} → that state's paycheck page; can you afford
-   the rent → rent affordability.
-5. The year of every source, and every warning the engine returns.
+**Build it from `docs/base44-cost-of-living-calculator.md`**, which is complete and
+self-contained: data files, the single engine call (`computeCostOfLiving`), inputs
+and defaults (adults and children, not "people"), the result card, the
+"still being checked" note for states not yet verified, analytics without amounts,
+and the acceptance rows. It covers every US county, New England town and
+incorporated city.
 
 The comparison tool leads with `equivalentSalaryAfterTax`: the destination salary
 that buys, after that state's tax, what the current salary buys after the current

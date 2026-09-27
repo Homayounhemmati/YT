@@ -14,7 +14,10 @@ import { estimateWageTakeHome } from "../src/lib/tax/payroll.js";
 import { closingCosts, homeAffordability, housePayment } from "../src/lib/calc/housing.js";
 import { addSalesTax, annualGrossFromHourly, propertyTax, removeSalesTax, salaryToHourly } from "../src/lib/calc/everyday.js";
 import { readFileSync } from "node:fs";
-import { referenceRentFromFmr, rentAffordability, type PlaceCostData } from "../src/lib/col/index.js";
+import {
+  computeCostOfLiving, referenceRentFromFmr, rentAffordability, resolvePlace,
+  type CostOfLivingInput, type PlaceCostData, type PriceAreasFile, type SpendingBaseline, type StatePlacesFile,
+} from "../src/lib/col/index.js";
 
 const YEAR = 2026;
 const federal = loadFederal(YEAR), estimated = loadEstimated(YEAR);
@@ -117,6 +120,58 @@ section(`Rent affordability against HUD FY${fmr.fiscalYear} Fair Market Rent (re
   ["Income", "County", "Bedrooms", "HUD rent", "Share of income", "Burden", "Headroom", "Income needed at 30%"],
   [rr(60000, "48453", 1), rr(60000, "06075", 1), rr(85000, "48201", 2), rr(45000, "48029", 0)]);
 
+// Cost of living: real BEA, HUD, Census, BLS and CPI data (src/data/col, src/data/ces-2024).
+const colAreas: PriceAreasFile = JSON.parse(readFileSync("src/data/col/price-areas.json", "utf8"));
+const colMeta = JSON.parse(readFileSync("src/data/col/meta.json", "utf8"));
+const ces: SpendingBaseline = JSON.parse(readFileSync("src/data/ces-2024/baseline.json", "utf8"));
+const stFile = (st: string): StatePlacesFile => JSON.parse(readFileSync(`src/data/col/places/${st}.json`, "utf8"));
+const colYears = { priceLevels: colMeta.years.priceLevels, rent: colMeta.years.rent };
+type ColCase = { st: string; key: string; county?: string; slug: string; adults: 1 | 2; children: number;
+  extra?: Partial<CostOfLivingInput> };
+const col = (c: ColCase) => computeCostOfLiving({
+  taxYear: YEAR, place: resolvePlace(stFile(c.st), colAreas, c.key, c.county), tax: tax(c.slug),
+  baseline: ces, years: colYears, adults: c.adults, children: c.children, ...(c.extra ?? {}),
+});
+const nonmetroTx = Object.entries(stFile("tx").counties).find(([, v]) => v.priceArea === "48999" && v.population > 50000)![0];
+const colCases: ColCase[] = [
+  { st: "tx", key: "city:Austin, TX", slug: "texas", adults: 1, children: 0 },
+  { st: "tx", key: "city:Houston, TX", slug: "texas", adults: 2, children: 2 },
+  { st: "ny", key: "city:New York, NY", slug: "new-york", adults: 1, children: 0 },
+  { st: "nc", key: "city:Raleigh, NC", county: "37063", slug: "north-carolina", adults: 2, children: 0 },
+  { st: "ma", key: "area:2502507000", slug: "massachusetts", adults: 1, children: 0 },
+  { st: "tx", key: `area:${nonmetroTx}`, slug: "texas", adults: 1, children: 2 },
+  { st: "il", key: "city:Chicago, IL", slug: "illinois", adults: 2, children: 3, extra: { bedrooms: 3 } },
+  { st: "pa", key: "city:Philadelphia, PA", slug: "pennsylvania", adults: 1, children: 0,
+    extra: { rentOverride: 1400, own: { food_home: 350 } } },
+];
+const colRow = (c: ColCase) => {
+  const r = col(c);
+  return [r.place.label + (c.county ? ` (county ${c.county})` : ""), `${c.adults} + ${c.children}`, r.household.bedrooms,
+    r.household.filingStatus, usd(r.lines[0]!.monthly), usd(r.monthlyTotal), usd(r.annualTotal),
+    usd(r.salary.gross), usd(r.salary.breakdown.stateTax + r.salary.breakdown.stateContributions),
+    r.salary.stateDataStatus];
+};
+section(`Cost of living calculator (computeCostOfLiving; BEA ${colYears.priceLevels}, HUD FY${colYears.rent}, BLS CE ${ces.year} in ${ces.priceUpdate?.toMonth} prices)`,
+  ["Place", "Adults + children", "Bedrooms", "Filing", "Rent", "Month", "Year", "Salary needed", "State tax + contrib.", "State data"],
+  colCases.map(colRow));
+rows.push("", "The Philadelphia row uses the visitor's own rent ($1,400) and groceries ($350); every other " +
+  "line is the estimate. Massachusetts is priced by town (Boston). The Raleigh row prices the Durham " +
+  `County part of the city. The Texas county outside any metro (${nonmetroTx}) takes Texas's ` +
+  "nonmetropolitan price level. Massachusetts' figures are not yet verified, so its row must show the " +
+  "'unverified' caveat.");
+const austin = col(colCases[0]!);
+section("Cost of living: every line for one person in Austin, TX",
+  ["Line", "Basis", "Monthly"], austin.lines.map((l) => [l.label, l.basis, usd(l.monthly)]));
+rows.push("", `Total ${usd(austin.monthlyTotal)} a month, ${usd(austin.annualTotal)} a year; salary needed ` +
+  `${usd(austin.salary.gross)} (${usd(austin.salary.hourlyAt2080)} an hour at 2,080 hours), take-home at that ` +
+  `salary ${usd(austin.salary.breakdown.netPay)}.`);
+const cmp = col({ st: "tx", key: "city:Austin, TX", slug: "texas", adults: 1, children: 0,
+  extra: { compare: { place: resolvePlace(stFile("ny"), colAreas, "city:New York, NY"), tax: tax("new-york"), salary: 95000 } } });
+const colCmp = cmp.comparison!;
+section("Cost of living: comparison (one person, from New York, NY on $95,000 to Austin, TX)",
+  ["Month there", "Month here", "Difference", "Equivalent salary after tax", "Price-only equivalent"],
+  [[usd(colCmp.from.monthlyTotal), usd(cmp.monthlyTotal), usd(colCmp.monthlyDifference), usd(colCmp.equivalentSalary), usd(colCmp.priceOnlyEquivalent)]]);
+
 const head = [
   "# Calculator acceptance cases",
   "",
@@ -125,8 +180,8 @@ const head = [
   "> the built calculator. A calculator that differs by more than one cent on any row is wrong,",
   "> and it is the calculator that changes, not this file.",
   "",
-  "Cost-of-living, comparison and living-wage cases are added once the BEA/HUD dataset exists:",
-  "their answers depend on published indices, and fixture indices must never be shown as real.",
+  "Every cost-of-living row uses the real published data in src/data/col and src/data/ces-2024;",
+  "when those files are rebuilt, this table is regenerated and the platform re-checked.",
 ];
 writeFileSync("docs/calculator-acceptance.md", head.join("\n") + "\n" + rows.join("\n") + "\n");
 console.log("wrote docs/calculator-acceptance.md");

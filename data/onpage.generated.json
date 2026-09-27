@@ -884,8 +884,8 @@
       "title": "Cost of Living Calculator (2026)",
       "titleChars": 32,
       "h1": "Cost of Living Calculator",
-      "metaDescription": "See what a month costs your household in any US metro: HUD rent for the bedrooms you need, plus groceries, transport and health care at local prices.",
-      "metaChars": 149,
+      "metaDescription": "What a month costs your household in any US city or county, line by line at local prices, and the salary that covers it after state tax.",
+      "metaChars": 136,
       "canonical": "https://example.com/tools/cost-of-living-calculator",
       "breadcrumb": [
         "Home",
@@ -894,6 +894,9 @@
       ],
       "h2Outline": [
         "How cost of living is calculated",
+        "Your figures replace the estimate",
+        "From a monthly cost to a salary",
+        "Compared with where you live now",
         "What this does not include",
         "Who needs this",
         "Frequently asked questions"
@@ -901,11 +904,11 @@
       "faq": [
         {
           "question": "How is cost of living calculated?",
-          "answer": "Rent comes straight from HUD's Fair Market Rent. Every other line is what households of your size spend nationally, from the BLS Consumer Expenditure Survey, priced at the local price level from BEA Regional Price Parities — the national average is 100, so a metro at 112 is 12% more expensive. Any line can be replaced with your own figure."
+          "answer": "Rent comes straight from HUD's Fair Market Rent for the county or town. Every other line is what households of your size spend nationally, from the BLS Consumer Expenditure Survey, carried to current prices with the Consumer Price Index and priced at the local price level from BEA Regional Price Parities — the national average is 100, so a place at 112 is 12% more expensive. Any line can be replaced with your own figure."
         },
         {
           "question": "What is included in cost of living?",
-          "answer": "Rent and utilities from HUD Fair Market Rent for the bedrooms you need, then groceries, eating out, transportation, health care, clothing, phone and internet, entertainment, personal care and education — national spending for a household of your size, priced at local prices. Income tax is shown separately, because a place's prices and a state's tax are different questions."
+          "answer": "Rent and utilities from HUD Fair Market Rent for the bedrooms you need, then groceries, eating out, car purchase and fuel, car insurance and repairs, public transport, health care and insurance, clothing, phone service, household services, supplies and furniture, entertainment, personal care and education — national spending for a household of your size, at local prices. Savings, debt and child care are left out, because an average says nothing about yours."
         },
         {
           "question": "Is cost of living the same as inflation?",
@@ -913,7 +916,7 @@
         },
         {
           "question": "What salary do I need in this city?",
-          "answer": "That is the reverse calculation, and it depends on household size as much as on the city. The living wage calculator solves for the gross salary a place requires rather than the cost a salary has to cover."
+          "answer": "The calculator answers it directly: it takes the month's total and solves for the gross salary whose take-home, after federal tax, Social Security, Medicare and that state's income tax, covers it exactly. It is a break-even figure, before savings, and it depends on household size as much as on the place."
         }
       ],
       "jsonLd": [
@@ -970,7 +973,7 @@
               "name": "How is cost of living calculated?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Rent comes straight from HUD's Fair Market Rent. Every other line is what households of your size spend nationally, from the BLS Consumer Expenditure Survey, priced at the local price level from BEA Regional Price Parities — the national average is 100, so a metro at 112 is 12% more expensive. Any line can be replaced with your own figure."
+                "text": "Rent comes straight from HUD's Fair Market Rent for the county or town. Every other line is what households of your size spend nationally, from the BLS Consumer Expenditure Survey, carried to current prices with the Consumer Price Index and priced at the local price level from BEA Regional Price Parities — the national average is 100, so a place at 112 is 12% more expensive. Any line can be replaced with your own figure."
               }
             },
             {
@@ -978,7 +981,7 @@
               "name": "What is included in cost of living?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Rent and utilities from HUD Fair Market Rent for the bedrooms you need, then groceries, eating out, transportation, health care, clothing, phone and internet, entertainment, personal care and education — national spending for a household of your size, priced at local prices. Income tax is shown separately, because a place's prices and a state's tax are different questions."
+                "text": "Rent and utilities from HUD Fair Market Rent for the bedrooms you need, then groceries, eating out, car purchase and fuel, car insurance and repairs, public transport, health care and insurance, clothing, phone service, household services, supplies and furniture, entertainment, personal care and education — national spending for a household of your size, at local prices. Savings, debt and child care are left out, because an average says nothing about yours."
               }
             },
             {
@@ -994,7 +997,7 @@
               "name": "What salary do I need in this city?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "That is the reverse calculation, and it depends on household size as much as on the city. The living wage calculator solves for the gross salary a place requires rather than the cost a salary has to cover."
+                "text": "The calculator answers it directly: it takes the month's total and solves for the gross salary whose take-home, after federal tax, Social Security, Medicare and that state's income tax, covers it exactly. It is a break-even figure, before savings, and it depends on household size as much as on the place."
               }
             }
           ]
@@ -1141,9 +1144,10 @@
         "Rent Affordability Calculator"
       ],
       "h2Outline": [
-        "How affordable rent is calculated",
-        "What this does not include",
-        "Who needs this",
+        "Why a percentage on its own decides nothing",
+        "What landlords apply instead",
+        "What the percentage leaves out",
+        "Where this sits in a move",
         "Frequently asked questions"
       ],
       "faq": [
@@ -1288,6 +1292,8 @@
       ],
       "h2Outline": [
         "How a cost of living comparison is calculated",
+        "The case that makes the point",
+        "Two modes",
         "What this does not include",
         "Who needs this",
         "Frequently asked questions"
@@ -1438,6 +1444,7 @@
       ],
       "h2Outline": [
         "How an equivalent salary is calculated",
+        "Why the cost ratio is not the whole answer",
         "What this does not include",
         "Who needs this",
         "Frequently asked questions"
@@ -1584,6 +1591,7 @@
       ],
       "h2Outline": [
         "How an hourly rate from a salary is calculated",
+        "Converting in the other direction",
         "What this does not include",
         "Who needs this",
         "Frequently asked questions"
@@ -1725,9 +1733,10 @@
         "Living Wage Calculator"
       ],
       "h2Outline": [
-        "How a living wage is calculated",
-        "What this does not include",
-        "Who needs this",
+        "A living wage is computed, not legislated",
+        "Why the tax layer cannot be skipped",
+        "Household size changes the answer more than the city does",
+        "What this figure is and is not",
         "Frequently asked questions"
       ],
       "faq": [
@@ -1872,6 +1881,7 @@
       ],
       "h2Outline": [
         "How income tax is calculated",
+        "What a full calculation includes",
         "What this does not include",
         "Who needs this",
         "Frequently asked questions"
@@ -2022,6 +2032,9 @@
       ],
       "h2Outline": [
         "How a paycheck is calculated",
+        "What that becomes on each payday",
+        "From an hourly wage",
+        "Why the state matters more than people assume",
         "What this does not include",
         "Who needs this",
         "Frequently asked questions"
@@ -2208,6 +2221,7 @@
       ],
       "h2Outline": [
         "How sales tax is calculated",
+        "Reverse calculation",
         "What this does not include",
         "Who needs this",
         "Frequently asked questions"
@@ -2350,6 +2364,7 @@
       ],
       "h2Outline": [
         "How property tax is calculated",
+        "Why the effective rate is the number to compare",
         "What this does not include",
         "Who needs this",
         "Frequently asked questions"
@@ -2653,7 +2668,8 @@
         "Closing Cost Calculator"
       ],
       "h2Outline": [
-        "How closing costs is calculated",
+        "How closing costs are calculated",
+        "Why the range is so wide",
         "What this does not include",
         "Who needs this",
         "Frequently asked questions"
@@ -2796,6 +2812,7 @@
       ],
       "h2Outline": [
         "How a house payment is calculated",
+        "Why the interest rate is not the whole story",
         "What this does not include",
         "Who needs this",
         "Frequently asked questions"
@@ -2937,9 +2954,10 @@
         "Home Affordability Calculator"
       ],
       "h2Outline": [
-        "How home affordability is calculated",
-        "What this does not include",
-        "Who needs this",
+        "The 28/36 rule, and where lenders depart from it",
+        "The four components of the payment being tested",
+        "What the ratios do not capture",
+        "Renting against buying",
         "Frequently asked questions"
       ],
       "faq": [
@@ -3098,7 +3116,7 @@
         },
         {
           "question": "What salary do you need to live in Austin?",
-          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Austin's price level — the month comes to about $3,687. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $52,344. A family of four in a two-bedroom needs about $99,389 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
+          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Austin's price level — the month comes to about $3,687. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $52,344. Two adults and two children in a two-bedroom need about $93,913 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
         },
         {
           "question": "Does Texas tax affect what you keep in Austin?",
@@ -3168,7 +3186,7 @@
               "name": "What salary do you need to live in Austin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Austin's price level — the month comes to about $3,687. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $52,344. A family of four in a two-bedroom needs about $99,389 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
+                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Austin's price level — the month comes to about $3,687. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $52,344. Two adults and two children in a two-bedroom need about $93,913 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
               }
             },
             {
@@ -3272,7 +3290,7 @@
         },
         {
           "question": "What salary do you need to live in San Francisco?",
-          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Francisco's price level — the month comes to about $5,385. Covering that after federal tax, Social Security, Medicare and California tax takes a salary of about $84,686. A family of four in a two-bedroom needs about $144,018 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
+          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Francisco's price level — the month comes to about $5,385. Covering that after federal tax, Social Security, Medicare and California tax takes a salary of about $84,686. Two adults and two children in a two-bedroom need about $136,961 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
         },
         {
           "question": "Does California tax affect what you keep in San Francisco?",
@@ -3342,7 +3360,7 @@
               "name": "What salary do you need to live in San Francisco?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Francisco's price level — the month comes to about $5,385. Covering that after federal tax, Social Security, Medicare and California tax takes a salary of about $84,686. A family of four in a two-bedroom needs about $144,018 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
+                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Francisco's price level — the month comes to about $5,385. Covering that after federal tax, Social Security, Medicare and California tax takes a salary of about $84,686. Two adults and two children in a two-bedroom need about $136,961 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
               }
             },
             {
@@ -3446,7 +3464,7 @@
         },
         {
           "question": "What salary do you need to live in San Antonio?",
-          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Antonio's price level — the month comes to about $3,293. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $46,471. A family of four in a two-bedroom needs about $92,748 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
+          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Antonio's price level — the month comes to about $3,293. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $46,471. Two adults and two children in a two-bedroom need about $87,272 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
         },
         {
           "question": "Does Texas tax affect what you keep in San Antonio?",
@@ -3516,7 +3534,7 @@
               "name": "What salary do you need to live in San Antonio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Antonio's price level — the month comes to about $3,293. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $46,471. A family of four in a two-bedroom needs about $92,748 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
+                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Antonio's price level — the month comes to about $3,293. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $46,471. Two adults and two children in a two-bedroom need about $87,272 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
               }
             },
             {
@@ -3620,7 +3638,7 @@
         },
         {
           "question": "What salary do you need to live in Houston?",
-          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Houston's price level — the month comes to about $3,505. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $49,626. A family of four in a two-bedroom needs about $97,503 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
+          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Houston's price level — the month comes to about $3,505. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $49,626. Two adults and two children in a two-bedroom need about $92,026 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
         },
         {
           "question": "Does Texas tax affect what you keep in Houston?",
@@ -3690,7 +3708,7 @@
               "name": "What salary do you need to live in Houston?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Houston's price level — the month comes to about $3,505. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $49,626. A family of four in a two-bedroom needs about $97,503 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
+                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Houston's price level — the month comes to about $3,505. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $49,626. Two adults and two children in a two-bedroom need about $92,026 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
               }
             },
             {
@@ -5177,10 +5195,12 @@
         "Florida"
       ],
       "h2Outline": [
-        "What comes out of a Florida paycheck",
-        "Why there is no Florida tax line",
-        "Local tax in Florida",
-        "Is Florida actually cheaper?",
+        "The numbers on a $95,000 salary",
+        "Why the zero is durable",
+        "Moving to Florida from a taxed state",
+        "Tipped and hourly work",
+        "If you are self-employed",
+        "What the $95,000 example assumes",
         "Frequently asked questions"
       ],
       "faq": [
@@ -5352,10 +5372,13 @@
         "Georgia"
       ],
       "h2Outline": [
-        "How a Georgia paycheck is calculated",
-        "The Georgia flat rate",
-        "Local tax in Georgia",
-        "Georgia take-home by pay frequency",
+        "$95,000 in Georgia",
+        "The standard deduction does the heavy lifting",
+        "Future cuts are conditional",
+        "Atlanta and the suburbs",
+        "Across the state line",
+        "Dependents",
+        "The Georgia withholding form",
         "Frequently asked questions"
       ],
       "faq": [
@@ -5877,10 +5900,13 @@
         "Illinois"
       ],
       "h2Outline": [
-        "How a Illinois paycheck is calculated",
-        "The Illinois flat rate",
-        "Local tax in Illinois",
-        "Illinois take-home by pay frequency",
+        "$95,000 in Illinois",
+        "Where the exemption stops",
+        "Why Chicago paychecks look like everyone else's",
+        "401(k) and other deductions",
+        "Form IL-W-4",
+        "Salaried against hourly",
+        "Self-employed",
         "Frequently asked questions"
       ],
       "faq": [
@@ -7102,10 +7128,13 @@
         "Maryland"
       ],
       "h2Outline": [
-        "How a Maryland paycheck is calculated",
-        "Maryland income tax brackets",
-        "Local tax in Maryland",
-        "Maryland take-home by pay frequency",
+        "The state layer on $95,000",
+        "The exemption shrinks as income rises",
+        "County tax",
+        "How the county share is withheld",
+        "Form MW507",
+        "Hourly pay and overtime",
+        "Self-employed",
         "Frequently asked questions"
       ],
       "faq": [
@@ -9202,10 +9231,12 @@
         "New York"
       ],
       "h2Outline": [
-        "How a New York paycheck is calculated",
-        "New York income tax brackets",
-        "Local tax in New York",
-        "New York take-home by pay frequency",
+        "A $95,000 salary in New York",
+        "Above $107,650: the supplemental tax",
+        "Per paycheck",
+        "New York City",
+        "When pre-tax deductions help more here",
+        "Self-employed",
         "Frequently asked questions"
       ],
       "faq": [
@@ -9377,10 +9408,13 @@
         "North Carolina"
       ],
       "h2Outline": [
-        "How a North Carolina paycheck is calculated",
-        "The North Carolina flat rate",
-        "Local tax in North Carolina",
-        "North Carolina take-home by pay frequency",
+        "$95,000 in North Carolina",
+        "Why the standard deduction matters more than the rate",
+        "A rate that keeps changing",
+        "Hourly and overtime pay",
+        "Deductions taken through payroll",
+        "Married filing separately",
+        "Form NC-4",
         "Frequently asked questions"
       ],
       "faq": [
@@ -10252,10 +10286,14 @@
         "Pennsylvania"
       ],
       "h2Outline": [
-        "How a Pennsylvania paycheck is calculated",
-        "The Pennsylvania flat rate",
-        "Local tax in Pennsylvania",
-        "Pennsylvania take-home by pay frequency",
+        "$95,000 in Pennsylvania",
+        "The 401(k) difference",
+        "Local earned income tax",
+        "Why a flat rate still is not the whole story",
+        "No state withholding form",
+        "Health cover is treated differently from the 401(k)",
+        "Tax forgiveness",
+        "Not included",
         "Frequently asked questions"
       ],
       "faq": [
@@ -11127,10 +11165,12 @@
         "Texas"
       ],
       "h2Outline": [
-        "What comes out of a Texas paycheck",
-        "Why there is no Texas tax line",
-        "Local tax in Texas",
-        "Is Texas actually cheaper?",
+        "What a $95,000 salary leaves in Texas",
+        "Per check",
+        "Where the missing state tax shows up instead",
+        "Hourly workers",
+        "Self-employed in Texas",
+        "What the $95,000 example assumes",
         "Frequently asked questions"
       ],
       "faq": [

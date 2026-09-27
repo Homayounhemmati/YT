@@ -60,7 +60,7 @@ describe("places", () => {
 describe("computeCostOfLiving: one person in Austin", () => {
   const r = computeCostOfLiving({
     taxYear: YEAR, place: place("tx", "city:Austin, TX"), tax: tax("texas"), baseline, years,
-    householdSize: 1,
+    adults: 1, children: 0,
   });
   it("uses one bedroom and single filing by default", () => {
     expect(r.household).toMatchObject({ bedrooms: 1, suggestedBedrooms: 1, filingStatus: "single" });
@@ -92,22 +92,40 @@ describe("computeCostOfLiving: one person in Austin", () => {
 });
 
 describe("computeCostOfLiving: households, own figures, other states", () => {
-  it("a family of four defaults to two bedrooms and joint filing", () => {
+  it("two adults and two children default to two bedrooms and joint filing", () => {
     const r = computeCostOfLiving({
       taxYear: YEAR, place: place("tx", "city:Houston, TX"), tax: tax("texas"), baseline, years,
-      householdSize: 4,
+      adults: 2, children: 2,
     });
     expect(r.household).toMatchObject({ bedrooms: 2, filingStatus: "marriedJointly" });
     expect(r.lines[0]!.monthly).toBe(1573);
   });
+  it("one adult with children files as head of household and gets the child tax credit", () => {
+    const base = { taxYear: YEAR, place: place("tx", "city:Austin, TX"), tax: tax("texas"), baseline, years };
+    const parent = computeCostOfLiving({ ...base, adults: 1, children: 2 });
+    expect(parent.household).toMatchObject({ size: 3, bedrooms: 2, filingStatus: "headOfHousehold" });
+    // Same month, priced without the credit, needs a higher salary.
+    const noCredit = computeCostOfLiving({ ...base, adults: 1, children: 2, filingStatus: "single" });
+    expect(parent.salary.gross).toBeLessThan(noCredit.salary.gross);
+    expect(parent.warnings.join(" ")).toMatch(/child tax credit for 2 children/);
+  });
+  it("households above five use the five-or-more spending averages and say so", () => {
+    const r = computeCostOfLiving({
+      taxYear: YEAR, place: place("tx", "city:Austin, TX"), tax: tax("texas"), baseline, years,
+      adults: 2, children: 5,
+    });
+    expect(r.household.size).toBe(5);
+    expect(r.household.bedrooms).toBe(4);
+    expect(r.warnings.join(" ")).toMatch(/five or more/);
+  });
   it("an own figure replaces its line and moves the total by the difference", () => {
     const base = computeCostOfLiving({
       taxYear: YEAR, place: place("tx", "city:Austin, TX"), tax: tax("texas"), baseline, years,
-      householdSize: 1,
+      adults: 1, children: 0,
     });
     const own = computeCostOfLiving({
       taxYear: YEAR, place: place("tx", "city:Austin, TX"), tax: tax("texas"), baseline, years,
-      householdSize: 1, own: { food_home: 400 }, rentOverride: 1400,
+      adults: 1, children: 0, own: { food_home: 400 }, rentOverride: 1400,
     });
     const g = base.lines.find((l) => l.key === "food_home")!.monthly;
     expect(own.lines.find((l) => l.key === "food_home")).toMatchObject({ monthly: 400, basis: "your figure" });
@@ -117,7 +135,7 @@ describe("computeCostOfLiving: households, own figures, other states", () => {
   it("New York's salary includes its supplemental tax rules and payroll contributions", () => {
     const r = computeCostOfLiving({
       taxYear: YEAR, place: place("ny", "city:New York, NY"), tax: tax("new-york"), baseline, years,
-      householdSize: 1,
+      adults: 1, children: 0,
     });
     expect(r.salary.stateDataStatus).toBe("verified");
     expect(r.salary.breakdown.stateContributions).toBeGreaterThan(0);
@@ -126,7 +144,7 @@ describe("computeCostOfLiving: households, own figures, other states", () => {
   it("a state not yet verified is flagged, with the reasons", () => {
     const r = computeCostOfLiving({
       taxYear: YEAR, place: place("ca", "city:San Francisco, CA"), tax: tax("california"), baseline, years,
-      householdSize: 1,
+      adults: 1, children: 0,
     });
     expect(r.salary.stateDataStatus).toBe("unverified");
     expect(r.salary.notes.join(" ")).toMatch(/2025|payroll contributions/);
@@ -134,7 +152,7 @@ describe("computeCostOfLiving: households, own figures, other states", () => {
   it("compares with where you live now, after tax and on prices alone", () => {
     const r = computeCostOfLiving({
       taxYear: YEAR, place: place("tx", "city:Austin, TX"), tax: tax("texas"), baseline, years,
-      householdSize: 1,
+      adults: 1, children: 0,
       compare: { place: place("ny", "city:New York, NY"), tax: tax("new-york"), salary: 95_000 },
     });
     const c = r.comparison!;

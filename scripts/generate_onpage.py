@@ -16,6 +16,7 @@ Metro pages appear once the cost-of-living dataset exists (section 13-6).
 import collections
 from decimal import ROUND_HALF_UP, Decimal
 import json
+import re
 import pathlib
 import sys
 
@@ -359,8 +360,9 @@ def salary_sentence(fig, display, state, no_tax=False):
             f"care and other everyday categories — priced at {display}'s price level — the "
             f"month comes to about {money(s['monthlyTotal'])}. Covering that after "
             f"{layer} takes a salary of about "
-            f"{money(s['grossSalary'])}. A family of four in a two-bedroom needs about "
-            f"{money(f['grossSalary'])} (married filing jointly). Both are break-even "
+            f"{money(s['grossSalary'])}. Two adults and two children in a two-bedroom need about "
+            f"{money(f['grossSalary'])} on one income filing jointly, after the child tax "
+            f"credit. Both are break-even "
             f"figures with no savings; the cost of living calculator replaces any line "
             f"with your own.")
 
@@ -711,6 +713,18 @@ def main():
         "gate": {"statesBuilt": len(built_states), "statesTotal": len(states),
                  "metrosBuilt": len(built_metros), "metrosTotal": len(metros)},
     }
+
+    # The written body is what renders, so a page with body copy takes its H2
+    # outline from that copy; the template outline is only the plan for pages not
+    # yet written. (They had drifted apart on 22 pages.)
+    for e in entries:
+        p = e["path"]
+        stem = "home" if p == "/" else p.strip("/").replace("/", "__")
+        body_file = ROOT / "content/bodies" / f"{stem}.md"
+        if body_file.exists():
+            heads = re.findall(r"^## (.+?)\s*$", body_file.read_text(), re.M)
+            if heads:
+                e["h2Outline"] = heads + (["Frequently asked questions"] if e.get("faq") else [])
 
     titles = {}
     for e in entries:

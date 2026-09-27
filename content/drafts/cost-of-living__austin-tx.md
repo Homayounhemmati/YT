@@ -70,7 +70,8 @@ tax loses a few thousand dollars a year before rent is paid.
 
 That is also why the salary Austin takes is modest. Covering the one-person month
 above after federal tax and FICA takes a gross salary of about $52,344. The family of
-four needs about $99,389, filing jointly. Both are break-even figures: they cover the
+four — two adults, two children — needs about $93,913 on one income filing jointly,
+after the child tax credit. Both are break-even figures: they cover the
 categories listed and leave nothing for savings.
 
 ## Who Austin suits

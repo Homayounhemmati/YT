@@ -119,3 +119,51 @@ describe("state employee payroll contributions, 2026", () => {
     expect(pay("texas", 95_000).stateContributionsTotal).toBe(0);
   });
 });
+
+describe("children: the federal child tax credit and state allowances, 2026", () => {
+  const federal = loadFederal(YEAR);
+  const estimated = loadEstimated(YEAR);
+  const pay = (slug: string, wages: number, status: "single" | "marriedJointly" | "headOfHousehold", kids: number) =>
+    estimateWageTakeHome({ taxYear: YEAR, filingStatus: status, annualWages: wages, qualifyingChildren: kids },
+      { federal, estimated, state: loadState(YEAR, slug) });
+
+  it("credit of $2,200 a child against federal tax (joint, $95,000, two children)", () => {
+    // taxable 95,000 - 32,200 = 62,800: 24,800 x 10% + 38,000 x 12% = 7,040; less 4,400
+    expect(pay("texas", 95_000, "marriedJointly", 2).federalTax).toBe(2_640);
+  });
+  it("refundable up to $1,700 a child when there is no tax to offset", () => {
+    // $30,000 joint: taxable 0, so the whole 4,400 is unused;
+    // refundable = min(4,400, 2 x 1,700, 15% x (30,000 - 2,500) = 4,125) = 3,400
+    expect(pay("texas", 30_000, "marriedJointly", 2).federalTax).toBe(-3_400);
+  });
+  it("phases out by $50 per $1,000 (or part) above $200,000 for a head of household", () => {
+    // AGI 210,500: 10,500 over, 11 steps, 550 off a 2,200 credit
+    const withKid = pay("texas", 210_500, "headOfHousehold", 1).federalTax;
+    const without = pay("texas", 210_500, "headOfHousehold", 0).federalTax;
+    expect(without - withKid).toBe(1_650);
+  });
+  it("Illinois: dependents at the $2,925 exemption", () => {
+    // (95,000 - 5,850 - 2 x 2,925) x 4.95% = 4,123.35
+    expect(pay("illinois", 95_000, "marriedJointly", 2).stateTax).toBe(4_123.35);
+  });
+  it("North Carolina: $1,500 a child between $80,000 and $100,000 of joint AGI", () => {
+    // (95,000 - 25,500 - 3,000) x 3.99% = 2,653.35
+    expect(pay("north-carolina", 95_000, "marriedJointly", 2).stateTax).toBe(2_653.35);
+  });
+  it("Georgia: $5,000 a dependent", () => {
+    // (95,000 - 30,000 - 10,000) x 4.99% = 2,744.50
+    expect(pay("georgia", 95_000, "marriedJointly", 2).stateTax).toBe(2_744.5);
+  });
+  it("New York: $1,000 a dependent", () => {
+    // taxable 95,000 - 16,050 - 2,000 = 76,950
+    // 668.85 + 283.80 + 221.45 + 5.4% x 49,050 (2,648.70) = 3,822.80
+    expect(pay("new-york", 95_000, "marriedJointly", 2).stateTax).toBe(3_822.8);
+  });
+  it("Maryland: two personal exemptions on a joint return, plus $3,200 a dependent", () => {
+    // 95,000 - 6,850 - 6,400 - 6,400 = 75,350; 20 + 30 + 40 + 4.75% x 72,350 = 3,526.63
+    expect(pay("maryland", 95_000, "marriedJointly", 2).stateTax).toBe(3_526.63);
+  });
+  it("Pennsylvania allows nothing for dependents", () => {
+    expect(pay("pennsylvania", 95_000, "marriedJointly", 2).stateTax).toBe(2_916.5);
+  });
+});

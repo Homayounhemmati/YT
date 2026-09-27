@@ -5,8 +5,8 @@
 > the built calculator. A calculator that differs by more than one cent on any row is wrong,
 > and it is the calculator that changes, not this file.
 
-Cost-of-living, comparison and living-wage cases are added once the BEA/HUD dataset exists:
-their answers depend on published indices, and fixture indices must never be shown as real.
+Every cost-of-living row uses the real published data in src/data/col and src/data/ces-2024;
+when those files are rebuilt, this table is regenerated and the platform re-checked.
 
 ## Paycheck / take-home pay (single filer, 2026)
 
@@ -95,3 +95,46 @@ State contributions: New York Paid Family Leave 0.432% of gross wages (maximum $
 | $60,000.00 | San Francisco County, CA | 1 | $2,977.00 | 59.5% | severely cost burdened | -$1,477.00 | $119,080.00 |
 | $85,000.00 | Harris County, TX | 2 | $1,573.00 | 22.2% | not burdened | $552.00 | $62,920.00 |
 | $45,000.00 | Bexar County, TX | 0 | $1,077.00 | 28.7% | not burdened | $48.00 | $43,080.00 |
+
+## Cost of living calculator (computeCostOfLiving; BEA 2024, HUD FY2026, BLS CE 2024 in 2026-08 prices)
+
+| Place | Adults + children | Bedrooms | Filing | Rent | Month | Year | Salary needed | State tax + contrib. | State data |
+|---|---|---|---|---|---|---|---|---|---|
+| Austin, TX | 1 + 0 | 1 | single | $1,562.00 | $3,686.56 | $44,238.72 | $52,344.39 | $0.00 | verified |
+| Houston, TX | 2 + 2 | 2 | marriedJointly | $1,573.00 | $6,891.94 | $82,703.28 | $92,026.48 | $0.00 | verified |
+| New York, NY | 1 + 0 | 1 | single | $2,655.00 | $5,068.03 | $60,816.36 | $79,699.55 | $4,082.28 | verified |
+| Raleigh, NC (county 37063) | 2 + 0 | 1 | marriedJointly | $1,507.00 | $5,473.66 | $65,683.92 | $78,976.51 | $2,133.71 | verified |
+| Boston, MA | 1 + 0 | 1 | single | $2,476.00 | $4,758.14 | $57,097.68 | $73,860.26 | $3,693.01 | unverified |
+| Anderson County, TX | 1 + 2 | 2 | headOfHousehold | $1,117.00 | $5,463.98 | $65,567.76 | $72,079.35 | $0.00 | verified |
+| Chicago, IL | 2 + 3 | 3 | marriedJointly | $2,294.00 | $7,884.18 | $94,610.16 | $109,981.74 | $4,720.16 | verified |
+| Philadelphia, PA | 1 + 0 | 1 | single | $1,400.00 | $3,699.18 | $44,390.16 | $54,669.29 | $1,716.62 | verified |
+
+The Philadelphia row uses the visitor's own rent ($1,400) and groceries ($350); every other line is the estimate. Massachusetts is priced by town (Boston). The Raleigh row prices the Durham County part of the city. The Texas county outside any metro (48001) takes Texas's nonmetropolitan price level. Massachusetts' figures are not yet verified, so its row must show the 'unverified' caveat.
+
+## Cost of living: every line for one person in Austin, TX
+
+| Line | Basis | Monthly |
+|---|---|---|
+| Rent and utilities | HUD Fair Market Rent | $1,562.00 |
+| Groceries | national average at local prices | $278.20 |
+| Eating out | national average at local prices | $194.62 |
+| Car purchase and fuel | national average at local prices | $320.71 |
+| Car insurance, repairs and fees | national average at local prices | $204.51 |
+| Public transport and fares | national average at local prices | $65.89 |
+| Health care and insurance | national average at local prices | $339.58 |
+| Clothing | national average at local prices | $90.44 |
+| Phone service | national average at local prices | $69.26 |
+| Household services | national average at local prices | $86.08 |
+| Household supplies | national average at local prices | $40.90 |
+| Furniture and household items | national average at local prices | $121.61 |
+| Entertainment | national average at local prices | $187.82 |
+| Personal care | national average at local prices | $54.41 |
+| Education | national average at local prices | $70.53 |
+
+Total $3,686.56 a month, $44,238.72 a year; salary needed $52,344.39 ($25.17 an hour at 2,080 hours), take-home at that salary $44,238.72.
+
+## Cost of living: comparison (one person, from New York, NY on $95,000 to Austin, TX)
+
+| Month there | Month here | Difference | Equivalent salary after tax | Price-only equivalent |
+|---|---|---|---|---|
+| $5,068.03 | $3,686.56 | -$1,381.47 | $74,948.59 | $82,764.94 |

@@ -282,23 +282,6 @@
           }
         ]
       },
-      "marriedJointly": {
-        "amount": 3200,
-        "agiSchedule": [
-          {
-            "overAgi": 150000,
-            "amount": 1600
-          },
-          {
-            "overAgi": 175000,
-            "amount": 800
-          },
-          {
-            "overAgi": 200000,
-            "amount": 0
-          }
-        ]
-      },
       "marriedSeparately": {
         "amount": 3200,
         "agiSchedule": [
@@ -312,6 +295,23 @@
           },
           {
             "overAgi": 150000,
+            "amount": 0
+          }
+        ]
+      },
+      "marriedJointly": {
+        "amount": 6400,
+        "agiSchedule": [
+          {
+            "overAgi": 150000,
+            "amount": 3200
+          },
+          {
+            "overAgi": 175000,
+            "amount": 1600
+          },
+          {
+            "overAgi": 200000,
             "amount": 0
           }
         ]
@@ -369,6 +369,79 @@
       "standardDeduction.marriedJointly",
       "standardDeduction.headOfHousehold"
     ],
-    "correction": "The extracted amounts ($3,350/$6,700) were 2025's. $3,400 is published by the Comptroller. The Comptroller has not yet published the joint/head-of-household figure; $6,850 is section 10-217(c) applied to BLS data (C-CPI-U 177.206 / 173.016 = +2.42%; $6,700 x 2.42% = $162 -> rounded down to $150), and the same formula reproduces the published $3,400 ($81 -> $50). Recheck against the 2026 resident booklet when it is released."
+    "correction": "The extracted amounts ($3,350/$6,700) were 2025's. $3,400 is published by the Comptroller. The Comptroller has not yet published the joint/head-of-household figure; $6,850 is section 10-217(c) applied to BLS data (C-CPI-U 177.206 / 173.016 = +2.42%; $6,700 x 2.42% = $162 -> rounded down to $150), and the same formula reproduces the published $3,400 ($81 -> $50). Recheck against the 2026 resident booklet when it is released. Adds dependents at the same $3,200 exemption value. A joint return claims two personal exemptions (MW507: 'Multiply the number of your personal exemptions by the value of each exemption'); the extracted data gave a married couple one."
+  },
+  "dependentAllowance": {
+    "byStatus": {
+      "single": {
+        "amount": 3200,
+        "agiSchedule": [
+          {
+            "overAgi": 100000,
+            "amount": 1600
+          },
+          {
+            "overAgi": 125000,
+            "amount": 800
+          },
+          {
+            "overAgi": 150000,
+            "amount": 0
+          }
+        ]
+      },
+      "marriedSeparately": {
+        "amount": 3200,
+        "agiSchedule": [
+          {
+            "overAgi": 100000,
+            "amount": 1600
+          },
+          {
+            "overAgi": 125000,
+            "amount": 800
+          },
+          {
+            "overAgi": 150000,
+            "amount": 0
+          }
+        ]
+      },
+      "marriedJointly": {
+        "amount": 3200,
+        "agiSchedule": [
+          {
+            "overAgi": 150000,
+            "amount": 1600
+          },
+          {
+            "overAgi": 175000,
+            "amount": 800
+          },
+          {
+            "overAgi": 200000,
+            "amount": 0
+          }
+        ]
+      },
+      "headOfHousehold": {
+        "amount": 3200,
+        "agiSchedule": [
+          {
+            "overAgi": 150000,
+            "amount": 1600
+          },
+          {
+            "overAgi": 175000,
+            "amount": 800
+          },
+          {
+            "overAgi": 200000,
+            "amount": 0
+          }
+        ]
+      }
+    },
+    "source": "Form MW507 (2026): each exemption, dependents included, is worth $3,200 and steps down with federal AGI"
   }
 }

@@ -63,6 +63,15 @@ def validate_places(errors, warnings):
             if city["label"] in labels:
                 errors.append(f"{f.name}: duplicate label {city['label']}")
             labels.add(city["label"])
+    # Every search-index entry must resolve to a place in its state file.
+    idx = json.loads((base / "search-index.json").read_text())["entries"]
+    docs = {f.stem.upper(): json.loads(f.read_text()) for f in files}
+    for label, st, key, _pop in idx:
+        doc = docs.get(st)
+        ok = doc and ((key.startswith("area:") and key[5:] in doc["counties"]) or
+                      (key.startswith("city:") and any(c["label"] == key[5:] for c in doc["cities"])))
+        if not ok:
+            errors.append(f"search-index: {label} ({key}) does not resolve in {st}")
     # The metro pages and the calculator must never disagree about a metro.
     for p in (ROOT / "src/data").glob("cost-of-living-*/us/*.json"):
         rec = json.loads(p.read_text())

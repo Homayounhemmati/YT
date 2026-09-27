@@ -339,6 +339,22 @@ def main():
                "cities": cities}
         (OUT / "places" / f"{st.lower()}.json").write_text(
             json.dumps(doc, separators=(",", ":"), ensure_ascii=False) + "\n")
+    # One small national index so a visitor can type "Austin" without choosing a
+    # state first. Every county and town, and every city of 2,500 people or more;
+    # smaller cities are found after the state is chosen. [label, state, key, pop]
+    index = []
+    for st in places:
+        doc = json.loads((OUT / "places" / f"{st.lower()}.json").read_text())
+        for cid, c in doc["counties"].items():
+            index.append([c["label"], st, f"area:{cid}", c["population"]])
+        for c in doc["cities"]:
+            if c["population"] >= 2500:
+                index.append([c["label"], st, f"city:{c['label']}", c["population"]])
+    index.sort(key=lambda e: (-e[3], e[0]))
+    (OUT / "search-index.json").write_text(json.dumps(
+        {"fields": ["label", "state", "key", "population"], "entries": index},
+        separators=(",", ":"), ensure_ascii=False) + "\n")
+
     (OUT / "price-areas.json").write_text(json.dumps(
         {"year": int(RPP_YEAR), "base": "United States = 100", "areas": areas},
         indent=1, ensure_ascii=False) + "\n")

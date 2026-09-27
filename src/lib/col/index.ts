@@ -391,11 +391,11 @@ export function livingWage(input: LivingWageInput): LivingWage {
 // Shared: solve for the gross salary that yields a given net
 // ---------------------------------------------------------------------------
 
-function netPayFn(taxYear: number, filingStatus: FilingStatus, tax: EngineData) {
+function netPayFn(taxYear: number, filingStatus: FilingStatus, tax: EngineData, children = 0) {
   return (grossCents: Cents): Cents =>
     toCents(
       estimateWageTakeHome(
-        { taxYear, filingStatus, annualWages: toDollars(grossCents) },
+        { taxYear, filingStatus, annualWages: toDollars(grossCents), qualifyingChildren: children },
         tax,
       ).netPay,
     );
@@ -437,14 +437,15 @@ export interface EquivalentAfterTax {
 }
 
 export function equivalentSalaryAfterTax(
-  input: { taxYear: number; filingStatus: FilingStatus; salary: number },
+  input: { taxYear: number; filingStatus: FilingStatus; salary: number; qualifyingChildren?: number },
   origin: PlaceTax,
   destination: PlaceTax,
 ): EquivalentAfterTax {
   assertComparable(origin.place, destination.place);
-  const oNet = netPayFn(input.taxYear, input.filingStatus, origin.tax)(toCents(input.salary));
+  const kids = input.qualifyingChildren ?? 0;
+  const oNet = netPayFn(input.taxYear, input.filingStatus, origin.tax, kids)(toCents(input.salary));
   const target = scale(oNet, destination.place.indices.allItems, origin.place.indices.allItems);
-  const gross = grossForNet(target, netPayFn(input.taxYear, input.filingStatus, destination.tax));
+  const gross = grossForNet(target, netPayFn(input.taxYear, input.filingStatus, destination.tax, kids));
   const priceOnly = toCents(equivalentSalary(input.salary, origin.place, destination.place));
   return {
     originNetPay: toDollars(oNet),

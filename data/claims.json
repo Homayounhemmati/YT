@@ -821,6 +821,31 @@
       "means": "$25 x 40 x 52; overtime 5 h x $37.50 x 52",
       "reference": "arithmetic; everyday.ts hourlyToSalary",
       "status": "verified"
+    },
+    {
+      "id": "ctc-under-17",
+      "scope": "cost-of-living-calculator",
+      "tokens": [
+        "17"
+      ],
+      "basis": "statute",
+      "means": "The child tax credit applies to children under 17 at the end of the year",
+      "reference": "26 U.S.C. 24(c)(1): a qualifying child 'who has not attained age 17'",
+      "status": "verified",
+      "check": [
+        {
+          "url": "https://www.law.cornell.edu/uscode/text/26/24",
+          "phrases": [
+            "who has not attained age 17"
+          ]
+        }
+      ],
+      "confirmed": {
+        "date": "2026-09-27",
+        "sources": [
+          "https://www.law.cornell.edu/uscode/text/26/24"
+        ]
+      }
     }
   ]
 }

@@ -51,10 +51,13 @@ export interface CostOfLivingInput {
   baseline: SpendingBaseline;
   /** Price-level year (BEA) and rent year (HUD), shown with the result. */
   years: { priceLevels: number; rent: number };
-  householdSize: HouseholdSize;
-  /** Defaults to suggestedBedrooms(householdSize). */
+  /** Adults in the household: 1 or 2. */
+  adults: 1 | 2;
+  /** Children under 17 (they qualify for the child tax credit). */
+  children: number;
+  /** Defaults to suggestedBedrooms(adults + children). */
   bedrooms?: Bedrooms;
-  /** Defaults to single for one person, married filing jointly otherwise. */
+  /** Defaults: two adults file jointly; one adult with children as head of household; otherwise single. */
   filingStatus?: FilingStatus;
   /** The visitor's own monthly figures, by line key; each replaces that line. */
   own?: Record<string, number>;
@@ -87,6 +90,9 @@ export interface SalaryNeeded {
 export interface CostOfLivingResult {
   place: { id: string; label: string; state: string; priceAreaName: string; fmrArea: string };
   household: {
+    adults: 1 | 2;
+    children: number;
+    /** Size used for spending averages: BLS publishes one to "five or more". */
     size: HouseholdSize;
     bedrooms: Bedrooms;
     suggestedBedrooms: Bedrooms;
@@ -163,21 +169,24 @@ export function stateDataStatus(tax: EngineData): { status: StateDataStatus; not
   return { status: notes.length ? "unverified" : "verified", notes };
 }
 
-function netPayAt(taxYear: number, filingStatus: FilingStatus, tax: EngineData) {
+function netPayAt(taxYear: number, filingStatus: FilingStatus, tax: EngineData, children = 0) {
   return (grossCents: number) =>
     toCents(estimateWageTakeHome(
-      { taxYear, filingStatus, annualWages: toDollars(grossCents) }, tax).netPay);
+      { taxYear, filingStatus, annualWages: toDollars(grossCents), qualifyingChildren: children }, tax).netPay);
 }
 
 export function computeCostOfLiving(input: CostOfLivingInput): CostOfLivingResult {
-  const suggested = suggestedBedrooms(input.householdSize);
+  const children = Math.max(0, Math.floor(input.children));
+  const people = input.adults + children;
+  const size = Math.min(5, people) as HouseholdSize;
+  const suggested = suggestedBedrooms(people);
   const bedrooms = input.bedrooms ?? suggested;
-  const filingStatus: FilingStatus =
-    input.filingStatus ?? (input.householdSize === 1 ? "single" : "marriedJointly");
+  const filingStatus: FilingStatus = input.filingStatus ??
+    (input.adults === 2 ? "marriedJointly" : children > 0 ? "headOfHousehold" : "single");
   const place = toPlaceCostData(input.place, input.years.priceLevels);
 
   const cost = cityMonthlyCost({
-    place, householdSize: input.householdSize, bedrooms, baseline: input.baseline,
+    place, householdSize: size, bedrooms, baseline: input.baseline,
     ...(input.own ? { own: input.own } : {}),
     ...(input.rentOverride != null ? { rentOverride: input.rentOverride } : {}),
   });
@@ -185,9 +194,10 @@ export function computeCostOfLiving(input: CostOfLivingInput): CostOfLivingResul
 
   // The salary: the smallest gross whose take-home covers the year.
   const requiredNet = toCents(cost.annualTotal);
-  const grossCents = grossForNet(requiredNet, netPayAt(input.taxYear, filingStatus, input.tax));
+  const grossCents = grossForNet(requiredNet, netPayAt(input.taxYear, filingStatus, input.tax, children));
   const wage = estimateWageTakeHome(
-    { taxYear: input.taxYear, filingStatus, annualWages: toDollars(grossCents) }, input.tax);
+    { taxYear: input.taxYear, filingStatus, annualWages: toDollars(grossCents), qualifyingChildren: children },
+    input.tax);
   const status = stateDataStatus(input.tax);
   const stateNotes = [...status.notes];
   if (input.tax.state?.localTaxNote) stateNotes.push(input.tax.state.localTaxNote);
@@ -212,8 +222,16 @@ export function computeCostOfLiving(input: CostOfLivingInput): CostOfLivingResul
     "The salary is a break-even figure: it covers the lines above and nothing else — " +
       "no savings, debt repayment, child care or retirement contributions.",
   );
-  if (input.householdSize > 1 && filingStatus === "marriedJointly") {
+  if (input.adults === 2 && filingStatus === "marriedJointly") {
     warnings.push("The salary assumes one earner filing jointly; two earners pay slightly different tax.");
+  }
+  if (children > 0) {
+    warnings.push(`The salary applies the federal child tax credit for ${children} ` +
+      `${children === 1 ? "child" : "children"} under 17` +
+      (input.tax.state?.dependentAllowance ? ` and ${input.tax.state.name}'s allowance for dependents.` : "."));
+  }
+  if (people > 5) {
+    warnings.push("Spending averages are for households of five or more; a larger household spends more.");
   }
 
   const ownKeys = Object.keys(input.own ?? {});
@@ -223,10 +241,10 @@ export function computeCostOfLiving(input: CostOfLivingInput): CostOfLivingResul
   if (input.compare) {
     const from = toPlaceCostData(input.compare.place, input.years.priceLevels);
     const there = cityMonthlyCost({
-      place: from, householdSize: input.householdSize, bedrooms, baseline: input.baseline,
+      place: from, householdSize: size, bedrooms, baseline: input.baseline,
     });
     const eq = equivalentSalaryAfterTax(
-      { taxYear: input.taxYear, filingStatus, salary: input.compare.salary },
+      { taxYear: input.taxYear, filingStatus, salary: input.compare.salary, qualifyingChildren: children },
       { place: from, tax: input.compare.tax },
       { place, tax: input.tax },
     );
@@ -251,7 +269,7 @@ export function computeCostOfLiving(input: CostOfLivingInput): CostOfLivingResul
       id: input.place.id, label: input.place.label, state: input.place.state,
       priceAreaName: input.place.priceArea.name, fmrArea: input.place.fmrArea,
     },
-    household: { size: input.householdSize, bedrooms, suggestedBedrooms: suggested, filingStatus },
+    household: { adults: input.adults, children, size, bedrooms, suggestedBedrooms: suggested, filingStatus },
     lines: cost.rows,
     monthlyTotal: cost.monthlyTotal,
     annualTotal: cost.annualTotal,

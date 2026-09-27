@@ -1,6 +1,6 @@
 import { applyBrackets, marginalRate } from "./brackets.js";
 import { computeEstimatedPayments } from "./estimated.js";
-import { atLeastZero, toCents, toDollars } from "./money.js";
+import { atLeastZero, toCents, toDollars, percentOf } from "./money.js";
 import { computeQbiDeduction } from "./qbi.js";
 import { computeSelfEmploymentTax } from "./selfEmployment.js";
 import { computeStateTax } from "./state.js";
@@ -112,16 +112,49 @@ export function estimateTax(input: TaxInput, data: EngineData): TaxResult {
   );
   const federalMarginal = marginalRate(taxableIncome, federalRows);
 
+  // 10b. Child tax credit (26 U.S.C. 24). Nonrefundable up to the tax; the rest of
+  // the children's part is refundable up to the per-child limit and 15% of earned
+  // income above the threshold. (The alternative refundable formula for three or
+  // more children — FICA paid less the earned income credit — is smaller than the
+  // 15% formula at any wage above a few thousand dollars, so it is not applied.)
+  const children = Math.max(0, Math.floor(input.qualifyingChildren ?? 0));
+  const others = Math.max(0, Math.floor(input.otherDependents ?? 0));
+  let ctcNonrefundable = 0;
+  let ctcRefundable = 0;
+  const ctc = federal.childTaxCredit;
+  if (ctc && children + others > 0) {
+    const childPart = toCents(ctc.perChild) * children;
+    const otherPart = toCents(ctc.perOtherDependent) * others;
+    const over = adjustedGrossIncome - toCents(ctc.phaseOut.threshold[status]);
+    const steps = over > 0 ? Math.ceil(over / toCents(ctc.phaseOut.step)) : 0;
+    const reduction = steps * toCents(ctc.phaseOut.reductionPerStep);
+    const credit = atLeastZero(childPart + otherPart - reduction);
+    ctcNonrefundable = Math.min(credit, federalTax);
+    // Only the children's portion can be refunded; the phase-out reduces the
+    // credit as a whole, so the refundable pool is what is left of it, capped by
+    // the children's share.
+    const unused = credit - ctcNonrefundable;
+    const earned = w2Wages + atLeastZero(se.netEarnings);
+    const byEarnings = percentOf(
+      atLeastZero(earned - toCents(ctc.earnedIncomeThreshold)), ctc.refundableRatePercent);
+    ctcRefundable = Math.min(unused, Math.min(childPart, credit),
+                             toCents(ctc.refundablePerChild) * children, byEarnings);
+  } else if (!ctc && children + others > 0) {
+    warnings.push("The child tax credit is not in this year's federal data; it is not applied.");
+  }
+  const federalTaxAfterCredits = federalTax - ctcNonrefundable - ctcRefundable;
+
   // 11. State income tax.
   const stateResult = computeStateTax({
     federalAgi: atLeastZero(adjustedGrossIncome),
     filingStatus: status,
     state,
+    dependents: { children, others },
   });
 
   // 12-15. Totals.
   const stateTotal = stateResult.amount + stateResult.surtax;
-  const totalTax = se.total + federalTax + stateTotal;
+  const totalTax = se.total + federalTaxAfterCredits + stateTotal;
   const grossIncome = businessIncome + w2Wages + otherIncome;
   const takeHome = netProfit + w2Wages + otherIncome - totalTax;
   const effectiveRate =
@@ -186,7 +219,13 @@ export function estimateTax(input: TaxInput, data: EngineData): TaxResult {
     },
     taxableIncome: toDollars(taxableIncome),
 
-    federalTax: toDollars(federalTax),
+    /** Federal income tax after the child tax credit (negative when it is refunded). */
+    federalTax: toDollars(federalTaxAfterCredits),
+    federalTaxBeforeCredits: toDollars(federalTax),
+    childTaxCredit: {
+      nonrefundable: toDollars(ctcNonrefundable),
+      refundable: toDollars(ctcRefundable),
+    },
     federalBrackets,
     state: {
       slug: stateResult.slug,

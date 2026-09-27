@@ -66,7 +66,8 @@ comparison between Texas cities is purely a comparison of costs, and on costs Sa
 Antonio comes out ahead.
 
 Covering the one-person month above takes a gross salary of about $46,471. A family
-of four needs about $92,748 filing jointly. Both are break-even — no savings, no debt
+of four — two adults, two children — needs about $87,272 on one income filing jointly,
+after the child tax credit. Both are break-even — no savings, no debt
 payments — so they mark the floor for a household like the average one.
 
 ## Who San Antonio suits
