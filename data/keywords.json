@@ -351,5 +351,268 @@
       "decision": "No dedicated page",
       "reason": "30 searches a month. Section 18-1's rule: no page is built for an unproven target. The capability stays as a mode inside the comparison tool."
     }
-  ]
+  ],
+  "paycheckDemand": {
+    "$comment": "Measured 2026-09-27. The state set in programmaticSets was measured on 'self employment tax calculator {state}' (California 210, Texas 30) — the freelancer identity this project left behind — and modelled at a median of 40. The term people use for the same page is '{state} paycheck calculator'. Recorded here as data; the portfolio decision it implies (retargeting the state pages and the take-home tool) is recorded in spec 20-32 as pending.",
+    "national": [
+      {
+        "term": "paycheck calculator",
+        "volume": 550000,
+        "cpc": 11.65
+      },
+      {
+        "term": "take home pay calculator",
+        "volume": 60500,
+        "cpc": 5.69
+      },
+      {
+        "term": "hourly paycheck calculator",
+        "volume": 22200,
+        "cpc": 4.8
+      },
+      {
+        "term": "paycheck tax calculator",
+        "volume": 18100,
+        "cpc": 3.29
+      },
+      {
+        "term": "weekly paycheck calculator",
+        "volume": 4400,
+        "cpc": 3.71
+      },
+      {
+        "term": "take home paycheck calculator",
+        "volume": 1300,
+        "cpc": 4.21
+      }
+    ],
+    "serpOverlap": {
+      "queries": [
+        "paycheck calculator",
+        "take home pay calculator"
+      ],
+      "sharedUrlsInTop9": 4,
+      "shared": [
+        "adp.com salary-paycheck-calculator",
+        "smartasset.com paycheck-calculator",
+        "adp.com california paycheck calculator",
+        "surepayroll.com salary-paycheck"
+      ],
+      "reading": "Google treats the two as one intent; one page should own both, headed by the larger term. Position 1 for 'paycheck calculator' is an HOURLY calculator, so the page needs hourly input."
+    },
+    "states": [
+      {
+        "slug": "texas",
+        "term": "texas paycheck calculator",
+        "volume": 60500,
+        "cpc": 9.83
+      },
+      {
+        "slug": "california",
+        "term": "california paycheck calculator",
+        "volume": 49500,
+        "cpc": 9.55
+      },
+      {
+        "slug": "new-york",
+        "term": "new york paycheck calculator",
+        "volume": 40500,
+        "cpc": 7.58
+      },
+      {
+        "slug": "florida",
+        "term": "florida paycheck calculator",
+        "volume": 27100,
+        "cpc": 2.47
+      },
+      {
+        "slug": "illinois",
+        "term": "illinois paycheck calculator",
+        "volume": 22200,
+        "cpc": 7.56
+      },
+      {
+        "slug": "north-carolina",
+        "term": "north carolina paycheck calculator",
+        "volume": 22200,
+        "cpc": 7.47
+      },
+      {
+        "slug": "georgia",
+        "term": "georgia paycheck calculator",
+        "volume": 18100,
+        "cpc": 11.21
+      },
+      {
+        "slug": "ohio",
+        "term": "ohio paycheck calculator",
+        "volume": 18100,
+        "cpc": 6.71
+      },
+      {
+        "slug": "pennsylvania",
+        "term": "pennsylvania paycheck calculator",
+        "volume": 18100,
+        "cpc": 4.02
+      },
+      {
+        "slug": "new-jersey",
+        "term": "new jersey paycheck calculator",
+        "volume": 18100,
+        "cpc": 6.53
+      },
+      {
+        "slug": "virginia",
+        "term": "virginia paycheck calculator",
+        "volume": 14800,
+        "cpc": 9.3
+      },
+      {
+        "slug": "michigan",
+        "term": "michigan paycheck calculator",
+        "volume": 14800,
+        "cpc": 13.92
+      },
+      {
+        "slug": "oregon",
+        "term": "oregon paycheck calculator",
+        "volume": 12100,
+        "cpc": 13.27
+      },
+      {
+        "slug": "colorado",
+        "term": "colorado paycheck calculator",
+        "volume": 12100,
+        "cpc": 6.58
+      },
+      {
+        "slug": "tennessee",
+        "term": "tennessee paycheck calculator",
+        "volume": 12100,
+        "cpc": 7.17
+      },
+      {
+        "slug": "massachusetts",
+        "term": "massachusetts paycheck calculator",
+        "volume": 12100,
+        "cpc": 5.34
+      },
+      {
+        "slug": "indiana",
+        "term": "indiana paycheck calculator",
+        "volume": 12100,
+        "cpc": 9.91
+      },
+      {
+        "slug": "minnesota",
+        "term": "minnesota paycheck calculator",
+        "volume": 9900,
+        "cpc": 26.32
+      },
+      {
+        "slug": "maryland",
+        "term": "maryland paycheck calculator",
+        "volume": 9900,
+        "cpc": null
+      },
+      {
+        "slug": "arizona",
+        "term": "arizona paycheck calculator",
+        "volume": 9900,
+        "cpc": 14.51
+      },
+      {
+        "slug": "wisconsin",
+        "term": "wisconsin paycheck calculator",
+        "volume": 8100,
+        "cpc": 8.35
+      },
+      {
+        "slug": "washington",
+        "term": "washington paycheck calculator",
+        "volume": 8100,
+        "cpc": 20.51
+      },
+      {
+        "slug": "south-carolina",
+        "term": "south carolina paycheck calculator",
+        "volume": 8100,
+        "cpc": 7.85
+      },
+      {
+        "slug": "alabama",
+        "term": "alabama paycheck calculator",
+        "volume": 6600,
+        "cpc": 9.16
+      },
+      {
+        "slug": "alaska",
+        "term": "alaska paycheck calculator",
+        "volume": 1000,
+        "cpc": null
+      }
+    ],
+    "statesUnmeasured": [
+      "arkansas",
+      "connecticut",
+      "delaware",
+      "hawaii",
+      "idaho",
+      "iowa",
+      "kansas",
+      "kentucky",
+      "louisiana",
+      "maine",
+      "mississippi",
+      "missouri",
+      "montana",
+      "nebraska",
+      "nevada",
+      "new-hampshire",
+      "new-mexico",
+      "north-dakota",
+      "oklahoma",
+      "rhode-island",
+      "south-dakota",
+      "utah",
+      "vermont",
+      "washington-dc",
+      "west-virginia",
+      "wyoming"
+    ],
+    "stateIncomeTaxTerms": [
+      {
+        "term": "ca income tax calculator",
+        "volume": 27100,
+        "cpc": 3.95
+      },
+      {
+        "term": "california income tax calculator",
+        "volume": 18100,
+        "cpc": 6.18
+      },
+      {
+        "term": "texas income tax calculator",
+        "volume": 5400,
+        "cpc": 5.84
+      }
+    ],
+    "stateSerp": {
+      "query": "indiana paycheck calculator",
+      "top9": [
+        "opencalculator.app",
+        "calculatordad.com",
+        "worklets.ai",
+        "apps.apple.com",
+        "usapayinsights.com",
+        "uspaycheckcalculators.com",
+        "paycheckeasy.com",
+        "salary-calculators.org",
+        "freekalc.com"
+      ],
+      "reading": "No payroll brand in the top nine: state-level SERPs are held by small calculator sites, unlike the national term (ADP, SmartAsset, PaycheckCity)."
+    },
+    "measuredTotal": 446100,
+    "measuredMedian": 12100
+  }
 }

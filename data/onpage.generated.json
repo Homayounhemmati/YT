@@ -3700,7 +3700,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Alabama?",
-          "answer": "About $70,953 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,710 is Alabama state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $70,953 of a $95,000 salary for a single filer before local income tax, an effective 25.3%. Of that, $4,710 is Alabama state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -3789,7 +3789,7 @@
               "name": "How much of a $95,000 salary do you keep in Alabama?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,953 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,710 is Alabama state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $70,953 of a $95,000 salary for a single filer before local income tax, an effective 25.3%. Of that, $4,710 is Alabama state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -5819,7 +5819,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Indiana?",
-          "answer": "About $72,860 of a $95,000 salary for a single filer, an effective 23.3%. Of that, $2,803 is Indiana state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $72,860 of a $95,000 salary for a single filer before local income tax, an effective 23.3%. Of that, $2,803 is Indiana state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -5908,7 +5908,7 @@
               "name": "How much of a $95,000 salary do you keep in Indiana?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $72,860 of a $95,000 salary for a single filer, an effective 23.3%. Of that, $2,803 is Indiana state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $72,860 of a $95,000 salary for a single filer before local income tax, an effective 23.3%. Of that, $2,803 is Indiana state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -6308,7 +6308,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Kentucky?",
-          "answer": "About $72,338 of a $95,000 salary for a single filer, an effective 23.9%. Of that, $3,325 is Kentucky state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $72,338 of a $95,000 salary for a single filer before local income tax, an effective 23.9%. Of that, $3,325 is Kentucky state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -6397,7 +6397,7 @@
               "name": "How much of a $95,000 salary do you keep in Kentucky?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $72,338 of a $95,000 salary for a single filer, an effective 23.9%. Of that, $3,325 is Kentucky state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $72,338 of a $95,000 salary for a single filer before local income tax, an effective 23.9%. Of that, $3,325 is Kentucky state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -6797,7 +6797,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Maryland?",
-          "answer": "About $71,203 of a $95,000 salary for a single filer, an effective 25.1%. Of that, $4,460 is Maryland state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $71,203 of a $95,000 salary for a single filer before local income tax, an effective 25.1%. Of that, $4,460 is Maryland state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -6886,7 +6886,7 @@
               "name": "How much of a $95,000 salary do you keep in Maryland?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,203 of a $95,000 salary for a single filer, an effective 25.1%. Of that, $4,460 is Maryland state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $71,203 of a $95,000 salary for a single filer before local income tax, an effective 25.1%. Of that, $4,460 is Maryland state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -7123,7 +7123,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Michigan?",
-          "answer": "About $71,625 of a $95,000 salary for a single filer, an effective 24.6%. Of that, $4,038 is Michigan state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $71,625 of a $95,000 salary for a single filer before local income tax, an effective 24.6%. Of that, $4,038 is Michigan state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -7212,7 +7212,7 @@
               "name": "How much of a $95,000 salary do you keep in Michigan?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,625 of a $95,000 salary for a single filer, an effective 24.6%. Of that, $4,038 is Michigan state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $71,625 of a $95,000 salary for a single filer before local income tax, an effective 24.6%. Of that, $4,038 is Michigan state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -7612,7 +7612,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Missouri?",
-          "answer": "About $71,373 of a $95,000 salary for a single filer, an effective 24.9%. Of that, $4,289 is Missouri state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $71,373 of a $95,000 salary for a single filer before local income tax, an effective 24.9%. Of that, $4,289 is Missouri state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -7701,7 +7701,7 @@
               "name": "How much of a $95,000 salary do you keep in Missouri?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,373 of a $95,000 salary for a single filer, an effective 24.9%. Of that, $4,289 is Missouri state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $71,373 of a $95,000 salary for a single filer before local income tax, an effective 24.9%. Of that, $4,289 is Missouri state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -8753,7 +8753,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in New York?",
-          "answer": "About $71,098 of a $95,000 salary for a single filer, an effective 25.2%. Of that, $4,565 is New York state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $71,098 of a $95,000 salary for a single filer before local income tax, an effective 25.2%. Of that, $4,565 is New York state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -8842,7 +8842,7 @@
               "name": "How much of a $95,000 salary do you keep in New York?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,098 of a $95,000 salary for a single filer, an effective 25.2%. Of that, $4,565 is New York state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $71,098 of a $95,000 salary for a single filer before local income tax, an effective 25.2%. Of that, $4,565 is New York state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -9242,7 +9242,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Ohio?",
-          "answer": "About $73,434 of a $95,000 salary for a single filer, an effective 22.7%. Of that, $2,228 is Ohio state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $73,434 of a $95,000 salary for a single filer before local income tax, an effective 22.7%. Of that, $2,228 is Ohio state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -9331,7 +9331,7 @@
               "name": "How much of a $95,000 salary do you keep in Ohio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $73,434 of a $95,000 salary for a single filer, an effective 22.7%. Of that, $2,228 is Ohio state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $73,434 of a $95,000 salary for a single filer before local income tax, an effective 22.7%. Of that, $2,228 is Ohio state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -9731,7 +9731,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Pennsylvania?",
-          "answer": "About $72,746 of a $95,000 salary for a single filer, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $72,746 of a $95,000 salary for a single filer before local income tax, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -9820,7 +9820,7 @@
               "name": "How much of a $95,000 salary do you keep in Pennsylvania?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $72,746 of a $95,000 salary for a single filer, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $72,746 of a $95,000 salary for a single filer before local income tax, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]

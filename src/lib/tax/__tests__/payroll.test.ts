@@ -77,9 +77,17 @@ describe("pre-tax deductions follow different FICA rules", () => {
     // 3,000 x 7.65% = 229.50 less FICA
     expect(cents(base.fica.total - s.fica.total)).toBe(22_950);
   });
-  it("warns where a state taxes 401(k) deferrals", () => {
+  it("Pennsylvania taxes 401(k) deferrals: its state tax does not fall", () => {
+    const base = run({ annualWages: 95_000 }, "pennsylvania");
     const pa = run({ annualWages: 95_000, preTaxRetirement: 10_000 }, "pennsylvania");
-    expect(pa.warnings.some((w) => w.includes("taxes 401(k) deferrals"))).toBe(true);
+    expect(pa.stateTax).toBe(base.stateTax);          // 2,916.50 both ways
+    expect(pa.federalTax).toBeLessThan(base.federalTax);
+  });
+  it("New Jersey excludes 401(k) deferrals, and says 403(b)/457 differ", () => {
+    const base = run({ annualWages: 95_000 }, "new-jersey");
+    const nj = run({ annualWages: 95_000, preTaxRetirement: 10_000 }, "new-jersey");
+    expect(nj.stateTax).toBeLessThan(base.stateTax);
+    expect(nj.warnings.some((w) => w.includes("403(b)"))).toBe(true);
   });
 });
 

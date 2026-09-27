@@ -40,6 +40,14 @@ jobs:
       - name: Generate and validate per-entity on-page values
         run: python3 scripts/generate_onpage.py
 
+      # The acceptance table is what the platform build is checked against. It is
+      # generated from the tested engines; a committed copy that differs from a
+      # fresh one means an engine changed and the table was not regenerated.
+      - name: Calculator acceptance cases are in sync with the engines
+        run: |
+          npx tsx scripts/acceptance_cases.ts
+          git diff --exit-code docs/calculator-acceptance.md data/takehome-95k.json
+
       # Link equity is not distributed by intention, it is distributed by the
       # graph. A page that carries 16% of the demand and receives 5% of the
       # internal links will not rank for it, and nothing else in the audit

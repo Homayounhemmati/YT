@@ -1,4 +1,5 @@
 import { estimateTax, type EngineData } from "./index.js";
+import { computeStateTax } from "./state.js";
 import {
   type Cents,
   atLeastZero,
@@ -68,8 +69,14 @@ export interface WageResult {
   warnings: string[];
 }
 
-/** States that do not follow the federal exclusion for 401(k) deferrals. */
-const STATES_TAXING_401K_DEFERRALS = new Set(["pennsylvania", "new-jersey"]);
+/**
+ * Pennsylvania does not follow the federal exclusion for elective deferrals: an
+ * employee's 401(k) contribution is taxable Pennsylvania compensation. New Jersey
+ * is often listed alongside it, wrongly for 401(k) plans — N.J.S.A. 54A:6-21
+ * excludes them — but it does tax 403(b) and 457 deferrals.
+ */
+const STATES_TAXING_401K_DEFERRALS = new Set(["pennsylvania"]);
+const STATES_TAXING_403B_457_DEFERRALS = new Set(["new-jersey"]);
 
 /**
  * Employee FICA. The employee pays half of each self-employment rate; the rates
@@ -136,12 +143,23 @@ export function estimateWageTakeHome(
     if (!w.startsWith("Wage income is included for bracket")) warnings.push(w);
   }
 
-  const stateTax = toCents(core.state.amount + core.state.surtax);
+  let stateTax = toCents(core.state.amount + core.state.surtax);
   const slug = data.state?.slug ?? null;
   if (slug && retirement > 0 && STATES_TAXING_401K_DEFERRALS.has(slug)) {
+    // Recompute the state layer on wages that include the deferral. The first
+    // version only warned, and the acceptance table showed Pennsylvania tax
+    // falling by $307 on a $10,000 deferral that Pennsylvania does not exclude.
+    const s = computeStateTax({
+      federalAgi: toCents(core.adjustedGrossIncome) + retirement,
+      filingStatus: input.filingStatus,
+      state: data.state,
+    });
+    stateTax = s.amount + s.surtax;
+  }
+  if (slug && retirement > 0 && STATES_TAXING_403B_457_DEFERRALS.has(slug)) {
     warnings.push(
-      `${data.state?.name} taxes 401(k) deferrals as wages, so the state figure ` +
-        "here, which follows the federal exclusion, is understated.",
+      `${data.state?.name} excludes 401(k) deferrals but taxes 403(b) and 457 ` +
+        "deferrals; the state figure assumes a 401(k).",
     );
   }
 

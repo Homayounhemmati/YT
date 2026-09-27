@@ -100,9 +100,9 @@ requires a **measured** search volume of ≥500/month. Do not add more.
 /tools                          tool index
 /tools/{slug}                   13 tool pages
 /cost-of-living                 directory
-/cost-of-living/{metro}         4 metro pages
+/cost-of-living/{metro}         metro pages — only those in the sitemap (0 today)
 /state-taxes                    directory
-/state-taxes/{state}            51 state pages
+/state-taxes/{state}            state pages — only those in the sitemap (4 today)
 /about /methodology /sources /editorial-policy /privacy /terms /contact
 ```
 
@@ -206,6 +206,10 @@ knows what their own costs are and will notice.
 - One sitemap index with four children: tools, places, states, guides. This is so
   indexation can be read per page type — a single flat sitemap makes that
   impossible.
+- **Build exactly the URLs in `data/onpage.generated.json` → `sitemap`.** Pages
+  marked `"built": false` are behind the publication gate (no body yet, no data, or
+  prior-year figures): they get no route, no link and no sitemap entry until they
+  appear in a regenerated file. Links to them have already been resolved away.
 - `<lastmod>` only on genuine content change. **If the platform stamps every URL on
   every deploy, omit the field entirely** — a dishonest `lastmod` teaches Google to
   ignore it across the whole site.
@@ -214,16 +218,20 @@ knows what their own costs are and will notice.
 
 ## 5. The calculators
 
-Two engines. The tax engine is built and tested; the cost-of-living engine is not.
+Every calculator has a tested reference implementation in this repository.
 
-| Engine | Status |
-|---|---|
-| Tax — federal + 51 jurisdictions | ✅ `src/lib/tax/`, 59 passing tests |
-| Cost of living | ⬜ Blocked on the BEA/HUD dataset |
+| Engine | Covers | Tests |
+|---|---|---|
+| `src/lib/tax/` + `payroll.ts` | Income tax, take-home / paycheck (salary, per-period, 401(k) and section 125 rules) | 76 |
+| `src/lib/col/` | Cost of living, comparison with tax, rent affordability, living wage | 20 — runs on real data once BEA/HUD is fetched |
+| `src/lib/calc/` | House payment (PITI, PMI), home affordability, closing costs, salary↔hourly, sales tax, property tax | 20 |
 
-**Tax logic is imported, never reimplemented in the application.** A calculation
-rewritten in a component is a calculation nothing tests, and this is a
-your-money-or-your-life subject where a wrong number is the whole risk.
+**If the platform can import these modules, import them — never reimplement.** If it
+cannot, the platform's calculators must reproduce **every row of
+`docs/calculator-acceptance.md` to the cent** before launch. That file is generated
+from the engines; a calculator that disagrees with it is wrong, and it is the
+calculator that changes. This is a your-money-or-your-life subject where a wrong
+number is the whole risk.
 
 ### Calculator UX
 
@@ -277,7 +285,7 @@ So, for the whole build period:
 - [ ] No link shared publicly — a link in a forum is a crawl invitation
 
 When the domain is bought: set `site.origin` in `data/pages.json`, re-run
-`python3 scripts/generate_onpage.py`, re-import. **One value, 78 pages.** That is
+`python3 scripts/generate_onpage.py`, re-import. **One value, every page.** That is
 why these are generated rather than typed.
 
 Then, and only then: connect the domain, remove the block, verify with the

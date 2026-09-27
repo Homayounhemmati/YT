@@ -3,7 +3,9 @@
 > **Status:** This document replaces all three earlier specs. They are kept in `docs/archive/` for history only and are **not authoritative**.
 > They contradicted each other in three places (static-first versus SPA, the anti-doorway checklist versus cartesian generation of comparison pages, and a 6-month timeline versus a "wait and validate" phase). This version resolves all three.
 >
-> **Last revised:** 2026-09-12 · **Version:** 5.15
+> **Last revised:** 2026-09-27 · **Version:** 5.16
+>
+> **Version 5.16:** Every calculator now has a tested reference engine, the salary figures are an employee's rather a freelancer's, every number in published copy is registered against a source, and the publication gate is enforced in code. Twelve published figures or rules were wrong and are corrected. The biggest open finding: the state set was measured on the wrong term, and '{state} paycheck calculator' is 446,100 searches across 25 states. Details in 20-32.
 >
 > **Version 5.15:** The generated output was audited for the first time rather than the rules that produce it, and it was carrying eight defects no existing check could see — including 54 pages linking to a literal `{metro}` URL. A twenty-second check now audits the output. Details in 20-31.
 >
@@ -877,13 +879,18 @@ A script that runs in CI and breaks the build if:
 {
   "slug": "austin-tx", "name": "Austin, TX",
   "type": "metro",           // "metro" | "state" | "country"
+  "region": "us",            // "us" | "eu" — the engine refuses cross-region ratios
+  "dataYear": 2024, "fmrYear": 2026,
   "indices": {
     "allItems": 0.0,         // 100 = national average
     "rent": 0.0,
     "goods": 0.0,
+    "utilities": 0.0,        // BEA publishes it as its own component
     "otherServices": 0.0
   },
-  "referenceRent": { "bedrooms1": 0, "bedrooms2": 0 },  // HUD FMR
+  // HUD FMR, monthly GROSS rent (shelter + tenant-paid utilities), all five sizes
+  "referenceRent": { "bedrooms0": 0, "bedrooms1": 0, "bedrooms2": 0, "bedrooms3": 0, "bedrooms4": 0 },
+  "rentCounty": "Travis County, TX",
   "stateSlug": "texas",      // for the cross-link to the tax calculator
   "sources": [ { "label": "...", "url": "...", "retrieved": "..." } ],
   "lastVerified": "", "verification": "pending"
@@ -4326,6 +4333,60 @@ and the output did not carry it. `scripts/audit_onpage_output.py` is the first c
 reads what will actually be published.
 
 **Status: 79 generated pages · 22 checks · 10 CI validators · 0 errors across every gate.**
+
+---
+
+### 20-32. Round thirty-three — version 5.16 · engines, accuracy, and the gate in code
+
+**Engines.** The tax engine modelled a self-employed person and never subtracted
+employee FICA — it said so in its own warnings — so every "salary" figure on the
+site was a self-employment figure. `payroll.ts` adds the salary path. `src/lib/col`
+implements 4-9 (index scaling, the comparison with tax, rent affordability, living
+wage solved for gross by bisection). `src/lib/calc` covers every remaining tool.
+116 tests, golden cases worked by hand from the statute; `docs/calculator-acceptance.md`
+is generated from them and is what the platform build is checked against.
+
+**Twelve things that were wrong, found by building and testing rather than reading:**
+
+| Where | Was | Is |
+|---|---|---|
+| Salary take-home, 51 state FAQs | Self-employment figures under "salary" | Employee figures ($75,663 in Texas, not $74,160) |
+| Salary spread | $7,167 | More than $7,500 — $7,754 on Oregon's 2025 brackets; stated as a floor |
+| Home affordability copy | $600 car payment ≈ $100,000 of price | $65,000–$80,000 at 6–7% |
+| Rent copy | HUD publishes rent with and without utilities, "$80–$250" gap | FMR is gross rent; the gap had no source |
+| Home affordability copy | 43% is the Qualified Mortgage cap | Removed from General QM in 2021 |
+| House payment copy | P&I ≈ 70% of payment; year 1 ≈ 75% interest | 77–80%; 83–87% |
+| Living wage copy | Flat rates start "near 3%" | Arizona 2.5% |
+| Property tax copy | Illustrative 40/50/80% assessment ratios | Georgia 40%, Connecticut 70%, statute-cited |
+| Payroll engine | Pennsylvania 401(k) deferral lowered PA tax | PA taxes deferrals; recomputed |
+| Payroll engine | New Jersey treated like Pennsylvania | NJ excludes 401(k) (N.J.S.A. 54A:6-21), taxes 403(b)/457 |
+| Maryland take-home answer | "You keep $71,203" | "…before local income tax" — every county levies one |
+| `fetch_cost_of_living.py` | Hard-coded BEA lines (utilities stored as other services); "san" matched two metros; rent never fetched | Lines matched by description; exact MSA match; counties resolved via HUD |
+
+**The claims register.** `data/claims.json` records what each of the 156 numbers in tool
+copy rests on; `audit_claims.py` fails CI on an unregistered one. 14 cite a statute or
+statistic not reachable from the build environment and are a launch-checklist item.
+
+**The gate, in code.** An entity page is built only with a body, complete data and
+current-year figures. Launch state: 4 of 51 states, 0 of 4 metros. Gated pages get no
+link, no sitemap entry and no content measurement; `validate_content` went from 49
+errors to 0 because it now measures what will be published. Six states are
+prior-year even after refreshing the upstream package to 2.15.9.
+
+**One answer to "can it launch".** `scripts/launch_readiness.py`: 13 blockers, 9 todos,
+each naming who clears it. `docs/link-building.md` and `docs/measurement.md` close
+audit finding 21-3 and the unmeasured 2.2 pages-per-session assumption.
+
+**The open finding — recorded, decision pending.** The state set was measured on
+"self employment tax calculator {state}" (California 210, Texas 30) and modelled at a
+median of 40. The term for the page is "{state} paycheck calculator": Texas 60,500,
+California 49,500, New York 40,500 — 446,100 a month across the 25 states measured,
+median 12,100, CPC mostly $7–$14 — and the SERPs are held by small calculator sites,
+not payroll brands. Nationally, "paycheck calculator" is 550,000 at $11.65 and shares
+four of nine top URLs with "take home pay calculator", so one page should own both.
+Acting on it retargets the take-home tool and all 51 state pages to the salary engine;
+that is a portfolio decision for the owner, and the data is in `keywords.json →
+paycheckDemand`.
 
 ---
 

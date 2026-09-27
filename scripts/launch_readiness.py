@@ -90,6 +90,12 @@ if under:
         "(state and metro) are written, each of which links to it.", "me: more state bodies")
 if not (ROOT / "docs/link-building.md").exists():
     add("TODO", "links", "No link-building plan (audit 21-3).", "me")
+add("TODO", "legal", "Consent: a Google-certified CMP for EEA/UK/CH visitors before ads serve "
+    "there, a US-state 'Do not sell or share' link with AdSense restricted data processing, and "
+    "GA4 Consent Mode (docs/measurement.md section 5).",
+    "you: enable Google's CMP in AdSense Privacy & messaging; me: the privacy-policy text")
+add("TODO", "platform", "Base44 calculators not yet checked against docs/calculator-acceptance.md "
+    "— every row must match to the cent.", "you, after the build")
 add("BLOCKER", "platform", "Base44 build not yet verified against R1-R9 (server-rendered content, "
     "per-page meta, real 404, sitemap, robots) with the checks in section 3-5.",
     "you: build, then run the three verification commands")

@@ -89,14 +89,18 @@ def takehome_answer(st):
     rate = f"{row['effectiveRate']:.1f}%"
     # Top-level fields are the SALARY scenario (employee FICA). The earlier text
     # quoted a self-employment figure under a question that asks about a salary.
+    # Where a local income tax exists the figure excludes it, and the sentence
+    # that states the figure has to say so — in Maryland every county levies one,
+    # so "you keep $71,203" without the qualifier would be false for every reader.
+    local = " before local income tax" if st.get("localTaxNote") else ""
     if st["structure"] == "none":
-        return (f"About {keep} of a $95,000 salary for a single filer, an effective "
-                f"{rate} once federal income tax, Social Security and Medicare are "
-                f"taken. There is no {st['name']} state layer to add.")
+        return (f"About {keep} of a $95,000 salary for a single filer{local}, an "
+                f"effective {rate} once federal income tax, Social Security and "
+                f"Medicare are taken. There is no {st['name']} state layer to add.")
     state_cost = f"{money(row['stateTax'])}"
-    return (f"About {keep} of a $95,000 salary for a single filer, an effective "
-            f"{rate}. Of that, {state_cost} is {st['name']} state tax — the rest is "
-            "federal income tax, Social Security and Medicare.")
+    return (f"About {keep} of a $95,000 salary for a single filer{local}, an "
+            f"effective {rate}. Of that, {state_cost} is {st['name']} state tax — the "
+            "rest is federal income tax, Social Security and Medicare.")
 
 
 def federal_only_answer(st):
