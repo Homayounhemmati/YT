@@ -21,7 +21,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 | `/terms` | Terms — LifeCalc Pro | 20 | 123 | n/a |
 | `/contact` | Contact — LifeCalc Pro | 22 | 114 | n/a |
 | `/tools/cost-of-living-calculator` | Cost of Living Calculator (2026) | 32 | 136 | n/a |
-| `/cost-of-living` | Cost of Living by City (2026) | 29 | 124 | n/a |
+| `/cost-of-living` | Cost of Living by City (2026) | 29 | 144 | n/a |
 | `/tools/rent-affordability-calculator` | Rent Affordability Calculator (2026) | 36 | 132 | n/a |
 | `/tools/cost-of-living-comparison` | Cost of Living Comparison (2026) | 32 | 135 | n/a |
 | `/tools/salary-comparison-by-city` | Salary Comparison by City (2026) | 32 | 128 | n/a |
@@ -183,7 +183,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
       "name": "LifeCalc Pro",
       "url": "https://example.com"
     },
-    "dateModified": "2026-09-12"
+    "dateModified": "2026-09-27"
   },
   {
     "@context": "https://schema.org",
@@ -328,7 +328,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
       "name": "LifeCalc Pro",
       "url": "https://example.com"
     },
-    "dateModified": "2026-09-12"
+    "dateModified": "2026-09-27"
   },
   {
     "@context": "https://schema.org",

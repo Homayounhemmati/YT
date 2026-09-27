@@ -102,7 +102,7 @@
 | [`onpage-spec.md`](onpage-spec.md) | **Generated** — the resolved on-page values for all 74 buildable pages (9-3-9) |
 | [`base44-questions.md`](base44-questions.md) | The platform questions that settle requirements R1–R9 (3-1, 3-5) |
 | [`copywriting.md`](copywriting.md) | How to write copy that clears the uniqueness budget — derived from measured pilot pages (7-6) |
-| [`base44-build-brief.md`](base44-build-brief.md) | **The handoff document** — what to build, and what not to improvise |
+| [`../BASE44-START.md`](../BASE44-START.md) | **The handoff entry point** — reading order and rules; the specification is [`build-spec.md`](build-spec.md) |
 | `archive/` | The three original specs — **not authoritative** |
 
 ---
@@ -4101,7 +4101,7 @@ is one value; the domain arrives, it is set, `generate_onpage.py` runs, and 78
 pages update. Had these been typed into a dashboard, buying the domain late would
 mean editing 78 canonicals by hand.
 
-**[`docs/base44-build-brief.md`](base44-build-brief.md) is the handoff document.**
+**[`BASE44-START.md`](../BASE44-START.md) is the handoff entry point** (it replaced `docs/base44-build-brief.md`, which had diverged from `docs/build-spec.md`).
 It states what to build and, more usefully, what not to improvise — the SEO values
 are generated data rather than suggestions, the tax engine is imported rather than
 reimplemented, and the context boundary is a list of things that must not be added

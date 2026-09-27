@@ -105,6 +105,12 @@ jobs:
           # bodies are added the test gets harder on its own, which is the point.
           python3 scripts/validate_content.py --bodies content/bodies --pilot
 
+      # The handoff package: complete (every built page has its body, every file
+      # the start document names is present) and the bundled engine identical to
+      # the tested engines, case by case.
+      - name: Base44 package is complete and matches the engines
+        run: python3 scripts/package_base44.py
+
       - name: Everything is English
         run: python3 scripts/check_language.py
 

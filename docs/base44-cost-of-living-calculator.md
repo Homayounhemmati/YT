@@ -44,6 +44,7 @@ publishers' own files and validated in CI; never edit them by hand.
 | `src/data/tax-year-2026/states/{state-slug}.json` | 1–13 KB each | when a place in that state is chosen |
 
 Engine code (TypeScript, no dependencies): `src/lib/tax/` and `src/lib/col/`.
+In the site package they are one file, `engine/lifecalc-engine.js`, with the same exports.
 **Import these modules; do not reimplement them.** If the platform truly cannot import
 them, reimplement from the code and prove the result against section 8 to the cent.
 

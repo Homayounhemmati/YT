@@ -1,6 +1,7 @@
-# Build brief for Base44
+# Build specification
 
-This is the construction specification for the site. The SEO values are generated
+This is the construction specification for the site — the one document the builder
+works from (start at `BASE44-START.md` in the repository root). The SEO values are generated
 data rather than suggestions: they live in `data/onpage.generated.json` and every
 one is validated in continuous integration.
 
@@ -13,41 +14,32 @@ one is validated in continuous integration.
 
 ## 0. Build order — read this before starting
 
-**71 of the 78 pages are fully buildable and functional today.** Seven are not:
+**Every data input exists**, fetched from its publisher and checked
+(`docs/data-verification.md`). Which pages exist is decided by one field:
+`data/onpage.generated.json` → `pages[].built`, with the sitemap listing exactly the
+built pages. Today that is **32 of 79**: home, the 13 calculators, the directories,
+the 7 trust pages and 8 state paycheck pages. The other 47 (43 state pages, 4 metro
+pages) are specified but not built: their data or copy is not ready. **Build the pages
+marked `built: true`, and only those.** When more are ready, the file changes and
+they are added — the template is the same.
 
-| Page | Why |
-|---|---|
-| `/tools/cost-of-living-calculator` | No index data to compute with — a calculator that cannot calculate |
-| `/tools/cost-of-living-comparison` | Same |
-| `/tools/salary-comparison-by-city` | Same |
-| `/cost-of-living` + 4 metro pages | 3 of 5 FAQ answers are placeholders, and a cost-of-living page with no cost data is thin content by definition |
+The sequence:
 
-All seven wait on one thing: the BEA/HUD dataset, which is two commands outside the
-sandbox (`scripts/fetch_cost_of_living.py`).
-
-### This does **not** block starting
-
-**Build the 71 now.** The ordering problem that would normally exist — launching
-without the funnel entrance costs roughly half the projected revenue (spec 21-1) —
-does not apply during construction, because **nothing is indexed until the domain
-is connected anyway** (section 7 below).
-
-So the sequence is:
-
-1. **Build the 71 functional pages.** Nothing public, nothing indexed.
-2. **Fetch the cost-of-living dataset** — two commands, any machine with internet.
-3. **Add the remaining 7 pages**, now with real data.
-4. **Buy the domain**, set `site.origin`, regenerate, re-import.
-5. **Then** remove the index block and launch — with the funnel intact.
+1. **Build the 32 pages** — nothing public, nothing indexed (section 7).
+2. **Check every calculator against `docs/calculator-acceptance.md`** to the cent.
+   The cost-of-living calculator has its own complete brief:
+   `docs/base44-cost-of-living-calculator.md`.
+3. **Buy the domain**, set `site.origin` in `data/pages.json`, regenerate, re-import:
+   every canonical, sitemap URL and JSON-LD `url` currently reads `https://example.com`.
+4. **Then** remove the index block and launch.
 
 ### What must not happen
 
-**Do not launch with the 71 alone.** Seven of them link into the place cluster and
-become dead ends without it, which means a visitor arriving from search leaves
-after one page. The revenue model assumes 2.2 pages per session; without the funnel
-entrance it is 1.1, and that is roughly half of year-two revenue.
-
-The 71 are a complete, correct build. They are not a complete site.
+- A page with `built: false` published anyway, or listed in the sitemap.
+- A title, description, H1, H2, FAQ or JSON-LD typed into the app instead of imported.
+- A calculator whose numbers were rewritten rather than imported from the engines.
+- Launch before step 3: a canonical pointing at `example.com` tells Google the page
+  lives somewhere else.
 
 ## 1. What the site is
 
@@ -63,7 +55,8 @@ not answer it is out of scope and must not be added.
 
 ## 2. Entities — the data behind the generated pages
 
-Two entity collections drive 55 of the 78 pages.
+Two entity collections drive the generated pages (51 state pages and 4 metro pages
+are specified; 8 and 0 are built today), and a third drives the calculators.
 
 ### `states` — 51 rows, data ready
 
@@ -94,6 +87,22 @@ requires a **measured** search volume of ≥500/month. Do not add more.
 | `slug` `name` `displayName` | `displayName` is capped at 20 characters and is what appears in titles |
 | `stateSlug` | Links the metro to its state page — **this cross-link is the site's main differentiator** |
 | `indices` `referenceRent` | BEA Regional Price Parities 2024 and HUD FY2026 Fair Market Rents — full records in `src/data/cost-of-living-2024/us/{slug}.json`, both checked against the publishers' own files |
+
+### `places` — every US county, New England town and incorporated city
+
+Source: `src/data/col/` (built by `scripts/build_col_places.py` from BEA, HUD and the
+Census Bureau). Used by the cost-of-living calculator, the comparison and salary
+tools, and rent affordability; resolved with `resolvePlace()` from `src/lib/col`.
+Not pages — the calculators' place picker. Full description in
+`docs/base44-cost-of-living-calculator.md` section 2.
+
+### The `/cost-of-living` table
+
+`data/col-hub-table.json`: every BEA price area ranked by overall price level (434
+rows: 387 metro areas and each state's non-metropolitan areas), with its components.
+The directory renders it as a sortable table; each row links to the calculator with
+`?place=<calculator.key>&st=<calculator.state>`, and to `page` when a metro page is
+built. The page's entry carries `dataTable` pointing at the file.
 
 ---
 

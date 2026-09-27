@@ -8,7 +8,7 @@
   "sitemap": {
     "$comment": "The file tree to produce. Section 6-8-6 and data/pages.json sitemaps.",
     "index": "/sitemap.xml",
-    "lastmod": "2026-09-12",
+    "lastmod": "2026-09-27",
     "segments": [
       {
         "file": "/sitemaps/tools.xml",
@@ -16,62 +16,57 @@
         "urls": [
           {
             "loc": "https://example.com/tools/cost-of-living-calculator",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/rent-affordability-calculator",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/cost-of-living-comparison",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/salary-comparison-by-city",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/salary-to-hourly-calculator",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/living-wage-calculator",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/income-tax-calculator",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/paycheck-calculator",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/sales-tax-calculator",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/property-tax-calculator",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/closing-cost-calculator",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/house-payment-calculator",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/home-affordability-calculator",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           }
         ]
-      },
-      {
-        "file": "/sitemaps/places.xml",
-        "urlCount": 0,
-        "urls": []
       },
       {
         "file": "/sitemaps/states.xml",
@@ -79,42 +74,37 @@
         "urls": [
           {
             "loc": "https://example.com/tools/paycheck-calculator/florida",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/paycheck-calculator/georgia",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/paycheck-calculator/illinois",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/paycheck-calculator/maryland",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/paycheck-calculator/new-york",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/paycheck-calculator/north-carolina",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/paycheck-calculator/pennsylvania",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools/paycheck-calculator/texas",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           }
         ]
-      },
-      {
-        "file": "/sitemaps/guides.xml",
-        "urlCount": 0,
-        "urls": []
       },
       {
         "file": "/sitemaps/core.xml",
@@ -122,47 +112,47 @@
         "urls": [
           {
             "loc": "https://example.com",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/tools",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/about",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/methodology",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/sources",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/editorial-policy",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/privacy",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/terms",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/contact",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/cost-of-living",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           },
           {
             "loc": "https://example.com/state-taxes",
-            "lastmod": "2026-09-12"
+            "lastmod": "2026-09-27"
           }
         ]
       }
@@ -962,7 +952,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -1041,8 +1031,8 @@
       "title": "Cost of Living by City (2026)",
       "titleChars": 29,
       "h1": "Cost of Living by City",
-      "metaDescription": "Browse the cost of living index for every US metro area, ranked and searchable, built from official BEA regional price data.",
-      "metaChars": 124,
+      "metaDescription": "Every US metro area ranked by its official BEA price level, from the most expensive to the cheapest, with rent, goods and services side by side.",
+      "metaChars": 144,
       "canonical": "https://example.com/cost-of-living",
       "breadcrumb": [
         "Home",
@@ -1074,35 +1064,14 @@
         },
         {
           "@context": "https://schema.org",
-          "@type": "ItemList",
-          "name": "Cost of Living by City (2026)",
-          "numberOfItems": 4,
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "cost of living calculator",
-              "url": "https://example.com/tools/cost-of-living-calculator"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "cost of living comparison",
-              "url": "https://example.com/tools/cost-of-living-comparison"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "rent affordability calculator",
-              "url": "https://example.com/tools/rent-affordability-calculator"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "name": "home affordability calculator",
-              "url": "https://example.com/tools/home-affordability-calculator"
-            }
-          ]
+          "@type": "Dataset",
+          "name": "Cost of living indices for every US metropolitan area",
+          "description": "BEA Regional Price Parities (all items, goods, housing rents, utilities and other services) for every US metropolitan area and each state's nonmetropolitan areas, 2024. United States = 100.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area"
+          ],
+          "dateModified": "2026-09-27"
         }
       ],
       "internalLinks": [
@@ -1126,7 +1095,12 @@
       "dataVerification": "n/a",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/core.xml",
-      "built": true
+      "built": true,
+      "dataTable": {
+        "file": "data/col-hub-table.json",
+        "rows": 434,
+        "year": 2024
+      }
     },
     {
       "path": "/tools/rent-affordability-calculator",
@@ -1211,7 +1185,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -1359,7 +1333,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -1510,7 +1484,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -1657,7 +1631,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -1800,7 +1774,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -1947,7 +1921,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -2100,7 +2074,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -2287,7 +2261,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -2430,7 +2404,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -2540,7 +2514,7 @@
           "@context": "https://schema.org",
           "@type": "ItemList",
           "name": "State Income Tax Rates by State (2026)",
-          "numberOfItems": 10,
+          "numberOfItems": 8,
           "itemListElement": [
             {
               "@type": "ListItem",
@@ -2589,18 +2563,6 @@
               "position": 8,
               "name": "Texas paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/texas"
-            },
-            {
-              "@type": "ListItem",
-              "position": 9,
-              "name": "income tax calculator",
-              "url": "https://example.com/tools/income-tax-calculator"
-            },
-            {
-              "@type": "ListItem",
-              "position": 10,
-              "name": "cost of living by city",
-              "url": "https://example.com/cost-of-living"
             }
           ]
         }
@@ -2735,7 +2697,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -2878,7 +2840,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -3021,7 +2983,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -3217,7 +3179,7 @@
             "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
             "https://www.huduser.gov/portal/datasets/fmr.html"
           ],
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         }
       ],
       "internalLinks": [
@@ -3391,7 +3353,7 @@
             "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
             "https://www.huduser.gov/portal/datasets/fmr.html"
           ],
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         }
       ],
       "internalLinks": [
@@ -3565,7 +3527,7 @@
             "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
             "https://www.huduser.gov/portal/datasets/fmr.html"
           ],
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         }
       ],
       "internalLinks": [
@@ -3739,7 +3701,7 @@
             "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
             "https://www.huduser.gov/portal/datasets/fmr.html"
           ],
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         }
       ],
       "internalLinks": [
@@ -3872,7 +3834,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -4047,7 +4009,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -4222,7 +4184,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -4397,7 +4359,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -4572,7 +4534,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -4747,7 +4709,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -4922,7 +4884,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -5097,7 +5059,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -5274,7 +5236,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -5452,7 +5414,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -5627,7 +5589,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -5802,7 +5764,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -5980,7 +5942,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -6155,7 +6117,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -6330,7 +6292,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -6505,7 +6467,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -6680,7 +6642,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -6855,7 +6817,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -7030,7 +6992,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -7208,7 +7170,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -7383,7 +7345,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -7558,7 +7520,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -7733,7 +7695,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -7908,7 +7870,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -8083,7 +8045,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -8258,7 +8220,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -8433,7 +8395,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -8608,7 +8570,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -8783,7 +8745,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -8958,7 +8920,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -9133,7 +9095,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -9310,7 +9272,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -9488,7 +9450,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -9663,7 +9625,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -9838,7 +9800,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -10013,7 +9975,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -10188,7 +10150,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -10367,7 +10329,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -10542,7 +10504,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -10717,7 +10679,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -10892,7 +10854,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -11067,7 +11029,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -11244,7 +11206,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -11419,7 +11381,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -11594,7 +11556,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -11769,7 +11731,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -11944,7 +11906,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -12119,7 +12081,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -12294,7 +12256,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -12469,7 +12431,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",
@@ -12644,7 +12606,7 @@
             "name": "LifeCalc Pro",
             "url": "https://example.com"
           },
-          "dateModified": "2026-09-12"
+          "dateModified": "2026-09-27"
         },
         {
           "@context": "https://schema.org",

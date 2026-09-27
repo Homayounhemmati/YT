@@ -1,8 +1,9 @@
-This table shows the cost of living by metro area: it ranks US metro areas by their
-price level against the national average,
-using the Bureau of Economic Analysis's Regional Price Parities. Each row links to that
-metro's own page, where the index is broken into its parts and set beside what a
-salary leaves after the state's income tax.
+This table shows the cost of living by metro area: it ranks every US metro area by its
+price level against the national average, using the Bureau of Economic Analysis's
+Regional Price Parities, and adds the parts of each state that lie outside any metro
+area. Each row opens the cost of living calculator at that area's largest city, where
+the index becomes a month's budget for your household and the salary that covers it
+after the state's income tax. Metro areas with a page of their own link to it too.
 
 ## Cost of living index by metro area
 

@@ -1,20 +1,24 @@
 #!/usr/bin/env python3
-"""Everything Base44 needs for the cost-of-living calculator, in one folder and one zip.
+"""Everything Base44 needs to build the site, in one folder and one zip.
 
     python3 scripts/package_base44.py
 
-Produces dist/base44-cost-of-living-calculator/ and a .zip of it:
+Produces dist/lifecalc-base44/ and dist/lifecalc-base44.zip. The package keeps the
+repository's own paths, so every reference inside the documents works as written:
 
-  README-FIRST.md       what to upload and in what order
-  BRIEF.md              docs/base44-cost-of-living-calculator.md
-  ACCEPTANCE.md         docs/calculator-acceptance.md
-  engine/col-engine.js  the engine as ONE browser-ready ES module (no dependencies)
-  engine/src/           the TypeScript source it was built from, for reference
-  data/...              every JSON file the calculator loads, same relative paths
+  BASE44-START.md                 the entry point: reading order and rules
+  docs/                           build spec, calculator brief, acceptance, analytics
+  data/onpage.generated.json      every page's SEO values (and `built`)
+  data/col-hub-table.json         the /cost-of-living ranked table
+  content/bodies/                 the written body of every page
+  src/data/                       every JSON file the calculators load
+  engine/lifecalc-engine.js       every calculator as ONE browser-ready ES module
+  src/lib/                        the TypeScript it is bundled from, for reference
 
-Then it proves the bundle: it imports engine/col-engine.js with the packaged data,
-runs every cost-of-living acceptance case and compares each figure with the
-engine in this repository. A package that disagrees is not written.
+Before writing the zip it checks that the package is complete and consistent — every
+built page has its body, every file the documents name is present — and proves the
+bundle: fed only the packaged data, it must match the repository's engines figure for
+figure. A package that fails either check is not written.
 """
 import json
 import pathlib
@@ -23,95 +27,87 @@ import subprocess
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-OUT = ROOT / "dist/base44-cost-of-living-calculator"
+OUT = ROOT / "dist/lifecalc-base44"
 
-DATA = [
-    "src/data/col/meta.json",
-    "src/data/col/price-areas.json",
-    "src/data/col/search-index.json",
-    "src/data/col/places",
-    "src/data/ces-2024/baseline.json",
-    "src/data/tax-year-2026/federal.json",
-    "src/data/tax-year-2026/estimated.json",
-    "src/data/tax-year-2026/states",
+INCLUDE = [
+    "BASE44-START.md",
+    "docs/build-spec.md",
+    "docs/base44-cost-of-living-calculator.md",
+    "docs/calculator-acceptance.md",
+    "docs/onpage-spec.md",
+    "docs/measurement.md",
+    "data/onpage.generated.json",
+    "data/col-hub-table.json",
+    "content/bodies",
+    "src/data/col",
+    "src/data/ces-2024",
+    "src/data/tax-year-2026",
+    "src/lib/tax",
+    "src/lib/col",
+    "src/lib/calc",
+    "src/lib/base44-entry.ts",
 ]
-
-README = """# Cost of Living Calculator — package for Base44
-
-1. Read **BRIEF.md** first. It is the whole specification.
-2. Add **engine/col-engine.js** to the app as a code file and import from it:
-   `import {{ computeCostOfLiving, resolvePlace, searchEntries }} from "./col-engine.js"`.
-   Do not rewrite it. It is generated from tested code and proven against ACCEPTANCE.md.
-3. Add everything under **data/** as static files, keeping the paths
-   (for example `data/col/places/tx.json`). Load them as BRIEF.md section 2 says:
-   small files on page load, the search index when the search box gets focus,
-   a state's files when a place in that state is chosen.
-4. Build the page from BRIEF.md sections 4-7.
-5. Check the finished calculator against **ACCEPTANCE.md** (the cost-of-living
-   sections). Every figure must match to the cent. If one does not, the build is
-   wrong — not the table.
-
-Paths: BRIEF.md names files as they are in the repository. In this package,
-`src/data/...` is `data/...`, and the modules `src/lib/tax` and `src/lib/col` are
-the one file `engine/col-engine.js` (their source is in `engine/src/` for reference).
-
-Package built from commit {commit}. Data: BEA {rpp}, HUD FY{fmr}, BLS CE {ces} in {month} prices, tax year 2026.
-"""
+SKIP = {"__tests__", "load.ts"}   # tests, and the Node-only file loader
 
 
-def run(cmd, **kw):
-    p = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, **kw)
+def run(cmd):
+    p = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
     if p.returncode:
         sys.exit(f"{' '.join(cmd)} failed:\n{p.stdout}\n{p.stderr}")
     return p.stdout
 
 
+def copy(rel):
+    src, dest = ROOT / rel, OUT / rel
+    if src.is_dir():
+        shutil.copytree(src, dest, ignore=lambda d, names: [n for n in names if n in SKIP])
+    else:
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dest)
+
+
+def check_complete():
+    """Every built page has its body; every path the start document names exists."""
+    gen = json.loads((OUT / "data/onpage.generated.json").read_text())
+    problems = []
+    for e in gen["pages"]:
+        if not e.get("built"):
+            continue
+        stem = "home" if e["path"] == "/" else e["path"].strip("/").replace("/", "__")
+        if not (OUT / "content/bodies" / f"{stem}.md").exists():
+            problems.append(f"built page {e['path']} has no body")
+    # The "Ignore" section names files deliberately left out of the package.
+    start = (OUT / "BASE44-START.md").read_text().split("## Ignore")[0]
+    import re
+    for ref in set(re.findall(r"`((?:docs|data|content|src|engine)/[^`{ ]+)`", start)):
+        if not (OUT / ref.rstrip("/")).exists():
+            problems.append(f"BASE44-START.md names {ref}, which is not in the package")
+    if problems:
+        sys.exit("package incomplete:\n  " + "\n  ".join(problems))
+    built = sum(1 for e in gen["pages"] if e.get("built"))
+    return built, len(gen["pages"])
+
+
 def main():
     if OUT.exists():
         shutil.rmtree(OUT)
-    (OUT / "engine").mkdir(parents=True)
-
-    # 1. The engine as one ES module.
+    OUT.mkdir(parents=True)
+    for rel in INCLUDE:
+        copy(rel)
     run(["npx", "esbuild", "src/lib/base44-entry.ts", "--bundle", "--format=esm",
          "--platform=browser", "--target=es2020", "--legal-comments=none",
-         f"--outfile={OUT / 'engine/col-engine.js'}"])
-    for sub in ("tax", "col"):
-        for f in (ROOT / "src/lib" / sub).glob("*.ts"):
-            if f.name == "load.ts":
-                continue   # reads files from disk; the app loads JSON itself
-            dest = OUT / "engine/src" / sub / f.name
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(f, dest)
-    shutil.copy2(ROOT / "src/lib/base44-entry.ts", OUT / "engine/src/base44-entry.ts")
+         f"--outfile={OUT / 'engine/lifecalc-engine.js'}"])
 
-    # 2. Data, same relative paths under data/.
-    for item in DATA:
-        src = ROOT / item
-        dest = OUT / "data" / pathlib.Path(item).relative_to("src/data")
-        if src.is_dir():
-            shutil.copytree(src, dest)
-        else:
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(src, dest)
+    built, total = check_complete()
+    print(f"complete: {built} built pages of {total}, each with its body")
+    print(run(["npx", "tsx", "scripts/check_base44_package.ts", str(OUT)]).strip())
 
-    # 3. Documents.
-    shutil.copy2(ROOT / "docs/base44-cost-of-living-calculator.md", OUT / "BRIEF.md")
-    shutil.copy2(ROOT / "docs/calculator-acceptance.md", OUT / "ACCEPTANCE.md")
-    meta = json.loads((ROOT / "src/data/col/meta.json").read_text())
-    ces = json.loads((ROOT / "src/data/ces-2024/baseline.json").read_text())
     commit = run(["git", "rev-parse", "--short", "HEAD"]).strip()
-    (OUT / "README-FIRST.md").write_text(README.format(
-        commit=commit, rpp=meta["years"]["priceLevels"], fmr=meta["years"]["rent"],
-        ces=ces["year"], month=ces.get("priceUpdate", {}).get("toMonth", "survey-year")))
-
-    # 4. Prove the bundle against the repository's engine, case by case.
-    out = run(["npx", "tsx", "scripts/check_base44_package.ts", str(OUT)])
-    print(out.strip())
-
-    # 5. Zip.
-    zip_path = shutil.make_archive(str(OUT), "zip", OUT.parent, OUT.name)
-    size = pathlib.Path(zip_path).stat().st_size / 1024 / 1024
-    print(f"wrote {pathlib.Path(zip_path).relative_to(ROOT)} ({size:.1f} MB)")
+    (OUT / "PACKAGE.txt").write_text(
+        f"LifeCalc Pro — package for Base44, built from commit {commit}.\n"
+        "Start with BASE44-START.md.\n")
+    zip_path = pathlib.Path(shutil.make_archive(str(OUT), "zip", OUT.parent, OUT.name))
+    print(f"wrote {zip_path.relative_to(ROOT)} ({zip_path.stat().st_size / 1024 / 1024:.1f} MB)")
     return 0
 
 

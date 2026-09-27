@@ -11,7 +11,7 @@
       "$comment": "Section 7-4 requires a named author for a YMYL niche, and 6-3 names a vague About page as the most common AdSense rejection reason. The name is set; the background paragraph on /about still has to be written by a human, because inventing a biography is the one thing that would make this worse than leaving it blank."
     },
     "$originNote": "PLACEHOLDER until the domain is bought. Every canonical, every JSON-LD url and every OG tag is built from this value, so it is changed in exactly one place — but see spec 19-7: the site must not be indexed on a platform subdomain before the real domain is connected.",
-    "contentUpdated": "2026-09-12",
+    "contentUpdated": "2026-09-27",
     "$contentUpdatedNote": "Feeds schema.org dateModified, which must be an ISO 8601 date — a bare year is invalid and Google ignores it. Declared here rather than taken from the build clock: rule 9-4-1 says dateModified changes on a genuine content change, and a value derived from generation time would claim a fresh edit on every CI run."
   },
   "pages": [
@@ -354,8 +354,8 @@
       "primary": "cost of living by city",
       "note": "Directory. Deliberately does not target the tool keyword.",
       "canonical": "self",
-      "output": "**Browsable list** of every city with its index — a discovery point, not a calculator",
-      "metaHook": "Browse the cost of living index for every US metro area, ranked and searchable, built from official BEA regional price data.",
+      "output": "**Ranked table** of every US metro area (and each state's non-metropolitan areas) by BEA price level, with its components — each row opens the calculator for that place; metros with their own page link to it",
+      "metaHook": "Every US metro area ranked by its official BEA price level, from the most expensive to the cheapest, with rent, goods and services side by side.",
       "stage": 1,
       "links": [
         {
