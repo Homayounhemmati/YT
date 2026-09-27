@@ -62,8 +62,23 @@ export type HouseholdSize = 1 | 2 | 3 | 4 | 5;
 export interface SpendingBaseline {
   year: number;
   source: { label: string; url: string; retrieved: string };
-  categories: Record<string, { label: string; index: "goods" | "otherServices" | "allItems" }>;
-  /** Annual dollars; key "5" means five or more people. */
+  categories: Record<string, {
+    label: string;
+    index: "goods" | "otherServices" | "allItems";
+    /** The CPI component that carries this category from the survey year to today. */
+    cpiSeries?: string;
+  }>;
+  /** Annual dollars in survey-year prices, as published; key "5" means five or more people. */
   annualByHouseholdSize: Record<`${HouseholdSize}`, Record<string, number>>;
+  /**
+   * Survey-year dollars to current dollars, per CPI series: factor = the series'
+   * latest month / its survey-year average. Absent: figures stay in survey-year prices.
+   */
+  priceUpdate?: {
+    toMonth: string;
+    method: string;
+    source: string;
+    series: Record<string, { base: number; latest: number; factor: number }>;
+  };
   verification: "verified" | "pending";
 }

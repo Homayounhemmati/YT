@@ -148,13 +148,13 @@ describe("real data: a one-person household in Austin", () => {
   it("uses Travis County's FY2026 one-bedroom Fair Market Rent", () => {
     expect(row("rent").monthly).toBe(1562);
   });
-  it("prices groceries at Austin's goods parity (93.757)", () => {
-    // 3,395 a year x 93.757 / 100 / 12 = 265.254
-    expect(row("food_home").monthly).toBe(265.25);
+  it("prices groceries at Austin's goods parity, in current dollars", () => {
+    // 3,395 a year (2024) x food-at-home CPI factor 1.048816 x 93.757 / 100 / 12 = 278.203
+    expect(row("food_home").monthly).toBe(278.2);
   });
-  it("prices health care at Austin's other-services parity (96.240)", () => {
-    // 4,026 x 96.24 / 100 / 12 = 322.885
-    expect(row("health").monthly).toBe(322.89);
+  it("prices health care at Austin's other-services parity, in current dollars", () => {
+    // 4,026 x medical-care CPI factor 1.05172 x 96.24 / 100 / 12 = 339.585
+    expect(row("health").monthly).toBe(339.58);
   });
   it("shows every CES category and no housing or utilities line besides rent", () => {
     expect(r.rows.map((x) => x.key).sort()).toEqual(

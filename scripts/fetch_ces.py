@@ -36,24 +36,34 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 API = "https://api.bls.gov/publicAPI/v2/timeseries/data/"
 
-# key -> (label, CE item codes summed into it, BEA price-parity component)
+# key -> (label, CE item codes summed into it, BEA price-parity component,
+#         CPI series that carries the category from the survey year to today)
 CATEGORIES = {
-    "food_home":     ("Groceries",                ["FOODHOME"],             "goods"),
-    "food_away":     ("Eating out",               ["FOODAWAY"],             "otherServices"),
+    "food_home":     ("Groceries",                  ["FOODHOME"],  "goods",         "CUUR0000SAF11"),
+    "food_away":     ("Eating out",                 ["FOODAWAY"],  "otherServices", "CUUR0000SEFV"),
     # Transportation less the two other parts of it. The gasoline series itself
     # (GASOIL) ends in 2023 on FRED; the CE hierarchy is exact (2022, one person:
     # 2,103 + 1,590 + 2,233 + 553 = 6,479 = TRANS), so nothing is estimated.
-    "vehicles_fuel": ("Car purchase and fuel",    ["TRANS", "-VEHOTHXP", "-PUBTRANS"], "goods"),
-    "vehicle_other": ("Car insurance and upkeep", ["VEHOTHXP"],             "otherServices"),
-    "public_transit":("Public transportation",    ["PUBTRANS"],             "otherServices"),
-    "health":        ("Health care",              ["HEALTH"],               "otherServices"),
-    "apparel":       ("Clothing",                 ["APPAREL"],              "goods"),
-    # Telephone services (cell + landline). Not in HUD gross rent, so no double count;
-    # internet access is a separate CE line and is not included here.
-    "phone":         ("Phone service",            ["PHONE"],                "otherServices"),
-    "entertainment": ("Entertainment",            ["ENTRTAIN"],             "allItems"),
-    "personal_care": ("Personal care",            ["PERSCARE"],             "allItems"),
-    "education":     ("Education",                ["EDUCATN"],              "otherServices"),
+    "vehicles_fuel": ("Car purchase and fuel",      ["TRANS", "-VEHOTHXP", "-PUBTRANS"], "goods", "CUUR0000SAT1"),
+    # CE "other vehicle expenses": insurance, maintenance and repairs, finance
+    # charges, leases, licences and fees.
+    "vehicle_other": ("Car insurance, repairs and fees", ["VEHOTHXP"], "otherServices", "CUUR0000SAT1"),
+    # CE "public and other transportation" includes fares on trips, air included.
+    "public_transit":("Public transport and fares", ["PUBTRANS"],  "otherServices", "CUUR0000SETG"),
+    # Includes the health insurance premiums a household pays itself.
+    "health":        ("Health care and insurance",  ["HEALTH"],    "otherServices", "CPIMEDNS"),
+    "apparel":       ("Clothing",                   ["APPAREL"],   "goods",         "CPIAPPNS"),
+    # Telephone services (cell + landline). Not in HUD gross rent: no double count.
+    "phone":         ("Phone service",              ["PHONE"],     "otherServices", "CUUR0000SEED"),
+    # CE "other household expenses": household services such as cleaning, repairs
+    # and lawn care. Child care is a separate CE line (personal services) and is
+    # deliberately not estimated: it varies too much to average.
+    "household_services": ("Household services",   ["HHOTHXPN"],  "otherServices", "CUUR0000SAH3"),
+    "household_supplies": ("Household supplies",   ["HKPGSUPP"],  "goods",         "CUUR0000SAH3"),
+    "furnishings":   ("Furniture and household items", ["HHFURNSH"], "goods",       "CUUR0000SAH3"),
+    "entertainment": ("Entertainment",              ["ENTRTAIN"],  "allItems",      "CPIRECNS"),
+    "personal_care": ("Personal care",              ["PERSCARE"],  "allItems",      "CUUR0000SAG1"),
+    "education":     ("Education",                  ["EDUCATN"],   "otherServices", "CUUR0000SAE1"),
 }
 # Table LB05, size of consumer unit: 02 one person, 03 two or more (unused),
 # 04 two, 05 three, 06 four, 07 five or more.
@@ -113,7 +123,7 @@ def parse(payload, year):
 def build(values, year):
     missing, table = [], {size: {} for size in SIZE_CODES}
     for size, code in SIZE_CODES.items():
-        for key, (_, items, _) in CATEGORIES.items():
+        for key, (_, items, _, _) in CATEGORIES.items():
             signed = [(-1 if i.startswith("-") else 1, series_id(i.lstrip("-"), code)) for i in items]
             gaps = [sid for _, sid in signed if sid not in values]
             if gaps:
@@ -127,9 +137,49 @@ def build(values, year):
         "source": {"label": f"BLS Consumer Expenditure Survey, {year}, by size of consumer unit",
                    "url": "https://www.bls.gov/cex/",
                    "retrieved": datetime.date.today().isoformat()},
-        "categories": {k: {"label": v[0], "index": v[2]} for k, v in CATEGORIES.items()},
+        "categories": {k: {"label": v[0], "index": v[2], "cpiSeries": v[3]}
+                       for k, v in CATEGORIES.items()},
         "annualByHouseholdSize": table,
         "verification": "pending",
+    }
+
+
+def cpi_monthly(series):
+    """{'YYYY-MM': value} for a CPI series, from FRED's mirror of BLS."""
+    import csv, io, subprocess
+    p = subprocess.run(["curl", "-sS", "--fail", "--max-time", "30", "--retry", "4",
+                        "--retry-all-errors",
+                        f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series}"],
+                       capture_output=True, text=True)
+    if p.returncode != 0:
+        raise SystemExit(f"CPI series {series}: {p.stderr.strip()}")
+    return {r[0][:7]: float(r[1]) for r in list(csv.reader(io.StringIO(p.stdout)))[1:]
+            if r and r[1] not in ("", ".")}
+
+
+def price_update(year):
+    """Carry each category from the survey year's prices to the latest month every
+    series has published, using that category's own CPI component: the survey's
+    annual averages are in survey-year dollars, and a budget quoted today must be in
+    today's. Factor = latest month / survey-year average (both not seasonally
+    adjusted, U.S. city average)."""
+    series = sorted({v[3] for v in CATEGORIES.values()})
+    data = {s: cpi_monthly(s) for s in series}
+    common = set.intersection(*(set(d) for d in data.values()))
+    latest = max(common)
+    out = {}
+    for s, d in data.items():
+        months = [d[f"{year}-{m:02d}"] for m in range(1, 13)]
+        base = sum(months) / 12
+        out[s] = {"base": round(base, 3), "latest": d[latest],
+                  "factor": round(d[latest] / base, 6)}
+        time.sleep(0.3)
+    return {
+        "method": f"each category x (its CPI component in {latest} / its {year} annual average)",
+        "toMonth": latest,
+        "source": "BLS Consumer Price Index for All Urban Consumers, U.S. city average, not "
+                  "seasonally adjusted (series retrieved through FRED)",
+        "series": out,
     }
 
 
@@ -139,7 +189,7 @@ def main():
     ap.add_argument("--via", choices=["fred", "bls"], default="fred")
     args = ap.parse_args()
     ids = sorted({series_id(i.lstrip("-"), c) for c in SIZE_CODES.values()
-                  for _, items, _ in CATEGORIES.values() for i in items})
+                  for _, items, _, _ in CATEGORIES.values() for i in items})
     values = {}
     if args.via == "fred":
         values = fetch_fred(ids, args.year)
@@ -147,6 +197,7 @@ def main():
         for i in range(0, len(ids), 50):      # the API takes 50 series per request
             values.update(parse(fetch(ids[i:i + 50], args.year, os.environ.get("BLS_API_KEY")), args.year))
     out = build(values, args.year)
+    out["priceUpdate"] = price_update(args.year)
     if args.via == "fred":
         out["source"]["label"] += " (series retrieved through FRED, Federal Reserve Bank of St. Louis)"
         out["source"]["mirror"] = "https://fred.stlouisfed.org/"

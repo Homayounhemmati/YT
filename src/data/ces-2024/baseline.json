@@ -9,47 +9,73 @@
   "categories": {
     "food_home": {
       "label": "Groceries",
-      "index": "goods"
+      "index": "goods",
+      "cpiSeries": "CUUR0000SAF11"
     },
     "food_away": {
       "label": "Eating out",
-      "index": "otherServices"
+      "index": "otherServices",
+      "cpiSeries": "CUUR0000SEFV"
     },
     "vehicles_fuel": {
       "label": "Car purchase and fuel",
-      "index": "goods"
+      "index": "goods",
+      "cpiSeries": "CUUR0000SAT1"
     },
     "vehicle_other": {
-      "label": "Car insurance and upkeep",
-      "index": "otherServices"
+      "label": "Car insurance, repairs and fees",
+      "index": "otherServices",
+      "cpiSeries": "CUUR0000SAT1"
     },
     "public_transit": {
-      "label": "Public transportation",
-      "index": "otherServices"
+      "label": "Public transport and fares",
+      "index": "otherServices",
+      "cpiSeries": "CUUR0000SETG"
     },
     "health": {
-      "label": "Health care",
-      "index": "otherServices"
+      "label": "Health care and insurance",
+      "index": "otherServices",
+      "cpiSeries": "CPIMEDNS"
     },
     "apparel": {
       "label": "Clothing",
-      "index": "goods"
+      "index": "goods",
+      "cpiSeries": "CPIAPPNS"
     },
     "phone": {
       "label": "Phone service",
-      "index": "otherServices"
+      "index": "otherServices",
+      "cpiSeries": "CUUR0000SEED"
+    },
+    "household_services": {
+      "label": "Household services",
+      "index": "otherServices",
+      "cpiSeries": "CUUR0000SAH3"
+    },
+    "household_supplies": {
+      "label": "Household supplies",
+      "index": "goods",
+      "cpiSeries": "CUUR0000SAH3"
+    },
+    "furnishings": {
+      "label": "Furniture and household items",
+      "index": "goods",
+      "cpiSeries": "CUUR0000SAH3"
     },
     "entertainment": {
       "label": "Entertainment",
-      "index": "allItems"
+      "index": "allItems",
+      "cpiSeries": "CPIRECNS"
     },
     "personal_care": {
       "label": "Personal care",
-      "index": "allItems"
+      "index": "allItems",
+      "cpiSeries": "CUUR0000SAG1"
     },
     "education": {
       "label": "Education",
-      "index": "otherServices"
+      "index": "otherServices",
+      "cpiSeries": "CUUR0000SAE1"
     }
   },
   "annualByHouseholdSize": {
@@ -62,6 +88,9 @@
       "health": 4026.0,
       "apparel": 1113.0,
       "phone": 849.0,
+      "household_services": 1015.0,
+      "household_supplies": 495.0,
+      "furnishings": 1472.0,
       "entertainment": 2187.0,
       "personal_care": 619.0,
       "education": 818.0
@@ -75,6 +104,9 @@
       "health": 7228.0,
       "apparel": 1994.0,
       "phone": 1451.0,
+      "household_services": 1474.0,
+      "household_supplies": 971.0,
+      "furnishings": 2674.0,
       "entertainment": 3933.0,
       "personal_care": 1023.0,
       "education": 1133.0
@@ -88,6 +120,9 @@
       "health": 6706.0,
       "apparel": 2404.0,
       "phone": 1758.0,
+      "household_services": 1405.0,
+      "household_supplies": 1067.0,
+      "furnishings": 2976.0,
       "entertainment": 4091.0,
       "personal_care": 1188.0,
       "education": 2585.0
@@ -101,6 +136,9 @@
       "health": 7629.0,
       "apparel": 2653.0,
       "phone": 2031.0,
+      "household_services": 1827.0,
+      "household_supplies": 1082.0,
+      "furnishings": 2971.0,
       "entertainment": 4995.0,
       "personal_care": 1347.0,
       "education": 2668.0
@@ -114,10 +152,75 @@
       "health": 6819.0,
       "apparel": 3358.0,
       "phone": 2203.0,
+      "household_services": 1519.0,
+      "household_supplies": 1197.0,
+      "furnishings": 2884.0,
       "entertainment": 4416.0,
       "personal_care": 1144.0,
       "education": 2458.0
     }
   },
-  "verification": "pending"
+  "verification": "pending",
+  "priceUpdate": {
+    "method": "each category x (its CPI component in 2026-08 / its 2024 annual average)",
+    "toMonth": "2026-08",
+    "source": "BLS Consumer Price Index for All Urban Consumers, U.S. city average, not seasonally adjusted (series retrieved through FRED)",
+    "series": {
+      "CPIAPPNS": {
+        "base": 131.483,
+        "latest": 136.752,
+        "factor": 1.040076
+      },
+      "CPIMEDNS": {
+        "base": 563.841,
+        "latest": 593.003,
+        "factor": 1.05172
+      },
+      "CPIRECNS": {
+        "base": 138.158,
+        "latest": 145.186,
+        "factor": 1.050869
+      },
+      "CUUR0000SAE1": {
+        "base": 299.677,
+        "latest": 322.16,
+        "factor": 1.075024
+      },
+      "CUUR0000SAF11": {
+        "base": 306.536,
+        "latest": 321.5,
+        "factor": 1.048816
+      },
+      "CUUR0000SAG1": {
+        "base": 282.454,
+        "latest": 303.801,
+        "factor": 1.075578
+      },
+      "CUUR0000SAH3": {
+        "base": 147.597,
+        "latest": 156.072,
+        "factor": 1.057417
+      },
+      "CUUR0000SAT1": {
+        "base": 270.308,
+        "latest": 289.246,
+        "factor": 1.070063
+      },
+      "CUUR0000SEED": {
+        "base": 94.63,
+        "latest": 96.255,
+        "factor": 1.017169
+      },
+      "CUUR0000SEFV": {
+        "base": 368.743,
+        "latest": 397.868,
+        "factor": 1.078985
+      },
+      "CUUR0000SETG": {
+        "base": 262.706,
+        "latest": 294.029,
+        "factor": 1.119232
+      }
+    }
+  }
 }

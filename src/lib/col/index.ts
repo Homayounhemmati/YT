@@ -13,6 +13,8 @@ import {
 } from "./types.js";
 
 export * from "./types.js";
+export * from "./calculator.js";
+export * from "./places.js";
 
 /**
  * The cost-of-living engine. It shares nothing with the tax engine except money
@@ -522,7 +524,8 @@ export function cityMonthlyCost(input: CityCostInput): CityCost {
       index = place.indices.allItems;
       warnings.push(`${cat.label}: no separate ${cat.index} index for ${place.name}; the overall price level was used.`);
     }
-    const monthly = Math.round((toCents(base) * index) / 100 / 12);
+    const factor = (cat.cpiSeries && baseline.priceUpdate?.series[cat.cpiSeries]?.factor) || 1;
+    const monthly = Math.round((toCents(base) * factor * index) / 100 / 12);
     rows.push({ key, label: cat.label, monthly: toDollars(monthly), basis: "national average at local prices" });
   }
 
@@ -531,7 +534,12 @@ export function cityMonthlyCost(input: CityCostInput): CityCost {
     "Categories other than rent are an estimate for a typical household of this size " +
       "at local prices, not your own spending. Replace any line with your figure.",
   );
-  if (baseline.year !== place.dataYear) {
+  if (baseline.priceUpdate) {
+    warnings.push(
+      `Spending is the ${baseline.year} national average for this household size, carried to ` +
+        `${baseline.priceUpdate.toMonth} prices category by category with the Consumer Price Index.`,
+    );
+  } else if (baseline.year !== place.dataYear) {
     warnings.push(`Spending averages are for ${baseline.year}; price levels for ${place.dataYear}.`);
   }
   return { rows, monthlyTotal: toDollars(total), annualTotal: toDollars(total * 12), warnings };

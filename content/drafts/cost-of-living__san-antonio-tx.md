@@ -12,21 +12,24 @@ household spends, priced at San Antonio's own price level:
 | Monthly cost, one person | San Antonio |
 |---|---|
 | Rent and utilities (HUD Fair Market Rent, one bedroom) | $1,177 |
-| Groceries | $265 |
-| Eating out | $180 |
-| Car purchase and fuel | $300 |
-| Car insurance and upkeep | $191 |
-| Health care | $323 |
-| Phone service | $68 |
-| Entertainment | $173 |
-| Clothing | $87 |
-| Education | $66 |
-| Public transport | $59 |
-| Personal care | $49 |
-| **Total** | **$2,937** |
+| Groceries | $278 |
+| Eating out | $195 |
+| Car purchase and fuel | $321 |
+| Car insurance, repairs and fees | $205 |
+| Public transport and fares | $66 |
+| Health care and insurance | $340 |
+| Clothing | $90 |
+| Phone service | $69 |
+| Household services | $86 |
+| Household supplies | $41 |
+| Furniture and household items | $122 |
+| Entertainment | $181 |
+| Personal care | $53 |
+| Education | $71 |
+| **Total** | **$3,293** |
 
-Rent is 40% of that month; for a family of four in a two-bedroom, whose total comes to
-about $5,813, it is 25%. The two-bedroom Fair Market Rent is $1,426. Those San Antonio
+Rent is 36% of that month; for a family of four in a two-bedroom, whose total comes to
+about $6,574, it is 22%. The two-bedroom Fair Market Rent is $1,426. Those San Antonio
 living expenses are an average household's — put in your own figures in the cost of
 living calculator and the total follows.
 
@@ -62,8 +65,8 @@ the same as in Austin or Houston. Because the paycheck is identical across Texas
 comparison between Texas cities is purely a comparison of costs, and on costs San
 Antonio comes out ahead.
 
-Covering the one-person month above takes a gross salary of about $41,155. A family
-of four needs about $81,383 filing jointly. Both are break-even — no savings, no debt
+Covering the one-person month above takes a gross salary of about $46,471. A family
+of four needs about $92,748 filing jointly. Both are break-even — no savings, no debt
 payments — so they mark the floor for a household like the average one.
 
 ## Who San Antonio suits
@@ -84,7 +87,8 @@ and then some.
 
 Rent is HUD's Fair Market Rent for fiscal 2026 for Bexar County, matched to HUD's own
 county file. Every other line is the Bureau of Labor Statistics' 2024 average for a
-household of that size, priced with San Antonio's 2024 BEA price levels: goods for
+household of that size, carried to
+current prices with each category's own Consumer Price Index, and priced with San Antonio's 2024 BEA price levels: goods for
 groceries, clothing and cars; other services for eating out, health care, phone and
 insurance. HUD's rent includes the utilities a tenant pays, so they are not counted
 twice. The salary figures come from the same engine as the Texas paycheck

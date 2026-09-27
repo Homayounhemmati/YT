@@ -12,21 +12,24 @@ household spends on everyday categories, priced at Austin's own price level:
 | Monthly cost, one person | Austin |
 |---|---|
 | Rent and utilities (HUD Fair Market Rent, one bedroom) | $1,562 |
-| Groceries | $265 |
-| Eating out | $180 |
-| Car purchase and fuel | $300 |
-| Car insurance and upkeep | $191 |
-| Health care | $323 |
-| Phone service | $68 |
-| Entertainment | $179 |
-| Clothing | $87 |
-| Education | $66 |
-| Public transport | $59 |
-| Personal care | $51 |
-| **Total** | **$3,330** |
+| Groceries | $278 |
+| Eating out | $195 |
+| Car purchase and fuel | $321 |
+| Car insurance, repairs and fees | $205 |
+| Public transport and fares | $66 |
+| Health care and insurance | $340 |
+| Clothing | $90 |
+| Phone service | $69 |
+| Household services | $86 |
+| Household supplies | $41 |
+| Furniture and household items | $122 |
+| Entertainment | $188 |
+| Personal care | $54 |
+| Education | $71 |
+| **Total** | **$3,687** |
 
-Rent is 47% of that month. For a family of four in a two-bedroom the total is about
-$6,256, and rent falls to 30% of it — the two-bedroom Fair Market Rent is $1,852
+Rent is 42% of that month. For a family of four in a two-bedroom the total is about
+$7,018, and rent falls to 26% of it — the two-bedroom Fair Market Rent is $1,852
 against $1,562 for one bedroom, while food and transport more than double. Austin
 punishes the single renter more than the family.
 
@@ -66,8 +69,8 @@ half that makes the rent easier to carry: the same salary in a state with an inc
 tax loses a few thousand dollars a year before rent is paid.
 
 That is also why the salary Austin takes is modest. Covering the one-person month
-above after federal tax and FICA takes a gross salary of about $47,022. The family of
-four needs about $88,009, filing jointly. Both are break-even figures: they cover the
+above after federal tax and FICA takes a gross salary of about $52,344. The family of
+four needs about $99,389, filing jointly. Both are break-even figures: they cover the
 categories listed and leave nothing for savings.
 
 ## Who Austin suits
@@ -89,7 +92,8 @@ family discount.
 
 Rent is HUD's Fair Market Rent for fiscal 2026 for Travis County — gross rent at the
 40th percentile of recent movers, checked against HUD's own county file. Every other
-line is the Bureau of Labor Statistics' 2024 average for a household of that size,
+line is the Bureau of Labor Statistics' 2024 average for a household of that size, carried to
+current prices with each category's own Consumer Price Index, and then
 multiplied by the matching BEA price level for Austin: goods for groceries, clothing
 and cars; other services for eating out, health care, phone and insurance. Housing
 and utilities are not counted twice, because HUD's figure already includes the

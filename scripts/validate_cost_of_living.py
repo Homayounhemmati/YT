@@ -21,6 +21,59 @@ REQUIRED_INDICES = ["allItems", "rent", "goods", "otherServices"]
 MAX_AGE_DAYS = 550  # BEA publishes annually; 18 months per 5-5
 
 
+def validate_places(errors, warnings):
+    """The nationwide calculator data (scripts/build_col_places.py): every state
+    present, every place priced, every reference resolvable, rents sane."""
+    base = ROOT / "src/data/col"
+    if not (base / "meta.json").exists():
+        errors.append("src/data/col is missing: run scripts/build_col_places.py")
+        return
+    areas = json.loads((base / "price-areas.json").read_text())["areas"]
+    for code, a in areas.items():
+        ix = a["indices"]
+        if set(ix) != {"allItems", "goods", "rent", "utilities", "otherServices"}:
+            errors.append(f"price area {code}: indices {sorted(ix)}")
+        if not all(40 < v < 250 for v in ix.values()):
+            errors.append(f"price area {code}: implausible parity {ix}")
+    files = sorted((base / "places").glob("*.json"))
+    if len(files) != 51:
+        errors.append(f"expected 51 state place files, found {len(files)}")
+    n_places = 0
+    for f in files:
+        doc = json.loads(f.read_text())
+        counties = doc["counties"]
+        labels = set()
+        for cid, c in counties.items():
+            n_places += 1
+            if c["priceArea"] not in areas:
+                errors.append(f"{f.name} {cid}: price area {c['priceArea']} unknown")
+            r = c["rent"]
+            if len(r) != 5 or any(x <= 0 for x in r):
+                errors.append(f"{f.name} {cid}: rent {r}")
+            elif any(r[i + 1] < r[i] for i in range(1, 4)):
+                warnings.append(f"{f.name} {c['label']}: rent not rising with bedrooms {r}")
+            if c["label"] in labels:
+                errors.append(f"{f.name}: duplicate label {c['label']}")
+            labels.add(c["label"])
+        for city in doc["cities"]:
+            n_places += 1
+            for cid in [city["county"], *city.get("alsoIn", [])]:
+                if cid not in counties:
+                    errors.append(f"{f.name} {city['label']}: county {cid} not in file")
+            if city["label"] in labels:
+                errors.append(f"{f.name}: duplicate label {city['label']}")
+            labels.add(city["label"])
+    # The metro pages and the calculator must never disagree about a metro.
+    for p in (ROOT / "src/data").glob("cost-of-living-*/us/*.json"):
+        rec = json.loads(p.read_text())
+        a = areas.get(rec.get("msaCode"))
+        if a is None:
+            errors.append(f"{p.name}: MSA {rec.get('msaCode')} not in price-areas.json")
+        elif any(abs(a["indices"][k] - v) > 1e-9 for k, v in rec["indices"].items()):
+            errors.append(f"{p.name}: indices differ from price-areas.json")
+    print(f"calculator data: {len(areas)} price areas · {n_places} places in {len(files)} states")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--year", type=int, required=True)
@@ -102,6 +155,8 @@ def main():
                             "human has checked it (13-4 rule 1)")
         if not doc.get("dataYear"):
             errors.append(f"{slug}: no dataYear — the vintage must be displayed (16-2-1)")
+
+    validate_places(errors, warnings)
 
     if len(set(seen_index_sets.values())) > 1:
         shapes = {}

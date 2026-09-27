@@ -12,23 +12,26 @@ household spends, priced at Houston's own price level:
 | Monthly cost, one person | Houston |
 |---|---|
 | Rent and utilities (HUD Fair Market Rent, one bedroom) | $1,323 |
-| Groceries | $285 |
-| Eating out | $179 |
-| Car purchase and fuel | $322 |
-| Car insurance and upkeep | $190 |
-| Health care | $321 |
-| Phone service | $68 |
-| Entertainment | $180 |
-| Clothing | $93 |
-| Education | $65 |
-| Public transport | $58 |
-| Personal care | $51 |
-| **Total** | **$3,134** |
+| Groceries | $299 |
+| Eating out | $193 |
+| Car purchase and fuel | $344 |
+| Car insurance, repairs and fees | $203 |
+| Public transport and fares | $65 |
+| Health care and insurance | $337 |
+| Clothing | $97 |
+| Phone service | $69 |
+| Household services | $86 |
+| Household supplies | $44 |
+| Furniture and household items | $131 |
+| Entertainment | $189 |
+| Personal care | $55 |
+| Education | $70 |
+| **Total** | **$3,505** |
 
-Rent takes 42% of that month. A family of four in a two-bedroom spends about $6,099,
-with rent at 26% of it: the two-bedroom Fair Market Rent is $1,573. In a car-first
+Rent takes 38% of that month. A family of four in a two-bedroom spends about $6,892,
+with rent at 23% of it: the two-bedroom Fair Market Rent is $1,573. In a car-first
 metro the transport lines matter more than they look — the family's car purchase and
-fuel line alone is $993 a month, more than half what it pays in rent.
+fuel line alone is $1,063 a month, about two-thirds of what it pays in rent.
 
 These Houston living expenses describe an average household, not yours. The cost of
 living calculator lets you replace any line with your own number.
@@ -64,8 +67,8 @@ identical anywhere in Texas. Against a city with similar prices in a taxed state
 that paycheck is the whole difference: the tax line does the work the price line
 does not.
 
-Covering the one-person month above takes a gross salary of about $44,098, and the
-family of four needs about $85,665 filing jointly. Both are break-even figures with
+Covering the one-person month above takes a gross salary of about $49,626, and the
+family of four needs about $97,503 filing jointly. Both are break-even figures with
 nothing set aside, so treat them as the floor, not the target.
 
 ## Who Houston suits
@@ -88,7 +91,8 @@ of the month after rent.
 
 Rent is HUD's Fair Market Rent for fiscal 2026 for Harris County, matched to HUD's own
 county file. Every other line is the Bureau of Labor Statistics' 2024 average for a
-household of that size, priced with the Houston metro area's 2024 BEA price levels —
+household of that size, carried to
+current prices with each category's own Consumer Price Index, and priced with the Houston metro area's 2024 BEA price levels —
 goods for groceries, clothing and cars, other services for eating out, health care,
 phone and insurance. HUD's rent already includes tenant-paid utilities, so they are
 not added again. The salary figures run through the same engine as the Texas
