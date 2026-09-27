@@ -170,6 +170,10 @@ def main():
     for e in gen["pages"]:
         if args.pilot and e["path"] not in body_lookup:
             continue
+        # A page behind the gate is not published, so it is not measured: the
+        # uniqueness budget is about what Google will see.
+        if e.get("built") is False:
+            continue
         groups[e["template"]].append(e)
     if args.pilot:
         print(f"PILOT: comparing only the {sum(len(v) for v in groups.values())} "

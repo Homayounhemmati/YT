@@ -357,17 +357,17 @@
       "structure": "progressive",
       "scenario": "salary",
       "gross": 95000,
-      "totalTax": 24537.81,
-      "takeHome": 70462.19,
-      "stateTax": 5200.31,
+      "totalTax": 24487.76,
+      "takeHome": 70512.24,
+      "stateTax": 5150.26,
       "fica": 7267.5,
       "federalTax": 12070,
       "effectiveRate": 25.8,
       "warnings": [],
       "selfEmployed": {
-        "totalTax": 25560.67,
-        "takeHome": 69439.33,
-        "stateTax": 4720.43,
+        "totalTax": 25510.62,
+        "takeHome": 69489.38,
+        "stateTax": 4670.38,
         "effectiveRate": 26.9
       }
     },
@@ -954,19 +954,17 @@
       "structure": "progressive",
       "scenario": "salary",
       "gross": 95000,
-      "totalTax": 23780.21,
-      "takeHome": 71219.79,
-      "stateTax": 4442.71,
+      "totalTax": 23768.96,
+      "takeHome": 71231.04,
+      "stateTax": 4431.46,
       "fica": 7267.5,
       "federalTax": 12070,
       "effectiveRate": 25,
-      "warnings": [
-        "Wisconsin figures are from the prior tax year; the state had not published updated brackets."
-      ],
+      "warnings": [],
       "selfEmployed": {
-        "totalTax": 24927.24,
-        "takeHome": 70072.76,
-        "stateTax": 4087,
+        "totalTax": 24915.99,
+        "takeHome": 70084.01,
+        "stateTax": 4075.75,
         "effectiveRate": 26.2
       }
     },

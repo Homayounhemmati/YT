@@ -1,0 +1,576 @@
+{
+  "$comment": "Every number in a tool body or tool FAQ, and what it rests on. Checked by scripts/audit_claims.py: an unregistered number fails CI; an entry whose status is not 'verified' is a launch-checklist item. 'cited-not-fetched' means the citation is specific but was written without reaching the source from this environment.",
+  "statuses": {
+    "verified": "computed, engine-tested or taken from this repository's datasets",
+    "cited-not-fetched": "a specific statute or primary source is named; open it and confirm before launch",
+    "needs-verification": "a published statistic; confirm the figure against the named source before launch"
+  },
+  "claims": [
+    {
+      "id": "scenario-95k",
+      "scope": "*",
+      "tokens": [
+        "$95,000"
+      ],
+      "basis": "computed",
+      "means": "The worked-example salary used across the site",
+      "reference": "Scenario input of scripts/compute_takehome.ts",
+      "status": "verified"
+    },
+    {
+      "id": "salary-spread",
+      "scope": "*",
+      "tokens": [
+        "$7,500",
+        "8%"
+      ],
+      "basis": "computed",
+      "means": "Best-minus-worst state take-home on a $95,000 salary is more than $7,500, about 8% of gross",
+      "reference": "data/takehome-95k.json: Alaska 75,662.50 - Oregon 67,908.06 = 7,754.44 on Oregon's 2025 brackets; 2026 indexing lowers Oregon's tax slightly, so the copy states a floor. Re-confirm when Oregon's 2026 brackets are extracted.",
+      "status": "needs-verification"
+    },
+    {
+      "id": "employee-fica",
+      "scope": "*",
+      "tokens": [
+        "7.65%",
+        "6.2%",
+        "1.45%",
+        "0.9%"
+      ],
+      "basis": "statute",
+      "means": "Employee Social Security, Medicare and Additional Medicare rates",
+      "reference": "26 U.S.C. 3101(a), 3101(b)(1), 3101(b)(2); src/data/tax-year-2026/federal.json",
+      "status": "verified"
+    },
+    {
+      "id": "se-tax",
+      "scope": "*",
+      "tokens": [
+        "15.3%",
+        "12.4%",
+        "2.9%"
+      ],
+      "basis": "statute",
+      "means": "Self-employment tax and its two components",
+      "reference": "26 U.S.C. 1401(a), 1401(b)(1); federal.json",
+      "status": "verified"
+    },
+    {
+      "id": "full-time-hours",
+      "scope": "*",
+      "tokens": [
+        "2,080",
+        "40",
+        "52"
+      ],
+      "basis": "computed",
+      "means": "40 hours x 52 weeks",
+      "reference": "arithmetic; everyday.ts salaryToHourly",
+      "status": "verified"
+    },
+    {
+      "id": "rpp-base",
+      "scope": "*",
+      "tokens": [
+        "100"
+      ],
+      "basis": "statute",
+      "means": "BEA Regional Price Parities are expressed against a national average of 100",
+      "reference": "BEA RPP methodology, https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+      "status": "cited-not-fetched"
+    },
+    {
+      "id": "hud-cost-burden",
+      "scope": "*",
+      "tokens": [
+        "30%",
+        "50%"
+      ],
+      "basis": "statute",
+      "means": "HUD cost burden (>30% of income on housing) and severe cost burden (>50%)",
+      "reference": "HUD CHAS data definitions, https://www.huduser.gov/portal/datasets/cp.html",
+      "status": "cited-not-fetched"
+    },
+    {
+      "id": "state-counts",
+      "scope": "*",
+      "tokens": [
+        "9",
+        "41"
+      ],
+      "basis": "dataset",
+      "means": "Nine states with no wage income tax; 41 states that levy one",
+      "reference": "src/data/tax-year-2026/states: 9 with structure none, 42 taxing jurisdictions including DC",
+      "status": "verified"
+    },
+    {
+      "id": "closing-range",
+      "scope": [
+        "closing-cost-calculator",
+        "home-affordability-calculator"
+      ],
+      "tokens": [
+        "2%",
+        "5%"
+      ],
+      "basis": "external",
+      "means": "Buyer closing costs typically run 2% to 5% of the purchase price",
+      "reference": "Freddie Mac, 'Closing costs' (My Home), and CFPB Closing Disclosure guidance",
+      "status": "needs-verification"
+    },
+    {
+      "id": "closing-examples",
+      "scope": "closing-cost-calculator",
+      "tokens": [
+        "$400,000",
+        "$8,000",
+        "$20,000",
+        "$14,000"
+      ],
+      "basis": "computed",
+      "means": "2% and 5% of $400,000; $14,000 is an illustration inside that range",
+      "reference": "arithmetic",
+      "status": "verified"
+    },
+    {
+      "id": "transfer-tax-over-1pct",
+      "scope": "closing-cost-calculator",
+      "tokens": [
+        "1%"
+      ],
+      "basis": "statute",
+      "means": "Some states' realty transfer tax exceeds 1% of price",
+      "reference": "e.g. Delaware realty transfer tax, 30 Del. C. ch. 54",
+      "status": "cited-not-fetched"
+    },
+    {
+      "id": "rpp-reading",
+      "scope": "cost-of-living-calculator",
+      "tokens": [
+        "112",
+        "12%",
+        "91",
+        "9%"
+      ],
+      "basis": "computed",
+      "means": "How an index above or below 100 reads",
+      "reference": "arithmetic on the RPP definition",
+      "status": "verified"
+    },
+    {
+      "id": "col-illustrations",
+      "scope": "cost-of-living-calculator",
+      "tokens": [
+        "45%",
+        "25%",
+        "$85,000"
+      ],
+      "basis": "computed",
+      "means": "Hypothetical households used to explain the method",
+      "reference": "illustration, no factual claim",
+      "status": "verified"
+    },
+    {
+      "id": "offer-illustration",
+      "scope": [
+        "cost-of-living-comparison",
+        "salary-comparison-by-city"
+      ],
+      "tokens": [
+        "$120,000"
+      ],
+      "basis": "computed",
+      "means": "Hypothetical job offer",
+      "reference": "illustration, no factual claim",
+      "status": "verified"
+    },
+    {
+      "id": "28-36",
+      "scope": [
+        "home-affordability-calculator"
+      ],
+      "tokens": [
+        "28",
+        "36",
+        "28%",
+        "36%"
+      ],
+      "basis": "external",
+      "means": "Conventional front-end and back-end ratio guidance",
+      "reference": "Fannie Mae / FHA conventional underwriting guidance",
+      "status": "needs-verification"
+    },
+    {
+      "id": "qm-2021",
+      "scope": "home-affordability-calculator",
+      "tokens": [
+        "43%",
+        "2021"
+      ],
+      "basis": "statute",
+      "means": "The 43% DTI cap left the General QM definition in 2021",
+      "reference": "CFPB General QM Final Rule (December 2020, effective March 1, 2021), 12 CFR 1026.43(e)(2)",
+      "status": "cited-not-fetched"
+    },
+    {
+      "id": "du-50",
+      "scope": "home-affordability-calculator",
+      "tokens": [
+        "50%"
+      ],
+      "basis": "external",
+      "means": "Fannie Mae Desktop Underwriter maximum DTI",
+      "reference": "Fannie Mae Selling Guide B3-6-02",
+      "status": "cited-not-fetched"
+    },
+    {
+      "id": "car-payment",
+      "scope": [
+        "home-affordability-calculator"
+      ],
+      "tokens": [
+        "$600",
+        "$65,000",
+        "$80,000",
+        "6",
+        "7%"
+      ],
+      "basis": "computed",
+      "means": "Price lost to $600 of monthly debt at 6-7%",
+      "reference": "calc.test.ts 'backs the published claim'",
+      "status": "verified"
+    },
+    {
+      "id": "property-tax-extremes",
+      "scope": [
+        "home-affordability-calculator",
+        "property-tax-calculator"
+      ],
+      "tokens": [
+        "0.3%",
+        "2%",
+        "$1,400",
+        "$1,000,000"
+      ],
+      "basis": "external",
+      "means": "Hawaii near 0.3%, New Jersey and Illinois about 2% effective rate; $1,400 is 1.7% of $1,000,000 / 12",
+      "reference": "US Census ACS 5-year: median real estate taxes paid / median home value, by state",
+      "status": "needs-verification"
+    },
+    {
+      "id": "maintenance-1pct",
+      "scope": [
+        "home-affordability-calculator",
+        "house-payment-calculator"
+      ],
+      "tokens": [
+        "1%"
+      ],
+      "basis": "external",
+      "means": "The 1% maintenance rule of thumb, stated in the copy as a convention",
+      "reference": "convention; the copy does not present it as data",
+      "status": "verified"
+    },
+    {
+      "id": "pmi-80-78",
+      "scope": [
+        "home-affordability-calculator",
+        "house-payment-calculator"
+      ],
+      "tokens": [
+        "20%",
+        "22%",
+        "80%"
+      ],
+      "basis": "statute",
+      "means": "PMI below 20% down; cancellable at 80% LTV, automatic at 78% (22% equity)",
+      "reference": "Homeowners Protection Act of 1998, 12 U.S.C. 4902",
+      "status": "cited-not-fetched"
+    },
+    {
+      "id": "tax-rate-gap",
+      "scope": "house-payment-calculator",
+      "tokens": [
+        "$400,000",
+        "0.4%",
+        "2.2%",
+        "$600"
+      ],
+      "basis": "computed",
+      "means": "1.8% of $400,000 / 12 = $600",
+      "reference": "arithmetic",
+      "status": "verified"
+    },
+    {
+      "id": "amortisation-facts",
+      "scope": "house-payment-calculator",
+      "tokens": [
+        "30",
+        "6",
+        "7%",
+        "1",
+        "12"
+      ],
+      "basis": "computed",
+      "means": "First-year interest share 83-87% and crossover in year 19-20 at 6-7%; formula constants",
+      "reference": "housing.ts principalAndInterest; checked by amortisation run",
+      "status": "verified"
+    },
+    {
+      "id": "federal-brackets",
+      "scope": [
+        "income-tax-calculator"
+      ],
+      "tokens": [
+        "10%",
+        "12%",
+        "22%",
+        "24%"
+      ],
+      "basis": "dataset",
+      "means": "2026 federal bracket rates",
+      "reference": "src/data/tax-year-2026/federal.json",
+      "status": "verified"
+    },
+    {
+      "id": "qbi-20",
+      "scope": [
+        "income-tax-calculator"
+      ],
+      "tokens": [
+        "20%"
+      ],
+      "basis": "statute",
+      "means": "QBI deduction of up to 20%",
+      "reference": "26 U.S.C. 199A(a)",
+      "status": "cited-not-fetched"
+    },
+    {
+      "id": "min-wage",
+      "scope": "living-wage-calculator",
+      "tokens": [
+        "$7.25",
+        "2009"
+      ],
+      "basis": "statute",
+      "means": "Federal minimum wage since July 24, 2009",
+      "reference": "29 U.S.C. 206(a)(1)(C)",
+      "status": "cited-not-fetched"
+    },
+    {
+      "id": "min-wage-annual",
+      "scope": "living-wage-calculator",
+      "tokens": [
+        "$15,080"
+      ],
+      "basis": "computed",
+      "means": "$7.25 x 2,080",
+      "reference": "arithmetic",
+      "status": "verified"
+    },
+    {
+      "id": "flat-floor-top",
+      "scope": [
+        "living-wage-calculator",
+        "income-tax-calculator"
+      ],
+      "tokens": [
+        "2.5%",
+        "10%"
+      ],
+      "basis": "dataset",
+      "means": "Arizona's 2.5% flat rate; top progressive rates above 10%",
+      "reference": "src/data/tax-year-2026/states/arizona.json, california.json",
+      "status": "verified"
+    },
+    {
+      "id": "assessment-ratios",
+      "scope": "property-tax-calculator",
+      "tokens": [
+        "40%",
+        "70%"
+      ],
+      "basis": "statute",
+      "means": "Georgia assesses at 40% of fair market value, Connecticut at 70%",
+      "reference": "O.C.G.A. 48-5-7(a); Conn. Gen. Stat. 12-62a(b)",
+      "status": "cited-not-fetched"
+    },
+    {
+      "id": "georgia-example",
+      "scope": "property-tax-calculator",
+      "tokens": [
+        "$400,000",
+        "$160,000"
+      ],
+      "basis": "computed",
+      "means": "40% of $400,000",
+      "reference": "arithmetic",
+      "status": "verified"
+    },
+    {
+      "id": "mills",
+      "scope": "property-tax-calculator",
+      "tokens": [
+        "$1,000",
+        "20",
+        "2%",
+        "1000"
+      ],
+      "basis": "computed",
+      "means": "A mill is $1 per $1,000; 20 mills is 2%",
+      "reference": "arithmetic",
+      "status": "verified"
+    },
+    {
+      "id": "pt-400k-range",
+      "scope": "property-tax-calculator",
+      "tokens": [
+        "$1,200",
+        "$8,000"
+      ],
+      "basis": "computed",
+      "means": "0.3% and 2% of $400,000",
+      "reference": "arithmetic",
+      "status": "verified"
+    },
+    {
+      "id": "brooke",
+      "scope": "rent-affordability-calculator",
+      "tokens": [
+        "1969",
+        "25%",
+        "1981"
+      ],
+      "basis": "statute",
+      "means": "Brooke Amendment 25% cap (1969), raised to 30% (1981)",
+      "reference": "Brooke Amendment, Housing and Urban Development Act of 1969 (Pub. L. 91-152); raised to 30% by the Omnibus Budget Reconciliation Act of 1981 (Pub. L. 97-35)",
+      "status": "cited-not-fetched"
+    },
+    {
+      "id": "rent-examples",
+      "scope": "rent-affordability-calculator",
+      "tokens": [
+        "$70,000",
+        "$1,750",
+        "33%",
+        "0.30"
+      ],
+      "basis": "computed",
+      "means": "30% of $70,000 / 12; one-third; formula constant",
+      "reference": "arithmetic; col.test.ts rent affordability",
+      "status": "verified"
+    },
+    {
+      "id": "index-move",
+      "scope": "salary-comparison-by-city",
+      "tokens": [
+        "95",
+        "130",
+        "37%",
+        "$130,000",
+        "1",
+        "2"
+      ],
+      "basis": "computed",
+      "means": "130/95 = 1.37; list numbering",
+      "reference": "arithmetic",
+      "status": "verified"
+    },
+    {
+      "id": "hourly-table",
+      "scope": "salary-to-hourly-calculator",
+      "tokens": [
+        "$100,000",
+        "$48.08",
+        "$52.08",
+        "$51.28",
+        "1,920",
+        "1,950",
+        "37.5",
+        "48",
+        "$45.67",
+        "1,960",
+        "6%",
+        "8%"
+      ],
+      "basis": "computed",
+      "means": "Salary over hours for each basis",
+      "reference": "everyday.test via salaryToHourly; arithmetic",
+      "status": "verified"
+    },
+    {
+      "id": "contract-example",
+      "scope": "salary-to-hourly-calculator",
+      "tokens": [
+        "$60",
+        "$124,800",
+        "$110,000",
+        "$14,800"
+      ],
+      "basis": "computed",
+      "means": "$60 x 2,080 against a $110,000 salary",
+      "reference": "arithmetic",
+      "status": "verified"
+    },
+    {
+      "id": "reverse-sales-tax",
+      "scope": "sales-tax-calculator",
+      "tokens": [
+        "$107",
+        "$7.00",
+        "$7.49",
+        "7%",
+        "1"
+      ],
+      "basis": "computed",
+      "means": "Removing 7% from $107 gives $100 and $7.00 of tax",
+      "reference": "calc.test.ts removeSalesTax",
+      "status": "verified"
+    },
+    {
+      "id": "pay-periods",
+      "scope": "take-home-pay-calculator",
+      "tokens": [
+        "$1,827",
+        "$3,654",
+        "$3,958",
+        "$7,917",
+        "26",
+        "24",
+        "12"
+      ],
+      "basis": "computed",
+      "means": "$95,000 over 52, 26, 24 and 12 periods",
+      "reference": "arithmetic; payroll.test.ts pay periods",
+      "status": "verified"
+    },
+    {
+      "id": "state-takehome",
+      "scope": "take-home-pay-calculator",
+      "tokens": [
+        "$75,663",
+        "$72,746",
+        "$67,908",
+        "3.07%",
+        "2025"
+      ],
+      "basis": "dataset",
+      "means": "Engine take-home in Texas/Alaska/Florida, Pennsylvania and Oregon; Pennsylvania's flat rate",
+      "reference": "data/takehome-95k.json; payroll.test.ts golden cases (Oregon on 2025 brackets, labelled in the table)",
+      "status": "verified"
+    },
+    {
+      "id": "se-vs-salary",
+      "scope": "take-home-pay-calculator",
+      "tokens": [
+        "$879",
+        "$1,503"
+      ],
+      "basis": "computed",
+      "means": "Range of salary-minus-self-employment take-home across 51 jurisdictions",
+      "reference": "data/takehome-95k.json",
+      "status": "verified"
+    }
+  ]
+}

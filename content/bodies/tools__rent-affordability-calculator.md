@@ -20,16 +20,14 @@ the answer        = whether the first number clears the second
 ```
 
 HUD publishes Fair Market Rent for every county in the country, set at the 40th
-percentile of rents for standard-quality units — the 50th percentile in a small number
-of tight markets. It is the closest thing to an official rent figure that exists, and
+percentile of rents paid by recent movers into standard-quality units. It is the closest thing to an official rent figure that exists, and
 it is free.
 
 ## What landlords apply instead
 
 Screening usually runs on a gross multiple rather than a percentage. The common
 threshold is three times the monthly rent in gross monthly income, which works out to
-a 33% ceiling — slightly looser than the federal standard. Some markets use 2.5x, and
-New York commonly uses 40x the monthly rent in annual income, a 30% ceiling expressed
+a 33% ceiling — slightly looser than the federal standard. New York commonly uses 40x the monthly rent in annual income, a 30% ceiling expressed
 annually.
 
 This matters because the question **how much rent can i afford** has two answers that

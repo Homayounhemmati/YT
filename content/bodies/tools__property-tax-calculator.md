@@ -14,9 +14,9 @@ annual tax     = taxable value × millage rate ÷ 1000
 ```
 
 **Assessed value is not market value.** Many jurisdictions assess at a fraction of
-market — 40%, 50%, 80% — and the fraction is set by state law rather than by the
-assessor. A $400,000 home in a 50%-assessment state has a $200,000 assessed value
-before anything else happens.
+market, and the fraction is set by state law rather than by the assessor: Georgia
+assesses at 40% of fair market value, Connecticut at 70%. A $400,000 home in Georgia
+has a $160,000 assessed value before anything else happens.
 
 **A millage rate is dollars per $1,000 of taxable value.** A rate of 20 mills is 2%.
 The unit exists for historical reasons and survives mainly because it makes rates
@@ -37,9 +37,10 @@ applies to a differently-defined base. The comparable figure is:
 effective rate = annual tax ÷ market value
 ```
 
-Across the United States this runs from roughly 0.3% to over 2%. On a $400,000
+Across the United States this runs from roughly 0.3% to about 2%. On a $400,000
 home that is the difference between $1,200 and $8,000 a year — recurring, rising
-with assessments, and larger than most people's entire state income tax bill.
+with assessments, and more than the highest state income tax on a $95,000 salary
+anywhere in the country, which is a little over $7,500 in Oregon.
 
 **This is the trade behind "no income tax" states.** Several fund themselves
 primarily through property tax, and a homeowner there can return much of the

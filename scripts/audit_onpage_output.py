@@ -128,13 +128,29 @@ else:
     listed = [u["loc"] for s in sm["segments"] for u in s["urls"]]
     if len(listed) != len(set(listed)):
         err("a URL appears in more than one sitemap segment")
-    pending = {p["path"] for p in P if "PENDING_" in json.dumps(p)}
     for p in P:
         inmap = p["canonical"] in listed
-        if p["path"] in pending and inmap:
-            err(f"{p['path']}: carries a PENDING_ placeholder and is in a sitemap")
-        if p["path"] not in pending and not inmap:
-            err(f"{p['path']}: indexable but in no sitemap segment")
+        if "PENDING_" in json.dumps(p) and p.get("built"):
+            err(f"{p['path']}: carries a PENDING_ placeholder but is marked built")
+        if not p.get("built") and inmap:
+            err(f"{p['path']}: behind the gate but listed in a sitemap")
+        if p.get("built") and not inmap:
+            err(f"{p['path']}: built but in no sitemap segment")
+
+# 11 — the gate: nothing published may link to a page that is not
+built = {p["path"] for p in P if p.get("built")}
+for p in P:
+    if not p.get("built"):
+        continue
+    for l in p["internalLinks"]:
+        if l["to"] not in built:
+            err(f"{p['path']}: links to {l['to']}, which is behind the gate")
+    for block in p["jsonLd"]:
+        for it in block.get("itemListElement", []) if isinstance(block.get("itemListElement"), list) else []:
+            url = it.get("url") or it.get("item")
+            if url and url.replace(G["origin"], "") and url.replace(G["origin"], "") not in built \
+                    and url != G["origin"]:
+                err(f"{p['path']}: structured data points at {url}, which is behind the gate")
 
 for e in errors:
     print(f"ERROR  {e}")

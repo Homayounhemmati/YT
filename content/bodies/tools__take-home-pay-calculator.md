@@ -1,7 +1,7 @@
 The gap between what you are offered and what arrives in your account is
 consistently larger than people expect. On a $95,000 salary the difference runs from
 a fifth to more than a quarter of the figure — and the exact amount depends on which
-state you live in, by as much as $7,754 a year.
+state you live in, by more than $7,500 a year.
 
 ## How take-home pay is calculated
 
@@ -56,10 +56,10 @@ the same salary produces materially different outcomes:
 |---|---|
 | Alaska, Texas, Florida (no state income tax) | ~$75,663 |
 | Pennsylvania (flat 3.07%) | ~$72,746 |
-| Oregon (progressive, no local layer) | ~$67,908 |
+| Oregon (progressive; 2025 brackets, the latest confirmed) | ~$67,908 |
 
-**A $7,754 spread on identical gross pay**, from state tax alone. That is 8.2% of
-the salary, and it is invisible in any offer letter. A self-employed person on the
+**More than $7,500 of difference on identical gross pay**, from state tax alone —
+about 8% of the salary, and it is invisible in any offer letter. A self-employed person on the
 same $95,000 keeps between $879 and $1,503 less, depending on the state, because
 they pay both halves of FICA.
 

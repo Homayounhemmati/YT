@@ -1,0 +1,105 @@
+#!/usr/bin/env python3
+"""Every number in published copy must be traceable (copywriting guide, rule 5-1).
+
+Two figures in the tool copy were wrong when this check was written — "roughly
+$100,000" of price for a $600 car payment (the engine says $65,000-$80,000) and a
+"$80 to $250" utilities gap that had no source — and four more were found while
+building it: a 43% Qualified Mortgage cap repealed in 2021, P&I quoted as 70% of
+the payment (77-80%), first-year interest as three-quarters (83-87%), and a flat
+income tax floor "near 3%" (Arizona is 2.5%). None was detectable by any rule that
+read the copy for tone, length or keywords.
+
+Every numeric token in a tool body or tool FAQ must be covered by an entry in
+data/claims.json that says what it is based on:
+
+  computed   arithmetic or an engine test, named in `reference`
+  dataset    a value in this repository's datasets
+  statute    a law or regulation, cited
+  external   a published figure from a named primary source
+
+`status` records whether it has been checked against the source itself.
+Anything not `verified` is listed as a launch-checklist item, not an error; an
+UNREGISTERED number is an error.
+
+Usage: python3 scripts/audit_claims.py [--inventory]
+"""
+import collections
+import json
+import pathlib
+import re
+import sys
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+NUM = re.compile(r"\$?\d[\d,]*(?:\.\d+)?%?")
+
+
+def norm(tok):
+    return tok.rstrip(",.")
+
+
+def sources():
+    """(slug, kind, text) for every tool body and tool FAQ."""
+    for f in sorted((ROOT / "content/bodies").glob("tools__*.md")):
+        yield f.stem.split("__")[1], "body", f.read_text()
+    faq = json.loads((ROOT / "data/pages.json").read_text())["onPage"]["faqFormulas"]["ToolPage"]
+    for slug, rows in faq.items():
+        if slug.startswith("$"):
+            continue
+        yield slug, "faq", "\n".join(q + "\n" + a for q, a in rows)
+
+
+def tokens(text):
+    text = re.sub(r"\*\*|__", "", text)
+    for m in NUM.finditer(text):
+        tok = norm(m.group())
+        # "401(k)", "199A" and "W-4" are names, not quantities.
+        after = text[m.end():m.end() + 3]
+        before = text[max(0, m.start() - 2):m.start()]
+        if after.startswith("(k)") or after[:1].isalpha() or re.fullmatch(r"[A-Z]-", before):
+            continue
+        yield tok
+
+
+def main():
+    reg = json.loads((ROOT / "data/claims.json").read_text())
+    covered = collections.defaultdict(set)   # slug or "*" -> tokens
+    for c in reg["claims"]:
+        for scope in (c["scope"] if isinstance(c["scope"], list) else [c["scope"]]):
+            for t in c["tokens"]:
+                covered[scope].add(t)
+
+    inventory = collections.defaultdict(set)
+    errors = []
+    for slug, kind, text in sources():
+        for tok in tokens(text):
+            inventory[slug].add(tok)
+            if tok not in covered["*"] and tok not in covered[slug]:
+                errors.append(f"{slug} ({kind}): '{tok}' is not in data/claims.json")
+
+    if "--inventory" in sys.argv:
+        for slug in sorted(inventory):
+            print(slug, sorted(inventory[slug]))
+        return 0
+
+    # stale entries: a registered token no page uses any more
+    used = set().union(*inventory.values())
+    stale = [f"{c['id']}: {t}" for c in reg["claims"] for t in c["tokens"] if t not in used]
+
+    pending = [c for c in reg["claims"] if c.get("status") != "verified"]
+    for e in sorted(set(errors)):
+        print("ERROR ", e)
+    for s in stale:
+        print("warn   registered but unused —", s)
+    if pending:
+        print(f"\nlaunch checklist — {len(pending)} claim(s) to check against the source:")
+        for c in pending:
+            print(f"  [{c['basis']}] {c['id']}: {c['means']}  <- {c['reference']}")
+    n = sum(len(v) for v in inventory.values())
+    print(f"\n{n} numeric tokens across {len(inventory)} tools · "
+          f"{len(reg['claims'])} claims · {len(set(errors))} unregistered · "
+          f"{len(pending)} awaiting source check")
+    return 1 if errors else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

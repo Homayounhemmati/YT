@@ -11,15 +11,15 @@
         "rate": 3.5
       },
       {
-        "from": 14680.0,
+        "from": 15110.0,
         "rate": 4.4
       },
       {
-        "from": 51130.0,
+        "from": 51950.0,
         "rate": 5.3
       },
       {
-        "from": 323290.0,
+        "from": 332720.0,
         "rate": 7.65
       }
     ],
@@ -29,15 +29,15 @@
         "rate": 3.5
       },
       {
-        "from": 19580.0,
+        "from": 20150.0,
         "rate": 4.4
       },
       {
-        "from": 68170.0,
+        "from": 69260.0,
         "rate": 5.3
       },
       {
-        "from": 431060.0,
+        "from": 443630.0,
         "rate": 7.65
       }
     ],
@@ -47,15 +47,15 @@
         "rate": 3.5
       },
       {
-        "from": 9790.0,
+        "from": 10080.0,
         "rate": 4.4
       },
       {
-        "from": 34090.0,
+        "from": 34630.0,
         "rate": 5.3
       },
       {
-        "from": 215530.0,
+        "from": 221820.0,
         "rate": 7.65
       }
     ],
@@ -65,15 +65,15 @@
         "rate": 3.5
       },
       {
-        "from": 14680.0,
+        "from": 15110.0,
         "rate": 4.4
       },
       {
-        "from": 51130.0,
+        "from": 51950.0,
         "rate": 5.3
       },
       {
-        "from": 323290.0,
+        "from": 332720.0,
         "rate": 7.65
       }
     ]
@@ -82,9 +82,7 @@
   "standardDeduction": {},
   "surtax": null,
   "localTaxNote": null,
-  "notes": [
-    "These figures are inflation-indexed but the latest published values take effect 2025-01-01, so they are 2025 figures, not 2026. The state had not released uprated brackets when this was extracted. Do not label them as 2026 on the site until confirmed."
-  ],
+  "notes": [],
   "provenance": {
     "extractedFrom": "policyengine-us",
     "resolvedPaths": {
@@ -96,7 +94,7 @@
     "valuesEffectiveFrom": [
       "2021-01-01",
       "2023-01-01",
-      "2025-01-01"
+      "2026-01-01"
     ],
     "sources": [
       {
@@ -118,10 +116,14 @@
       {
         "title": "2025 Form 1 instructions",
         "url": "https://www.revenue.wi.gov/TaxForms2025/2025-Form1-inst.pdf#page=38"
+      },
+      {
+        "title": "2026 Form 1-ES instructions",
+        "url": "https://www.revenue.wi.gov/TaxForms2026/2026-Form1-ES-Inst.pdf#page=7"
       }
     ],
     "inflationIndexed": true
   },
   "verification": "pending",
-  "staleForTargetYear": true
+  "staleForTargetYear": false
 }

@@ -16,8 +16,15 @@ d = json.load(open("data/pages.json"))
 k = json.load(open("data/keywords.json"))
 vol = {x["slug"]: x["volume"] for x in k["keywords"]}
 
-# how many real URLs each declared row becomes
-EXPANSION = {"/cost-of-living/{metro}": 30, "/state-taxes/{state}": 51}
+# How many real URLs each declared row becomes AT LAUNCH. Taken from the gate in
+# the generated output rather than from the plan: an unbuilt page passes no
+# equity, and modelling the planned 30 metros and 51 states credited the tools
+# with links from 77 pages that will not exist on day one.
+_gen = json.load(open("data/onpage.generated.json"))["sitemap"]["gate"]
+EXPANSION = {"/cost-of-living/{metro}": _gen["metrosBuilt"],
+             "/state-taxes/{state}": _gen["statesBuilt"]}
+if "--planned" in sys.argv:   # the full programme, for comparison
+    EXPANSION = {"/cost-of-living/{metro}": 30, "/state-taxes/{state}": 51}
 
 nav = d["crawl"]["globalNav"]
 foot = d["crawl"]["globalFooter"]
@@ -27,14 +34,16 @@ rows = {p["path"]: p for p in d["pages"]}
 nodes, origin = [], {}
 for p in d["pages"]:
     n = EXPANSION.get(p["path"], 1)
-    for i in range(n):
-        nid = p["path"] if n == 1 else f"{p['path']}#{i}"
+    for i in range(n):  # n == 0: the template is behind the gate entirely
+        nid = p["path"] if p["path"] not in EXPANSION else f"{p['path']}#{i}"
         nodes.append(nid); origin[nid] = p["path"]
 
 def targets(template_path):
     """Concrete nodes a declared link target resolves to."""
     n = EXPANSION.get(template_path, 1)
-    if n == 1:
+    if n == 0:
+        return []
+    if template_path not in EXPANSION:
         return [template_path]
     return [f"{template_path}#{i}" for i in range(n)]
 

@@ -88,7 +88,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 | `/state-taxes/washington-dc` | Washington, D.C. Income Tax Calculator (2026) | 45 | 141 | pending |
 | `/state-taxes/washington` | Washington Income Tax Calculator (2026) | 39 | 122 | pending |
 | `/state-taxes/west-virginia` | West Virginia Income Tax Calculator (2026) | 42 | 138 | pending |
-| `/state-taxes/wisconsin` | Wisconsin Income Tax Calculator (2026) | 38 | 134 | ⚠️ 2025 |
+| `/state-taxes/wisconsin` | Wisconsin Income Tax Calculator (2026) | 38 | 134 | pending |
 | `/state-taxes/wyoming` | Wyoming Income Tax Calculator (2026) | 36 | 119 | pending |
 
 ## A progressive state — `/state-taxes/california` in full
@@ -124,7 +124,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 
 | To | Anchor |
 |---|---|
-| `/cost-of-living/san-francisco-ca` | cost of living in San Francisco |
+| `/cost-of-living` | cost of living by city |
 | `/tools/income-tax-calculator` | income tax calculator |
 | `/tools/take-home-pay-calculator` | take home pay calculator |
 | `/state-taxes` | state income tax rates |
@@ -260,7 +260,7 @@ Metro pages appear here once the cost-of-living dataset exists (section 13-6).
 
 | To | Anchor |
 |---|---|
-| `/cost-of-living/austin-tx` | cost of living in Austin |
+| `/cost-of-living` | cost of living by city |
 | `/tools/income-tax-calculator` | income tax calculator |
 | `/tools/take-home-pay-calculator` | take home pay calculator |
 | `/state-taxes` | state income tax rates |

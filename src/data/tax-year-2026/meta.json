@@ -1,10 +1,10 @@
 {
   "taxYear": 2026,
-  "generatedAt": "2026-08-29T16:05:23Z",
+  "generatedAt": "2026-09-27T08:24:54Z",
   "generatedBy": "scripts/extract_tax_data.py",
   "upstream": {
     "package": "policyengine-us",
-    "version": "1.821.4",
+    "version": "2.15.9",
     "url": "https://pypi.org/project/policyengine-us/"
   },
   "sourceClass": "secondary",
@@ -498,7 +498,7 @@
       "flatRate": null,
       "bracketCount": 4,
       "hasStandardDeduction": false,
-      "stale": true,
+      "stale": false,
       "verification": "pending"
     },
     {

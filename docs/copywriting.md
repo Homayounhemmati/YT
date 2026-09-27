@@ -235,9 +235,12 @@ legally sound. But **do not hedge a fact**: Pennsylvania's rate is 3.07%, not
 - **A salary figure and a self-employment figure are different numbers.** On
   $95,000 they differ by $879–$1,503 depending on the state. Never quote one under
   the other's name; `data/takehome-95k.json` keeps them in separate fields.
+- **A figure resting on prior-year data is not quoted as exact.** The salary spread
+  is $7,754 on Oregon's 2025 brackets; 2026 indexing lowers it slightly, so copy
+  says "more than $7,500", which is true on either year's figures.
 - Bracket thresholds exactly: **$215,400**, never "around $215,000".
-- Give a number its meaning in the same sentence: "$7,754 — 8.2% of gross income"
-  says something that "$7,754" alone does not.
+- Give a number its meaning in the same sentence: "more than $7,500 — about 8% of gross income"
+  says something that "$7,500" alone does not.
 
 ---
 

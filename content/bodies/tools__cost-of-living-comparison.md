@@ -15,7 +15,7 @@ real annual difference = tax difference − cost difference
 
 The first is the standard comparison. The second is what almost nothing else
 includes, and on a $95,000 salary the spread between the best and worst US
-jurisdiction is **$7,754 a year** — 8.2% of gross, from state tax alone.
+jurisdiction is **more than $7,500 a year** — about 8% of gross, from state tax alone.
 
 That is the size of the number being left out of a **cost of living comparison
 calculator** that stops at rent and groceries.

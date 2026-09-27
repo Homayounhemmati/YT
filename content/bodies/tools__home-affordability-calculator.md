@@ -15,11 +15,12 @@ back-end   36%  — housing plus every other monthly debt payment
 The back-end ratio is the binding one for most buyers, because car loans, student loans
 and minimum card payments all count against it while contributing nothing toward the
 house. Two households with identical incomes and a $600 monthly difference in car
-payments qualify for roughly $100,000 of price difference at current rates.
+payments qualify for roughly $65,000 to $80,000 of price difference at a 6–7% rate.
 
-The 28/36 figures are guidance rather than law. The Qualified Mortgage standard allows
-debt-to-income up to 43%, FHA lending routinely approves above that with compensating
-factors, and automated underwriting has pushed some approvals near 50%. **How much
+The 28/36 figures are guidance rather than law. A 43% debt-to-income cap was part of
+the federal Qualified Mortgage rule until 2021, when a price-based test replaced it; 43%
+survives as a common ceiling in manual underwriting, and Fannie Mae's automated
+underwriting approves some loans up to 50%. **How much
 house can i afford** therefore has a conservative answer and a maximum answer, and the
 gap between them is where most buyer regret lives.
 
@@ -28,9 +29,11 @@ gap between them is where most buyer regret lives.
 The ratio is applied to the full housing cost, not the loan payment:
 
 - **Principal and interest**, set by the loan amount, rate and term.
-- **Property tax**, which varies from roughly 0.3% of value in Hawaii to over 2% in New
-  Jersey and Illinois — a difference of more than $1,400 a month on a $1,000,000 home.
-- **Homeowners insurance**, now the fastest-moving line in coastal and wildfire states.
+- **Property tax**, which varies from roughly 0.3% of value a year in Hawaii to about
+  2% in New Jersey and Illinois — a difference of about $1,400 a month on a $1,000,000
+  home.
+- **Homeowners insurance**, which is priced by location and risk and can differ several
+  times over between a coastal or wildfire-exposed address and an inland one.
 - **Mortgage insurance**, charged whenever the down payment falls below 20% and
   cancellable on conventional loans once equity reaches that mark.
 

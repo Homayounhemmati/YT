@@ -516,11 +516,28 @@ def main():
     metros_file = ROOT / "data/metros.json"
     metros = (json.loads(metros_file.read_text())["metros"]
               if metros_file.exists() else [])
+    # THE GATE (6-10-3). An entity page is built only when its body copy exists
+    # and its data is complete. Before this, all 51 state pages were generated,
+    # listed and linked while 47 had no body and measured 18-23% unique — 47 thin
+    # pages on a new domain. Unbuilt rows are still generated for review, but
+    # they are passed to no link resolver, so nothing links to them, and they
+    # stay out of the sitemap.
+    bodies = {"/" + f.stem.replace("__", "/")
+              for f in (ROOT / "content/bodies").glob("*.md")}
+    built_metros = {m["slug"] for m in metros
+                    if f"/cost-of-living/{m['slug']}" in bodies
+                    and m.get("indices") and m.get("referenceRent")}
+    # A state whose brackets are prior-year figures is not published under a
+    # 2026 title (rule 16-2-1) — it waits behind the gate until confirmed.
+    built_states = {s["slug"] for s in states
+                    if f"/state-taxes/{s['slug']}" in bodies
+                    and not s.get("staleForTargetYear")}
     metro_rows = [{"slug": m["slug"], "display": m["displayName"],
                    "stateSlug": m["stateSlug"], "volume": m.get("volume", 0)}
-                  for m in metros]
+                  for m in metros if m["slug"] in built_metros]
     state_rows = [{"slug": s["slug"], "display": s["name"],
-                   "stateSlug": s["slug"], "volume": 0} for s in states]
+                   "stateSlug": s["slug"], "volume": 0}
+                  for s in states if s["slug"] in built_states]
 
     for page in pages_doc["pages"]:
         if "{" in page["path"]:
@@ -570,7 +587,12 @@ def main():
         (s["file"], []) for s in pages_doc["sitemaps"]["segments"])
     for e in entries:
         e["sitemap"] = sitemap_segment(pages_doc, e["template"])
-        if "PENDING_" in json.dumps(e):
+        slug = e["path"].rsplit("/", 1)[-1]
+        e["built"] = not (
+            (e["template"] == "StateTaxPage" and slug not in built_states)
+            or (e["template"] == "PlacePage" and slug not in built_metros)
+            or "PENDING_" in json.dumps(e))
+        if not e["built"]:
             e["sitemap"] = None          # not built yet, so not listed
             continue
         segments[e["sitemap"]].append({"loc": e["canonical"], "lastmod": lastmod})
@@ -581,6 +603,8 @@ def main():
         "segments": [{"file": f, "urlCount": len(u), "urls": u}
                      for f, u in segments.items()],
         "excluded": [e["path"] for e in entries if e["sitemap"] is None],
+        "gate": {"statesBuilt": len(built_states), "statesTotal": len(states),
+                 "metrosBuilt": len(built_metros), "metrosTotal": len(metros)},
     }
 
     titles = {}

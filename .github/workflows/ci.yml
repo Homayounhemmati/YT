@@ -45,8 +45,13 @@ jobs:
       # internal links will not rank for it, and nothing else in the audit
       # notices. The entity templates are expanded first: 26 declared rows are
       # 105 real URLs, and collapsing them hides where the equity actually goes.
-      - name: Internal link equity against demand
-        run: python3 scripts/analyze_link_equity.py
+      - name: Internal link equity against demand (the planned programme)
+        run: python3 scripts/analyze_link_equity.py --planned
+
+      # Launch-day equity depends on how many gated pages have been written, so
+      # it is reported by launch_readiness.py rather than failing the build.
+      - name: Launch readiness report
+        run: python3 scripts/launch_readiness.py
 
       # Audits the OUTPUT, not the rules that produced it. Every defect this
       # catches was invisible in data/pages.json and obvious in the generated
@@ -56,6 +61,11 @@ jobs:
       # output is.
       - name: Audit the generated on-page output
         run: python3 scripts/audit_onpage_output.py
+
+      # Every number in tool copy must be traceable to a test, a dataset or a
+      # named source. Six published figures were wrong before this existed.
+      - name: Every published number is registered
+        run: python3 scripts/audit_claims.py
 
       # Thin content is the failure mode that sinks programmatic sites, and it is
       # invisible until traffic never arrives. Measure it, do not assume it.

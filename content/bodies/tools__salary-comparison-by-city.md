@@ -26,7 +26,7 @@ An equivalent salary keeps your **spending power** level. It does not keep your
 **take-home pay** level, because the two cities may sit in different states.
 
 On a $95,000 salary the gap between the highest and lowest US jurisdiction is
-**$7,754 a year** in state tax alone. A move that is cost-neutral can be several
+**more than $7,500 a year** in state tax alone. A move that is cost-neutral can be several
 thousand dollars a year worse or better once tax is applied, and nothing in the
 cost index reveals that.
 

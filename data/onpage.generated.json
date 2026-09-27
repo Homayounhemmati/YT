@@ -75,130 +75,10 @@
       },
       {
         "file": "/sitemaps/states.xml",
-        "urlCount": 51,
+        "urlCount": 4,
         "urls": [
           {
-            "loc": "https://example.com/state-taxes/alabama",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/alaska",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/arizona",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/arkansas",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/california",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/colorado",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/connecticut",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/delaware",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/florida",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/georgia",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/hawaii",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/idaho",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/illinois",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/indiana",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/iowa",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/kansas",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/kentucky",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/louisiana",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/maine",
-            "lastmod": "2026-09-12"
-          },
-          {
             "loc": "https://example.com/state-taxes/maryland",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/massachusetts",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/michigan",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/minnesota",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/mississippi",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/missouri",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/montana",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/nebraska",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/nevada",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/new-hampshire",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/new-jersey",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/new-mexico",
             "lastmod": "2026-09-12"
           },
           {
@@ -206,79 +86,11 @@
             "lastmod": "2026-09-12"
           },
           {
-            "loc": "https://example.com/state-taxes/north-carolina",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/north-dakota",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/ohio",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/oklahoma",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/oregon",
-            "lastmod": "2026-09-12"
-          },
-          {
             "loc": "https://example.com/state-taxes/pennsylvania",
             "lastmod": "2026-09-12"
           },
           {
-            "loc": "https://example.com/state-taxes/rhode-island",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/south-carolina",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/south-dakota",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/tennessee",
-            "lastmod": "2026-09-12"
-          },
-          {
             "loc": "https://example.com/state-taxes/texas",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/utah",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/vermont",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/virginia",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/washington-dc",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/washington",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/west-virginia",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/wisconsin",
-            "lastmod": "2026-09-12"
-          },
-          {
-            "loc": "https://example.com/state-taxes/wyoming",
             "lastmod": "2026-09-12"
           }
         ]
@@ -343,8 +155,61 @@
       "/cost-of-living/austin-tx",
       "/cost-of-living/san-francisco-ca",
       "/cost-of-living/san-antonio-tx",
-      "/cost-of-living/houston-tx"
-    ]
+      "/cost-of-living/houston-tx",
+      "/state-taxes/alabama",
+      "/state-taxes/alaska",
+      "/state-taxes/arizona",
+      "/state-taxes/arkansas",
+      "/state-taxes/california",
+      "/state-taxes/colorado",
+      "/state-taxes/connecticut",
+      "/state-taxes/delaware",
+      "/state-taxes/florida",
+      "/state-taxes/georgia",
+      "/state-taxes/hawaii",
+      "/state-taxes/idaho",
+      "/state-taxes/illinois",
+      "/state-taxes/indiana",
+      "/state-taxes/iowa",
+      "/state-taxes/kansas",
+      "/state-taxes/kentucky",
+      "/state-taxes/louisiana",
+      "/state-taxes/maine",
+      "/state-taxes/massachusetts",
+      "/state-taxes/michigan",
+      "/state-taxes/minnesota",
+      "/state-taxes/mississippi",
+      "/state-taxes/missouri",
+      "/state-taxes/montana",
+      "/state-taxes/nebraska",
+      "/state-taxes/nevada",
+      "/state-taxes/new-hampshire",
+      "/state-taxes/new-jersey",
+      "/state-taxes/new-mexico",
+      "/state-taxes/north-carolina",
+      "/state-taxes/north-dakota",
+      "/state-taxes/ohio",
+      "/state-taxes/oklahoma",
+      "/state-taxes/oregon",
+      "/state-taxes/rhode-island",
+      "/state-taxes/south-carolina",
+      "/state-taxes/south-dakota",
+      "/state-taxes/tennessee",
+      "/state-taxes/utah",
+      "/state-taxes/vermont",
+      "/state-taxes/virginia",
+      "/state-taxes/washington-dc",
+      "/state-taxes/washington",
+      "/state-taxes/west-virginia",
+      "/state-taxes/wisconsin",
+      "/state-taxes/wyoming"
+    ],
+    "gate": {
+      "statesBuilt": 4,
+      "statesTotal": 51,
+      "metrosBuilt": 0,
+      "metrosTotal": 4
+    }
   },
   "pages": [
     {
@@ -426,7 +291,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/core.xml"
+      "sitemap": "/sitemaps/core.xml",
+      "built": true
     },
     {
       "path": "/tools",
@@ -629,7 +495,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/core.xml"
+      "sitemap": "/sitemaps/core.xml",
+      "built": true
     },
     {
       "path": "/about",
@@ -691,7 +558,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/core.xml"
+      "sitemap": "/sitemaps/core.xml",
+      "built": true
     },
     {
       "path": "/methodology",
@@ -741,7 +609,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/core.xml"
+      "sitemap": "/sitemaps/core.xml",
+      "built": true
     },
     {
       "path": "/sources",
@@ -791,7 +660,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/core.xml"
+      "sitemap": "/sitemaps/core.xml",
+      "built": true
     },
     {
       "path": "/editorial-policy",
@@ -841,7 +711,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/core.xml"
+      "sitemap": "/sitemaps/core.xml",
+      "built": true
     },
     {
       "path": "/privacy",
@@ -891,7 +762,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/core.xml"
+      "sitemap": "/sitemaps/core.xml",
+      "built": true
     },
     {
       "path": "/terms",
@@ -940,7 +812,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/core.xml"
+      "sitemap": "/sitemaps/core.xml",
+      "built": true
     },
     {
       "path": "/contact",
@@ -989,7 +862,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/core.xml"
+      "sitemap": "/sitemaps/core.xml",
+      "built": true
     },
     {
       "path": "/tools/cost-of-living-calculator",
@@ -1126,11 +1000,16 @@
         {
           "to": "/tools/rent-affordability-calculator",
           "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/cost-of-living",
@@ -1174,53 +1053,29 @@
           "@context": "https://schema.org",
           "@type": "ItemList",
           "name": "Cost of Living by City (2026)",
-          "numberOfItems": 8,
+          "numberOfItems": 4,
           "itemListElement": [
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "cost of living in Austin",
-              "url": "https://example.com/cost-of-living/austin-tx"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "cost of living in San Francisco",
-              "url": "https://example.com/cost-of-living/san-francisco-ca"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "cost of living in San Antonio",
-              "url": "https://example.com/cost-of-living/san-antonio-tx"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "name": "cost of living in Houston",
-              "url": "https://example.com/cost-of-living/houston-tx"
-            },
-            {
-              "@type": "ListItem",
-              "position": 5,
               "name": "cost of living calculator",
               "url": "https://example.com/tools/cost-of-living-calculator"
             },
             {
               "@type": "ListItem",
-              "position": 6,
+              "position": 2,
               "name": "cost of living comparison",
               "url": "https://example.com/tools/cost-of-living-comparison"
             },
             {
               "@type": "ListItem",
-              "position": 7,
+              "position": 3,
               "name": "rent affordability calculator",
               "url": "https://example.com/tools/rent-affordability-calculator"
             },
             {
               "@type": "ListItem",
-              "position": 8,
+              "position": 4,
               "name": "home affordability calculator",
               "url": "https://example.com/tools/home-affordability-calculator"
             }
@@ -1228,22 +1083,6 @@
         }
       ],
       "internalLinks": [
-        {
-          "to": "/cost-of-living/austin-tx",
-          "anchor": "cost of living in Austin"
-        },
-        {
-          "to": "/cost-of-living/san-francisco-ca",
-          "anchor": "cost of living in San Francisco"
-        },
-        {
-          "to": "/cost-of-living/san-antonio-tx",
-          "anchor": "cost of living in San Antonio"
-        },
-        {
-          "to": "/cost-of-living/houston-tx",
-          "anchor": "cost of living in Houston"
-        },
         {
           "to": "/tools/cost-of-living-calculator",
           "anchor": "cost of living calculator"
@@ -1263,7 +1102,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/core.xml"
+      "sitemap": "/sitemaps/core.xml",
+      "built": true
     },
     {
       "path": "/tools/rent-affordability-calculator",
@@ -1408,7 +1248,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/tools/cost-of-living-comparison",
@@ -1549,11 +1390,16 @@
         {
           "to": "/tools/rent-affordability-calculator",
           "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/tools/salary-comparison-by-city",
@@ -1591,7 +1437,7 @@
         },
         {
           "question": "How much does state tax change take-home pay?",
-          "answer": "On a $95,000 salary the spread between the best and worst jurisdiction is about $7,754 a year, or 8.2% of the salary. None of it appears in an offer letter."
+          "answer": "On a $95,000 salary the spread between the best and worst jurisdiction is more than $7,500 a year, or about 8% of the salary. None of it appears in an offer letter."
         }
       ],
       "jsonLd": [
@@ -1672,7 +1518,7 @@
               "name": "How much does state tax change take-home pay?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "On a $95,000 salary the spread between the best and worst jurisdiction is about $7,754 a year, or 8.2% of the salary. None of it appears in an offer letter."
+                "text": "On a $95,000 salary the spread between the best and worst jurisdiction is more than $7,500 a year, or about 8% of the salary. None of it appears in an offer letter."
               }
             }
           ]
@@ -1690,11 +1536,16 @@
         {
           "to": "/tools/salary-to-hourly-calculator",
           "anchor": "salary to hourly calculator"
+        },
+        {
+          "to": "/tools/income-tax-calculator",
+          "anchor": "income tax calculator"
         }
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/tools/salary-to-hourly-calculator",
@@ -1835,7 +1686,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/tools/living-wage-calculator",
@@ -1980,7 +1832,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/tools/income-tax-calculator",
@@ -2129,7 +1982,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/tools/take-home-pay-calculator",
@@ -2159,7 +2013,7 @@
         },
         {
           "question": "Why is my take-home pay so much lower than my salary?",
-          "answer": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state by as much as $7,754 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
+          "answer": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state by more than $7,500 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
         },
         {
           "question": "What is the difference between biweekly and semi-monthly pay?",
@@ -2232,7 +2086,7 @@
               "name": "Why is my take-home pay so much lower than my salary?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state by as much as $7,754 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
+                "text": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state by more than $7,500 a year. Pre-tax deductions like a 401(k) and health premiums change it further."
               }
             },
             {
@@ -2278,7 +2132,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/tools/sales-tax-calculator",
@@ -2419,7 +2274,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/tools/property-tax-calculator",
@@ -2449,7 +2305,7 @@
         },
         {
           "question": "Which states have the highest property tax?",
-          "answer": "New Jersey and Illinois exceed 2% of value a year, while Hawaii sits near 0.3%. On a $1,000,000 home that difference is more than $1,400 a month."
+          "answer": "New Jersey and Illinois sit at about 2% of home value a year, while Hawaii is near 0.3%. On a $1,000,000 home that difference is about $1,400 a month."
         },
         {
           "question": "Does property tax affect what I can afford?",
@@ -2522,7 +2378,7 @@
               "name": "Which states have the highest property tax?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "New Jersey and Illinois exceed 2% of value a year, while Hawaii sits near 0.3%. On a $1,000,000 home that difference is more than $1,400 a month."
+                "text": "New Jersey and Illinois sit at about 2% of home value a year, while Hawaii is near 0.3%. On a $1,000,000 home that difference is about $1,400 a month."
               }
             },
             {
@@ -2560,11 +2416,16 @@
         {
           "to": "/tools/closing-cost-calculator",
           "anchor": "closing cost calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
         }
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/state-taxes",
@@ -2608,323 +2469,41 @@
           "@context": "https://schema.org",
           "@type": "ItemList",
           "name": "State Income Tax Rates by State (2026)",
-          "numberOfItems": 53,
+          "numberOfItems": 6,
           "itemListElement": [
             {
               "@type": "ListItem",
               "position": 1,
-              "name": "Alabama income tax calculator",
-              "url": "https://example.com/state-taxes/alabama"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Alaska income tax calculator",
-              "url": "https://example.com/state-taxes/alaska"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "Arizona income tax calculator",
-              "url": "https://example.com/state-taxes/arizona"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "name": "Arkansas income tax calculator",
-              "url": "https://example.com/state-taxes/arkansas"
-            },
-            {
-              "@type": "ListItem",
-              "position": 5,
-              "name": "California income tax calculator",
-              "url": "https://example.com/state-taxes/california"
-            },
-            {
-              "@type": "ListItem",
-              "position": 6,
-              "name": "Colorado income tax calculator",
-              "url": "https://example.com/state-taxes/colorado"
-            },
-            {
-              "@type": "ListItem",
-              "position": 7,
-              "name": "Connecticut income tax calculator",
-              "url": "https://example.com/state-taxes/connecticut"
-            },
-            {
-              "@type": "ListItem",
-              "position": 8,
-              "name": "Delaware income tax calculator",
-              "url": "https://example.com/state-taxes/delaware"
-            },
-            {
-              "@type": "ListItem",
-              "position": 9,
-              "name": "Florida income tax calculator",
-              "url": "https://example.com/state-taxes/florida"
-            },
-            {
-              "@type": "ListItem",
-              "position": 10,
-              "name": "Georgia income tax calculator",
-              "url": "https://example.com/state-taxes/georgia"
-            },
-            {
-              "@type": "ListItem",
-              "position": 11,
-              "name": "Hawaii income tax calculator",
-              "url": "https://example.com/state-taxes/hawaii"
-            },
-            {
-              "@type": "ListItem",
-              "position": 12,
-              "name": "Idaho income tax calculator",
-              "url": "https://example.com/state-taxes/idaho"
-            },
-            {
-              "@type": "ListItem",
-              "position": 13,
-              "name": "Illinois income tax calculator",
-              "url": "https://example.com/state-taxes/illinois"
-            },
-            {
-              "@type": "ListItem",
-              "position": 14,
-              "name": "Indiana income tax calculator",
-              "url": "https://example.com/state-taxes/indiana"
-            },
-            {
-              "@type": "ListItem",
-              "position": 15,
-              "name": "Iowa income tax calculator",
-              "url": "https://example.com/state-taxes/iowa"
-            },
-            {
-              "@type": "ListItem",
-              "position": 16,
-              "name": "Kansas income tax calculator",
-              "url": "https://example.com/state-taxes/kansas"
-            },
-            {
-              "@type": "ListItem",
-              "position": 17,
-              "name": "Kentucky income tax calculator",
-              "url": "https://example.com/state-taxes/kentucky"
-            },
-            {
-              "@type": "ListItem",
-              "position": 18,
-              "name": "Louisiana income tax calculator",
-              "url": "https://example.com/state-taxes/louisiana"
-            },
-            {
-              "@type": "ListItem",
-              "position": 19,
-              "name": "Maine income tax calculator",
-              "url": "https://example.com/state-taxes/maine"
-            },
-            {
-              "@type": "ListItem",
-              "position": 20,
               "name": "Maryland income tax calculator",
               "url": "https://example.com/state-taxes/maryland"
             },
             {
               "@type": "ListItem",
-              "position": 21,
-              "name": "Massachusetts income tax calculator",
-              "url": "https://example.com/state-taxes/massachusetts"
-            },
-            {
-              "@type": "ListItem",
-              "position": 22,
-              "name": "Michigan income tax calculator",
-              "url": "https://example.com/state-taxes/michigan"
-            },
-            {
-              "@type": "ListItem",
-              "position": 23,
-              "name": "Minnesota income tax calculator",
-              "url": "https://example.com/state-taxes/minnesota"
-            },
-            {
-              "@type": "ListItem",
-              "position": 24,
-              "name": "Mississippi income tax calculator",
-              "url": "https://example.com/state-taxes/mississippi"
-            },
-            {
-              "@type": "ListItem",
-              "position": 25,
-              "name": "Missouri income tax calculator",
-              "url": "https://example.com/state-taxes/missouri"
-            },
-            {
-              "@type": "ListItem",
-              "position": 26,
-              "name": "Montana income tax calculator",
-              "url": "https://example.com/state-taxes/montana"
-            },
-            {
-              "@type": "ListItem",
-              "position": 27,
-              "name": "Nebraska income tax calculator",
-              "url": "https://example.com/state-taxes/nebraska"
-            },
-            {
-              "@type": "ListItem",
-              "position": 28,
-              "name": "Nevada income tax calculator",
-              "url": "https://example.com/state-taxes/nevada"
-            },
-            {
-              "@type": "ListItem",
-              "position": 29,
-              "name": "New Hampshire income tax calculator",
-              "url": "https://example.com/state-taxes/new-hampshire"
-            },
-            {
-              "@type": "ListItem",
-              "position": 30,
-              "name": "New Jersey income tax calculator",
-              "url": "https://example.com/state-taxes/new-jersey"
-            },
-            {
-              "@type": "ListItem",
-              "position": 31,
-              "name": "New Mexico income tax calculator",
-              "url": "https://example.com/state-taxes/new-mexico"
-            },
-            {
-              "@type": "ListItem",
-              "position": 32,
+              "position": 2,
               "name": "New York income tax calculator",
               "url": "https://example.com/state-taxes/new-york"
             },
             {
               "@type": "ListItem",
-              "position": 33,
-              "name": "North Carolina income tax calculator",
-              "url": "https://example.com/state-taxes/north-carolina"
-            },
-            {
-              "@type": "ListItem",
-              "position": 34,
-              "name": "North Dakota income tax calculator",
-              "url": "https://example.com/state-taxes/north-dakota"
-            },
-            {
-              "@type": "ListItem",
-              "position": 35,
-              "name": "Ohio income tax calculator",
-              "url": "https://example.com/state-taxes/ohio"
-            },
-            {
-              "@type": "ListItem",
-              "position": 36,
-              "name": "Oklahoma income tax calculator",
-              "url": "https://example.com/state-taxes/oklahoma"
-            },
-            {
-              "@type": "ListItem",
-              "position": 37,
-              "name": "Oregon income tax calculator",
-              "url": "https://example.com/state-taxes/oregon"
-            },
-            {
-              "@type": "ListItem",
-              "position": 38,
+              "position": 3,
               "name": "Pennsylvania income tax calculator",
               "url": "https://example.com/state-taxes/pennsylvania"
             },
             {
               "@type": "ListItem",
-              "position": 39,
-              "name": "Rhode Island income tax calculator",
-              "url": "https://example.com/state-taxes/rhode-island"
-            },
-            {
-              "@type": "ListItem",
-              "position": 40,
-              "name": "South Carolina income tax calculator",
-              "url": "https://example.com/state-taxes/south-carolina"
-            },
-            {
-              "@type": "ListItem",
-              "position": 41,
-              "name": "South Dakota income tax calculator",
-              "url": "https://example.com/state-taxes/south-dakota"
-            },
-            {
-              "@type": "ListItem",
-              "position": 42,
-              "name": "Tennessee income tax calculator",
-              "url": "https://example.com/state-taxes/tennessee"
-            },
-            {
-              "@type": "ListItem",
-              "position": 43,
+              "position": 4,
               "name": "Texas income tax calculator",
               "url": "https://example.com/state-taxes/texas"
             },
             {
               "@type": "ListItem",
-              "position": 44,
-              "name": "Utah income tax calculator",
-              "url": "https://example.com/state-taxes/utah"
-            },
-            {
-              "@type": "ListItem",
-              "position": 45,
-              "name": "Vermont income tax calculator",
-              "url": "https://example.com/state-taxes/vermont"
-            },
-            {
-              "@type": "ListItem",
-              "position": 46,
-              "name": "Virginia income tax calculator",
-              "url": "https://example.com/state-taxes/virginia"
-            },
-            {
-              "@type": "ListItem",
-              "position": 47,
-              "name": "Washington, D.C. income tax calculator",
-              "url": "https://example.com/state-taxes/washington-dc"
-            },
-            {
-              "@type": "ListItem",
-              "position": 48,
-              "name": "Washington income tax calculator",
-              "url": "https://example.com/state-taxes/washington"
-            },
-            {
-              "@type": "ListItem",
-              "position": 49,
-              "name": "West Virginia income tax calculator",
-              "url": "https://example.com/state-taxes/west-virginia"
-            },
-            {
-              "@type": "ListItem",
-              "position": 50,
-              "name": "Wisconsin income tax calculator",
-              "url": "https://example.com/state-taxes/wisconsin"
-            },
-            {
-              "@type": "ListItem",
-              "position": 51,
-              "name": "Wyoming income tax calculator",
-              "url": "https://example.com/state-taxes/wyoming"
-            },
-            {
-              "@type": "ListItem",
-              "position": 52,
+              "position": 5,
               "name": "income tax calculator",
               "url": "https://example.com/tools/income-tax-calculator"
             },
             {
               "@type": "ListItem",
-              "position": 53,
+              "position": 6,
               "name": "cost of living by city",
               "url": "https://example.com/cost-of-living"
             }
@@ -2933,208 +2512,20 @@
       ],
       "internalLinks": [
         {
-          "to": "/state-taxes/alabama",
-          "anchor": "Alabama income tax calculator"
-        },
-        {
-          "to": "/state-taxes/alaska",
-          "anchor": "Alaska income tax calculator"
-        },
-        {
-          "to": "/state-taxes/arizona",
-          "anchor": "Arizona income tax calculator"
-        },
-        {
-          "to": "/state-taxes/arkansas",
-          "anchor": "Arkansas income tax calculator"
-        },
-        {
-          "to": "/state-taxes/california",
-          "anchor": "California income tax calculator"
-        },
-        {
-          "to": "/state-taxes/colorado",
-          "anchor": "Colorado income tax calculator"
-        },
-        {
-          "to": "/state-taxes/connecticut",
-          "anchor": "Connecticut income tax calculator"
-        },
-        {
-          "to": "/state-taxes/delaware",
-          "anchor": "Delaware income tax calculator"
-        },
-        {
-          "to": "/state-taxes/florida",
-          "anchor": "Florida income tax calculator"
-        },
-        {
-          "to": "/state-taxes/georgia",
-          "anchor": "Georgia income tax calculator"
-        },
-        {
-          "to": "/state-taxes/hawaii",
-          "anchor": "Hawaii income tax calculator"
-        },
-        {
-          "to": "/state-taxes/idaho",
-          "anchor": "Idaho income tax calculator"
-        },
-        {
-          "to": "/state-taxes/illinois",
-          "anchor": "Illinois income tax calculator"
-        },
-        {
-          "to": "/state-taxes/indiana",
-          "anchor": "Indiana income tax calculator"
-        },
-        {
-          "to": "/state-taxes/iowa",
-          "anchor": "Iowa income tax calculator"
-        },
-        {
-          "to": "/state-taxes/kansas",
-          "anchor": "Kansas income tax calculator"
-        },
-        {
-          "to": "/state-taxes/kentucky",
-          "anchor": "Kentucky income tax calculator"
-        },
-        {
-          "to": "/state-taxes/louisiana",
-          "anchor": "Louisiana income tax calculator"
-        },
-        {
-          "to": "/state-taxes/maine",
-          "anchor": "Maine income tax calculator"
-        },
-        {
           "to": "/state-taxes/maryland",
           "anchor": "Maryland income tax calculator"
-        },
-        {
-          "to": "/state-taxes/massachusetts",
-          "anchor": "Massachusetts income tax calculator"
-        },
-        {
-          "to": "/state-taxes/michigan",
-          "anchor": "Michigan income tax calculator"
-        },
-        {
-          "to": "/state-taxes/minnesota",
-          "anchor": "Minnesota income tax calculator"
-        },
-        {
-          "to": "/state-taxes/mississippi",
-          "anchor": "Mississippi income tax calculator"
-        },
-        {
-          "to": "/state-taxes/missouri",
-          "anchor": "Missouri income tax calculator"
-        },
-        {
-          "to": "/state-taxes/montana",
-          "anchor": "Montana income tax calculator"
-        },
-        {
-          "to": "/state-taxes/nebraska",
-          "anchor": "Nebraska income tax calculator"
-        },
-        {
-          "to": "/state-taxes/nevada",
-          "anchor": "Nevada income tax calculator"
-        },
-        {
-          "to": "/state-taxes/new-hampshire",
-          "anchor": "New Hampshire income tax calculator"
-        },
-        {
-          "to": "/state-taxes/new-jersey",
-          "anchor": "New Jersey income tax calculator"
-        },
-        {
-          "to": "/state-taxes/new-mexico",
-          "anchor": "New Mexico income tax calculator"
         },
         {
           "to": "/state-taxes/new-york",
           "anchor": "New York income tax calculator"
         },
         {
-          "to": "/state-taxes/north-carolina",
-          "anchor": "North Carolina income tax calculator"
-        },
-        {
-          "to": "/state-taxes/north-dakota",
-          "anchor": "North Dakota income tax calculator"
-        },
-        {
-          "to": "/state-taxes/ohio",
-          "anchor": "Ohio income tax calculator"
-        },
-        {
-          "to": "/state-taxes/oklahoma",
-          "anchor": "Oklahoma income tax calculator"
-        },
-        {
-          "to": "/state-taxes/oregon",
-          "anchor": "Oregon income tax calculator"
-        },
-        {
           "to": "/state-taxes/pennsylvania",
           "anchor": "Pennsylvania income tax calculator"
         },
         {
-          "to": "/state-taxes/rhode-island",
-          "anchor": "Rhode Island income tax calculator"
-        },
-        {
-          "to": "/state-taxes/south-carolina",
-          "anchor": "South Carolina income tax calculator"
-        },
-        {
-          "to": "/state-taxes/south-dakota",
-          "anchor": "South Dakota income tax calculator"
-        },
-        {
-          "to": "/state-taxes/tennessee",
-          "anchor": "Tennessee income tax calculator"
-        },
-        {
           "to": "/state-taxes/texas",
           "anchor": "Texas income tax calculator"
-        },
-        {
-          "to": "/state-taxes/utah",
-          "anchor": "Utah income tax calculator"
-        },
-        {
-          "to": "/state-taxes/vermont",
-          "anchor": "Vermont income tax calculator"
-        },
-        {
-          "to": "/state-taxes/virginia",
-          "anchor": "Virginia income tax calculator"
-        },
-        {
-          "to": "/state-taxes/washington-dc",
-          "anchor": "Washington, D.C. income tax calculator"
-        },
-        {
-          "to": "/state-taxes/washington",
-          "anchor": "Washington income tax calculator"
-        },
-        {
-          "to": "/state-taxes/west-virginia",
-          "anchor": "West Virginia income tax calculator"
-        },
-        {
-          "to": "/state-taxes/wisconsin",
-          "anchor": "Wisconsin income tax calculator"
-        },
-        {
-          "to": "/state-taxes/wyoming",
-          "anchor": "Wyoming income tax calculator"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -3147,7 +2538,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/core.xml"
+      "sitemap": "/sitemaps/core.xml",
+      "built": true
     },
     {
       "path": "/tools/closing-cost-calculator",
@@ -3288,7 +2680,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/tools/house-payment-calculator",
@@ -3429,7 +2822,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/tools/home-affordability-calculator",
@@ -3459,11 +2853,11 @@
         },
         {
           "question": "What is the 28/36 rule?",
-          "answer": "A guideline, not a law. The Qualified Mortgage standard allows debt-to-income up to 43%, FHA lending routinely approves above that, and automated underwriting has pushed some approvals near 50%. The conservative answer and the maximum answer are far apart."
+          "answer": "A guideline, not a law. A 43% debt-to-income cap was part of the federal Qualified Mortgage rule until 2021, when a price-based test replaced it. 43% remains a common manual-underwriting ceiling, and Fannie Mae's automated underwriting approves some loans up to 50%. The conservative answer and the maximum answer are far apart."
         },
         {
           "question": "How do car and student loans affect it?",
-          "answer": "They count fully against the back-end ratio while contributing nothing toward the house. Two households with identical incomes and a $600 monthly difference in car payments qualify for roughly $100,000 of price difference."
+          "answer": "They count fully against the back-end ratio while contributing nothing toward the house. Two households with identical incomes and a $600 monthly difference in car payments qualify for roughly $65,000 to $80,000 of price difference at a 6–7% rate, because property tax and insurance rise with the price too."
         },
         {
           "question": "Is the price I qualify for the price I should pay?",
@@ -3532,7 +2926,7 @@
               "name": "What is the 28/36 rule?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "A guideline, not a law. The Qualified Mortgage standard allows debt-to-income up to 43%, FHA lending routinely approves above that, and automated underwriting has pushed some approvals near 50%. The conservative answer and the maximum answer are far apart."
+                "text": "A guideline, not a law. A 43% debt-to-income cap was part of the federal Qualified Mortgage rule until 2021, when a price-based test replaced it. 43% remains a common manual-underwriting ceiling, and Fannie Mae's automated underwriting approves some loans up to 50%. The conservative answer and the maximum answer are far apart."
               }
             },
             {
@@ -3540,7 +2934,7 @@
               "name": "How do car and student loans affect it?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "They count fully against the back-end ratio while contributing nothing toward the house. Two households with identical incomes and a $600 monthly difference in car payments qualify for roughly $100,000 of price difference."
+                "text": "They count fully against the back-end ratio while contributing nothing toward the house. Two households with identical incomes and a $600 monthly difference in car payments qualify for roughly $65,000 to $80,000 of price difference at a 6–7% rate, because property tax and insurance rise with the price too."
               }
             },
             {
@@ -3570,7 +2964,8 @@
       ],
       "dataVerification": "n/a",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/tools.xml"
+      "sitemap": "/sitemaps/tools.xml",
+      "built": true
     },
     {
       "path": "/cost-of-living/austin-tx",
@@ -3742,7 +3137,8 @@
       ],
       "dataVerification": "pending-bea-hud",
       "staleForTargetYear": false,
-      "sitemap": null
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/cost-of-living/san-francisco-ca",
@@ -3914,7 +3310,8 @@
       ],
       "dataVerification": "pending-bea-hud",
       "staleForTargetYear": false,
-      "sitemap": null
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/cost-of-living/san-antonio-tx",
@@ -4086,7 +3483,8 @@
       ],
       "dataVerification": "pending-bea-hud",
       "staleForTargetYear": false,
-      "sitemap": null
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/cost-of-living/houston-tx",
@@ -4258,7 +3656,8 @@
       ],
       "dataVerification": "pending-bea-hud",
       "staleForTargetYear": false,
-      "sitemap": null
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/alabama",
@@ -4420,7 +3819,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/alaska",
@@ -4582,7 +3982,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/arizona",
@@ -4744,7 +4145,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/arkansas",
@@ -4906,7 +4308,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/california",
@@ -5046,8 +4449,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/san-francisco-ca",
-          "anchor": "cost of living in San Francisco"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -5068,7 +4471,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": true,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/colorado",
@@ -5230,7 +4634,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/connecticut",
@@ -5392,7 +4797,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/delaware",
@@ -5554,7 +4960,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/florida",
@@ -5716,7 +5123,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/georgia",
@@ -5878,7 +5286,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/hawaii",
@@ -6040,7 +5449,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/idaho",
@@ -6202,7 +5612,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": true,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/illinois",
@@ -6364,7 +5775,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/indiana",
@@ -6526,7 +5938,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/iowa",
@@ -6688,7 +6101,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/kansas",
@@ -6850,7 +6264,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/kentucky",
@@ -7012,7 +6427,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/louisiana",
@@ -7174,7 +6590,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/maine",
@@ -7217,7 +6634,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Maine?",
-          "answer": "About $70,462 of a $95,000 salary for a single filer, an effective 25.8%. Of that, $5,200 is Maine state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $70,512 of a $95,000 salary for a single filer, an effective 25.8%. Of that, $5,150 is Maine state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -7306,7 +6723,7 @@
               "name": "How much of a $95,000 salary do you keep in Maine?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,462 of a $95,000 salary for a single filer, an effective 25.8%. Of that, $5,200 is Maine state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $70,512 of a $95,000 salary for a single filer, an effective 25.8%. Of that, $5,150 is Maine state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -7336,7 +6753,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/maryland",
@@ -7498,7 +6916,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": "/sitemaps/states.xml",
+      "built": true
     },
     {
       "path": "/state-taxes/massachusetts",
@@ -7660,7 +7079,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/michigan",
@@ -7822,7 +7242,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/minnesota",
@@ -7984,7 +7405,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": true,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/mississippi",
@@ -8146,7 +7568,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/missouri",
@@ -8308,7 +7731,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": true,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/montana",
@@ -8470,7 +7894,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/nebraska",
@@ -8632,7 +8057,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/nevada",
@@ -8794,7 +8220,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/new-hampshire",
@@ -8956,7 +8383,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/new-jersey",
@@ -9118,7 +8546,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/new-mexico",
@@ -9280,7 +8709,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/new-york",
@@ -9442,7 +8872,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": "/sitemaps/states.xml",
+      "built": true
     },
     {
       "path": "/state-taxes/north-carolina",
@@ -9604,7 +9035,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/north-dakota",
@@ -9766,7 +9198,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/ohio",
@@ -9928,7 +9361,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/oklahoma",
@@ -10090,7 +9524,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/oregon",
@@ -10252,7 +9687,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": true,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/pennsylvania",
@@ -10414,7 +9850,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": "/sitemaps/states.xml",
+      "built": true
     },
     {
       "path": "/state-taxes/rhode-island",
@@ -10576,7 +10013,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/south-carolina",
@@ -10738,7 +10176,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/south-dakota",
@@ -10900,7 +10339,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/tennessee",
@@ -11062,7 +10502,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/texas",
@@ -11202,8 +10643,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living/austin-tx",
-          "anchor": "cost of living in Austin"
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -11224,7 +10665,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": "/sitemaps/states.xml",
+      "built": true
     },
     {
       "path": "/state-taxes/utah",
@@ -11386,7 +10828,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/vermont",
@@ -11548,7 +10991,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": true,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/virginia",
@@ -11710,7 +11154,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/washington-dc",
@@ -11872,7 +11317,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/washington",
@@ -12034,7 +11480,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/west-virginia",
@@ -12196,7 +11643,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/wisconsin",
@@ -12227,7 +11675,7 @@
         },
         {
           "question": "What is the top Wisconsin income tax rate?",
-          "answer": "The highest Wisconsin rate is 7.65%, which applies above $323,290."
+          "answer": "The highest Wisconsin rate is 7.65%, which applies above $332,720."
         },
         {
           "question": "Does Wisconsin tax self-employment income?",
@@ -12239,7 +11687,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Wisconsin?",
-          "answer": "About $71,220 of a $95,000 salary for a single filer, an effective 25.0%. Of that, $4,443 is Wisconsin state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $71,231 of a $95,000 salary for a single filer, an effective 25.0%. Of that, $4,431 is Wisconsin state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -12304,7 +11752,7 @@
               "name": "What is the top Wisconsin income tax rate?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The highest Wisconsin rate is 7.65%, which applies above $323,290."
+                "text": "The highest Wisconsin rate is 7.65%, which applies above $332,720."
               }
             },
             {
@@ -12328,7 +11776,7 @@
               "name": "How much of a $95,000 salary do you keep in Wisconsin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,220 of a $95,000 salary for a single filer, an effective 25.0%. Of that, $4,443 is Wisconsin state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $71,231 of a $95,000 salary for a single filer, an effective 25.0%. Of that, $4,431 is Wisconsin state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -12357,8 +11805,9 @@
         }
       ],
       "dataVerification": "pending",
-      "staleForTargetYear": true,
-      "sitemap": "/sitemaps/states.xml"
+      "staleForTargetYear": false,
+      "sitemap": null,
+      "built": false
     },
     {
       "path": "/state-taxes/wyoming",
@@ -12520,7 +11969,8 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": "/sitemaps/states.xml"
+      "sitemap": null,
+      "built": false
     }
   ]
 }

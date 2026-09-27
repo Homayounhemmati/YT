@@ -23,22 +23,23 @@ P = principal    r = monthly rate (annual ÷ 12)    n = number of payments
 ```
 
 That formula is what most calculators stop at. On a $400,000 home it typically
-produces about 70% of what you will actually pay each month.
+produces only three-quarters to four-fifths of what you will actually pay each month.
 
 **Property tax is the largest of the missing pieces**, and it varies by more than
 the interest rate does. An effective rate of 0.4% and one of 2.2% on the same
 $400,000 home differ by $600 a month — larger than the difference between a good
 and a bad interest rate on the same loan.
 
-**PMI** applies below 20% down, typically 0.3% to 1.5% of the loan annually. Unlike
+**PMI** applies below 20% down, quoted by the lender as an annual percentage of the
+loan that moves with credit score and down payment. Unlike
 the others it is temporary: it can usually be removed once the loan-to-value ratio
 reaches 80%, which is worth tracking rather than paying indefinitely.
 
 ## Why the interest rate is not the whole story
 
 Early payments are almost entirely interest. On a 30-year loan, the first year's
-payments are roughly three-quarters interest and one-quarter principal, and the
-crossover point where principal exceeds interest arrives around year eighteen.
+payments are more than four-fifths interest at a 6–7% rate, and the crossover point
+where principal exceeds interest arrives around year nineteen or twenty.
 
 This is why a **monthly mortgage calculator** that shows only the payment hides the
 more useful figure: the total interest over the life of the loan, which on a
