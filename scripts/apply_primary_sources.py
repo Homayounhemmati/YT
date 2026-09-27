@@ -144,9 +144,14 @@ def main():
 
     meta_path = base / "meta.json"
     meta = json.loads(meta_path.read_text())
+    # Each row carries the state's name, so a state picker needs this one file.
+    named = []
     for row in meta["summary"]:
         if row["slug"] in status:
             row["verification"] = status[row["slug"]]
+        name = json.loads((base / "states" / f"{row['slug']}.json").read_text())["name"]
+        named.append({"slug": row["slug"], "name": name, **{k: v for k, v in row.items() if k not in ("slug", "name")}})
+    meta["summary"] = named
     meta["verifiedCount"] = sum(1 for r in meta["summary"] if r["verification"] == "verified")
     meta_path.write_text(json.dumps(meta, indent=2, ensure_ascii=False) + "\n")
     print(f"\n{meta['verifiedCount']} of {len(meta['summary'])} jurisdictions verified")

@@ -758,7 +758,7 @@ def main():
         (outdir / "states" / ("%s.json" % rec["slug"])).write_text(
             json.dumps(rec, indent=2, ensure_ascii=False) + "\n")
         summary.append({
-            "slug": rec["slug"], "abbr": rec["abbr"], "structure": rec["structure"],
+            "slug": rec["slug"], "name": rec["name"], "abbr": rec["abbr"], "structure": rec["structure"],
             "flatRate": rec["flatRate"],
             "bracketCount": len(rec["brackets"].get("single", [])),
             "hasStandardDeduction": bool(rec["standardDeduction"]),

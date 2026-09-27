@@ -13,6 +13,7 @@
   "summary": [
     {
       "slug": "alaska",
+      "name": "Alaska",
       "abbr": "AK",
       "structure": "none",
       "flatRate": null,
@@ -23,6 +24,7 @@
     },
     {
       "slug": "alabama",
+      "name": "Alabama",
       "abbr": "AL",
       "structure": "progressive",
       "flatRate": null,
@@ -33,6 +35,7 @@
     },
     {
       "slug": "arkansas",
+      "name": "Arkansas",
       "abbr": "AR",
       "structure": "progressive",
       "flatRate": null,
@@ -43,6 +46,7 @@
     },
     {
       "slug": "arizona",
+      "name": "Arizona",
       "abbr": "AZ",
       "structure": "flat",
       "flatRate": 2.5,
@@ -53,6 +57,7 @@
     },
     {
       "slug": "california",
+      "name": "California",
       "abbr": "CA",
       "structure": "progressive",
       "flatRate": null,
@@ -63,6 +68,7 @@
     },
     {
       "slug": "colorado",
+      "name": "Colorado",
       "abbr": "CO",
       "structure": "flat",
       "flatRate": 4.4,
@@ -73,6 +79,7 @@
     },
     {
       "slug": "connecticut",
+      "name": "Connecticut",
       "abbr": "CT",
       "structure": "progressive",
       "flatRate": null,
@@ -83,6 +90,7 @@
     },
     {
       "slug": "washington-dc",
+      "name": "Washington, D.C.",
       "abbr": "DC",
       "structure": "progressive",
       "flatRate": null,
@@ -93,6 +101,7 @@
     },
     {
       "slug": "delaware",
+      "name": "Delaware",
       "abbr": "DE",
       "structure": "progressive",
       "flatRate": null,
@@ -103,6 +112,7 @@
     },
     {
       "slug": "florida",
+      "name": "Florida",
       "abbr": "FL",
       "structure": "none",
       "flatRate": null,
@@ -113,6 +123,7 @@
     },
     {
       "slug": "georgia",
+      "name": "Georgia",
       "abbr": "GA",
       "structure": "flat",
       "flatRate": 4.99,
@@ -123,6 +134,7 @@
     },
     {
       "slug": "hawaii",
+      "name": "Hawaii",
       "abbr": "HI",
       "structure": "progressive",
       "flatRate": null,
@@ -133,6 +145,7 @@
     },
     {
       "slug": "iowa",
+      "name": "Iowa",
       "abbr": "IA",
       "structure": "flat",
       "flatRate": 3.8,
@@ -143,6 +156,7 @@
     },
     {
       "slug": "idaho",
+      "name": "Idaho",
       "abbr": "ID",
       "structure": "flat",
       "flatRate": 5.3,
@@ -153,6 +167,7 @@
     },
     {
       "slug": "illinois",
+      "name": "Illinois",
       "abbr": "IL",
       "structure": "flat",
       "flatRate": 4.95,
@@ -163,6 +178,7 @@
     },
     {
       "slug": "indiana",
+      "name": "Indiana",
       "abbr": "IN",
       "structure": "flat",
       "flatRate": 2.95,
@@ -173,6 +189,7 @@
     },
     {
       "slug": "kansas",
+      "name": "Kansas",
       "abbr": "KS",
       "structure": "progressive",
       "flatRate": null,
@@ -183,6 +200,7 @@
     },
     {
       "slug": "kentucky",
+      "name": "Kentucky",
       "abbr": "KY",
       "structure": "flat",
       "flatRate": 3.5,
@@ -193,6 +211,7 @@
     },
     {
       "slug": "louisiana",
+      "name": "Louisiana",
       "abbr": "LA",
       "structure": "flat",
       "flatRate": 3.0,
@@ -203,6 +222,7 @@
     },
     {
       "slug": "massachusetts",
+      "name": "Massachusetts",
       "abbr": "MA",
       "structure": "flat",
       "flatRate": 5.0,
@@ -213,6 +233,7 @@
     },
     {
       "slug": "maryland",
+      "name": "Maryland",
       "abbr": "MD",
       "structure": "progressive",
       "flatRate": null,
@@ -223,6 +244,7 @@
     },
     {
       "slug": "maine",
+      "name": "Maine",
       "abbr": "ME",
       "structure": "progressive",
       "flatRate": null,
@@ -233,6 +255,7 @@
     },
     {
       "slug": "michigan",
+      "name": "Michigan",
       "abbr": "MI",
       "structure": "flat",
       "flatRate": 4.25,
@@ -243,6 +266,7 @@
     },
     {
       "slug": "minnesota",
+      "name": "Minnesota",
       "abbr": "MN",
       "structure": "progressive",
       "flatRate": null,
@@ -253,6 +277,7 @@
     },
     {
       "slug": "missouri",
+      "name": "Missouri",
       "abbr": "MO",
       "structure": "progressive",
       "flatRate": null,
@@ -263,6 +288,7 @@
     },
     {
       "slug": "mississippi",
+      "name": "Mississippi",
       "abbr": "MS",
       "structure": "flat",
       "flatRate": 4.0,
@@ -273,6 +299,7 @@
     },
     {
       "slug": "montana",
+      "name": "Montana",
       "abbr": "MT",
       "structure": "progressive",
       "flatRate": null,
@@ -283,6 +310,7 @@
     },
     {
       "slug": "north-carolina",
+      "name": "North Carolina",
       "abbr": "NC",
       "structure": "flat",
       "flatRate": 3.99,
@@ -293,6 +321,7 @@
     },
     {
       "slug": "north-dakota",
+      "name": "North Dakota",
       "abbr": "ND",
       "structure": "progressive",
       "flatRate": null,
@@ -303,6 +332,7 @@
     },
     {
       "slug": "nebraska",
+      "name": "Nebraska",
       "abbr": "NE",
       "structure": "progressive",
       "flatRate": null,
@@ -313,6 +343,7 @@
     },
     {
       "slug": "new-hampshire",
+      "name": "New Hampshire",
       "abbr": "NH",
       "structure": "none",
       "flatRate": null,
@@ -323,6 +354,7 @@
     },
     {
       "slug": "new-jersey",
+      "name": "New Jersey",
       "abbr": "NJ",
       "structure": "progressive",
       "flatRate": null,
@@ -333,6 +365,7 @@
     },
     {
       "slug": "new-mexico",
+      "name": "New Mexico",
       "abbr": "NM",
       "structure": "progressive",
       "flatRate": null,
@@ -343,6 +376,7 @@
     },
     {
       "slug": "nevada",
+      "name": "Nevada",
       "abbr": "NV",
       "structure": "none",
       "flatRate": null,
@@ -353,6 +387,7 @@
     },
     {
       "slug": "new-york",
+      "name": "New York",
       "abbr": "NY",
       "structure": "progressive",
       "flatRate": null,
@@ -363,6 +398,7 @@
     },
     {
       "slug": "ohio",
+      "name": "Ohio",
       "abbr": "OH",
       "structure": "progressive",
       "flatRate": null,
@@ -373,6 +409,7 @@
     },
     {
       "slug": "oklahoma",
+      "name": "Oklahoma",
       "abbr": "OK",
       "structure": "progressive",
       "flatRate": null,
@@ -383,6 +420,7 @@
     },
     {
       "slug": "oregon",
+      "name": "Oregon",
       "abbr": "OR",
       "structure": "progressive",
       "flatRate": null,
@@ -393,6 +431,7 @@
     },
     {
       "slug": "pennsylvania",
+      "name": "Pennsylvania",
       "abbr": "PA",
       "structure": "flat",
       "flatRate": 3.07,
@@ -403,6 +442,7 @@
     },
     {
       "slug": "rhode-island",
+      "name": "Rhode Island",
       "abbr": "RI",
       "structure": "progressive",
       "flatRate": null,
@@ -413,6 +453,7 @@
     },
     {
       "slug": "south-carolina",
+      "name": "South Carolina",
       "abbr": "SC",
       "structure": "progressive",
       "flatRate": null,
@@ -423,6 +464,7 @@
     },
     {
       "slug": "south-dakota",
+      "name": "South Dakota",
       "abbr": "SD",
       "structure": "none",
       "flatRate": null,
@@ -433,6 +475,7 @@
     },
     {
       "slug": "tennessee",
+      "name": "Tennessee",
       "abbr": "TN",
       "structure": "none",
       "flatRate": null,
@@ -443,6 +486,7 @@
     },
     {
       "slug": "texas",
+      "name": "Texas",
       "abbr": "TX",
       "structure": "none",
       "flatRate": null,
@@ -453,6 +497,7 @@
     },
     {
       "slug": "utah",
+      "name": "Utah",
       "abbr": "UT",
       "structure": "flat",
       "flatRate": 4.45,
@@ -463,6 +508,7 @@
     },
     {
       "slug": "virginia",
+      "name": "Virginia",
       "abbr": "VA",
       "structure": "progressive",
       "flatRate": null,
@@ -473,6 +519,7 @@
     },
     {
       "slug": "vermont",
+      "name": "Vermont",
       "abbr": "VT",
       "structure": "progressive",
       "flatRate": null,
@@ -483,6 +530,7 @@
     },
     {
       "slug": "washington",
+      "name": "Washington",
       "abbr": "WA",
       "structure": "none",
       "flatRate": null,
@@ -493,6 +541,7 @@
     },
     {
       "slug": "wisconsin",
+      "name": "Wisconsin",
       "abbr": "WI",
       "structure": "progressive",
       "flatRate": null,
@@ -503,6 +552,7 @@
     },
     {
       "slug": "west-virginia",
+      "name": "West Virginia",
       "abbr": "WV",
       "structure": "progressive",
       "flatRate": null,
@@ -513,6 +563,7 @@
     },
     {
       "slug": "wyoming",
+      "name": "Wyoming",
       "abbr": "WY",
       "structure": "none",
       "flatRate": null,
