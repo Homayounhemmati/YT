@@ -62,9 +62,10 @@ def keyword_coverage(entry, pages_doc, body):
     if not variants:
         return None
 
-    # Resolve {state}/{metro} from the page's own H1, which always names the entity.
-    name = entry["h1"].replace(" Income Tax Calculator", "") \
-                      .replace("Cost of Living in ", "")
+    # The generator records the entity's name. Deriving it from the H1 broke the
+    # moment the H1 formula changed ("Income Tax Calculator" -> "Paycheck
+    # Calculator") and silently matched nothing.
+    name = entry.get("entityName") or entry["h1"]
     # Markdown wraps lines, so a phrase can be split across a newline and still read
     # as one phrase on the page. Matching the raw text misses those — collapse
     # whitespace and strip emphasis before comparing, or the check reports a

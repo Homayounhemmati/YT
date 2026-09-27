@@ -75,14 +75,30 @@
       },
       {
         "file": "/sitemaps/states.xml",
-        "urlCount": 4,
+        "urlCount": 8,
         "urls": [
+          {
+            "loc": "https://example.com/tools/paycheck-calculator/florida",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/paycheck-calculator/georgia",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/paycheck-calculator/illinois",
+            "lastmod": "2026-09-12"
+          },
           {
             "loc": "https://example.com/tools/paycheck-calculator/maryland",
             "lastmod": "2026-09-12"
           },
           {
             "loc": "https://example.com/tools/paycheck-calculator/new-york",
+            "lastmod": "2026-09-12"
+          },
+          {
+            "loc": "https://example.com/tools/paycheck-calculator/north-carolina",
             "lastmod": "2026-09-12"
           },
           {
@@ -164,11 +180,8 @@
       "/tools/paycheck-calculator/colorado",
       "/tools/paycheck-calculator/connecticut",
       "/tools/paycheck-calculator/delaware",
-      "/tools/paycheck-calculator/florida",
-      "/tools/paycheck-calculator/georgia",
       "/tools/paycheck-calculator/hawaii",
       "/tools/paycheck-calculator/idaho",
-      "/tools/paycheck-calculator/illinois",
       "/tools/paycheck-calculator/indiana",
       "/tools/paycheck-calculator/iowa",
       "/tools/paycheck-calculator/kansas",
@@ -186,7 +199,6 @@
       "/tools/paycheck-calculator/new-hampshire",
       "/tools/paycheck-calculator/new-jersey",
       "/tools/paycheck-calculator/new-mexico",
-      "/tools/paycheck-calculator/north-carolina",
       "/tools/paycheck-calculator/north-dakota",
       "/tools/paycheck-calculator/ohio",
       "/tools/paycheck-calculator/oklahoma",
@@ -205,7 +217,7 @@
       "/tools/paycheck-calculator/wyoming"
     ],
     "gate": {
-      "statesBuilt": 4,
+      "statesBuilt": 8,
       "statesTotal": 51,
       "metrosBuilt": 0,
       "metrosTotal": 4
@@ -2130,12 +2142,28 @@
           "anchor": "salary to hourly calculator"
         },
         {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois"
+        },
+        {
           "to": "/tools/paycheck-calculator/maryland",
           "anchor": "Maryland"
         },
         {
           "to": "/tools/paycheck-calculator/new-york",
           "anchor": "New York"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina"
         },
         {
           "to": "/tools/paycheck-calculator/pennsylvania",
@@ -2485,41 +2513,65 @@
           "@context": "https://schema.org",
           "@type": "ItemList",
           "name": "State Income Tax Rates by State (2026)",
-          "numberOfItems": 6,
+          "numberOfItems": 10,
           "itemListElement": [
             {
               "@type": "ListItem",
               "position": 1,
+              "name": "Florida paycheck calculator",
+              "url": "https://example.com/tools/paycheck-calculator/florida"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Georgia paycheck calculator",
+              "url": "https://example.com/tools/paycheck-calculator/georgia"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Illinois paycheck calculator",
+              "url": "https://example.com/tools/paycheck-calculator/illinois"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
               "name": "Maryland paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/maryland"
             },
             {
               "@type": "ListItem",
-              "position": 2,
+              "position": 5,
               "name": "New York paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/new-york"
             },
             {
               "@type": "ListItem",
-              "position": 3,
+              "position": 6,
+              "name": "North Carolina paycheck calculator",
+              "url": "https://example.com/tools/paycheck-calculator/north-carolina"
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
               "name": "Pennsylvania paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/pennsylvania"
             },
             {
               "@type": "ListItem",
-              "position": 4,
+              "position": 8,
               "name": "Texas paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/texas"
             },
             {
               "@type": "ListItem",
-              "position": 5,
+              "position": 9,
               "name": "income tax calculator",
               "url": "https://example.com/tools/income-tax-calculator"
             },
             {
               "@type": "ListItem",
-              "position": 6,
+              "position": 10,
               "name": "cost of living by city",
               "url": "https://example.com/cost-of-living"
             }
@@ -2528,12 +2580,28 @@
       ],
       "internalLinks": [
         {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
           "to": "/tools/paycheck-calculator/maryland",
           "anchor": "Maryland paycheck calculator"
         },
         {
           "to": "/tools/paycheck-calculator/new-york",
           "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
         },
         {
           "to": "/tools/paycheck-calculator/pennsylvania",
@@ -2987,6 +3055,7 @@
       "path": "/cost-of-living/austin-tx",
       "template": "PlacePage",
       "entity": "austin-tx",
+      "entityName": "Austin",
       "title": "Cost of Living in Austin (2026)",
       "titleChars": 31,
       "h1": "Cost of Living in Austin",
@@ -3160,6 +3229,7 @@
       "path": "/cost-of-living/san-francisco-ca",
       "template": "PlacePage",
       "entity": "san-francisco-ca",
+      "entityName": "San Francisco",
       "title": "Cost of Living in San Francisco (2026)",
       "titleChars": 38,
       "h1": "Cost of Living in San Francisco",
@@ -3333,6 +3403,7 @@
       "path": "/cost-of-living/san-antonio-tx",
       "template": "PlacePage",
       "entity": "san-antonio-tx",
+      "entityName": "San Antonio",
       "title": "Cost of Living in San Antonio (2026)",
       "titleChars": 36,
       "h1": "Cost of Living in San Antonio",
@@ -3506,6 +3577,7 @@
       "path": "/cost-of-living/houston-tx",
       "template": "PlacePage",
       "entity": "houston-tx",
+      "entityName": "Houston",
       "title": "Cost of Living in Houston (2026)",
       "titleChars": 32,
       "h1": "Cost of Living in Houston",
@@ -3679,6 +3751,7 @@
       "path": "/tools/paycheck-calculator/alabama",
       "template": "StateTaxPage",
       "entity": "alabama",
+      "entityName": "Alabama",
       "title": "Alabama Paycheck Calculator (2026)",
       "titleChars": 34,
       "h1": "Alabama Paycheck Calculator",
@@ -3849,6 +3922,7 @@
       "path": "/tools/paycheck-calculator/alaska",
       "template": "StateTaxPage",
       "entity": "alaska",
+      "entityName": "Alaska",
       "title": "Alaska Paycheck Calculator (2026)",
       "titleChars": 33,
       "h1": "Alaska Paycheck Calculator",
@@ -4019,6 +4093,7 @@
       "path": "/tools/paycheck-calculator/arizona",
       "template": "StateTaxPage",
       "entity": "arizona",
+      "entityName": "Arizona",
       "title": "Arizona Paycheck Calculator (2026)",
       "titleChars": 34,
       "h1": "Arizona Paycheck Calculator",
@@ -4189,6 +4264,7 @@
       "path": "/tools/paycheck-calculator/arkansas",
       "template": "StateTaxPage",
       "entity": "arkansas",
+      "entityName": "Arkansas",
       "title": "Arkansas Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Arkansas Paycheck Calculator",
@@ -4359,6 +4435,7 @@
       "path": "/tools/paycheck-calculator/california",
       "template": "StateTaxPage",
       "entity": "california",
+      "entityName": "California",
       "title": "California Paycheck Calculator (2026)",
       "titleChars": 37,
       "h1": "California Paycheck Calculator",
@@ -4529,6 +4606,7 @@
       "path": "/tools/paycheck-calculator/colorado",
       "template": "StateTaxPage",
       "entity": "colorado",
+      "entityName": "Colorado",
       "title": "Colorado Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Colorado Paycheck Calculator",
@@ -4699,6 +4777,7 @@
       "path": "/tools/paycheck-calculator/connecticut",
       "template": "StateTaxPage",
       "entity": "connecticut",
+      "entityName": "Connecticut",
       "title": "Connecticut Paycheck Calculator (2026)",
       "titleChars": 38,
       "h1": "Connecticut Paycheck Calculator",
@@ -4869,6 +4948,7 @@
       "path": "/tools/paycheck-calculator/delaware",
       "template": "StateTaxPage",
       "entity": "delaware",
+      "entityName": "Delaware",
       "title": "Delaware Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Delaware Paycheck Calculator",
@@ -5039,6 +5119,7 @@
       "path": "/tools/paycheck-calculator/florida",
       "template": "StateTaxPage",
       "entity": "florida",
+      "entityName": "Florida",
       "title": "Florida Paycheck Calculator (2026)",
       "titleChars": 34,
       "h1": "Florida Paycheck Calculator",
@@ -5202,13 +5283,14 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": null,
-      "built": false
+      "sitemap": "/sitemaps/states.xml",
+      "built": true
     },
     {
       "path": "/tools/paycheck-calculator/georgia",
       "template": "StateTaxPage",
       "entity": "georgia",
+      "entityName": "Georgia",
       "title": "Georgia Paycheck Calculator (2026)",
       "titleChars": 34,
       "h1": "Georgia Paycheck Calculator",
@@ -5372,13 +5454,14 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": null,
-      "built": false
+      "sitemap": "/sitemaps/states.xml",
+      "built": true
     },
     {
       "path": "/tools/paycheck-calculator/hawaii",
       "template": "StateTaxPage",
       "entity": "hawaii",
+      "entityName": "Hawaii",
       "title": "Hawaii Paycheck Calculator (2026)",
       "titleChars": 33,
       "h1": "Hawaii Paycheck Calculator",
@@ -5549,6 +5632,7 @@
       "path": "/tools/paycheck-calculator/idaho",
       "template": "StateTaxPage",
       "entity": "idaho",
+      "entityName": "Idaho",
       "title": "Idaho Paycheck Calculator (2026)",
       "titleChars": 32,
       "h1": "Idaho Paycheck Calculator",
@@ -5719,6 +5803,7 @@
       "path": "/tools/paycheck-calculator/illinois",
       "template": "StateTaxPage",
       "entity": "illinois",
+      "entityName": "Illinois",
       "title": "Illinois Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Illinois Paycheck Calculator",
@@ -5882,13 +5967,14 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": null,
-      "built": false
+      "sitemap": "/sitemaps/states.xml",
+      "built": true
     },
     {
       "path": "/tools/paycheck-calculator/indiana",
       "template": "StateTaxPage",
       "entity": "indiana",
+      "entityName": "Indiana",
       "title": "Indiana Paycheck Calculator (2026)",
       "titleChars": 34,
       "h1": "Indiana Paycheck Calculator",
@@ -6059,6 +6145,7 @@
       "path": "/tools/paycheck-calculator/iowa",
       "template": "StateTaxPage",
       "entity": "iowa",
+      "entityName": "Iowa",
       "title": "Iowa Paycheck Calculator (2026)",
       "titleChars": 31,
       "h1": "Iowa Paycheck Calculator",
@@ -6229,6 +6316,7 @@
       "path": "/tools/paycheck-calculator/kansas",
       "template": "StateTaxPage",
       "entity": "kansas",
+      "entityName": "Kansas",
       "title": "Kansas Paycheck Calculator (2026)",
       "titleChars": 33,
       "h1": "Kansas Paycheck Calculator",
@@ -6399,6 +6487,7 @@
       "path": "/tools/paycheck-calculator/kentucky",
       "template": "StateTaxPage",
       "entity": "kentucky",
+      "entityName": "Kentucky",
       "title": "Kentucky Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Kentucky Paycheck Calculator",
@@ -6569,6 +6658,7 @@
       "path": "/tools/paycheck-calculator/louisiana",
       "template": "StateTaxPage",
       "entity": "louisiana",
+      "entityName": "Louisiana",
       "title": "Louisiana Paycheck Calculator (2026)",
       "titleChars": 36,
       "h1": "Louisiana Paycheck Calculator",
@@ -6739,6 +6829,7 @@
       "path": "/tools/paycheck-calculator/maine",
       "template": "StateTaxPage",
       "entity": "maine",
+      "entityName": "Maine",
       "title": "Maine Paycheck Calculator (2026)",
       "titleChars": 32,
       "h1": "Maine Paycheck Calculator",
@@ -6909,6 +7000,7 @@
       "path": "/tools/paycheck-calculator/maryland",
       "template": "StateTaxPage",
       "entity": "maryland",
+      "entityName": "Maryland",
       "title": "Maryland Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Maryland Paycheck Calculator",
@@ -7079,6 +7171,7 @@
       "path": "/tools/paycheck-calculator/massachusetts",
       "template": "StateTaxPage",
       "entity": "massachusetts",
+      "entityName": "Massachusetts",
       "title": "Massachusetts Paycheck Calculator (2026)",
       "titleChars": 40,
       "h1": "Massachusetts Paycheck Calculator",
@@ -7249,6 +7342,7 @@
       "path": "/tools/paycheck-calculator/michigan",
       "template": "StateTaxPage",
       "entity": "michigan",
+      "entityName": "Michigan",
       "title": "Michigan Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Michigan Paycheck Calculator",
@@ -7419,6 +7513,7 @@
       "path": "/tools/paycheck-calculator/minnesota",
       "template": "StateTaxPage",
       "entity": "minnesota",
+      "entityName": "Minnesota",
       "title": "Minnesota Paycheck Calculator (2026)",
       "titleChars": 36,
       "h1": "Minnesota Paycheck Calculator",
@@ -7589,6 +7684,7 @@
       "path": "/tools/paycheck-calculator/mississippi",
       "template": "StateTaxPage",
       "entity": "mississippi",
+      "entityName": "Mississippi",
       "title": "Mississippi Paycheck Calculator (2026)",
       "titleChars": 38,
       "h1": "Mississippi Paycheck Calculator",
@@ -7759,6 +7855,7 @@
       "path": "/tools/paycheck-calculator/missouri",
       "template": "StateTaxPage",
       "entity": "missouri",
+      "entityName": "Missouri",
       "title": "Missouri Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Missouri Paycheck Calculator",
@@ -7929,6 +8026,7 @@
       "path": "/tools/paycheck-calculator/montana",
       "template": "StateTaxPage",
       "entity": "montana",
+      "entityName": "Montana",
       "title": "Montana Paycheck Calculator (2026)",
       "titleChars": 34,
       "h1": "Montana Paycheck Calculator",
@@ -8099,6 +8197,7 @@
       "path": "/tools/paycheck-calculator/nebraska",
       "template": "StateTaxPage",
       "entity": "nebraska",
+      "entityName": "Nebraska",
       "title": "Nebraska Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Nebraska Paycheck Calculator",
@@ -8269,6 +8368,7 @@
       "path": "/tools/paycheck-calculator/nevada",
       "template": "StateTaxPage",
       "entity": "nevada",
+      "entityName": "Nevada",
       "title": "Nevada Paycheck Calculator (2026)",
       "titleChars": 33,
       "h1": "Nevada Paycheck Calculator",
@@ -8439,6 +8539,7 @@
       "path": "/tools/paycheck-calculator/new-hampshire",
       "template": "StateTaxPage",
       "entity": "new-hampshire",
+      "entityName": "New Hampshire",
       "title": "New Hampshire Paycheck Calculator (2026)",
       "titleChars": 40,
       "h1": "New Hampshire Paycheck Calculator",
@@ -8609,6 +8710,7 @@
       "path": "/tools/paycheck-calculator/new-jersey",
       "template": "StateTaxPage",
       "entity": "new-jersey",
+      "entityName": "New Jersey",
       "title": "New Jersey Paycheck Calculator (2026)",
       "titleChars": 37,
       "h1": "New Jersey Paycheck Calculator",
@@ -8779,6 +8881,7 @@
       "path": "/tools/paycheck-calculator/new-mexico",
       "template": "StateTaxPage",
       "entity": "new-mexico",
+      "entityName": "New Mexico",
       "title": "New Mexico Paycheck Calculator (2026)",
       "titleChars": 37,
       "h1": "New Mexico Paycheck Calculator",
@@ -8949,6 +9052,7 @@
       "path": "/tools/paycheck-calculator/new-york",
       "template": "StateTaxPage",
       "entity": "new-york",
+      "entityName": "New York",
       "title": "New York Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "New York Paycheck Calculator",
@@ -9119,6 +9223,7 @@
       "path": "/tools/paycheck-calculator/north-carolina",
       "template": "StateTaxPage",
       "entity": "north-carolina",
+      "entityName": "North Carolina",
       "title": "North Carolina Paycheck Calculator (2026)",
       "titleChars": 41,
       "h1": "North Carolina Paycheck Calculator",
@@ -9282,13 +9387,14 @@
       ],
       "dataVerification": "pending",
       "staleForTargetYear": false,
-      "sitemap": null,
-      "built": false
+      "sitemap": "/sitemaps/states.xml",
+      "built": true
     },
     {
       "path": "/tools/paycheck-calculator/north-dakota",
       "template": "StateTaxPage",
       "entity": "north-dakota",
+      "entityName": "North Dakota",
       "title": "North Dakota Paycheck Calculator (2026)",
       "titleChars": 39,
       "h1": "North Dakota Paycheck Calculator",
@@ -9459,6 +9565,7 @@
       "path": "/tools/paycheck-calculator/ohio",
       "template": "StateTaxPage",
       "entity": "ohio",
+      "entityName": "Ohio",
       "title": "Ohio Paycheck Calculator (2026)",
       "titleChars": 31,
       "h1": "Ohio Paycheck Calculator",
@@ -9629,6 +9736,7 @@
       "path": "/tools/paycheck-calculator/oklahoma",
       "template": "StateTaxPage",
       "entity": "oklahoma",
+      "entityName": "Oklahoma",
       "title": "Oklahoma Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Oklahoma Paycheck Calculator",
@@ -9799,6 +9907,7 @@
       "path": "/tools/paycheck-calculator/oregon",
       "template": "StateTaxPage",
       "entity": "oregon",
+      "entityName": "Oregon",
       "title": "Oregon Paycheck Calculator (2026)",
       "titleChars": 33,
       "h1": "Oregon Paycheck Calculator",
@@ -9969,6 +10078,7 @@
       "path": "/tools/paycheck-calculator/pennsylvania",
       "template": "StateTaxPage",
       "entity": "pennsylvania",
+      "entityName": "Pennsylvania",
       "title": "Pennsylvania Paycheck Calculator (2026)",
       "titleChars": 39,
       "h1": "Pennsylvania Paycheck Calculator",
@@ -10139,6 +10249,7 @@
       "path": "/tools/paycheck-calculator/rhode-island",
       "template": "StateTaxPage",
       "entity": "rhode-island",
+      "entityName": "Rhode Island",
       "title": "Rhode Island Paycheck Calculator (2026)",
       "titleChars": 39,
       "h1": "Rhode Island Paycheck Calculator",
@@ -10309,6 +10420,7 @@
       "path": "/tools/paycheck-calculator/south-carolina",
       "template": "StateTaxPage",
       "entity": "south-carolina",
+      "entityName": "South Carolina",
       "title": "South Carolina Paycheck Calculator (2026)",
       "titleChars": 41,
       "h1": "South Carolina Paycheck Calculator",
@@ -10479,6 +10591,7 @@
       "path": "/tools/paycheck-calculator/south-dakota",
       "template": "StateTaxPage",
       "entity": "south-dakota",
+      "entityName": "South Dakota",
       "title": "South Dakota Paycheck Calculator (2026)",
       "titleChars": 39,
       "h1": "South Dakota Paycheck Calculator",
@@ -10649,6 +10762,7 @@
       "path": "/tools/paycheck-calculator/tennessee",
       "template": "StateTaxPage",
       "entity": "tennessee",
+      "entityName": "Tennessee",
       "title": "Tennessee Paycheck Calculator (2026)",
       "titleChars": 36,
       "h1": "Tennessee Paycheck Calculator",
@@ -10819,6 +10933,7 @@
       "path": "/tools/paycheck-calculator/texas",
       "template": "StateTaxPage",
       "entity": "texas",
+      "entityName": "Texas",
       "title": "Texas Paycheck Calculator (2026)",
       "titleChars": 32,
       "h1": "Texas Paycheck Calculator",
@@ -10989,6 +11104,7 @@
       "path": "/tools/paycheck-calculator/utah",
       "template": "StateTaxPage",
       "entity": "utah",
+      "entityName": "Utah",
       "title": "Utah Paycheck Calculator (2026)",
       "titleChars": 31,
       "h1": "Utah Paycheck Calculator",
@@ -11159,6 +11275,7 @@
       "path": "/tools/paycheck-calculator/vermont",
       "template": "StateTaxPage",
       "entity": "vermont",
+      "entityName": "Vermont",
       "title": "Vermont Paycheck Calculator (2026)",
       "titleChars": 34,
       "h1": "Vermont Paycheck Calculator",
@@ -11329,6 +11446,7 @@
       "path": "/tools/paycheck-calculator/virginia",
       "template": "StateTaxPage",
       "entity": "virginia",
+      "entityName": "Virginia",
       "title": "Virginia Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Virginia Paycheck Calculator",
@@ -11499,6 +11617,7 @@
       "path": "/tools/paycheck-calculator/washington-dc",
       "template": "StateTaxPage",
       "entity": "washington-dc",
+      "entityName": "Washington, D.C.",
       "title": "Washington, D.C. Paycheck Calculator (2026)",
       "titleChars": 43,
       "h1": "Washington, D.C. Paycheck Calculator",
@@ -11669,6 +11788,7 @@
       "path": "/tools/paycheck-calculator/washington",
       "template": "StateTaxPage",
       "entity": "washington",
+      "entityName": "Washington",
       "title": "Washington Paycheck Calculator (2026)",
       "titleChars": 37,
       "h1": "Washington Paycheck Calculator",
@@ -11839,6 +11959,7 @@
       "path": "/tools/paycheck-calculator/west-virginia",
       "template": "StateTaxPage",
       "entity": "west-virginia",
+      "entityName": "West Virginia",
       "title": "West Virginia Paycheck Calculator (2026)",
       "titleChars": 40,
       "h1": "West Virginia Paycheck Calculator",
@@ -12009,6 +12130,7 @@
       "path": "/tools/paycheck-calculator/wisconsin",
       "template": "StateTaxPage",
       "entity": "wisconsin",
+      "entityName": "Wisconsin",
       "title": "Wisconsin Paycheck Calculator (2026)",
       "titleChars": 36,
       "h1": "Wisconsin Paycheck Calculator",
@@ -12179,6 +12301,7 @@
       "path": "/tools/paycheck-calculator/wyoming",
       "template": "StateTaxPage",
       "entity": "wyoming",
+      "entityName": "Wyoming",
       "title": "Wyoming Paycheck Calculator (2026)",
       "titleChars": 34,
       "h1": "Wyoming Paycheck Calculator",

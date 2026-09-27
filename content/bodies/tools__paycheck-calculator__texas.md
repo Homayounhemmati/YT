@@ -1,91 +1,69 @@
-Texas levies no broad-based individual income tax on earned income. There is no Texas income tax rate to quote and there are no Texas tax brackets, no flat rate, and no state return for wages or self-employment profit.
-That is the whole of the state-level answer, and it is genuinely simple — which is
-exactly why the interesting question is what replaces it.
+A Texas paycheck has one line fewer than almost anywhere else in the country. Texas
+levies no broad-based income tax on wages, so what comes out of each check is federal
+income tax, Social Security and Medicare, and nothing from Austin. That makes a
+**texas paycheck tax calculator** simpler than most, but it does not make the answer
+obvious, because the federal layer is larger than people assume.
 
-## What you still owe
+## What a $95,000 salary leaves in Texas
 
-The absence of a state layer does not make the question "how much is Texas income tax" uninteresting — it makes the answer short and the follow-up long.
+For a single filer with no pre-tax deductions, the year breaks down like this:
 
-No state income tax does not mean no tax. A self-employed Texas resident still
-owes, in full:
+| Line | Amount |
+|---|---|
+| Gross salary | $95,000 |
+| Federal income tax | $12,070 |
+| Social Security and Medicare | $7,268 |
+| Texas income tax | $0 |
+| **Take-home** | **$75,663** |
 
-- **Federal income tax**, on the same graduated schedule as everyone else in the
-  country.
-- **Self-employment tax at 15.3%** — 12.4% for Social Security up to the annual
-  wage base, plus 2.9% for Medicare with no ceiling.
+That is an effective 20.4% of gross, and it is the highest take-home on this salary
+anywhere in the United States, shared only with the other states that tax no wages.
 
-For most freelancers the self-employment component alone is larger than the state
-income tax they would have paid in a typical graduated state. Removing the state
-layer removes the smallest of the three, not the largest, and someone budgeting on
-"no income tax" without setting aside for the federal obligations is heading for a
-serious shortfall in April.
+## Per check
 
-## Why Texas has no income tax
+| Paid | Checks a year | Each check |
+|---|---|---|
+| Weekly | 52 | $1,455 |
+| Every two weeks | 26 | $2,910 |
+| Twice a month | 24 | $3,153 |
+| Monthly | 12 | $6,305 |
 
-The absence is structural rather than incidental. Texas funds state and local
-government primarily through property and sales taxation, and the constitutional
-barrier to introducing an income tax is high.
+Every two weeks and twice a month are not the same schedule. Twenty-six checks means
+two months each year pay out three times; twenty-four checks means every check is the
+same size on fixed dates.
 
-The consequence is that the revenue is not forgone — it is collected differently,
-and it falls on different people in different proportions. A high earner who rents
-a small apartment keeps considerably more in Texas than in a graduated state. A
-median earner who owns a family home may find a substantial portion of the saving
-returned through property tax, which in Texas is high by national standards.
+## Where the missing state tax shows up instead
 
-## Is Texas actually cheaper?
+A state without an income tax still has to fund schools and roads, and Texas does it
+mostly through property tax and sales tax. Neither appears on a paycheck, which is why
+comparing only take-home pay flatters the state. A renter meets the property tax
+indirectly, inside the rent; an owner meets it directly, once a year, and it is often
+the single largest tax a Texas household pays. The sales tax is charged at every
+register, at a combined rate set partly by the city and county.
 
-Not automatically, and the honest answer depends on facts about you rather than
-about Texas.
+So the useful comparison for anyone moving to Texas is not the paycheck alone but the
+paycheck against what the place costs — which is what the cost-of-living tools on this
+site exist to add.
 
-The variables that decide it are **whether you own property**, **how much you
-consume**, and **how much you earn**. Income tax scales with earnings; property and
-sales taxes scale with what you own and what you buy. Shifting from the first to
-the second is advantageous to some households and disadvantageous to others, and
-the crossover point is real.
+## Hourly workers
 
-This is the reason a comparison that looks only at income tax is not a comparison
-at all. Moving from a graduated state to Texas changes the composition of your tax
-bill, not simply its size, and the two need to be weighed together with the cost
-of housing in the specific metro you would actually live in.
+The same deductions apply to hourly pay, calculated on whatever the hours come to. A
+**texas hourly paycheck calculator** only has to get two things right beyond the rate:
+overtime at one and a half times the regular rate above 40 hours in a week, and the
+federal withholding from the W-4 on file. There is no state withholding certificate to
+fill in, because there is nothing to withhold.
 
-## Filing and deadlines
+## Self-employed in Texas
 
-There is no Texas individual income tax return, so there is nothing to file at the
-state level for wages or freelance profit. The federal calendar applies unchanged,
-including quarterly estimated payments for the self-employed.
+Working for yourself changes the federal side, not the state one. The same $95,000 as
+self-employment profit carries $20,840 of tax rather than $19,338, because a
+self-employed person pays both halves of Social Security and Medicare. Take-home falls
+to $74,160, still without a Texas line.
 
-One caveat for people who operate through an entity rather than as a sole
-proprietor: Texas imposes a franchise tax on businesses above a revenue threshold.
-It is not an income tax and it does not apply to most individual freelancers, but
-it is not nothing, and it is worth confirming against the Comptroller's current
-threshold before assuming a Texas entity carries no state obligation at all.
+## What this calculation leaves out
 
-## What replaces it, in practice
-
-Texas property tax is levied locally rather than by the state, and effective rates
-are high by national standards — high enough that for a homeowner the annual bill
-can approach or exceed what a middle-income earner would have paid in state income
-tax elsewhere. The exact figure depends on county and school district, which vary
-widely, so the honest statement is that the trade is real and its size is local.
-
-Sales tax adds a second layer, with a state rate plus local add-ons. It falls on
-consumption rather than income, which means it is proportionally heavier on
-households that spend most of what they earn — the opposite of the incidence of a
-graduated income tax.
-
-The combined effect is a genuine shift in who pays. A high earner who rents keeps
-substantially more in Texas than in a graduated state. A median-income homeowner
-with children may find much of the notional saving returned through the property
-bill, and the crossover point is a real question rather than a rhetorical one.
-
-## The franchise tax, for anyone with an entity
-
-Texas imposes a franchise tax on business entities above a revenue threshold. It
-is a tax on margin rather than on personal income, and most individual freelancers
-operating as sole proprietors fall outside it entirely.
-
-It matters for a specific group: someone who forms an LLC or corporation in Texas
-on the assumption that the state imposes nothing at all. That assumption is right
-about personal income tax and wrong about entity-level obligations, and the
-threshold moves — so it should be checked against the Comptroller's current figure
-rather than remembered from an earlier year.
+- Pre-tax deductions: a 401(k) lowers federal income tax but not Social Security or
+  Medicare, and health premiums taken through payroll lower all three.
+- Additional Medicare Tax, which starts at $200,000 of wages for a single filer.
+- Any withholding that differs from the liability shown — the refund or bill in April
+  is the difference between the two.

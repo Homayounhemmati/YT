@@ -1,92 +1,54 @@
-Pennsylvania taxes income at a flat 3.07%, one of the lowest state rates in the
-country — and that headline figure is misleading in two specific ways that matter
-more here than in almost any other state.
+Pennsylvania runs the simplest state income tax in the country and one of the most
+complicated local ones. The state takes a flat 3.07% of wages with no standard
+deduction and no personal exemption, so the state line on a paycheck is easy to check
+by hand. The local earned income tax, levied by most of the state's municipalities and
+school districts, is what makes two Pennsylvania paychecks on the same salary differ.
 
-## How Pennsylvania income tax works
+## $95,000 in Pennsylvania
 
-There are no Pennsylvania tax brackets to speak of. Every dollar of taxable income is taxed at the same 3.07%,
-whether it is the first or the millionth. That makes the arithmetic trivial and
-the planning unusually predictable: there is no threshold to manage, no marginal
-step to cross, and no benefit to timing income across a year boundary for state
-purposes.
+The state tax is 3.07% of the whole salary: **$2,917** for the year. With federal tax,
+Social Security and Medicare, a single filer keeps **$72,746**, an effective 23.4% —
+before the local earned income tax, which this figure does not include.
 
-The Pennsylvania income tax rate has not moved since 2021 and, unlike the schedules in most states, it
-carries no inflation indexation. There is nothing in it to index — a flat rate with
-no thresholds has no figures that drift with prices. A 2021 rate and a 2026 rate
-are the same number for a reason, and an unchanged date on this dataset is not a
-sign of stale data.
+Paid every two weeks that is about $2,798 a check; paid twice a month, about $3,031.
 
-**Pennsylvania grants no standard deduction.** This is the first of the two things
-the low headline rate conceals. Where a New Yorker shelters the first $8,000 and a
-federal filer shelters considerably more, a Pennsylvania resident is taxed from the
-first dollar of taxable compensation. At low incomes that meaningfully narrows the
-gap against states with higher nominal rates and generous deductions.
+## The 401(k) difference
 
-## Local earned income tax — the layer that changes the answer
+Pennsylvania does not follow the federal exclusion for 401(k) contributions. A
+deferral lowers your federal taxable wages, but Pennsylvania taxes the money anyway,
+when it is earned. A **pennsylvania paycheck tax calculator** that subtracts your
+401(k) from state wages will show a state tax that is too low. This calculator keeps
+the deferral in Pennsylvania wages and takes it out only for federal tax.
 
-This is the second concealment, and it is the larger one.
+## Local earned income tax
 
-**Most Pennsylvania municipalities levy their own earned income tax**, assessed on
-top of the state's 3.07% and administered locally rather than by the state. Our
-figure above excludes it. For a great many residents the true rate on earned
-income is therefore not 3.07% at all, and the difference is not small relative to
-a rate that low — a local levy of one or two percent is a proportionally enormous
-addition to a 3.07% base.
+Almost every Pennsylvania resident pays a local earned income tax, combining a
+municipal rate and a school district rate, and some also pay a local services tax
+charged per worker. Philadelphia's wage tax is the largest and applies to people who
+work in the city as well as those who live there. None of these is in the figures
+above: the rate depends on your exact municipality, and a statewide number would be
+wrong for most readers. Your employer withholds it from each check, so your actual
+take-home will be lower by that amount.
 
-Philadelphia goes further still, and specifically further for self-employed
-people. The city imposes the **Business Income and Receipts Tax** and the **Net
-Profits Tax**, both of which apply directly to freelance and business income
-rather than to wages alone. A Philadelphia freelancer therefore faces a stack that
-a Pennsylvania salary calculator will not show: federal, self-employment, state
-flat rate, city wage or net profits tax, and BIRT.
+## Why a flat rate still is not the whole story
 
-Anyone modelling Pennsylvania from the 3.07% figure alone is modelling a state
-that does not describe their situation.
+A flat 3.07% makes Pennsylvania look cheap next to its neighbours, and on the state
+line alone it is. But the local layer can add as much again or more, and it is not
+optional. When you compare a Pennsylvania offer with one in New Jersey, Maryland or
+New York, compare the state and local lines together — a **pennsylvania take home pay
+calculator** that stops at the state line answers half the question.
 
-## Filing and deadlines
+## No state withholding form
 
-The Department of Revenue administers the state tax, and the state return
-generally tracks the federal calendar. Local earned income tax is filed separately
-through a regional collector rather than with the state, which is an
-administrative burden with no equivalent in most states — two returns and two
-authorities for one year of income.
+Because the rate is flat and there are no allowances to claim, Pennsylvania has no
+state equivalent of the W-4: every employer withholds the same 3.07% of compensation.
+The form a new Pennsylvania employee does fill in is a local one — the residency
+certification that tells the employer which municipality's earned income tax to
+withhold. Getting that form right matters more to the paycheck than anything else a
+Pennsylvanian can change.
 
-## Who this suits, and who it does not
+## Not included
 
-A flat 3.07% with no brackets is genuinely attractive to higher earners, and
-Pennsylvania compares well at the top of the income range against any graduated
-state. The absence of a standard deduction cuts the other way at the bottom.
-
-The decisive variable is municipality, not state. Two people earning the same
-amount in different Pennsylvania towns can face materially different effective
-rates, and a self-employed person in Philadelphia faces a structure that has no
-resemblance to the flat-rate simplicity the state is known for.
-
-## What no standard deduction actually costs
-
-The absence is easy to skip past, so it is worth putting a number on it. A New
-York resident shelters the first $8,000 of state taxable income; a Pennsylvanian
-shelters nothing. At 3.07% that difference is roughly $246 a year — modest in
-isolation, but it is charged against a base rate so low that it represents a
-meaningful share of the total state bill.
-
-The effect is regressive in shape. At $30,000 of income the missing deduction
-raises the effective state rate noticeably; at $300,000 it is a rounding error.
-Pennsylvania is therefore more attractive the more you earn, which is the opposite
-of the pattern in every graduated state, and it is the real content of the
-"flat tax" description.
-
-## How the local layer is administered
-
-Local earned income tax is not collected by the state. It is administered through
-regional collectors, and the rate depends on the municipality of residence and, in
-some cases, on the municipality of work. That second detail catches people:
-someone living in one township and working in another may face a rate determined
-by a rule that has nothing to do with where they filed last year.
-
-For the self-employed the position is more complicated again. Philadelphia's Net
-Profits Tax applies directly to freelance income rather than to wages, and the
-Business Income and Receipts Tax applies to gross receipts as well as net income —
-so a Philadelphia freelancer can owe city tax on revenue in a year when profit was
-thin. That is a structural risk with no equivalent in most of the country, and it
-is invisible in any calculation built from the 3.07% state rate.
+- Local earned income tax and local services tax.
+- Any withholding that differs from the liability shown.
+- Additional Medicare Tax above $200,000 of wages for a single filer.

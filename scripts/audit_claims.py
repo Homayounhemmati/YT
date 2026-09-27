@@ -24,6 +24,7 @@ UNREGISTERED number is an error.
 Usage: python3 scripts/audit_claims.py [--inventory]
 """
 import collections
+from decimal import ROUND_HALF_UP, Decimal
 import json
 import pathlib
 import re
@@ -69,7 +70,9 @@ def fmt_forms(v):
     out = set()
     if isinstance(v, bool) or not isinstance(v, (int, float)):
         return out
-    whole = int(round(v))
+    # Half up, as the copy rules require; Python's round() goes half to even and
+    # would reject "$75,663" for 75,662.50.
+    whole = int(Decimal(str(v)).quantize(Decimal("1"), rounding=ROUND_HALF_UP))
     out |= {f"${whole:,}", f"{whole:,}", str(whole), f"${v:,.2f}"}
     out |= {f"{v:g}%", f"{v:.2f}%", f"{v:.1f}%"}
     return out
@@ -105,7 +108,9 @@ def state_numbers(covered_global):
         if row:
             for n in (26, 24, 12, 52):
                 allowed |= fmt_forms(row["takeHome"] / n)
-        allowed |= {str(data.get("taxYear", ""))}
+            # the effective state rate, derived from the engine's own outputs
+            allowed |= fmt_forms(round(row["stateTax"] / row["gross"] * 100, 1))
+        allowed |= {str(data.get("taxYear", "")), "26", "24", "12", "52"}
         for tok in tokens(f.read_text()):
             if tok not in allowed:
                 errors.append(f"state body {slug}: '{tok}' matches nothing in its dataset, "

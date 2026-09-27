@@ -1,99 +1,56 @@
-New York runs one of the most steeply graduated income tax schedules in the
-country. A single filer moves through nine separate brackets, starting at 3.9%
-and ending at 10.9% — and the distance between those two figures is unusually
-wide even among progressive states. What matters for most working people is not
-the headline top rate, which almost nobody reaches, but where the middle brackets
-sit relative to an ordinary salary.
+New York takes more from a paycheck than most states, and where in New York you live
+can take more again. The state tax is graduated across nine brackets, and residents
+of New York City and Yonkers pay a local income tax on top of it that most calculators
+leave out. This one leaves it out too, and says so wherever the figure appears.
 
-## How New York income tax works
+## A $95,000 salary in New York
 
-The New York tax brackets begin at 3.9% on the first $8,500 of taxable income and steps up
-quickly: 4.4% at $8,500, 5.15% at $11,700, and 5.4% at $13,900. Those first four
-brackets are compressed into a very narrow band of income, so a full-time earner
-passes through all of them within the first fortnight of the year.
+For a single filer with no pre-tax deductions, the state layer comes to **$4,565**,
+and take-home for the year is **$71,098** — an effective 25.2% once federal tax,
+Social Security and Medicare are added. That figure is before any New York City or
+Yonkers tax.
 
-The bracket that actually governs most professional income is 5.9%, which begins
-at $80,650, followed by 6.85% at $215,400. Above that the schedule turns sharply:
-9.65% at $1,077,550, 10.3% at $5 million, and 10.9% at $25 million. Those upper
-three brackets exist for a very small population and are the reason New York's top
-rate is quoted so often and applies so rarely.
+The state tax is worked out on your wages less New York's $8,000 standard deduction
+for a single filer, then through these brackets:
 
-The New York income tax rate a filer actually faces therefore depends far more on which of the middle bands they sit in than on the headline top figure.
+| Taxable income | Rate |
+|---|---|
+| up to $8,500 | 3.9% |
+| $8,500 to $11,700 | 4.4% |
+| $11,700 to $13,900 | 5.15% |
+| $13,900 to $80,650 | 5.4% |
+| $80,650 to $215,400 | 5.9% |
+| $215,400 to $1,077,550 | 6.85% |
+| above $1,077,550 | 9.65% and higher |
 
-New York allows a standard deduction of $8,000 for a single filer and $16,050 for
-a married couple filing jointly. That is a genuine deduction against state
-taxable income and is separate from the federal standard deduction, which is
-substantially larger.
+On this salary the last dollars fall in the 5.9% band. The rate applies only to the
+slice inside each band, never to the whole income — which is why the effective state
+rate is well under 5.9%.
 
-## Local income tax in New York
+## Per paycheck
 
-This is where a New York calculation departs from almost every other state, and
-where a national calculator will mislead you.
+Every two weeks: about **$2,735**. Twice a month: about $2,962. Weekly: about $1,367.
+A **new york paycheck tax calculator** should agree with these to within a few dollars
+once the same filing status and deductions are entered.
 
-**New York City and Yonkers levy their own resident income taxes on top of the
-state tax.** Our figure above does not include them. For someone living in one of
-the five boroughs, the city tax is not a rounding error — it is a separate
-schedule applied to substantially the same income, and it materially changes what
-lands in the account.
+## New York City
 
-The practical consequence is that "New York tax" is two different numbers
-depending on which side of the city line you sleep on. A freelancer in Buffalo
-and a freelancer in Brooklyn earning identical amounts owe materially different
-totals, and only one of them is described by the state schedule alone.
+A job in Manhattan and a job in Albany at the same salary do not produce the same
+paycheck. City residents pay the city's own graduated income tax through withholding,
+and it is based on where you live, not where you work — a commuter living in New
+Jersey or Westchester does not pay it. If you live in the five boroughs, treat the
+figures above as the ceiling of what you keep, not the answer.
 
-## Filing and deadlines
+## When pre-tax deductions help more here
 
-New York's Department of Taxation and Finance administers the tax, and the state
-return generally follows the federal calendar. Self-employed residents who expect
-to owe are required to make quarterly estimated payments to the state as well as
-to the IRS — two separate payments, two separate systems, on a similar schedule.
+Because the state layer is larger, a 401(k) contribution saves more in New York than
+in a state without income tax: New York follows the federal exclusion, so the deferral
+comes off state taxable wages too. It still does not reduce Social Security or
+Medicare.
 
-Missing the state instalments carries its own penalty independent of anything
-owed federally, which is a common and expensive surprise for people in their first
-year of self-employment.
+## Self-employed
 
-## Who this suits, and who it does not
-
-New York's structure is comparatively gentle at low incomes — 3.9% is a low entry
-rate — and becomes progressively less so through the middle of the range. For an
-earner between roughly $80,000 and $215,000, the marginal 5.9% is competitive
-with several states that advertise lower headline rates but apply them from the
-first dollar.
-
-The calculation changes entirely inside New York City. Anyone comparing an offer
-in Manhattan against one in a no-income-tax state should be comparing three
-layers — federal, state, and city — against one. Comparing only the state layer
-understates the gap by a wide margin, and it is the single most common error in
-relocation arithmetic involving New York.
-
-## What the schedule does to an ordinary salary
-
-The compression at the bottom has a consequence worth stating plainly. Because
-3.9%, 4.4%, 5.15% and 5.4% are all exhausted below $13,900, the effective rate on
-a $60,000 salary is dominated almost entirely by the 5.4% and 5.9% bands. The
-nine-bracket schedule is, for most working New Yorkers, a two-bracket schedule
-wearing a longer coat.
-
-That also means marginal-rate planning is largely futile below $80,650. There is
-no threshold near a typical salary that rewards deferring income into the
-following year, which is a genuine difference from states whose brackets are
-spaced across the middle of the earnings distribution.
-
-The $8,000 standard deduction is worth about $472 at the 5.9% marginal rate — real,
-but small enough that it does not change a relocation decision on its own. It is
-also considerably smaller than the federal standard deduction, so a New Yorker
-shelters much less at the state layer than at the federal one, and the state
-taxable income is correspondingly closer to gross.
-
-## The quarterly obligation
-
-A self-employed New York resident makes two sets of estimated payments: federal
-instalments to the IRS and separate state instalments to the Department of
-Taxation and Finance. They are not combined, not netted, and not forgiven if the
-other is paid.
-
-The state operates its own underpayment penalty, calculated independently of
-anything owed federally. Someone who covers their federal liability precisely and
-overlooks the state schedule will still owe a penalty — a common first-year error
-and one that a national tax calculator, which models a single federal obligation,
-gives no warning about.
+As self-employment profit, the same $95,000 leaves $69,989 after federal, state and
+self-employment tax — a heavier bill because both halves of Social Security and
+Medicare are paid by one person. A **new york income tax calculator** built for
+salaried pay will not show that difference.
