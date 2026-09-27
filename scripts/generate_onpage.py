@@ -332,8 +332,41 @@ def build_state(st, pages_doc, page_spec, tpl, origin, site_name, data_year,
     }
 
 
+def index_sentence(m, display):
+    """BEA's all-items parity and the component furthest from 100, in words."""
+    ix = m["indices"]
+    names = {"rent": "housing rents", "goods": "goods", "utilities": "utilities",
+             "otherServices": "other services"}
+    comps = [(k, ix[k]) for k in names if ix.get(k) is not None]
+    far = max(comps, key=lambda kv: abs(kv[1] - 100))
+    level = ix["allItems"]
+    rel = ("above" if level > 100.05 else "below" if level < 99.95 else "at")
+    parts = ", ".join(f"{names[k]} {v:.1f}" for k, v in comps)
+    return (f"Overall prices in the {display} metro area were {level:.1f} in {m['dataYear']} on "
+            f"BEA's Regional Price Parities, where the US average is 100 — "
+            f"{abs(level - 100):.1f} points {rel} average. By component: {parts}. "
+            f"{names[far[0]].capitalize()} are the furthest from average, so they decide "
+            f"whether {display} feels expensive for you.")
+
+
+def salary_sentence(fig, display, state, no_tax=False):
+    """The engines' household cost and the gross salary that covers it after tax."""
+    s, f = fig["single"], fig["family"]
+    layer = (f"federal tax, Social Security and Medicare ({state} has no income tax)"
+             if no_tax else f"federal tax, Social Security, Medicare and {state} tax")
+    return (f"For one person renting a one-bedroom at HUD's Fair Market Rent and spending "
+            f"what the average one-person US household spends on food, transport, health "
+            f"care and other everyday categories — priced at {display}'s price level — the "
+            f"month comes to about {money(s['monthlyTotal'])}. Covering that after "
+            f"{layer} takes a salary of about "
+            f"{money(s['grossSalary'])}. A family of four in a two-bedroom needs about "
+            f"{money(f['grossSalary'])} (married filing jointly). Both are break-even "
+            f"figures with no savings; the cost of living calculator replaces any line "
+            f"with your own.")
+
+
 def build_metro(m, pages_doc, page_spec, tpl, origin, site_name, data_year, ld,
-                takehome, metros_all=(), states_all=()):
+                takehome, metros_all=(), states_all=(), figures=None):
     """Everything a place page needs except the numbers BEA and HUD will supply.
     Generated now so the shape is reviewable and the gap is explicit, rather than
     the whole page waiting on a dataset (section 13-6)."""
@@ -353,6 +386,7 @@ def build_metro(m, pages_doc, page_spec, tpl, origin, site_name, data_year, ld,
     outline = [sub(h) for h in tpl["h2Outline"]]
 
     th = takehome.get(m["stateSlug"], {})
+    figures = figures or {}
     faq = []
     for q, a in pages_doc["onPage"]["faqFormulas"]["PlacePage"]:
         answer = sub(a)
@@ -364,11 +398,26 @@ def build_metro(m, pages_doc, page_spec, tpl, origin, site_name, data_year, ld,
                       f"for a one-bedroom and {money(rent['bedrooms2'])} for a two-bedroom. That is "
                       "gross rent, including the utilities a tenant pays, at the 40th percentile of "
                       "what recent movers paid — a typical rent, not a luxury one.")
+        elif "{INDEX_SENTENCE}" in answer and m.get("indices"):
+            answer = index_sentence(m, display)
+        elif "{SALARY_SENTENCE}" in answer and figures.get(m["slug"]) and th:
+            answer = salary_sentence(figures[m["slug"]], display, state,
+                                     no_tax=th.get("structure") == "none")
         elif "{INDEX_SENTENCE}" in answer or "{RENT_SENTENCE}" in answer \
                 or "{SALARY_SENTENCE}" in answer:
             answer = f"PENDING_DATA: needs BEA price indices for {m['name']} (13-6)."
         elif "{TAX_SENTENCE}" in answer:
             answer = (
+                f"No — {state} has no state income tax, which is much of its appeal. On a "
+                f"$95,000 salary a single {state} resident keeps about "
+                f"{money(th.get('takeHome', 0))} after federal tax, Social Security and "
+                f"Medicare — an effective {th.get('effectiveRate', 0):.1f}%, the same in "
+                f"{display} as anywhere else in {state}. What separates {display} from other "
+                f"{state} cities is housing: its one-bedroom Fair Market Rent is "
+                f"{money((m.get('referenceRent') or {}).get('bedrooms1', 0))} a month. Against a "
+                "taxed state, compare take-home first and rent second — the half most "
+                "cost-of-living tools omit."
+            ) if th and th.get("structure") == "none" else (
                 f"Yes. On a $95,000 salary, a single {state} resident keeps "
                 f"about {money(th.get('takeHome', 0))} — an effective "
                 f"{th.get('effectiveRate', 0):.1f}%. That figure applies anywhere in "
@@ -377,6 +426,8 @@ def build_metro(m, pages_doc, page_spec, tpl, origin, site_name, data_year, ld,
             ) if th else f"PENDING_ENGINE: {state}"
         elif "{DATA_YEAR}" in answer:
             answer = answer.replace("{DATA_YEAR}", str(data_year))
+        answer = (answer.replace("{RPP_YEAR}", str(m.get("dataYear", "")))
+                        .replace("{FMR_YEAR}", str(m.get("fmrYear", ""))))
         faq.append({"question": sub(q), "answer": answer})
 
     breadcrumb_items = [
@@ -555,9 +606,7 @@ def main():
     # stay out of the sitemap.
     bodies = {("/" if f.stem == "home" else "/" + f.stem.replace("__", "/"))
               for f in (ROOT / "content/bodies").glob("*.md")}
-    built_metros = {m["slug"] for m in metros
-                    if f"/cost-of-living/{m['slug']}" in bodies
-                    and m.get("indices") and m.get("referenceRent")}
+
     # A state whose brackets are prior-year figures is not published under a
     # 2026 title (rule 16-2-1) — it waits behind the gate until confirmed.
     # ...nor is a state whose personal exemption has not been established: the
@@ -573,7 +622,16 @@ def main():
                     and (s.get("modelCoverage") or {}).get("personalExemption")
                         in ("modelled", "none")
                     and (s.get("modelCoverage") or {}).get("benefitRecapture")
+                        != "not-modelled"
+                    and (s.get("modelCoverage") or {}).get("payrollContributions")
                         != "not-modelled"}
+    # A metro page quotes its state's take-home and the salary that covers a
+    # household there, so it waits for its state's data exactly as the state page
+    # does (San Francisco waits for California).
+    built_metros = {m["slug"] for m in metros
+                    if f"/cost-of-living/{m['slug']}" in bodies
+                    and m.get("indices") and m.get("referenceRent")
+                    and m["stateSlug"] in built_states}
     metro_rows = [{"slug": m["slug"], "display": m["displayName"],
                    "stateSlug": m["stateSlug"], "volume": m.get("volume", 0)}
                   for m in metros if m["slug"] in built_metros]
@@ -596,10 +654,15 @@ def main():
         thf = ROOT / "data/takehome-95k.json"
         if thf.exists():
             th = json.loads(thf.read_text())["states"]
+        figs = {}
+        ff = ROOT / "data/metro-figures.json"
+        if ff.exists():
+            figs = json.loads(ff.read_text())["metros"]
         for m in metros:
             entries.append(build_metro(m, pages_doc, place_spec, place_tpl, origin,
                                        site_name, data_year, ld, th,
-                                       metros_all=metro_rows, states_all=state_rows))
+                                       metros_all=metro_rows, states_all=state_rows,
+                                       figures=figs))
 
     for st in states:
         e = build_state(st, pages_doc, page_spec, tpl, origin, site_name,

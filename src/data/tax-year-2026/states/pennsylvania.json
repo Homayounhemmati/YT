@@ -48,7 +48,8 @@
   "verification": "verified",
   "personalExemption": null,
   "modelCoverage": {
-    "personalExemption": "none"
+    "personalExemption": "none",
+    "payrollContributions": "modelled"
   },
   "staleForTargetYear": false,
   "verified": {
@@ -63,8 +64,22 @@
         "title": "2025 PA-40 instructions: \"PA law does not allow standard deductions, deductions for personal exemptions\"; cafeteria-plan payments for hospitalization and sickness are nontaxable; Tax Forgiveness (Schedule SP) reduces all or part of the liability",
         "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
         "retrieved": "2026-09-27"
+      },
+      {
+        "title": "PA Department of Labor and Industry, UC Tax Yearly Highlights (calendar year 2026): \"Employee contributions (UC withholding) is 0.07 percent (70 cents per $1,000 gross wages)... There is no cap on the gross wages\"",
+        "url": "https://www.pa.gov/agencies/dli/resources/for-employers-and-educators/how-to-file/uc-tax/yearly-tax-highlights",
+        "retrieved": "2026-09-27"
       }
     ],
-    "register": "data/tax-primary/2026.json"
-  }
+    "register": "data/tax-primary/2026.json",
+    "correction": "Adds the employee unemployment-compensation withholding (0.07% of all wages) that every Pennsylvania paycheck carries."
+  },
+  "employeeContributions": [
+    {
+      "id": "pa-uc",
+      "name": "Pennsylvania unemployment compensation (employee share)",
+      "rate": 0.07,
+      "source": "PA Department of Labor and Industry, Yearly Tax Highlights, calendar year 2026: employee UC withholding 0.07 percent, no wage cap"
+    }
+  ]
 }

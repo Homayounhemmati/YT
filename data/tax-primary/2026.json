@@ -209,6 +209,11 @@
           "title": "2025 PA-40 instructions: \"PA law does not allow standard deductions, deductions for personal exemptions\"; cafeteria-plan payments for hospitalization and sickness are nontaxable; Tax Forgiveness (Schedule SP) reduces all or part of the liability",
           "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/revenue/documents/formsandpublications/formsforindividuals/pit/documents/2025/2025_pa-40in.pdf",
           "retrieved": "2026-09-27"
+        },
+        {
+          "title": "PA Department of Labor and Industry, UC Tax Yearly Highlights (calendar year 2026): \"Employee contributions (UC withholding) is 0.07 percent (70 cents per $1,000 gross wages)... There is no cap on the gross wages\"",
+          "url": "https://www.pa.gov/agencies/dli/resources/for-employers-and-educators/how-to-file/uc-tax/yearly-tax-highlights",
+          "retrieved": "2026-09-27"
         }
       ],
       "expect": {
@@ -216,7 +221,21 @@
         "flatRate": 3.07,
         "standardDeduction": {},
         "personalExemption": null
-      }
+      },
+      "set": {
+        "employeeContributions": [
+          {
+            "id": "pa-uc",
+            "name": "Pennsylvania unemployment compensation (employee share)",
+            "rate": 0.07,
+            "source": "PA Department of Labor and Industry, Yearly Tax Highlights, calendar year 2026: employee UC withholding 0.07 percent, no wage cap"
+          }
+        ],
+        "modelCoverage": {
+          "payrollContributions": "modelled"
+        }
+      },
+      "why": "Adds the employee unemployment-compensation withholding (0.07% of all wages) that every Pennsylvania paycheck carries."
     },
     "north-carolina": {
       "sources": [
@@ -583,6 +602,16 @@
           "title": "IT-201-I: standard deduction $8,000 / $16,050 / $8,000 / $11,200 (Tax Law section 614)",
           "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
           "retrieved": "2026-09-27"
+        },
+        {
+          "title": "NYS Workers' Compensation Board, Employee Notice of Paid Family Leave Payroll Deduction for 2026: \"The 2026 payroll contribution is 0.432% of an employee's wages each pay period and is capped at an annual maximum of $411.91\"",
+          "url": "https://www.wcb.ny.gov/content/main/forms/PFLDocs/pfl-pay-deduction-notice-2026.pdf",
+          "retrieved": "2026-09-27"
+        },
+        {
+          "title": "NYS Workers' Compensation Board, Disability Benefits \u2014 employers' rights and responsibilities (employee contribution not more than 60 cents per week, WCL 209)",
+          "url": "https://www.wcb.ny.gov/content/main/DisabilityBenefits/employers-rights-responsibilities.jsp",
+          "retrieved": "2026-09-27"
         }
       ],
       "set": {
@@ -748,10 +777,28 @@
         },
         "modelCoverage": {
           "personalExemption": "none",
-          "benefitRecapture": "modelled"
-        }
+          "benefitRecapture": "modelled",
+          "payrollContributions": "modelled"
+        },
+        "employeeContributions": [
+          {
+            "id": "ny-pfl",
+            "name": "New York Paid Family Leave",
+            "rate": 0.432,
+            "annualMax": 411.91,
+            "source": "NY PFL 2026: 0.432% of gross wages, annual maximum $411.91 (Workers' Compensation Board, Employee Notice of Paid Family Leave Payroll Deduction for 2026)"
+          },
+          {
+            "id": "ny-dbl",
+            "name": "New York disability insurance",
+            "rate": 0.5,
+            "weeklyMax": 0.6,
+            "optional": true,
+            "source": "Workers' Compensation Law 209: one-half of one percent of wages, not more than 60 cents a week; employers may, but need not, deduct it"
+          }
+        ]
       },
-      "why": "The extracted dataset had the 2026 schedules but not the supplemental tax that recaptures the lower brackets above $107,650 of AGI.",
+      "why": "The extracted dataset had the 2026 schedules but not the supplemental tax that recaptures the lower brackets above $107,650 of AGI. Also adds the employee Paid Family Leave and disability contributions withheld from New York paychecks.",
       "expect": {
         "structure": "progressive",
         "brackets": {
@@ -920,7 +967,52 @@
   "coverage": {
     "connecticut": {
       "modelCoverage.benefitRecapture": "not-modelled",
-      "why": "Connecticut phases out its lower brackets and adds a benefit recapture at higher incomes; the engine does not apply it yet, so the page stays behind the gate."
+      "why": "Connecticut phases out its lower brackets and adds a benefit recapture at higher incomes; the engine does not apply it yet, so the page stays behind the gate. Employee paid-leave, disability or long-term-care contributions are withheld from wages here and are not yet entered; the page waits behind the gate.",
+      "modelCoverage.payrollContributions": "not-modelled"
+    },
+    "california": {
+      "modelCoverage.payrollContributions": "not-modelled",
+      "why": "Employee paid-leave, disability or long-term-care contributions are withheld from wages here and are not yet entered; the page waits behind the gate."
+    },
+    "new-jersey": {
+      "modelCoverage.payrollContributions": "not-modelled",
+      "why": "Employee paid-leave, disability or long-term-care contributions are withheld from wages here and are not yet entered; the page waits behind the gate."
+    },
+    "rhode-island": {
+      "modelCoverage.payrollContributions": "not-modelled",
+      "why": "Employee paid-leave, disability or long-term-care contributions are withheld from wages here and are not yet entered; the page waits behind the gate."
+    },
+    "hawaii": {
+      "modelCoverage.payrollContributions": "not-modelled",
+      "why": "Employee paid-leave, disability or long-term-care contributions are withheld from wages here and are not yet entered; the page waits behind the gate."
+    },
+    "washington": {
+      "modelCoverage.payrollContributions": "not-modelled",
+      "why": "Employee paid-leave, disability or long-term-care contributions are withheld from wages here and are not yet entered; the page waits behind the gate."
+    },
+    "massachusetts": {
+      "modelCoverage.payrollContributions": "not-modelled",
+      "why": "Employee paid-leave, disability or long-term-care contributions are withheld from wages here and are not yet entered; the page waits behind the gate."
+    },
+    "oregon": {
+      "modelCoverage.payrollContributions": "not-modelled",
+      "why": "Employee paid-leave, disability or long-term-care contributions are withheld from wages here and are not yet entered; the page waits behind the gate."
+    },
+    "colorado": {
+      "modelCoverage.payrollContributions": "not-modelled",
+      "why": "Employee paid-leave, disability or long-term-care contributions are withheld from wages here and are not yet entered; the page waits behind the gate."
+    },
+    "minnesota": {
+      "modelCoverage.payrollContributions": "not-modelled",
+      "why": "Employee paid-leave, disability or long-term-care contributions are withheld from wages here and are not yet entered; the page waits behind the gate."
+    },
+    "maine": {
+      "modelCoverage.payrollContributions": "not-modelled",
+      "why": "Employee paid-leave, disability or long-term-care contributions are withheld from wages here and are not yet entered; the page waits behind the gate."
+    },
+    "delaware": {
+      "modelCoverage.payrollContributions": "not-modelled",
+      "why": "Employee paid-leave, disability or long-term-care contributions are withheld from wages here and are not yet entered; the page waits behind the gate."
     }
   }
 }

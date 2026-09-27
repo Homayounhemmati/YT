@@ -6,9 +6,11 @@ leave out. This one leaves it out too, and says so wherever the figure appears.
 ## A $95,000 salary in New York
 
 For a single filer with no pre-tax deductions, the state layer comes to **$4,565**,
-and take-home for the year is **$71,098** — an effective 25.2% once federal tax,
-Social Security and Medicare are added. That figure is before any New York City or
-Yonkers tax.
+and take-home for the year is **$70,656** — taxes take an effective 25.2% once federal
+tax, Social Security and Medicare are added, and two New York payroll contributions
+take $442 more: Paid Family Leave at 0.432% of wages ($410 on this salary) and the
+disability insurance deduction of up to $0.60 a week ($31). That figure is before
+any New York City or Yonkers tax.
 
 The state tax is worked out on your wages less New York's $8,000 standard deduction
 for a single filer, then through these brackets:
@@ -45,7 +47,7 @@ the tax for anyone in these ranges; this one applies the law as written.
 
 ## Per paycheck
 
-Every two weeks: about **$2,735**. Twice a month: about $2,962. Weekly: about $1,367.
+Every two weeks: about **$2,718**. Twice a month: about $2,944. Weekly: about $1,359.
 A **new york paycheck tax calculator** should agree with these to within a few dollars
 once the same filing status and deductions are entered.
 

@@ -58,7 +58,10 @@ export interface WageResult {
   stateName: string | null;
   totalTax: number;
   preTaxDeductions: number;
-  /** What lands in the account over a year: gross less taxes and pre-tax deductions. */
+  /** State-mandated employee contributions (paid leave, disability, unemployment). */
+  stateContributions: { id: string; name: string; amount: number }[];
+  stateContributionsTotal: number;
+  /** What lands in the account over a year: gross less taxes, contributions and pre-tax deductions. */
   netPay: number;
   netPayMonthly: number;
   payPeriods: PayPeriods;
@@ -163,10 +166,28 @@ export function estimateWageTakeHome(
     );
   }
 
+  // Contributions are levied on gross wages: a 401(k) deferral does not reduce them.
+  const contributions = (data.state?.employeeContributions ?? []).map((c) => {
+    let amount = percentOf(gross, c.rate);
+    if (c.weeklyMax != null) amount = Math.min(amount, toCents(c.weeklyMax) * 52);
+    if (c.annualMax != null) amount = Math.min(amount, toCents(c.annualMax));
+    if (c.optional) {
+      warnings.push(`${c.name}: employers may deduct this but are not required to; the figure assumes yours does.`);
+    }
+    return { id: c.id, name: c.name, amount };
+  });
+  if (data.state?.modelCoverage?.payrollContributions === "not-modelled") {
+    warnings.push(
+      `${data.state.name} requires employee payroll contributions (such as paid leave or ` +
+        "disability insurance) that are not yet included, so take-home is slightly overstated.",
+    );
+  }
+  const contributionsTotal = contributions.reduce((a, c) => a + c.amount, 0);
+
   const federalTax = toCents(core.federalTax);
   const totalTax = ficaTotal + federalTax + stateTax;
   const preTax = retirement + cafeteria;
-  const netPay = atLeastZero(gross - totalTax - preTax);
+  const netPay = atLeastZero(gross - totalTax - preTax - contributionsTotal);
   const netPerPaycheck = splitEvenly(netPay, periods).map(toDollars);
 
   if (fica.additionalMedicare > 0 && input.filingStatus !== "single") {
@@ -192,6 +213,8 @@ export function estimateWageTakeHome(
     stateName: data.state?.name ?? null,
     totalTax: toDollars(totalTax),
     preTaxDeductions: toDollars(preTax),
+    stateContributions: contributions.map((c) => ({ ...c, amount: toDollars(c.amount) })),
+    stateContributionsTotal: toDollars(contributionsTotal),
     netPay: toDollars(netPay),
     netPayMonthly: toDollars(Math.round(netPay / 12)),
     payPeriods: periods,

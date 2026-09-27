@@ -87,6 +87,8 @@ for (const slug of slugs) {
     takeHome: round(w.netPay),
     stateTax: round(w.stateTax),
     fica: round(w.fica.total),
+    contributions: round(w.stateContributionsTotal),
+    contributionItems: w.stateContributions.map((c) => ({ name: c.name, amount: round(c.amount) })),
     federalTax: round(w.federalTax),
     effectiveRate: pct(w.totalTax),
     warnings: w.warnings,
@@ -102,7 +104,7 @@ for (const slug of slugs) {
 // Cross-state figures quoted in copy use VERIFIED states only (data/tax-primary):
 // an unverified state's model can be missing a whole provision (Oregon's federal
 // tax subtraction), and a national "best minus worst" would inherit that error.
-type Out = { name: string; takeHome: number; stateTax: number; selfEmployed: { takeHome: number } };
+type Out = { name: string; takeHome: number; stateTax: number; contributions: number; selfEmployed: { takeHome: number } };
 const verified = slugs.filter((s) => loadState(YEAR, s).verification === "verified");
 const vrows = verified.map((s) => [s, out[s] as Out] as const);
 const best = vrows.reduce((a, b) => (b[1].takeHome > a[1].takeHome ? b : a));
@@ -111,7 +113,8 @@ const seGap = vrows.map(([, r]) => round(r.takeHome - r.selfEmployed.takeHome));
 const verifiedSpread = {
   states: verified,
   best: { slug: best[0], takeHome: best[1].takeHome },
-  worst: { slug: worst[0], takeHome: worst[1].takeHome, stateTax: worst[1].stateTax },
+  worst: { slug: worst[0], takeHome: worst[1].takeHome, stateTax: worst[1].stateTax,
+           contributions: worst[1].contributions },
   spread: round(best[1].takeHome - worst[1].takeHome),
   spreadPctOfGross: +(((best[1].takeHome - worst[1].takeHome) / AMOUNT) * 100).toFixed(1),
   selfEmployedGapMin: Math.min(...seGap),

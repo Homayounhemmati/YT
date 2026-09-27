@@ -2033,7 +2033,7 @@
         },
         {
           "question": "Why is my take-home pay so much lower than my salary?",
-          "answer": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state: $4,565 a year between Texas and New York alone. Pre-tax deductions like a 401(k) and health premiums change it further."
+          "answer": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state: $5,006 a year between Texas and New York alone. Pre-tax deductions like a 401(k) and health premiums change it further."
         },
         {
           "question": "What is the difference between biweekly and semi-monthly pay?",
@@ -2106,7 +2106,7 @@
               "name": "Why is my take-home pay so much lower than my salary?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state: $4,565 a year between Texas and New York alone. Pre-tax deductions like a 401(k) and health premiums change it further."
+                "text": "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state: $5,006 a year between Texas and New York alone. Pre-tax deductions like a 401(k) and health premiums change it further."
               }
             },
             {
@@ -3090,7 +3090,7 @@
       "faq": [
         {
           "question": "How expensive is Austin?",
-          "answer": "PENDING_DATA: needs BEA price indices for Austin, TX (13-6)."
+          "answer": "Overall prices in the Austin metro area were 98.1 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 1.9 points below average. By component: housing rents 120.4, goods 93.8, utilities 82.0, other services 96.2. Housing rents are the furthest from average, so they decide whether Austin feels expensive for you."
         },
         {
           "question": "What is a typical rent in Austin?",
@@ -3098,15 +3098,15 @@
         },
         {
           "question": "What salary do you need to live in Austin?",
-          "answer": "PENDING_DATA: needs BEA price indices for Austin, TX (13-6)."
+          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Austin's price level — the month comes to about $3,330. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $47,022. A family of four in a two-bedroom needs about $88,009 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
         },
         {
           "question": "Does Texas tax affect what you keep in Austin?",
-          "answer": "Yes. On a $95,000 salary, a single Texas resident keeps about $75,663 — an effective 20.4%. That figure applies anywhere in Texas, so it is the same in Austin as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+          "answer": "No — Texas has no state income tax, which is much of its appeal. On a $95,000 salary a single Texas resident keeps about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%, the same in Austin as anywhere else in Texas. What separates Austin from other Texas cities is housing: its one-bedroom Fair Market Rent is $1,562 a month. Against a taxed state, compare take-home first and rent second — the half most cost-of-living tools omit."
         },
         {
           "question": "Where does this data come from?",
-          "answer": "BEA Regional Price Parities for the Austin metropolitan area and HUD Fair Market Rent for the Texas counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
+          "answer": "Prices: BEA Regional Price Parities for the Austin metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and Texas rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
         }
       ],
       "jsonLd": [
@@ -3152,7 +3152,7 @@
               "name": "How expensive is Austin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA price indices for Austin, TX (13-6)."
+                "text": "Overall prices in the Austin metro area were 98.1 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 1.9 points below average. By component: housing rents 120.4, goods 93.8, utilities 82.0, other services 96.2. Housing rents are the furthest from average, so they decide whether Austin feels expensive for you."
               }
             },
             {
@@ -3168,7 +3168,7 @@
               "name": "What salary do you need to live in Austin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA price indices for Austin, TX (13-6)."
+                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Austin's price level — the month comes to about $3,330. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $47,022. A family of four in a two-bedroom needs about $88,009 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
               }
             },
             {
@@ -3176,7 +3176,7 @@
               "name": "Does Texas tax affect what you keep in Austin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. On a $95,000 salary, a single Texas resident keeps about $75,663 — an effective 20.4%. That figure applies anywhere in Texas, so it is the same in Austin as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+                "text": "No — Texas has no state income tax, which is much of its appeal. On a $95,000 salary a single Texas resident keeps about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%, the same in Austin as anywhere else in Texas. What separates Austin from other Texas cities is housing: its one-bedroom Fair Market Rent is $1,562 a month. Against a taxed state, compare take-home first and rent second — the half most cost-of-living tools omit."
               }
             },
             {
@@ -3184,7 +3184,7 @@
               "name": "Where does this data come from?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "BEA Regional Price Parities for the Austin metropolitan area and HUD Fair Market Rent for the Texas counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
+                "text": "Prices: BEA Regional Price Parities for the Austin metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and Texas rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
               }
             }
           ]
@@ -3264,7 +3264,7 @@
       "faq": [
         {
           "question": "How expensive is San Francisco?",
-          "answer": "PENDING_DATA: needs BEA price indices for San Francisco, CA (13-6)."
+          "answer": "Overall prices in the San Francisco metro area were 115.6 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 15.6 points above average. By component: housing rents 194.7, goods 108.5, utilities 172.6, other services 106.2. Housing rents are the furthest from average, so they decide whether San Francisco feels expensive for you."
         },
         {
           "question": "What is a typical rent in San Francisco?",
@@ -3272,7 +3272,7 @@
         },
         {
           "question": "What salary do you need to live in San Francisco?",
-          "answer": "PENDING_DATA: needs BEA price indices for San Francisco, CA (13-6)."
+          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Francisco's price level — the month comes to about $4,980. Covering that after federal tax, Social Security, Medicare and California tax takes a salary of about $76,762. A family of four in a two-bedroom needs about $128,121 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
         },
         {
           "question": "Does California tax affect what you keep in San Francisco?",
@@ -3280,7 +3280,7 @@
         },
         {
           "question": "Where does this data come from?",
-          "answer": "BEA Regional Price Parities for the San Francisco metropolitan area and HUD Fair Market Rent for the California counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
+          "answer": "Prices: BEA Regional Price Parities for the San Francisco metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and California rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
         }
       ],
       "jsonLd": [
@@ -3326,7 +3326,7 @@
               "name": "How expensive is San Francisco?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA price indices for San Francisco, CA (13-6)."
+                "text": "Overall prices in the San Francisco metro area were 115.6 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 15.6 points above average. By component: housing rents 194.7, goods 108.5, utilities 172.6, other services 106.2. Housing rents are the furthest from average, so they decide whether San Francisco feels expensive for you."
               }
             },
             {
@@ -3342,7 +3342,7 @@
               "name": "What salary do you need to live in San Francisco?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA price indices for San Francisco, CA (13-6)."
+                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Francisco's price level — the month comes to about $4,980. Covering that after federal tax, Social Security, Medicare and California tax takes a salary of about $76,762. A family of four in a two-bedroom needs about $128,121 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
               }
             },
             {
@@ -3358,7 +3358,7 @@
               "name": "Where does this data come from?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "BEA Regional Price Parities for the San Francisco metropolitan area and HUD Fair Market Rent for the California counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
+                "text": "Prices: BEA Regional Price Parities for the San Francisco metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and California rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
               }
             }
           ]
@@ -3438,7 +3438,7 @@
       "faq": [
         {
           "question": "How expensive is San Antonio?",
-          "answer": "PENDING_DATA: needs BEA price indices for San Antonio, TX (13-6)."
+          "answer": "Overall prices in the San Antonio metro area were 94.7 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 5.3 points below average. By component: housing rents 94.6, goods 93.8, utilities 82.2, other services 96.2. Utilities are the furthest from average, so they decide whether San Antonio feels expensive for you."
         },
         {
           "question": "What is a typical rent in San Antonio?",
@@ -3446,15 +3446,15 @@
         },
         {
           "question": "What salary do you need to live in San Antonio?",
-          "answer": "PENDING_DATA: needs BEA price indices for San Antonio, TX (13-6)."
+          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Antonio's price level — the month comes to about $2,937. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $41,155. A family of four in a two-bedroom needs about $81,383 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
         },
         {
           "question": "Does Texas tax affect what you keep in San Antonio?",
-          "answer": "Yes. On a $95,000 salary, a single Texas resident keeps about $75,663 — an effective 20.4%. That figure applies anywhere in Texas, so it is the same in San Antonio as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+          "answer": "No — Texas has no state income tax, which is much of its appeal. On a $95,000 salary a single Texas resident keeps about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%, the same in San Antonio as anywhere else in Texas. What separates San Antonio from other Texas cities is housing: its one-bedroom Fair Market Rent is $1,177 a month. Against a taxed state, compare take-home first and rent second — the half most cost-of-living tools omit."
         },
         {
           "question": "Where does this data come from?",
-          "answer": "BEA Regional Price Parities for the San Antonio metropolitan area and HUD Fair Market Rent for the Texas counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
+          "answer": "Prices: BEA Regional Price Parities for the San Antonio metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and Texas rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
         }
       ],
       "jsonLd": [
@@ -3500,7 +3500,7 @@
               "name": "How expensive is San Antonio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA price indices for San Antonio, TX (13-6)."
+                "text": "Overall prices in the San Antonio metro area were 94.7 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 5.3 points below average. By component: housing rents 94.6, goods 93.8, utilities 82.2, other services 96.2. Utilities are the furthest from average, so they decide whether San Antonio feels expensive for you."
               }
             },
             {
@@ -3516,7 +3516,7 @@
               "name": "What salary do you need to live in San Antonio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA price indices for San Antonio, TX (13-6)."
+                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Antonio's price level — the month comes to about $2,937. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $41,155. A family of four in a two-bedroom needs about $81,383 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
               }
             },
             {
@@ -3524,7 +3524,7 @@
               "name": "Does Texas tax affect what you keep in San Antonio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. On a $95,000 salary, a single Texas resident keeps about $75,663 — an effective 20.4%. That figure applies anywhere in Texas, so it is the same in San Antonio as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+                "text": "No — Texas has no state income tax, which is much of its appeal. On a $95,000 salary a single Texas resident keeps about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%, the same in San Antonio as anywhere else in Texas. What separates San Antonio from other Texas cities is housing: its one-bedroom Fair Market Rent is $1,177 a month. Against a taxed state, compare take-home first and rent second — the half most cost-of-living tools omit."
               }
             },
             {
@@ -3532,7 +3532,7 @@
               "name": "Where does this data come from?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "BEA Regional Price Parities for the San Antonio metropolitan area and HUD Fair Market Rent for the Texas counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
+                "text": "Prices: BEA Regional Price Parities for the San Antonio metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and Texas rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
               }
             }
           ]
@@ -3612,7 +3612,7 @@
       "faq": [
         {
           "question": "How expensive is Houston?",
-          "answer": "PENDING_DATA: needs BEA price indices for Houston, TX (13-6)."
+          "answer": "Overall prices in the Houston metro area were 98.6 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 1.4 points below average. By component: housing rents 104.5, goods 100.6, utilities 95.3, other services 95.6. Utilities are the furthest from average, so they decide whether Houston feels expensive for you."
         },
         {
           "question": "What is a typical rent in Houston?",
@@ -3620,15 +3620,15 @@
         },
         {
           "question": "What salary do you need to live in Houston?",
-          "answer": "PENDING_DATA: needs BEA price indices for Houston, TX (13-6)."
+          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Houston's price level — the month comes to about $3,134. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $44,098. A family of four in a two-bedroom needs about $85,665 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
         },
         {
           "question": "Does Texas tax affect what you keep in Houston?",
-          "answer": "Yes. On a $95,000 salary, a single Texas resident keeps about $75,663 — an effective 20.4%. That figure applies anywhere in Texas, so it is the same in Houston as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+          "answer": "No — Texas has no state income tax, which is much of its appeal. On a $95,000 salary a single Texas resident keeps about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%, the same in Houston as anywhere else in Texas. What separates Houston from other Texas cities is housing: its one-bedroom Fair Market Rent is $1,323 a month. Against a taxed state, compare take-home first and rent second — the half most cost-of-living tools omit."
         },
         {
           "question": "Where does this data come from?",
-          "answer": "BEA Regional Price Parities for the Houston metropolitan area and HUD Fair Market Rent for the Texas counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
+          "answer": "Prices: BEA Regional Price Parities for the Houston metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and Texas rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
         }
       ],
       "jsonLd": [
@@ -3674,7 +3674,7 @@
               "name": "How expensive is Houston?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA price indices for Houston, TX (13-6)."
+                "text": "Overall prices in the Houston metro area were 98.6 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 1.4 points below average. By component: housing rents 104.5, goods 100.6, utilities 95.3, other services 95.6. Utilities are the furthest from average, so they decide whether Houston feels expensive for you."
               }
             },
             {
@@ -3690,7 +3690,7 @@
               "name": "What salary do you need to live in Houston?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "PENDING_DATA: needs BEA price indices for Houston, TX (13-6)."
+                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Houston's price level — the month comes to about $3,134. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $44,098. A family of four in a two-bedroom needs about $85,665 (married filing jointly). Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
               }
             },
             {
@@ -3698,7 +3698,7 @@
               "name": "Does Texas tax affect what you keep in Houston?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. On a $95,000 salary, a single Texas resident keeps about $75,663 — an effective 20.4%. That figure applies anywhere in Texas, so it is the same in Houston as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
+                "text": "No — Texas has no state income tax, which is much of its appeal. On a $95,000 salary a single Texas resident keeps about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%, the same in Houston as anywhere else in Texas. What separates Houston from other Texas cities is housing: its one-bedroom Fair Market Rent is $1,323 a month. Against a taxed state, compare take-home first and rent second — the half most cost-of-living tools omit."
               }
             },
             {
@@ -3706,7 +3706,7 @@
               "name": "Where does this data come from?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "BEA Regional Price Parities for the Houston metropolitan area and HUD Fair Market Rent for the Texas counties it covers, both for 2026. Official, free to cite, and republished here rather than estimated."
+                "text": "Prices: BEA Regional Price Parities for the Houston metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and Texas rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
               }
             }
           ]
@@ -9219,7 +9219,7 @@
         },
         {
           "question": "How much is a biweekly paycheck on $95,000 in New York?",
-          "answer": "About $2,735 every two weeks for a single filer before local income tax, from $71,098 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,962."
+          "answer": "About $2,718 every two weeks for a single filer before local income tax, from $70,656 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,944."
         },
         {
           "question": "Are there local income taxes in New York?",
@@ -9227,7 +9227,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in New York?",
-          "answer": "About $71,098 of a $95,000 salary for a single filer before local income tax, an effective 25.2%. Of that, $4,565 is New York state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $70,656 of a $95,000 salary for a single filer before local income tax, an effective 25.2%. Of that, $4,565 is New York state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -9306,7 +9306,7 @@
               "name": "How much is a biweekly paycheck on $95,000 in New York?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $2,735 every two weeks for a single filer before local income tax, from $71,098 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,962."
+                "text": "About $2,718 every two weeks for a single filer before local income tax, from $70,656 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,944."
               }
             },
             {
@@ -9322,7 +9322,7 @@
               "name": "How much of a $95,000 salary do you keep in New York?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,098 of a $95,000 salary for a single filer before local income tax, an effective 25.2%. Of that, $4,565 is New York state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $70,656 of a $95,000 salary for a single filer before local income tax, an effective 25.2%. Of that, $4,565 is New York state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -10269,7 +10269,7 @@
         },
         {
           "question": "How much is a biweekly paycheck on $95,000 in Pennsylvania?",
-          "answer": "About $2,798 every two weeks for a single filer before local income tax, from $72,746 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $3,031."
+          "answer": "About $2,795 every two weeks for a single filer before local income tax, from $72,680 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $3,028."
         },
         {
           "question": "Are there local income taxes in Pennsylvania?",
@@ -10277,7 +10277,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Pennsylvania?",
-          "answer": "About $72,746 of a $95,000 salary for a single filer before local income tax, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $72,680 of a $95,000 salary for a single filer before local income tax, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -10356,7 +10356,7 @@
               "name": "How much is a biweekly paycheck on $95,000 in Pennsylvania?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $2,798 every two weeks for a single filer before local income tax, from $72,746 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $3,031."
+                "text": "About $2,795 every two weeks for a single filer before local income tax, from $72,680 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $3,028."
               }
             },
             {
@@ -10372,7 +10372,7 @@
               "name": "How much of a $95,000 salary do you keep in Pennsylvania?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $72,746 of a $95,000 salary for a single filer before local income tax, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $72,680 of a $95,000 salary for a single filer before local income tax, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]

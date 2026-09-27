@@ -81,9 +81,14 @@ if unverified:
 
 # --- programmatic gate ----------------------------------------------------
 if gate["metrosBuilt"] < 5:
-    add("BLOCKER", "pages", f"{gate['metrosBuilt']} of {gate['metrosTotal']} metro pages built; the gate "
-        "(6-10-3) launches with 5 samples. Each needs data plus a written body.",
-        "me, once the dataset exists (and metros.json needs a fifth metro)")
+    drafts = sorted(p.stem.split("__")[1] for p in (ROOT / "content/drafts").glob("cost-of-living__*.md"))
+    add("BLOCKER", "pages", f"{gate['metrosBuilt']} of {gate['metrosTotal']} metro pages built; the set "
+        "(6-10-3) launches with 5 geographically varied samples. Data is ready for all four; "
+        f"{len(drafts)} bodies are drafted in content/drafts ({', '.join(drafts)}) but three Texas "
+        "pages cannot clear the 40% uniqueness bar against each other, and San Francisco waits "
+        "for California's 2026 data.",
+        "you: measure search volume for 2+ non-Texas metros (OpenRush credits or Search Console); "
+        "me: verify California, then write and promote the drafts")
 if gate["statesBuilt"] < 8:
     add("BLOCKER", "pages", f"{gate['statesBuilt']} of {gate['statesTotal']} state pages built; the first "
         "release is 8 (6-0).", "me: write state bodies (current data only)")

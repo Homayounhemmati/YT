@@ -243,7 +243,8 @@
   "personalExemption": null,
   "modelCoverage": {
     "personalExemption": "none",
-    "benefitRecapture": "modelled"
+    "benefitRecapture": "modelled",
+    "payrollContributions": "modelled"
   },
   "staleForTargetYear": false,
   "benefitRecapture": {
@@ -423,9 +424,36 @@
         "title": "IT-201-I: standard deduction $8,000 / $16,050 / $8,000 / $11,200 (Tax Law section 614)",
         "url": "https://www.tax.ny.gov/pdf/current_forms/it/it201i.pdf",
         "retrieved": "2026-09-27"
+      },
+      {
+        "title": "NYS Workers' Compensation Board, Employee Notice of Paid Family Leave Payroll Deduction for 2026: \"The 2026 payroll contribution is 0.432% of an employee's wages each pay period and is capped at an annual maximum of $411.91\"",
+        "url": "https://www.wcb.ny.gov/content/main/forms/PFLDocs/pfl-pay-deduction-notice-2026.pdf",
+        "retrieved": "2026-09-27"
+      },
+      {
+        "title": "NYS Workers' Compensation Board, Disability Benefits — employers' rights and responsibilities (employee contribution not more than 60 cents per week, WCL 209)",
+        "url": "https://www.wcb.ny.gov/content/main/DisabilityBenefits/employers-rights-responsibilities.jsp",
+        "retrieved": "2026-09-27"
       }
     ],
     "register": "data/tax-primary/2026.json",
-    "correction": "The extracted dataset had the 2026 schedules but not the supplemental tax that recaptures the lower brackets above $107,650 of AGI."
-  }
+    "correction": "The extracted dataset had the 2026 schedules but not the supplemental tax that recaptures the lower brackets above $107,650 of AGI. Also adds the employee Paid Family Leave and disability contributions withheld from New York paychecks."
+  },
+  "employeeContributions": [
+    {
+      "id": "ny-pfl",
+      "name": "New York Paid Family Leave",
+      "rate": 0.432,
+      "annualMax": 411.91,
+      "source": "NY PFL 2026: 0.432% of gross wages, annual maximum $411.91 (Workers' Compensation Board, Employee Notice of Paid Family Leave Payroll Deduction for 2026)"
+    },
+    {
+      "id": "ny-dbl",
+      "name": "New York disability insurance",
+      "rate": 0.5,
+      "weeklyMax": 0.6,
+      "optional": true,
+      "source": "Workers' Compensation Law 209: one-half of one percent of wages, not more than 60 cents a week; employers may, but need not, deduct it"
+    }
+  ]
 }

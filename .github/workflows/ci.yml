@@ -45,6 +45,15 @@ jobs:
       - name: Compute take-home figures
         run: npx tsx scripts/compute_takehome.ts
 
+      # Metro household costs and the salary that covers them, from BEA, HUD and
+      # BLS data through the same engines. A committed copy that differs from a
+      # fresh one means the data or an engine changed without regenerating it.
+      - name: Compute metro figures
+        run: |
+          npx tsx scripts/compute_metro_figures.ts
+          git diff --exit-code -- data/metro-figures.json data/takehome-95k.json || {
+            echo "::error::generated figures are stale — re-run the compute scripts and commit"; exit 1; }
+
       - name: Generate and validate per-entity on-page values
         run: python3 scripts/generate_onpage.py
 

@@ -72,11 +72,28 @@ export interface StateData {
    * `phaseWidth` dollars of AGI. Amounts are the statute's own table, not derived.
    */
   benefitRecapture?: BenefitRecapture | null;
+  /**
+   * Employee payroll contributions the state requires or allows on wages — paid
+   * leave, disability insurance, unemployment. Not income tax, but they come out of
+   * every paycheck. `weeklyMax` caps each week's contribution; `annualMax` the year's.
+   */
+  employeeContributions?: {
+    id: string;
+    name: string;
+    rate: number;
+    annualMax?: number | null;
+    weeklyMax?: number | null;
+    /** The employer may deduct it but is not required to; the estimate assumes it does. */
+    optional?: boolean;
+    source: string;
+  }[];
   /** Whether each part of the state's model is established: a page is built only when it is. */
   modelCoverage?: {
     personalExemption: "modelled" | "none" | "not-extracted";
     /** "not-modelled": the state has a recapture the engine does not yet apply (Connecticut). */
     benefitRecapture?: "modelled" | "none" | "not-modelled";
+    /** "not-modelled": the state has employee payroll contributions not yet entered. */
+    payrollContributions?: "modelled" | "none" | "not-modelled";
   };
   localTaxNote: string | null;
   notes: string[];

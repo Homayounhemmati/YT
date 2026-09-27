@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { loadState } from "../load.js";
+import { loadEstimated, loadFederal, loadState } from "../load.js";
+import { estimateWageTakeHome } from "../payroll.js";
 import { applyBrackets } from "../brackets.js";
 import { computeStateTax, supplementalTax } from "../state.js";
 
@@ -76,5 +77,45 @@ describe("corrections from the primary-source register", () => {
                         "illinois", "maryland", "new-york"]) {
       expect(loadState(YEAR, slug)!.verification, slug).toBe("verified");
     }
+  });
+});
+
+describe("state employee payroll contributions, 2026", () => {
+  const federal = loadFederal(YEAR);
+  const estimated = loadEstimated(YEAR);
+  const pay = (slug: string, wages: number) =>
+    estimateWageTakeHome({ taxYear: YEAR, filingStatus: "single", annualWages: wages },
+      { federal, estimated, state: loadState(YEAR, slug) });
+
+  it("New York: PFL 0.432% and disability 0.5% up to $0.60 a week", () => {
+    const r = pay("new-york", 95_000);
+    const by = Object.fromEntries(r.stateContributions.map((c) => [c.id, c.amount]));
+    expect(by["ny-pfl"]).toBe(410.4);   // 95,000 x 0.432%, under the $411.91 cap
+    expect(by["ny-dbl"]).toBe(31.2);    // 0.60 x 52
+    expect(r.stateContributionsTotal).toBe(441.6);
+    // take-home falls by exactly the contributions; tax is unchanged
+    expect(r.netPay).toBe(70_656.15);
+  });
+  it("New York PFL stops at the $411.91 annual maximum", () => {
+    const r = pay("new-york", 200_000);
+    expect(r.stateContributions.find((c) => c.id === "ny-pfl")!.amount).toBe(411.91);
+  });
+  it("New York disability is pro-rata below $120 a week", () => {
+    // 5,000 a year = 96.15 a week; 0.5% = 0.48 < 0.60, so 25.00 a year
+    const r = pay("new-york", 5_000);
+    expect(r.stateContributions.find((c) => c.id === "ny-dbl")!.amount).toBe(25);
+  });
+  it("Pennsylvania: employee UC 0.07% of all wages, no cap", () => {
+    expect(pay("pennsylvania", 95_000).stateContributionsTotal).toBe(66.5);
+    expect(pay("pennsylvania", 500_000).stateContributionsTotal).toBe(350);
+  });
+  it("contributions are on gross wages: a 401(k) deferral does not reduce them", () => {
+    const r = estimateWageTakeHome(
+      { taxYear: YEAR, filingStatus: "single", annualWages: 95_000, preTaxRetirement: 10_000 },
+      { federal, estimated, state: loadState(YEAR, "pennsylvania") });
+    expect(r.stateContributionsTotal).toBe(66.5);
+  });
+  it("states without contributions add nothing", () => {
+    expect(pay("texas", 95_000).stateContributionsTotal).toBe(0);
   });
 });

@@ -34,7 +34,8 @@
       "principalCountyFips": "48453",
       "rentSource": "HUD FMR FY2026 (Travis County, TX)",
       "dataYear": 2024,
-      "msaCode": "12420"
+      "msaCode": "12420",
+      "fmrYear": 2026
     },
     {
       "name": "San Francisco, CA",
@@ -64,7 +65,8 @@
       "principalCountyFips": "06075",
       "rentSource": "HUD FMR FY2026 (San Francisco County, CA)",
       "dataYear": 2024,
-      "msaCode": "41860"
+      "msaCode": "41860",
+      "fmrYear": 2026
     },
     {
       "name": "San Antonio, TX",
@@ -94,7 +96,8 @@
       "principalCountyFips": "48029",
       "rentSource": "HUD FMR FY2026 (Bexar County, TX)",
       "dataYear": 2024,
-      "msaCode": "41700"
+      "msaCode": "41700",
+      "fmrYear": 2026
     },
     {
       "name": "Houston, TX",
@@ -124,7 +127,8 @@
       "principalCountyFips": "48201",
       "rentSource": "HUD FMR FY2026 (Harris County, TX)",
       "dataYear": 2024,
-      "msaCode": "26420"
+      "msaCode": "26420",
+      "fmrYear": 2026
     }
   ]
 }

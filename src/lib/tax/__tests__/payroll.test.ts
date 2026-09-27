@@ -47,11 +47,12 @@ describe("golden: $95,000 salary, single, Texas", () => {
 });
 
 describe("golden: $95,000 salary, single, Pennsylvania flat 3.07%", () => {
-  // 95,000 x 3.07% = 2,916.50; net = 75,662.50 - 2,916.50 = 72,746.00
+  // 95,000 x 3.07% = 2,916.50; employee UC 95,000 x 0.07% = 66.50
+  // net = 75,662.50 - 2,916.50 - 66.50 = 72,679.50
   const r = run({ annualWages: 95_000 }, "pennsylvania");
   it("applies the flat state rate to gross wages", () => {
     expect(cents(r.stateTax)).toBe(291_650);
-    expect(cents(r.netPay)).toBe(7_274_600);
+    expect(cents(r.netPay)).toBe(7_267_950);
   });
 });
 

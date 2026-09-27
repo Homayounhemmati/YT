@@ -182,7 +182,8 @@
   "verification": "pending",
   "personalExemption": null,
   "modelCoverage": {
-    "personalExemption": "not-extracted"
+    "personalExemption": "not-extracted",
+    "payrollContributions": "not-modelled"
   },
   "staleForTargetYear": false
 }

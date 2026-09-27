@@ -4507,3 +4507,11 @@ With network access open, every input was fetched from the organisation that pub
 
 **Launch readiness:** 4 blockers, all outside the data — metro bodies (and a fifth metro), the /about biography, the domain, the Base44 build. Tests: 150.
 
+**Later in the same round.** Three further findings, each fixed at the source:
+
+- **State payroll contributions.** Take-home ignored contributions withheld from wages that are not income tax. New York's Paid Family Leave (0.432%, max $411.91) and disability insurance (0.5%, max $0.60 a week) and Pennsylvania's employee unemployment contribution (0.07%) are now data in the register and a line in the engine; New York's $95,000 take-home is $70,656, Pennsylvania's $72,680. Twelve other states with such contributions are flagged and held behind the gate.
+- **The '$7,500 between states' claim** rested on Oregon, whose model lacks its federal-tax subtraction. Cross-state figures now use verified states only: $5,006 (5.3%) between Florida and New York on take-home, of which $4,565 is state tax.
+- **Claims.** 13 of the 15 pending claims were confirmed from their sources by `scripts/verify_claims.py`; the home-affordability copy now attributes each debt-to-income limit to the lender that sets it. Still pending: Connecticut's 70% (its official sites are unreachable from the build network) and the property-tax extremes (the Census API now needs a key).
+
+**Metro pages.** Every metro FAQ is now answered from data (BEA levels, HUD rents, and the salary that covers an average household after tax, from `scripts/compute_metro_figures.ts`), and the page gate now also requires the metro's state to be verified, so San Francisco waits for California. Bodies for Austin, Houston and San Antonio are written and number-audited but kept in `content/drafts/`: three pages from one state cannot clear the 40% uniqueness bar against each other, which is the situation the five-sample, geographically varied launch rule exists for. They are promoted when two non-Texas metros are measured and written.
+

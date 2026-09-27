@@ -1411,7 +1411,7 @@
         ],
         [
           "Where does this data come from?",
-          "BEA Regional Price Parities for the {Metro} metropolitan area and HUD Fair Market Rent for the {State} counties it covers, both for {DATA_YEAR}. Official, free to cite, and republished here rather than estimated."
+          "Prices: BEA Regional Price Parities for the {Metro} metropolitan area, {RPP_YEAR}, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal {FMR_YEAR}. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and {State} rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
         ]
       ],
       "ToolPage": {
@@ -1639,7 +1639,7 @@
           ],
           [
             "Why is my take-home pay so much lower than my salary?",
-            "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state: $4,565 a year between Texas and New York alone. Pre-tax deductions like a 401(k) and health premiums change it further."
+            "On a $95,000 salary the deductions run from a fifth to more than a quarter of the figure, and the exact amount depends on the state: $5,006 a year between Texas and New York alone. Pre-tax deductions like a 401(k) and health premiums change it further."
           ],
           [
             "What is the difference between biweekly and semi-monthly pay?",

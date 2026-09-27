@@ -81,6 +81,7 @@ Source: `src/data/tax-year-2026/states/{slug}.json`
 | `localTaxNote` | string\|null | Displayed as its own section when present |
 | `personalExemption` | object\|null | Per filing status: `amount`, optional `agiSchedule` (Maryland: the amount steps down above each AGI line) or `maxAgi` (Illinois: none above it). Subtracted after the standard deduction |
 | `benefitRecapture` | object\|null | **New York only.** The section 601(d-5) supplemental tax, as the statute's own table. Must be applied — see section 5 |
+| `employeeContributions` | array | Payroll contributions withheld from wages that are not income tax — New York Paid Family Leave (0.432%, max $411.91) and disability insurance (0.5%, max $0.60/week), Pennsylvania employee unemployment (0.07%). On **gross** wages; a 401(k) does not reduce them. Show them as their own line on the result card |
 | `verification` | enum | Only `"verified"` states are built (the gate in `data/onpage.generated.json` already reflects this) |
 
 ### `metros` — 4 rows, data ready (pages wait for their written bodies)
@@ -225,7 +226,7 @@ Every calculator has a tested reference implementation in this repository.
 
 | Engine | Covers | Tests |
 |---|---|---|
-| `src/lib/tax/` + `payroll.ts` | Income tax, take-home / paycheck (salary, per-period, 401(k) and section 125 rules, state exemptions, New York supplemental tax) | 91 |
+| `src/lib/tax/` + `payroll.ts` | Income tax, take-home / paycheck (salary, per-period, 401(k) and section 125 rules, state exemptions, New York supplemental tax, state payroll contributions) | 97 |
 | `src/lib/col/` | Cost of living, comparison with tax, rent affordability, living wage, household monthly cost | 38 — including real BEA, HUD and BLS data |
 | `src/lib/calc/` | House payment (PITI, PMI), home affordability, closing costs, salary↔hourly, sales tax, property tax | 20 |
 

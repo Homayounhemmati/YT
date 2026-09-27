@@ -23,10 +23,14 @@
       "tokens": [
         "$4,565",
         "4.8%",
-        "$71,098"
+        "$70,656",
+        "$72,680",
+        "$5,006",
+        "5.3%",
+        "$442"
       ],
       "basis": "computed",
-      "means": "Among verified states, state tax on a $95,000 salary runs from $0 (Texas, Florida) to $4,564.75 (New York), 4.8% of gross; New York take-home $71,097.75",
+      "means": "Among verified states on a $95,000 salary: state tax runs from $0 (Texas, Florida) to $4,564.75 (New York), 4.8% of gross; take-home runs from $75,662.50 to $70,656.15 (New York, after $441.60 of PFL and disability contributions), a $5,006.35 gap, 5.3% of gross; Pennsylvania $72,679.50",
       "reference": "data/takehome-95k.json verifiedSpread (scripts/compute_takehome.ts): verified states only, because an unverified model can be missing a whole provision (Oregon's federal tax subtraction). Replaces the earlier 'more than $7,500', which rested on Oregon's incomplete model.",
       "status": "verified"
     },
@@ -756,26 +760,25 @@
       "scope": "paycheck-calculator",
       "tokens": [
         "$75,663",
-        "$72,746",
-        "$67,908",
-        "3.07%",
-        "2025"
+        "$72,680",
+        "$70,656",
+        "3.07%"
       ],
       "basis": "dataset",
-      "means": "Engine take-home in Texas/Alaska/Florida, Pennsylvania and Oregon; Pennsylvania's flat rate",
-      "reference": "data/takehome-95k.json; payroll.test.ts golden cases (Oregon on 2025 brackets, labelled in the table)",
+      "means": "Engine take-home in Texas/Alaska/Florida, Pennsylvania and New York (after state payroll contributions); Pennsylvania's flat rate",
+      "reference": "data/takehome-95k.json (verified states); payroll.test.ts",
       "status": "verified"
     },
     {
       "id": "se-vs-salary",
       "scope": "paycheck-calculator",
       "tokens": [
-        "$1,109",
+        "$667",
         "$1,503"
       ],
       "basis": "computed",
       "means": "Range of salary-minus-self-employment take-home across 51 jurisdictions",
-      "reference": "data/takehome-95k.json · recomputed over verified states: verifiedSpread.selfEmployedGapMin 1,108.57, Max 1,502.74",
+      "reference": "data/takehome-95k.json · recomputed over verified states: verifiedSpread.selfEmployedGapMin 666.97 (New York, where the employee also pays PFL and disability contributions the self-employed do not), Max 1,502.74",
       "status": "verified"
     },
     {

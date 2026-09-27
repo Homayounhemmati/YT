@@ -44,8 +44,15 @@ filing threshold (26 U.S.C. 1401, 3101, 6017). Every extracted value matched.
 | Illinois | Exemption was 2025's $2,850; the 2026 amount is **$2,925** (Bulletin FY 2026-15, IL-700-T) | state tax $4,561 → **$4,558** |
 | Maryland | Standard deduction was 2025's $3,350; the Comptroller's 2026 figure is **$3,400**. Joint / head of household **$6,850** is computed from Tax-General 10-217(c) (not yet published; recheck against the 2026 resident booklet). HB 411 (2026, $4,100) died in committee | state tax $4,149 → **$4,147** |
 | New York | Brackets correct, but the **section 601(d-5) supplemental tax** above $107,650 of AGI was missing. Now modelled from the statute's own table | none at $95,000; **+$480** at $150,000, +$2,614 at $300,000 |
+| New York (payroll) | Paid Family Leave (0.432%, max $411.91) and disability insurance (0.5%, max $0.60 a week) were not deducted | take-home $71,098 → **$70,656** |
+| Pennsylvania (payroll) | Employee unemployment contribution (0.07% of all wages, 2026) was not deducted | take-home $72,746 → **$72,680** |
 | Georgia | 4.99% and $15,000 / $30,000 confirmed (HB 463, retroactive to January 1, 2026; employers withheld 5.19% until May 11, 2026) | — |
 | Texas, Florida, Pennsylvania, North Carolina | Confirmed as extracted | — |
+
+Twelve states withhold employee paid-leave, disability or long-term-care contributions
+that are not yet entered (California, Colorado, Connecticut, Delaware, Hawaii, Maine,
+Massachusetts, Minnesota, New Jersey, Oregon, Rhode Island, Washington); each is
+flagged `payrollContributions: "not-modelled"` and held behind the gate.
 
 Connecticut also recaptures its lower brackets at higher incomes; the engine does not
 apply that yet, so Connecticut is flagged and held behind the gate even once verified.

@@ -119,6 +119,62 @@ def state_numbers(covered_global):
     return errors
 
 
+def metro_numbers(covered_global):
+    """A metro body may only quote numbers from its own BEA/HUD record, the engines'
+    household figures for it (data/metro-figures.json), its state's take-home
+    figures, federal data, or a global claim."""
+    errors = []
+    figs = json.loads((ROOT / "data/metro-figures.json").read_text())["metros"] \
+        if (ROOT / "data/metro-figures.json").exists() else {}
+    th = json.loads((ROOT / "data/takehome-95k.json").read_text())["states"]
+    fed = set().union(*(fmt_forms(v) for v in walk_numbers(
+        json.loads((ROOT / "src/data/tax-year-2026/federal.json").read_text()))))
+    # Comparing a metro with its neighbours is the point of the page, so every
+    # metro's rents and price levels may be quoted on every metro page.
+    siblings = set()
+    for p in (ROOT / "src/data").glob("cost-of-living-*/us/*.json"):
+        r = json.loads(p.read_text())
+        for v in walk_numbers({"i": r.get("indices"), "r": r.get("referenceRent")}):
+            siblings |= fmt_forms(v) | {f"{v:.1f}"}
+    # Drafts are held to the same standard as published bodies: a number that is
+    # wrong in a draft is wrong the day it is promoted.
+    metro_files = sorted((ROOT / "content/bodies").glob("cost-of-living__*.md")) + \
+        sorted((ROOT / "content/drafts").glob("cost-of-living__*.md"))
+    for f in metro_files:
+        slug = f.stem.split("__")[1]
+        rec_path = next((ROOT / "src/data").glob(f"cost-of-living-*/us/{slug}.json"), None)
+        if rec_path is None:
+            errors.append(f"metro body {slug}: no dataset")
+            continue
+        rec = json.loads(rec_path.read_text())
+        allowed = set(fed) | set(covered_global) | siblings
+        for v in walk_numbers({k: v for k, v in rec.items() if k != "sources"}):
+            allowed |= fmt_forms(v)
+        fig = figs.get(slug, {})
+        for v in walk_numbers(fig):
+            allowed |= fmt_forms(v)
+        for scen in ("single", "family"):
+            s = fig.get(scen)
+            if s:
+                allowed |= fmt_forms(s["monthlyTotal"] * 12)
+                allowed |= fmt_forms(round(s["monthlyRent"] / s["monthlyTotal"] * 100))
+        # index gaps from 100, as copy states them ("1.9 points below average")
+        for v in (rec.get("indices") or {}).values():
+            allowed |= fmt_forms(round(abs(v - 100), 1)) | fmt_forms(round(v, 1))
+            # index levels are quoted as plain numbers ("98.1", "1.9 points")
+            allowed |= {f"{v:.1f}", f"{abs(v - 100):.1f}"}
+        row = th.get(rec.get("stateSlug"), {})
+        for v in walk_numbers(row):
+            allowed |= fmt_forms(v)
+        allowed |= {"100", str(rec.get("dataYear", "")), str(rec.get("fmrYear", "")), "2026",
+                    "1", "2", "4"}
+        for tok in tokens(f.read_text()):
+            if tok not in allowed:
+                errors.append(f"metro body {slug}: '{tok}' matches nothing in its BEA/HUD record, "
+                              "the engines' figures for it, its state's figures or a global claim")
+    return errors
+
+
 def main():
     reg = json.loads((ROOT / "data/claims.json").read_text())
     covered = collections.defaultdict(set)   # slug or "*" -> tokens
@@ -136,6 +192,7 @@ def main():
                 errors.append(f"{slug} ({kind}): '{tok}' is not in data/claims.json")
 
     errors += state_numbers(covered["*"])
+    errors += metro_numbers(covered["*"])
 
     if "--inventory" in sys.argv:
         for slug in sorted(inventory):

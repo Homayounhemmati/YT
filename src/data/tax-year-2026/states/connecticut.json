@@ -177,7 +177,8 @@
   "personalExemption": null,
   "modelCoverage": {
     "personalExemption": "not-extracted",
-    "benefitRecapture": "not-modelled"
+    "benefitRecapture": "not-modelled",
+    "payrollContributions": "not-modelled"
   },
   "staleForTargetYear": false
 }

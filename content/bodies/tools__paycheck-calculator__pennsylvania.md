@@ -7,10 +7,12 @@ school districts, is what makes two Pennsylvania paychecks on the same salary di
 ## $95,000 in Pennsylvania
 
 The state tax is 3.07% of the whole salary: **$2,917** for the year. With federal tax,
-Social Security and Medicare, a single filer keeps **$72,746**, an effective 23.4% —
+Social Security and Medicare, a single filer keeps **$72,680**, an effective 23.4% —
 before the local earned income tax, which this figure does not include.
 
-Paid every two weeks that is about $2,798 a check; paid twice a month, about $3,031.
+Paid every two weeks that is about $2,795 a check; paid twice a month, about $3,028.
+That already takes out Pennsylvania's employee unemployment contribution, 0.07% of all
+wages ($67 a year here), which every Pennsylvania paycheck carries.
 
 ## The 401(k) difference
 

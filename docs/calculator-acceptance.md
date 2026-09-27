@@ -10,24 +10,26 @@ their answers depend on published indices, and fixture indices must never be sho
 
 ## Paycheck / take-home pay (single filer, 2026)
 
-| Salary | State | Checks/yr | FICA | Federal | State | Net / year | First check |
-|---|---|---|---|---|---|---|---|
-| $95,000.00 | texas | 26 | $7,267.50 | $12,070.00 | $0.00 | $75,662.50 | $2,910.10 |
-| $95,000.00 | pennsylvania | 26 | $7,267.50 | $12,070.00 | $2,916.50 | $72,746.00 | $2,797.93 |
-| $95,000.00 | california | 26 | $7,267.50 | $12,070.00 | $4,742.98 | $70,919.52 | $2,727.68 |
-| $95,000.00 | new-york | 24 | $7,267.50 | $12,070.00 | $4,564.75 | $71,097.75 | $2,962.41 |
-| $60,000.00 | florida | 52 | $4,590.00 | $5,020.00 | $0.00 | $50,390.00 | $969.04 |
-| $250,000.00 | texas | 26 | $15,514.00 | $51,304.00 | $0.00 | $183,182.00 | $7,045.47 |
-| $95,000.00 | pennsylvania | 26 | $7,267.50 | $9,870.00 | $2,916.50 | $64,946.00 | $2,497.93 |
-| $95,000.00 | maryland | 26 | $7,267.50 | $12,070.00 | $4,146.50 | $71,516.00 | $2,750.62 |
-| $95,000.00 | illinois | 26 | $7,267.50 | $12,070.00 | $4,557.71 | $71,104.79 | $2,734.80 |
-| $300,000.00 | illinois | 26 | $16,689.00 | $68,134.25 | $14,850.00 | $200,326.75 | $7,704.88 |
-| $150,000.00 | new-york | 26 | $11,475.00 | $24,734.00 | $8,290.00 | $105,501.00 | $4,057.74 |
-| $300,000.00 | new-york | 26 | $16,689.00 | $68,134.25 | $20,001.45 | $195,175.30 | $7,506.75 |
+| Salary | State | Checks/yr | FICA | Federal | State tax | State contrib. | Net / year | First check |
+|---|---|---|---|---|---|---|---|---|
+| $95,000.00 | texas | 26 | $7,267.50 | $12,070.00 | $0.00 | $0.00 | $75,662.50 | $2,910.10 |
+| $95,000.00 | pennsylvania | 26 | $7,267.50 | $12,070.00 | $2,916.50 | $66.50 | $72,679.50 | $2,795.37 |
+| $95,000.00 | california | 26 | $7,267.50 | $12,070.00 | $4,742.98 | $0.00 | $70,919.52 | $2,727.68 |
+| $95,000.00 | new-york | 24 | $7,267.50 | $12,070.00 | $4,564.75 | $441.60 | $70,656.15 | $2,944.01 |
+| $60,000.00 | florida | 52 | $4,590.00 | $5,020.00 | $0.00 | $0.00 | $50,390.00 | $969.04 |
+| $250,000.00 | texas | 26 | $15,514.00 | $51,304.00 | $0.00 | $0.00 | $183,182.00 | $7,045.47 |
+| $95,000.00 | pennsylvania | 26 | $7,267.50 | $9,870.00 | $2,916.50 | $66.50 | $64,879.50 | $2,495.37 |
+| $95,000.00 | maryland | 26 | $7,267.50 | $12,070.00 | $4,146.50 | $0.00 | $71,516.00 | $2,750.62 |
+| $95,000.00 | illinois | 26 | $7,267.50 | $12,070.00 | $4,557.71 | $0.00 | $71,104.79 | $2,734.80 |
+| $300,000.00 | illinois | 26 | $16,689.00 | $68,134.25 | $14,850.00 | $0.00 | $200,326.75 | $7,704.88 |
+| $150,000.00 | new-york | 26 | $11,475.00 | $24,734.00 | $8,290.00 | $443.11 | $105,057.89 | $4,040.69 |
+| $300,000.00 | new-york | 26 | $16,689.00 | $68,134.25 | $20,001.45 | $443.11 | $194,732.19 | $7,489.70 |
 
 The Pennsylvania row with a $10,000 401(k) deferral: FICA must be unchanged from the row without it, federal tax lower, and Pennsylvania tax unchanged (Pennsylvania taxes deferrals).
 
 Maryland uses the 2026 standard deduction ($3,400 single) and the $3,200 exemption; Illinois the 2026 exemption ($2,925), which disappears above $250,000 of AGI. The New York rows at $150,000 and $300,000 include the section 601(d-5) supplemental tax ($480.25 and $2,614.00 on top of the bracket tax): a build that applies only the bracket table fails them.
+
+State contributions: New York Paid Family Leave 0.432% of gross wages (maximum $411.91) plus disability insurance 0.5% up to $0.60 a week; Pennsylvania employee unemployment 0.07% of all wages. Both are on gross wages, so a 401(k) deferral does not reduce them. California is shown on 2025 brackets without its SDI contribution and is not published until both are entered.
 
 ## Paycheck, hourly mode (overtime at 1.5x above 40 hours; biweekly)
 

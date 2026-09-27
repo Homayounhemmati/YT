@@ -29,10 +29,10 @@ const section = (title: string, head: string[], body: (string | number)[][]) => 
 // Paycheck / take-home
 const pay = (w: number, s: string, extra: Record<string, number> = {}, periods: 52 | 26 | 24 | 12 = 26) => {
   const r = estimateWageTakeHome({ taxYear: YEAR, filingStatus: "single", annualWages: w, payPeriods: periods, ...extra }, tax(s));
-  return [usd(w), s, periods, usd(r.fica.total), usd(r.federalTax), usd(r.stateTax), usd(r.netPay), usd(r.netPerPaycheck[0]!)];
+  return [usd(w), s, periods, usd(r.fica.total), usd(r.federalTax), usd(r.stateTax), usd(r.stateContributionsTotal), usd(r.netPay), usd(r.netPerPaycheck[0]!)];
 };
 section("Paycheck / take-home pay (single filer, 2026)",
-  ["Salary", "State", "Checks/yr", "FICA", "Federal", "State", "Net / year", "First check"],
+  ["Salary", "State", "Checks/yr", "FICA", "Federal", "State tax", "State contrib.", "Net / year", "First check"],
   [pay(95000, "texas"), pay(95000, "pennsylvania"), pay(95000, "california"), pay(95000, "new-york", {}, 24),
    pay(60000, "florida", {}, 52), pay(250000, "texas"), pay(95000, "pennsylvania", { preTaxRetirement: 10000 }),
    pay(95000, "maryland"), pay(95000, "illinois"), pay(300000, "illinois"),
@@ -42,7 +42,11 @@ rows.push("", "The Pennsylvania row with a $10,000 401(k) deferral: FICA must be
   "", "Maryland uses the 2026 standard deduction ($3,400 single) and the $3,200 exemption; Illinois " +
   "the 2026 exemption ($2,925), which disappears above $250,000 of AGI. The New York rows at " +
   "$150,000 and $300,000 include the section 601(d-5) supplemental tax ($480.25 and $2,614.00 on " +
-  "top of the bracket tax): a build that applies only the bracket table fails them.");
+  "top of the bracket tax): a build that applies only the bracket table fails them.",
+  "", "State contributions: New York Paid Family Leave 0.432% of gross wages (maximum $411.91) plus " +
+  "disability insurance 0.5% up to $0.60 a week; Pennsylvania employee unemployment 0.07% of all wages. " +
+  "Both are on gross wages, so a 401(k) deferral does not reduce them. California is shown on 2025 " +
+  "brackets without its SDI contribution and is not published until both are entered.");
 
 // Hourly mode
 const hr = (rate: number, hours: number, s: string) => {
