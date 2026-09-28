@@ -150,3 +150,37 @@ Total $3,686.56 a month, $44,238.72 a year; salary needed $52,344.39 ($25.17 an 
 | Month there | Month here | Difference | Equivalent salary after tax | Price-only equivalent |
 |---|---|---|---|---|
 | $5,068.03 | $3,686.56 | -$1,381.47 | $74,948.59 | $82,764.94 |
+
+## Rent affordability by place (rentAffordability with the place from resolvePlace + toPlaceCostData)
+
+| Income | Place | Bedrooms | 30% ceiling | 50% line | 3× screen | HUD rent | Share of income | Burden | Headroom | Income needed at 30% |
+|---|---|---|---|---|---|---|---|---|---|---|
+| $60,000.00 | Austin, TX | 1 | $1,500.00 | $2,500.00 | $1,666.66 | $1,562.00 | 31.2% | cost burdened | -$62.00 | $62,480.00 |
+| $60,000.00 | San Francisco, CA | 1 | $1,500.00 | $2,500.00 | $1,666.66 | $2,977.00 | 59.5% | severely cost burdened | -$1,477.00 | $119,080.00 |
+| $85,000.00 | Houston, TX | 2 | $2,125.00 | $3,541.67 | $2,361.11 | $1,573.00 | 22.2% | not burdened | $552.00 | $62,920.00 |
+| $45,000.00 | San Antonio, TX | 0 | $1,125.00 | $1,875.00 | $1,250.00 | $1,077.00 | 28.7% | not burdened | $48.00 | $43,080.00 |
+
+## Salary comparison by city (equivalentSalaryAfterTax)
+
+| From | To | Salary now | Filing | Net pay now | Net needed there | Equivalent salary after tax | Price-only equivalent | Tax adjustment |
+|---|---|---|---|---|---|---|---|---|
+| New York, NY | Austin, TX | $95,000.00 | single | $70,656.15 | $61,556.34 | $74,948.59 | $82,764.94 | -$7,816.35 |
+| Austin, TX | Chicago, IL | $95,000.00 | single | $75,662.50 | $79,928.38 | $108,491.73 | $100,356.14 | $8,135.59 |
+| Houston, TX | New York, NY | $120,000.00 | marriedJointly, 2 children | $105,180.00 | $120,039.51 | $149,957.19 | $136,953.23 | $13,003.96 |
+
+## Cost of living comparison (compareWithTax, single filer)
+
+| From | To | Salary now | Salary there | Net pay now | Net pay there | Net there in today's prices | Tax and salary effect | Price effect | Real annual difference |
+|---|---|---|---|---|---|---|---|---|---|
+| New York, NY | Austin, TX | $95,000.00 | $95,000.00 | $70,656.15 | $75,662.50 | $86,847.61 | $5,006.35 | $11,185.11 | $16,191.46 |
+| Austin, TX | Chicago, IL | $95,000.00 | $110,000.00 | $75,662.50 | $80,914.79 | $76,596.26 | $5,252.29 | -$4,318.53 | $933.76 |
+
+Real annual difference = tax and salary effect + price effect; positive means better off in the second place, in the first place's dollars. The price levels shown beside it are the BEA indices of each place (all items, goods, rent, utilities, other services).
+
+## Living wage (computeCostOfLiving: the salary that covers a typical month)
+
+| Place | Adults + children | Month | Salary needed | Hourly at 2,080 hours |
+|---|---|---|---|---|
+| Austin, TX | 1 + 0 | $3,686.56 | $52,344.39 | $25.17 |
+| Houston, TX | 2 + 2 | $6,891.94 | $92,026.48 | $44.24 |
+| New York, NY | 1 + 0 | $5,068.03 | $79,699.55 | $38.32 |

@@ -16,7 +16,7 @@ import { addSalesTax, annualGrossFromHourly, hourlyToSalary, propertyTax, remove
 import { estimateTax } from "../src/lib/tax/index.js";
 import { readFileSync } from "node:fs";
 import {
-  computeCostOfLiving, referenceRentFromFmr, rentAffordability, resolvePlace,
+  compareWithTax, computeCostOfLiving, equivalentSalaryAfterTax, referenceRentFromFmr, rentAffordability, resolvePlace, toPlaceCostData,
   type CostOfLivingInput, type PlaceCostData, type PriceAreasFile, type SpendingBaseline, type StatePlacesFile,
 } from "../src/lib/col/index.js";
 
@@ -190,6 +190,53 @@ const colCmp = cmp.comparison!;
 section("Cost of living: comparison (one person, from New York, NY on $95,000 to Austin, TX)",
   ["Month there", "Month here", "Difference", "Equivalent salary after tax", "Price-only equivalent"],
   [[usd(colCmp.from.monthlyTotal), usd(cmp.monthlyTotal), usd(colCmp.monthlyDifference), usd(colCmp.equivalentSalary), usd(colCmp.priceOnlyEquivalent)]]);
+
+// The place-based tools, on the same place data the site loads (public/data/col).
+const pl = (st: string, key: string) => resolvePlace(stFile(st), colAreas, key);
+const pcd = (st: string, key: string) => toPlaceCostData(pl(st, key), colYears.priceLevels);
+const rentAt = (inc: number, st: string, key: string, b: 0 | 1 | 2 | 3) => {
+  const r = rentAffordability({ grossAnnualIncome: inc, place: toPlaceCostData(pl(st, key), colYears.rent), bedrooms: b });
+  const m = r.market!;
+  return [usd(inc), key.replace(/^city:/, ""), b, usd(r.ceiling), usd(r.severeLine), usd(r.landlordScreenMax), usd(m.fairMarketRent),
+    m.shareOfIncome.toFixed(1) + "%", m.burden, usd(m.headroom), usd(m.incomeNeededAt30)];
+};
+section("Rent affordability by place (rentAffordability with the place from resolvePlace + toPlaceCostData)",
+  ["Income", "Place", "Bedrooms", "30% ceiling", "50% line", "3× screen", "HUD rent", "Share of income", "Burden", "Headroom", "Income needed at 30%"],
+  [rentAt(60000, "tx", "city:Austin, TX", 1), rentAt(60000, "ca", "city:San Francisco, CA", 1),
+   rentAt(85000, "tx", "city:Houston, TX", 2), rentAt(45000, "tx", "city:San Antonio, TX", 0)]);
+
+const eqRow = (from: [string, string, string], to: [string, string, string], salary: number,
+               filingStatus: "single" | "marriedJointly", kids = 0) => {
+  const r = equivalentSalaryAfterTax({ taxYear: YEAR, filingStatus, salary, qualifyingChildren: kids },
+    { place: pcd(from[0], from[1]), tax: tax(from[2]) }, { place: pcd(to[0], to[1]), tax: tax(to[2]) });
+  return [from[1].replace(/^city:/, ""), to[1].replace(/^city:/, ""), usd(salary), `${filingStatus}${kids ? `, ${kids} children` : ""}`,
+    usd(r.originNetPay), usd(r.targetNetAtDestination), usd(r.equivalentGross), usd(r.priceOnlyEquivalent), usd(r.taxAdjustment)];
+};
+const NY: [string, string, string] = ["ny", "city:New York, NY", "new-york"];
+const AUS: [string, string, string] = ["tx", "city:Austin, TX", "texas"];
+const CHI: [string, string, string] = ["il", "city:Chicago, IL", "illinois"];
+const HOU: [string, string, string] = ["tx", "city:Houston, TX", "texas"];
+section("Salary comparison by city (equivalentSalaryAfterTax)",
+  ["From", "To", "Salary now", "Filing", "Net pay now", "Net needed there", "Equivalent salary after tax", "Price-only equivalent", "Tax adjustment"],
+  [eqRow(NY, AUS, 95000, "single"), eqRow(AUS, CHI, 95000, "single"), eqRow(HOU, NY, 120000, "marriedJointly", 2)]);
+
+const cwt = (from: [string, string, string], to: [string, string, string], salary: number, offer?: number) => {
+  const r = compareWithTax({ taxYear: YEAR, filingStatus: "single", originSalary: salary, destinationSalary: offer },
+    { place: pcd(from[0], from[1]), tax: tax(from[2]) }, { place: pcd(to[0], to[1]), tax: tax(to[2]) });
+  return [from[1].replace(/^city:/, ""), to[1].replace(/^city:/, ""), usd(salary), usd(offer ?? salary), usd(r.originNetPay),
+    usd(r.destinationNetPay), usd(r.destinationNetInOriginPrices), usd(r.taxAndSalaryEffect), usd(r.priceEffect), usd(r.realAnnualDifference)];
+};
+section("Cost of living comparison (compareWithTax, single filer)",
+  ["From", "To", "Salary now", "Salary there", "Net pay now", "Net pay there", "Net there in today's prices", "Tax and salary effect", "Price effect", "Real annual difference"],
+  [cwt(NY, AUS, 95000), cwt(AUS, CHI, 95000, 110000)]);
+rows.push("", "Real annual difference = tax and salary effect + price effect; positive means better off in the second place, " +
+  "in the first place's dollars. The price levels shown beside it are the BEA indices of each place (all items, goods, rent, " +
+  "utilities, other services).");
+
+section("Living wage (computeCostOfLiving: the salary that covers a typical month)",
+  ["Place", "Adults + children", "Month", "Salary needed", "Hourly at 2,080 hours"],
+  [colCases[0]!, colCases[1]!, colCases[2]!].map((c) => { const r = col(c);
+    return [r.place.label, `${c.adults} + ${c.children}`, usd(r.monthlyTotal), usd(r.salary.gross), usd(r.salary.hourlyAt2080)]; }));
 
 const head = [
   "# Calculator acceptance cases",
