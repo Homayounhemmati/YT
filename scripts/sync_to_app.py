@@ -149,6 +149,24 @@ def main():
   as in `public/data/onpage.generated.json`) and `body`, its written copy in Markdown.
   A page fetches only its own file.
 
+## How pages reach search engines
+
+`npm run build` does three things: the normal Vite build, a server build of
+`src/entry-server.jsx`, and `scripts/prerender.mjs`, which writes one HTML file per
+route (`dist/{path}.html`, `dist/index.html` for `/`) with that page's title,
+description, canonical, robots, Open Graph and JSON-LD in the head and the page
+itself in `#root`. A crawler that runs no JavaScript reads the full page; the browser
+then renders over it from the data embedded in `<script id="lifecalc-data">`.
+
+- Keep the build script, `src/entry-server.jsx`, `scripts/prerender.mjs`,
+  `src/lib/preload.js` and `usePageData`'s use of it. Removing any of them leaves
+  every page as an empty shell titled "LifeCalc Pro" to a crawler.
+- Keep `index.html` with an empty `<div id="root"></div>` and one `<title>`: the
+  prerender step fills both.
+- Page components must render from their page file without waiting for anything
+  else (no login check, no spinner), so the first browser render matches the HTML.
+- `public/robots.txt` blocks all crawling until launch (build spec section 7).
+
 ## Four rules""", 1)
         d = app / dest
         d.parent.mkdir(parents=True, exist_ok=True)
