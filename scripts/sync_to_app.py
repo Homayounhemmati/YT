@@ -151,20 +151,25 @@ def main():
 
 ## How pages reach search engines
 
-`npm run build` does three things: the normal Vite build, a server build of
-`src/entry-server.jsx`, and `scripts/prerender.mjs`, which writes one HTML file per
-route (`dist/{path}.html`, `dist/index.html` for `/`) with that page's title,
-description, canonical, robots, Open Graph and JSON-LD in the head and the page
-itself in `#root`. A crawler that runs no JavaScript reads the full page; the browser
-then renders over it from the data embedded in `<script id="lifecalc-data">`.
+`npm run build` is the Vite build followed by `scripts/prerender.mjs`. With
+`LIFECALC_PRERENDER=1` set, that script also server-renders `src/entry-server.jsx` and
+writes one HTML file per route (`dist/{path}.html`, `dist/index.html` for `/`) with the
+page's title, description, canonical, robots, Open Graph and JSON-LD in the head and the
+page itself in `#root`; the browser then renders over it from the data embedded in
+`<script id="lifecalc-data">`. Without the flag it does nothing and `index.html` stays a
+neutral shell.
 
-- Keep the build script, `src/entry-server.jsx`, `scripts/prerender.mjs`,
-  `src/lib/preload.js` and `usePageData`'s use of it. Removing any of them leaves
-  every page as an empty shell titled "LifeCalc Pro" to a crawler.
-- Keep `index.html` with an empty `<div id="root"></div>` and one `<title>`: the
-  prerender step fills both.
+The flag is off on Base44's hosting on purpose: Base44 answers every URL that is not an
+exact file with `dist/index.html`, so a prerendered `index.html` would give every page
+the home page's content and canonical. Base44 instead serves recognised crawlers its own
+rendered copy of each page on a custom domain. The flag is for a host that serves
+`dist/{path}.html` at `/{path}` (Cloudflare Pages, Netlify, Vercel).
+
+- Keep `scripts/prerender.mjs`, `src/entry-server.jsx`, `src/lib/preload.js` and
+  `usePageData`'s use of it, and the build script.
+- Keep `index.html` with an empty `<div id="root"></div>` and one `<title>`.
 - Page components must render from their page file without waiting for anything
-  else (no login check, no spinner), so the first browser render matches the HTML.
+  else (no login check, no spinner).
 - `public/robots.txt` blocks all crawling until launch (build spec section 7).
 
 ## Four rules""", 1)
