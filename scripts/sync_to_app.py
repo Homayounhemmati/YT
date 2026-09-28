@@ -93,6 +93,11 @@ def menu_label(anchor):
     return " ".join(w if (i and w in SMALL) else w[:1].upper() + w[1:] for i, w in enumerate(words))
 
 
+def slug(text):
+    """The app's slugify (src/lib/siteFormat.js) and render_bodies.mjs's."""
+    return re.sub(r"\s+", "-", re.sub(r"[^a-z0-9\s-]", "", text.lower()).strip())
+
+
 def updated(entry, fallback):
     """The page's dateModified from its own JSON-LD, else the site's content date."""
     for node in entry.get("jsonLd") or []:
@@ -115,11 +120,25 @@ def build_page_files(app):
     out.mkdir(parents=True)
     built = [e for e in gen["pages"] if e.get("built")]
     by_path = {e["path"]: e for e in built}
+    bodies = {}
     for e in built:
         body_file = ROOT / "content/bodies" / f"{stem(e['path'])}.md"
+        bodies[stem(e["path"])] = body_file.read_text() if body_file.exists() else ""
+    # The body as HTML too, so the app needs no Markdown parser in the browser.
+    r = subprocess.run(["node", str(ROOT / "scripts/render_bodies.mjs")], input=json.dumps(bodies),
+                       capture_output=True, text=True, cwd=ROOT)
+    if r.returncode:
+        sys.exit(f"render_bodies.mjs failed:\n{r.stderr}")
+    html = json.loads(r.stdout)
+    for e in built:
         doc = {k: v for k, v in e.items() if k not in ("titleChars", "metaChars", "sitemap", "built")}
-        doc["body"] = body_file.read_text() if body_file.exists() else ""
+        doc["body"] = bodies[stem(e["path"])]
+        doc["bodyHtml"] = html[stem(e["path"])]
         doc["updated"] = updated(e, pages_doc["site"]["contentUpdated"])
+        # Every "On this page" link must land on a heading of the body.
+        for h in e.get("h2Outline") or []:
+            if h != "Frequently asked questions" and f'<h2 id="{slug(h)}">' not in doc["bodyHtml"]:
+                sys.exit(f"{e['path']}: no <h2 id=\"{slug(h)}\"> in the body for the outline item {h!r}")
         (out / f"{stem(e['path'])}.json").write_text(json.dumps(doc, indent=1, ensure_ascii=False) + "\n")
     # The calculators by the funnel stage each page belongs to; the four groups are the
     # ones the /tools page copy names ("the place calculators ... the housing calculators").
@@ -182,9 +201,18 @@ def main():
   these; anything else is the 404 page); and the calculator catalogue: `toolGroups`
   (`id`, `label`) and `tools` (`path`, `name`, `summary`, `group`) for cards and menus.
 - `public/data/pages/{page}.json` — one file per page: its SEO values (the same fields
-  as in `public/data/onpage.generated.json`), `body` (its written copy in Markdown) and
+  as in `public/data/onpage.generated.json`), `body` (its written copy in Markdown),
+  `bodyHtml` (the same copy as HTML, with an id on each H2 matching `h2Outline`) and
   `updated` (the date its content last changed, YYYY-MM-DD). A page fetches only its
-  own file.
+  own file and renders `bodyHtml` (`src/components/site/HtmlBody.jsx`).
+
+## Page weight
+
+The first JavaScript a page loads must stay under 90 KB compressed (build spec
+section 6). So: render `bodyHtml`, never a Markdown parser in the browser; the Base44
+SDK is imported lazily inside `src/lib/AuthContext.jsx` (after the page renders), never
+at the top of a module the pages load; each calculator is its own lazy chunk; add no
+dependency to the first bundle without measuring it.
 
 ## How pages reach search engines
 
