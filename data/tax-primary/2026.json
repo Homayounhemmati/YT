@@ -276,7 +276,10 @@
         "modelCoverage": {
           "payrollContributions": "modelled"
         },
-        "dependentAllowance": null
+        "dependentAllowance": null,
+        "notes": [
+          "Pennsylvania allows no standard deduction and no personal exemption (PA-40 instructions); the 3.07% rate applies to all taxable compensation."
+        ]
       },
       "why": "Adds the employee unemployment-compensation withholding (0.07% of all wages) that every Pennsylvania paycheck carries."
     },
@@ -442,7 +445,7 @@
     "georgia": {
       "sources": [
         {
-          "title": "Georgia DOR, 2026 Employer's Withholding Tax Guide (revised June 2026): HB 463, retroactive to January 1, 2026 \u2014 flat 4.99%; standard deduction $30,000 married filing jointly, $15,000 single, head of household and married filing separately",
+          "title": "Georgia DOR, 2026 Employer's Withholding Tax Guide (revised June 2026): HB 463, retroactive to January 1, 2026 — flat 4.99%; standard deduction $30,000 married filing jointly, $15,000 single, head of household and married filing separately",
           "url": "https://dor.georgia.gov/document/document/2026-employers-tax-guide-updated-june-2026/download",
           "retrieved": "2026-09-27"
         }
@@ -548,7 +551,11 @@
             }
           },
           "source": "Schedule IL-E/EITC: dependents at the exemption amount ($2,850 for 2025; $2,925 for 2026 per Bulletin FY 2026-15); not allowed above $250,000 AGI ($500,000 joint)"
-        }
+        },
+        "notes": [
+          "The 2026 personal exemption is $2,925 ($5,850 on a joint return) and is not allowed above $250,000 of AGI ($500,000 joint) (Informational Bulletin FY 2026-15).",
+          "The 4.95% rate has applied since July 1, 2017."
+        ]
       },
       "why": "The extracted exemption ($2,850) was the 2025 amount, carried forward because upstream had not indexed it; a joint return claims two exemptions. Adds dependents at the exemption amount.",
       "expect": {
@@ -732,7 +739,11 @@
             }
           },
           "staleComponent": false
-        }
+        },
+        "notes": [
+          "The 2026 standard deduction is $3,400 ($6,850 joint and head of household), indexed from 2026 (Tax-General section 10-217).",
+          "The current brackets took effect on January 1, 2025."
+        ]
       },
       "why": "The extracted amounts ($3,350/$6,700) were 2025's. $3,400 is published by the Comptroller. The Comptroller has not yet published the joint/head-of-household figure; $6,850 is section 10-217(c) applied to BLS data (C-CPI-U 177.206 / 173.016 = +2.42%; $6,700 x 2.42% = $162 -> rounded down to $150), and the same formula reproduces the published $3,400 ($81 -> $50). Recheck against the 2026 resident booklet when it is released. Adds dependents at the same $3,200 exemption value. A joint return claims two personal exemptions (MW507: 'Multiply the number of your personal exemptions by the value of each exemption'); the extracted data gave a married couple one.",
       "computed": [
@@ -970,7 +981,7 @@
           "retrieved": "2026-09-27"
         },
         {
-          "title": "NYS Workers' Compensation Board, Disability Benefits \u2014 employers' rights and responsibilities (employee contribution not more than 60 cents per week, WCL 209)",
+          "title": "NYS Workers' Compensation Board, Disability Benefits — employers' rights and responsibilities (employee contribution not more than 60 cents per week, WCL 209)",
           "url": "https://www.wcb.ny.gov/content/main/DisabilityBenefits/employers-rights-responsibilities.jsp",
           "retrieved": "2026-09-27"
         }

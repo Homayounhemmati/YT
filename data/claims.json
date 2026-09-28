@@ -824,7 +824,10 @@
     },
     {
       "id": "ctc-under-17",
-      "scope": "cost-of-living-calculator",
+      "scope": [
+        "cost-of-living-calculator",
+        "income-tax-calculator"
+      ],
       "tokens": [
         "17"
       ],

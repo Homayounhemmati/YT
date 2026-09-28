@@ -184,7 +184,8 @@
   "surtax": null,
   "localTaxNote": "Every Maryland county and Baltimore City levies a local income tax on top of the state tax. Not included in this calculation.",
   "notes": [
-    "Latest change took effect 2025-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+    "The 2026 standard deduction is $3,400 ($6,850 joint and head of household), indexed from 2026 (Tax-General section 10-217).",
+    "The current brackets took effect on January 1, 2025."
   ],
   "provenance": {
     "extractedFrom": "policyengine-us",

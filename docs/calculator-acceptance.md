@@ -61,12 +61,24 @@ State contributions: New York Paid Family Leave 0.432% of gross wages (maximum $
 |---|---|---|---|---|---|---|
 | $789.04 | $1,800.00 | $1,575.00 | $3,000.00 | $2,500.00 | $9,664.04 | 2.58% |
 
+## Income tax (estimateTax, 2026)
+
+| Case | State | AGI | Taxable | Federal before credits | Child tax credit | Federal | Self-employment tax | State tax | Total | Effective | Marginal |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| single, $95,000 wages | texas | $95,000.00 | $78,900.00 | $12,070.00 | $0.00 | $12,070.00 | $0.00 | $0.00 | $12,070.00 | 12.7% | 22% |
+| single, $95,000 wages | new-york | $95,000.00 | $78,900.00 | $12,070.00 | $0.00 | $12,070.00 | $0.00 | $4,564.75 | $16,634.75 | 17.5% | 27.9% |
+| joint, $150,000 wages, 2 children | illinois | $150,000.00 | $117,800.00 | $15,340.00 | $4,400.00 | $10,940.00 | $0.00 | $6,845.85 | $17,785.85 | 11.9% | 26.95% |
+| single, $80,000 freelance revenue, $10,000 expenses | texas | $65,054.65 | $39,163.72 | $4,451.65 | $0.00 | $4,451.65 | $9,890.69 | $0.00 | $14,342.34 | 17.9% | 12% |
+
+Income tax excludes the employee's Social Security and Medicare (the paycheck calculator shows those); the self-employed row includes self-employment tax and the section 199A deduction. The engine's warnings and the state's notes must be shown with the result.
+
 ## Salary to hourly
 
 | Salary | Basis | Hourly |
 |---|---|---|
 | $95,000.00 | 40 h × 52 wk | $45.67 |
 | $95,000.00 | 3 weeks paid leave (effective) | $48.47 |
+| $52,000.00 | from $25.00 an hour, 40 h × 52 wk (reverse) | $25.00 |
 
 ## Sales tax (6.25% + 0.5% + 1% + 0.5% = 8.25%)
 

@@ -10,8 +10,8 @@
   "surtax": null,
   "localTaxNote": null,
   "notes": [
-    "The personal exemption is inflation-indexed and the latest published amount is the 2025 one; the 2026 amount differs by a small indexing step.",
-    "Latest change took effect 2017-07-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+    "The 2026 personal exemption is $2,925 ($5,850 on a joint return) and is not allowed above $250,000 of AGI ($500,000 joint) (Informational Bulletin FY 2026-15).",
+    "The 4.95% rate has applied since July 1, 2017."
   ],
   "provenance": {
     "extractedFrom": "policyengine-us",

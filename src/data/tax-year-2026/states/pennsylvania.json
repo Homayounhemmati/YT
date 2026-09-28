@@ -10,8 +10,7 @@
   "surtax": null,
   "localTaxNote": "Most Pennsylvania municipalities levy a local earned income tax. Philadelphia additionally imposes BIRT and the Net Profits Tax, which apply directly to freelancers. Not included here.",
   "notes": [
-    "Pennsylvania allows no personal exemption (72 P.S. 7303).",
-    "Latest change took effect 2021-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+    "Pennsylvania allows no standard deduction and no personal exemption (PA-40 instructions); the 3.07% rate applies to all taxable compensation."
   ],
   "provenance": {
     "extractedFrom": "policyengine-us",

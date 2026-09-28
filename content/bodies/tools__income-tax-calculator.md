@@ -37,6 +37,8 @@ you money is false for income tax, and it is false in every bracket.
   people this exceeds their income tax.
 - **State income tax**, which follows a different schedule in each of the 41 states
   that levy one, and none in the other nine.
+- **The Child Tax Credit** for each child under 17, including the part that is
+  refundable and its reduction at higher incomes.
 - **The QBI deduction** under section 199A, which can remove up to 20% of qualified
   business income from taxable income before the brackets apply.
 
@@ -44,9 +46,9 @@ you money is false for income tax, and it is false in every bracket.
 
 - Capital gains, taxed on their own schedule at their own rates.
 - Alternative Minimum Tax, which affects a small number of high earners.
-- Tax credits — the Child Tax Credit, the Earned Income Credit and others reduce
-  tax after it is calculated, and they can be worth more than a deduction of the
-  same size.
+- Tax credits other than the Child Tax Credit — the Earned Income Credit, education
+  credits and others reduce tax after it is calculated, and they can be worth more
+  than a deduction of the same size.
 - Local income tax, which nine states permit on top of the state rate.
 
 Each of those moves the answer, and a calculator that silently omits them while

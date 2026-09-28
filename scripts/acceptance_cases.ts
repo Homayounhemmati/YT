@@ -12,7 +12,8 @@ import { writeFileSync } from "node:fs";
 import { loadEstimated, loadFederal, loadState } from "../src/lib/tax/load.js";
 import { estimateWageTakeHome } from "../src/lib/tax/payroll.js";
 import { closingCosts, homeAffordability, housePayment } from "../src/lib/calc/housing.js";
-import { addSalesTax, annualGrossFromHourly, propertyTax, removeSalesTax, salaryToHourly } from "../src/lib/calc/everyday.js";
+import { addSalesTax, annualGrossFromHourly, hourlyToSalary, propertyTax, removeSalesTax, salaryToHourly } from "../src/lib/calc/everyday.js";
+import { estimateTax } from "../src/lib/tax/index.js";
 import { readFileSync } from "node:fs";
 import {
   computeCostOfLiving, referenceRentFromFmr, rentAffordability, resolvePlace,
@@ -89,10 +90,28 @@ section("Closing costs ($375,000, $300,000 loan at 6%, closing on the 15th of a 
   [[usd(cc.prepaidInterest), usd(cc.firstYearInsurance), usd(cc.escrowReserves), usd(cc.lenderFees),
     usd(cc.titleAndSettlement), usd(cc.total), cc.percentOfPrice.toFixed(2) + "%"]]);
 
+// Income tax (estimateTax): wages, a family with the child tax credit, and self-employment
+const it = (label: string, s: string, input: Record<string, unknown>) => {
+  const r = estimateTax({ taxYear: YEAR, businessIncome: 0, ...input } as Parameters<typeof estimateTax>[0], tax(s));
+  return [label, s, usd(r.adjustedGrossIncome), usd(r.taxableIncome), usd(r.federalTaxBeforeCredits),
+    usd(r.childTaxCredit.nonrefundable + r.childTaxCredit.refundable), usd(r.federalTax), usd(r.selfEmployment.total),
+    usd(r.state.amount), usd(r.totalTax), `${r.effectiveRate.toFixed(1)}%`, `${r.marginalRate}%`];
+};
+section("Income tax (estimateTax, 2026)",
+  ["Case", "State", "AGI", "Taxable", "Federal before credits", "Child tax credit", "Federal", "Self-employment tax", "State tax", "Total", "Effective", "Marginal"],
+  [it("single, $95,000 wages", "texas", { filingStatus: "single", w2Wages: 95000 }),
+   it("single, $95,000 wages", "new-york", { filingStatus: "single", w2Wages: 95000 }),
+   it("joint, $150,000 wages, 2 children", "illinois", { filingStatus: "marriedJointly", w2Wages: 150000, qualifyingChildren: 2 }),
+   it("single, $80,000 freelance revenue, $10,000 expenses", "texas", { filingStatus: "single", businessIncome: 80000, businessExpenses: 10000 })]);
+rows.push("", "Income tax excludes the employee's Social Security and Medicare (the paycheck calculator shows those); " +
+  "the self-employed row includes self-employment tax and the section 199A deduction. The engine's warnings and the " +
+  "state's notes must be shown with the result.");
+
 // Salary to hourly, sales tax, property tax, rent
 const h = salaryToHourly(95000), h2 = salaryToHourly(95000, { hoursPerWeek: 40, paidWeeks: 52, paidLeaveWeeks: 3 });
 section("Salary to hourly", ["Salary", "Basis", "Hourly"],
-  [[usd(95000), "40 h × 52 wk", usd(h.hourly)], [usd(95000), "3 weeks paid leave (effective)", usd(h2.effectiveHourly)]]);
+  [[usd(95000), "40 h × 52 wk", usd(h.hourly)], [usd(95000), "3 weeks paid leave (effective)", usd(h2.effectiveHourly)],
+   [usd(hourlyToSalary(25)), "from $25.00 an hour, 40 h × 52 wk (reverse)", usd(25)]]);
 const st = { statePercent: 6.25, countyPercent: 0.5, cityPercent: 1, specialPercent: 0.5 };
 const a = addSalesTax(100, st), b = removeSalesTax(108.25, st);
 section("Sales tax (6.25% + 0.5% + 1% + 0.5% = 8.25%)", ["Direction", "Input", "Pre-tax", "Tax", "Total"],
