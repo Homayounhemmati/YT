@@ -9,7 +9,10 @@
   "standardDeduction": {},
   "surtax": null,
   "localTaxNote": "Several Michigan cities, including Detroit, levy a local income tax. Not included in this calculation.",
-  "notes": [],
+  "notes": [
+    "The 2026 rate is 4.25% and the personal exemption is $5,900 for the filer, a spouse and each dependent (Michigan Treasury).",
+    "Michigan has no standard deduction for wage earners under the retirement-age rules."
+  ],
   "provenance": {
     "extractedFrom": "policyengine-us",
     "resolvedPaths": {
@@ -46,10 +49,92 @@
     ],
     "inflationIndexed": false
   },
-  "verification": "pending",
-  "personalExemption": null,
-  "modelCoverage": {
-    "personalExemption": "not-extracted"
+  "verification": "verified",
+  "personalExemption": {
+    "byStatus": {
+      "single": {
+        "amount": 5900
+      },
+      "marriedJointly": {
+        "amount": 11800
+      },
+      "marriedSeparately": {
+        "amount": 5900
+      },
+      "headOfHousehold": {
+        "amount": 5900
+      }
+    },
+    "staleComponent": false,
+    "effectiveFrom": "2026-01-01",
+    "priorYear": {
+      "year": 2025,
+      "amount": 5800
+    }
   },
-  "staleForTargetYear": false
+  "modelCoverage": {
+    "personalExemption": "modelled"
+  },
+  "staleForTargetYear": false,
+  "dependentAllowance": {
+    "byStatus": {
+      "single": {
+        "amount": 5900
+      },
+      "marriedJointly": {
+        "amount": 5900
+      },
+      "marriedSeparately": {
+        "amount": 5900
+      },
+      "headOfHousehold": {
+        "amount": 5900
+      }
+    },
+    "source": "Michigan Treasury: the $5,900 personal exemption is claimed for the filer, a spouse and each dependent"
+  },
+  "verified": {
+    "date": "2026-09-29",
+    "against": [
+      {
+        "title": "Michigan Department of Treasury, Withholding Tax Information by Calendar Year: 2026 rate 4.25%, personal exemption $5,900 (2025: 4.25%, $5,800)",
+        "url": "https://www.michigan.gov/taxes/business-taxes/withholding/calendar-year-tax-information",
+        "retrieved": "2026-09-29"
+      }
+    ],
+    "register": "data/tax-primary/2026.json",
+    "correction": "Adds the 2026 personal exemption ($5,900, two on a joint return) and $5,900 for each dependent; none were in the extracted record."
+  },
+  "rateHistory": [
+    {
+      "year": 2023,
+      "rate": 4.05
+    },
+    {
+      "year": 2024,
+      "rate": 4.25
+    },
+    {
+      "year": 2025,
+      "rate": 4.25
+    },
+    {
+      "year": 2026,
+      "rate": 4.25
+    }
+  ],
+  "personalExemptionHistory": [
+    {
+      "year": 2024,
+      "amount": 5600
+    },
+    {
+      "year": 2025,
+      "amount": 5800
+    },
+    {
+      "year": 2026,
+      "amount": 5900
+    }
+  ]
 }

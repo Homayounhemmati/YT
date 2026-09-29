@@ -79,12 +79,18 @@
     ]
   },
   "flatRate": null,
-  "standardDeduction": {},
+  "standardDeduction": {
+    "single": 8750,
+    "marriedJointly": 17500,
+    "marriedSeparately": 8750,
+    "headOfHousehold": 8750
+  },
   "surtax": null,
   "localTaxNote": null,
   "notes": [
-    "This state applies one bracket table to every filing status.",
-    "Latest change took effect 2021-01-01 and the figures are not inflation-indexed, so they carry forward to 2026 unchanged."
+    "Virginia has no head-of-household status; a head of household files as single and takes the $8,750 standard deduction.",
+    "The standard deduction is $8,750 ($17,500 married) for 2025 and 2026 and rises to $9,200 ($18,400) in 2027 (Code of Virginia section 58.1-322.03).",
+    "The four brackets have been unchanged since 1990."
   ],
   "provenance": {
     "extractedFrom": "policyengine-us",
@@ -125,10 +131,79 @@
     ],
     "inflationIndexed": false
   },
-  "verification": "pending",
-  "personalExemption": null,
-  "modelCoverage": {
-    "personalExemption": "not-extracted"
+  "verification": "verified",
+  "personalExemption": {
+    "byStatus": {
+      "single": {
+        "amount": 930
+      },
+      "marriedJointly": {
+        "amount": 1860
+      },
+      "marriedSeparately": {
+        "amount": 930
+      },
+      "headOfHousehold": {
+        "amount": 930
+      }
+    },
+    "staleComponent": false,
+    "effectiveFrom": "1990-01-01"
   },
-  "staleForTargetYear": false
+  "modelCoverage": {
+    "personalExemption": "modelled"
+  },
+  "staleForTargetYear": false,
+  "dependentAllowance": {
+    "byStatus": {
+      "single": {
+        "amount": 930
+      },
+      "marriedJointly": {
+        "amount": 930
+      },
+      "marriedSeparately": {
+        "amount": 930
+      },
+      "headOfHousehold": {
+        "amount": 930
+      }
+    },
+    "source": "Code of Virginia section 58.1-322.03(2)(a): $930 for each personal exemption allowable for federal purposes, dependents included"
+  },
+  "verified": {
+    "date": "2026-09-29",
+    "against": [
+      {
+        "title": "Code of Virginia section 58.1-320: 2% to $3,000, 3% to $5,000, 5% to $17,000, 5.75% above, for taxable years beginning on and after January 1, 1990",
+        "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-320/",
+        "retrieved": "2026-09-29"
+      },
+      {
+        "title": "Code of Virginia section 58.1-322.03: standard deduction $8,750 single and $17,500 married (half each on separate returns) for taxable years 2025 and 2026; $930 for each personal exemption allowable for federal purposes",
+        "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/",
+        "retrieved": "2026-09-29"
+      },
+      {
+        "title": "Virginia Tax, Deductions: Single $8,750; Married filing jointly $17,500; Married filing separately $8,750",
+        "url": "https://www.tax.virginia.gov/deductions",
+        "retrieved": "2026-09-29"
+      },
+      {
+        "title": "Virginia Tax, Exemptions: $930 for yourself, your spouse and each dependent",
+        "url": "https://www.tax.virginia.gov/exemptions",
+        "retrieved": "2026-09-29"
+      }
+    ],
+    "register": "data/tax-primary/2026.json",
+    "correction": "Adds the standard deduction ($8,750 / $17,500), the $930 personal exemption (two on a joint return) and $930 for each dependent; none were in the extracted record."
+  },
+  "scheduledStandardDeduction": {
+    "year": 2027,
+    "single": 9200,
+    "marriedJointly": 18400,
+    "source": "Code of Virginia section 58.1-322.03(1)(b)(vi)"
+  },
+  "bracketsSince": 1990,
+  "currentStandardDeductionFrom": 2025
 }

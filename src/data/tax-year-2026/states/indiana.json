@@ -9,7 +9,10 @@
   "standardDeduction": {},
   "surtax": null,
   "localTaxNote": "Indiana counties levy their own income tax on top of the state rate. The county rate depends on the county of residence and is not included in this calculation.",
-  "notes": [],
+  "notes": [
+    "The 2026 state rate is 2.95% (Departmental Notice #1).",
+    "Every Indiana county adds its own income tax on top of the state rate; it depends on the county you live in on January 1."
+  ],
   "provenance": {
     "extractedFrom": "policyengine-us",
     "resolvedPaths": {
@@ -34,10 +37,93 @@
     ],
     "inflationIndexed": false
   },
-  "verification": "pending",
-  "personalExemption": null,
-  "modelCoverage": {
-    "personalExemption": "not-extracted"
+  "verification": "verified",
+  "personalExemption": {
+    "byStatus": {
+      "single": {
+        "amount": 1000
+      },
+      "marriedJointly": {
+        "amount": 2000
+      },
+      "marriedSeparately": {
+        "amount": 1000
+      },
+      "headOfHousehold": {
+        "amount": 1000
+      }
+    },
+    "staleComponent": false,
+    "effectiveFrom": "2026-01-01"
   },
-  "staleForTargetYear": false
+  "modelCoverage": {
+    "personalExemption": "modelled"
+  },
+  "staleForTargetYear": false,
+  "dependentAllowance": {
+    "extraPerChild": 1500,
+    "byStatus": {
+      "single": {
+        "amount": 1000
+      },
+      "marriedJointly": {
+        "amount": 1000
+      },
+      "marriedSeparately": {
+        "amount": 1000
+      },
+      "headOfHousehold": {
+        "amount": 1000
+      }
+    },
+    "source": "Departmental Notice #1: $1,000 per exemption, dependents included, and a further $1,500 for each qualifying dependent child"
+  },
+  "verified": {
+    "date": "2026-09-29",
+    "against": [
+      {
+        "title": "Indiana Department of Revenue, Departmental Notice #1 (effective October 1, 2026): \"For 2026, the state adjusted gross income tax rate for individuals is 2.95%\"; $1,000 per personal exemption; $1,500 per additional dependent exemption",
+        "url": "https://www.in.gov/dor/files/dn01.pdf",
+        "retrieved": "2026-09-29"
+      }
+    ],
+    "register": "data/tax-primary/2026.json",
+    "correction": "Adds the $1,000 personal exemption (two on a joint return), $1,000 for each dependent and the further $1,500 for each dependent child; none were in the extracted record."
+  },
+  "countyIncomeTax": {
+    "counties": 92,
+    "lowest": {
+      "county": "Porter",
+      "rate": 0.5
+    },
+    "highest": {
+      "county": "Randolph",
+      "rate": 3.0
+    },
+    "examples": [
+      {
+        "county": "Marion",
+        "city": "Indianapolis",
+        "rate": 2.02
+      },
+      {
+        "county": "Allen",
+        "city": "Fort Wayne",
+        "rate": 1.59
+      },
+      {
+        "county": "Hamilton",
+        "city": "Carmel and Fishers",
+        "rate": 1.1
+      },
+      {
+        "county": "Lake",
+        "city": "Gary and Hammond",
+        "rate": 1.5
+      }
+    ],
+    "marionOn95k": 1898.8,
+    "basis": "The county rate applies to the same base as the state tax: wages less the exemptions. Marion County on a $95,000 salary, single: (95,000 - 1,000) x 2.02% = 1,898.80.",
+    "source": "Indiana Department of Revenue, Departmental Notice #1, county tax rates effective October 1, 2026; a resident pays the rate of the county they live in on January 1"
+  }
 }

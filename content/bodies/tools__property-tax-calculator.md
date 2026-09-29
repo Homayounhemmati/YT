@@ -39,8 +39,8 @@ effective rate = annual tax ÷ market value
 
 Across the United States this runs from roughly 0.3% to about 2%. On a $400,000
 home that is the difference between $1,200 and $8,000 a year — recurring, rising
-with assessments, and more than New York's state income tax on a $95,000 salary
-($4,565), the highest of the states whose figures are checked here.
+with assessments, and more than Virginia's state income tax on a $95,000 salary
+($4,648), the highest of the states whose figures are checked here.
 
 **This is the trade behind "no income tax" states.** Several fund themselves
 primarily through property tax, and a homeowner there can return much of the

@@ -34,7 +34,7 @@
     "key": "city:Miami, FL",
     "label": "Miami, FL"
    },
-   "page": null,
+   "page": "/cost-of-living/miami-fl",
    "rank": 2
   },
   {
@@ -68,7 +68,7 @@
     "key": "city:New York, NY",
     "label": "New York, NY"
    },
-   "page": null,
+   "page": "/cost-of-living/new-york-ny",
    "rank": 4
   },
   {
@@ -714,7 +714,7 @@
     "key": "city:Chicago, IL",
     "label": "Chicago, IL"
    },
-   "page": null,
+   "page": "/cost-of-living/chicago-il",
    "rank": 42
   },
   {
@@ -867,7 +867,7 @@
     "key": "city:Philadelphia, PA",
     "label": "Philadelphia, PA"
    },
-   "page": null,
+   "page": "/cost-of-living/philadelphia-pa",
    "rank": 51
   },
   {
@@ -1207,7 +1207,7 @@
     "key": "city:Tampa, FL",
     "label": "Tampa, FL"
    },
-   "page": null,
+   "page": "/cost-of-living/tampa-fl",
    "rank": 71
   },
   {
@@ -1445,7 +1445,7 @@
     "key": "city:Detroit, MI",
     "label": "Detroit, MI"
    },
-   "page": null,
+   "page": "/cost-of-living/detroit-mi",
    "rank": 85
   },
   {
@@ -1547,7 +1547,7 @@
     "key": "city:Atlanta, GA",
     "label": "Atlanta, GA"
    },
-   "page": null,
+   "page": "/cost-of-living/atlanta-ga",
    "rank": 91
   },
   {
@@ -1785,7 +1785,7 @@
     "key": "city:Houston, TX",
     "label": "Houston, TX"
    },
-   "page": null,
+   "page": "/cost-of-living/houston-tx",
    "rank": 105
   },
   {
@@ -1989,7 +1989,7 @@
     "key": "city:Austin, TX",
     "label": "Austin, TX"
    },
-   "page": null,
+   "page": "/cost-of-living/austin-tx",
    "rank": 117
   },
   {
@@ -3128,7 +3128,7 @@
     "key": "city:San Antonio, TX",
     "label": "San Antonio, TX"
    },
-   "page": null,
+   "page": "/cost-of-living/san-antonio-tx",
    "rank": 184
   },
   {

@@ -4,36 +4,13 @@ the same basket of goods and services that costs about the same in Austin, add
 rent about a quarter lower at HUD's benchmark, and you have the **cost of living in San
 Antonio** — lower than Austin's and Houston's on the line that matters most.
 
-## What it costs to live in San Antonio
+## A Bexar County month
 
-One person in a one-bedroom apartment, spending what the average one-person US
-household spends, priced at San Antonio's own price level:
+Bexar County's one-bedroom benchmark of $1,177 puts a single renter's month at about
+$3,293, barely more than a third of it rent. A family of four needs about $6,574, and
+its $1,426 two-bedroom takes 22%.
 
-| Monthly cost, one person | San Antonio |
-|---|---|
-| Rent and utilities (HUD Fair Market Rent, one bedroom) | $1,177 |
-| Groceries | $278 |
-| Eating out | $195 |
-| Car purchase and fuel | $321 |
-| Car insurance, repairs and fees | $205 |
-| Public transport and fares | $66 |
-| Health care and insurance | $340 |
-| Clothing | $90 |
-| Phone service | $69 |
-| Household services | $86 |
-| Household supplies | $41 |
-| Furniture and household items | $122 |
-| Entertainment | $181 |
-| Personal care | $53 |
-| Education | $71 |
-| **Total** | **$3,293** |
-
-Rent is 36% of that month; for a family of four in a two-bedroom, whose total comes to
-about $6,574, it is 22%. The two-bedroom Fair Market Rent is $1,426. Those San Antonio
-living expenses are an average household's — put in your own figures in the cost of
-living calculator and the total follows.
-
-## What the indices mean
+## Below average on every component
 
 The Bureau of Economic Analysis puts the San Antonio metro area at 94.7 for 2024 on a
 scale where the US average is 100 — 5.3 points below average, the lowest of the Texas
@@ -57,7 +34,12 @@ measures. The average rent in San Antonio at HUD's 40th-percentile benchmark, fo
 Bexar County and including tenant-paid utilities, runs from $1,077 for a studio to
 $2,132 for four bedrooms.
 
-## Texas income tax on your salary
+The city's economy helps explain why. Its largest employers — Joint Base San Antonio,
+the South Texas Medical Center, city government and the tourism trade built around the
+River Walk and the missions — have grown steadily rather than explosively, and housing
+construction on the flat land of the outer loops has kept pace with them.
+
+## Same Texas paycheck, cheaper rent
 
 None: Texas has no personal income tax. A single San Antonio resident on $95,000 keeps
 about $75,663 after federal tax, Social Security and Medicare, an effective 20.4% —
@@ -65,12 +47,7 @@ the same as in Austin or Houston. Because the paycheck is identical across Texas
 comparison between Texas cities is purely a comparison of costs, and on costs San
 Antonio comes out ahead.
 
-Covering the one-person month above takes a gross salary of about $46,471. A family
-of four — two adults, two children — needs about $87,272 on one income filing jointly,
-after the child tax credit. Both are break-even — no savings, no debt
-payments — so they mark the floor for a household like the average one.
-
-## Who San Antonio suits
+## Who San Antonio rewards
 
 - **Anyone weighing it against Austin on the same salary.** With identical tax and
   identical prices for goods and services, the whole difference is rent: $1,177
@@ -83,14 +60,3 @@ payments — so they mark the floor for a household like the average one.
 It suits less someone whose job market is concentrated in Austin: the cheaper rent
 is real, but a daily commute between the two cities would add the car lines back,
 and then some.
-
-## How we calculate this
-
-Rent is HUD's Fair Market Rent for fiscal 2026 for Bexar County, matched to HUD's own
-county file. Every other line is the Bureau of Labor Statistics' 2024 average for a
-household of that size, carried to
-current prices with each category's own Consumer Price Index, and priced with San Antonio's 2024 BEA price levels: goods for
-groceries, clothing and cars; other services for eating out, health care, phone and
-insurance. HUD's rent includes the utilities a tenant pays, so they are not counted
-twice. The salary figures come from the same engine as the Texas paycheck
-calculator.

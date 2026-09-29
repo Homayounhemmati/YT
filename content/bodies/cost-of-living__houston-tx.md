@@ -4,39 +4,15 @@ at it, and its services come in a little under. The **cost of living in Houston*
 close to the US norm on every line, and what makes the city cheap for a salaried
 household is less the prices than what Texas leaves in the paycheck.
 
-## What it costs to live in Houston
+## A Harris County budget
 
-One person in a one-bedroom apartment, spending what the average one-person US
-household spends, priced at Houston's own price level:
+Harris County's one-bedroom benchmark is $1,323; with ordinary spending at Houston
+prices, a single renter's month is about $3,505 and rent takes 38% of it. A family of
+four in a $1,573 two-bedroom spends about $6,892, rent 23% of it — and in a car-first
+metro the family's car purchase and fuel line alone is $1,063 a month, about
+two-thirds of what it pays the landlord.
 
-| Monthly cost, one person | Houston |
-|---|---|
-| Rent and utilities (HUD Fair Market Rent, one bedroom) | $1,323 |
-| Groceries | $299 |
-| Eating out | $193 |
-| Car purchase and fuel | $344 |
-| Car insurance, repairs and fees | $203 |
-| Public transport and fares | $65 |
-| Health care and insurance | $337 |
-| Clothing | $97 |
-| Phone service | $69 |
-| Household services | $86 |
-| Household supplies | $44 |
-| Furniture and household items | $131 |
-| Entertainment | $189 |
-| Personal care | $55 |
-| Education | $70 |
-| **Total** | **$3,505** |
-
-Rent takes 38% of that month. A family of four in a two-bedroom spends about $6,892,
-with rent at 23% of it: the two-bedroom Fair Market Rent is $1,573. In a car-first
-metro the transport lines matter more than they look — the family's car purchase and
-fuel line alone is $1,063 a month, about two-thirds of what it pays in rent.
-
-These Houston living expenses describe an average household, not yours. The cost of
-living calculator lets you replace any line with your own number.
-
-## What the indices mean
+## Four indices within five points of the norm
 
 On the Bureau of Economic Analysis's regional price parities, where the US average
 is 100, the Houston metro area stood at 98.6 in 2024. Unlike Austin's, its
@@ -55,11 +31,22 @@ rents are far below Austin's 120.4, so the overall level ends up almost level wi
 Austin's 98.1. The difference is where the money goes: in Houston a larger share of
 the budget is spent on things rather than on housing.
 
-The average rent in Houston at HUD's benchmark, for Harris County and including the
-utilities a tenant pays, runs from $1,280 for a studio to $2,639 for four bedrooms.
-Between one bedroom and two, the step is $1,323 to $1,573.
+The average rent in Houston at HUD's benchmark starts at $1,280 for a studio — less than
+a one-bedroom costs in Austin, Atlanta or Chicago — and tops out at $2,639 for four
+bedrooms.
 
-## Texas income tax on your salary
+Part of the reason is supply. Houston is the largest American city without a
+conventional zoning code, and developers have been able to build apartments and houses
+on land that other metros reserve for single uses. Economists often credit that for
+keeping rents close to the national level while the region kept adding people.
+
+The cost the budget cannot show is water. Hurricane Harvey's flooding reached far
+beyond Houston's mapped flood zones, and standard homeowners' and renters' policies do
+not cover flood damage; a separate flood policy does, priced by address. For a buyer,
+that premium — and the question of whether a street has flooded before — belongs in
+any comparison with a drier city.
+
+## The paycheck does the work
 
 Texas has no personal income tax. On a $95,000 salary a single Houston resident keeps
 about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%,
@@ -67,12 +54,7 @@ identical anywhere in Texas. Against a city with similar prices in a taxed state
 that paycheck is the whole difference: the tax line does the work the price line
 does not.
 
-Covering the one-person month above takes a gross salary of about $49,626, and the
-family of four — two adults, two children — needs about $92,026 on one income filing
-jointly, after the child tax credit. Both are break-even figures with
-nothing set aside, so treat them as the floor, not the target.
-
-## Who Houston suits
+## Who gains most from Houston
 
 - **Households that spend more on goods than on space.** With goods at the national
   price and housing only slightly above it, a family that fills a car and a
@@ -87,14 +69,3 @@ It suits less the household that wants to live without a car. The budget above
 assumes the national average mix of driving and transit; a metro built around the
 car can make that mix hard to change, and the car lines are the second-largest part
 of the month after rent.
-
-## How we calculate this
-
-Rent is HUD's Fair Market Rent for fiscal 2026 for Harris County, matched to HUD's own
-county file. Every other line is the Bureau of Labor Statistics' 2024 average for a
-household of that size, carried to
-current prices with each category's own Consumer Price Index, and priced with the Houston metro area's 2024 BEA price levels —
-goods for groceries, clothing and cars, other services for eating out, health care,
-phone and insurance. HUD's rent already includes tenant-paid utilities, so they are
-not added again. The salary figures run through the same engine as the Texas
-paycheck calculator.

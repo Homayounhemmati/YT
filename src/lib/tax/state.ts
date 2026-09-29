@@ -110,7 +110,8 @@ export function dependentAllowance(
   for (const step of byStatus.agiSchedule ?? []) {
     if (federalAgi > toCents(step.overAgi)) amount = step.amount;
   }
-  return toCents(amount) * count;
+  const extra = rule.extraPerChild ? toCents(rule.extraPerChild) * dependents.children : 0;
+  return toCents(amount) * count + extra;
 }
 
 export function computeStateTax({

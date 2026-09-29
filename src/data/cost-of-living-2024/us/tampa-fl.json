@@ -1,0 +1,41 @@
+{
+  "slug": "tampa-fl",
+  "name": "Tampa-St. Petersburg-Clearwater, FL (Metropolitan Statistical Area)",
+  "displayName": "Tampa",
+  "type": "metro",
+  "region": "us",
+  "msaCode": "45300",
+  "dataYear": 2024,
+  "fmrYear": 2026,
+  "indices": {
+    "allItems": 100.89,
+    "goods": 95.47,
+    "rent": 125.839,
+    "utilities": 88.525,
+    "otherServices": 97.565
+  },
+  "referenceRent": {
+    "bedrooms0": 1593.0,
+    "bedrooms1": 1696.0,
+    "bedrooms2": 1977.0,
+    "bedrooms3": 2527.0,
+    "bedrooms4": 3077.0
+  },
+  "rentCounty": "Hillsborough County, FL",
+  "stateSlug": "florida",
+  "sources": [
+    {
+      "label": "BEA Regional Price Parities 2024 (MARPP metro areas, PARPP state metropolitan and nonmetropolitan portions)",
+      "url": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+      "retrieved": "2026-09-27"
+    },
+    {
+      "label": "HUD Fair Market Rents FY2026 (revised file)",
+      "url": "https://www.huduser.gov/portal/datasets/fmr/fmr2026/FY26_FMRs_revised.xlsx",
+      "retrieved": "2026-09-27"
+    }
+  ],
+  "lastVerified": "2026-09-27",
+  "verification": "verified",
+  "verifiedBy": "price parities and rents taken from src/data/col/price-areas.json and src/data/rent-fy2026/fmr-counties.json, which scripts/build_col_places.py read from BEA's MARPP file and HUD's FY2026 county file themselves"
+}

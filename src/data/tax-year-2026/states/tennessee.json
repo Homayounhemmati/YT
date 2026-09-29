@@ -17,10 +17,29 @@
     "resolvedPaths": {},
     "sources": []
   },
-  "verification": "pending",
+  "verification": "verified",
   "staleForTargetYear": false,
   "personalExemption": null,
   "modelCoverage": {
     "personalExemption": "none"
-  }
+  },
+  "dependentAllowance": null,
+  "verified": {
+    "date": "2026-09-29",
+    "against": [
+      {
+        "title": "Tennessee Department of Revenue, Hall Income Tax: the tax on interest and dividends was phased out and is fully repealed for tax years beginning January 1, 2021; it never applied to salaries or wages",
+        "url": "https://www.tn.gov/revenue/taxes/hall-income-tax.html",
+        "retrieved": "2026-09-29"
+      },
+      {
+        "title": "Tenn. Const. art. II, sec. 28 (amended November 4, 2014): the legislature shall not levy, authorize or otherwise permit any state or local tax upon payroll or earned personal income",
+        "url": "https://sos.tn.gov/products/tennessee-constitution",
+        "retrieved": "2026-09-29"
+      }
+    ],
+    "register": "data/tax-primary/2026.json"
+  },
+  "constitutionalAmendmentYear": 2014,
+  "hallTaxRepealedForYearsFrom": 2021
 }

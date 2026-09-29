@@ -74,7 +74,8 @@ describe("corrections from the primary-source register", () => {
   });
   it("every launch state is marked verified", () => {
     for (const slug of ["texas", "florida", "pennsylvania", "north-carolina", "georgia",
-                        "illinois", "maryland", "new-york"]) {
+                        "illinois", "maryland", "new-york", "tennessee", "virginia",
+                        "michigan", "indiana"]) {
       expect(loadState(YEAR, slug)!.verification, slug).toBe("verified");
     }
   });
@@ -162,6 +163,27 @@ describe("children: the federal child tax credit and state allowances, 2026", ()
   it("Maryland: two personal exemptions on a joint return, plus $3,200 a dependent", () => {
     // 95,000 - 6,850 - 6,400 - 6,400 = 75,350; 20 + 30 + 40 + 4.75% x 72,350 = 3,526.63
     expect(pay("maryland", 95_000, "marriedJointly", 2).stateTax).toBe(3_526.63);
+  });
+  it("Virginia: $8,750 / $17,500 standard deduction and $930 a person, dependents included", () => {
+    // single: 95,000 - 8,750 - 930 = 85,320; 60 + 60 + 600 + 5.75% x 68,320 (3,928.40) = 4,648.40
+    expect(pay("virginia", 95_000, "single", 0).stateTax).toBe(4_648.4);
+    // joint, two children: 95,000 - 17,500 - 4 x 930 = 73,780; 720 + 5.75% x 56,780 = 3,984.85
+    expect(pay("virginia", 95_000, "marriedJointly", 2).stateTax).toBe(3_984.85);
+  });
+  it("Michigan: 4.25% after $5,900 for each person", () => {
+    // (95,000 - 5,900) x 4.25% = 3,786.75
+    expect(pay("michigan", 95_000, "single", 0).stateTax).toBe(3_786.75);
+    // (95,000 - 4 x 5,900) x 4.25% = 3,034.50
+    expect(pay("michigan", 95_000, "marriedJointly", 2).stateTax).toBe(3_034.5);
+  });
+  it("Indiana: 2.95% after $1,000 a person and a further $1,500 a child", () => {
+    // (95,000 - 1,000) x 2.95% = 2,773.00
+    expect(pay("indiana", 95_000, "single", 0).stateTax).toBe(2_773);
+    // (95,000 - 2,000 - 2 x 1,000 - 2 x 1,500) x 2.95% = 2,596.00
+    expect(pay("indiana", 95_000, "marriedJointly", 2).stateTax).toBe(2_596);
+  });
+  it("Tennessee takes nothing from wages", () => {
+    expect(pay("tennessee", 95_000, "marriedJointly", 2).stateTax).toBe(0);
   });
   it("Pennsylvania allows nothing for dependents", () => {
     expect(pay("pennsylvania", 95_000, "marriedJointly", 2).stateTax).toBe(2_916.5);

@@ -3,6 +3,188 @@
   "taxYear": 2026,
   "baselineYear": 2024,
   "metros": {
+    "atlanta-ga": {
+      "indices": {
+        "allItems": 100.058,
+        "goods": 100.416,
+        "rent": 111.022,
+        "utilities": 96.239,
+        "otherServices": 96.701
+      },
+      "dataYear": 2024,
+      "single": {
+        "people": 1,
+        "bedrooms": 1,
+        "filingStatus": "single",
+        "monthlyTotal": 3854.9,
+        "monthlyRent": 1660,
+        "annualAfterTax": 46258.8,
+        "grossSalary": 57497.75,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 1660
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 297.96
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 195.55
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 343.49
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 205.49
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 66.2
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 341.21
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 96.87
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 69.59
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 86.49
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 43.8
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 130.25
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 191.63
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 55.51
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 70.86
+          }
+        ]
+      },
+      "family": {
+        "people": 4,
+        "bedrooms": 2,
+        "filingStatus": "marriedJointly",
+        "monthlyTotal": 7168.74,
+        "monthlyRent": 1820,
+        "annualAfterTax": 86024.88,
+        "grossSalary": 99879.09,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 1820
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 763.29
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 508.39
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 1060.28
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 529.11
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 139.8
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 646.57
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 230.9
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 166.48
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 155.68
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 95.74
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 262.89
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 437.68
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 120.8
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 231.13
+          }
+        ]
+      }
+    },
     "austin-tx": {
       "indices": {
         "allItems": 98.066,
@@ -185,6 +367,370 @@
         ]
       }
     },
+    "chicago-il": {
+      "indices": {
+        "allItems": 103.595,
+        "goods": 107.258,
+        "rent": 112.01,
+        "utilities": 83.581,
+        "otherServices": 100.492
+      },
+      "dataYear": 2024,
+      "single": {
+        "people": 1,
+        "bedrooms": 1,
+        "filingStatus": "single",
+        "monthlyTotal": 3887.39,
+        "monthlyRent": 1581,
+        "annualAfterTax": 46648.68,
+        "grossSalary": 58785,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 1581
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 318.26
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 203.21
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 366.89
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 213.54
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 68.8
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 354.59
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 103.47
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 72.32
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 89.88
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 46.78
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 139.12
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 198.41
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 57.48
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 73.64
+          }
+        ]
+      },
+      "family": {
+        "people": 4,
+        "bedrooms": 2,
+        "filingStatus": "marriedJointly",
+        "monthlyTotal": 7407.07,
+        "monthlyRent": 1781,
+        "annualAfterTax": 88884.84,
+        "grossSalary": 105498.25,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 1781
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 815.3
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 528.32
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 1132.52
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 549.85
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 145.28
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 671.92
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 246.63
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 173
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 161.78
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 102.26
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 280.8
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 453.15
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 125.07
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 240.19
+          }
+        ]
+      }
+    },
+    "detroit-mi": {
+      "indices": {
+        "allItems": 100.298,
+        "goods": 98.817,
+        "rent": 94.69,
+        "utilities": 106.988,
+        "otherServices": 102.591
+      },
+      "dataYear": 2024,
+      "single": {
+        "people": 1,
+        "bedrooms": 1,
+        "filingStatus": "single",
+        "monthlyTotal": 3366.04,
+        "monthlyRent": 1122,
+        "annualAfterTax": 40392.48,
+        "grossSalary": 49884.01,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 1122
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 293.22
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 207.46
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 338.02
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 218
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 70.23
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 361.99
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 95.33
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 73.83
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 91.76
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 43.1
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 128.18
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 192.09
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 55.65
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 75.18
+          }
+        ]
+      },
+      "family": {
+        "people": 4,
+        "bedrooms": 2,
+        "filingStatus": "marriedJointly",
+        "monthlyTotal": 6867.45,
+        "monthlyRent": 1411,
+        "annualAfterTax": 82409.4,
+        "grossSalary": 95461.76,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 1411
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 751.14
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 539.36
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 1043.39
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 561.34
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 148.31
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 685.96
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 227.22
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 176.62
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 165.16
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 94.22
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 258.7
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 438.73
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 121.09
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 245.21
+          }
+        ]
+      }
+    },
     "houston-tx": {
       "indices": {
         "allItems": 98.629,
@@ -363,6 +909,552 @@
             "key": "education",
             "label": "Education",
             "monthly": 228.49
+          }
+        ]
+      }
+    },
+    "miami-fl": {
+      "indices": {
+        "allItems": 114.155,
+        "goods": 103.556,
+        "rent": 155.551,
+        "utilities": 97.235,
+        "otherServices": 109.113
+      },
+      "dataYear": 2024,
+      "single": {
+        "people": 1,
+        "bedrooms": 1,
+        "filingStatus": "single",
+        "monthlyTotal": 4386.16,
+        "monthlyRent": 1995,
+        "annualAfterTax": 52633.92,
+        "grossSalary": 62792.68,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 1995
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 307.28
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 220.65
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 354.23
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 231.86
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 74.7
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 385.01
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 99.9
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 78.52
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 97.59
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 45.17
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 134.32
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 218.63
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 63.34
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 79.96
+          }
+        ]
+      },
+      "family": {
+        "people": 4,
+        "bedrooms": 2,
+        "filingStatus": "marriedJointly",
+        "monthlyTotal": 8243.97,
+        "monthlyRent": 2436,
+        "annualAfterTax": 98927.64,
+        "grossSalary": 112218.59,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 2436
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 787.16
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 573.65
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 1093.43
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 597.02
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 157.74
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 729.56
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 238.12
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 187.84
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 175.66
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 98.73
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 271.11
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 499.34
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 137.82
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 260.79
+          }
+        ]
+      }
+    },
+    "new-york-ny": {
+      "indices": {
+        "allItems": 112.563,
+        "goods": 110.261,
+        "rent": 148.616,
+        "utilities": 127.018,
+        "otherServices": 105.836
+      },
+      "dataYear": 2024,
+      "single": {
+        "people": 1,
+        "bedrooms": 1,
+        "filingStatus": "single",
+        "monthlyTotal": 5068.03,
+        "monthlyRent": 2655,
+        "annualAfterTax": 60816.36,
+        "grossSalary": 79699.55,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 2655
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 327.17
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 214.02
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 377.16
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 224.9
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 72.45
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 373.44
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 106.37
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 76.16
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 94.66
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 48.09
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 143.02
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 215.58
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 62.45
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 77.56
+          }
+        ]
+      },
+      "family": {
+        "people": 4,
+        "bedrooms": 2,
+        "filingStatus": "marriedJointly",
+        "monthlyTotal": 8789.68,
+        "monthlyRent": 2910,
+        "annualAfterTax": 105476.16,
+        "grossSalary": 128069.47,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 2910
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 838.13
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 556.42
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 1164.23
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 579.09
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 153
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 707.65
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 253.54
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 182.2
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 170.39
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 105.13
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 288.66
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 492.38
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 135.9
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 252.96
+          }
+        ]
+      }
+    },
+    "philadelphia-pa": {
+      "indices": {
+        "allItems": 102.554,
+        "goods": 96.833,
+        "rent": 113.141,
+        "utilities": 114.389,
+        "otherServices": 103.052
+      },
+      "dataYear": 2024,
+      "single": {
+        "people": 1,
+        "bedrooms": 1,
+        "filingStatus": "single",
+        "monthlyTotal": 3756.51,
+        "monthlyRent": 1520,
+        "annualAfterTax": 45078.12,
+        "grossSalary": 55560.31,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 1520
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 287.33
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 208.39
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 331.23
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 218.98
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 70.55
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 363.62
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 93.41
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 74.16
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 92.17
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 42.24
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 125.6
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 196.41
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 56.9
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 75.52
+          }
+        ]
+      },
+      "family": {
+        "people": 4,
+        "bedrooms": 2,
+        "filingStatus": "marriedJointly",
+        "monthlyTotal": 7242.7,
+        "monthlyRent": 1810,
+        "annualAfterTax": 86912.4,
+        "grossSalary": 101220.56,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 1810
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 736.06
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 541.78
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 1022.44
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 563.86
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 148.98
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 689.04
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 222.66
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 177.41
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 165.91
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 92.32
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 253.51
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 448.6
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 123.82
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 246.31
           }
         ]
       }
@@ -727,6 +1819,188 @@
             "key": "education",
             "label": "Education",
             "monthly": 253.85
+          }
+        ]
+      }
+    },
+    "tampa-fl": {
+      "indices": {
+        "allItems": 100.89,
+        "goods": 95.47,
+        "rent": 125.839,
+        "utilities": 88.525,
+        "otherServices": 97.565
+      },
+      "dataYear": 2024,
+      "single": {
+        "people": 1,
+        "bedrooms": 1,
+        "filingStatus": "single",
+        "monthlyTotal": 3857.28,
+        "monthlyRent": 1696,
+        "annualAfterTax": 46287.36,
+        "grossSalary": 54894.03,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 1696
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 283.29
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 197.3
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 326.57
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 207.32
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 66.79
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 344.26
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 92.1
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 70.21
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 87.26
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 41.64
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 123.83
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 193.23
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 55.98
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 71.5
+          }
+        ]
+      },
+      "family": {
+        "people": 4,
+        "bedrooms": 2,
+        "filingStatus": "marriedJointly",
+        "monthlyTotal": 7232.76,
+        "monthlyRent": 1977,
+        "annualAfterTax": 86793.12,
+        "grossSalary": 97116.51,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 1977
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 725.7
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 512.93
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 1008.05
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 533.84
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 141.05
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 652.35
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 219.53
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 167.96
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 157.07
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 91.02
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 249.94
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 441.32
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 121.81
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 233.19
           }
         ]
       }

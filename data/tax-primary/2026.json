@@ -1351,6 +1351,408 @@
           "headOfHousehold": 11200
         }
       }
+    },
+    "tennessee": {
+      "sources": [
+        {
+          "title": "Tennessee Department of Revenue, Hall Income Tax: the tax on interest and dividends was phased out and is fully repealed for tax years beginning January 1, 2021; it never applied to salaries or wages",
+          "url": "https://www.tn.gov/revenue/taxes/hall-income-tax.html",
+          "retrieved": "2026-09-29"
+        },
+        {
+          "title": "Tenn. Const. art. II, sec. 28 (amended November 4, 2014): the legislature shall not levy, authorize or otherwise permit any state or local tax upon payroll or earned personal income",
+          "url": "https://sos.tn.gov/products/tennessee-constitution",
+          "retrieved": "2026-09-29"
+        }
+      ],
+      "expect": {
+        "structure": "none",
+        "dependentAllowance": null
+      },
+      "set": {
+        "dependentAllowance": null,
+        "constitutionalAmendmentYear": 2014,
+        "hallTaxRepealedForYearsFrom": 2021
+      },
+      "annotationOnly": true
+    },
+    "virginia": {
+      "sources": [
+        {
+          "title": "Code of Virginia section 58.1-320: 2% to $3,000, 3% to $5,000, 5% to $17,000, 5.75% above, for taxable years beginning on and after January 1, 1990",
+          "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-320/",
+          "retrieved": "2026-09-29"
+        },
+        {
+          "title": "Code of Virginia section 58.1-322.03: standard deduction $8,750 single and $17,500 married (half each on separate returns) for taxable years 2025 and 2026; $930 for each personal exemption allowable for federal purposes",
+          "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-322.03/",
+          "retrieved": "2026-09-29"
+        },
+        {
+          "title": "Virginia Tax, Deductions: Single $8,750; Married filing jointly $17,500; Married filing separately $8,750",
+          "url": "https://www.tax.virginia.gov/deductions",
+          "retrieved": "2026-09-29"
+        },
+        {
+          "title": "Virginia Tax, Exemptions: $930 for yourself, your spouse and each dependent",
+          "url": "https://www.tax.virginia.gov/exemptions",
+          "retrieved": "2026-09-29"
+        }
+      ],
+      "set": {
+        "standardDeduction": {
+          "single": 8750,
+          "marriedJointly": 17500,
+          "marriedSeparately": 8750,
+          "headOfHousehold": 8750
+        },
+        "personalExemption": {
+          "byStatus": {
+            "single": {
+              "amount": 930
+            },
+            "marriedJointly": {
+              "amount": 1860
+            },
+            "marriedSeparately": {
+              "amount": 930
+            },
+            "headOfHousehold": {
+              "amount": 930
+            }
+          },
+          "staleComponent": false,
+          "effectiveFrom": "1990-01-01"
+        },
+        "dependentAllowance": {
+          "byStatus": {
+            "single": {
+              "amount": 930
+            },
+            "marriedJointly": {
+              "amount": 930
+            },
+            "marriedSeparately": {
+              "amount": 930
+            },
+            "headOfHousehold": {
+              "amount": 930
+            }
+          },
+          "source": "Code of Virginia section 58.1-322.03(2)(a): $930 for each personal exemption allowable for federal purposes, dependents included"
+        },
+        "modelCoverage": {
+          "personalExemption": "modelled"
+        },
+        "notes": [
+          "Virginia has no head-of-household status; a head of household files as single and takes the $8,750 standard deduction.",
+          "The standard deduction is $8,750 ($17,500 married) for 2025 and 2026 and rises to $9,200 ($18,400) in 2027 (Code of Virginia section 58.1-322.03).",
+          "The four brackets have been unchanged since 1990."
+        ],
+        "scheduledStandardDeduction": {
+          "year": 2027,
+          "single": 9200,
+          "marriedJointly": 18400,
+          "source": "Code of Virginia section 58.1-322.03(1)(b)(vi)"
+        },
+        "bracketsSince": 1990,
+        "currentStandardDeductionFrom": 2025
+      },
+      "why": "Adds the standard deduction ($8,750 / $17,500), the $930 personal exemption (two on a joint return) and $930 for each dependent; none were in the extracted record.",
+      "expect": {
+        "structure": "progressive",
+        "brackets": {
+          "single": [
+            [
+              0,
+              2
+            ],
+            [
+              3000,
+              3
+            ],
+            [
+              5000,
+              5
+            ],
+            [
+              17000,
+              5.75
+            ]
+          ],
+          "marriedJointly": [
+            [
+              0,
+              2
+            ],
+            [
+              3000,
+              3
+            ],
+            [
+              5000,
+              5
+            ],
+            [
+              17000,
+              5.75
+            ]
+          ],
+          "marriedSeparately": [
+            [
+              0,
+              2
+            ],
+            [
+              3000,
+              3
+            ],
+            [
+              5000,
+              5
+            ],
+            [
+              17000,
+              5.75
+            ]
+          ],
+          "headOfHousehold": [
+            [
+              0,
+              2
+            ],
+            [
+              3000,
+              3
+            ],
+            [
+              5000,
+              5
+            ],
+            [
+              17000,
+              5.75
+            ]
+          ]
+        },
+        "standardDeduction": {
+          "single": 8750,
+          "marriedJointly": 17500,
+          "marriedSeparately": 8750,
+          "headOfHousehold": 8750
+        },
+        "personalExemption.byStatus.single": {
+          "amount": 930
+        },
+        "personalExemption.byStatus.marriedJointly": {
+          "amount": 1860
+        }
+      }
+    },
+    "michigan": {
+      "sources": [
+        {
+          "title": "Michigan Department of Treasury, Withholding Tax Information by Calendar Year: 2026 rate 4.25%, personal exemption $5,900 (2025: 4.25%, $5,800)",
+          "url": "https://www.michigan.gov/taxes/business-taxes/withholding/calendar-year-tax-information",
+          "retrieved": "2026-09-29"
+        }
+      ],
+      "set": {
+        "personalExemption": {
+          "byStatus": {
+            "single": {
+              "amount": 5900
+            },
+            "marriedJointly": {
+              "amount": 11800
+            },
+            "marriedSeparately": {
+              "amount": 5900
+            },
+            "headOfHousehold": {
+              "amount": 5900
+            }
+          },
+          "staleComponent": false,
+          "effectiveFrom": "2026-01-01",
+          "priorYear": {
+            "year": 2025,
+            "amount": 5800
+          }
+        },
+        "dependentAllowance": {
+          "byStatus": {
+            "single": {
+              "amount": 5900
+            },
+            "marriedJointly": {
+              "amount": 5900
+            },
+            "marriedSeparately": {
+              "amount": 5900
+            },
+            "headOfHousehold": {
+              "amount": 5900
+            }
+          },
+          "source": "Michigan Treasury: the $5,900 personal exemption is claimed for the filer, a spouse and each dependent"
+        },
+        "modelCoverage": {
+          "personalExemption": "modelled"
+        },
+        "notes": [
+          "The 2026 rate is 4.25% and the personal exemption is $5,900 for the filer, a spouse and each dependent (Michigan Treasury).",
+          "Michigan has no standard deduction for wage earners under the retirement-age rules."
+        ],
+        "rateHistory": [
+          {
+            "year": 2023,
+            "rate": 4.05
+          },
+          {
+            "year": 2024,
+            "rate": 4.25
+          },
+          {
+            "year": 2025,
+            "rate": 4.25
+          },
+          {
+            "year": 2026,
+            "rate": 4.25
+          }
+        ],
+        "personalExemptionHistory": [
+          {
+            "year": 2024,
+            "amount": 5600
+          },
+          {
+            "year": 2025,
+            "amount": 5800
+          },
+          {
+            "year": 2026,
+            "amount": 5900
+          }
+        ]
+      },
+      "why": "Adds the 2026 personal exemption ($5,900, two on a joint return) and $5,900 for each dependent; none were in the extracted record.",
+      "expect": {
+        "structure": "flat",
+        "flatRate": 4.25,
+        "standardDeduction": {},
+        "personalExemption.byStatus.single": {
+          "amount": 5900
+        },
+        "personalExemption.byStatus.marriedJointly": {
+          "amount": 11800
+        }
+      }
+    },
+    "indiana": {
+      "sources": [
+        {
+          "title": "Indiana Department of Revenue, Departmental Notice #1 (effective October 1, 2026): \"For 2026, the state adjusted gross income tax rate for individuals is 2.95%\"; $1,000 per personal exemption; $1,500 per additional dependent exemption",
+          "url": "https://www.in.gov/dor/files/dn01.pdf",
+          "retrieved": "2026-09-29"
+        }
+      ],
+      "set": {
+        "personalExemption": {
+          "byStatus": {
+            "single": {
+              "amount": 1000
+            },
+            "marriedJointly": {
+              "amount": 2000
+            },
+            "marriedSeparately": {
+              "amount": 1000
+            },
+            "headOfHousehold": {
+              "amount": 1000
+            }
+          },
+          "staleComponent": false,
+          "effectiveFrom": "2026-01-01"
+        },
+        "dependentAllowance": {
+          "extraPerChild": 1500,
+          "byStatus": {
+            "single": {
+              "amount": 1000
+            },
+            "marriedJointly": {
+              "amount": 1000
+            },
+            "marriedSeparately": {
+              "amount": 1000
+            },
+            "headOfHousehold": {
+              "amount": 1000
+            }
+          },
+          "source": "Departmental Notice #1: $1,000 per exemption, dependents included, and a further $1,500 for each qualifying dependent child"
+        },
+        "modelCoverage": {
+          "personalExemption": "modelled"
+        },
+        "notes": [
+          "The 2026 state rate is 2.95% (Departmental Notice #1).",
+          "Every Indiana county adds its own income tax on top of the state rate; it depends on the county you live in on January 1."
+        ],
+        "countyIncomeTax": {
+          "counties": 92,
+          "lowest": {
+            "county": "Porter",
+            "rate": 0.5
+          },
+          "highest": {
+            "county": "Randolph",
+            "rate": 3.0
+          },
+          "examples": [
+            {
+              "county": "Marion",
+              "city": "Indianapolis",
+              "rate": 2.02
+            },
+            {
+              "county": "Allen",
+              "city": "Fort Wayne",
+              "rate": 1.59
+            },
+            {
+              "county": "Hamilton",
+              "city": "Carmel and Fishers",
+              "rate": 1.1
+            },
+            {
+              "county": "Lake",
+              "city": "Gary and Hammond",
+              "rate": 1.5
+            }
+          ],
+          "marionOn95k": 1898.8,
+          "basis": "The county rate applies to the same base as the state tax: wages less the exemptions. Marion County on a $95,000 salary, single: (95,000 - 1,000) x 2.02% = 1,898.80.",
+          "source": "Indiana Department of Revenue, Departmental Notice #1, county tax rates effective October 1, 2026; a resident pays the rate of the county they live in on January 1"
+        }
+      },
+      "why": "Adds the $1,000 personal exemption (two on a joint return), $1,000 for each dependent and the further $1,500 for each dependent child; none were in the extracted record.",
+      "expect": {
+        "structure": "flat",
+        "flatRate": 2.95,
+        "standardDeduction": {},
+        "personalExemption.byStatus.single": {
+          "amount": 1000
+        },
+        "personalExemption.byStatus.marriedJointly": {
+          "amount": 2000
+        },
+        "dependentAllowance.extraPerChild": 1500,
+        "countyIncomeTax.highest.rate": 3.0
+      }
     }
   },
   "coverage": {

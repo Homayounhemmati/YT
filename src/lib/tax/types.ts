@@ -99,10 +99,13 @@ export interface StateData {
   /**
    * What the state allows per dependent, subtracted like the personal exemption.
    * `childrenOnly`: only qualifying children count (North Carolina's child deduction).
+   * `extraPerChild`: a further amount for each qualifying child, on top of `amount`.
    * `agiSchedule` steps the amount by federal AGI; `maxAgi` removes it above a ceiling.
    */
   dependentAllowance?: {
     childrenOnly?: boolean;
+    /** Added on top of `amount` for each qualifying child (Indiana's $1,500 additional exemption). */
+    extraPerChild?: number;
     byStatus: Partial<Record<FilingStatus, {
       amount: number;
       agiSchedule?: { overAgi: number; amount: number }[];

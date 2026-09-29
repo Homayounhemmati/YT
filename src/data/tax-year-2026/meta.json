@@ -185,7 +185,7 @@
       "bracketCount": 0,
       "hasStandardDeduction": false,
       "stale": false,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "kansas",
@@ -262,7 +262,7 @@
       "bracketCount": 0,
       "hasStandardDeduction": false,
       "stale": false,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "minnesota",
@@ -482,7 +482,7 @@
       "bracketCount": 0,
       "hasStandardDeduction": false,
       "stale": false,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "texas",
@@ -515,7 +515,7 @@
       "bracketCount": 4,
       "hasStandardDeduction": false,
       "stale": false,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "vermont",
@@ -573,5 +573,5 @@
       "verification": "pending"
     }
   ],
-  "verifiedCount": 8
+  "verifiedCount": 12
 }

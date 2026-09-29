@@ -27,10 +27,12 @@
         "$72,680",
         "$5,006",
         "5.3%",
-        "$442"
+        "$442",
+        "$4,648",
+        "4.9%"
       ],
       "basis": "computed",
-      "means": "Among verified states on a $95,000 salary: state tax runs from $0 (Texas, Florida) to $4,564.75 (New York), 4.8% of gross; take-home runs from $75,662.50 to $70,656.15 (New York, after $441.60 of PFL and disability contributions), a $5,006.35 gap, 5.3% of gross; Pennsylvania $72,679.50",
+      "means": "Among verified states on a $95,000 salary: state tax runs from $0 (Texas, Florida, Tennessee) to $4,648.40 (Virginia), 4.9% of gross; New York's is $4,564.75, 4.8% of gross; take-home runs from $75,662.50 to $70,656.15 (New York, after $441.60 of PFL and disability contributions), a $5,006.35 gap, 5.3% of gross; Pennsylvania $72,679.50",
       "reference": "data/takehome-95k.json verifiedSpread (scripts/compute_takehome.ts): verified states only, because an unverified model can be missing a whole provision (Oregon's federal tax subtraction). Replaces the earlier 'more than $7,500', which rested on Oregon's incomplete model.",
       "status": "verified"
     },
@@ -849,6 +851,17 @@
           "https://www.law.cornell.edu/uscode/text/26/24"
         ]
       }
+    },
+    {
+      "id": "va-form-760",
+      "scope": "*",
+      "tokens": [
+        "760"
+      ],
+      "basis": "external",
+      "means": "Virginia's resident individual income tax return is Form 760",
+      "reference": "Virginia Tax, Deductions and Exemptions pages (https://www.tax.virginia.gov/deductions), which name Form 760 (resident)",
+      "status": "verified"
     }
   ]
 }

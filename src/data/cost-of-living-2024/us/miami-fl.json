@@ -1,0 +1,41 @@
+{
+  "slug": "miami-fl",
+  "name": "Miami-Fort Lauderdale-West Palm Beach, FL (Metropolitan Statistical Area)",
+  "displayName": "Miami",
+  "type": "metro",
+  "region": "us",
+  "msaCode": "33100",
+  "dataYear": 2024,
+  "fmrYear": 2026,
+  "indices": {
+    "allItems": 114.155,
+    "goods": 103.556,
+    "rent": 155.551,
+    "utilities": 97.235,
+    "otherServices": 109.113
+  },
+  "referenceRent": {
+    "bedrooms0": 1828.0,
+    "bedrooms1": 1995.0,
+    "bedrooms2": 2436.0,
+    "bedrooms3": 3127.0,
+    "bedrooms4": 3613.0
+  },
+  "rentCounty": "Miami-Dade County, FL",
+  "stateSlug": "florida",
+  "sources": [
+    {
+      "label": "BEA Regional Price Parities 2024 (MARPP metro areas, PARPP state metropolitan and nonmetropolitan portions)",
+      "url": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+      "retrieved": "2026-09-27"
+    },
+    {
+      "label": "HUD Fair Market Rents FY2026 (revised file)",
+      "url": "https://www.huduser.gov/portal/datasets/fmr/fmr2026/FY26_FMRs_revised.xlsx",
+      "retrieved": "2026-09-27"
+    }
+  ],
+  "lastVerified": "2026-09-27",
+  "verification": "verified",
+  "verifiedBy": "price parities and rents taken from src/data/col/price-areas.json and src/data/rent-fy2026/fmr-counties.json, which scripts/build_col_places.py read from BEA's MARPP file and HUD's FY2026 county file themselves"
+}

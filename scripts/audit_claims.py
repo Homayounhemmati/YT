@@ -166,6 +166,13 @@ def metro_numbers(covered_global):
         row = th.get(rec.get("stateSlug"), {})
         for v in walk_numbers(row):
             allowed |= fmt_forms(v)
+        # the state's own rates and allowances, which the tax section names
+        st_path = ROOT / f"src/data/tax-year-2026/states/{rec.get('stateSlug')}.json"
+        if st_path.exists():
+            st = json.loads(st_path.read_text())
+            for v in walk_numbers({k: v for k, v in st.items()
+                                   if k not in ("provenance", "verified")}):
+                allowed |= fmt_forms(v)
         allowed |= {"100", str(rec.get("dataYear", "")), str(rec.get("fmrYear", "")), "2026",
                     "1", "2", "4"}
         for tok in tokens(f.read_text()):

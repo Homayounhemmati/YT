@@ -15,7 +15,7 @@ real annual difference = tax difference − cost difference
 
 The first is the standard comparison. The second is what almost nothing else
 includes, and on a $95,000 salary the state tax alone runs from nothing in Texas or
-Florida to **$4,565 a year in New York** — about 4.8% of gross, before any city tax.
+Florida to **$4,648 a year in Virginia** — about 4.9% of gross, before any city tax.
 
 That is the size of the number being left out of a **cost of living comparison
 calculator** that stops at rent and groceries.

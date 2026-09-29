@@ -10,11 +10,15 @@
       "florida",
       "georgia",
       "illinois",
+      "indiana",
       "maryland",
+      "michigan",
       "new-york",
       "north-carolina",
       "pennsylvania",
-      "texas"
+      "tennessee",
+      "texas",
+      "virginia"
     ],
     "best": {
       "slug": "florida",
@@ -323,9 +327,9 @@
       "structure": "flat",
       "scenario": "salary",
       "gross": 95000,
-      "totalTax": 22140,
-      "takeHome": 72860,
-      "stateTax": 2802.5,
+      "totalTax": 22110.5,
+      "takeHome": 72889.5,
+      "stateTax": 2773,
       "fica": 7267.5,
       "contributions": 0,
       "contributionItems": [],
@@ -333,10 +337,10 @@
       "effectiveRate": 23.3,
       "warnings": [],
       "selfEmployed": {
-        "totalTax": 23444.75,
-        "takeHome": 71555.25,
-        "stateTax": 2604.51,
-        "effectiveRate": 24.7
+        "totalTax": 23415.25,
+        "takeHome": 71584.75,
+        "stateTax": 2575.01,
+        "effectiveRate": 24.6
       }
     },
     "iowa": {
@@ -495,20 +499,20 @@
       "structure": "flat",
       "scenario": "salary",
       "gross": 95000,
-      "totalTax": 23375,
-      "takeHome": 71625,
-      "stateTax": 4037.5,
+      "totalTax": 23124.25,
+      "takeHome": 71875.75,
+      "stateTax": 3786.75,
       "fica": 7267.5,
       "contributions": 0,
       "contributionItems": [],
       "federalTax": 12070,
-      "effectiveRate": 24.6,
+      "effectiveRate": 24.3,
       "warnings": [],
       "selfEmployed": {
-        "totalTax": 24592.5,
-        "takeHome": 70407.5,
-        "stateTax": 3752.26,
-        "effectiveRate": 25.9
+        "totalTax": 24341.75,
+        "takeHome": 70658.25,
+        "stateTax": 3501.51,
+        "effectiveRate": 25.6
       }
     },
     "minnesota": {
@@ -1037,20 +1041,20 @@
       "structure": "progressive",
       "scenario": "salary",
       "gross": 95000,
-      "totalTax": 24542.5,
-      "takeHome": 70457.5,
-      "stateTax": 5205,
+      "totalTax": 23985.9,
+      "takeHome": 71014.1,
+      "stateTax": 4648.4,
       "fica": 7267.5,
       "contributions": 0,
       "contributionItems": [],
       "federalTax": 12070,
-      "effectiveRate": 25.8,
+      "effectiveRate": 25.2,
       "warnings": [],
       "selfEmployed": {
-        "totalTax": 25659.33,
-        "takeHome": 69340.67,
-        "stateTax": 4819.09,
-        "effectiveRate": 27
+        "totalTax": 25102.73,
+        "takeHome": 69897.27,
+        "stateTax": 4262.49,
+        "effectiveRate": 26.4
       }
     },
     "washington": {

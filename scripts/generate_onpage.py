@@ -19,6 +19,7 @@ import json
 import re
 import pathlib
 import sys
+import urllib.parse
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SMALL = {"a", "an", "and", "as", "at", "by", "for", "in", "of", "on", "or",
@@ -73,9 +74,11 @@ def local_answer(st):
 
 
 TAKEHOME = {}
+VERIFIED_SPREAD = {}
 _th = ROOT / "data/takehome-95k.json"
 if _th.exists():
     TAKEHOME = json.loads(_th.read_text())["states"]
+    VERIFIED_SPREAD = json.loads(_th.read_text()).get("verifiedSpread", {})
 
 
 def takehome_answer(st):
@@ -135,9 +138,13 @@ def cheaper_answer(st):
     row = TAKEHOME.get(st["slug"])
     if not row or not TAKEHOME:
         return f"PENDING_ENGINE: run scripts/compute_takehome.ts to resolve {st['name']}."
-    worst = min(TAKEHOME.values(), key=lambda r: r["takeHome"])
+    # Only states checked against a primary source: the lowest take-home in the full
+    # set was Oregon's on 2025 brackets, and a prior-year figure is not quoted as
+    # exact (copywriting guide, section 6).
+    verified = [TAKEHOME[s] for s in VERIFIED_SPREAD.get("states", []) if s in TAKEHOME]
+    worst = min(verified or TAKEHOME.values(), key=lambda r: r["takeHome"])
     gap = row["takeHome"] - worst["takeHome"]
-    return (f"Not automatically. On income tax alone {st['name']} leaves "
+    return (f"Not automatically. Before prices are counted, {st['name']} leaves "
             f"{money(row['takeHome'])} of a $95,000 salary against "
             f"{money(worst['takeHome'])} in {worst['name']}, a gap of {money(gap)} a year. "
             f"But states without an income tax usually recover it through sales and "
@@ -247,7 +254,8 @@ def _organization_block(ld, origin, site_name, author_name):
 ENTITY_FAMILIES = {"{metro}": "/cost-of-living", "{state}": "/state-taxes"}
 
 
-def resolve_entity_links(links, *, metros, states, state_slug=None, expand=False):
+def resolve_entity_links(links, *, metros, states, state_slug=None, expand=False,
+                         exclude=None):
     """`expand` is for a directory, whose link to a template means every row.
     Elsewhere the link resolves to a sibling in the same state where one exists,
     and falls back to the family's directory where none does — never to a token."""
@@ -265,7 +273,9 @@ def resolve_entity_links(links, *, metros, states, state_slug=None, expand=False
             continue
         pick = None
         if state_slug:
-            same = [r for r in rows if r.get("stateSlug") == state_slug]
+            # A page's link to its own template means a sibling, never itself.
+            same = [r for r in rows if r.get("stateSlug") == state_slug
+                    and r["slug"] != exclude]
             pick = max(same, key=lambda r: r.get("volume", 0)) if same else None
         if pick:
             out.append({"to": l["to"].replace(token, pick["slug"]),
@@ -312,7 +322,8 @@ def build_state(st, pages_doc, page_spec, tpl, origin, site_name, data_year,
     canonical = origin + path
     title = sub(tpl["title"])
     h1 = sub(tpl["h1"])
-    meta = sub(pages_doc["onPage"]["metaFormulas"][key])
+    # "a Illinois", "a Indiana": the formula's article is fixed, the name is not.
+    meta = re.sub(r"\b([Aa]) (?=[AEIOU])", r"\1n ", sub(pages_doc["onPage"]["metaFormulas"][key]))
     crumbs = [c.replace("{State}", name) for c in tpl["breadcrumb"]]
 
     faq = [{"question": sub(q), "answer": sub(a)}
@@ -382,37 +393,29 @@ def build_state(st, pages_doc, page_spec, tpl, origin, site_name, data_year,
 
 
 def index_sentence(m, display):
-    """BEA's all-items parity and the component furthest from 100, in words."""
+    """BEA's all-items parity and its components, with the highest and lowest named."""
     ix = m["indices"]
     names = {"rent": "housing rents", "goods": "goods", "utilities": "utilities",
              "otherServices": "other services"}
     comps = [(k, ix[k]) for k in names if ix.get(k) is not None]
-    far = max(comps, key=lambda kv: abs(kv[1] - 100))
+    high = max(comps, key=lambda kv: kv[1])
+    low = min(comps, key=lambda kv: kv[1])
     level = ix["allItems"]
     rel = ("above" if level > 100.05 else "below" if level < 99.95 else "at")
     parts = ", ".join(f"{names[k]} {v:.1f}" for k, v in comps)
-    return (f"Overall prices in the {display} metro area were {level:.1f} in {m['dataYear']} on "
-            f"BEA's Regional Price Parities, where the US average is 100 — "
-            f"{abs(level - 100):.1f} points {rel} average. By component: {parts}. "
-            f"{names[far[0]].capitalize()} are the furthest from average, so they decide "
-            f"whether {display} feels expensive for you.")
+    parts = parts[:1].upper() + parts[1:]
+    return (f"{level:.1f}, {abs(level - 100):.1f} points {rel} the US level of 100 "
+            f"(BEA, {m['dataYear']}). {parts}.")
 
 
 def salary_sentence(fig, display, state, no_tax=False):
     """The engines' household cost and the gross salary that covers it after tax."""
     s, f = fig["single"], fig["family"]
-    layer = (f"federal tax, Social Security and Medicare ({state} has no income tax)"
-             if no_tax else f"federal tax, Social Security, Medicare and {state} tax")
-    return (f"For one person renting a one-bedroom at HUD's Fair Market Rent and spending "
-            f"what the average one-person US household spends on food, transport, health "
-            f"care and other everyday categories — priced at {display}'s price level — the "
-            f"month comes to about {money(s['monthlyTotal'])}. Covering that after "
-            f"{layer} takes a salary of about "
-            f"{money(s['grossSalary'])}. Two adults and two children in a two-bedroom need about "
-            f"{money(f['grossSalary'])} on one income filing jointly, after the child tax "
-            f"credit. Both are break-even "
-            f"figures with no savings; the cost of living calculator replaces any line "
-            f"with your own.")
+    layer = "federal tax and FICA" if no_tax else f"federal tax, FICA and {state} tax"
+    return (f"About {money(s['grossSalary'])} alone in a one-bedroom "
+            f"({money(s['monthlyTotal'])} a month); about {money(f['grossSalary'])} for a "
+            f"family of four in a two-bedroom ({money(f['monthlyTotal'])} a month). "
+            f"Break-even after {layer}.")
 
 
 def build_metro(m, pages_doc, page_spec, tpl, origin, site_name, data_year, ld,
@@ -444,10 +447,10 @@ def build_metro(m, pages_doc, page_spec, tpl, origin, site_name, data_year, ld,
         if "{RENT_SENTENCE}" in answer and rent.get("bedrooms1") and rent.get("bedrooms2"):
             # HUD's county file is local now (scripts/import_hud_fmr.py), so the rent
             # answer no longer waits on the BEA price indices.
-            answer = (f"HUD's Fair Market Rent for {display} is {money(rent['bedrooms1'])} a month "
-                      f"for a one-bedroom and {money(rent['bedrooms2'])} for a two-bedroom. That is "
-                      "gross rent, including the utilities a tenant pays, at the 40th percentile of "
-                      "what recent movers paid — a typical rent, not a luxury one.")
+            answer = (f"Studio {money(rent['bedrooms0'])}, one bedroom {money(rent['bedrooms1'])}, "
+                      f"two {money(rent['bedrooms2'])}, three {money(rent['bedrooms3'])}, four "
+                      f"{money(rent['bedrooms4'])} ({m['principalCounty']}, HUD fiscal "
+                      f"{m.get('fmrYear', '')}, utilities included).")
         elif "{INDEX_SENTENCE}" in answer and m.get("indices"):
             answer = index_sentence(m, display)
         elif "{SALARY_SENTENCE}" in answer and figures.get(m["slug"]) and th:
@@ -458,21 +461,15 @@ def build_metro(m, pages_doc, page_spec, tpl, origin, site_name, data_year, ld,
             answer = f"PENDING_DATA: needs BEA price indices for {m['name']} (13-6)."
         elif "{TAX_SENTENCE}" in answer:
             answer = (
-                f"No — {state} has no state income tax, which is much of its appeal. On a "
-                f"$95,000 salary a single {state} resident keeps about "
-                f"{money(th.get('takeHome', 0))} after federal tax, Social Security and "
-                f"Medicare — an effective {th.get('effectiveRate', 0):.1f}%, the same in "
-                f"{display} as anywhere else in {state}. What separates {display} from other "
-                f"{state} cities is housing: its one-bedroom Fair Market Rent is "
-                f"{money((m.get('referenceRent') or {}).get('bedrooms1', 0))} a month. Against a "
-                "taxed state, compare take-home first and rent second — the half most "
-                "cost-of-living tools omit."
+                f"No. {state} has no income tax: $95,000 leaves about "
+                f"{money(th.get('takeHome', 0))} after federal tax and FICA, an effective "
+                f"{th.get('effectiveRate', 0):.1f}%, anywhere in {state}."
             ) if th and th.get("structure") == "none" else (
-                f"Yes. On a $95,000 salary, a single {state} resident keeps "
-                f"about {money(th.get('takeHome', 0))} — an effective "
-                f"{th.get('effectiveRate', 0):.1f}%. That figure applies anywhere in "
-                f"{state}, so it is the same in {display} as in the rest of the state, "
-                "and it is the half of the comparison most cost-of-living tools omit."
+                f"Yes. $95,000 leaves a single filer about "
+                f"{money(th.get('takeHome', 0))} after {money(th.get('stateTax', 0))} of "
+                f"{state} tax, an effective {th.get('effectiveRate', 0):.1f}% in all. "
+                + (m["localTaxNote"] if m.get("localTaxNote") else
+                   f"{display} adds no city income tax.")
             ) if th else f"PENDING_ENGINE: {state}"
         elif "{DATA_YEAR}" in answer:
             answer = answer.replace("{DATA_YEAR}", str(data_year))
@@ -500,12 +497,11 @@ def build_metro(m, pages_doc, page_spec, tpl, origin, site_name, data_year, ld,
         "jsonLd": [bc, place, _faq_block(ld, faq),
                    _dataset_block(ld, m["name"], data_year, content_updated)],
         "internalLinks": resolve_entity_links(
-            [{"to": e["to"].replace("{state}", m["stateSlug"])
-                           .replace("{metro}", m["slug"]),
-              "anchor": e["anchor"].replace("{state}", state)
-                                   .replace("{metro}", display)}
+            [{"to": e["to"].replace("{state}", m["stateSlug"]),
+              "anchor": e["anchor"].replace("{state}", state)}
              for e in page_spec.get("links", [])],
-            metros=metros_all, states=states_all, state_slug=m["stateSlug"]),
+            metros=metros_all, states=states_all, state_slug=m["stateSlug"],
+            exclude=m["slug"]),
         "dataVerification": m["dataStatus"], "staleForTargetYear": False,
     }
 
@@ -690,7 +686,7 @@ def main():
                     and m.get("indices") and m.get("referenceRent")
                     and m["stateSlug"] in built_states}
     metro_rows = [{"slug": m["slug"], "display": m["displayName"],
-                   "stateSlug": m["stateSlug"], "volume": m.get("volume", 0)}
+                   "stateSlug": m["stateSlug"], "volume": m.get("volume") or 0}
                   for m in metros if m["slug"] in built_metros]
     state_rows = [{"slug": s["slug"], "display": s["name"],
                    "stateSlug": s["slug"], "volume": 0}
@@ -758,6 +754,35 @@ def main():
             e["sitemap"] = None          # not built yet, so not listed
             continue
         segments[e["sitemap"]].append({"loc": e["canonical"], "lastmod": lastmod})
+    # Links across one template's built pages: every state page lists the other
+    # states, every city page the other cities, and a city page offers the comparison
+    # tool preset to itself and a few others. Separate from `internalLinks`, which is
+    # the page's declared link plan and is audited as such.
+    by_state = {s["slug"]: s for s in states}
+    state_entries = sorted((e for e in entries if e["template"] == "StateTaxPage" and e["built"]),
+                           key=lambda e: e["entityName"])
+    for e in state_entries:
+        e["siblings"] = [{"to": o["path"], "anchor": f"{o['entityName']} paycheck calculator"}
+                         for o in state_entries if o is not e]
+    metro_by_slug = {m["slug"]: m for m in metros}
+    place_entries = sorted((e for e in entries if e["template"] == "PlacePage" and e["built"]),
+                           key=lambda e: metro_by_slug[e["entity"]].get("populationRank", 999))
+    def place_key(m):
+        return {"key": f"city:{m['displayName']}, {m['stateAbbr']}", "st": m["stateAbbr"]}
+    for e in place_entries:
+        m = metro_by_slug[e["entity"]]
+        e["calculatorPlace"] = place_key(m)
+        e["siblings"] = [{"to": o["path"], "anchor": f"Cost of living in {o['entityName']}"}
+                         for o in sorted(place_entries, key=lambda o: o["entityName"]) if o is not e]
+        others = [o for o in place_entries if o is not e]
+        same = [o for o in others if metro_by_slug[o["entity"]]["stateSlug"] == m["stateSlug"]]
+        picks = (same[:1] + [o for o in others if o not in same])[:3]
+        e["compareWith"] = []
+        for o in picks:
+            a_, b_ = place_key(m), place_key(metro_by_slug[o["entity"]])
+            q = urllib.parse.urlencode({"from": a_["key"], "to": b_["key"]})
+            e["compareWith"].append({"to": f"/tools/cost-of-living-comparison?{q}",
+                                     "anchor": f"{e['entityName']} vs {o['entityName']}"})
     hub_table = build_hub_table(built_metros, metros)
     if hub_table:
         for e in entries:

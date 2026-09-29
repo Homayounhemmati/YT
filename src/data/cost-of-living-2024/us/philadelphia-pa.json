@@ -1,0 +1,41 @@
+{
+  "slug": "philadelphia-pa",
+  "name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD (Metropolitan Statistical Area)",
+  "displayName": "Philadelphia",
+  "type": "metro",
+  "region": "us",
+  "msaCode": "37980",
+  "dataYear": 2024,
+  "fmrYear": 2026,
+  "indices": {
+    "allItems": 102.554,
+    "goods": 96.833,
+    "rent": 113.141,
+    "utilities": 114.389,
+    "otherServices": 103.052
+  },
+  "referenceRent": {
+    "bedrooms0": 1397.0,
+    "bedrooms1": 1520.0,
+    "bedrooms2": 1810.0,
+    "bedrooms3": 2170.0,
+    "bedrooms4": 2423.0
+  },
+  "rentCounty": "Philadelphia County, PA",
+  "stateSlug": "pennsylvania",
+  "sources": [
+    {
+      "label": "BEA Regional Price Parities 2024 (MARPP metro areas, PARPP state metropolitan and nonmetropolitan portions)",
+      "url": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+      "retrieved": "2026-09-27"
+    },
+    {
+      "label": "HUD Fair Market Rents FY2026 (revised file)",
+      "url": "https://www.huduser.gov/portal/datasets/fmr/fmr2026/FY26_FMRs_revised.xlsx",
+      "retrieved": "2026-09-27"
+    }
+  ],
+  "lastVerified": "2026-09-27",
+  "verification": "verified",
+  "verifiedBy": "price parities and rents taken from src/data/col/price-areas.json and src/data/rent-fy2026/fmr-counties.json, which scripts/build_col_places.py read from BEA's MARPP file and HUD's FY2026 county file themselves"
+}

@@ -26,7 +26,7 @@ An equivalent salary keeps your **spending power** level. It does not keep your
 **take-home pay** level, because the two cities may sit in different states.
 
 On a $95,000 salary the state tax alone runs from nothing in Texas or Florida to
-**$4,565 a year in New York**. A move that is cost-neutral can be several
+**$4,648 a year in Virginia**. A move that is cost-neutral can be several
 thousand dollars a year worse or better once tax is applied, and nothing in the
 cost index reveals that.
 

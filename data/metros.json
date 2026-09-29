@@ -1,10 +1,10 @@
 {
-  "$comment": "Metros that pass the generation gate in spec section 6-10-3: head-keyword volume measured at >= 500/month. A modelled median is not a measurement, so a metro is absent from this file until its own volume has been observed. Indices and rent stay null until the BEA and HUD datasets exist (13-6).",
+  "$comment": "Metros that earn a page (spec section 6-10-3). The first four passed on head-keyword volume measured at >= 500/month. The next seven were chosen on 2026-09-29 by metro population, because the keyword tool had no credit to measure them: they are the most populous metros in states whose tax data is verified, each far larger than any metro whose measured volume cleared the bar. They carry volumeMeasured: false and their volume is to be measured, or read from Search Console, before the next batch is chosen. Indices and rent come from the verified nationwide dataset (scripts/build_metro_records.py).",
   "gate": {
     "minMonthlyVolume": 500,
     "source": "data/keywords.json programmaticSets"
   },
-  "caveat": "Three of the four measured metros are in Texas. That reflects which keywords were measured, not that Texas metros are uniquely valuable. Section 6-10-7 calls for 5 sample metros; a fifth outside Texas should be measured before the sample set is considered geographically representative.",
+  "caveat": "Ten of the eleven metros are in the states with verified tax data; San Francisco waits for California. Seven volumes are unmeasured (see $comment).",
   "metros": [
     {
       "name": "Austin, TX",
@@ -35,7 +35,8 @@
       "rentSource": "HUD FMR FY2026 (Travis County, TX)",
       "dataYear": 2024,
       "msaCode": "12420",
-      "fmrYear": 2026
+      "fmrYear": 2026,
+      "populationRank": 28
     },
     {
       "name": "San Francisco, CA",
@@ -66,7 +67,8 @@
       "rentSource": "HUD FMR FY2026 (San Francisco County, CA)",
       "dataYear": 2024,
       "msaCode": "41860",
-      "fmrYear": 2026
+      "fmrYear": 2026,
+      "populationRank": 12
     },
     {
       "name": "San Antonio, TX",
@@ -97,7 +99,8 @@
       "rentSource": "HUD FMR FY2026 (Bexar County, TX)",
       "dataYear": 2024,
       "msaCode": "41700",
-      "fmrYear": 2026
+      "fmrYear": 2026,
+      "populationRank": 24
     },
     {
       "name": "Houston, TX",
@@ -128,7 +131,284 @@
       "rentSource": "HUD FMR FY2026 (Harris County, TX)",
       "dataYear": 2024,
       "msaCode": "26420",
-      "fmrYear": 2026
+      "fmrYear": 2026,
+      "populationRank": 5
+    },
+    {
+      "name": "New York, NY",
+      "displayName": "New York",
+      "stateSlug": "new-york",
+      "stateName": "New York",
+      "volume": null,
+      "cpc": null,
+      "volumeMeasured": false,
+      "selection": {
+        "basis": "population",
+        "metroPopulation": 19849599,
+        "nationalRank": 1,
+        "source": "Census Bureau population estimates, vintage 2024, summed over the metro's counties (src/data/col/places)"
+      },
+      "slug": "new-york-ny",
+      "indices": {
+        "allItems": 112.563,
+        "goods": 110.261,
+        "rent": 148.616,
+        "utilities": 127.018,
+        "otherServices": 105.836
+      },
+      "referenceRent": {
+        "bedrooms0": 2529.0,
+        "bedrooms1": 2655.0,
+        "bedrooms2": 2910.0,
+        "bedrooms3": 3644.0,
+        "bedrooms4": 3959.0
+      },
+      "dataStatus": "indices-and-rent-ready",
+      "stateAbbr": "NY",
+      "principalCounty": "New York County",
+      "principalCountyFips": "36061",
+      "rentSource": "HUD FMR FY2026 (New York County, NY)",
+      "dataYear": 2024,
+      "msaCode": "35620",
+      "fmrYear": 2026,
+      "localTaxNote": "New York City residents also pay the city's own income tax, which is not included.",
+      "populationRank": 1
+    },
+    {
+      "name": "Chicago, IL",
+      "displayName": "Chicago",
+      "stateSlug": "illinois",
+      "stateName": "Illinois",
+      "volume": null,
+      "cpc": null,
+      "volumeMeasured": false,
+      "selection": {
+        "basis": "population",
+        "metroPopulation": 9398262,
+        "nationalRank": 3,
+        "source": "Census Bureau population estimates, vintage 2024, summed over the metro's counties (src/data/col/places)"
+      },
+      "slug": "chicago-il",
+      "indices": {
+        "allItems": 103.595,
+        "goods": 107.258,
+        "rent": 112.01,
+        "utilities": 83.581,
+        "otherServices": 100.492
+      },
+      "referenceRent": {
+        "bedrooms0": 1480.0,
+        "bedrooms1": 1581.0,
+        "bedrooms2": 1781.0,
+        "bedrooms3": 2294.0,
+        "bedrooms4": 2653.0
+      },
+      "dataStatus": "indices-and-rent-ready",
+      "stateAbbr": "IL",
+      "principalCounty": "Cook County",
+      "principalCountyFips": "17031",
+      "rentSource": "HUD FMR FY2026 (Cook County, IL)",
+      "dataYear": 2024,
+      "msaCode": "16980",
+      "fmrYear": 2026,
+      "populationRank": 3
+    },
+    {
+      "name": "Philadelphia, PA",
+      "displayName": "Philadelphia",
+      "stateSlug": "pennsylvania",
+      "stateName": "Pennsylvania",
+      "volume": null,
+      "cpc": null,
+      "volumeMeasured": false,
+      "selection": {
+        "basis": "population",
+        "metroPopulation": 6232894,
+        "nationalRank": 7,
+        "source": "Census Bureau population estimates, vintage 2024, summed over the metro's counties (src/data/col/places)"
+      },
+      "slug": "philadelphia-pa",
+      "indices": {
+        "allItems": 102.554,
+        "goods": 96.833,
+        "rent": 113.141,
+        "utilities": 114.389,
+        "otherServices": 103.052
+      },
+      "referenceRent": {
+        "bedrooms0": 1397.0,
+        "bedrooms1": 1520.0,
+        "bedrooms2": 1810.0,
+        "bedrooms3": 2170.0,
+        "bedrooms4": 2423.0
+      },
+      "dataStatus": "indices-and-rent-ready",
+      "stateAbbr": "PA",
+      "principalCounty": "Philadelphia County",
+      "principalCountyFips": "42101",
+      "rentSource": "HUD FMR FY2026 (Philadelphia County, PA)",
+      "dataYear": 2024,
+      "msaCode": "37980",
+      "fmrYear": 2026,
+      "localTaxNote": "Philadelphia also levies its wage tax on everyone who lives or works in the city, which is not included.",
+      "populationRank": 7
+    },
+    {
+      "name": "Miami, FL",
+      "displayName": "Miami",
+      "stateSlug": "florida",
+      "stateName": "Florida",
+      "volume": null,
+      "cpc": null,
+      "volumeMeasured": false,
+      "selection": {
+        "basis": "population",
+        "metroPopulation": 6123949,
+        "nationalRank": 8,
+        "source": "Census Bureau population estimates, vintage 2024, summed over the metro's counties (src/data/col/places)"
+      },
+      "slug": "miami-fl",
+      "indices": {
+        "allItems": 114.155,
+        "goods": 103.556,
+        "rent": 155.551,
+        "utilities": 97.235,
+        "otherServices": 109.113
+      },
+      "referenceRent": {
+        "bedrooms0": 1828.0,
+        "bedrooms1": 1995.0,
+        "bedrooms2": 2436.0,
+        "bedrooms3": 3127.0,
+        "bedrooms4": 3613.0
+      },
+      "dataStatus": "indices-and-rent-ready",
+      "stateAbbr": "FL",
+      "principalCounty": "Miami-Dade County",
+      "principalCountyFips": "12086",
+      "rentSource": "HUD FMR FY2026 (Miami-Dade County, FL)",
+      "dataYear": 2024,
+      "msaCode": "33100",
+      "fmrYear": 2026,
+      "populationRank": 8
+    },
+    {
+      "name": "Atlanta, GA",
+      "displayName": "Atlanta",
+      "stateSlug": "georgia",
+      "stateName": "Georgia",
+      "volume": null,
+      "cpc": null,
+      "volumeMeasured": false,
+      "selection": {
+        "basis": "population",
+        "metroPopulation": 6109481,
+        "nationalRank": 9,
+        "source": "Census Bureau population estimates, vintage 2024, summed over the metro's counties (src/data/col/places)"
+      },
+      "slug": "atlanta-ga",
+      "indices": {
+        "allItems": 100.058,
+        "goods": 100.416,
+        "rent": 111.022,
+        "utilities": 96.239,
+        "otherServices": 96.701
+      },
+      "referenceRent": {
+        "bedrooms0": 1585.0,
+        "bedrooms1": 1660.0,
+        "bedrooms2": 1820.0,
+        "bedrooms3": 2182.0,
+        "bedrooms4": 2605.0
+      },
+      "dataStatus": "indices-and-rent-ready",
+      "stateAbbr": "GA",
+      "principalCounty": "Fulton County",
+      "principalCountyFips": "13121",
+      "rentSource": "HUD FMR FY2026 (Fulton County, GA)",
+      "dataYear": 2024,
+      "msaCode": "12060",
+      "fmrYear": 2026,
+      "populationRank": 9
+    },
+    {
+      "name": "Detroit, MI",
+      "displayName": "Detroit",
+      "stateSlug": "michigan",
+      "stateName": "Michigan",
+      "volume": null,
+      "cpc": null,
+      "volumeMeasured": false,
+      "selection": {
+        "basis": "population",
+        "metroPopulation": 4375604,
+        "nationalRank": 14,
+        "source": "Census Bureau population estimates, vintage 2024, summed over the metro's counties (src/data/col/places)"
+      },
+      "slug": "detroit-mi",
+      "indices": {
+        "allItems": 100.298,
+        "goods": 98.817,
+        "rent": 94.69,
+        "utilities": 106.988,
+        "otherServices": 102.591
+      },
+      "referenceRent": {
+        "bedrooms0": 1009.0,
+        "bedrooms1": 1122.0,
+        "bedrooms2": 1411.0,
+        "bedrooms3": 1724.0,
+        "bedrooms4": 1868.0
+      },
+      "dataStatus": "indices-and-rent-ready",
+      "stateAbbr": "MI",
+      "principalCounty": "Wayne County",
+      "principalCountyFips": "26163",
+      "rentSource": "HUD FMR FY2026 (Wayne County, MI)",
+      "dataYear": 2024,
+      "msaCode": "19820",
+      "fmrYear": 2026,
+      "localTaxNote": "Detroit also levies a city income tax on its residents and on non-residents who work there, which is not included.",
+      "populationRank": 14
+    },
+    {
+      "name": "Tampa, FL",
+      "displayName": "Tampa",
+      "stateSlug": "florida",
+      "stateName": "Florida",
+      "volume": null,
+      "cpc": null,
+      "volumeMeasured": false,
+      "selection": {
+        "basis": "population",
+        "metroPopulation": 3194310,
+        "nationalRank": 18,
+        "source": "Census Bureau population estimates, vintage 2024, summed over the metro's counties (src/data/col/places)"
+      },
+      "slug": "tampa-fl",
+      "indices": {
+        "allItems": 100.89,
+        "goods": 95.47,
+        "rent": 125.839,
+        "utilities": 88.525,
+        "otherServices": 97.565
+      },
+      "referenceRent": {
+        "bedrooms0": 1593.0,
+        "bedrooms1": 1696.0,
+        "bedrooms2": 1977.0,
+        "bedrooms3": 2527.0,
+        "bedrooms4": 3077.0
+      },
+      "dataStatus": "indices-and-rent-ready",
+      "stateAbbr": "FL",
+      "principalCounty": "Hillsborough County",
+      "principalCountyFips": "12057",
+      "rentSource": "HUD FMR FY2026 (Hillsborough County, FL)",
+      "dataYear": 2024,
+      "msaCode": "45300",
+      "fmrYear": 2026,
+      "populationRank": 18
     }
   ]
 }

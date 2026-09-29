@@ -69,8 +69,54 @@
         ]
       },
       {
+        "file": "/sitemaps/places.xml",
+        "urlCount": 10,
+        "urls": [
+          {
+            "loc": "https://example.com/cost-of-living/austin-tx",
+            "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/cost-of-living/san-antonio-tx",
+            "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/cost-of-living/houston-tx",
+            "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/cost-of-living/new-york-ny",
+            "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/cost-of-living/chicago-il",
+            "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/cost-of-living/philadelphia-pa",
+            "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/cost-of-living/miami-fl",
+            "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/cost-of-living/atlanta-ga",
+            "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/cost-of-living/detroit-mi",
+            "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/cost-of-living/tampa-fl",
+            "lastmod": "2026-09-27"
+          }
+        ]
+      },
+      {
         "file": "/sitemaps/states.xml",
-        "urlCount": 8,
+        "urlCount": 12,
         "urls": [
           {
             "loc": "https://example.com/tools/paycheck-calculator/florida",
@@ -85,7 +131,15 @@
             "lastmod": "2026-09-27"
           },
           {
+            "loc": "https://example.com/tools/paycheck-calculator/indiana",
+            "lastmod": "2026-09-27"
+          },
+          {
             "loc": "https://example.com/tools/paycheck-calculator/maryland",
+            "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/tools/paycheck-calculator/michigan",
             "lastmod": "2026-09-27"
           },
           {
@@ -101,7 +155,15 @@
             "lastmod": "2026-09-27"
           },
           {
+            "loc": "https://example.com/tools/paycheck-calculator/tennessee",
+            "lastmod": "2026-09-27"
+          },
+          {
             "loc": "https://example.com/tools/paycheck-calculator/texas",
+            "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/tools/paycheck-calculator/virginia",
             "lastmod": "2026-09-27"
           }
         ]
@@ -158,10 +220,7 @@
       }
     ],
     "excluded": [
-      "/cost-of-living/austin-tx",
       "/cost-of-living/san-francisco-ca",
-      "/cost-of-living/san-antonio-tx",
-      "/cost-of-living/houston-tx",
       "/tools/paycheck-calculator/alabama",
       "/tools/paycheck-calculator/alaska",
       "/tools/paycheck-calculator/arizona",
@@ -172,14 +231,12 @@
       "/tools/paycheck-calculator/delaware",
       "/tools/paycheck-calculator/hawaii",
       "/tools/paycheck-calculator/idaho",
-      "/tools/paycheck-calculator/indiana",
       "/tools/paycheck-calculator/iowa",
       "/tools/paycheck-calculator/kansas",
       "/tools/paycheck-calculator/kentucky",
       "/tools/paycheck-calculator/louisiana",
       "/tools/paycheck-calculator/maine",
       "/tools/paycheck-calculator/massachusetts",
-      "/tools/paycheck-calculator/michigan",
       "/tools/paycheck-calculator/minnesota",
       "/tools/paycheck-calculator/mississippi",
       "/tools/paycheck-calculator/missouri",
@@ -196,10 +253,8 @@
       "/tools/paycheck-calculator/rhode-island",
       "/tools/paycheck-calculator/south-carolina",
       "/tools/paycheck-calculator/south-dakota",
-      "/tools/paycheck-calculator/tennessee",
       "/tools/paycheck-calculator/utah",
       "/tools/paycheck-calculator/vermont",
-      "/tools/paycheck-calculator/virginia",
       "/tools/paycheck-calculator/washington-dc",
       "/tools/paycheck-calculator/washington",
       "/tools/paycheck-calculator/west-virginia",
@@ -207,10 +262,10 @@
       "/tools/paycheck-calculator/wyoming"
     ],
     "gate": {
-      "statesBuilt": 8,
+      "statesBuilt": 12,
       "statesTotal": 51,
-      "metrosBuilt": 0,
-      "metrosTotal": 4
+      "metrosBuilt": 10,
+      "metrosTotal": 11
     }
   },
   "pages": [
@@ -1064,6 +1119,74 @@
         },
         {
           "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "Cost of Living by City (2026)",
+          "numberOfItems": 10,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "cost of living in Austin",
+              "url": "https://example.com/cost-of-living/austin-tx"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "cost of living in San Antonio",
+              "url": "https://example.com/cost-of-living/san-antonio-tx"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "cost of living in Houston",
+              "url": "https://example.com/cost-of-living/houston-tx"
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "name": "cost of living in New York",
+              "url": "https://example.com/cost-of-living/new-york-ny"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "name": "cost of living in Chicago",
+              "url": "https://example.com/cost-of-living/chicago-il"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "name": "cost of living in Philadelphia",
+              "url": "https://example.com/cost-of-living/philadelphia-pa"
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "name": "cost of living in Miami",
+              "url": "https://example.com/cost-of-living/miami-fl"
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "name": "cost of living in Atlanta",
+              "url": "https://example.com/cost-of-living/atlanta-ga"
+            },
+            {
+              "@type": "ListItem",
+              "position": 9,
+              "name": "cost of living in Detroit",
+              "url": "https://example.com/cost-of-living/detroit-mi"
+            },
+            {
+              "@type": "ListItem",
+              "position": 10,
+              "name": "cost of living in Tampa",
+              "url": "https://example.com/cost-of-living/tampa-fl"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
           "@type": "Dataset",
           "name": "Cost of living indices for every US metropolitan area",
           "description": "BEA Regional Price Parities (all items, goods, housing rents, utilities and other services) for every US metropolitan area and each state's nonmetropolitan areas, 2024. United States = 100.",
@@ -1075,6 +1198,46 @@
         }
       ],
       "internalLinks": [
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "cost of living in Houston"
+        },
+        {
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "cost of living in New York"
+        },
+        {
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "cost of living in Chicago"
+        },
+        {
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "cost of living in Miami"
+        },
+        {
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "cost of living in Atlanta"
+        },
+        {
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "cost of living in Detroit"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "cost of living in Tampa"
+        },
         {
           "to": "/tools/cost-of-living-calculator",
           "anchor": "cost of living calculator"
@@ -1438,7 +1601,7 @@
         },
         {
           "question": "How much does state tax change take-home pay?",
-          "answer": "On a $95,000 salary, state tax alone runs from nothing in Texas or Florida to $4,565 a year in New York, about 4.8% of the salary, before any city tax. None of it appears in an offer letter."
+          "answer": "On a $95,000 salary, state tax alone runs from nothing in Texas or Florida to $4,648 a year in Virginia, about 4.9% of the salary, before any city tax. None of it appears in an offer letter."
         }
       ],
       "jsonLd": [
@@ -1519,7 +1682,7 @@
               "name": "How much does state tax change take-home pay?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "On a $95,000 salary, state tax alone runs from nothing in Texas or Florida to $4,565 a year in New York, about 4.8% of the salary, before any city tax. None of it appears in an offer letter."
+                "text": "On a $95,000 salary, state tax alone runs from nothing in Texas or Florida to $4,648 a year in Virginia, about 4.9% of the salary, before any city tax. None of it appears in an offer letter."
               }
             }
           ]
@@ -2149,8 +2312,16 @@
           "anchor": "Illinois"
         },
         {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana"
+        },
+        {
           "to": "/tools/paycheck-calculator/maryland",
           "anchor": "Maryland"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan"
         },
         {
           "to": "/tools/paycheck-calculator/new-york",
@@ -2165,8 +2336,16 @@
           "anchor": "Pennsylvania"
         },
         {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee"
+        },
+        {
           "to": "/tools/paycheck-calculator/texas",
           "anchor": "Texas"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia"
         },
         {
           "to": "/tools/cost-of-living-calculator",
@@ -2514,7 +2693,7 @@
           "@context": "https://schema.org",
           "@type": "ItemList",
           "name": "State Income Tax Rates by State (2026)",
-          "numberOfItems": 8,
+          "numberOfItems": 12,
           "itemListElement": [
             {
               "@type": "ListItem",
@@ -2537,32 +2716,56 @@
             {
               "@type": "ListItem",
               "position": 4,
+              "name": "Indiana paycheck calculator",
+              "url": "https://example.com/tools/paycheck-calculator/indiana"
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
               "name": "Maryland paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/maryland"
             },
             {
               "@type": "ListItem",
-              "position": 5,
+              "position": 6,
+              "name": "Michigan paycheck calculator",
+              "url": "https://example.com/tools/paycheck-calculator/michigan"
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
               "name": "New York paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/new-york"
             },
             {
               "@type": "ListItem",
-              "position": 6,
+              "position": 8,
               "name": "North Carolina paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/north-carolina"
             },
             {
               "@type": "ListItem",
-              "position": 7,
+              "position": 9,
               "name": "Pennsylvania paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/pennsylvania"
             },
             {
               "@type": "ListItem",
-              "position": 8,
+              "position": 10,
+              "name": "Tennessee paycheck calculator",
+              "url": "https://example.com/tools/paycheck-calculator/tennessee"
+            },
+            {
+              "@type": "ListItem",
+              "position": 11,
               "name": "Texas paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/texas"
+            },
+            {
+              "@type": "ListItem",
+              "position": 12,
+              "name": "Virginia paycheck calculator",
+              "url": "https://example.com/tools/paycheck-calculator/virginia"
             }
           ]
         }
@@ -2581,8 +2784,16 @@
           "anchor": "Illinois paycheck calculator"
         },
         {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
           "to": "/tools/paycheck-calculator/maryland",
           "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
         },
         {
           "to": "/tools/paycheck-calculator/new-york",
@@ -2597,8 +2808,16 @@
           "anchor": "Pennsylvania paycheck calculator"
         },
         {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
           "to": "/tools/paycheck-calculator/texas",
           "anchor": "Texas paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -3060,33 +3279,24 @@
         "Austin"
       ],
       "h2Outline": [
-        "What it costs to live in Austin",
-        "What the indices mean",
-        "Texas income tax on your salary",
-        "Who Austin suits",
-        "How we calculate this",
+        "Austin's month in dollars",
+        "Rent high, everything else low",
+        "No state income tax to set against the rent",
+        "Where Austin works in your favour",
         "Frequently asked questions"
       ],
       "faq": [
         {
           "question": "How expensive is Austin?",
-          "answer": "Overall prices in the Austin metro area were 98.1 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 1.9 points below average. By component: housing rents 120.4, goods 93.8, utilities 82.0, other services 96.2. Housing rents are the furthest from average, so they decide whether Austin feels expensive for you."
+          "answer": "98.1, 1.9 points below the US level of 100 (BEA, 2024). Housing rents 120.4, goods 93.8, utilities 82.0, other services 96.2."
         },
         {
           "question": "What is a typical rent in Austin?",
-          "answer": "HUD's Fair Market Rent for Austin is $1,562 a month for a one-bedroom and $1,852 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
+          "answer": "Studio $1,474, one bedroom $1,562, two $1,852, three $2,347, four $2,760 (Travis County, HUD fiscal 2026, utilities included)."
         },
         {
           "question": "What salary do you need to live in Austin?",
-          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Austin's price level — the month comes to about $3,687. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $52,344. Two adults and two children in a two-bedroom need about $93,913 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
-        },
-        {
-          "question": "Does Texas tax affect what you keep in Austin?",
-          "answer": "No — Texas has no state income tax, which is much of its appeal. On a $95,000 salary a single Texas resident keeps about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%, the same in Austin as anywhere else in Texas. What separates Austin from other Texas cities is housing: its one-bedroom Fair Market Rent is $1,562 a month. Against a taxed state, compare take-home first and rent second — the half most cost-of-living tools omit."
-        },
-        {
-          "question": "Where does this data come from?",
-          "answer": "Prices: BEA Regional Price Parities for the Austin metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and Texas rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
+          "answer": "About $52,344 alone in a one-bedroom ($3,687 a month); about $93,913 for a family of four in a two-bedroom ($7,018 a month). Break-even after federal tax and FICA."
         }
       ],
       "jsonLd": [
@@ -3132,7 +3342,7 @@
               "name": "How expensive is Austin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Overall prices in the Austin metro area were 98.1 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 1.9 points below average. By component: housing rents 120.4, goods 93.8, utilities 82.0, other services 96.2. Housing rents are the furthest from average, so they decide whether Austin feels expensive for you."
+                "text": "98.1, 1.9 points below the US level of 100 (BEA, 2024). Housing rents 120.4, goods 93.8, utilities 82.0, other services 96.2."
               }
             },
             {
@@ -3140,7 +3350,7 @@
               "name": "What is a typical rent in Austin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "HUD's Fair Market Rent for Austin is $1,562 a month for a one-bedroom and $1,852 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
+                "text": "Studio $1,474, one bedroom $1,562, two $1,852, three $2,347, four $2,760 (Travis County, HUD fiscal 2026, utilities included)."
               }
             },
             {
@@ -3148,23 +3358,7 @@
               "name": "What salary do you need to live in Austin?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Austin's price level — the month comes to about $3,687. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $52,344. Two adults and two children in a two-bedroom need about $93,913 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Does Texas tax affect what you keep in Austin?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No — Texas has no state income tax, which is much of its appeal. On a $95,000 salary a single Texas resident keeps about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%, the same in Austin as anywhere else in Texas. What separates Austin from other Texas cities is housing: its one-bedroom Fair Market Rent is $1,562 a month. Against a taxed state, compare take-home first and rent second — the half most cost-of-living tools omit."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Where does this data come from?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Prices: BEA Regional Price Parities for the Austin metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and Texas rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
+                "text": "About $52,344 alone in a one-bedroom ($3,687 a month); about $93,913 for a family of four in a two-bedroom ($7,018 a month). Break-even after federal tax and FICA."
               }
             }
           ]
@@ -3200,8 +3394,8 @@
           "anchor": "cost of living by city"
         },
         {
-          "to": "/cost-of-living/austin-tx",
-          "anchor": "cost of living in Austin"
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "cost of living in San Antonio"
         },
         {
           "to": "/tools/rent-affordability-calculator",
@@ -3214,8 +3408,64 @@
       ],
       "dataVerification": "indices-and-rent-ready",
       "staleForTargetYear": false,
-      "sitemap": null,
-      "built": false
+      "sitemap": "/sitemaps/places.xml",
+      "built": true,
+      "calculatorPlace": {
+        "key": "city:Austin, TX",
+        "st": "TX"
+      },
+      "siblings": [
+        {
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "Cost of living in Atlanta"
+        },
+        {
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "Cost of living in Chicago"
+        },
+        {
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "Cost of living in Detroit"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "Cost of living in Houston"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "Cost of living in Miami"
+        },
+        {
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "Cost of living in New York"
+        },
+        {
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "Cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "Cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "Cost of living in Tampa"
+        }
+      ],
+      "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AAustin%2C+TX&to=city%3AHouston%2C+TX",
+          "anchor": "Austin vs Houston"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AAustin%2C+TX&to=city%3ANew+York%2C+NY",
+          "anchor": "Austin vs New York"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AAustin%2C+TX&to=city%3AChicago%2C+IL",
+          "anchor": "Austin vs Chicago"
+        }
+      ]
     },
     {
       "path": "/cost-of-living/san-francisco-ca",
@@ -3244,23 +3494,15 @@
       "faq": [
         {
           "question": "How expensive is San Francisco?",
-          "answer": "Overall prices in the San Francisco metro area were 115.6 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 15.6 points above average. By component: housing rents 194.7, goods 108.5, utilities 172.6, other services 106.2. Housing rents are the furthest from average, so they decide whether San Francisco feels expensive for you."
+          "answer": "115.6, 15.6 points above the US level of 100 (BEA, 2024). Housing rents 194.7, goods 108.5, utilities 172.6, other services 106.2."
         },
         {
           "question": "What is a typical rent in San Francisco?",
-          "answer": "HUD's Fair Market Rent for San Francisco is $2,977 a month for a one-bedroom and $3,604 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
+          "answer": "Studio $2,485, one bedroom $2,977, two $3,604, three $4,604, four $4,772 (San Francisco County, HUD fiscal 2026, utilities included)."
         },
         {
           "question": "What salary do you need to live in San Francisco?",
-          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Francisco's price level — the month comes to about $5,385. Covering that after federal tax, Social Security, Medicare and California tax takes a salary of about $84,686. Two adults and two children in a two-bedroom need about $136,961 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
-        },
-        {
-          "question": "Does California tax affect what you keep in San Francisco?",
-          "answer": "Yes. On a $95,000 salary, a single California resident keeps about $70,920 — an effective 25.3%. That figure applies anywhere in California, so it is the same in San Francisco as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
-        },
-        {
-          "question": "Where does this data come from?",
-          "answer": "Prices: BEA Regional Price Parities for the San Francisco metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and California rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
+          "answer": "About $84,686 alone in a one-bedroom ($5,385 a month); about $136,961 for a family of four in a two-bedroom ($9,467 a month). Break-even after federal tax, FICA and California tax."
         }
       ],
       "jsonLd": [
@@ -3306,7 +3548,7 @@
               "name": "How expensive is San Francisco?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Overall prices in the San Francisco metro area were 115.6 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 15.6 points above average. By component: housing rents 194.7, goods 108.5, utilities 172.6, other services 106.2. Housing rents are the furthest from average, so they decide whether San Francisco feels expensive for you."
+                "text": "115.6, 15.6 points above the US level of 100 (BEA, 2024). Housing rents 194.7, goods 108.5, utilities 172.6, other services 106.2."
               }
             },
             {
@@ -3314,7 +3556,7 @@
               "name": "What is a typical rent in San Francisco?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "HUD's Fair Market Rent for San Francisco is $2,977 a month for a one-bedroom and $3,604 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
+                "text": "Studio $2,485, one bedroom $2,977, two $3,604, three $4,604, four $4,772 (San Francisco County, HUD fiscal 2026, utilities included)."
               }
             },
             {
@@ -3322,23 +3564,7 @@
               "name": "What salary do you need to live in San Francisco?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Francisco's price level — the month comes to about $5,385. Covering that after federal tax, Social Security, Medicare and California tax takes a salary of about $84,686. Two adults and two children in a two-bedroom need about $136,961 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Does California tax affect what you keep in San Francisco?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Yes. On a $95,000 salary, a single California resident keeps about $70,920 — an effective 25.3%. That figure applies anywhere in California, so it is the same in San Francisco as in the rest of the state, and it is the half of the comparison most cost-of-living tools omit."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Where does this data come from?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Prices: BEA Regional Price Parities for the San Francisco metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and California rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
+                "text": "About $84,686 alone in a one-bedroom ($5,385 a month); about $136,961 for a family of four in a two-bedroom ($9,467 a month). Break-even after federal tax, FICA and California tax."
               }
             }
           ]
@@ -3374,10 +3600,6 @@
           "anchor": "cost of living by city"
         },
         {
-          "to": "/cost-of-living/san-francisco-ca",
-          "anchor": "cost of living in San Francisco"
-        },
-        {
           "to": "/tools/rent-affordability-calculator",
           "anchor": "rent affordability calculator"
         },
@@ -3408,33 +3630,24 @@
         "San Antonio"
       ],
       "h2Outline": [
-        "What it costs to live in San Antonio",
-        "What the indices mean",
-        "Texas income tax on your salary",
-        "Who San Antonio suits",
-        "How we calculate this",
+        "A Bexar County month",
+        "Below average on every component",
+        "Same Texas paycheck, cheaper rent",
+        "Who San Antonio rewards",
         "Frequently asked questions"
       ],
       "faq": [
         {
           "question": "How expensive is San Antonio?",
-          "answer": "Overall prices in the San Antonio metro area were 94.7 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 5.3 points below average. By component: housing rents 94.6, goods 93.8, utilities 82.2, other services 96.2. Utilities are the furthest from average, so they decide whether San Antonio feels expensive for you."
+          "answer": "94.7, 5.3 points below the US level of 100 (BEA, 2024). Housing rents 94.6, goods 93.8, utilities 82.2, other services 96.2."
         },
         {
           "question": "What is a typical rent in San Antonio?",
-          "answer": "HUD's Fair Market Rent for San Antonio is $1,177 a month for a one-bedroom and $1,426 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
+          "answer": "Studio $1,077, one bedroom $1,177, two $1,426, three $1,830, four $2,132 (Bexar County, HUD fiscal 2026, utilities included)."
         },
         {
           "question": "What salary do you need to live in San Antonio?",
-          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Antonio's price level — the month comes to about $3,293. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $46,471. Two adults and two children in a two-bedroom need about $87,272 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
-        },
-        {
-          "question": "Does Texas tax affect what you keep in San Antonio?",
-          "answer": "No — Texas has no state income tax, which is much of its appeal. On a $95,000 salary a single Texas resident keeps about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%, the same in San Antonio as anywhere else in Texas. What separates San Antonio from other Texas cities is housing: its one-bedroom Fair Market Rent is $1,177 a month. Against a taxed state, compare take-home first and rent second — the half most cost-of-living tools omit."
-        },
-        {
-          "question": "Where does this data come from?",
-          "answer": "Prices: BEA Regional Price Parities for the San Antonio metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and Texas rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
+          "answer": "About $46,471 alone in a one-bedroom ($3,293 a month); about $87,272 for a family of four in a two-bedroom ($6,574 a month). Break-even after federal tax and FICA."
         }
       ],
       "jsonLd": [
@@ -3480,7 +3693,7 @@
               "name": "How expensive is San Antonio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Overall prices in the San Antonio metro area were 94.7 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 5.3 points below average. By component: housing rents 94.6, goods 93.8, utilities 82.2, other services 96.2. Utilities are the furthest from average, so they decide whether San Antonio feels expensive for you."
+                "text": "94.7, 5.3 points below the US level of 100 (BEA, 2024). Housing rents 94.6, goods 93.8, utilities 82.2, other services 96.2."
               }
             },
             {
@@ -3488,7 +3701,7 @@
               "name": "What is a typical rent in San Antonio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "HUD's Fair Market Rent for San Antonio is $1,177 a month for a one-bedroom and $1,426 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
+                "text": "Studio $1,077, one bedroom $1,177, two $1,426, three $1,830, four $2,132 (Bexar County, HUD fiscal 2026, utilities included)."
               }
             },
             {
@@ -3496,23 +3709,7 @@
               "name": "What salary do you need to live in San Antonio?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at San Antonio's price level — the month comes to about $3,293. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $46,471. Two adults and two children in a two-bedroom need about $87,272 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Does Texas tax affect what you keep in San Antonio?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No — Texas has no state income tax, which is much of its appeal. On a $95,000 salary a single Texas resident keeps about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%, the same in San Antonio as anywhere else in Texas. What separates San Antonio from other Texas cities is housing: its one-bedroom Fair Market Rent is $1,177 a month. Against a taxed state, compare take-home first and rent second — the half most cost-of-living tools omit."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Where does this data come from?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Prices: BEA Regional Price Parities for the San Antonio metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and Texas rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
+                "text": "About $46,471 alone in a one-bedroom ($3,293 a month); about $87,272 for a family of four in a two-bedroom ($6,574 a month). Break-even after federal tax and FICA."
               }
             }
           ]
@@ -3548,8 +3745,8 @@
           "anchor": "cost of living by city"
         },
         {
-          "to": "/cost-of-living/san-antonio-tx",
-          "anchor": "cost of living in San Antonio"
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "cost of living in Austin"
         },
         {
           "to": "/tools/rent-affordability-calculator",
@@ -3562,8 +3759,64 @@
       ],
       "dataVerification": "indices-and-rent-ready",
       "staleForTargetYear": false,
-      "sitemap": null,
-      "built": false
+      "sitemap": "/sitemaps/places.xml",
+      "built": true,
+      "calculatorPlace": {
+        "key": "city:San Antonio, TX",
+        "st": "TX"
+      },
+      "siblings": [
+        {
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "Cost of living in Atlanta"
+        },
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "Cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "Cost of living in Chicago"
+        },
+        {
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "Cost of living in Detroit"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "Cost of living in Houston"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "Cost of living in Miami"
+        },
+        {
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "Cost of living in New York"
+        },
+        {
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "Cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "Cost of living in Tampa"
+        }
+      ],
+      "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ASan+Antonio%2C+TX&to=city%3AHouston%2C+TX",
+          "anchor": "San Antonio vs Houston"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ASan+Antonio%2C+TX&to=city%3ANew+York%2C+NY",
+          "anchor": "San Antonio vs New York"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ASan+Antonio%2C+TX&to=city%3AChicago%2C+IL",
+          "anchor": "San Antonio vs Chicago"
+        }
+      ]
     },
     {
       "path": "/cost-of-living/houston-tx",
@@ -3582,33 +3835,24 @@
         "Houston"
       ],
       "h2Outline": [
-        "What it costs to live in Houston",
-        "What the indices mean",
-        "Texas income tax on your salary",
-        "Who Houston suits",
-        "How we calculate this",
+        "A Harris County budget",
+        "Four indices within five points of the norm",
+        "The paycheck does the work",
+        "Who gains most from Houston",
         "Frequently asked questions"
       ],
       "faq": [
         {
           "question": "How expensive is Houston?",
-          "answer": "Overall prices in the Houston metro area were 98.6 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 1.4 points below average. By component: housing rents 104.5, goods 100.6, utilities 95.3, other services 95.6. Utilities are the furthest from average, so they decide whether Houston feels expensive for you."
+          "answer": "98.6, 1.4 points below the US level of 100 (BEA, 2024). Housing rents 104.5, goods 100.6, utilities 95.3, other services 95.6."
         },
         {
           "question": "What is a typical rent in Houston?",
-          "answer": "HUD's Fair Market Rent for Houston is $1,323 a month for a one-bedroom and $1,573 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
+          "answer": "Studio $1,280, one bedroom $1,323, two $1,573, three $2,116, four $2,639 (Harris County, HUD fiscal 2026, utilities included)."
         },
         {
           "question": "What salary do you need to live in Houston?",
-          "answer": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Houston's price level — the month comes to about $3,505. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $49,626. Two adults and two children in a two-bedroom need about $92,026 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
-        },
-        {
-          "question": "Does Texas tax affect what you keep in Houston?",
-          "answer": "No — Texas has no state income tax, which is much of its appeal. On a $95,000 salary a single Texas resident keeps about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%, the same in Houston as anywhere else in Texas. What separates Houston from other Texas cities is housing: its one-bedroom Fair Market Rent is $1,323 a month. Against a taxed state, compare take-home first and rent second — the half most cost-of-living tools omit."
-        },
-        {
-          "question": "Where does this data come from?",
-          "answer": "Prices: BEA Regional Price Parities for the Houston metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and Texas rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
+          "answer": "About $49,626 alone in a one-bedroom ($3,505 a month); about $92,026 for a family of four in a two-bedroom ($6,892 a month). Break-even after federal tax and FICA."
         }
       ],
       "jsonLd": [
@@ -3654,7 +3898,7 @@
               "name": "How expensive is Houston?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Overall prices in the Houston metro area were 98.6 in 2024 on BEA's Regional Price Parities, where the US average is 100 — 1.4 points below average. By component: housing rents 104.5, goods 100.6, utilities 95.3, other services 95.6. Utilities are the furthest from average, so they decide whether Houston feels expensive for you."
+                "text": "98.6, 1.4 points below the US level of 100 (BEA, 2024). Housing rents 104.5, goods 100.6, utilities 95.3, other services 95.6."
               }
             },
             {
@@ -3662,7 +3906,7 @@
               "name": "What is a typical rent in Houston?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "HUD's Fair Market Rent for Houston is $1,323 a month for a one-bedroom and $1,573 for a two-bedroom. That is gross rent, including the utilities a tenant pays, at the 40th percentile of what recent movers paid — a typical rent, not a luxury one."
+                "text": "Studio $1,280, one bedroom $1,323, two $1,573, three $2,116, four $2,639 (Harris County, HUD fiscal 2026, utilities included)."
               }
             },
             {
@@ -3670,23 +3914,7 @@
               "name": "What salary do you need to live in Houston?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For one person renting a one-bedroom at HUD's Fair Market Rent and spending what the average one-person US household spends on food, transport, health care and other everyday categories — priced at Houston's price level — the month comes to about $3,505. Covering that after federal tax, Social Security and Medicare (Texas has no income tax) takes a salary of about $49,626. Two adults and two children in a two-bedroom need about $92,026 on one income filing jointly, after the child tax credit. Both are break-even figures with no savings; the cost of living calculator replaces any line with your own."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Does Texas tax affect what you keep in Houston?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "No — Texas has no state income tax, which is much of its appeal. On a $95,000 salary a single Texas resident keeps about $75,663 after federal tax, Social Security and Medicare — an effective 20.4%, the same in Houston as anywhere else in Texas. What separates Houston from other Texas cities is housing: its one-bedroom Fair Market Rent is $1,323 a month. Against a taxed state, compare take-home first and rent second — the half most cost-of-living tools omit."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Where does this data come from?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Prices: BEA Regional Price Parities for the Houston metropolitan area, 2024, the latest year BEA has published. Rent: HUD Fair Market Rents for fiscal 2026. Everyday spending: the BLS Consumer Expenditure Survey by household size. Tax: this site's engine on 2026 federal and Texas rules, checked against the official sources. All of it is official, free to cite, and republished here rather than estimated."
+                "text": "About $49,626 alone in a one-bedroom ($3,505 a month); about $92,026 for a family of four in a two-bedroom ($6,892 a month). Break-even after federal tax and FICA."
               }
             }
           ]
@@ -3722,8 +3950,8 @@
           "anchor": "cost of living by city"
         },
         {
-          "to": "/cost-of-living/houston-tx",
-          "anchor": "cost of living in Houston"
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "cost of living in Austin"
         },
         {
           "to": "/tools/rent-affordability-calculator",
@@ -3736,8 +3964,1484 @@
       ],
       "dataVerification": "indices-and-rent-ready",
       "staleForTargetYear": false,
-      "sitemap": null,
-      "built": false
+      "sitemap": "/sitemaps/places.xml",
+      "built": true,
+      "calculatorPlace": {
+        "key": "city:Houston, TX",
+        "st": "TX"
+      },
+      "siblings": [
+        {
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "Cost of living in Atlanta"
+        },
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "Cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "Cost of living in Chicago"
+        },
+        {
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "Cost of living in Detroit"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "Cost of living in Miami"
+        },
+        {
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "Cost of living in New York"
+        },
+        {
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "Cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "Cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "Cost of living in Tampa"
+        }
+      ],
+      "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AHouston%2C+TX&to=city%3ASan+Antonio%2C+TX",
+          "anchor": "Houston vs San Antonio"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AHouston%2C+TX&to=city%3ANew+York%2C+NY",
+          "anchor": "Houston vs New York"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AHouston%2C+TX&to=city%3AChicago%2C+IL",
+          "anchor": "Houston vs Chicago"
+        }
+      ]
+    },
+    {
+      "path": "/cost-of-living/new-york-ny",
+      "template": "PlacePage",
+      "entity": "new-york-ny",
+      "entityName": "New York",
+      "title": "Cost of Living in New York (2026)",
+      "titleChars": 33,
+      "h1": "Cost of Living in New York",
+      "metaDescription": "What a month costs in New York, from official BEA and HUD data — rent, goods, services, and what you keep after New York tax.",
+      "metaChars": 125,
+      "canonical": "https://example.com/cost-of-living/new-york-ny",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living",
+        "New York"
+      ],
+      "h2Outline": [
+        "Manhattan-level prices, month by month",
+        "One rent for five boroughs",
+        "What the other indices say",
+        "New York tax, and the city's own",
+        "When New York makes sense",
+        "Frequently asked questions"
+      ],
+      "faq": [
+        {
+          "question": "How expensive is New York?",
+          "answer": "112.6, 12.6 points above the US level of 100 (BEA, 2024). Housing rents 148.6, goods 110.3, utilities 127.0, other services 105.8."
+        },
+        {
+          "question": "What is a typical rent in New York?",
+          "answer": "Studio $2,529, one bedroom $2,655, two $2,910, three $3,644, four $3,959 (New York County, HUD fiscal 2026, utilities included)."
+        },
+        {
+          "question": "What salary do you need to live in New York?",
+          "answer": "About $79,700 alone in a one-bedroom ($5,068 a month); about $128,069 for a family of four in a two-bedroom ($8,790 a month). Break-even after federal tax, FICA and New York tax."
+        }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living",
+              "item": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "New York"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Place",
+          "name": "New York, NY",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "NY",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How expensive is New York?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "112.6, 12.6 points above the US level of 100 (BEA, 2024). Housing rents 148.6, goods 110.3, utilities 127.0, other services 105.8."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical rent in New York?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Studio $2,529, one bedroom $2,655, two $2,910, three $3,644, four $3,959 (New York County, HUD fiscal 2026, utilities included)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do you need to live in New York?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About $79,700 alone in a one-bedroom ($5,068 a month); about $128,069 for a family of four in a two-bedroom ($8,790 a month). Break-even after federal tax, FICA and New York tax."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Cost of living indices for New York, NY",
+          "description": "Regional price parities and fair market rents for New York, NY, 2026.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+            "https://www.huduser.gov/portal/datasets/fmr.html"
+          ],
+          "dateModified": "2026-09-27"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
+        }
+      ],
+      "dataVerification": "indices-and-rent-ready",
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/places.xml",
+      "built": true,
+      "calculatorPlace": {
+        "key": "city:New York, NY",
+        "st": "NY"
+      },
+      "siblings": [
+        {
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "Cost of living in Atlanta"
+        },
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "Cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "Cost of living in Chicago"
+        },
+        {
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "Cost of living in Detroit"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "Cost of living in Houston"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "Cost of living in Miami"
+        },
+        {
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "Cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "Cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "Cost of living in Tampa"
+        }
+      ],
+      "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ANew+York%2C+NY&to=city%3AChicago%2C+IL",
+          "anchor": "New York vs Chicago"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ANew+York%2C+NY&to=city%3AHouston%2C+TX",
+          "anchor": "New York vs Houston"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ANew+York%2C+NY&to=city%3APhiladelphia%2C+PA",
+          "anchor": "New York vs Philadelphia"
+        }
+      ]
+    },
+    {
+      "path": "/cost-of-living/chicago-il",
+      "template": "PlacePage",
+      "entity": "chicago-il",
+      "entityName": "Chicago",
+      "title": "Cost of Living in Chicago (2026)",
+      "titleChars": 32,
+      "h1": "Cost of Living in Chicago",
+      "metaDescription": "What a month costs in Chicago, from official BEA and HUD data — rent, goods, services, and what you keep after Illinois tax.",
+      "metaChars": 124,
+      "canonical": "https://example.com/cost-of-living/chicago-il",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living",
+        "Chicago"
+      ],
+      "h2Outline": [
+        "Cook County rent, Chicago prices",
+        "Goods cost more than rent suggests",
+        "Against the coasts, and against the Midwest",
+        "A flat 4.95%, and no city levy",
+        "Who comes out ahead here",
+        "Frequently asked questions"
+      ],
+      "faq": [
+        {
+          "question": "How expensive is Chicago?",
+          "answer": "103.6, 3.6 points above the US level of 100 (BEA, 2024). Housing rents 112.0, goods 107.3, utilities 83.6, other services 100.5."
+        },
+        {
+          "question": "What is a typical rent in Chicago?",
+          "answer": "Studio $1,480, one bedroom $1,581, two $1,781, three $2,294, four $2,653 (Cook County, HUD fiscal 2026, utilities included)."
+        },
+        {
+          "question": "What salary do you need to live in Chicago?",
+          "answer": "About $58,785 alone in a one-bedroom ($3,887 a month); about $105,498 for a family of four in a two-bedroom ($7,407 a month). Break-even after federal tax, FICA and Illinois tax."
+        }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living",
+              "item": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Chicago"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Place",
+          "name": "Chicago, IL",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "IL",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How expensive is Chicago?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "103.6, 3.6 points above the US level of 100 (BEA, 2024). Housing rents 112.0, goods 107.3, utilities 83.6, other services 100.5."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical rent in Chicago?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Studio $1,480, one bedroom $1,581, two $1,781, three $2,294, four $2,653 (Cook County, HUD fiscal 2026, utilities included)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do you need to live in Chicago?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About $58,785 alone in a one-bedroom ($3,887 a month); about $105,498 for a family of four in a two-bedroom ($7,407 a month). Break-even after federal tax, FICA and Illinois tax."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Cost of living indices for Chicago, IL",
+          "description": "Regional price parities and fair market rents for Chicago, IL, 2026.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+            "https://www.huduser.gov/portal/datasets/fmr.html"
+          ],
+          "dateModified": "2026-09-27"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
+        }
+      ],
+      "dataVerification": "indices-and-rent-ready",
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/places.xml",
+      "built": true,
+      "calculatorPlace": {
+        "key": "city:Chicago, IL",
+        "st": "IL"
+      },
+      "siblings": [
+        {
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "Cost of living in Atlanta"
+        },
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "Cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "Cost of living in Detroit"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "Cost of living in Houston"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "Cost of living in Miami"
+        },
+        {
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "Cost of living in New York"
+        },
+        {
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "Cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "Cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "Cost of living in Tampa"
+        }
+      ],
+      "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AChicago%2C+IL&to=city%3ANew+York%2C+NY",
+          "anchor": "Chicago vs New York"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AChicago%2C+IL&to=city%3AHouston%2C+TX",
+          "anchor": "Chicago vs Houston"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AChicago%2C+IL&to=city%3APhiladelphia%2C+PA",
+          "anchor": "Chicago vs Philadelphia"
+        }
+      ]
+    },
+    {
+      "path": "/cost-of-living/philadelphia-pa",
+      "template": "PlacePage",
+      "entity": "philadelphia-pa",
+      "entityName": "Philadelphia",
+      "title": "Cost of Living in Philadelphia (2026)",
+      "titleChars": 37,
+      "h1": "Cost of Living in Philadelphia",
+      "metaDescription": "What a month costs in Philadelphia, from official BEA and HUD data — rent, goods, services, and what you keep after Pennsylvania tax.",
+      "metaChars": 133,
+      "canonical": "https://example.com/cost-of-living/philadelphia-pa",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living",
+        "Philadelphia"
+      ],
+      "h2Outline": [
+        "A Philadelphia month",
+        "Rents, and what they include",
+        "Goods are the cheaper side",
+        "Pennsylvania tax, and the city's wage tax",
+        "Who Philadelphia suits",
+        "Frequently asked questions"
+      ],
+      "faq": [
+        {
+          "question": "How expensive is Philadelphia?",
+          "answer": "102.6, 2.6 points above the US level of 100 (BEA, 2024). Housing rents 113.1, goods 96.8, utilities 114.4, other services 103.1."
+        },
+        {
+          "question": "What is a typical rent in Philadelphia?",
+          "answer": "Studio $1,397, one bedroom $1,520, two $1,810, three $2,170, four $2,423 (Philadelphia County, HUD fiscal 2026, utilities included)."
+        },
+        {
+          "question": "What salary do you need to live in Philadelphia?",
+          "answer": "About $55,560 alone in a one-bedroom ($3,757 a month); about $101,221 for a family of four in a two-bedroom ($7,243 a month). Break-even after federal tax, FICA and Pennsylvania tax."
+        }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living",
+              "item": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Philadelphia"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Place",
+          "name": "Philadelphia, PA",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "PA",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How expensive is Philadelphia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "102.6, 2.6 points above the US level of 100 (BEA, 2024). Housing rents 113.1, goods 96.8, utilities 114.4, other services 103.1."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical rent in Philadelphia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Studio $1,397, one bedroom $1,520, two $1,810, three $2,170, four $2,423 (Philadelphia County, HUD fiscal 2026, utilities included)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do you need to live in Philadelphia?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About $55,560 alone in a one-bedroom ($3,757 a month); about $101,221 for a family of four in a two-bedroom ($7,243 a month). Break-even after federal tax, FICA and Pennsylvania tax."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Cost of living indices for Philadelphia, PA",
+          "description": "Regional price parities and fair market rents for Philadelphia, PA, 2026.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+            "https://www.huduser.gov/portal/datasets/fmr.html"
+          ],
+          "dateModified": "2026-09-27"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
+        }
+      ],
+      "dataVerification": "indices-and-rent-ready",
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/places.xml",
+      "built": true,
+      "calculatorPlace": {
+        "key": "city:Philadelphia, PA",
+        "st": "PA"
+      },
+      "siblings": [
+        {
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "Cost of living in Atlanta"
+        },
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "Cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "Cost of living in Chicago"
+        },
+        {
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "Cost of living in Detroit"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "Cost of living in Houston"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "Cost of living in Miami"
+        },
+        {
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "Cost of living in New York"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "Cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "Cost of living in Tampa"
+        }
+      ],
+      "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3APhiladelphia%2C+PA&to=city%3ANew+York%2C+NY",
+          "anchor": "Philadelphia vs New York"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3APhiladelphia%2C+PA&to=city%3AChicago%2C+IL",
+          "anchor": "Philadelphia vs Chicago"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3APhiladelphia%2C+PA&to=city%3AHouston%2C+TX",
+          "anchor": "Philadelphia vs Houston"
+        }
+      ]
+    },
+    {
+      "path": "/cost-of-living/miami-fl",
+      "template": "PlacePage",
+      "entity": "miami-fl",
+      "entityName": "Miami",
+      "title": "Cost of Living in Miami (2026)",
+      "titleChars": 30,
+      "h1": "Cost of Living in Miami",
+      "metaDescription": "What a month costs in Miami, from official BEA and HUD data — rent, goods, services, and what you keep after Florida tax.",
+      "metaChars": 121,
+      "canonical": "https://example.com/cost-of-living/miami-fl",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living",
+        "Miami"
+      ],
+      "h2Outline": [
+        "Miami-Dade rent at Miami prices",
+        "Is Miami expensive?",
+        "No income tax, and where Florida collects instead",
+        "Who Miami's trade favours",
+        "Frequently asked questions"
+      ],
+      "faq": [
+        {
+          "question": "How expensive is Miami?",
+          "answer": "114.2, 14.2 points above the US level of 100 (BEA, 2024). Housing rents 155.6, goods 103.6, utilities 97.2, other services 109.1."
+        },
+        {
+          "question": "What is a typical rent in Miami?",
+          "answer": "Studio $1,828, one bedroom $1,995, two $2,436, three $3,127, four $3,613 (Miami-Dade County, HUD fiscal 2026, utilities included)."
+        },
+        {
+          "question": "What salary do you need to live in Miami?",
+          "answer": "About $62,793 alone in a one-bedroom ($4,386 a month); about $112,219 for a family of four in a two-bedroom ($8,244 a month). Break-even after federal tax and FICA."
+        }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living",
+              "item": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Miami"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Place",
+          "name": "Miami, FL",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "FL",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How expensive is Miami?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "114.2, 14.2 points above the US level of 100 (BEA, 2024). Housing rents 155.6, goods 103.6, utilities 97.2, other services 109.1."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical rent in Miami?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Studio $1,828, one bedroom $1,995, two $2,436, three $3,127, four $3,613 (Miami-Dade County, HUD fiscal 2026, utilities included)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do you need to live in Miami?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About $62,793 alone in a one-bedroom ($4,386 a month); about $112,219 for a family of four in a two-bedroom ($8,244 a month). Break-even after federal tax and FICA."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Cost of living indices for Miami, FL",
+          "description": "Regional price parities and fair market rents for Miami, FL, 2026.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+            "https://www.huduser.gov/portal/datasets/fmr.html"
+          ],
+          "dateModified": "2026-09-27"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "cost of living in Tampa"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
+        }
+      ],
+      "dataVerification": "indices-and-rent-ready",
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/places.xml",
+      "built": true,
+      "calculatorPlace": {
+        "key": "city:Miami, FL",
+        "st": "FL"
+      },
+      "siblings": [
+        {
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "Cost of living in Atlanta"
+        },
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "Cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "Cost of living in Chicago"
+        },
+        {
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "Cost of living in Detroit"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "Cost of living in Houston"
+        },
+        {
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "Cost of living in New York"
+        },
+        {
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "Cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "Cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "Cost of living in Tampa"
+        }
+      ],
+      "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AMiami%2C+FL&to=city%3ATampa%2C+FL",
+          "anchor": "Miami vs Tampa"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AMiami%2C+FL&to=city%3ANew+York%2C+NY",
+          "anchor": "Miami vs New York"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AMiami%2C+FL&to=city%3AChicago%2C+IL",
+          "anchor": "Miami vs Chicago"
+        }
+      ]
+    },
+    {
+      "path": "/cost-of-living/atlanta-ga",
+      "template": "PlacePage",
+      "entity": "atlanta-ga",
+      "entityName": "Atlanta",
+      "title": "Cost of Living in Atlanta (2026)",
+      "titleChars": 32,
+      "h1": "Cost of Living in Atlanta",
+      "metaDescription": "What a month costs in Atlanta, from official BEA and HUD data — rent, goods, services, and what you keep after Georgia tax.",
+      "metaChars": 123,
+      "canonical": "https://example.com/cost-of-living/atlanta-ga",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living",
+        "Atlanta"
+      ],
+      "h2Outline": [
+        "Fulton County rent, Atlanta prices",
+        "Four indices, one of them high",
+        "One rent across the core counties",
+        "Georgia tax on an Atlanta salary",
+        "Where Atlanta pays off",
+        "Frequently asked questions"
+      ],
+      "faq": [
+        {
+          "question": "How expensive is Atlanta?",
+          "answer": "100.1, 0.1 points above the US level of 100 (BEA, 2024). Housing rents 111.0, goods 100.4, utilities 96.2, other services 96.7."
+        },
+        {
+          "question": "What is a typical rent in Atlanta?",
+          "answer": "Studio $1,585, one bedroom $1,660, two $1,820, three $2,182, four $2,605 (Fulton County, HUD fiscal 2026, utilities included)."
+        },
+        {
+          "question": "What salary do you need to live in Atlanta?",
+          "answer": "About $57,498 alone in a one-bedroom ($3,855 a month); about $99,879 for a family of four in a two-bedroom ($7,169 a month). Break-even after federal tax, FICA and Georgia tax."
+        }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living",
+              "item": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Atlanta"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Place",
+          "name": "Atlanta, GA",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "GA",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How expensive is Atlanta?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "100.1, 0.1 points above the US level of 100 (BEA, 2024). Housing rents 111.0, goods 100.4, utilities 96.2, other services 96.7."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical rent in Atlanta?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Studio $1,585, one bedroom $1,660, two $1,820, three $2,182, four $2,605 (Fulton County, HUD fiscal 2026, utilities included)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do you need to live in Atlanta?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About $57,498 alone in a one-bedroom ($3,855 a month); about $99,879 for a family of four in a two-bedroom ($7,169 a month). Break-even after federal tax, FICA and Georgia tax."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Cost of living indices for Atlanta, GA",
+          "description": "Regional price parities and fair market rents for Atlanta, GA, 2026.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+            "https://www.huduser.gov/portal/datasets/fmr.html"
+          ],
+          "dateModified": "2026-09-27"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
+        }
+      ],
+      "dataVerification": "indices-and-rent-ready",
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/places.xml",
+      "built": true,
+      "calculatorPlace": {
+        "key": "city:Atlanta, GA",
+        "st": "GA"
+      },
+      "siblings": [
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "Cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "Cost of living in Chicago"
+        },
+        {
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "Cost of living in Detroit"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "Cost of living in Houston"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "Cost of living in Miami"
+        },
+        {
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "Cost of living in New York"
+        },
+        {
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "Cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "Cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "Cost of living in Tampa"
+        }
+      ],
+      "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AAtlanta%2C+GA&to=city%3ANew+York%2C+NY",
+          "anchor": "Atlanta vs New York"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AAtlanta%2C+GA&to=city%3AChicago%2C+IL",
+          "anchor": "Atlanta vs Chicago"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3AAtlanta%2C+GA&to=city%3AHouston%2C+TX",
+          "anchor": "Atlanta vs Houston"
+        }
+      ]
+    },
+    {
+      "path": "/cost-of-living/detroit-mi",
+      "template": "PlacePage",
+      "entity": "detroit-mi",
+      "entityName": "Detroit",
+      "title": "Cost of Living in Detroit (2026)",
+      "titleChars": 32,
+      "h1": "Cost of Living in Detroit",
+      "metaDescription": "What a month costs in Detroit, from official BEA and HUD data — rent, goods, services, and what you keep after Michigan tax.",
+      "metaChars": 124,
+      "canonical": "https://example.com/cost-of-living/detroit-mi",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living",
+        "Detroit"
+      ],
+      "h2Outline": [
+        "Wayne County rent, Detroit prices",
+        "Rents across the metro",
+        "Michigan tax, and Detroit's city tax",
+        "Who Detroit's numbers favour",
+        "Frequently asked questions"
+      ],
+      "faq": [
+        {
+          "question": "How expensive is Detroit?",
+          "answer": "100.3, 0.3 points above the US level of 100 (BEA, 2024). Housing rents 94.7, goods 98.8, utilities 107.0, other services 102.6."
+        },
+        {
+          "question": "What is a typical rent in Detroit?",
+          "answer": "Studio $1,009, one bedroom $1,122, two $1,411, three $1,724, four $1,868 (Wayne County, HUD fiscal 2026, utilities included)."
+        },
+        {
+          "question": "What salary do you need to live in Detroit?",
+          "answer": "About $49,884 alone in a one-bedroom ($3,366 a month); about $95,462 for a family of four in a two-bedroom ($6,867 a month). Break-even after federal tax, FICA and Michigan tax."
+        }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living",
+              "item": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Detroit"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Place",
+          "name": "Detroit, MI",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "MI",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How expensive is Detroit?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "100.3, 0.3 points above the US level of 100 (BEA, 2024). Housing rents 94.7, goods 98.8, utilities 107.0, other services 102.6."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical rent in Detroit?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Studio $1,009, one bedroom $1,122, two $1,411, three $1,724, four $1,868 (Wayne County, HUD fiscal 2026, utilities included)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do you need to live in Detroit?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About $49,884 alone in a one-bedroom ($3,366 a month); about $95,462 for a family of four in a two-bedroom ($6,867 a month). Break-even after federal tax, FICA and Michigan tax."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Cost of living indices for Detroit, MI",
+          "description": "Regional price parities and fair market rents for Detroit, MI, 2026.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+            "https://www.huduser.gov/portal/datasets/fmr.html"
+          ],
+          "dateModified": "2026-09-27"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
+        }
+      ],
+      "dataVerification": "indices-and-rent-ready",
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/places.xml",
+      "built": true,
+      "calculatorPlace": {
+        "key": "city:Detroit, MI",
+        "st": "MI"
+      },
+      "siblings": [
+        {
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "Cost of living in Atlanta"
+        },
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "Cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "Cost of living in Chicago"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "Cost of living in Houston"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "Cost of living in Miami"
+        },
+        {
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "Cost of living in New York"
+        },
+        {
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "Cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "Cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "Cost of living in Tampa"
+        }
+      ],
+      "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ADetroit%2C+MI&to=city%3ANew+York%2C+NY",
+          "anchor": "Detroit vs New York"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ADetroit%2C+MI&to=city%3AChicago%2C+IL",
+          "anchor": "Detroit vs Chicago"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ADetroit%2C+MI&to=city%3AHouston%2C+TX",
+          "anchor": "Detroit vs Houston"
+        }
+      ]
+    },
+    {
+      "path": "/cost-of-living/tampa-fl",
+      "template": "PlacePage",
+      "entity": "tampa-fl",
+      "entityName": "Tampa",
+      "title": "Cost of Living in Tampa (2026)",
+      "titleChars": 30,
+      "h1": "Cost of Living in Tampa",
+      "metaDescription": "What a month costs in Tampa, from official BEA and HUD data — rent, goods, services, and what you keep after Florida tax.",
+      "metaChars": 121,
+      "canonical": "https://example.com/cost-of-living/tampa-fl",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living",
+        "Tampa"
+      ],
+      "h2Outline": [
+        "Tampa living expenses, month by month",
+        "Tampa and St. Petersburg share a rent",
+        "What the low utilities index means",
+        "No state income tax",
+        "Who Tampa suits",
+        "Frequently asked questions"
+      ],
+      "faq": [
+        {
+          "question": "How expensive is Tampa?",
+          "answer": "100.9, 0.9 points above the US level of 100 (BEA, 2024). Housing rents 125.8, goods 95.5, utilities 88.5, other services 97.6."
+        },
+        {
+          "question": "What is a typical rent in Tampa?",
+          "answer": "Studio $1,593, one bedroom $1,696, two $1,977, three $2,527, four $3,077 (Hillsborough County, HUD fiscal 2026, utilities included)."
+        },
+        {
+          "question": "What salary do you need to live in Tampa?",
+          "answer": "About $54,894 alone in a one-bedroom ($3,857 a month); about $97,117 for a family of four in a two-bedroom ($7,233 a month). Break-even after federal tax and FICA."
+        }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living",
+              "item": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Tampa"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Place",
+          "name": "Tampa, FL",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "FL",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How expensive is Tampa?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "100.9, 0.9 points above the US level of 100 (BEA, 2024). Housing rents 125.8, goods 95.5, utilities 88.5, other services 97.6."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical rent in Tampa?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Studio $1,593, one bedroom $1,696, two $1,977, three $2,527, four $3,077 (Hillsborough County, HUD fiscal 2026, utilities included)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do you need to live in Tampa?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About $54,894 alone in a one-bedroom ($3,857 a month); about $97,117 for a family of four in a two-bedroom ($7,233 a month). Break-even after federal tax and FICA."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Cost of living indices for Tampa, FL",
+          "description": "Regional price parities and fair market rents for Tampa, FL, 2026.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+            "https://www.huduser.gov/portal/datasets/fmr.html"
+          ],
+          "dateModified": "2026-09-27"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "cost of living in Miami"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
+        }
+      ],
+      "dataVerification": "indices-and-rent-ready",
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/places.xml",
+      "built": true,
+      "calculatorPlace": {
+        "key": "city:Tampa, FL",
+        "st": "FL"
+      },
+      "siblings": [
+        {
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "Cost of living in Atlanta"
+        },
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "Cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "Cost of living in Chicago"
+        },
+        {
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "Cost of living in Detroit"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "Cost of living in Houston"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "Cost of living in Miami"
+        },
+        {
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "Cost of living in New York"
+        },
+        {
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "Cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "Cost of living in San Antonio"
+        }
+      ],
+      "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ATampa%2C+FL&to=city%3AMiami%2C+FL",
+          "anchor": "Tampa vs Miami"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ATampa%2C+FL&to=city%3ANew+York%2C+NY",
+          "anchor": "Tampa vs New York"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ATampa%2C+FL&to=city%3AChicago%2C+IL",
+          "anchor": "Tampa vs Chicago"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/alabama",
@@ -3747,8 +5451,8 @@
       "title": "Alabama Paycheck Calculator (2026)",
       "titleChars": 34,
       "h1": "Alabama Paycheck Calculator",
-      "metaDescription": "See what a Alabama paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
-      "metaChars": 141,
+      "metaDescription": "See what an Alabama paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
+      "metaChars": 142,
       "canonical": "https://example.com/tools/paycheck-calculator/alabama",
       "breadcrumb": [
         "Home",
@@ -3949,7 +5653,7 @@
         },
         {
           "question": "Is Alaska actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Alaska leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Alaska leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Alaska?",
@@ -4036,7 +5740,7 @@
               "name": "Is Alaska actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Alaska leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Alaska leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -4097,8 +5801,8 @@
       "title": "Arizona Paycheck Calculator (2026)",
       "titleChars": 34,
       "h1": "Arizona Paycheck Calculator",
-      "metaDescription": "See what a Arizona paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
-      "metaChars": 141,
+      "metaDescription": "See what an Arizona paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
+      "metaChars": 142,
       "canonical": "https://example.com/tools/paycheck-calculator/arizona",
       "breadcrumb": [
         "Home",
@@ -4272,8 +5976,8 @@
       "title": "Arkansas Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Arkansas Paycheck Calculator",
-      "metaDescription": "See what a Arkansas paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
-      "metaChars": 142,
+      "metaDescription": "See what an Arkansas paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
+      "metaChars": 143,
       "canonical": "https://example.com/tools/paycheck-calculator/arkansas",
       "breadcrumb": [
         "Home",
@@ -5176,7 +6880,7 @@
         },
         {
           "question": "Is Florida actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Florida leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Florida leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Florida?",
@@ -5263,7 +6967,7 @@
               "name": "Is Florida actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Florida leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Florida leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -5287,8 +6991,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "cost of living in Miami"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -5314,7 +7018,53 @@
       "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
-      "built": true
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/maryland",
+          "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/texas",
+          "anchor": "Texas paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/georgia",
@@ -5465,8 +7215,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "cost of living in Atlanta"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -5492,7 +7242,53 @@
       "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
-      "built": true
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/maryland",
+          "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/texas",
+          "anchor": "Texas paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/hawaii",
@@ -5677,8 +7473,8 @@
       "title": "Idaho Paycheck Calculator (2026)",
       "titleChars": 32,
       "h1": "Idaho Paycheck Calculator",
-      "metaDescription": "See what a Idaho paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
-      "metaChars": 139,
+      "metaDescription": "See what an Idaho paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
+      "metaChars": 140,
       "canonical": "https://example.com/tools/paycheck-calculator/idaho",
       "breadcrumb": [
         "Home",
@@ -5852,8 +7648,8 @@
       "title": "Illinois Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Illinois Paycheck Calculator",
-      "metaDescription": "See what a Illinois paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
-      "metaChars": 142,
+      "metaDescription": "See what an Illinois paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
+      "metaChars": 143,
       "canonical": "https://example.com/tools/paycheck-calculator/illinois",
       "breadcrumb": [
         "Home",
@@ -5993,8 +7789,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "cost of living in Chicago"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -6020,7 +7816,53 @@
       "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
-      "built": true
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/maryland",
+          "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/texas",
+          "anchor": "Texas paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/indiana",
@@ -6030,8 +7872,8 @@
       "title": "Indiana Paycheck Calculator (2026)",
       "titleChars": 34,
       "h1": "Indiana Paycheck Calculator",
-      "metaDescription": "See what a Indiana paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
-      "metaChars": 141,
+      "metaDescription": "See what an Indiana paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
+      "metaChars": 142,
       "canonical": "https://example.com/tools/paycheck-calculator/indiana",
       "breadcrumb": [
         "Home",
@@ -6040,10 +7882,12 @@
         "Indiana"
       ],
       "h2Outline": [
-        "How a Indiana paycheck is calculated",
-        "The Indiana flat rate",
-        "Local tax in Indiana",
-        "Indiana take-home by pay frequency",
+        "$95,000 in Indiana, before the county",
+        "The county line",
+        "Exemptions: small, but they add up for families",
+        "Form WH-4 and filing",
+        "Salaried and hourly",
+        "Self-employed",
         "Frequently asked questions"
       ],
       "faq": [
@@ -6057,7 +7901,7 @@
         },
         {
           "question": "How much is a biweekly paycheck on $95,000 in Indiana?",
-          "answer": "About $2,802 every two weeks for a single filer before local income tax, from $72,860 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $3,036."
+          "answer": "About $2,803 every two weeks for a single filer before local income tax, from $72,890 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $3,037."
         },
         {
           "question": "Are there local income taxes in Indiana?",
@@ -6065,7 +7909,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Indiana?",
-          "answer": "About $72,860 of a $95,000 salary for a single filer before local income tax, an effective 23.3%. Of that, $2,803 is Indiana state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $72,890 of a $95,000 salary for a single filer before local income tax, an effective 23.3%. Of that, $2,773 is Indiana state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -6144,7 +7988,7 @@
               "name": "How much is a biweekly paycheck on $95,000 in Indiana?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $2,802 every two weeks for a single filer before local income tax, from $72,860 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $3,036."
+                "text": "About $2,803 every two weeks for a single filer before local income tax, from $72,890 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $3,037."
               }
             },
             {
@@ -6160,7 +8004,7 @@
               "name": "How much of a $95,000 salary do you keep in Indiana?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $72,860 of a $95,000 salary for a single filer before local income tax, an effective 23.3%. Of that, $2,803 is Indiana state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $72,890 of a $95,000 salary for a single filer before local income tax, an effective 23.3%. Of that, $2,773 is Indiana state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -6192,10 +8036,56 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
+      "dataVerification": "verified",
       "staleForTargetYear": false,
-      "sitemap": null,
-      "built": false
+      "sitemap": "/sitemaps/states.xml",
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/maryland",
+          "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/texas",
+          "anchor": "Texas paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/iowa",
@@ -6205,8 +8095,8 @@
       "title": "Iowa Paycheck Calculator (2026)",
       "titleChars": 31,
       "h1": "Iowa Paycheck Calculator",
-      "metaDescription": "See what a Iowa paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
-      "metaChars": 138,
+      "metaDescription": "See what an Iowa paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
+      "metaChars": 139,
       "canonical": "https://example.com/tools/paycheck-calculator/iowa",
       "breadcrumb": [
         "Home",
@@ -7248,7 +9138,53 @@
       "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
-      "built": true
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/texas",
+          "anchor": "Texas paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/massachusetts",
@@ -7443,10 +9379,13 @@
         "Michigan"
       ],
       "h2Outline": [
-        "How a Michigan paycheck is calculated",
-        "The Michigan flat rate",
-        "Local tax in Michigan",
-        "Michigan take-home by pay frequency",
+        "$95,000 in Michigan",
+        "The exemption does the work",
+        "The year the rate moved",
+        "City income tax",
+        "Form MI-W4 and filing",
+        "Salaried and hourly pay",
+        "Self-employed",
         "Frequently asked questions"
       ],
       "faq": [
@@ -7460,7 +9399,7 @@
         },
         {
           "question": "How much is a biweekly paycheck on $95,000 in Michigan?",
-          "answer": "About $2,755 every two weeks for a single filer before local income tax, from $71,625 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,984."
+          "answer": "About $2,764 every two weeks for a single filer before local income tax, from $71,876 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,995."
         },
         {
           "question": "Are there local income taxes in Michigan?",
@@ -7468,7 +9407,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Michigan?",
-          "answer": "About $71,625 of a $95,000 salary for a single filer before local income tax, an effective 24.6%. Of that, $4,038 is Michigan state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $71,876 of a $95,000 salary for a single filer before local income tax, an effective 24.3%. Of that, $3,787 is Michigan state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -7547,7 +9486,7 @@
               "name": "How much is a biweekly paycheck on $95,000 in Michigan?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $2,755 every two weeks for a single filer before local income tax, from $71,625 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,984."
+                "text": "About $2,764 every two weeks for a single filer before local income tax, from $71,876 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,995."
               }
             },
             {
@@ -7563,7 +9502,7 @@
               "name": "How much of a $95,000 salary do you keep in Michigan?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $71,625 of a $95,000 salary for a single filer before local income tax, an effective 24.6%. Of that, $4,038 is Michigan state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $71,876 of a $95,000 salary for a single filer before local income tax, an effective 24.3%. Of that, $3,787 is Michigan state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -7571,8 +9510,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "cost of living in Detroit"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -7595,10 +9534,56 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
+      "dataVerification": "verified",
       "staleForTargetYear": false,
-      "sitemap": null,
-      "built": false
+      "sitemap": "/sitemaps/states.xml",
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/maryland",
+          "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/texas",
+          "anchor": "Texas paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/minnesota",
@@ -8510,7 +10495,7 @@
         },
         {
           "question": "Is Nevada actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Nevada leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Nevada leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Nevada?",
@@ -8597,7 +10582,7 @@
               "name": "Is Nevada actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Nevada leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Nevada leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -8685,7 +10670,7 @@
         },
         {
           "question": "Is New Hampshire actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone New Hampshire leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, New Hampshire leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in New Hampshire?",
@@ -8772,7 +10757,7 @@
               "name": "Is New Hampshire actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone New Hampshire leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, New Hampshire leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -9323,8 +11308,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "cost of living in New York"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -9350,7 +11335,53 @@
       "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
-      "built": true
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/maryland",
+          "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/texas",
+          "anchor": "Texas paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/north-carolina",
@@ -9528,7 +11559,53 @@
       "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
-      "built": true
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/maryland",
+          "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/texas",
+          "anchor": "Texas paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/north-dakota",
@@ -9713,8 +11790,8 @@
       "title": "Ohio Paycheck Calculator (2026)",
       "titleChars": 31,
       "h1": "Ohio Paycheck Calculator",
-      "metaDescription": "See what a Ohio paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
-      "metaChars": 138,
+      "metaDescription": "See what an Ohio paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
+      "metaChars": 139,
       "canonical": "https://example.com/tools/paycheck-calculator/ohio",
       "breadcrumb": [
         "Home",
@@ -9888,8 +11965,8 @@
       "title": "Oklahoma Paycheck Calculator (2026)",
       "titleChars": 35,
       "h1": "Oklahoma Paycheck Calculator",
-      "metaDescription": "See what a Oklahoma paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
-      "metaChars": 142,
+      "metaDescription": "See what an Oklahoma paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
+      "metaChars": 143,
       "canonical": "https://example.com/tools/paycheck-calculator/oklahoma",
       "breadcrumb": [
         "Home",
@@ -10063,8 +12140,8 @@
       "title": "Oregon Paycheck Calculator (2026)",
       "titleChars": 33,
       "h1": "Oregon Paycheck Calculator",
-      "metaDescription": "See what a Oregon paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
-      "metaChars": 140,
+      "metaDescription": "See what an Oregon paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
+      "metaChars": 141,
       "canonical": "https://example.com/tools/paycheck-calculator/oregon",
       "breadcrumb": [
         "Home",
@@ -10380,8 +12457,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "cost of living in Philadelphia"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -10407,7 +12484,53 @@
       "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
-      "built": true
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/maryland",
+          "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/texas",
+          "anchor": "Texas paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/rhode-island",
@@ -10794,7 +12917,7 @@
         },
         {
           "question": "Is South Dakota actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone South Dakota leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, South Dakota leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in South Dakota?",
@@ -10881,7 +13004,7 @@
               "name": "Is South Dakota actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone South Dakota leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, South Dakota leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -10952,10 +13075,12 @@
         "Tennessee"
       ],
       "h2Outline": [
-        "What comes out of a Tennessee paycheck",
-        "Why there is no Tennessee tax line",
-        "Local tax in Tennessee",
-        "Is Tennessee actually cheaper?",
+        "$95,000 in Tennessee, line by line",
+        "The tax that used to reach investment income",
+        "What replaces it",
+        "Moving here from a neighbouring state",
+        "Hourly pay and overtime",
+        "Working for yourself",
         "Frequently asked questions"
       ],
       "faq": [
@@ -10969,7 +13094,7 @@
         },
         {
           "question": "Is Tennessee actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Tennessee leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Tennessee leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Tennessee?",
@@ -11056,7 +13181,7 @@
               "name": "Is Tennessee actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Tennessee leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Tennessee leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -11104,10 +13229,56 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
+      "dataVerification": "verified",
       "staleForTargetYear": false,
-      "sitemap": null,
-      "built": false
+      "sitemap": "/sitemaps/states.xml",
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/maryland",
+          "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/texas",
+          "anchor": "Texas paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/texas",
@@ -11146,7 +13317,7 @@
         },
         {
           "question": "Is Texas actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Texas leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Texas leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Texas?",
@@ -11233,7 +13404,7 @@
               "name": "Is Texas actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Texas leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Texas leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -11257,8 +13428,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "cost of living in Austin"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -11284,7 +13455,53 @@
       "dataVerification": "verified",
       "staleForTargetYear": false,
       "sitemap": "/sitemaps/states.xml",
-      "built": true
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/maryland",
+          "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/utah",
@@ -11294,8 +13511,8 @@
       "title": "Utah Paycheck Calculator (2026)",
       "titleChars": 31,
       "h1": "Utah Paycheck Calculator",
-      "metaDescription": "See what a Utah paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
-      "metaChars": 138,
+      "metaDescription": "See what an Utah paycheck leaves after federal and state tax, Social Security and Medicare — weekly, biweekly or monthly, salary or hourly.",
+      "metaChars": 139,
       "canonical": "https://example.com/tools/paycheck-calculator/utah",
       "breadcrumb": [
         "Home",
@@ -11654,10 +13871,12 @@
         "Virginia"
       ],
       "h2Outline": [
-        "How a Virginia paycheck is calculated",
-        "Virginia income tax brackets",
-        "Local tax in Virginia",
-        "Virginia take-home by pay frequency",
+        "$95,000 in Virginia",
+        "Deductions that are fixed in law, not indexed",
+        "Working in D.C. or Maryland",
+        "Form VA-4 and filing",
+        "Salary, hourly and overtime",
+        "Self-employed",
         "Frequently asked questions"
       ],
       "faq": [
@@ -11671,7 +13890,7 @@
         },
         {
           "question": "How much is a biweekly paycheck on $95,000 in Virginia?",
-          "answer": "About $2,710 every two weeks for a single filer, from $70,458 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,936."
+          "answer": "About $2,731 every two weeks for a single filer, from $71,014 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,959."
         },
         {
           "question": "Are there local income taxes in Virginia?",
@@ -11679,7 +13898,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Virginia?",
-          "answer": "About $70,458 of a $95,000 salary for a single filer, an effective 25.8%. Of that, $5,205 is Virginia state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $71,014 of a $95,000 salary for a single filer, an effective 25.2%. Of that, $4,648 is Virginia state tax — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -11758,7 +13977,7 @@
               "name": "How much is a biweekly paycheck on $95,000 in Virginia?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $2,710 every two weeks for a single filer, from $70,458 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,936."
+                "text": "About $2,731 every two weeks for a single filer, from $71,014 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,959."
               }
             },
             {
@@ -11774,7 +13993,7 @@
               "name": "How much of a $95,000 salary do you keep in Virginia?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,458 of a $95,000 salary for a single filer, an effective 25.8%. Of that, $5,205 is Virginia state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $71,014 of a $95,000 salary for a single filer, an effective 25.2%. Of that, $4,648 is Virginia state tax — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -11806,10 +14025,56 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
+      "dataVerification": "verified",
       "staleForTargetYear": false,
-      "sitemap": null,
-      "built": false
+      "sitemap": "/sitemaps/states.xml",
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/maryland",
+          "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/texas",
+          "anchor": "Texas paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/washington-dc",
@@ -12021,7 +14286,7 @@
         },
         {
           "question": "Is Washington actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Washington leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Washington leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Washington?",
@@ -12108,7 +14373,7 @@
               "name": "Is Washington actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Washington leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Washington leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -12546,7 +14811,7 @@
         },
         {
           "question": "Is Wyoming actually cheaper overall?",
-          "answer": "Not automatically. On income tax alone Wyoming leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Wyoming leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Wyoming?",
@@ -12633,7 +14898,7 @@
               "name": "Is Wyoming actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. On income tax alone Wyoming leaves $75,663 of a $95,000 salary against $67,908 in Oregon, a gap of $7,754 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Wyoming leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
