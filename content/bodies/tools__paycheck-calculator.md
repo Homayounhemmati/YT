@@ -68,13 +68,15 @@ the same salary produces materially different outcomes:
 | Alaska, Texas, Florida (no state income tax) | ~$75,663 |
 | Pennsylvania (flat 3.07%) | ~$72,680 |
 | New York (progressive; before New York City tax) | ~$70,656 |
+| California (progressive, plus 1.3% SDI) | ~$69,982 |
 
-**$5,006 of difference on identical gross pay** between Florida and New York — $4,565
-of state tax and $442 of paid-leave and disability contributions, about 5.3% of the
-salary, wider still where a city or county adds its own, and invisible in any offer
-letter. A self-employed person on the same $95,000 keeps between $667 and $1,503 less,
-depending on the state: they pay both halves of FICA, though not the payroll
-contributions an employee does.
+**$5,681 of difference on identical gross pay** between Florida and California — $4,446
+of state tax and $1,235 of State Disability Insurance, about 6% of the salary — and
+$5,006 between Florida and New York, wider still where a city or county adds its own,
+and invisible in any offer letter. A self-employed person on the same $95,000 usually
+keeps less, by up to $1,503, because they pay both halves of FICA. California is the
+exception: State Disability Insurance does not reach self-employment income, so there
+the self-employed figure comes out about $356 higher.
 
 A **take home pay calculator** that stops at the federal layer therefore answers the
 easy half of the question and leaves the half that actually varies.

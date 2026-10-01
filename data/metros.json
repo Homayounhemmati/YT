@@ -4,7 +4,7 @@
     "minMonthlyVolume": 500,
     "source": "data/keywords.json programmaticSets"
   },
-  "caveat": "Ten of the eleven metros are in the states with verified tax data; San Francisco waits for California. Seven volumes are unmeasured (see $comment).",
+  "caveat": "Twelve metros: the first four on measured volume, the other eight chosen by population while keyword volumes could not be measured.",
   "metros": [
     {
       "name": "Austin, TX",
@@ -409,6 +409,45 @@
       "msaCode": "45300",
       "fmrYear": 2026,
       "populationRank": 18
+    },
+    {
+      "name": "Los Angeles, CA",
+      "displayName": "Los Angeles",
+      "stateSlug": "california",
+      "stateName": "California",
+      "volume": null,
+      "cpc": null,
+      "volumeMeasured": false,
+      "selection": {
+        "basis": "population",
+        "metroPopulation": 13111917,
+        "nationalRank": 2,
+        "source": "Census Bureau population estimates, vintage 2024, summed over the metro's counties (src/data/col/places)"
+      },
+      "slug": "los-angeles-ca",
+      "indices": {
+        "allItems": 113.566,
+        "goods": 106.623,
+        "rent": 170.433,
+        "utilities": 158.589,
+        "otherServices": 104.362
+      },
+      "referenceRent": {
+        "bedrooms0": 2079.0,
+        "bedrooms1": 2328.0,
+        "bedrooms2": 2903.0,
+        "bedrooms3": 3681.0,
+        "bedrooms4": 4098.0
+      },
+      "dataStatus": "indices-and-rent-ready",
+      "stateAbbr": "CA",
+      "principalCounty": "Los Angeles County",
+      "principalCountyFips": "06037",
+      "rentSource": "HUD FMR FY2026 (Los Angeles County, CA)",
+      "dataYear": 2024,
+      "msaCode": "31080",
+      "fmrYear": 2026,
+      "populationRank": 2
     }
   ]
 }

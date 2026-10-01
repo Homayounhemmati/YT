@@ -70,10 +70,14 @@
       },
       {
         "file": "/sitemaps/places.xml",
-        "urlCount": 10,
+        "urlCount": 12,
         "urls": [
           {
             "loc": "https://example.com/cost-of-living/austin-tx",
+            "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/cost-of-living/san-francisco-ca",
             "lastmod": "2026-09-27"
           },
           {
@@ -111,13 +115,21 @@
           {
             "loc": "https://example.com/cost-of-living/tampa-fl",
             "lastmod": "2026-09-27"
+          },
+          {
+            "loc": "https://example.com/cost-of-living/los-angeles-ca",
+            "lastmod": "2026-09-27"
           }
         ]
       },
       {
         "file": "/sitemaps/states.xml",
-        "urlCount": 12,
+        "urlCount": 13,
         "urls": [
+          {
+            "loc": "https://example.com/tools/paycheck-calculator/california",
+            "lastmod": "2026-09-27"
+          },
           {
             "loc": "https://example.com/tools/paycheck-calculator/florida",
             "lastmod": "2026-09-27"
@@ -220,12 +232,10 @@
       }
     ],
     "excluded": [
-      "/cost-of-living/san-francisco-ca",
       "/tools/paycheck-calculator/alabama",
       "/tools/paycheck-calculator/alaska",
       "/tools/paycheck-calculator/arizona",
       "/tools/paycheck-calculator/arkansas",
-      "/tools/paycheck-calculator/california",
       "/tools/paycheck-calculator/colorado",
       "/tools/paycheck-calculator/connecticut",
       "/tools/paycheck-calculator/delaware",
@@ -262,10 +272,10 @@
       "/tools/paycheck-calculator/wyoming"
     ],
     "gate": {
-      "statesBuilt": 12,
+      "statesBuilt": 13,
       "statesTotal": 51,
-      "metrosBuilt": 10,
-      "metrosTotal": 11
+      "metrosBuilt": 12,
+      "metrosTotal": 12
     }
   },
   "pages": [
@@ -1121,7 +1131,7 @@
           "@context": "https://schema.org",
           "@type": "ItemList",
           "name": "Cost of Living by City (2026)",
-          "numberOfItems": 10,
+          "numberOfItems": 12,
           "itemListElement": [
             {
               "@type": "ListItem",
@@ -1132,56 +1142,68 @@
             {
               "@type": "ListItem",
               "position": 2,
+              "name": "cost of living in San Francisco",
+              "url": "https://example.com/cost-of-living/san-francisco-ca"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
               "name": "cost of living in San Antonio",
               "url": "https://example.com/cost-of-living/san-antonio-tx"
             },
             {
               "@type": "ListItem",
-              "position": 3,
+              "position": 4,
               "name": "cost of living in Houston",
               "url": "https://example.com/cost-of-living/houston-tx"
             },
             {
               "@type": "ListItem",
-              "position": 4,
+              "position": 5,
               "name": "cost of living in New York",
               "url": "https://example.com/cost-of-living/new-york-ny"
             },
             {
               "@type": "ListItem",
-              "position": 5,
+              "position": 6,
               "name": "cost of living in Chicago",
               "url": "https://example.com/cost-of-living/chicago-il"
             },
             {
               "@type": "ListItem",
-              "position": 6,
+              "position": 7,
               "name": "cost of living in Philadelphia",
               "url": "https://example.com/cost-of-living/philadelphia-pa"
             },
             {
               "@type": "ListItem",
-              "position": 7,
+              "position": 8,
               "name": "cost of living in Miami",
               "url": "https://example.com/cost-of-living/miami-fl"
             },
             {
               "@type": "ListItem",
-              "position": 8,
+              "position": 9,
               "name": "cost of living in Atlanta",
               "url": "https://example.com/cost-of-living/atlanta-ga"
             },
             {
               "@type": "ListItem",
-              "position": 9,
+              "position": 10,
               "name": "cost of living in Detroit",
               "url": "https://example.com/cost-of-living/detroit-mi"
             },
             {
               "@type": "ListItem",
-              "position": 10,
+              "position": 11,
               "name": "cost of living in Tampa",
               "url": "https://example.com/cost-of-living/tampa-fl"
+            },
+            {
+              "@type": "ListItem",
+              "position": 12,
+              "name": "cost of living in Los Angeles",
+              "url": "https://example.com/cost-of-living/los-angeles-ca"
             }
           ]
         },
@@ -1201,6 +1223,10 @@
         {
           "to": "/cost-of-living/austin-tx",
           "anchor": "cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "cost of living in San Francisco"
         },
         {
           "to": "/cost-of-living/san-antonio-tx",
@@ -1237,6 +1263,10 @@
         {
           "to": "/cost-of-living/tampa-fl",
           "anchor": "cost of living in Tampa"
+        },
+        {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "cost of living in Los Angeles"
         },
         {
           "to": "/tools/cost-of-living-calculator",
@@ -2300,6 +2330,10 @@
           "anchor": "salary to hourly calculator"
         },
         {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California"
+        },
+        {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida"
         },
@@ -2693,77 +2727,83 @@
           "@context": "https://schema.org",
           "@type": "ItemList",
           "name": "State Income Tax Rates by State (2026)",
-          "numberOfItems": 12,
+          "numberOfItems": 13,
           "itemListElement": [
             {
               "@type": "ListItem",
               "position": 1,
+              "name": "California paycheck calculator",
+              "url": "https://example.com/tools/paycheck-calculator/california"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
               "name": "Florida paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/florida"
             },
             {
               "@type": "ListItem",
-              "position": 2,
+              "position": 3,
               "name": "Georgia paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/georgia"
             },
             {
               "@type": "ListItem",
-              "position": 3,
+              "position": 4,
               "name": "Illinois paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/illinois"
             },
             {
               "@type": "ListItem",
-              "position": 4,
+              "position": 5,
               "name": "Indiana paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/indiana"
             },
             {
               "@type": "ListItem",
-              "position": 5,
+              "position": 6,
               "name": "Maryland paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/maryland"
             },
             {
               "@type": "ListItem",
-              "position": 6,
+              "position": 7,
               "name": "Michigan paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/michigan"
             },
             {
               "@type": "ListItem",
-              "position": 7,
+              "position": 8,
               "name": "New York paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/new-york"
             },
             {
               "@type": "ListItem",
-              "position": 8,
+              "position": 9,
               "name": "North Carolina paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/north-carolina"
             },
             {
               "@type": "ListItem",
-              "position": 9,
+              "position": 10,
               "name": "Pennsylvania paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/pennsylvania"
             },
             {
               "@type": "ListItem",
-              "position": 10,
+              "position": 11,
               "name": "Tennessee paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/tennessee"
             },
             {
               "@type": "ListItem",
-              "position": 11,
+              "position": 12,
               "name": "Texas paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/texas"
             },
             {
               "@type": "ListItem",
-              "position": 12,
+              "position": 13,
               "name": "Virginia paycheck calculator",
               "url": "https://example.com/tools/paycheck-calculator/virginia"
             }
@@ -2771,6 +2811,10 @@
         }
       ],
       "internalLinks": [
+        {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
         {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida paycheck calculator"
@@ -3432,6 +3476,10 @@
           "anchor": "Cost of living in Houston"
         },
         {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "Cost of living in Los Angeles"
+        },
+        {
           "to": "/cost-of-living/miami-fl",
           "anchor": "Cost of living in Miami"
         },
@@ -3448,6 +3496,10 @@
           "anchor": "Cost of living in San Antonio"
         },
         {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "Cost of living in San Francisco"
+        },
+        {
           "to": "/cost-of-living/tampa-fl",
           "anchor": "Cost of living in Tampa"
         }
@@ -3462,8 +3514,8 @@
           "anchor": "Austin vs New York"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3AAustin%2C+TX&to=city%3AChicago%2C+IL",
-          "anchor": "Austin vs Chicago"
+          "to": "/tools/cost-of-living-comparison?from=city%3AAustin%2C+TX&to=city%3ALos+Angeles%2C+CA",
+          "anchor": "Austin vs Los Angeles"
         }
       ]
     },
@@ -3484,11 +3536,11 @@
         "San Francisco"
       ],
       "h2Outline": [
-        "What it costs to live in San Francisco",
-        "What the indices mean",
-        "California income tax on your salary",
-        "Who San Francisco suits",
-        "How we calculate this",
+        "A month on the peninsula",
+        "The bedroom ladder",
+        "Power, water and the rest",
+        "California tax and SDI",
+        "Who it works for",
         "Frequently asked questions"
       ],
       "faq": [
@@ -3502,7 +3554,7 @@
         },
         {
           "question": "What salary do you need to live in San Francisco?",
-          "answer": "About $84,686 alone in a one-bedroom ($5,385 a month); about $136,961 for a family of four in a two-bedroom ($9,467 a month). Break-even after federal tax, FICA and California tax."
+          "answer": "About $86,031 alone in a one-bedroom ($5,385 a month); about $137,409 for a family of four in a two-bedroom ($9,467 a month). Break-even after federal tax, FICA, California tax and payroll contributions."
         }
       ],
       "jsonLd": [
@@ -3564,7 +3616,7 @@
               "name": "What salary do you need to live in San Francisco?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $84,686 alone in a one-bedroom ($5,385 a month); about $136,961 for a family of four in a two-bedroom ($9,467 a month). Break-even after federal tax, FICA and California tax."
+                "text": "About $86,031 alone in a one-bedroom ($5,385 a month); about $137,409 for a family of four in a two-bedroom ($9,467 a month). Break-even after federal tax, FICA, California tax and payroll contributions."
               }
             }
           ]
@@ -3600,6 +3652,10 @@
           "anchor": "cost of living by city"
         },
         {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "cost of living in Los Angeles"
+        },
+        {
           "to": "/tools/rent-affordability-calculator",
           "anchor": "rent affordability calculator"
         },
@@ -3610,8 +3666,72 @@
       ],
       "dataVerification": "indices-and-rent-ready",
       "staleForTargetYear": false,
-      "sitemap": null,
-      "built": false
+      "sitemap": "/sitemaps/places.xml",
+      "built": true,
+      "calculatorPlace": {
+        "key": "city:San Francisco, CA",
+        "st": "CA"
+      },
+      "siblings": [
+        {
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "Cost of living in Atlanta"
+        },
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "Cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "Cost of living in Chicago"
+        },
+        {
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "Cost of living in Detroit"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "Cost of living in Houston"
+        },
+        {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "Cost of living in Los Angeles"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "Cost of living in Miami"
+        },
+        {
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "Cost of living in New York"
+        },
+        {
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "Cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "Cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "Cost of living in Tampa"
+        }
+      ],
+      "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ASan+Francisco%2C+CA&to=city%3ALos+Angeles%2C+CA",
+          "anchor": "San Francisco vs Los Angeles"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ASan+Francisco%2C+CA&to=city%3ANew+York%2C+NY",
+          "anchor": "San Francisco vs New York"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ASan+Francisco%2C+CA&to=city%3AChicago%2C+IL",
+          "anchor": "San Francisco vs Chicago"
+        }
+      ]
     },
     {
       "path": "/cost-of-living/san-antonio-tx",
@@ -3787,6 +3907,10 @@
           "anchor": "Cost of living in Houston"
         },
         {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "Cost of living in Los Angeles"
+        },
+        {
           "to": "/cost-of-living/miami-fl",
           "anchor": "Cost of living in Miami"
         },
@@ -3797,6 +3921,10 @@
         {
           "to": "/cost-of-living/philadelphia-pa",
           "anchor": "Cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "Cost of living in San Francisco"
         },
         {
           "to": "/cost-of-living/tampa-fl",
@@ -3813,8 +3941,8 @@
           "anchor": "San Antonio vs New York"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3ASan+Antonio%2C+TX&to=city%3AChicago%2C+IL",
-          "anchor": "San Antonio vs Chicago"
+          "to": "/tools/cost-of-living-comparison?from=city%3ASan+Antonio%2C+TX&to=city%3ALos+Angeles%2C+CA",
+          "anchor": "San Antonio vs Los Angeles"
         }
       ]
     },
@@ -3988,6 +4116,10 @@
           "anchor": "Cost of living in Detroit"
         },
         {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "Cost of living in Los Angeles"
+        },
+        {
           "to": "/cost-of-living/miami-fl",
           "anchor": "Cost of living in Miami"
         },
@@ -4004,6 +4136,10 @@
           "anchor": "Cost of living in San Antonio"
         },
         {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "Cost of living in San Francisco"
+        },
+        {
           "to": "/cost-of-living/tampa-fl",
           "anchor": "Cost of living in Tampa"
         }
@@ -4018,8 +4154,8 @@
           "anchor": "Houston vs New York"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3AHouston%2C+TX&to=city%3AChicago%2C+IL",
-          "anchor": "Houston vs Chicago"
+          "to": "/tools/cost-of-living-comparison?from=city%3AHouston%2C+TX&to=city%3ALos+Angeles%2C+CA",
+          "anchor": "Houston vs Los Angeles"
         }
       ]
     },
@@ -4058,7 +4194,7 @@
         },
         {
           "question": "What salary do you need to live in New York?",
-          "answer": "About $79,700 alone in a one-bedroom ($5,068 a month); about $128,069 for a family of four in a two-bedroom ($8,790 a month). Break-even after federal tax, FICA and New York tax."
+          "answer": "About $79,700 alone in a one-bedroom ($5,068 a month); about $128,069 for a family of four in a two-bedroom ($8,790 a month). Break-even after federal tax, FICA, New York tax and payroll contributions."
         }
       ],
       "jsonLd": [
@@ -4120,7 +4256,7 @@
               "name": "What salary do you need to live in New York?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $79,700 alone in a one-bedroom ($5,068 a month); about $128,069 for a family of four in a two-bedroom ($8,790 a month). Break-even after federal tax, FICA and New York tax."
+                "text": "About $79,700 alone in a one-bedroom ($5,068 a month); about $128,069 for a family of four in a two-bedroom ($8,790 a month). Break-even after federal tax, FICA, New York tax and payroll contributions."
               }
             }
           ]
@@ -4194,6 +4330,10 @@
           "anchor": "Cost of living in Houston"
         },
         {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "Cost of living in Los Angeles"
+        },
+        {
           "to": "/cost-of-living/miami-fl",
           "anchor": "Cost of living in Miami"
         },
@@ -4206,11 +4346,19 @@
           "anchor": "Cost of living in San Antonio"
         },
         {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "Cost of living in San Francisco"
+        },
+        {
           "to": "/cost-of-living/tampa-fl",
           "anchor": "Cost of living in Tampa"
         }
       ],
       "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ANew+York%2C+NY&to=city%3ALos+Angeles%2C+CA",
+          "anchor": "New York vs Los Angeles"
+        },
         {
           "to": "/tools/cost-of-living-comparison?from=city%3ANew+York%2C+NY&to=city%3AChicago%2C+IL",
           "anchor": "New York vs Chicago"
@@ -4218,10 +4366,6 @@
         {
           "to": "/tools/cost-of-living-comparison?from=city%3ANew+York%2C+NY&to=city%3AHouston%2C+TX",
           "anchor": "New York vs Houston"
-        },
-        {
-          "to": "/tools/cost-of-living-comparison?from=city%3ANew+York%2C+NY&to=city%3APhiladelphia%2C+PA",
-          "anchor": "New York vs Philadelphia"
         }
       ]
     },
@@ -4392,6 +4536,10 @@
           "anchor": "Cost of living in Houston"
         },
         {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "Cost of living in Los Angeles"
+        },
+        {
           "to": "/cost-of-living/miami-fl",
           "anchor": "Cost of living in Miami"
         },
@@ -4408,6 +4556,10 @@
           "anchor": "Cost of living in San Antonio"
         },
         {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "Cost of living in San Francisco"
+        },
+        {
           "to": "/cost-of-living/tampa-fl",
           "anchor": "Cost of living in Tampa"
         }
@@ -4418,12 +4570,12 @@
           "anchor": "Chicago vs New York"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3AChicago%2C+IL&to=city%3AHouston%2C+TX",
-          "anchor": "Chicago vs Houston"
+          "to": "/tools/cost-of-living-comparison?from=city%3AChicago%2C+IL&to=city%3ALos+Angeles%2C+CA",
+          "anchor": "Chicago vs Los Angeles"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3AChicago%2C+IL&to=city%3APhiladelphia%2C+PA",
-          "anchor": "Chicago vs Philadelphia"
+          "to": "/tools/cost-of-living-comparison?from=city%3AChicago%2C+IL&to=city%3AHouston%2C+TX",
+          "anchor": "Chicago vs Houston"
         }
       ]
     },
@@ -4462,7 +4614,7 @@
         },
         {
           "question": "What salary do you need to live in Philadelphia?",
-          "answer": "About $55,560 alone in a one-bedroom ($3,757 a month); about $101,221 for a family of four in a two-bedroom ($7,243 a month). Break-even after federal tax, FICA and Pennsylvania tax."
+          "answer": "About $55,560 alone in a one-bedroom ($3,757 a month); about $101,221 for a family of four in a two-bedroom ($7,243 a month). Break-even after federal tax, FICA, Pennsylvania tax and payroll contributions."
         }
       ],
       "jsonLd": [
@@ -4524,7 +4676,7 @@
               "name": "What salary do you need to live in Philadelphia?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $55,560 alone in a one-bedroom ($3,757 a month); about $101,221 for a family of four in a two-bedroom ($7,243 a month). Break-even after federal tax, FICA and Pennsylvania tax."
+                "text": "About $55,560 alone in a one-bedroom ($3,757 a month); about $101,221 for a family of four in a two-bedroom ($7,243 a month). Break-even after federal tax, FICA, Pennsylvania tax and payroll contributions."
               }
             }
           ]
@@ -4598,6 +4750,10 @@
           "anchor": "Cost of living in Houston"
         },
         {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "Cost of living in Los Angeles"
+        },
+        {
           "to": "/cost-of-living/miami-fl",
           "anchor": "Cost of living in Miami"
         },
@@ -4610,6 +4766,10 @@
           "anchor": "Cost of living in San Antonio"
         },
         {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "Cost of living in San Francisco"
+        },
+        {
           "to": "/cost-of-living/tampa-fl",
           "anchor": "Cost of living in Tampa"
         }
@@ -4620,12 +4780,12 @@
           "anchor": "Philadelphia vs New York"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3APhiladelphia%2C+PA&to=city%3AChicago%2C+IL",
-          "anchor": "Philadelphia vs Chicago"
+          "to": "/tools/cost-of-living-comparison?from=city%3APhiladelphia%2C+PA&to=city%3ALos+Angeles%2C+CA",
+          "anchor": "Philadelphia vs Los Angeles"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3APhiladelphia%2C+PA&to=city%3AHouston%2C+TX",
-          "anchor": "Philadelphia vs Houston"
+          "to": "/tools/cost-of-living-comparison?from=city%3APhiladelphia%2C+PA&to=city%3AChicago%2C+IL",
+          "anchor": "Philadelphia vs Chicago"
         }
       ]
     },
@@ -4803,6 +4963,10 @@
           "anchor": "Cost of living in Houston"
         },
         {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "Cost of living in Los Angeles"
+        },
+        {
           "to": "/cost-of-living/new-york-ny",
           "anchor": "Cost of living in New York"
         },
@@ -4813,6 +4977,10 @@
         {
           "to": "/cost-of-living/san-antonio-tx",
           "anchor": "Cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "Cost of living in San Francisco"
         },
         {
           "to": "/cost-of-living/tampa-fl",
@@ -4829,8 +4997,8 @@
           "anchor": "Miami vs New York"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3AMiami%2C+FL&to=city%3AChicago%2C+IL",
-          "anchor": "Miami vs Chicago"
+          "to": "/tools/cost-of-living-comparison?from=city%3AMiami%2C+FL&to=city%3ALos+Angeles%2C+CA",
+          "anchor": "Miami vs Los Angeles"
         }
       ]
     },
@@ -5001,6 +5169,10 @@
           "anchor": "Cost of living in Houston"
         },
         {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "Cost of living in Los Angeles"
+        },
+        {
           "to": "/cost-of-living/miami-fl",
           "anchor": "Cost of living in Miami"
         },
@@ -5017,6 +5189,10 @@
           "anchor": "Cost of living in San Antonio"
         },
         {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "Cost of living in San Francisco"
+        },
+        {
           "to": "/cost-of-living/tampa-fl",
           "anchor": "Cost of living in Tampa"
         }
@@ -5027,12 +5203,12 @@
           "anchor": "Atlanta vs New York"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3AAtlanta%2C+GA&to=city%3AChicago%2C+IL",
-          "anchor": "Atlanta vs Chicago"
+          "to": "/tools/cost-of-living-comparison?from=city%3AAtlanta%2C+GA&to=city%3ALos+Angeles%2C+CA",
+          "anchor": "Atlanta vs Los Angeles"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3AAtlanta%2C+GA&to=city%3AHouston%2C+TX",
-          "anchor": "Atlanta vs Houston"
+          "to": "/tools/cost-of-living-comparison?from=city%3AAtlanta%2C+GA&to=city%3AChicago%2C+IL",
+          "anchor": "Atlanta vs Chicago"
         }
       ]
     },
@@ -5202,6 +5378,10 @@
           "anchor": "Cost of living in Houston"
         },
         {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "Cost of living in Los Angeles"
+        },
+        {
           "to": "/cost-of-living/miami-fl",
           "anchor": "Cost of living in Miami"
         },
@@ -5218,6 +5398,10 @@
           "anchor": "Cost of living in San Antonio"
         },
         {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "Cost of living in San Francisco"
+        },
+        {
           "to": "/cost-of-living/tampa-fl",
           "anchor": "Cost of living in Tampa"
         }
@@ -5228,12 +5412,12 @@
           "anchor": "Detroit vs New York"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3ADetroit%2C+MI&to=city%3AChicago%2C+IL",
-          "anchor": "Detroit vs Chicago"
+          "to": "/tools/cost-of-living-comparison?from=city%3ADetroit%2C+MI&to=city%3ALos+Angeles%2C+CA",
+          "anchor": "Detroit vs Los Angeles"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3ADetroit%2C+MI&to=city%3AHouston%2C+TX",
-          "anchor": "Detroit vs Houston"
+          "to": "/tools/cost-of-living-comparison?from=city%3ADetroit%2C+MI&to=city%3AChicago%2C+IL",
+          "anchor": "Detroit vs Chicago"
         }
       ]
     },
@@ -5412,6 +5596,10 @@
           "anchor": "Cost of living in Houston"
         },
         {
+          "to": "/cost-of-living/los-angeles-ca",
+          "anchor": "Cost of living in Los Angeles"
+        },
+        {
           "to": "/cost-of-living/miami-fl",
           "anchor": "Cost of living in Miami"
         },
@@ -5426,6 +5614,10 @@
         {
           "to": "/cost-of-living/san-antonio-tx",
           "anchor": "Cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "Cost of living in San Francisco"
         }
       ],
       "compareWith": [
@@ -5438,8 +5630,221 @@
           "anchor": "Tampa vs New York"
         },
         {
-          "to": "/tools/cost-of-living-comparison?from=city%3ATampa%2C+FL&to=city%3AChicago%2C+IL",
-          "anchor": "Tampa vs Chicago"
+          "to": "/tools/cost-of-living-comparison?from=city%3ATampa%2C+FL&to=city%3ALos+Angeles%2C+CA",
+          "anchor": "Tampa vs Los Angeles"
+        }
+      ]
+    },
+    {
+      "path": "/cost-of-living/los-angeles-ca",
+      "template": "PlacePage",
+      "entity": "los-angeles-ca",
+      "entityName": "Los Angeles",
+      "title": "Cost of Living in Los Angeles (2026)",
+      "titleChars": 36,
+      "h1": "Cost of Living in Los Angeles",
+      "metaDescription": "What a month costs in Los Angeles, from official BEA and HUD data — rent, goods, services, and what you keep after California tax.",
+      "metaChars": 130,
+      "canonical": "https://example.com/cost-of-living/los-angeles-ca",
+      "breadcrumb": [
+        "Home",
+        "Cost of Living",
+        "Los Angeles"
+      ],
+      "h2Outline": [
+        "Los Angeles County, one renter and four",
+        "A city built around the car",
+        "California tax, and SDI on every check",
+        "Who Los Angeles favours",
+        "Frequently asked questions"
+      ],
+      "faq": [
+        {
+          "question": "How expensive is Los Angeles?",
+          "answer": "113.6, 13.6 points above the US level of 100 (BEA, 2024). Housing rents 170.4, goods 106.6, utilities 158.6, other services 104.4."
+        },
+        {
+          "question": "What is a typical rent in Los Angeles?",
+          "answer": "Studio $2,079, one bedroom $2,328, two $2,903, three $3,681, four $4,098 (Los Angeles County, HUD fiscal 2026, utilities included)."
+        },
+        {
+          "question": "What salary do you need to live in Los Angeles?",
+          "answer": "About $72,353 alone in a one-bedroom ($4,695 a month); about $123,449 for a family of four in a two-bedroom ($8,665 a month). Break-even after federal tax, FICA, California tax and payroll contributions."
+        }
+      ],
+      "jsonLd": [
+        {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://example.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Cost of Living",
+              "item": "https://example.com/cost-of-living"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Los Angeles"
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Place",
+          "name": "Los Angeles, CA",
+          "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How expensive is Los Angeles?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "113.6, 13.6 points above the US level of 100 (BEA, 2024). Housing rents 170.4, goods 106.6, utilities 158.6, other services 104.4."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is a typical rent in Los Angeles?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Studio $2,079, one bedroom $2,328, two $2,903, three $3,681, four $4,098 (Los Angeles County, HUD fiscal 2026, utilities included)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What salary do you need to live in Los Angeles?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "About $72,353 alone in a one-bedroom ($4,695 a month); about $123,449 for a family of four in a two-bedroom ($8,665 a month). Break-even after federal tax, FICA, California tax and payroll contributions."
+              }
+            }
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Dataset",
+          "name": "Cost of living indices for Los Angeles, CA",
+          "description": "Regional price parities and fair market rents for Los Angeles, CA, 2026.",
+          "license": "https://www.usa.gov/government-works",
+          "isBasedOn": [
+            "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+            "https://www.huduser.gov/portal/datasets/fmr.html"
+          ],
+          "dateModified": "2026-09-27"
+        }
+      ],
+      "internalLinks": [
+        {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison",
+          "anchor": "cost of living comparison"
+        },
+        {
+          "to": "/tools/cost-of-living-calculator",
+          "anchor": "cost of living calculator"
+        },
+        {
+          "to": "/cost-of-living",
+          "anchor": "cost of living by city"
+        },
+        {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "cost of living in San Francisco"
+        },
+        {
+          "to": "/tools/rent-affordability-calculator",
+          "anchor": "rent affordability calculator"
+        },
+        {
+          "to": "/tools/sales-tax-calculator",
+          "anchor": "sales tax calculator"
+        }
+      ],
+      "dataVerification": "indices-and-rent-ready",
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/places.xml",
+      "built": true,
+      "calculatorPlace": {
+        "key": "city:Los Angeles, CA",
+        "st": "CA"
+      },
+      "siblings": [
+        {
+          "to": "/cost-of-living/atlanta-ga",
+          "anchor": "Cost of living in Atlanta"
+        },
+        {
+          "to": "/cost-of-living/austin-tx",
+          "anchor": "Cost of living in Austin"
+        },
+        {
+          "to": "/cost-of-living/chicago-il",
+          "anchor": "Cost of living in Chicago"
+        },
+        {
+          "to": "/cost-of-living/detroit-mi",
+          "anchor": "Cost of living in Detroit"
+        },
+        {
+          "to": "/cost-of-living/houston-tx",
+          "anchor": "Cost of living in Houston"
+        },
+        {
+          "to": "/cost-of-living/miami-fl",
+          "anchor": "Cost of living in Miami"
+        },
+        {
+          "to": "/cost-of-living/new-york-ny",
+          "anchor": "Cost of living in New York"
+        },
+        {
+          "to": "/cost-of-living/philadelphia-pa",
+          "anchor": "Cost of living in Philadelphia"
+        },
+        {
+          "to": "/cost-of-living/san-antonio-tx",
+          "anchor": "Cost of living in San Antonio"
+        },
+        {
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "Cost of living in San Francisco"
+        },
+        {
+          "to": "/cost-of-living/tampa-fl",
+          "anchor": "Cost of living in Tampa"
+        }
+      ],
+      "compareWith": [
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ALos+Angeles%2C+CA&to=city%3ASan+Francisco%2C+CA",
+          "anchor": "Los Angeles vs San Francisco"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ALos+Angeles%2C+CA&to=city%3ANew+York%2C+NY",
+          "anchor": "Los Angeles vs New York"
+        },
+        {
+          "to": "/tools/cost-of-living-comparison?from=city%3ALos+Angeles%2C+CA&to=city%3AChicago%2C+IL",
+          "anchor": "Los Angeles vs Chicago"
         }
       ]
     },
@@ -5653,7 +6058,7 @@
         },
         {
           "question": "Is Alaska actually cheaper overall?",
-          "answer": "Not automatically. Before prices are counted, Alaska leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Alaska leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Alaska?",
@@ -5740,7 +6145,7 @@
               "name": "Is Alaska actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. Before prices are counted, Alaska leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Alaska leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -6161,10 +6566,11 @@
         "California"
       ],
       "h2Outline": [
-        "How a California paycheck is calculated",
-        "California income tax brackets",
-        "Local tax in California",
-        "California take-home by pay frequency",
+        "$95,000 in California",
+        "Nine brackets, and the one that matters",
+        "Credits, not exemptions",
+        "SDI: the uncapped payroll line",
+        "Local tax, forms and filing",
         "Frequently asked questions"
       ],
       "faq": [
@@ -6174,11 +6580,11 @@
         },
         {
           "question": "What is the top California income tax rate?",
-          "answer": "The highest California rate is 12.3%, which applies above $742,953."
+          "answer": "The highest California rate is 12.3%, which applies above $768,213."
         },
         {
           "question": "How much is a biweekly paycheck on $95,000 in California?",
-          "answer": "About $2,728 every two weeks for a single filer, from $70,920 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,955."
+          "answer": "About $2,692 every two weeks for a single filer, from $69,982 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,916."
         },
         {
           "question": "Are there local income taxes in California?",
@@ -6186,7 +6592,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in California?",
-          "answer": "About $70,920 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,743 is California state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $69,982 of a $95,000 salary for a single filer, an effective 25.0%. Of that, $4,446 is California state tax and $1,235 is California's payroll contributions — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -6257,7 +6663,7 @@
               "name": "What is the top California income tax rate?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The highest California rate is 12.3%, which applies above $742,953."
+                "text": "The highest California rate is 12.3%, which applies above $768,213."
               }
             },
             {
@@ -6265,7 +6671,7 @@
               "name": "How much is a biweekly paycheck on $95,000 in California?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $2,728 every two weeks for a single filer, from $70,920 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,955."
+                "text": "About $2,692 every two weeks for a single filer, from $69,982 of net pay a year across 26 checks. Paid semi-monthly instead, the same salary gives 24 checks of about $2,916."
               }
             },
             {
@@ -6281,7 +6687,7 @@
               "name": "How much of a $95,000 salary do you keep in California?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,920 of a $95,000 salary for a single filer, an effective 25.3%. Of that, $4,743 is California state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $69,982 of a $95,000 salary for a single filer, an effective 25.0%. Of that, $4,446 is California state tax and $1,235 is California's payroll contributions — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -6289,8 +6695,8 @@
       ],
       "internalLinks": [
         {
-          "to": "/cost-of-living",
-          "anchor": "cost of living by city"
+          "to": "/cost-of-living/san-francisco-ca",
+          "anchor": "cost of living in San Francisco"
         },
         {
           "to": "/tools/income-tax-calculator",
@@ -6313,10 +6719,60 @@
           "anchor": "cost of living calculator"
         }
       ],
-      "dataVerification": "pending",
-      "staleForTargetYear": true,
-      "sitemap": null,
-      "built": false
+      "dataVerification": "verified",
+      "staleForTargetYear": false,
+      "sitemap": "/sitemaps/states.xml",
+      "built": true,
+      "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/florida",
+          "anchor": "Florida paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/georgia",
+          "anchor": "Georgia paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/illinois",
+          "anchor": "Illinois paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/indiana",
+          "anchor": "Indiana paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/maryland",
+          "anchor": "Maryland paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/michigan",
+          "anchor": "Michigan paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/new-york",
+          "anchor": "New York paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/north-carolina",
+          "anchor": "North Carolina paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/pennsylvania",
+          "anchor": "Pennsylvania paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/tennessee",
+          "anchor": "Tennessee paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/texas",
+          "anchor": "Texas paycheck calculator"
+        },
+        {
+          "to": "/tools/paycheck-calculator/virginia",
+          "anchor": "Virginia paycheck calculator"
+        }
+      ]
     },
     {
       "path": "/tools/paycheck-calculator/colorado",
@@ -6880,7 +7336,7 @@
         },
         {
           "question": "Is Florida actually cheaper overall?",
-          "answer": "Not automatically. Before prices are counted, Florida leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Florida leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Florida?",
@@ -6967,7 +7423,7 @@
               "name": "Is Florida actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. Before prices are counted, Florida leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Florida leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -7020,6 +7476,10 @@
       "sitemap": "/sitemaps/states.xml",
       "built": true,
       "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
         {
           "to": "/tools/paycheck-calculator/georgia",
           "anchor": "Georgia paycheck calculator"
@@ -7244,6 +7704,10 @@
       "sitemap": "/sitemaps/states.xml",
       "built": true,
       "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
         {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida paycheck calculator"
@@ -7819,6 +8283,10 @@
       "built": true,
       "siblings": [
         {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
+        {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida paycheck calculator"
         },
@@ -8041,6 +8509,10 @@
       "sitemap": "/sitemaps/states.xml",
       "built": true,
       "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
         {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida paycheck calculator"
@@ -9141,6 +9613,10 @@
       "built": true,
       "siblings": [
         {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
+        {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida paycheck calculator"
         },
@@ -9539,6 +10015,10 @@
       "sitemap": "/sitemaps/states.xml",
       "built": true,
       "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
         {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida paycheck calculator"
@@ -10495,7 +10975,7 @@
         },
         {
           "question": "Is Nevada actually cheaper overall?",
-          "answer": "Not automatically. Before prices are counted, Nevada leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Nevada leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Nevada?",
@@ -10582,7 +11062,7 @@
               "name": "Is Nevada actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. Before prices are counted, Nevada leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Nevada leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -10670,7 +11150,7 @@
         },
         {
           "question": "Is New Hampshire actually cheaper overall?",
-          "answer": "Not automatically. Before prices are counted, New Hampshire leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, New Hampshire leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in New Hampshire?",
@@ -10757,7 +11237,7 @@
               "name": "Is New Hampshire actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. Before prices are counted, New Hampshire leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, New Hampshire leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -11205,7 +11685,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in New York?",
-          "answer": "About $70,656 of a $95,000 salary for a single filer before local income tax, an effective 25.2%. Of that, $4,565 is New York state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $70,656 of a $95,000 salary for a single filer before local income tax, an effective 25.2%. Of that, $4,565 is New York state tax and $442 is New York's payroll contributions — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -11300,7 +11780,7 @@
               "name": "How much of a $95,000 salary do you keep in New York?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $70,656 of a $95,000 salary for a single filer before local income tax, an effective 25.2%. Of that, $4,565 is New York state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $70,656 of a $95,000 salary for a single filer before local income tax, an effective 25.2%. Of that, $4,565 is New York state tax and $442 is New York's payroll contributions — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -11337,6 +11817,10 @@
       "sitemap": "/sitemaps/states.xml",
       "built": true,
       "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
         {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida paycheck calculator"
@@ -11561,6 +12045,10 @@
       "sitemap": "/sitemaps/states.xml",
       "built": true,
       "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
         {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida paycheck calculator"
@@ -12354,7 +12842,7 @@
         },
         {
           "question": "How much of a $95,000 salary do you keep in Pennsylvania?",
-          "answer": "About $72,680 of a $95,000 salary for a single filer before local income tax, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax — the rest is federal income tax, Social Security and Medicare."
+          "answer": "About $72,680 of a $95,000 salary for a single filer before local income tax, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax and $67 is Pennsylvania's payroll contributions — the rest is federal income tax, Social Security and Medicare."
         }
       ],
       "jsonLd": [
@@ -12449,7 +12937,7 @@
               "name": "How much of a $95,000 salary do you keep in Pennsylvania?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "About $72,680 of a $95,000 salary for a single filer before local income tax, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax — the rest is federal income tax, Social Security and Medicare."
+                "text": "About $72,680 of a $95,000 salary for a single filer before local income tax, an effective 23.4%. Of that, $2,917 is Pennsylvania state tax and $67 is Pennsylvania's payroll contributions — the rest is federal income tax, Social Security and Medicare."
               }
             }
           ]
@@ -12486,6 +12974,10 @@
       "sitemap": "/sitemaps/states.xml",
       "built": true,
       "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
         {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida paycheck calculator"
@@ -12917,7 +13409,7 @@
         },
         {
           "question": "Is South Dakota actually cheaper overall?",
-          "answer": "Not automatically. Before prices are counted, South Dakota leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, South Dakota leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in South Dakota?",
@@ -13004,7 +13496,7 @@
               "name": "Is South Dakota actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. Before prices are counted, South Dakota leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, South Dakota leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -13094,7 +13586,7 @@
         },
         {
           "question": "Is Tennessee actually cheaper overall?",
-          "answer": "Not automatically. Before prices are counted, Tennessee leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Tennessee leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Tennessee?",
@@ -13181,7 +13673,7 @@
               "name": "Is Tennessee actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. Before prices are counted, Tennessee leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Tennessee leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -13234,6 +13726,10 @@
       "sitemap": "/sitemaps/states.xml",
       "built": true,
       "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
         {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida paycheck calculator"
@@ -13317,7 +13813,7 @@
         },
         {
           "question": "Is Texas actually cheaper overall?",
-          "answer": "Not automatically. Before prices are counted, Texas leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Texas leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Texas?",
@@ -13404,7 +13900,7 @@
               "name": "Is Texas actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. Before prices are counted, Texas leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Texas leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -13457,6 +13953,10 @@
       "sitemap": "/sitemaps/states.xml",
       "built": true,
       "siblings": [
+        {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
         {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida paycheck calculator"
@@ -14031,6 +14531,10 @@
       "built": true,
       "siblings": [
         {
+          "to": "/tools/paycheck-calculator/california",
+          "anchor": "California paycheck calculator"
+        },
+        {
           "to": "/tools/paycheck-calculator/florida",
           "anchor": "Florida paycheck calculator"
         },
@@ -14286,7 +14790,7 @@
         },
         {
           "question": "Is Washington actually cheaper overall?",
-          "answer": "Not automatically. Before prices are counted, Washington leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Washington leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Washington?",
@@ -14373,7 +14877,7 @@
               "name": "Is Washington actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. Before prices are counted, Washington leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Washington leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {
@@ -14811,7 +15315,7 @@
         },
         {
           "question": "Is Wyoming actually cheaper overall?",
-          "answer": "Not automatically. Before prices are counted, Wyoming leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+          "answer": "Not automatically. Before prices are counted, Wyoming leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
         },
         {
           "question": "Are there local income taxes in Wyoming?",
@@ -14898,7 +15402,7 @@
               "name": "Is Wyoming actually cheaper overall?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Not automatically. Before prices are counted, Wyoming leaves $75,663 of a $95,000 salary against $70,656 in New York, a gap of $5,006 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
+                "text": "Not automatically. Before prices are counted, Wyoming leaves $75,663 of a $95,000 salary against $69,982 in California, a gap of $5,681 a year. But states without an income tax usually recover it through sales and property tax, so compare the total a place costs rather than one line of it."
               }
             },
             {

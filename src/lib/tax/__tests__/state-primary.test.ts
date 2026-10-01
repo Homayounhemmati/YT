@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { loadEstimated, loadFederal, loadState } from "../load.js";
 import { estimateWageTakeHome } from "../payroll.js";
 import { applyBrackets } from "../brackets.js";
-import { computeStateTax, supplementalTax } from "../state.js";
+import { computeStateTax, exemptionCredits, supplementalTax } from "../state.js";
 
 const YEAR = 2026;
 const ny = loadState(YEAR, "new-york")!;
@@ -75,9 +75,33 @@ describe("corrections from the primary-source register", () => {
   it("every launch state is marked verified", () => {
     for (const slug of ["texas", "florida", "pennsylvania", "north-carolina", "georgia",
                         "illinois", "maryland", "new-york", "tennessee", "virginia",
-                        "michigan", "indiana"]) {
+                        "michigan", "indiana", "california"]) {
       expect(loadState(YEAR, slug)!.verification, slug).toBe("verified");
     }
+  });
+});
+
+describe("California exemption credits, 2026", () => {
+  const ca = loadState(YEAR, "california")!;
+  const rule = ca.exemptionCredits!;
+  it("are $158 per filer and $491 per dependent below the threshold", () => {
+    expect(exemptionCredits(rule, "single", cents(95_000), 0)).toBe(15_800);
+    expect(exemptionCredits(rule, "marriedJointly", cents(95_000), 2)).toBe(31_600 + 98_200);
+  });
+  it("lose $6 each for every $2,500, or part of it, above $260,778 single", () => {
+    // 300,000 - 260,778 = 39,222 -> 16 steps -> 96 off each credit
+    expect(exemptionCredits(rule, "single", cents(300_000), 0)).toBe(6_200);
+    // $1,250 steps when married filing separately: 32 steps -> 192, so the credit is gone
+    expect(exemptionCredits(rule, "marriedSeparately", cents(300_000), 0)).toBe(0);
+  });
+  it("cannot take the tax below zero", () => {
+    const r = computeStateTax({ federalAgi: cents(12_000), filingStatus: "single", state: ca });
+    // taxable 6,100 x 1% = 61.00, less 158 -> 0
+    expect(r.amount).toBe(0);
+  });
+  it("leave the 1% Behavioral Health Services Tax above $1,000,000 untouched", () => {
+    const r = computeStateTax({ federalAgi: cents(1_105_900), filingStatus: "single", state: ca });
+    expect(r.surtax).toBe(cents(1_000));
   });
 });
 
@@ -115,6 +139,10 @@ describe("state employee payroll contributions, 2026", () => {
       { taxYear: YEAR, filingStatus: "single", annualWages: 95_000, preTaxRetirement: 10_000 },
       { federal, estimated, state: loadState(YEAR, "pennsylvania") });
     expect(r.stateContributionsTotal).toBe(66.5);
+  });
+  it("California: SDI at 1.3% of all wages, no wage limit", () => {
+    expect(pay("california", 95_000).stateContributionsTotal).toBe(1_235);
+    expect(pay("california", 500_000).stateContributionsTotal).toBe(6_500);
   });
   it("states without contributions add nothing", () => {
     expect(pay("texas", 95_000).stateContributionsTotal).toBe(0);
@@ -184,6 +212,13 @@ describe("children: the federal child tax credit and state allowances, 2026", ()
   });
   it("Tennessee takes nothing from wages", () => {
     expect(pay("tennessee", 95_000, "marriedJointly", 2).stateTax).toBe(0);
+  });
+  it("California: $5,900 standard deduction, then the schedule, less the $158 exemption credit", () => {
+    // taxable 89,100: 3,310.88 + 9.3% x 13,903 (1,292.98) = 4,603.86; less 158 = 4,445.86
+    expect(pay("california", 95_000, "single", 0).stateTax).toBe(4_445.86);
+    // joint, two children: taxable 83,200: 857.16 + 4% x 28,886 = 2,012.60;
+    // less 2 x 158 and 2 x 491 = 1,298 -> 714.60
+    expect(pay("california", 95_000, "marriedJointly", 2).stateTax).toBe(714.6);
   });
   it("Pennsylvania allows nothing for dependents", () => {
     expect(pay("pennsylvania", 95_000, "marriedJointly", 2).stateTax).toBe(2_916.5);

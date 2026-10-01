@@ -102,8 +102,14 @@ def takehome_answer(st):
                 f"effective {rate} once federal income tax, Social Security and "
                 f"Medicare are taken. There is no {st['name']} state layer to add.")
     state_cost = f"{money(row['stateTax'])}"
+    # The state's own payroll contributions (California SDI, New York PFL and
+    # disability, Pennsylvania UC) are part of what leaves the check; naming only the
+    # income tax made them vanish into "the rest".
+    contrib = row.get("contributions") or 0
+    extra = (f" and {money(contrib)} is {st['name']}'s payroll contributions"
+             if contrib else "")
     return (f"About {keep} of a $95,000 salary for a single filer{local}, an "
-            f"effective {rate}. Of that, {state_cost} is {st['name']} state tax — the "
+            f"effective {rate}. Of that, {state_cost} is {st['name']} state tax{extra} — the "
             "rest is federal income tax, Social Security and Medicare.")
 
 
@@ -408,10 +414,12 @@ def index_sentence(m, display):
             f"(BEA, {m['dataYear']}). {parts}.")
 
 
-def salary_sentence(fig, display, state, no_tax=False):
+def salary_sentence(fig, display, state, no_tax=False, contributions=False):
     """The engines' household cost and the gross salary that covers it after tax."""
     s, f = fig["single"], fig["family"]
     layer = "federal tax and FICA" if no_tax else f"federal tax, FICA and {state} tax"
+    if contributions:
+        layer = layer.replace(" and ", ", ") + " and payroll contributions"
     return (f"About {money(s['grossSalary'])} alone in a one-bedroom "
             f"({money(s['monthlyTotal'])} a month); about {money(f['grossSalary'])} for a "
             f"family of four in a two-bedroom ({money(f['monthlyTotal'])} a month). "
@@ -455,7 +463,8 @@ def build_metro(m, pages_doc, page_spec, tpl, origin, site_name, data_year, ld,
             answer = index_sentence(m, display)
         elif "{SALARY_SENTENCE}" in answer and figures.get(m["slug"]) and th:
             answer = salary_sentence(figures[m["slug"]], display, state,
-                                     no_tax=th.get("structure") == "none")
+                                     no_tax=th.get("structure") == "none",
+                                     contributions=bool(th.get("contributions")))
         elif "{INDEX_SENTENCE}" in answer or "{RENT_SENTENCE}" in answer \
                 or "{SALARY_SENTENCE}" in answer:
             answer = f"PENDING_DATA: needs BEA price indices for {m['name']} (13-6)."

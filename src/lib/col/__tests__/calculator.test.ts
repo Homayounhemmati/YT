@@ -143,7 +143,7 @@ describe("computeCostOfLiving: households, own figures, other states", () => {
   });
   it("a state not yet verified is flagged, with the reasons", () => {
     const r = computeCostOfLiving({
-      taxYear: YEAR, place: place("ca", "city:San Francisco, CA"), tax: tax("california"), baseline, years,
+      taxYear: YEAR, place: place("or", "city:Portland, OR"), tax: tax("oregon"), baseline, years,
       adults: 1, children: 0,
     });
     expect(r.salary.stateDataStatus).toBe("unverified");

@@ -8,162 +8,162 @@
     "single": [
       {
         "from": 0.0,
-        "rate": 1.0
+        "rate": 1
       },
       {
-        "from": 11079.0,
-        "rate": 2.0
+        "from": 11456.0,
+        "rate": 2
       },
       {
-        "from": 26264.0,
-        "rate": 4.0
+        "from": 27157.0,
+        "rate": 4
       },
       {
-        "from": 41452.0,
-        "rate": 6.0
+        "from": 42861.0,
+        "rate": 6
       },
       {
-        "from": 57542.0,
-        "rate": 8.0
+        "from": 59498.0,
+        "rate": 8
       },
       {
-        "from": 72724.0,
+        "from": 75197.0,
         "rate": 9.3
       },
       {
-        "from": 371479.0,
+        "from": 384109.0,
         "rate": 10.3
       },
       {
-        "from": 445771.0,
+        "from": 460927.0,
         "rate": 11.3
       },
       {
-        "from": 742953.0,
+        "from": 768213.0,
         "rate": 12.3
       }
     ],
     "marriedJointly": [
       {
         "from": 0.0,
-        "rate": 1.0
+        "rate": 1
       },
       {
-        "from": 22158.0,
-        "rate": 2.0
+        "from": 22912.0,
+        "rate": 2
       },
       {
-        "from": 52528.0,
-        "rate": 4.0
+        "from": 54314.0,
+        "rate": 4
       },
       {
-        "from": 82904.0,
-        "rate": 6.0
+        "from": 85722.0,
+        "rate": 6
       },
       {
-        "from": 115084.0,
-        "rate": 8.0
+        "from": 118996.0,
+        "rate": 8
       },
       {
-        "from": 145448.0,
+        "from": 150394.0,
         "rate": 9.3
       },
       {
-        "from": 742958.0,
+        "from": 768218.0,
         "rate": 10.3
       },
       {
-        "from": 891542.0,
+        "from": 921854.0,
         "rate": 11.3
       },
       {
-        "from": 1485906.0,
+        "from": 1536426.0,
         "rate": 12.3
       }
     ],
     "marriedSeparately": [
       {
         "from": 0.0,
-        "rate": 1.0
+        "rate": 1
       },
       {
-        "from": 11079.0,
-        "rate": 2.0
+        "from": 11456.0,
+        "rate": 2
       },
       {
-        "from": 26264.0,
-        "rate": 4.0
+        "from": 27157.0,
+        "rate": 4
       },
       {
-        "from": 41452.0,
-        "rate": 6.0
+        "from": 42861.0,
+        "rate": 6
       },
       {
-        "from": 57542.0,
-        "rate": 8.0
+        "from": 59498.0,
+        "rate": 8
       },
       {
-        "from": 72724.0,
+        "from": 75197.0,
         "rate": 9.3
       },
       {
-        "from": 371479.0,
+        "from": 384109.0,
         "rate": 10.3
       },
       {
-        "from": 445771.0,
+        "from": 460927.0,
         "rate": 11.3
       },
       {
-        "from": 742953.0,
+        "from": 768213.0,
         "rate": 12.3
       }
     ],
     "headOfHousehold": [
       {
         "from": 0.0,
-        "rate": 1.0
+        "rate": 1
       },
       {
-        "from": 22173.0,
-        "rate": 2.0
+        "from": 22927.0,
+        "rate": 2
       },
       {
-        "from": 52530.0,
-        "rate": 4.0
+        "from": 54316.0,
+        "rate": 4
       },
       {
-        "from": 67716.0,
-        "rate": 6.0
+        "from": 70018.0,
+        "rate": 6
       },
       {
-        "from": 83805.0,
-        "rate": 8.0
+        "from": 86654.0,
+        "rate": 8
       },
       {
-        "from": 98990.0,
+        "from": 102356.0,
         "rate": 9.3
       },
       {
-        "from": 505208.0,
+        "from": 522385.0,
         "rate": 10.3
       },
       {
-        "from": 606251.0,
+        "from": 626864.0,
         "rate": 11.3
       },
       {
-        "from": 1010417.0,
+        "from": 1044771.0,
         "rate": 12.3
       }
     ]
   },
   "flatRate": null,
   "standardDeduction": {
-    "single": 5706,
-    "marriedJointly": 11412,
-    "marriedSeparately": 5706,
-    "headOfHousehold": 11412
+    "single": 5900,
+    "marriedJointly": 11800,
+    "marriedSeparately": 5900,
+    "headOfHousehold": 11800
   },
   "surtax": [
     {
@@ -173,8 +173,10 @@
   ],
   "localTaxNote": null,
   "notes": [
-    "An additional surtax applies above a high income threshold; see the `surtax` field.",
-    "These figures are inflation-indexed but the latest published values take effect 2025-01-01, so they are 2025 figures, not 2026. The state had not released uprated brackets when this was extracted. Do not label them as 2026 on the site until confirmed."
+    "California's 2026 brackets, standard deduction and exemption credits are indexed by the 3.4% California CPI (FTB, October 2026).",
+    "Exemption credits are subtracted from the tax, not from income: $158 per personal exemption and $491 per dependent for 2026.",
+    "A 1% Behavioral Health Services Tax applies to taxable income above $1,000,000.",
+    "Every paycheck carries State Disability Insurance at 1.3% of all wages for 2026, with no wage limit."
   ],
   "provenance": {
     "extractedFrom": "policyengine-us",
@@ -258,11 +260,73 @@
     ],
     "inflationIndexed": true
   },
-  "verification": "pending",
+  "verification": "verified",
   "personalExemption": null,
   "modelCoverage": {
-    "personalExemption": "not-extracted",
-    "payrollContributions": "not-modelled"
+    "personalExemption": "none",
+    "payrollContributions": "modelled"
   },
-  "staleForTargetYear": true
+  "staleForTargetYear": false,
+  "exemptionCredits": {
+    "perFiler": 158,
+    "filers": {
+      "single": 1,
+      "marriedJointly": 2,
+      "marriedSeparately": 1,
+      "headOfHousehold": 1
+    },
+    "perDependent": 491,
+    "phaseOut": {
+      "agiThreshold": {
+        "single": 260778,
+        "marriedSeparately": 260778,
+        "marriedJointly": 521561,
+        "headOfHousehold": 391173
+      },
+      "step": {
+        "single": 2500,
+        "marriedJointly": 2500,
+        "headOfHousehold": 2500,
+        "marriedSeparately": 1250
+      },
+      "reductionPerStep": 6
+    },
+    "source": "FTB 2026 indexing (credit amounts); 2025 Form 540 line 32 worksheet (phase-out rule); 2026 thresholds are the 2025 thresholds indexed by the published 3.4%"
+  },
+  "employeeContributions": [
+    {
+      "id": "ca-sdi",
+      "name": "California State Disability Insurance (SDI)",
+      "rate": 1.3,
+      "source": "EDD: 1.3% of all wages for 2026, no wage limit since January 1, 2024",
+      "noWageLimitSince": 2024
+    }
+  ],
+  "dependentAllowance": null,
+  "verified": {
+    "date": "2026-10-01",
+    "against": [
+      {
+        "title": "FTB Tax News, October 2026, \"2026 Indexing\": CCPI inflation 3.4%; 2026 tax rate schedules X, Y and Z; standard deduction $5,900 / $11,800; personal exemption credit $158 ($316 joint); dependent exemption credit $491",
+        "url": "https://www.ftb.ca.gov/about-ftb/newsroom/tax-news/index.html",
+        "retrieved": "2026-10-01"
+      },
+      {
+        "title": "FTB 2025 Form 540 booklet, line 32 AGI Limitation Worksheet: each exemption credit is reduced by $6 for every $2,500 ($1,250 married filing separately), or part of it, of federal AGI above $252,203 single / $504,411 joint / $378,310 head of household (2025); line 62: Behavioral Health Services Tax of 1% on taxable income above $1,000,000",
+        "url": "https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf",
+        "retrieved": "2026-10-01"
+      },
+      {
+        "title": "EDD, Rates and Withholding: \"The SDI withholding rate for 2026 is 1.3 percent. Effective January 1, 2024, all wages are subject to SDI contributions.\"",
+        "url": "https://edd.ca.gov/en/payroll_taxes/rates_and_withholding/",
+        "retrieved": "2026-10-01"
+      }
+    ],
+    "register": "data/tax-primary/2026.json",
+    "computedFromStatute": [
+      "exemptionCredits.phaseOut.agiThreshold: FTB publishes the 2026 thresholds in late December. Each is the 2025 threshold times 1.034, rounded to the dollar — the indexing that reproduces every 2026 figure FTB has already published (5,706 -> 5,900; 11,412 -> 11,800; 153 -> 158; 475 -> 491; 11,079 -> 11,456). Recheck against the 2026 Form 540 booklet."
+    ],
+    "correction": "Replaces the 2025 brackets and standard deduction with FTB's 2026 figures, adds the exemption credits the engine did not apply, and adds SDI, the employee payroll contribution that kept the page behind the gate."
+  },
+  "indexingRate": 3.4
 }

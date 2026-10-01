@@ -1,0 +1,41 @@
+{
+  "slug": "los-angeles-ca",
+  "name": "Los Angeles-Long Beach-Anaheim, CA (Metropolitan Statistical Area)",
+  "displayName": "Los Angeles",
+  "type": "metro",
+  "region": "us",
+  "msaCode": "31080",
+  "dataYear": 2024,
+  "fmrYear": 2026,
+  "indices": {
+    "allItems": 113.566,
+    "goods": 106.623,
+    "rent": 170.433,
+    "utilities": 158.589,
+    "otherServices": 104.362
+  },
+  "referenceRent": {
+    "bedrooms0": 2079.0,
+    "bedrooms1": 2328.0,
+    "bedrooms2": 2903.0,
+    "bedrooms3": 3681.0,
+    "bedrooms4": 4098.0
+  },
+  "rentCounty": "Los Angeles County, CA",
+  "stateSlug": "california",
+  "sources": [
+    {
+      "label": "BEA Regional Price Parities 2024 (MARPP metro areas, PARPP state metropolitan and nonmetropolitan portions)",
+      "url": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+      "retrieved": "2026-09-27"
+    },
+    {
+      "label": "HUD Fair Market Rents FY2026 (revised file)",
+      "url": "https://www.huduser.gov/portal/datasets/fmr/fmr2026/FY26_FMRs_revised.xlsx",
+      "retrieved": "2026-09-27"
+    }
+  ],
+  "lastVerified": "2026-09-27",
+  "verification": "verified",
+  "verifiedBy": "price parities and rents taken from src/data/col/price-areas.json and src/data/rent-fy2026/fmr-counties.json, which scripts/build_col_places.py read from BEA's MARPP file and HUD's FY2026 county file themselves"
+}

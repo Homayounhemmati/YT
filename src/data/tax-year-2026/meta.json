@@ -64,7 +64,7 @@
       "bracketCount": 9,
       "hasStandardDeduction": true,
       "stale": true,
-      "verification": "pending"
+      "verification": "verified"
     },
     {
       "slug": "colorado",
@@ -573,5 +573,5 @@
       "verification": "pending"
     }
   ],
-  "verifiedCount": 12
+  "verifiedCount": 13
 }

@@ -1,6 +1,6 @@
 import { applyBrackets, marginalRate } from "./brackets.js";
 import { type Cents, atLeastZero, percentOf, toCents } from "./money.js";
-import type { BenefitRecapture, BracketRow, FilingStatus, StateData, StateResult } from "./types.js";
+import type { BenefitRecapture, BracketRow, ExemptionCredits, FilingStatus, StateData, StateResult } from "./types.js";
 
 export interface StateArgs {
   federalAgi: Cents;
@@ -91,6 +91,28 @@ export function supplementalTax(
     toCents(row.recaptureBase) +
     Math.round(toCents(row.incrementalBenefit) * fraction(agi - toCents(row.agiLess)))
   );
+}
+
+/**
+ * Exemption credits in cents (California's). Each credit — one per personal exemption,
+ * one per dependent — is reduced by `reductionPerStep` for every `step` of federal AGI,
+ * or part of one, above the threshold, and never below zero.
+ */
+export function exemptionCredits(
+  rule: ExemptionCredits,
+  filingStatus: FilingStatus,
+  federalAgi: Cents,
+  dependents: number,
+): Cents {
+  let cut = 0;
+  const threshold = rule.phaseOut?.agiThreshold[filingStatus];
+  const step = rule.phaseOut?.step[filingStatus];
+  if (rule.phaseOut && threshold != null && step && federalAgi > toCents(threshold)) {
+    const steps = Math.ceil((federalAgi - toCents(threshold)) / toCents(step));
+    cut = toCents(rule.phaseOut.reductionPerStep) * steps;
+  }
+  const each = (amount: number) => Math.max(0, toCents(amount) - cut);
+  return each(rule.perFiler) * (rule.filers[filingStatus] ?? 1) + each(rule.perDependent) * dependents;
 }
 
 /** The state's allowance for dependents in cents at a given federal AGI. */
@@ -239,6 +261,12 @@ export function computeStateTax({
       "This state takes back the benefit of its lower brackets at higher incomes; " +
         "that recapture is not yet modelled, so tax at high incomes is understated.",
     );
+  }
+
+  if (state.exemptionCredits) {
+    const credit = exemptionCredits(state.exemptionCredits, filingStatus, federalAgi,
+                                    deps.children + deps.others);
+    amount = atLeastZero(amount - credit);
   }
 
   // A separate levy stacked on the ordinary schedule, such as California's

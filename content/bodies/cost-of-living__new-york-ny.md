@@ -1,5 +1,5 @@
-New York is the one American city where rent alone is more than half of a single
-person's month. On the federal government's own price measures, the New York metro
+New York is one of the few American cities where rent alone is more than half of a
+single person's month. On the federal government's own price measures, the New York metro
 area sits 12.6 points above the national average overall, and housing rents sit 48.6
 points above it — so the **cost of living in New York** is, first and last, the cost of
 a lease.
@@ -28,7 +28,7 @@ Staten Island: $2,529 for a studio, $2,655 for one bedroom, $3,644 for three. It
 rent at the 40th percentile of what recent movers paid across the whole area, including
 the utilities a tenant pays. That makes it a fair typical figure for the city and a low
 one for much of Manhattan, where asking rents run well above it. **Average rent in New
-York** depends more on the neighbourhood than in any other city on this site, and the
+York** depends more on the neighbourhood than in most cities, and the
 benchmark is best read as a floor for the core and a ceiling for the outer boroughs.
 
 ## What the other indices say
@@ -43,9 +43,9 @@ to lean on.
 
 On a $95,000 salary a single New York State resident keeps about $70,656 after federal
 tax, Social Security, Medicare, $4,565 of state tax and the state's paid family leave
-and disability contributions — an effective 25.2%. That is before New York City's own
-resident income tax, which applies on top for anyone living in the five boroughs and is
-not included in any figure on this page.
+and disability contributions, with taxes alone an effective 25.2%. That is before New
+York City's own resident income tax, which applies on top for anyone living in the five
+boroughs and is not included in any figure on this page.
 
 A household living in Westchester or on Long Island and commuting in pays the state
 tax but not the city's, which is a large part of why so many do.

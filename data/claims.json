@@ -29,10 +29,16 @@
         "5.3%",
         "$442",
         "$4,648",
-        "4.9%"
+        "4.9%",
+        "$5,681",
+        "$4,446",
+        "$1,235",
+        "6%",
+        "$69,982",
+        "1.3%"
       ],
       "basis": "computed",
-      "means": "Among verified states on a $95,000 salary: state tax runs from $0 (Texas, Florida, Tennessee) to $4,648.40 (Virginia), 4.9% of gross; New York's is $4,564.75, 4.8% of gross; take-home runs from $75,662.50 to $70,656.15 (New York, after $441.60 of PFL and disability contributions), a $5,006.35 gap, 5.3% of gross; Pennsylvania $72,679.50",
+      "means": "Among verified states on a $95,000 salary: state tax runs from $0 (Texas, Florida, Tennessee) to $4,648.40 (Virginia), 4.9% of gross; New York's is $4,564.75, 4.8% of gross; take-home runs from $75,662.50 to $70,656.15 (New York, after $441.60 of PFL and disability contributions), a $5,006.35 gap, 5.3% of gross; Pennsylvania $72,679.50; California is now the lowest take-home among verified states: $69,981.64 after $4,445.86 of state tax and $1,235 of SDI, a $5,680.86 gap to Florida, 6% of gross",
       "reference": "data/takehome-95k.json verifiedSpread (scripts/compute_takehome.ts): verified states only, because an unverified model can be missing a whole provision (Oregon's federal tax subtraction). Replaces the earlier 'more than $7,500', which rested on Oregon's incomplete model.",
       "status": "verified"
     },
@@ -775,12 +781,12 @@
       "id": "se-vs-salary",
       "scope": "paycheck-calculator",
       "tokens": [
-        "$667",
-        "$1,503"
+        "$1,503",
+        "$356"
       ],
       "basis": "computed",
-      "means": "Range of salary-minus-self-employment take-home across 51 jurisdictions",
-      "reference": "data/takehome-95k.json · recomputed over verified states: verifiedSpread.selfEmployedGapMin 666.97 (New York, where the employee also pays PFL and disability contributions the self-employed do not), Max 1,502.74",
+      "means": "Salary-minus-self-employment take-home across the verified states: up to $1,502.74 less self-employed; in California $356.43 more, because SDI applies to wages and not to self-employment income",
+      "reference": "data/takehome-95k.json verifiedSpread.selfEmployedGapMax 1,502.74 and selfEmployedGapMin -356.43 (California)",
       "status": "verified"
     },
     {
@@ -861,6 +867,17 @@
       "basis": "external",
       "means": "Virginia's resident individual income tax return is Form 760",
       "reference": "Virginia Tax, Deductions and Exemptions pages (https://www.tax.virginia.gov/deductions), which name Form 760 (resident)",
+      "status": "verified"
+    },
+    {
+      "id": "ca-form-540",
+      "scope": "*",
+      "tokens": [
+        "540"
+      ],
+      "basis": "external",
+      "means": "California's resident income tax return is Form 540",
+      "reference": "FTB 2025 Form 540 booklet (https://www.ftb.ca.gov/forms/2025/2025-540-booklet.pdf)",
       "status": "verified"
     }
   ]

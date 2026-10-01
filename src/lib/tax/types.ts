@@ -82,6 +82,14 @@ export interface StateData {
    */
   benefitRecapture?: BenefitRecapture | null;
   /**
+   * Credits subtracted from the schedule tax rather than from income — California's
+   * personal and dependent exemption credits. `perFiler` is the credit for one personal
+   * exemption and `filers` how many a return claims; each credit loses
+   * `phaseOut.reductionPerStep` for every `step` (or part of one) of federal AGI above
+   * the filing status's threshold. Non-refundable: they bring the tax to zero, not below.
+   */
+  exemptionCredits?: ExemptionCredits | null;
+  /**
    * Employee payroll contributions the state requires or allows on wages — paid
    * leave, disability insurance, unemployment. Not income tax, but they come out of
    * every paycheck. `weeklyMax` caps each week's contribution; `annualMax` the year's.
@@ -126,6 +134,18 @@ export interface StateData {
   staleForTargetYear?: boolean;
   /** "verified" once every value a page relies on matches a primary source (data/tax-primary). */
   verification?: "verified" | "pending" | "missing";
+}
+
+export interface ExemptionCredits {
+  perFiler: number;
+  filers: Partial<Record<FilingStatus, number>>;
+  perDependent: number;
+  phaseOut?: {
+    agiThreshold: Partial<Record<FilingStatus, number>>;
+    step: Partial<Record<FilingStatus, number>>;
+    reductionPerStep: number;
+  } | null;
+  source: string;
 }
 
 export interface BenefitRecapture {

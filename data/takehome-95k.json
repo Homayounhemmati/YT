@@ -7,6 +7,7 @@
   },
   "verifiedSpread": {
     "states": [
+      "california",
       "florida",
       "georgia",
       "illinois",
@@ -25,14 +26,14 @@
       "takeHome": 75662.5
     },
     "worst": {
-      "slug": "new-york",
-      "takeHome": 70656.15,
-      "stateTax": 4564.75,
-      "contributions": 441.6
+      "slug": "california",
+      "takeHome": 69981.64,
+      "stateTax": 4445.86,
+      "contributions": 1235
     },
-    "spread": 5006.35,
-    "spreadPctOfGross": 5.3,
-    "selfEmployedGapMin": 666.97,
+    "spread": 5680.86,
+    "spreadPctOfGross": 6,
+    "selfEmployedGapMin": -356.43,
     "selfEmployedGapMax": 1502.74
   },
   "states": {
@@ -125,23 +126,25 @@
       "structure": "progressive",
       "scenario": "salary",
       "gross": 95000,
-      "totalTax": 24080.48,
-      "takeHome": 70919.52,
-      "stateTax": 4742.98,
+      "totalTax": 23783.36,
+      "takeHome": 69981.64,
+      "stateTax": 4445.86,
       "fica": 7267.5,
-      "contributions": 0,
-      "contributionItems": [],
-      "federalTax": 12070,
-      "effectiveRate": 25.3,
-      "warnings": [
-        "California figures are from the prior tax year; the state had not published updated brackets.",
-        "California requires employee payroll contributions (such as paid leave or disability insurance) that are not yet included, so take-home is slightly overstated."
+      "contributions": 1235,
+      "contributionItems": [
+        {
+          "name": "California State Disability Insurance (SDI)",
+          "amount": 1235
+        }
       ],
+      "federalTax": 12070,
+      "effectiveRate": 25,
+      "warnings": [],
       "selfEmployed": {
-        "totalTax": 24959.05,
-        "takeHome": 70040.95,
-        "stateTax": 4118.81,
-        "effectiveRate": 26.3
+        "totalTax": 24661.93,
+        "takeHome": 70338.07,
+        "stateTax": 3821.69,
+        "effectiveRate": 26
       }
     },
     "colorado": {

@@ -913,6 +913,188 @@
         ]
       }
     },
+    "los-angeles-ca": {
+      "indices": {
+        "allItems": 113.566,
+        "goods": 106.623,
+        "rent": 170.433,
+        "utilities": 158.589,
+        "otherServices": 104.362
+      },
+      "dataYear": 2024,
+      "single": {
+        "people": 1,
+        "bedrooms": 1,
+        "filingStatus": "single",
+        "monthlyTotal": 4694.7,
+        "monthlyRent": 2328,
+        "annualAfterTax": 56336.4,
+        "grossSalary": 72353.02,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 2328
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 316.38
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 211.04
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 364.72
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 221.77
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 71.45
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 368.24
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 102.86
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 75.1
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 93.34
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 46.51
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 138.3
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 217.5
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 63.01
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 76.48
+          }
+        ]
+      },
+      "family": {
+        "people": 4,
+        "bedrooms": 2,
+        "filingStatus": "marriedJointly",
+        "monthlyTotal": 8664.63,
+        "monthlyRent": 2903,
+        "annualAfterTax": 103975.56,
+        "grossSalary": 123449.31,
+        "rows": [
+          {
+            "key": "rent",
+            "label": "Rent and utilities",
+            "monthly": 2903
+          },
+          {
+            "key": "food_home",
+            "label": "Groceries",
+            "monthly": 810.47
+          },
+          {
+            "key": "food_away",
+            "label": "Eating out",
+            "monthly": 548.67
+          },
+          {
+            "key": "vehicles_fuel",
+            "label": "Car purchase and fuel",
+            "monthly": 1125.82
+          },
+          {
+            "key": "vehicle_other",
+            "label": "Car insurance, repairs and fees",
+            "monthly": 571.03
+          },
+          {
+            "key": "public_transit",
+            "label": "Public transport and fares",
+            "monthly": 150.87
+          },
+          {
+            "key": "health",
+            "label": "Health care and insurance",
+            "monthly": 697.8
+          },
+          {
+            "key": "apparel",
+            "label": "Clothing",
+            "monthly": 245.17
+          },
+          {
+            "key": "phone",
+            "label": "Phone service",
+            "monthly": 179.67
+          },
+          {
+            "key": "household_services",
+            "label": "Household services",
+            "monthly": 168.01
+          },
+          {
+            "key": "household_supplies",
+            "label": "Household supplies",
+            "monthly": 101.66
+          },
+          {
+            "key": "furnishings",
+            "label": "Furniture and household items",
+            "monthly": 279.14
+          },
+          {
+            "key": "entertainment",
+            "label": "Entertainment",
+            "monthly": 496.77
+          },
+          {
+            "key": "personal_care",
+            "label": "Personal care",
+            "monthly": 137.11
+          },
+          {
+            "key": "education",
+            "label": "Education",
+            "monthly": 249.44
+          }
+        ]
+      }
+    },
     "miami-fl": {
       "indices": {
         "allItems": 114.155,
@@ -1657,7 +1839,7 @@
         "monthlyTotal": 5385.23,
         "monthlyRent": 2977,
         "annualAfterTax": 64622.76,
-        "grossSalary": 84685.91,
+        "grossSalary": 86031.17,
         "rows": [
           {
             "key": "rent",
@@ -1743,7 +1925,7 @@
         "monthlyTotal": 9466.65,
         "monthlyRent": 3604,
         "annualAfterTax": 113599.8,
-        "grossSalary": 136960.61,
+        "grossSalary": 137408.74,
         "rows": [
           {
             "key": "rent",

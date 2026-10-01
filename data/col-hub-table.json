@@ -17,7 +17,7 @@
     "key": "city:San Francisco, CA",
     "label": "San Francisco, CA"
    },
-   "page": null,
+   "page": "/cost-of-living/san-francisco-ca",
    "rank": 1
   },
   {
@@ -51,7 +51,7 @@
     "key": "city:Los Angeles, CA",
     "label": "Los Angeles, CA"
    },
-   "page": null,
+   "page": "/cost-of-living/los-angeles-ca",
    "rank": 3
   },
   {
